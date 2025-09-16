@@ -1,0 +1,20 @@
+# Maven
+/target/
+*.log
+
+# NetBeans
+nbactions*.xml
+nb-configuration.xml
+
+# IDEs/OS varios
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.DS_Store
+Thumbs.db
+/build/
+/dist/
+/out/
+
