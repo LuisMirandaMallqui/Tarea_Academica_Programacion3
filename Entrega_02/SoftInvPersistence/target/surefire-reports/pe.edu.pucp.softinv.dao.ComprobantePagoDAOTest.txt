@@ -1,0 +1,68 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.softinv.dao.ComprobantePagoDAOTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 4, Skipped: 0, Time elapsed: 7.690 s <<< FAILURE! -- in pe.edu.pucp.softinv.dao.ComprobantePagoDAOTest
+pe.edu.pucp.softinv.dao.ComprobantePagoDAOTest.testInsertar -- Time elapsed: 2.892 s <<< ERROR!
+java.lang.RuntimeException: java.sql.SQLException: Field 'METODO_PAGO_ID' doesn't have a default value
+	at pe.edu.pucp.softinv.daoImpl.ComprobantePagoDAOImpl.insertar(ComprobantePagoDAOImpl.java:29)
+	at pe.edu.pucp.softinv.dao.ComprobantePagoDAOTest.testInsertar(ComprobantePagoDAOTest.java:56)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+Caused by: java.sql.SQLException: Field 'METODO_PAGO_ID' doesn't have a default value
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:113)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:938)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1106)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1045)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1369)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1030)
+	at pe.edu.pucp.softinv.daoImpl.ComprobantePagoDAOImpl.insertar(ComprobantePagoDAOImpl.java:24)
+	... 4 more
+
+pe.edu.pucp.softinv.dao.ComprobantePagoDAOTest.testObtenerPorId -- Time elapsed: 1.130 s <<< ERROR!
+java.lang.RuntimeException: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+	at pe.edu.pucp.softinv.daoImpl.ComprobantePagoDAOImpl.obtenerPorId(ComprobantePagoDAOImpl.java:42)
+	at pe.edu.pucp.softinv.dao.ComprobantePagoDAOTest.testObtenerPorId(ComprobantePagoDAOTest.java:63)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+Caused by: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+	at pe.edu.pucp.softinv.daoImpl.ComprobantePagoDAOImpl.obtenerPorId(ComprobantePagoDAOImpl.java:37)
+	... 4 more
+
+pe.edu.pucp.softinv.dao.ComprobantePagoDAOTest.testModificar -- Time elapsed: 1.174 s <<< ERROR!
+java.lang.RuntimeException: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+	at pe.edu.pucp.softinv.daoImpl.ComprobantePagoDAOImpl.obtenerPorId(ComprobantePagoDAOImpl.java:42)
+	at pe.edu.pucp.softinv.dao.ComprobantePagoDAOTest.testModificar(ComprobantePagoDAOTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+Caused by: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+	at pe.edu.pucp.softinv.daoImpl.ComprobantePagoDAOImpl.obtenerPorId(ComprobantePagoDAOImpl.java:37)
+	... 4 more
+
+pe.edu.pucp.softinv.dao.ComprobantePagoDAOTest.testListarTodos -- Time elapsed: 1.323 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at pe.edu.pucp.softinv.dao.ComprobantePagoDAOTest.testListarTodos(ComprobantePagoDAOTest.java:81)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.softinv.dao.ComprobantePagoDAOTest.testEliminar -- Time elapsed: 1.145 s <<< ERROR!
+java.lang.RuntimeException: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "pe.edu.pucp.softinv.model.ComprobantePagoDTO.getComprobanteDePagoId()" is null
+	at pe.edu.pucp.softinv.daoImpl.ComprobantePagoDAOImpl.eliminar(ComprobantePagoDAOImpl.java:79)
+	at pe.edu.pucp.softinv.dao.ComprobantePagoDAOTest.testEliminar(ComprobantePagoDAOTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+Caused by: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "pe.edu.pucp.softinv.model.ComprobantePagoDTO.getComprobanteDePagoId()" is null
+	at pe.edu.pucp.softinv.daoImpl.ComprobantePagoDAOImpl.eliminar(ComprobantePagoDAOImpl.java:77)
+	... 4 more
+
