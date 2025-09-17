@@ -1,80 +1,61 @@
 package pe.edu.pucp.softinv.db;
 
-import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
-import pe.edu.pucp.softinv.db.util.Cifrado;
 
+/**
+ * DBManager que lee jdbc.properties (claves en español) y construye el URL.
+ * Incluye createDatabaseIfNotExist para evitar "Unknown database 'soft-test'".
+ */
 public class DBManager {
-    
     private static final String ARCHIVO_CONFIGURACION = "jdbc.properties";
-    
-    private Connection conexion;
-    private String driver;
-    private String tipo_de_driver;
-    private String base_de_datos;
-    private String nombre_de_host;
-    private String puerto;
-    private String usuario;
-    private String contraseña;
-    
-    private static DBManager dbManager = null;
-    
-    private DBManager(){
-        //El constructor no hace nada
-    }
-    
-    public static DBManager getInstance(){
-        if (DBManager.dbManager == null)
-            DBManager.createInstance();
-        return DBManager.dbManager;
-    }
-    
-    private static void createInstance() {
-        if (DBManager.dbManager == null){
-            DBManager.dbManager = new DBManager();
-            DBManager.dbManager.leer_archivo_de_propiedades();
+    private static DBManager instance;
+
+    private final String url;
+    private final String user;
+    private final String password;
+
+    private DBManager() {
+        try (InputStream in = DBManager.class.getClassLoader().getResourceAsStream(ARCHIVO_CONFIGURACION)) {
+            if (in == null) throw new IllegalStateException("No se encontró " + ARCHIVO_CONFIGURACION + " en resources");
+            Properties p = new Properties();
+            p.load(in);
+
+            String driver   = p.getProperty("driver", "com.mysql.cj.jdbc.Driver").trim();
+            String tipo     = p.getProperty("tipo_de_driver", "jdbc:mysql").trim(); // jdbc:mysql
+            String host     = p.getProperty("nombre_de_host").trim();
+            String puerto   = p.getProperty("puerto", "3306").trim();
+            String base     = p.getProperty("base_de_datos").trim();
+            this.user       = p.getProperty("usuario").trim();
+            this.password   = p.getProperty("contrasenha"); // texto plano
+
+            if (!driver.isBlank()) Class.forName(driver);
+
+            // crea la BD si no existe + SSL + timezone
+            this.url = String.format(
+                "%s://%s:%s/%s?createDatabaseIfNotExist=true&sslMode=REQUIRED&serverTimezone=UTC",
+                tipo, host, puerto, base
+            );
+        } catch (Exception e) {
+            throw new RuntimeException("No se pudo inicializar DBManager", e);
         }
-    }
-    
-    public Connection getConnection(){
-        try {
-            Class.forName(this.driver);
-            System.out.println(this.getURL());
-            this.conexion = DriverManager.getConnection(this.getURL(), this.usuario,this.contraseña);
-            //this.conexion = DriverManager.getConnection(this.getURL(), this.usuario, this.contraseña);
-        } catch (ClassNotFoundException | SQLException ex) {
-            System.getLogger(DBManager.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-        }
-        return this.conexion;
-    }
-    
-    private String getURL() {
-        String url = this.tipo_de_driver.concat("://");
-        url = url.concat(this.nombre_de_host);
-        url = url.concat(":");
-            url = url.concat(this.puerto);
-        url = url.concat("/");
-        url = url.concat(this.base_de_datos);
-        return url;
     }
 
-    private void leer_archivo_de_propiedades() {
-        String nmArchivoConf = "/" + DBManager.ARCHIVO_CONFIGURACION;
-        Properties properties = new Properties();
+    public static synchronized DBManager getInstance() {
+        if (instance == null) instance = new DBManager();
+        return instance;
+    }
+
+    /** Retorna una conexión abierta. Lanza RuntimeException si falla. */
+    public Connection getConnection() {
         try {
-            properties.load(this.getClass().getResourceAsStream(nmArchivoConf));
-            this.driver = properties.getProperty("driver");
-            this.tipo_de_driver = properties.getProperty("tipo_de_driver");
-            this.base_de_datos = properties.getProperty("base_de_datos");
-            this.nombre_de_host = properties.getProperty("nombre_de_host");
-            this.puerto = properties.getProperty("puerto");
-            this.usuario = properties.getProperty("usuario");
-            this.contraseña = properties.getProperty("contrasenha");
-        } catch (IOException ex) {
-            System.getLogger(DBManager.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            return DriverManager.getConnection(url, user, password);
+        } catch (SQLException e) {
+            throw new RuntimeException("No se pudo abrir conexión a: " + url, e);
         }
-    }    
+    }
 }
+
