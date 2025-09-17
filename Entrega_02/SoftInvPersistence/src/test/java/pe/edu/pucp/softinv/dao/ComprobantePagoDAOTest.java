@@ -1,120 +1,95 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package pe.edu.pucp.softinv.dao;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import pe.edu.pucp.softinv.daoImpl.ComprobantePagoDAOImpl;
+
+import pe.edu.pucp.softinv.dao.ComprobantePagoDAO;
 import pe.edu.pucp.softinv.model.ComprobantePagoDTO;
+import pe.edu.pucp.softinv.daoImpl.PersonasDAOImpl;
+import pe.edu.pucp.softinv.dao.PersonasDAO;
+import pe.edu.pucp.softinv.model.PersonasDTO;
 
-/**
- *
- * @author adria
- */
-@Disabled("Prototype tests disabled")
+@TestMethodOrder(OrderAnnotation.class)
 public class ComprobantePagoDAOTest {
-    
+    private final ComprobantePagoDAO dao;
+    private static Integer compId;
+    private static Integer personaId;
+    private final PersonasDAO personasDAO = new PersonasDAOImpl();
+
     public ComprobantePagoDAOTest() {
+        this.dao = new ComprobantePagoDAOImpl();
     }
 
-    /**
-     * Test of insertar method, of class ComprobantePagoDAO.
-     */
-    @Test
+    private Integer ensurePersona() {
+        if (personaId != null) return personaId;
+        PersonasDTO p = new PersonasDTO();
+        p.setEs_administrador(Boolean.FALSE);
+        p.setNombres("Carlos");
+        p.setPrimer_apellido("Ramos");
+        p.setSegundo_apellido("Diaz");
+        p.setCorreo_electronico("carlos.ramos@pucp.edu.pe");
+        p.setCodigo_universitario("20207777");
+        p.setTipo_documento_id("DNI");
+        p.setNumero_documento("55667788");
+        p.setContrasenha("Clave123!");
+        personaId = personasDAO.insertar(p);
+        return personaId;
+    }
+
+    @Test @Order(1)
     public void testInsertar() {
-        System.out.println("insertar");
-        ComprobantePagoDTO obj = null;
-        ComprobantePagoDAO instance = new ComprobantePagoDAOImpl();
-        Integer expResult = null;
-        Integer result = instance.insertar(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Integer pid = ensurePersona();
+        ComprobantePagoDTO c = new ComprobantePagoDTO();
+        c.setPersona_codigo(pid);
+        c.setMetodo_pago_id(1); // Asegura que exista un método de pago con ID=1
+        c.setFecha_pago(Timestamp.from(Instant.now()));
+        c.setMonto_pago(new BigDecimal("25.50"));
+        c.setNumero_transaccion(10001);
+        c.setDescripcion("Compra de material");
+        Integer id = dao.insertar(c);
+        assertNotNull(id); assertTrue(id > 0);
+        compId = id;
     }
 
-    /**
-     * Test of obtenerPorId method, of class ComprobantePagoDAO.
-     */
-    @Test
+    @Test @Order(2)
     public void testObtenerPorId() {
-        System.out.println("obtenerPorId");
-        Integer comprobanteDePagoId = null;
-        ComprobantePagoDAO instance = new ComprobantePagoDAOImpl();
-        ComprobantePagoDTO expResult = null;
-        ComprobantePagoDTO result = instance.obtenerPorId(comprobanteDePagoId);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ComprobantePagoDTO c = dao.obtenerPorId(compId);
+        assertNotNull(c);
+        assertEquals(new BigDecimal("25.50"), c.getMonto_pago());
     }
 
-    /**
-     * Test of listarTodos method, of class ComprobantePagoDAO.
-     */
-    @Test
-    public void testListarTodos() {
-        System.out.println("listarTodos");
-        ComprobantePagoDAO instance = new ComprobantePagoDAOImpl();
-        ArrayList<ComprobantePagoDTO> expResult = null;
-        ArrayList<ComprobantePagoDTO> result = instance.listarTodos();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of modificar method, of class ComprobantePagoDAO.
-     */
-    @Test
+    @Test @Order(3)
     public void testModificar() {
-        System.out.println("modificar");
-        ComprobantePagoDTO obj = null;
-        ComprobantePagoDAO instance = new ComprobantePagoDAOImpl();
-        Integer expResult = null;
-        Integer result = instance.modificar(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ComprobantePagoDTO c = dao.obtenerPorId(compId);
+        c.setMonto_pago(new BigDecimal("30.00"));
+        Integer res = dao.modificar(c);
+        assertTrue(res > 0);
+        assertEquals(new BigDecimal("30.00"), dao.obtenerPorId(compId).getMonto_pago());
     }
 
-    /**
-     * Test of eliminar method, of class ComprobantePagoDAO.
-     */
-    @Test
+    @Test @Order(4)
+    public void testListarTodos() {
+        ArrayList<ComprobantePagoDTO> lista = dao.listarTodos();
+        assertNotNull(lista);
+        assertTrue(lista.size() > 0);
+    }
+
+    @Test @Order(5)
     public void testEliminar() {
-        System.out.println("eliminar");
-        ComprobantePagoDTO obj = null;
-        ComprobantePagoDAO instance = new ComprobantePagoDAOImpl();
-        Integer expResult = null;
-        Integer result = instance.eliminar(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ComprobantePagoDTO c = new ComprobantePagoDTO();
+        c.setComprobante_de_pago_id(compId);
+        Integer res = dao.eliminar(c);
+        assertTrue(res > 0);
     }
-
-    public class ComprobantePagoDAOImpl implements ComprobantePagoDAO {
-
-        public Integer insertar(ComprobantePagoDTO obj) {
-            return null;
-        }
-
-        public ComprobantePagoDTO obtenerPorId(Integer comprobanteDePagoId) {
-            return null;
-        }
-
-        public ArrayList<ComprobantePagoDTO> listarTodos() {
-            return null;
-        }
-
-        public Integer modificar(ComprobantePagoDTO obj) {
-            return null;
-        }
-
-        public Integer eliminar(ComprobantePagoDTO obj) {
-            return null;
-        }
-    }
-    
 }
