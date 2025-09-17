@@ -1,120 +1,93 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package pe.edu.pucp.softinv.dao;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import pe.edu.pucp.softinv.daoImpl.NotificacionDAOImpl;
+
+import pe.edu.pucp.softinv.dao.NotificacionDAO;
 import pe.edu.pucp.softinv.model.NotificacionDTO;
+import pe.edu.pucp.softinv.daoImpl.PersonasDAOImpl;
+import pe.edu.pucp.softinv.dao.PersonasDAO;
+import pe.edu.pucp.softinv.model.PersonasDTO;
 
-/**
- *
- * @author adria
- */
-@Disabled("Prototype tests disabled")
+@TestMethodOrder(OrderAnnotation.class)
 public class NotificacionDAOTest {
-    
+    private final NotificacionDAO dao;
+    private static Integer notifId;
+    private static Integer personaId;
+    private final PersonasDAO personasDAO = new PersonasDAOImpl();
+
     public NotificacionDAOTest() {
+        this.dao = new NotificacionDAOImpl();
     }
 
-    /**
-     * Test of insertar method, of class NotificacionDAO.
-     */
-    @Test
+    private Integer ensurePersona() {
+        if (personaId != null) return personaId;
+        PersonasDTO p = new PersonasDTO();
+        p.setEs_administrador(Boolean.FALSE);
+        p.setNombres("Ana");
+        p.setPrimer_apellido("Gomez");
+        p.setSegundo_apellido("Quispe");
+        p.setCorreo_electronico("ana.gomez@pucp.edu.pe");
+        p.setCodigo_universitario("20209999");
+        p.setTipo_documento_id("DNI");
+        p.setNumero_documento("87654321");
+        p.setContrasenha("Secreta456!");
+        personaId = personasDAO.insertar(p);
+        return personaId;
+    }
+
+    @Test @Order(1)
     public void testInsertar() {
-        System.out.println("insertar");
-        NotificacionDTO obj = null;
-        NotificacionDAO instance = new NotificacionDAOImpl();
-        Integer expResult = null;
-        Integer result = instance.insertar(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("insertar Notificacion");
+        Integer pid = ensurePersona();
+        NotificacionDTO n = new NotificacionDTO();
+        n.setPersonaId(pid);
+        n.setMensaje("Tu publicación fue aprobada");
+        n.setFecha(Timestamp.from(Instant.now()));
+        Integer id = dao.insertar(n);
+        assertNotNull(id); assertTrue(id > 0);
+        notifId = id;
     }
 
-    /**
-     * Test of obtenerPorId method, of class NotificacionDAO.
-     */
-    @Test
+    @Test @Order(2)
     public void testObtenerPorId() {
-        System.out.println("obtenerPorId");
-        Integer notificacionId = null;
-        NotificacionDAO instance = new NotificacionDAOImpl();
-        NotificacionDTO expResult = null;
-        NotificacionDTO result = instance.obtenerPorId(notificacionId);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        NotificacionDTO n = dao.obtenerPorId(notifId);
+        assertNotNull(n);
+        assertEquals("Tu publicación fue aprobada", n.getMensaje());
     }
 
-    /**
-     * Test of listarTodos method, of class NotificacionDAO.
-     */
-    @Test
-    public void testListarTodos() {
-        System.out.println("listarTodos");
-        NotificacionDAO instance = new NotificacionDAOImpl();
-        ArrayList<NotificacionDTO> expResult = null;
-        ArrayList<NotificacionDTO> result = instance.listarTodos();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of modificar method, of class NotificacionDAO.
-     */
-    @Test
+    @Test @Order(3)
     public void testModificar() {
-        System.out.println("modificar");
-        NotificacionDTO obj = null;
-        NotificacionDAO instance = new NotificacionDAOImpl();
-        Integer expResult = null;
-        Integer result = instance.modificar(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        NotificacionDTO n = dao.obtenerPorId(notifId);
+        n.setMensaje("Tu publicación fue rechazada");
+        Integer res = dao.modificar(n);
+        assertTrue(res > 0);
+        assertEquals("Tu publicación fue rechazada", dao.obtenerPorId(notifId).getMensaje());
     }
 
-    /**
-     * Test of eliminar method, of class NotificacionDAO.
-     */
-    @Test
+    @Test @Order(4)
+    public void testListarTodos() {
+        ArrayList<NotificacionDTO> lista = dao.listarTodos();
+        assertNotNull(lista);
+        assertTrue(lista.size() > 0);
+    }
+
+    @Test @Order(5)
     public void testEliminar() {
-        System.out.println("eliminar");
-        NotificacionDTO obj = null;
-        NotificacionDAO instance = new NotificacionDAOImpl();
-        Integer expResult = null;
-        Integer result = instance.eliminar(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        NotificacionDTO n = new NotificacionDTO();
+        n.setNotificacion_id(notifId);
+        Integer res = dao.eliminar(n);
+        assertTrue(res > 0);
     }
-
-    public class NotificacionDAOImpl implements NotificacionDAO {
-
-        public Integer insertar(NotificacionDTO obj) {
-            return null;
-        }
-
-        public NotificacionDTO obtenerPorId(Integer notificacionId) {
-            return null;
-        }
-
-        public ArrayList<NotificacionDTO> listarTodos() {
-            return null;
-        }
-
-        public Integer modificar(NotificacionDTO obj) {
-            return null;
-        }
-
-        public Integer eliminar(NotificacionDTO obj) {
-            return null;
-        }
-    }
-    
 }
