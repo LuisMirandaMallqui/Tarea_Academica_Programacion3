@@ -1,120 +1,92 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package pe.edu.pucp.softinv.dao;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import pe.edu.pucp.softinv.daoImpl.IncidenciaDAOImpl;
+
+import pe.edu.pucp.softinv.dao.IncidenciaDAO;
 import pe.edu.pucp.softinv.model.IncidenciaDTO;
+import pe.edu.pucp.softinv.daoImpl.PersonasDAOImpl;
+import pe.edu.pucp.softinv.dao.PersonasDAO;
+import pe.edu.pucp.softinv.model.PersonasDTO;
 
-/**
- *
- * @author adria
- */
-@Disabled("Prototype tests disabled")
+@TestMethodOrder(OrderAnnotation.class)
 public class IncidenciaDAOTest {
-    
+    private final IncidenciaDAO dao;
+    private static Integer incId;
+    private static Integer personaId;
+    private final PersonasDAO personasDAO = new PersonasDAOImpl();
+
     public IncidenciaDAOTest() {
+        this.dao = new IncidenciaDAOImpl();
     }
 
-    /**
-     * Test of insertar method, of class IncidenciaDAO.
-     */
-    @Test
+    private Integer ensurePersona() {
+        if (personaId != null) return personaId;
+        PersonasDTO p = new PersonasDTO();
+        p.setEs_administrador(Boolean.FALSE);
+        p.setNombres("Luis");
+        p.setPrimer_apellido("Huaman");
+        p.setSegundo_apellido("Soto");
+        p.setCorreo_electronico("luis.huaman@pucp.edu.pe");
+        p.setCodigo_universitario("20208888");
+        p.setTipo_documento_id("DNI");
+        p.setNumero_documento("11223344");
+        p.setContrasenha("Clave789!");
+        personaId = personasDAO.insertar(p);
+        return personaId;
+    }
+
+    @Test @Order(1)
     public void testInsertar() {
-        System.out.println("insertar");
-        IncidenciaDTO obj = null;
-        IncidenciaDAO instance = new IncidenciaDAOImpl();
-        Integer expResult = null;
-        Integer result = instance.insertar(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Integer pid = ensurePersona();
+        IncidenciaDTO i = new IncidenciaDTO();
+        i.setPersona_codigo(pid);
+        i.setDescripcion("No puedo actualizar mi publicación");
+        Integer id = dao.insertar(i);
+        assertNotNull(id); assertTrue(id > 0);
+        incId = id;
     }
 
-    /**
-     * Test of obtenerPorId method, of class IncidenciaDAO.
-     */
-    @Test
+    @Test @Order(2)
     public void testObtenerPorId() {
-        System.out.println("obtenerPorId");
-        Integer incidenciaId = null;
-        IncidenciaDAO instance = new IncidenciaDAOImpl();
-        IncidenciaDTO expResult = null;
-        IncidenciaDTO result = instance.obtenerPorId(incidenciaId);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        IncidenciaDTO i = dao.obtenerPorId(incId);
+        assertNotNull(i);
+        assertEquals("No puedo actualizar mi publicación", i.getDescripcion());
     }
 
-    /**
-     * Test of listarTodos method, of class IncidenciaDAO.
-     */
-    @Test
-    public void testListarTodos() {
-        System.out.println("listarTodos");
-        IncidenciaDAO instance = new IncidenciaDAOImpl();
-        ArrayList<IncidenciaDTO> expResult = null;
-        ArrayList<IncidenciaDTO> result = instance.listarTodos();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of modificar method, of class IncidenciaDAO.
-     */
-    @Test
+    @Test @Order(3)
     public void testModificar() {
-        System.out.println("modificar");
-        IncidenciaDTO obj = null;
-        IncidenciaDAO instance = new IncidenciaDAOImpl();
-        Integer expResult = null;
-        Integer result = instance.modificar(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        IncidenciaDTO i = dao.obtenerPorId(incId);
+        i.setDescripcion("No puedo eliminar mi publicación");
+        Integer res = dao.modificar(i);
+        assertTrue(res > 0);
+        assertEquals("No puedo eliminar mi publicación", dao.obtenerPorId(incId).getDescripcion());
     }
 
-    /**
-     * Test of eliminar method, of class IncidenciaDAO.
-     */
-    @Test
+    @Test @Order(4)
+    public void testListarTodos() {
+        ArrayList<IncidenciaDTO> lista = dao.listarTodos();
+        assertNotNull(lista);
+        assertTrue(lista.size() > 0);
+    }
+
+    @Test @Order(5)
     public void testEliminar() {
-        System.out.println("eliminar");
-        IncidenciaDTO obj = null;
-        IncidenciaDAO instance = new IncidenciaDAOImpl();
-        Integer expResult = null;
-        Integer result = instance.eliminar(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        IncidenciaDTO i = new IncidenciaDTO();
+        i.setIncidencia_id(incId);
+        Integer res = dao.eliminar(i);
+        assertTrue(res > 0);
     }
-
-    public class IncidenciaDAOImpl implements IncidenciaDAO {
-
-        public Integer insertar(IncidenciaDTO obj) {
-            return null;
-        }
-
-        public IncidenciaDTO obtenerPorId(Integer incidenciaId) {
-            return null;
-        }
-
-        public ArrayList<IncidenciaDTO> listarTodos() {
-            return null;
-        }
-
-        public Integer modificar(IncidenciaDTO obj) {
-            return null;
-        }
-
-        public Integer eliminar(IncidenciaDTO obj) {
-            return null;
-        }
-    }
-    
 }
+
