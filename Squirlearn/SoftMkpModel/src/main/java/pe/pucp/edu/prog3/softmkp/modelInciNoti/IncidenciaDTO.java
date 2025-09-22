@@ -1,4 +1,4 @@
-package pe.pucp.edu.prog3.softmkpI.modelInciNoti;
+package pe.pucp.edu.prog3.softmkp.modelInciNoti;
 
 import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDTO;
 import java.util.Date;
