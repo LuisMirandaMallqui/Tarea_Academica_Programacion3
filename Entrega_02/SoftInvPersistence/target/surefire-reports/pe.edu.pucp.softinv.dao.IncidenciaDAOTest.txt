@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: pe.edu.pucp.softinv.dao.IncidenciaDAOTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.958 s -- in pe.edu.pucp.softinv.dao.IncidenciaDAOTest
