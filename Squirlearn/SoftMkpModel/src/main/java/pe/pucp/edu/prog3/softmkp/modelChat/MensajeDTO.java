@@ -1,22 +1,22 @@
 package pe.pucp.edu.prog3.softmkp.modelChat;
 
-import pe.pucp.edu.prog3.softmkp.modelChat.ChatDTO;
+import pe.pucp.edu.prog3.softmkp.modelChat.ChatDto;
 import java.util.Date;
-import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDTO;
+import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDto;
 
-public class MensajeDTO {
+public class MensajeDto {
     
-    private Integer idMensaje;
-    private ChatDTO chat;
+    private Integer mensajeId;
+    private ChatDto chat;
     private Date fechaEnvio;
     private Date fechaLeido;
     private String mensaje;
-    private EstadoMensajeDTO estadoMensaje;
-    private PersonaDTO persona;
+    private EstadoMensajeDto estadoMensaje;
+    private PersonaDto persona;
     
-    // Constructor vacío (todo en null)
-    public MensajeDTO() {
-        this.idMensaje = null;
+    // Constructor vacío
+    public MensajeDto() {
+        this.mensajeId = null;
         this.chat = null;
         this.fechaEnvio = null;
         this.fechaLeido = null;
@@ -26,9 +26,9 @@ public class MensajeDTO {
     }
 
     // Constructor con parámetros
-    public MensajeDTO(Integer idMensaje, ChatDTO chat, Date fechaEnvio, Date fechaLeido, 
-                      String mensaje, EstadoMensajeDTO estadoMensaje, PersonaDTO persona) {
-        this.idMensaje = idMensaje;
+    public MensajeDto(Integer mensajeId, ChatDto chat, Date fechaEnvio, Date fechaLeido,
+                      String mensaje, EstadoMensajeDto estadoMensaje, PersonaDto persona) {
+        this.mensajeId = mensajeId;
         this.chat = chat;
         this.fechaEnvio = fechaEnvio;
         this.fechaLeido = fechaLeido;
@@ -38,19 +38,19 @@ public class MensajeDTO {
     }
 
     // Getters y Setters
-    public Integer getIdMensaje() {
-        return idMensaje;
+    public Integer getMensajeId() {
+        return mensajeId;
     }
 
-    public void setIdMensaje(Integer idMensaje) {
-        this.idMensaje = idMensaje;
+    public void setMensajeId(Integer mensajeId) {
+        this.mensajeId = mensajeId;
     }
 
-    public ChatDTO getChat() {
+    public ChatDto getChat() {
         return chat;
     }
 
-    public void setChat(ChatDTO chat) {
+    public void setChat(ChatDto chat) {
         this.chat = chat;
     }
 
@@ -78,19 +78,19 @@ public class MensajeDTO {
         this.mensaje = mensaje;
     }
 
-    public EstadoMensajeDTO getEstadoMensaje() {
+    public EstadoMensajeDto getEstadoMensaje() {
         return estadoMensaje;
     }
 
-    public void setEstadoMensaje(EstadoMensajeDTO estadoMensaje) {
+    public void setEstadoMensaje(EstadoMensajeDto estadoMensaje) {
         this.estadoMensaje = estadoMensaje;
     }
 
-    public PersonaDTO getPersona() {
+    public PersonaDto getPersona() {
         return persona;
     }
 
-    public void setPersona(PersonaDTO persona) {
+    public void setPersona(PersonaDto persona) {
         this.persona = persona;
     }
 }

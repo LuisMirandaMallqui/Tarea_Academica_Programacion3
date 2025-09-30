@@ -2,9 +2,9 @@ package pe.pucp.edu.prog3.softmkp.modelChat;
 
 import java.util.Date;
 
-public class EstadoMensajeDTO {
+public class EstadoMensajeDto {
     
-    private Integer idEstadoMSJ;
+    private Integer estadoMsjId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
@@ -12,8 +12,8 @@ public class EstadoMensajeDTO {
     private Integer usuarioModificacion;
     
     // Constructor vacío
-    public EstadoMensajeDTO() {
-        this.idEstadoMSJ = null;
+    public EstadoMensajeDto() {
+        this.estadoMsjId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ public class EstadoMensajeDTO {
     }
 
     // Constructor con parámetros
-    public EstadoMensajeDTO(Integer idEstadoMSJ, String nombre, Date fechaCreacion, Integer usuarioCreacion,
-                            Date fechaModificacion, Integer usuarioModificacion) {
-        this.idEstadoMSJ = idEstadoMSJ;
+    public EstadoMensajeDto(Integer estadoMsjId, String nombre, Date fechaCreacion,
+                            Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
+        this.estadoMsjId = estadoMsjId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ public class EstadoMensajeDTO {
     }
 
     // Getters y Setters
-    public Integer getIdEstadoMSJ() {
-        return idEstadoMSJ;
+    public Integer getEstadoMsjId() {
+        return estadoMsjId;
     }
 
-    public void setIdEstadoMSJ(Integer idEstadoMSJ) {
-        this.idEstadoMSJ = idEstadoMSJ;
+    public void setEstadoMsjId(Integer estadoMsjId) {
+        this.estadoMsjId = estadoMsjId;
     }
 
     public String getNombre() {

@@ -2,18 +2,18 @@ package pe.pucp.edu.prog3.softmkp.modelItem;
 
 import java.util.Date;
 
-public class FormatoDTO {
+public class FormatoDto {
     
-    private Integer idFormato;
+    private Integer formatoId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
     
-    // Constructor vacío (inicializa todo en null)
-    public FormatoDTO() {
-        this.idFormato = null;
+    // Constructor vacío
+    public FormatoDto() {
+        this.formatoId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ public class FormatoDTO {
     }
 
     // Constructor con parámetros
-    public FormatoDTO(Integer idFormato, String nombre, Date fechaCreacion,
+    public FormatoDto(Integer formatoId, String nombre, Date fechaCreacion,
                       Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
-        this.idFormato = idFormato;
+        this.formatoId = formatoId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ public class FormatoDTO {
     }
 
     // Getters y Setters
-    public Integer getIdFormato() {
-        return idFormato;
+    public Integer getFormatoId() {
+        return formatoId;
     }
 
-    public void setIdFormato(Integer idFormato) {
-        this.idFormato = idFormato;
+    public void setFormatoId(Integer formatoId) {
+        this.formatoId = formatoId;
     }
 
     public String getNombre() {

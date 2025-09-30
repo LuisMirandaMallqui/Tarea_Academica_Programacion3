@@ -1,24 +1,24 @@
 package pe.pucp.edu.prog3.softmkp.modelComprobante;
 
 import java.util.Date;
-import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDTO;
+import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDto;
 
-public class ComprobanteDTO {
+public class ComprobanteDto {
     
-    private Integer idComprobante;
+    private Integer comprobanteId;
     private Double monto;
     private String transaccion;
     private Date fechaEmision;
     private Double impuesto;
-    private PersonaDTO persona;
-    private FormaPagoDTO formaPago;
-    private MonedaPago moneda;
+    private PersonaDto persona;
+    private FormaPagoDto formaPago;
+    private MonedaPagoDto moneda;
     private Date fechaModificacion;
     private Integer usuarioModificacion; 
     
-    // Constructor vacío (inicializando en null)
-    public ComprobanteDTO() {
-        this.idComprobante = null;
+    // Constructor vacío
+    public ComprobanteDto() {
+        this.comprobanteId = null;
         this.monto = null;
         this.transaccion = null;
         this.fechaEmision = null;
@@ -31,10 +31,10 @@ public class ComprobanteDTO {
     }
 
     // Constructor con parámetros
-    public ComprobanteDTO(Integer idComprobante, Double monto, String transaccion, Date fechaEmision, 
-                          Double impuesto, PersonaDTO persona, FormaPagoDTO formaPago, 
-                          MonedaPago moneda, Date fechaModificacion, Integer usuarioModificacion) {
-        this.idComprobante = idComprobante;
+    public ComprobanteDto(Integer comprobanteId, Double monto, String transaccion, Date fechaEmision,
+                          Double impuesto, PersonaDto persona, FormaPagoDto formaPago, MonedaPagoDto moneda,
+                          Date fechaModificacion, Integer usuarioModificacion) {
+        this.comprobanteId = comprobanteId;
         this.monto = monto;
         this.transaccion = transaccion;
         this.fechaEmision = fechaEmision;
@@ -47,12 +47,12 @@ public class ComprobanteDTO {
     }
 
     // Getters y Setters
-    public Integer getIdComprobante() {
-        return idComprobante;
+    public Integer getComprobanteId() {
+        return comprobanteId;
     }
 
-    public void setIdComprobante(Integer idComprobante) {
-        this.idComprobante = idComprobante;
+    public void setComprobanteId(Integer comprobanteId) {
+        this.comprobanteId = comprobanteId;
     }
 
     public Double getMonto() {
@@ -87,27 +87,27 @@ public class ComprobanteDTO {
         this.impuesto = impuesto;
     }
 
-    public PersonaDTO getPersona() {
+    public PersonaDto getPersona() {
         return persona;
     }
 
-    public void setPersona(PersonaDTO persona) {
+    public void setPersona(PersonaDto persona) {
         this.persona = persona;
     }
 
-    public FormaPagoDTO getFormaPago() {
+    public FormaPagoDto getFormaPago() {
         return formaPago;
     }
 
-    public void setFormaPago(FormaPagoDTO formaPago) {
+    public void setFormaPago(FormaPagoDto formaPago) {
         this.formaPago = formaPago;
     }
 
-    public MonedaPago getMoneda() {
+    public MonedaPagoDto getMoneda() {
         return moneda;
     }
 
-    public void setMoneda(MonedaPago moneda) {
+    public void setMoneda(MonedaPagoDto moneda) {
         this.moneda = moneda;
     }
 

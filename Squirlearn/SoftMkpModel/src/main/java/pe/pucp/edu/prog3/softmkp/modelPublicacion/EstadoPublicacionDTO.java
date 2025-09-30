@@ -2,9 +2,9 @@ package pe.pucp.edu.prog3.softmkp.modelPublicacion;
 
 import java.util.Date;
 
-class EstadoPublicacionDTO {
+class EstadoPublicacionDto {
     
-    private Integer idEstadoPublicacion;
+    private Integer estadoPublicacionId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
@@ -12,8 +12,8 @@ class EstadoPublicacionDTO {
     private Integer usuarioModificacion;
     
     // Constructor vacío (inicializa en null)
-    public EstadoPublicacionDTO() {
-        this.idEstadoPublicacion = null;
+    public EstadoPublicacionDto() {
+        this.estadoPublicacionId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ class EstadoPublicacionDTO {
     }
 
     // Constructor con parámetros
-    public EstadoPublicacionDTO(Integer idEstadoPublicacion, String nombre, Date fechaCreacion,
+    public EstadoPublicacionDto(Integer estadoPublicacionId, String nombre, Date fechaCreacion,
                                 Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
-        this.idEstadoPublicacion = idEstadoPublicacion;
+        this.estadoPublicacionId = estadoPublicacionId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ class EstadoPublicacionDTO {
     }
 
     // Getters y Setters
-    public Integer getIdEstadoPublicacion() {
-        return idEstadoPublicacion;
+    public Integer getEstadoPublicacionId() {
+        return estadoPublicacionId;
     }
 
-    public void setIdEstadoPublicacion(Integer idEstadoPublicacion) {
-        this.idEstadoPublicacion = idEstadoPublicacion;
+    public void setEstadoPublicacionId(Integer idEstadoPublicacion) {
+        this.estadoPublicacionId = idEstadoPublicacion;
     }
 
     public String getNombre() {

@@ -2,9 +2,9 @@ package pe.pucp.edu.prog3.softmkp.modelChat;
 
 import java.util.Date;
 
-public class EstadoChatDTO {
+public class EstadoChatDto {
     
-    private Integer idEstadoChat;
+    private Integer estadoChatId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
@@ -12,8 +12,8 @@ public class EstadoChatDTO {
     private Integer usuarioModificacion;
     
     // Constructor vacío
-    public EstadoChatDTO() {
-        this.idEstadoChat = null;
+    public EstadoChatDto() {
+        this.estadoChatId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ public class EstadoChatDTO {
     }
 
     // Constructor con parámetros
-    public EstadoChatDTO(Integer idEstadoChat, String nombre, Date fechaCreacion, Integer usuarioCreacion,
-                         Date fechaModificacion, Integer usuarioModificacion) {
-        this.idEstadoChat = idEstadoChat;
+    public EstadoChatDto(Integer estadoChatId, String nombre, Date fechaCreacion,
+                         Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
+        this.estadoChatId = estadoChatId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ public class EstadoChatDTO {
     }
 
     // Getters y Setters
-    public Integer getIdEstadoChat() {
-        return idEstadoChat;
+    public Integer getEstadoChatId() {
+        return estadoChatId;
     }
 
-    public void setIdEstadoChat(Integer idEstadoChat) {
-        this.idEstadoChat = idEstadoChat;
+    public void setEstadoChatId(Integer estadoChatId) {
+        this.estadoChatId = estadoChatId;
     }
 
     public String getNombre() {

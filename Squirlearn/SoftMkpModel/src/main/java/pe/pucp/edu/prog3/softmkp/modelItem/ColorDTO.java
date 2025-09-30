@@ -2,18 +2,18 @@ package pe.pucp.edu.prog3.softmkp.modelItem;
 
 import java.util.Date;
 
-public class ColorDTO {
+public class ColorDto {
     
-    private Integer idColor;
+    private Integer colorId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
     
-    // Constructor vacío (inicializa todo en null)
-    public ColorDTO() {
-        this.idColor = null;
+    // Constructor vacío
+    public ColorDto() {
+        this.colorId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ public class ColorDTO {
     }
 
     // Constructor con parámetros
-    public ColorDTO(Integer idColor, String nombre, Date fechaCreacion,
+    public ColorDto(Integer colorId, String nombre, Date fechaCreacion,
                     Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
-        this.idColor = idColor;
+        this.colorId = colorId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ public class ColorDTO {
     }
 
     // Getters y Setters
-    public Integer getIdColor() {
-        return idColor;
+    public Integer getColorId() {
+        return colorId;
     }
 
-    public void setIdColor(Integer idColor) {
-        this.idColor = idColor;
+    public void setColorId(Integer colorId) {
+        this.colorId = colorId;
     }
 
     public String getNombre() {

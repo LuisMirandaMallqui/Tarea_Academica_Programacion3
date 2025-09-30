@@ -2,37 +2,37 @@ package pe.pucp.edu.prog3.softmkp.modelPublicacion;
 
 import java.util.Date;
 
-public class HistoriaPublicacionDTO {
+public class HistoriaPublicacionDto {
     
-    private Integer idHistoriaPubli;
+    private Integer historiaPubliId;
     private Date fechaModificacion;
-    private PublicacionDTO publicacion;
+    private PublicacionDto publicacion;
     private Integer usuarioModificacion;
     
-    // Constructor vacío (inicializa en null)
-    public HistoriaPublicacionDTO() {
-        this.idHistoriaPubli = null;
+    // Constructor vacío
+    public HistoriaPublicacionDto() {
+        this.historiaPubliId = null;
         this.fechaModificacion = null;
         this.publicacion = null;
         this.usuarioModificacion = null;
     }
 
     // Constructor con parámetros
-    public HistoriaPublicacionDTO(Integer idHistoriaPubli, Date fechaModificacion,
-                                  PublicacionDTO publicacion, Integer usuarioModificacion) {
-        this.idHistoriaPubli = idHistoriaPubli;
+    public HistoriaPublicacionDto(Integer historiaPubliId, Date fechaModificacion,
+                                  PublicacionDto publicacion, Integer usuarioModificacion) {
+        this.historiaPubliId = historiaPubliId;
         this.fechaModificacion = fechaModificacion;
         this.publicacion = publicacion;
         this.usuarioModificacion = usuarioModificacion;
     }
 
     // Getters y Setters
-    public Integer getIdHistoriaPubli() {
-        return idHistoriaPubli;
+    public Integer getHistoriaPubliId() {
+        return historiaPubliId;
     }
 
-    public void setIdHistoriaPubli(Integer idHistoriaPubli) {
-        this.idHistoriaPubli = idHistoriaPubli;
+    public void setHistoriaPubliId(Integer historiaPubliId) {
+        this.historiaPubliId = historiaPubliId;
     }
 
     public Date getFechaModificacion() {
@@ -43,11 +43,11 @@ public class HistoriaPublicacionDTO {
         this.fechaModificacion = fechaModificacion;
     }
 
-    public PublicacionDTO getPublicacion() {
+    public PublicacionDto getPublicacion() {
         return publicacion;
     }
 
-    public void setPublicacion(PublicacionDTO publicacion) {
+    public void setPublicacion(PublicacionDto publicacion) {
         this.publicacion = publicacion;
     }
 

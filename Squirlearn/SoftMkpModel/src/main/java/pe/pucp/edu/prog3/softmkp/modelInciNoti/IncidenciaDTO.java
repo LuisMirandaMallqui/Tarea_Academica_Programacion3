@@ -1,11 +1,11 @@
 package pe.pucp.edu.prog3.softmkp.modelInciNoti;
 
-import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDTO;
+import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDto;
 import java.util.Date;
 
-public class IncidenciaDTO {
+public class IncidenciaDto {
     
-    private Integer idIncidencia;
+    private Integer incidenciaDto;
     private String descripcion;
     private Date fechaCreacion;
     private Date fechaSolucion;
@@ -13,13 +13,13 @@ public class IncidenciaDTO {
     private Integer usuarioSolucion;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
-    private NotificacionDTO notificacion;
-    private PersonaDTO persona;
-    private MotivoDTO motivo;
+    private NotificacionDto notificacion;
+    private PersonaDto persona;
+    private MotivoDto motivo;
     
-    // Constructor vacío (inicializa todo en null)
-    public IncidenciaDTO() {
-        this.idIncidencia = null;
+    // Constructor vacío
+    public IncidenciaDto() {
+        this.incidenciaDto = null;
         this.descripcion = null;
         this.fechaCreacion = null;
         this.fechaSolucion = null;
@@ -33,11 +33,11 @@ public class IncidenciaDTO {
     }
 
     // Constructor con parámetros
-    public IncidenciaDTO(Integer idIncidencia, String descripcion, Date fechaCreacion, Date fechaSolucion,
+    public IncidenciaDto(Integer incidenciaDto, String descripcion, Date fechaCreacion, Date fechaSolucion,
                          Integer usuarioCreacion, Integer usuarioSolucion, Date fechaModificacion,
-                         Integer usuarioModificacion, NotificacionDTO notificacion,
-                         PersonaDTO persona, MotivoDTO motivo) {
-        this.idIncidencia = idIncidencia;
+                         Integer usuarioModificacion, NotificacionDto notificacion, PersonaDto persona,
+                         MotivoDto motivo) {
+        this.incidenciaDto = incidenciaDto;
         this.descripcion = descripcion;
         this.fechaCreacion = fechaCreacion;
         this.fechaSolucion = fechaSolucion;
@@ -51,12 +51,12 @@ public class IncidenciaDTO {
     }
 
     // Getters y Setters
-    public Integer getIdIncidencia() {
-        return idIncidencia;
+    public Integer getIncidenciaDto() {
+        return incidenciaDto;
     }
 
-    public void setIdIncidencia(Integer idIncidencia) {
-        this.idIncidencia = idIncidencia;
+    public void setIncidenciaDto(Integer incidenciaDto) {
+        this.incidenciaDto = incidenciaDto;
     }
 
     public String getDescripcion() {
@@ -115,27 +115,27 @@ public class IncidenciaDTO {
         this.usuarioModificacion = usuarioModificacion;
     }
 
-    public NotificacionDTO getNotificacion() {
+    public NotificacionDto getNotificacion() {
         return notificacion;
     }
 
-    public void setNotificacion(NotificacionDTO notificacion) {
+    public void setNotificacion(NotificacionDto notificacion) {
         this.notificacion = notificacion;
     }
 
-    public PersonaDTO getPersona() {
+    public PersonaDto getPersona() {
         return persona;
     }
 
-    public void setPersona(PersonaDTO persona) {
+    public void setPersona(PersonaDto persona) {
         this.persona = persona;
     }
 
-    public MotivoDTO getMotivo() {
+    public MotivoDto getMotivo() {
         return motivo;
     }
 
-    public void setMotivo(MotivoDTO motivo) {
+    public void setMotivo(MotivoDto motivo) {
         this.motivo = motivo;
     }
     

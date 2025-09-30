@@ -3,9 +3,9 @@ package pe.pucp.edu.prog3.softmkp.modelPublicacion;
 
 import java.util.Date;
 
-class CalificacionDTO {
+class CalificacionDto {
     
-    private Integer idCalificacion;
+    private Integer calificacionId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
@@ -13,8 +13,8 @@ class CalificacionDTO {
     private Integer usuarioModificacion;
     
     // Constructor vacío (inicializa en null)
-    public CalificacionDTO() {
-        this.idCalificacion = null;
+    public CalificacionDto() {
+        this.calificacionId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -23,9 +23,9 @@ class CalificacionDTO {
     }
 
     // Constructor con parámetros
-    public CalificacionDTO(Integer idCalificacion, String nombre, Date fechaCreacion,
+    public CalificacionDto(Integer calificacionId, String nombre, Date fechaCreacion,
                            Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
-        this.idCalificacion = idCalificacion;
+        this.calificacionId = calificacionId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -34,12 +34,12 @@ class CalificacionDTO {
     }
 
     // Getters y Setters
-    public Integer getIdCalificacion() {
-        return idCalificacion;
+    public Integer getCalificacionId() {
+        return calificacionId;
     }
 
-    public void setIdCalificacion(Integer idCalificacion) {
-        this.idCalificacion = idCalificacion;
+    public void setCalificacionId(Integer idCalificacion) {
+        this.calificacionId = idCalificacion;
     }
 
     public String getNombre() {

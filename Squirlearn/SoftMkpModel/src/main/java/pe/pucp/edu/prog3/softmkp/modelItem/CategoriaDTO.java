@@ -2,18 +2,18 @@ package pe.pucp.edu.prog3.softmkp.modelItem;
 
 import java.util.Date;
 
-public class CategoriaDTO {
+public class CategoriaDto {
     
-    private Integer idCategoria;
+    private Integer categoriaId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
     
-    // Constructor vacío (todo inicializado en null)
-    public CategoriaDTO() {
-        this.idCategoria = null;
+    // Constructor vacío
+    public CategoriaDto() {
+        this.categoriaId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ public class CategoriaDTO {
     }
 
     // Constructor con parámetros
-    public CategoriaDTO(Integer idCategoria, String nombre, Date fechaCreacion,
+    public CategoriaDto(Integer categoriaId, String nombre, Date fechaCreacion,
                         Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
-        this.idCategoria = idCategoria;
+        this.categoriaId = categoriaId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ public class CategoriaDTO {
     }
 
     // Getters y Setters
-    public Integer getIdCategoria() {
-        return idCategoria;
+    public Integer getCategoriaId() {
+        return categoriaId;
     }
 
-    public void setIdCategoria(Integer idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setCategoriaId(Integer categoriaId) {
+        this.categoriaId = categoriaId;
     }
 
     public String getNombre() {

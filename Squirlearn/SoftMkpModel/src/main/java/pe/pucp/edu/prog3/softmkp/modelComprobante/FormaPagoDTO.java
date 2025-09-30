@@ -2,18 +2,18 @@ package pe.pucp.edu.prog3.softmkp.modelComprobante;
 
 import java.util.Date;
 
-public class FormaPagoDTO {
+public class FormaPagoDto {
    
-    private Integer idFormaPago;
+    private Integer formaPagoId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
     
-    // Constructor vacío (valores inicializados en null)
-    public FormaPagoDTO() {
-        this.idFormaPago = null;
+    // Constructor vacío
+    public FormaPagoDto() {
+        this.formaPagoId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ public class FormaPagoDTO {
     }
 
     // Constructor con parámetros
-    public FormaPagoDTO(Integer idFormaPago, String nombre, Date fechaCreacion,
-                        Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
-        this.idFormaPago = idFormaPago;
+    public FormaPagoDto(Integer formaPagoId, String nombre, Date fechaCreacion, Integer usuarioCreacion,
+                        Date fechaModificacion, Integer usuarioModificacion) {
+        this.formaPagoId = formaPagoId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ public class FormaPagoDTO {
     }
 
     // Getters y Setters
-    public Integer getIdFormaPago() {
-        return idFormaPago;
+    public Integer getFormaPagoId() {
+        return formaPagoId;
     }
 
-    public void setIdFormaPago(Integer idFormaPago) {
-        this.idFormaPago = idFormaPago;
+    public void setFormaPagoId(Integer formaPagoId) {
+        this.formaPagoId = formaPagoId;
     }
 
     public String getNombre() {

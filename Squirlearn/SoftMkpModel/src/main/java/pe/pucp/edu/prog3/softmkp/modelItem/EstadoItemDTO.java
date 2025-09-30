@@ -2,18 +2,18 @@ package pe.pucp.edu.prog3.softmkp.modelItem;
 
 import java.util.Date;
 
-public class EstadoItemDTO {
+public class EstadoItemDto {
     
-    private Integer idEstadoItem;
+    private Integer estadoItemId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
     
-    // Constructor vacío (inicializa en null)
-    public EstadoItemDTO() {
-        this.idEstadoItem = null;
+    // Constructor vacío
+    public EstadoItemDto() {
+        this.estadoItemId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ public class EstadoItemDTO {
     }
 
     // Constructor con parámetros
-    public EstadoItemDTO(Integer idEstadoItem, String nombre, Date fechaCreacion,
+    public EstadoItemDto(Integer estadoItemId, String nombre, Date fechaCreacion,
                          Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
-        this.idEstadoItem = idEstadoItem;
+        this.estadoItemId = estadoItemId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ public class EstadoItemDTO {
     }
 
     // Getters y Setters
-    public Integer getIdEstadoItem() {
-        return idEstadoItem;
+    public Integer getEstadoItemId() {
+        return estadoItemId;
     }
 
-    public void setIdEstadoItem(Integer idEstadoItem) {
-        this.idEstadoItem = idEstadoItem;
+    public void setEstadoItemId(Integer estadoItemId) {
+        this.estadoItemId = estadoItemId;
     }
 
     public String getNombre() {

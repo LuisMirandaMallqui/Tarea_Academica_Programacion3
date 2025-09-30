@@ -2,9 +2,9 @@ package pe.pucp.edu.prog3.softmkp.modelItem;
 
 import java.util.Date;
 
-public class TamanoDTO {
+public class TamanoDto {
     
-    private Integer idTamano;
+    private Integer tamanoId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
@@ -12,8 +12,8 @@ public class TamanoDTO {
     private Integer usuarioModificacion;
     
     // Constructor vacío (todo en null)
-    public TamanoDTO() {
-        this.idTamano = null;
+    public TamanoDto() {
+        this.tamanoId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ public class TamanoDTO {
     }
 
     // Constructor con parámetros
-    public TamanoDTO(Integer idTamano, String nombre, Date fechaCreacion, Integer usuarioCreacion, 
+    public TamanoDto(Integer tamanoId, String nombre, Date fechaCreacion, Integer usuarioCreacion, 
                      Date fechaModificacion, Integer usuarioModificacion) {
-        this.idTamano = idTamano;
+        this.tamanoId = tamanoId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ public class TamanoDTO {
     }
 
     // Getters y Setters
-    public Integer getIdTamano() {
-        return idTamano;
+    public Integer getTamanoId() {
+        return tamanoId;
     }
 
-    public void setIdTamano(Integer idTamano) {
-        this.idTamano = idTamano;
+    public void setTamanoId(Integer idTamano) {
+        this.tamanoId = idTamano;
     }
 
     public String getNombre() {

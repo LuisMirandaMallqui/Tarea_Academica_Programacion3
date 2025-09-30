@@ -2,19 +2,19 @@ package pe.pucp.edu.prog3.softmkp.modelItem;
 
 import java.util.Date;
 
-public class SubcategoriaDTO {
+public class SubcategoriaDto {
     
-    private Integer idSubcategoria;
+    private Integer subcategoriaId;
     private String nombre;
-    private CategoriaDTO categoria;
+    private CategoriaDto categoria;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
     
     // Constructor vacío (todo en null)
-    public SubcategoriaDTO() {
-        this.idSubcategoria = null;
+    public SubcategoriaDto() {
+        this.subcategoriaId = null;
         this.nombre = null;
         this.categoria = null;
         this.fechaCreacion = null;
@@ -24,10 +24,10 @@ public class SubcategoriaDTO {
     }
 
     // Constructor con parámetros
-    public SubcategoriaDTO(Integer idSubcategoria, String nombre, CategoriaDTO categoria,
+    public SubcategoriaDto(Integer subcategoriaId, String nombre, CategoriaDto categoria,
                            Date fechaCreacion, Integer usuarioCreacion, 
                            Date fechaModificacion, Integer usuarioModificacion) {
-        this.idSubcategoria = idSubcategoria;
+        this.subcategoriaId = subcategoriaId;
         this.nombre = nombre;
         this.categoria = categoria;
         this.fechaCreacion = fechaCreacion;
@@ -37,12 +37,12 @@ public class SubcategoriaDTO {
     }
 
     // Getters y Setters
-    public Integer getIdSubcategoria() {
-        return idSubcategoria;
+    public Integer getSubcategoriaId() {
+        return subcategoriaId;
     }
 
-    public void setIdSubcategoria(Integer idSubcategoria) {
-        this.idSubcategoria = idSubcategoria;
+    public void setSubcategoriaId(Integer idSubcategoria) {
+        this.subcategoriaId = idSubcategoria;
     }
 
     public String getNombre() {
@@ -53,11 +53,11 @@ public class SubcategoriaDTO {
         this.nombre = nombre;
     }
 
-    public CategoriaDTO getCategoria() {
+    public CategoriaDto getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(CategoriaDTO categoria) {
+    public void setCategoria(CategoriaDto categoria) {
         this.categoria = categoria;
     }
 

@@ -1,22 +1,22 @@
 package pe.pucp.edu.prog3.softmkp.modelPublicacion;
 
 import java.util.Date;
-import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDTO;
-import pe.pucp.edu.prog3.softmkp.modelItem.ItemDTO;
+import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDto;
+import pe.pucp.edu.prog3.softmkp.modelItem.ItemDto;
 
-public class PublicacionDTO {
+public class PublicacionDto {
     
-    private Integer idPublicacion;
+    private Integer publicacionId;
     private Date fechaAlta;
     private Date fechaBaja;
-    private EstadoPublicacionDTO estadoPublicacion;
-    private ItemDTO item;
-    private PersonaDTO persona;
-    private CalificacionDTO calificacion;
+    private EstadoPublicacionDto estadoPublicacion;
+    private ItemDto item;
+    private PersonaDto persona;
+    private CalificacionDto calificacion;
     
     // Constructor vacío (todo en null)
-    public PublicacionDTO() {
-        this.idPublicacion = null;
+    public PublicacionDto() {
+        this.publicacionId = null;
         this.fechaAlta = null;
         this.fechaBaja = null;
         this.estadoPublicacion = null;
@@ -26,10 +26,10 @@ public class PublicacionDTO {
     }
 
     // Constructor con parámetros
-    public PublicacionDTO(Integer idPublicacion, Date fechaAlta, Date fechaBaja,
-                          EstadoPublicacionDTO estadoPublicacion, ItemDTO item,
-                          PersonaDTO persona, CalificacionDTO calificacion) {
-        this.idPublicacion = idPublicacion;
+    public PublicacionDto(Integer publicacionId, Date fechaAlta, Date fechaBaja,
+                          EstadoPublicacionDto estadoPublicacion, ItemDto item,
+                          PersonaDto persona, CalificacionDto calificacion) {
+        this.publicacionId = publicacionId;
         this.fechaAlta = fechaAlta;
         this.fechaBaja = fechaBaja;
         this.estadoPublicacion = estadoPublicacion;
@@ -39,12 +39,12 @@ public class PublicacionDTO {
     }
 
     // Getters y Setters
-    public Integer getIdPublicacion() {
-        return idPublicacion;
+    public Integer getPublicacionId() {
+        return publicacionId;
     }
 
-    public void setIdPublicacion(Integer idPublicacion) {
-        this.idPublicacion = idPublicacion;
+    public void setPublicacionId(Integer idPublicacion) {
+        this.publicacionId = idPublicacion;
     }
 
     public Date getFechaAlta() {
@@ -63,35 +63,35 @@ public class PublicacionDTO {
         this.fechaBaja = fechaBaja;
     }
 
-    public EstadoPublicacionDTO getEstadoPublicacion() {
+    public EstadoPublicacionDto getEstadoPublicacion() {
         return estadoPublicacion;
     }
 
-    public void setEstadoPublicacion(EstadoPublicacionDTO estadoPublicacion) {
+    public void setEstadoPublicacion(EstadoPublicacionDto estadoPublicacion) {
         this.estadoPublicacion = estadoPublicacion;
     }
 
-    public ItemDTO getItem() {
+    public ItemDto getItem() {
         return item;
     }
 
-    public void setItem(ItemDTO item) {
+    public void setItem(ItemDto item) {
         this.item = item;
     }
 
-    public PersonaDTO getPersona() {
+    public PersonaDto getPersona() {
         return persona;
     }
 
-    public void setPersona(PersonaDTO persona) {
+    public void setPersona(PersonaDto persona) {
         this.persona = persona;
     }
 
-    public CalificacionDTO getCalificacion() {
+    public CalificacionDto getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(CalificacionDTO calificacion) {
+    public void setCalificacion(CalificacionDto calificacion) {
         this.calificacion = calificacion;
     }
 }

@@ -2,18 +2,18 @@ package pe.pucp.edu.prog3.softmkp.modelComprobante;
 
 import java.util.Date;
 
-public class MonedaPago {
+public class MonedaPagoDto {
     
-    private Integer idMoneda;
+    private Integer monedaId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
     
-    // Constructor vacío (valores inicializados en null)
-    public MonedaPago() {
-        this.idMoneda = null;
+    // Constructor vacío
+    public MonedaPagoDto() {
+        this.monedaId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ public class MonedaPago {
     }
 
     // Constructor con parámetros
-    public MonedaPago(Integer idMoneda, String nombre, Date fechaCreacion,
-                      Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
-        this.idMoneda = idMoneda;
+    public MonedaPagoDto(Integer monedaId, String nombre, Date fechaCreacion, Integer usuarioCreacion,
+                         Date fechaModificacion, Integer usuarioModificacion) {
+        this.monedaId = monedaId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ public class MonedaPago {
     }
 
     // Getters y Setters
-    public Integer getIdMoneda() {
-        return idMoneda;
+    public Integer getMonedaId() {
+        return monedaId;
     }
 
-    public void setIdMoneda(Integer idMoneda) {
-        this.idMoneda = idMoneda;
+    public void setMonedaId(Integer monedaId) {
+        this.monedaId = monedaId;
     }
 
     public String getNombre() {

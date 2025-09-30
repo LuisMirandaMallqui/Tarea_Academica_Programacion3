@@ -1,13 +1,13 @@
 
 package pe.pucp.edu.prog3.softmkp.modelPersona;
 
-import pe.pucp.edu.prog3.softmkp.modelPersona.RolPersonaDTO;
-import pe.pucp.edu.prog3.softmkp.modelPersona.EstadoPersonaDTO;
+import pe.pucp.edu.prog3.softmkp.modelPersona.RolPersonaDto;
+import pe.pucp.edu.prog3.softmkp.modelPersona.EstadoPersonaDto;
 import java.util.Date;
 
-public class PersonaDTO {
+public class PersonaDto {
     
-    private Integer idPersona;
+    private Integer personaId;
     private String nombres;
     private String primerApellido;
     private String segundoApellido;
@@ -18,12 +18,12 @@ public class PersonaDTO {
     private Integer usuarioCreacion;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
-    private RolPersonaDTO rolPersona;
-    private EstadoPersonaDTO estadoPersona;
+    private RolPersonaDto rolPersona;
+    private EstadoPersonaDto estadoPersona;
     
-    // Constructor vacío (inicializa en null)
-    public PersonaDTO() {
-        this.idPersona = null;
+    // Constructor vacío
+    public PersonaDto() {
+        this.personaId = null;
         this.nombres = null;
         this.primerApellido = null;
         this.segundoApellido = null;
@@ -39,11 +39,11 @@ public class PersonaDTO {
     }
 
     // Constructor con parámetros
-    public PersonaDTO(Integer idPersona, String nombres, String primerApellido, String segundoApellido,
+    public PersonaDto(Integer personaId, String nombres, String primerApellido, String segundoApellido,
                       String codigo, String correo, String contrasena, Date fechaCreacion,
                       Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion,
-                      RolPersonaDTO rolPersona, EstadoPersonaDTO estadoPersona) {
-        this.idPersona = idPersona;
+                      RolPersonaDto rolPersona, EstadoPersonaDto estadoPersona) {
+        this.personaId = personaId;
         this.nombres = nombres;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
@@ -57,14 +57,14 @@ public class PersonaDTO {
         this.rolPersona = rolPersona;
         this.estadoPersona = estadoPersona;
     }
-
+    
     // Getters y Setters
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getPersonaId() {
+        return personaId;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setPersonaId(Integer personaId) {
+        this.personaId = personaId;
     }
 
     public String getNombres() {
@@ -147,19 +147,19 @@ public class PersonaDTO {
         this.usuarioModificacion = usuarioModificacion;
     }
 
-    public RolPersonaDTO getRolPersona() {
+    public RolPersonaDto getRolPersona() {
         return rolPersona;
     }
 
-    public void setRolPersona(RolPersonaDTO rolPersona) {
+    public void setRolPersona(RolPersonaDto rolPersona) {
         this.rolPersona = rolPersona;
     }
 
-    public EstadoPersonaDTO getEstadoPersona() {
+    public EstadoPersonaDto getEstadoPersona() {
         return estadoPersona;
     }
 
-    public void setEstadoPersona(EstadoPersonaDTO estadoPersona) {
+    public void setEstadoPersona(EstadoPersonaDto estadoPersona) {
         this.estadoPersona = estadoPersona;
     }
 }

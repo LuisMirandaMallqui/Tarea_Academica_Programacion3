@@ -2,18 +2,18 @@ package pe.pucp.edu.prog3.softmkp.modelInciNoti;
 
 import java.util.Date;
 
-public class MotivoDTO {
+public class MotivoDto {
     
-    private Integer idMotivo;
+    private Integer motivoId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
     
-    // Constructor vacío (inicializa todo en null)
-    public MotivoDTO() {
-        this.idMotivo = null;
+    // Constructor vacío
+    public MotivoDto() {
+        this.motivoId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ public class MotivoDTO {
     }
 
     // Constructor con parámetros
-    public MotivoDTO(Integer idMotivo, String nombre, Date fechaCreacion, Integer usuarioCreacion,
+    public MotivoDto(Integer motivoId, String nombre, Date fechaCreacion, Integer usuarioCreacion,
                      Date fechaModificacion, Integer usuarioModificacion) {
-        this.idMotivo = idMotivo;
+        this.motivoId = motivoId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ public class MotivoDTO {
     }
 
     // Getters y Setters
-    public Integer getIdMotivo() {
-        return idMotivo;
+    public Integer getMotivoId() {
+        return motivoId;
     }
 
-    public void setIdMotivo(Integer idMotivo) {
-        this.idMotivo = idMotivo;
+    public void setMotivoId(Integer motivoId) {
+        this.motivoId = motivoId;
     }
 
     public String getNombre() {

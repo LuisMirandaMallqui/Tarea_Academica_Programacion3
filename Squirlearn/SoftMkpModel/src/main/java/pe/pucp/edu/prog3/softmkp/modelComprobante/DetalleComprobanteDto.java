@@ -1,23 +1,23 @@
 package pe.pucp.edu.prog3.softmkp.modelComprobante;
 
 import java.util.Date;
-import pe.pucp.edu.prog3.softmkp.modelAlquiler.AlquilerDTO;
-import pe.pucp.edu.prog3.softmkp.modelItem.ItemDTO;
+import pe.pucp.edu.prog3.softmkp.modelAlquiler.AlquilerDto;
+import pe.pucp.edu.prog3.softmkp.modelItem.ItemDto;
 
-public class DetalleComprobante {
+public class DetalleComprobanteDto {
     
-    private Integer idDetalleCom;
+    private Integer detalleComId;
     private String descripcion;
     private Double precio;
-    private ItemDTO item;
-    private AlquilerDTO alquiler;
-    private ComprobanteDTO comprobante;
+    private ItemDto item;
+    private AlquilerDto alquiler;
+    private ComprobanteDto comprobante;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
     
-    // Constructor vacío (inicializando con null)
-    public DetalleComprobante() {
-        this.idDetalleCom = null;
+    // Constructor vacío
+    public DetalleComprobanteDto() {
+        this.detalleComId = null;
         this.descripcion = null;
         this.precio = null;
         this.item = null;
@@ -28,10 +28,10 @@ public class DetalleComprobante {
     }
 
     // Constructor con parámetros
-    public DetalleComprobante(Integer idDetalleCom, String descripcion, Double precio,
-                              ItemDTO item, AlquilerDTO alquiler, ComprobanteDTO comprobante,
-                              Date fechaModificacion, Integer usuarioModificacion) {
-        this.idDetalleCom = idDetalleCom;
+    public DetalleComprobanteDto(Integer detalleComId, String descripcion, Double precio,
+                                 ItemDto item, AlquilerDto alquiler, ComprobanteDto comprobante,
+                                 Date fechaModificacion, Integer usuarioModificacion) {
+        this.detalleComId = detalleComId;
         this.descripcion = descripcion;
         this.precio = precio;
         this.item = item;
@@ -42,12 +42,12 @@ public class DetalleComprobante {
     }
 
     // Getters y Setters
-    public Integer getIdDetalleCom() {
-        return idDetalleCom;
+    public Integer getDetalleComId() {
+        return detalleComId;
     }
 
-    public void setIdDetalleCom(Integer idDetalleCom) {
-        this.idDetalleCom = idDetalleCom;
+    public void setDetalleComId(Integer detalleComId) {
+        this.detalleComId = detalleComId;
     }
 
     public String getDescripcion() {
@@ -66,27 +66,27 @@ public class DetalleComprobante {
         this.precio = precio;
     }
 
-    public ItemDTO getItem() {
+    public ItemDto getItem() {
         return item;
     }
 
-    public void setItem(ItemDTO item) {
+    public void setItem(ItemDto item) {
         this.item = item;
     }
 
-    public AlquilerDTO getAlquiler() {
+    public AlquilerDto getAlquiler() {
         return alquiler;
     }
 
-    public void setAlquiler(AlquilerDTO alquiler) {
+    public void setAlquiler(AlquilerDto alquiler) {
         this.alquiler = alquiler;
     }
 
-    public ComprobanteDTO getComprobante() {
+    public ComprobanteDto getComprobante() {
         return comprobante;
     }
 
-    public void setComprobante(ComprobanteDTO comprobante) {
+    public void setComprobante(ComprobanteDto comprobante) {
         this.comprobante = comprobante;
     }
 

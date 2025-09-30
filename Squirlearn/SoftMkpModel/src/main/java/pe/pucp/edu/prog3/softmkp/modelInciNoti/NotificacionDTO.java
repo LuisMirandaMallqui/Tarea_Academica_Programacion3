@@ -1,20 +1,19 @@
 package pe.pucp.edu.prog3.softmkp.modelInciNoti;
 
-import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDTO;
+import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDto;
 import java.util.Date;
 
-public class NotificacionDTO {
+public class NotificacionDto {
     
-    private Integer idNotificacion;
+    private Integer notificacionId;
     private Date fecha;
     private String mensaje;
-    private PersonaDTO perona;
-    private MotivoDTO motivo;
-    private PersonaDTO persona;
+    private PersonaDto persona;
+    private MotivoDto motivo;
     
     // Constructor vacío
-    public NotificacionDTO() {
-        this.idNotificacion = null;
+    public NotificacionDto() {
+        this.notificacionId = null;
         this.fecha = null;
         this.mensaje = null;
         this.persona = null;
@@ -22,8 +21,9 @@ public class NotificacionDTO {
     }
 
     // Constructor con parámetros
-    public NotificacionDTO(Integer idNotificacion, Date fecha, String mensaje, PersonaDTO persona, MotivoDTO motivo) {
-        this.idNotificacion = idNotificacion;
+    public NotificacionDto(Integer notificacionId, Date fecha, String mensaje,
+                           PersonaDto persona, MotivoDto motivo) {
+        this.notificacionId = notificacionId;
         this.fecha = fecha;
         this.mensaje = mensaje;
         this.persona = persona;
@@ -31,12 +31,12 @@ public class NotificacionDTO {
     }
 
     // Getters y Setters
-    public Integer getIdNotificacion() {
-        return idNotificacion;
+    public Integer getNotificacionId() {
+        return notificacionId;
     }
 
-    public void setIdNotificacion(Integer idNotificacion) {
-        this.idNotificacion = idNotificacion;
+    public void setNotificacionId(Integer notificacionId) {
+        this.notificacionId = notificacionId;
     }
 
     public Date getFecha() {
@@ -55,19 +55,19 @@ public class NotificacionDTO {
         this.mensaje = mensaje;
     }
 
-    public PersonaDTO getPersona() {
+    public PersonaDto getPersona() {
         return persona;
     }
 
-    public void setPersona(PersonaDTO persona) {
+    public void setPersona(PersonaDto persona) {
         this.persona = persona;
     }
 
-    public MotivoDTO getMotivo() {
+    public MotivoDto getMotivo() {
         return motivo;
     }
 
-    public void setMotivo(MotivoDTO motivo) {
+    public void setMotivo(MotivoDto motivo) {
         this.motivo = motivo;
     }
 }

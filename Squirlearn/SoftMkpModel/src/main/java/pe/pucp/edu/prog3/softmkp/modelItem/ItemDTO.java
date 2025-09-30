@@ -1,23 +1,23 @@
 package pe.pucp.edu.prog3.softmkp.modelItem;
 
-    public class ItemDTO {
+    public class ItemDto {
 
-        private Integer idItem;
+        private Integer itemId;
         private Double precio;
         private String nombre;
         private Boolean esVenta;
-        private SubcategoriaDTO subcategoria;
-        private CategoriaDTO categoria;
-        private ColorDTO color;
-        private FacultadDTO facultad;
-        private EstadoItemDTO estadoItem;
-        private CondicionDTO condicion;
-        private TamanoDTO tamano;
-        private FormatoDTO formato;
+        private SubcategoriaDto subcategoria;
+        private CategoriaDto categoria;
+        private ColorDto color;
+        private FacultadDto facultad;
+        private EstadoItemDto estadoItem;
+        private CondicionDto condicion;
+        private TamanoDto tamano;
+        private FormatoDto formato;
         
-        // Constructor vacío (todo inicializado en null)
-    public ItemDTO() {
-        this.idItem = null;
+        // Constructor vacío
+    public ItemDto() {
+        this.itemId = null;
         this.precio = null;
         this.nombre = null;
         this.esVenta = null;
@@ -32,11 +32,11 @@ package pe.pucp.edu.prog3.softmkp.modelItem;
     }
 
     // Constructor con parámetros
-    public ItemDTO(Integer idItem, Double precio, String nombre, Boolean esVenta,
-                   SubcategoriaDTO subcategoria, CategoriaDTO categoria, ColorDTO color,
-                   FacultadDTO facultad, EstadoItemDTO estadoItem, CondicionDTO condicion,
-                   TamanoDTO tamano, FormatoDTO formato) {
-        this.idItem = idItem;
+    public ItemDto(Integer itemId, Double precio, String nombre, Boolean esVenta,
+                   SubcategoriaDto subcategoria, CategoriaDto categoria, ColorDto color,
+                   FacultadDto facultad, EstadoItemDto estadoItem, CondicionDto condicion,
+                   TamanoDto tamano, FormatoDto formato) {
+        this.itemId = itemId;
         this.precio = precio;
         this.nombre = nombre;
         this.esVenta = esVenta;
@@ -51,12 +51,12 @@ package pe.pucp.edu.prog3.softmkp.modelItem;
     }
 
     // Getters y Setters
-    public Integer getIdItem() {
-        return idItem;
+    public Integer getItemId() {
+        return itemId;
     }
 
-    public void setIdItem(Integer idItem) {
-        this.idItem = idItem;
+    public void setItemId(Integer itemId) {
+        this.itemId = itemId;
     }
 
     public Double getPrecio() {
@@ -83,68 +83,68 @@ package pe.pucp.edu.prog3.softmkp.modelItem;
         this.esVenta = esVenta;
     }
 
-    public SubcategoriaDTO getSubcategoria() {
+    public SubcategoriaDto getSubcategoria() {
         return subcategoria;
     }
 
-    public void setSubcategoria(SubcategoriaDTO subcategoria) {
+    public void setSubcategoria(SubcategoriaDto subcategoria) {
         this.subcategoria = subcategoria;
     }
 
-    public CategoriaDTO getCategoria() {
+    public CategoriaDto getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(CategoriaDTO categoria) {
+    public void setCategoria(CategoriaDto categoria) {
         this.categoria = categoria;
     }
 
-    public ColorDTO getColor() {
+    public ColorDto getColor() {
         return color;
     }
 
-    public void setColor(ColorDTO color) {
+    public void setColor(ColorDto color) {
         this.color = color;
     }
 
-    public FacultadDTO getFacultad() {
+    public FacultadDto getFacultad() {
         return facultad;
     }
 
-    public void setFacultad(FacultadDTO facultad) {
+    public void setFacultad(FacultadDto facultad) {
         this.facultad = facultad;
     }
 
-    public EstadoItemDTO getEstadoItem() {
+    public EstadoItemDto getEstadoItem() {
         return estadoItem;
     }
 
-    public void setEstadoItem(EstadoItemDTO estadoItem) {
+    public void setEstadoItem(EstadoItemDto estadoItem) {
         this.estadoItem = estadoItem;
     }
 
-    public CondicionDTO getCondicion() {
+    public CondicionDto getCondicion() {
         return condicion;
     }
 
-    public void setCondicion(CondicionDTO condicion) {
+    public void setCondicion(CondicionDto condicion) {
         this.condicion = condicion;
     }
 
-    public TamanoDTO getTamano() {
+    public TamanoDto getTamano() {
         return tamano;
     }
 
-    public void setTamano(TamanoDTO tamano) {
+    public void setTamano(TamanoDto tamano) {
         this.tamano = tamano;
     }
 
-    public FormatoDTO getFormato() {
+    public FormatoDto getFormato() {
         return formato;
     }
 
-    public void setFormato(FormatoDTO formato) {
+    public void setFormato(FormatoDto formato) {
         this.formato = formato;
     }
 
-    }
+}

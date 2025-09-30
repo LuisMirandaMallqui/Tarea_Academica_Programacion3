@@ -1,43 +1,43 @@
 package pe.pucp.edu.prog3.softmkp.modelChat;
 
-import pe.pucp.edu.prog3.softmkp.modelChat.ChatDTO;
+import pe.pucp.edu.prog3.softmkp.modelChat.ChatDto;
 import java.util.Date;
-import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDTO;
+import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDto;
 
-public class PersonaChatDTO {
+public class PersonaChatDto {
     
-    private PersonaDTO persona;
-    private ChatDTO chat;
+    private PersonaDto persona;
+    private ChatDto chat;
     private Date ultimaActividad;
     
-    // Constructor vacío (todo en null)
-    public PersonaChatDTO() {
+    // Constructor vacío
+    public PersonaChatDto() {
         this.persona = null;
         this.chat = null;
         this.ultimaActividad = null;
     }
 
     // Constructor con parámetros
-    public PersonaChatDTO(PersonaDTO persona, ChatDTO chat, Date ultimaActividad) {
+    public PersonaChatDto(PersonaDto persona, ChatDto chat, Date ultimaActividad) {
         this.persona = persona;
         this.chat = chat;
         this.ultimaActividad = ultimaActividad;
     }
 
     // Getters y Setters
-    public PersonaDTO getPersona() {
+    public PersonaDto getPersona() {
         return persona;
     }
 
-    public void setPersona(PersonaDTO persona) {
+    public void setPersona(PersonaDto persona) {
         this.persona = persona;
     }
 
-    public ChatDTO getChat() {
+    public ChatDto getChat() {
         return chat;
     }
 
-    public void setChat(ChatDTO chat) {
+    public void setChat(ChatDto chat) {
         this.chat = chat;
     }
 

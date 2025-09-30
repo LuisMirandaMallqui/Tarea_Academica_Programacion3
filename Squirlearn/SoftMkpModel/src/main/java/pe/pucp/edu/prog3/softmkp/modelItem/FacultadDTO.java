@@ -2,18 +2,18 @@ package pe.pucp.edu.prog3.softmkp.modelItem;
 
 import java.util.Date;
 
-public class FacultadDTO {
+public class FacultadDto {
     
-    private Integer idFacultad;
+    private Integer facultadId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
     
-    // Constructor vacío (inicializa en null)
-    public FacultadDTO() {
-        this.idFacultad = null;
+    // Constructor vacío
+    public FacultadDto() {
+        this.facultadId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ public class FacultadDTO {
     }
 
     // Constructor con parámetros
-    public FacultadDTO(Integer idFacultad, String nombre, Date fechaCreacion,
+    public FacultadDto(Integer facultadId, String nombre, Date fechaCreacion,
                        Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
-        this.idFacultad = idFacultad;
+        this.facultadId = facultadId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ public class FacultadDTO {
     }
 
     // Getters y Setters
-    public Integer getIdFacultad() {
-        return idFacultad;
+    public Integer getFacultadId() {
+        return facultadId;
     }
 
-    public void setIdFacultad(Integer idFacultad) {
-        this.idFacultad = idFacultad;
+    public void setFacultadId(Integer facultadId) {
+        this.facultadId = facultadId;
     }
 
     public String getNombre() {

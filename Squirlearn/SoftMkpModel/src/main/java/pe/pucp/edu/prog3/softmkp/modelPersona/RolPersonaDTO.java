@@ -3,9 +3,9 @@ package pe.pucp.edu.prog3.softmkp.modelPersona;
 import java.util.Date;
 
 
-public class RolPersonaDTO {
+public class RolPersonaDto {
     
-    private Integer idRolPersona;
+    private Integer rolPersonaId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
@@ -13,8 +13,8 @@ public class RolPersonaDTO {
     private Integer usuarioModificacion;
     
     // Constructor vacío (inicializa todo en null)
-    public RolPersonaDTO() {
-        this.idRolPersona = null;
+    public RolPersonaDto() {
+        this.rolPersonaId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -23,9 +23,9 @@ public class RolPersonaDTO {
     }
 
     // Constructor con parámetros
-    public RolPersonaDTO(Integer idRolPersona, String nombre, Date fechaCreacion,
+    public RolPersonaDto(Integer rolPersonaId, String nombre, Date fechaCreacion,
                          Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
-        this.idRolPersona = idRolPersona;
+        this.rolPersonaId = rolPersonaId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -34,12 +34,12 @@ public class RolPersonaDTO {
     }
 
     // Getters y Setters
-    public Integer getIdRolPersona() {
-        return idRolPersona;
+    public Integer getRolPersonaId() {
+        return rolPersonaId;
     }
 
-    public void setIdRolPersona(Integer idRolPersona) {
-        this.idRolPersona = idRolPersona;
+    public void setRolPersonaId(Integer idRolPersona) {
+        this.rolPersonaId = idRolPersona;
     }
 
     public String getNombre() {

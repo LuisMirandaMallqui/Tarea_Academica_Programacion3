@@ -2,18 +2,18 @@ package pe.pucp.edu.prog3.softmkp.modelItem;
 
 import java.util.Date;
 
-public class CondicionDTO {
+public class CondicionDto {
     
-    private Integer idCondicion;
+    private Integer condicionId;
     private String nombre;
     private Date fechaCreacion;
     private Integer usuarioCreacion;
     private Date fechaModificacion;
     private Integer usuarioModificacion;
     
-    // Constructor vacío (inicializa en null)
-    public CondicionDTO() {
-        this.idCondicion = null;
+    // Constructor vacío
+    public CondicionDto() {
+        this.condicionId = null;
         this.nombre = null;
         this.fechaCreacion = null;
         this.usuarioCreacion = null;
@@ -22,9 +22,9 @@ public class CondicionDTO {
     }
 
     // Constructor con parámetros
-    public CondicionDTO(Integer idCondicion, String nombre, Date fechaCreacion,
+    public CondicionDto(Integer condicionId, String nombre, Date fechaCreacion,
                         Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
-        this.idCondicion = idCondicion;
+        this.condicionId = condicionId;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.usuarioCreacion = usuarioCreacion;
@@ -33,12 +33,12 @@ public class CondicionDTO {
     }
 
     // Getters y Setters
-    public Integer getIdCondicion() {
-        return idCondicion;
+    public Integer getCondicionId() {
+        return condicionId;
     }
 
-    public void setIdCondicion(Integer idCondicion) {
-        this.idCondicion = idCondicion;
+    public void setCondicionId(Integer condicionId) {
+        this.condicionId = condicionId;
     }
 
     public String getNombre() {

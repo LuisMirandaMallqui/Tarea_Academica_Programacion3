@@ -1,14 +1,14 @@
 package pe.pucp.edu.prog3.softmkp.modelAlquiler;
 
 import java.util.Date;
-import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDTO;
-import pe.pucp.edu.prog3.softmkp.modelItem.ItemDTO;
+import pe.pucp.edu.prog3.softmkp.modelPersona.PersonaDto;
+import pe.pucp.edu.prog3.softmkp.modelItem.ItemDto;
 
-public class AlquilerDTO {
+public class AlquilerDto {
     
-    private Integer idAlquiler;
-    private PersonaDTO persona;
-    private ItemDTO item;
+    private Integer alquilerId;
+    private PersonaDto persona;
+    private ItemDto item;
     private Date fechaInicio;
     private Date fechaFin;
     private Boolean devuelto;
@@ -18,9 +18,9 @@ public class AlquilerDTO {
     private Date fechaModificacion;
     private Integer usuarioModificacion;
     
-    // Constructor vacío
-    public AlquilerDTO() {
-        this.idAlquiler = null;
+    // Constructor vacío (inicializa en null)
+    public AlquilerDto() {
+        this.alquilerId = null;
         this.persona = null;
         this.item = null;
         this.fechaInicio = null;
@@ -34,10 +34,11 @@ public class AlquilerDTO {
     }
 
     // Constructor con parámetros
-    public AlquilerDTO(Integer idAlquiler, PersonaDTO persona, ItemDTO item, Date fechaInicio, Date fechaFin, 
-                       Boolean devuelto, Double monto, Date fechaCreacion, Integer usuarioCreacion, 
+    public AlquilerDto(Integer alquilerId, PersonaDto persona, ItemDto item,
+                       Date fechaInicio, Date fechaFin, Boolean devuelto, Double monto,
+                       Date fechaCreacion, Integer usuarioCreacion,
                        Date fechaModificacion, Integer usuarioModificacion) {
-        this.idAlquiler = idAlquiler;
+        this.alquilerId = alquilerId;
         this.persona = persona;
         this.item = item;
         this.fechaInicio = fechaInicio;
@@ -51,27 +52,27 @@ public class AlquilerDTO {
     }
 
     // Getters y Setters
-    public Integer getIdAlquiler() {
-        return idAlquiler;
+    public Integer getAlquilerId() {
+        return alquilerId;
     }
 
-    public void setIdAlquiler(Integer idAlquiler) {
-        this.idAlquiler = idAlquiler;
+    public void setAlquilerId(Integer alquilerId) {
+        this.alquilerId = alquilerId;
     }
 
-    public PersonaDTO getPersona() {
+    public PersonaDto getPersona() {
         return persona;
     }
 
-    public void setPersona(PersonaDTO persona) {
+    public void setPersona(PersonaDto persona) {
         this.persona = persona;
     }
 
-    public ItemDTO getItem() {
+    public ItemDto getItem() {
         return item;
     }
 
-    public void setItem(ItemDTO item) {
+    public void setItem(ItemDto item) {
         this.item = item;
     }
 
