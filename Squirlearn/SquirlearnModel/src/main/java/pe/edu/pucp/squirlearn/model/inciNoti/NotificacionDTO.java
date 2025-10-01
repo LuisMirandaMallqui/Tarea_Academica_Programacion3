@@ -1,0 +1,73 @@
+package pe.edu.pucp.squirlearn.model.inciNoti;
+
+import pe.edu.pucp.squirlearn.model.persona.PersonaDTO;
+import java.util.Date;
+
+public class NotificacionDTO {
+    
+    private Integer notificacionId;
+    private Date fecha;
+    private String mensaje;
+    private PersonaDTO persona;
+    private MotivoDTO motivo;
+    
+    // Constructor vacío
+    public NotificacionDTO() {
+        this.notificacionId = null;
+        this.fecha = null;
+        this.mensaje = null;
+        this.persona = null;
+        this.motivo = null;
+    }
+
+    // Constructor con parámetros
+    public NotificacionDTO(Integer notificacionId, Date fecha, String mensaje,
+                           PersonaDTO persona, MotivoDTO motivo) {
+        this.notificacionId = notificacionId;
+        this.fecha = fecha;
+        this.mensaje = mensaje;
+        this.persona = persona;
+        this.motivo = motivo;
+    }
+
+    // Getters y Setters
+    public Integer getNotificacionId() {
+        return notificacionId;
+    }
+
+    public void setNotificacionId(Integer notificacionId) {
+        this.notificacionId = notificacionId;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public PersonaDTO getPersona() {
+        return persona;
+    }
+
+    public void setPersona(PersonaDTO persona) {
+        this.persona = persona;
+    }
+
+    public MotivoDTO getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(MotivoDTO motivo) {
+        this.motivo = motivo;
+    }
+}
