@@ -1,8 +1,8 @@
-package pe.pucp.edu.prog3.softmkp.model.alquiler;
+package pe.edu.pucp.squirlearn.model.alquiler;
 
 import java.util.Date;
-import pe.pucp.edu.prog3.softmkp.model.persona.PersonaDto;
-import pe.pucp.edu.prog3.softmkp.model.item.ItemDto;
+import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
+import pe.edu.pucp.squirlearn.model.item.ItemDto;
 
 public class AlquilerDto {
     
