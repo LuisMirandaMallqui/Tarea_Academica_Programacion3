@@ -12,7 +12,7 @@ public class PublicacionDto {
     private EstadoPublicacionDto estadoPublicacion;
     private ItemDto item;
     private PersonaDto persona;
-    private CalificacionDto calificacion;
+    private Integer calificacion;
     
     // Constructor vacío (todo en null)
     public PublicacionDto() {
@@ -28,7 +28,7 @@ public class PublicacionDto {
     // Constructor con parámetros
     public PublicacionDto(Integer publicacionId, Date fechaAlta, Date fechaBaja,
                           EstadoPublicacionDto estadoPublicacion, ItemDto item,
-                          PersonaDto persona, CalificacionDto calificacion) {
+                          PersonaDto persona, Integer calificacion) {
         this.publicacionId = publicacionId;
         this.fechaAlta = fechaAlta;
         this.fechaBaja = fechaBaja;
@@ -87,11 +87,11 @@ public class PublicacionDto {
         this.persona = persona;
     }
 
-    public CalificacionDto getCalificacion() {
+    public Integer getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(CalificacionDto calificacion) {
+    public void setCalificacion(Integer calificacion) {
         this.calificacion = calificacion;
     }
 }
