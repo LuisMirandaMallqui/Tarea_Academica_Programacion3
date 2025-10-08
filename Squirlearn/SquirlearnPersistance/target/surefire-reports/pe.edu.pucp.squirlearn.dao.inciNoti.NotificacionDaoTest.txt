@@ -1,0 +1,69 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 5.147 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest
+pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.testModificar -- Time elapsed: 1.110 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.incluirValorDeParametrosParaInsercion(NotificacionDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.insertar(NotificacionDaoImpl.java:79)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.insertar(NotificacionDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.insertarNotificacions(NotificacionDaoTest.java:29)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.testModificar(NotificacionDaoTest.java:82)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.testObtenerPorId -- Time elapsed: 1.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.incluirValorDeParametrosParaInsercion(NotificacionDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.insertar(NotificacionDaoImpl.java:79)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.insertar(NotificacionDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.insertarNotificacions(NotificacionDaoTest.java:29)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.testObtenerPorId(NotificacionDaoTest.java:52)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.testEliminar -- Time elapsed: 1.007 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.incluirValorDeParametrosParaInsercion(NotificacionDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.insertar(NotificacionDaoImpl.java:79)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.insertar(NotificacionDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.insertarNotificacions(NotificacionDaoTest.java:29)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.testEliminar(NotificacionDaoTest.java:100)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.testInsertar -- Time elapsed: 1.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.incluirValorDeParametrosParaInsercion(NotificacionDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.insertar(NotificacionDaoImpl.java:79)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.insertar(NotificacionDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.insertarNotificacions(NotificacionDaoTest.java:29)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.testInsertar(NotificacionDaoTest.java:21)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.testListarTodos -- Time elapsed: 1.017 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.incluirValorDeParametrosParaInsercion(NotificacionDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.insertar(NotificacionDaoImpl.java:79)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl.insertar(NotificacionDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.insertarNotificacions(NotificacionDaoTest.java:29)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDaoTest.testListarTodos(NotificacionDaoTest.java:68)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
