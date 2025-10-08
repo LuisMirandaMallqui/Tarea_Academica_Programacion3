@@ -1,0 +1,69 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 5.100 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest
+pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.testModificar -- Time elapsed: 1.024 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.incluirValorDeParametrosParaInsercion(EstadoChatDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.insertar(EstadoChatDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.insertar(EstadoChatDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.insertarEstadoChats(EstadoChatDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.testModificar(EstadoChatDaoTest.java:92)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.testObtenerPorId -- Time elapsed: 1.015 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.incluirValorDeParametrosParaInsercion(EstadoChatDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.insertar(EstadoChatDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.insertar(EstadoChatDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.insertarEstadoChats(EstadoChatDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.testObtenerPorId(EstadoChatDaoTest.java:62)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.testEliminar -- Time elapsed: 1.008 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.incluirValorDeParametrosParaInsercion(EstadoChatDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.insertar(EstadoChatDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.insertar(EstadoChatDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.insertarEstadoChats(EstadoChatDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.testEliminar(EstadoChatDaoTest.java:110)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.testInsertar -- Time elapsed: 1.016 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.incluirValorDeParametrosParaInsercion(EstadoChatDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.insertar(EstadoChatDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.insertar(EstadoChatDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.insertarEstadoChats(EstadoChatDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.testInsertar(EstadoChatDaoTest.java:22)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.testListarTodos -- Time elapsed: 1.028 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.incluirValorDeParametrosParaInsercion(EstadoChatDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.insertar(EstadoChatDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.EstadoChatDaoImpl.insertar(EstadoChatDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.insertarEstadoChats(EstadoChatDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.chat.EstadoChatDaoTest.testListarTodos(EstadoChatDaoTest.java:78)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
