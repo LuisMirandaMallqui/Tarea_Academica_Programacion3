@@ -260,23 +260,6 @@ BEGIN
     SET NEW.USUARIO_MODIFICACION = CURRENT_USER();-- TRACKEAR AL USUARIO QUE MODIFICA LA ENTRADA
 END $$
 
-/*CALIFICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
-CREATE TRIGGER TRG_CALIFICACIONES_INSERT_CREACION
-BEFORE INSERT ON calificaciones
-FOR EACH ROW
-BEGIN
-	SET NEW.FECHA_CREACION = NOW();
-    SET NEW.USUARIO_MODIFICACION = CURRENT_USER();
-END $$
-
-CREATE TRIGGER TRG_CALIFICACIONES_UPDATE_AUDITORIA
-BEFORE UPDATE ON calificaciones
-FOR EACH ROW
-BEGIN
-	SET NEW.FECHA_MODIFICACION = NOW();
-    SET NEW.USUARIO_MODIFICACION = CURRENT_USER();
-END $$
-
 -- ------------------------------------------------------------------
 -- Tablas transaccionales
 -- -------------------------------------------------------------------
