@@ -172,7 +172,13 @@ VALUES
 ('Problemas con la venta'),
 ('Problemas con el alquiler');
 
-
-
+-- INSERT DE CALIFICACIONES
+INSERT INTO CALIFICACIONES (NOMBRE)
+VALUES
+('Muy malo'),
+('Malo'),
+('Regular'),
+('Bueno'),
+('Muy bueno');
 
 
