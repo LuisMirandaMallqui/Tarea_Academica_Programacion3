@@ -1,0 +1,69 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 5.981 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testModificar -- Time elapsed: 1.861 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.alquiler.AlquilerDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.incluirValorDeParametrosParaInsercion(AlquilerDaoImpl.java:38)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.insertar(AlquilerDaoImpl.java:103)
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.insertar(AlquilerDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.insertarAlquilers(AlquilerDaoTest.java:35)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testModificar(AlquilerDaoTest.java:100)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testObtenerPorId -- Time elapsed: 1.022 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.alquiler.AlquilerDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.incluirValorDeParametrosParaInsercion(AlquilerDaoImpl.java:38)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.insertar(AlquilerDaoImpl.java:103)
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.insertar(AlquilerDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.insertarAlquilers(AlquilerDaoTest.java:35)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testObtenerPorId(AlquilerDaoTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testEliminar -- Time elapsed: 1.026 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.alquiler.AlquilerDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.incluirValorDeParametrosParaInsercion(AlquilerDaoImpl.java:38)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.insertar(AlquilerDaoImpl.java:103)
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.insertar(AlquilerDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.insertarAlquilers(AlquilerDaoTest.java:35)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testEliminar(AlquilerDaoTest.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testInsertar -- Time elapsed: 1.018 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.alquiler.AlquilerDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.incluirValorDeParametrosParaInsercion(AlquilerDaoImpl.java:38)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.insertar(AlquilerDaoImpl.java:103)
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.insertar(AlquilerDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.insertarAlquilers(AlquilerDaoTest.java:35)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testInsertar(AlquilerDaoTest.java:21)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testListarTodos -- Time elapsed: 1.013 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.alquiler.AlquilerDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.incluirValorDeParametrosParaInsercion(AlquilerDaoImpl.java:38)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.insertar(AlquilerDaoImpl.java:103)
+	at pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl.insertar(AlquilerDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.insertarAlquilers(AlquilerDaoTest.java:35)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testListarTodos(AlquilerDaoTest.java:86)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+

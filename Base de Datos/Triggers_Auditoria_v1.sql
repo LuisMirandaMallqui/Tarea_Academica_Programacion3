@@ -404,4 +404,12 @@ BEGIN
     END IF;
 END $$
 
+/*NOTIFICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
+CREATE TRIGGER TRG_NOTIFICACIONES_CREACION
+BEFORE INSERT ON NOTIFICACIONES
+FOR EACH ROW 
+BEGIN
+	SET NEW.FECHA = NOW();
+END $$
+
 DELIMITER ;

@@ -22,6 +22,7 @@ public class ItemDaoImpl extends DAOImplBase implements ItemDao{
         this.listaColumnas.add(new Columna("ITEM_ID", true, true));
         this.listaColumnas.add(new Columna("PRECIO", false, false));
         this.listaColumnas.add(new Columna("NOMBRE", false, false));
+        this.listaColumnas.add(new Columna("DESCRIPCION", false, false));
         this.listaColumnas.add(new Columna("ES_VENTA", false, false));
         this.listaColumnas.add(new Columna("SUBCATEGORIA", false, false));
         this.listaColumnas.add(new Columna("CATEGORIA", false, false));
@@ -35,27 +36,29 @@ public class ItemDaoImpl extends DAOImplBase implements ItemDao{
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
         this.statement.setDouble(1, this.item.getPrecio());
         this.statement.setString(2, this.item.getNombre());
-        this.statement.setInt(3, (this.item.getEsVenta()!=null && this.item.getEsVenta())?1:0);
-        this.statement.setInt(4, this.item.getSubcategoria().getSubcategoriaId());
-        this.statement.setInt(5, this.item.getCategoria().getCategoriaId());
-        this.statement.setInt(6, this.item.getColor().getColorId());
-        this.statement.setInt(7, this.item.getEstadoItem().getEstadoItemId());
-        this.statement.setInt(8, this.item.getCondicion().getCondicionId());
-        this.statement.setInt(9, this.item.getFormato().getFormatoId());
+        this.statement.setString(3, this.item.getDescripcion());
+        this.statement.setInt(4, (this.item.getEsVenta()!=null && this.item.getEsVenta())?1:0);
+        this.statement.setInt(5, this.item.getSubcategoria().getSubcategoriaId());
+        this.statement.setInt(6, this.item.getCategoria().getCategoriaId());
+        this.statement.setInt(7, this.item.getColor().getColorId());
+        this.statement.setInt(8, this.item.getEstadoItem().getEstadoItemId());
+        this.statement.setInt(9, this.item.getCondicion().getCondicionId());
+        this.statement.setInt(10, this.item.getFormato().getFormatoId());
     }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         this.statement.setDouble(1, this.item.getPrecio());
         this.statement.setString(2, this.item.getNombre());
-        this.statement.setInt(3, (this.item.getEsVenta()!=null && this.item.getEsVenta())?1:0);
-        this.statement.setInt(4, this.item.getSubcategoria().getSubcategoriaId());
-        this.statement.setInt(5, this.item.getCategoria().getCategoriaId());
-        this.statement.setInt(6, this.item.getColor().getColorId());
-        this.statement.setInt(7, this.item.getEstadoItem().getEstadoItemId());
-        this.statement.setInt(8, this.item.getCondicion().getCondicionId());
-        this.statement.setInt(9, this.item.getFormato().getFormatoId());
-        this.statement.setInt(10, this.item.getItemId());
+        this.statement.setString(3, this.item.getDescripcion());
+        this.statement.setInt(4, (this.item.getEsVenta()!=null && this.item.getEsVenta())?1:0);
+        this.statement.setInt(5, this.item.getSubcategoria().getSubcategoriaId());
+        this.statement.setInt(6, this.item.getCategoria().getCategoriaId());
+        this.statement.setInt(7, this.item.getColor().getColorId());
+        this.statement.setInt(8, this.item.getEstadoItem().getEstadoItemId());
+        this.statement.setInt(9, this.item.getCondicion().getCondicionId());
+        this.statement.setInt(10, this.item.getFormato().getFormatoId());
+        this.statement.setInt(11, this.item.getItemId());
     }
 
     @Override
