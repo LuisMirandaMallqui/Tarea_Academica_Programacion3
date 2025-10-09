@@ -36,7 +36,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
         this.statement.setInt(3, this.publicacion.getEstadoPublicacion().getEstadoPublicacionId());
         this.statement.setInt(4, this.publicacion.getItem().getItemId());
         this.statement.setInt(5, this.publicacion.getPersona().getPersonaId());
-        this.statement.setInt(6, this.publicacion.getCalificacion());
+        this.statement.setInt(6, this.publicacion.getCalificacion().getCalificacionId());
     }
 
     @Override
@@ -46,7 +46,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
         this.statement.setInt(3, this.publicacion.getEstadoPublicacion().getEstadoPublicacionId());
         this.statement.setInt(4, this.publicacion.getItem().getItemId());
         this.statement.setInt(5, this.publicacion.getPersona().getPersonaId());
-        this.statement.setInt(6, this.publicacion.getCalificacion());
+        this.statement.setInt(6, this.publicacion.getCalificacion().getCalificacionId());
         this.statement.setInt(7, this.publicacion.getPublicacionId());
     }
 

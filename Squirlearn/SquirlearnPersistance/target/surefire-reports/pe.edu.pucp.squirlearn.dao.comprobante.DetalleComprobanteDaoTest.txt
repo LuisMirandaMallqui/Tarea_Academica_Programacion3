@@ -1,0 +1,69 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 5.048 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest
+pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.testModificar -- Time elapsed: 1.009 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.item.ItemDto.getItemId()" because the return value of "pe.edu.pucp.squirlearn.model.comprobante.DetalleComprobanteDto.getItem()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.incluirValorDeParametrosParaInsercion(DetalleComprobanteDaoImpl.java:37)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.insertar(DetalleComprobanteDaoImpl.java:90)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.insertar(DetalleComprobanteDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.insertarDetalleComprobantes(DetalleComprobanteDaoTest.java:32)
+	at pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.testModificar(DetalleComprobanteDaoTest.java:89)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.testObtenerPorId -- Time elapsed: 1.008 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.item.ItemDto.getItemId()" because the return value of "pe.edu.pucp.squirlearn.model.comprobante.DetalleComprobanteDto.getItem()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.incluirValorDeParametrosParaInsercion(DetalleComprobanteDaoImpl.java:37)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.insertar(DetalleComprobanteDaoImpl.java:90)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.insertar(DetalleComprobanteDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.insertarDetalleComprobantes(DetalleComprobanteDaoTest.java:32)
+	at pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.testObtenerPorId(DetalleComprobanteDaoTest.java:59)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.testEliminar -- Time elapsed: 1.011 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.item.ItemDto.getItemId()" because the return value of "pe.edu.pucp.squirlearn.model.comprobante.DetalleComprobanteDto.getItem()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.incluirValorDeParametrosParaInsercion(DetalleComprobanteDaoImpl.java:37)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.insertar(DetalleComprobanteDaoImpl.java:90)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.insertar(DetalleComprobanteDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.insertarDetalleComprobantes(DetalleComprobanteDaoTest.java:32)
+	at pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.testEliminar(DetalleComprobanteDaoTest.java:107)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.testInsertar -- Time elapsed: 1.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.item.ItemDto.getItemId()" because the return value of "pe.edu.pucp.squirlearn.model.comprobante.DetalleComprobanteDto.getItem()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.incluirValorDeParametrosParaInsercion(DetalleComprobanteDaoImpl.java:37)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.insertar(DetalleComprobanteDaoImpl.java:90)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.insertar(DetalleComprobanteDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.insertarDetalleComprobantes(DetalleComprobanteDaoTest.java:32)
+	at pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.testInsertar(DetalleComprobanteDaoTest.java:22)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.testListarTodos -- Time elapsed: 1.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.item.ItemDto.getItemId()" because the return value of "pe.edu.pucp.squirlearn.model.comprobante.DetalleComprobanteDto.getItem()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.incluirValorDeParametrosParaInsercion(DetalleComprobanteDaoImpl.java:37)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.insertar(DetalleComprobanteDaoImpl.java:90)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.DetalleComprobanteDaoImpl.insertar(DetalleComprobanteDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.insertarDetalleComprobantes(DetalleComprobanteDaoTest.java:32)
+	at pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDaoTest.testListarTodos(DetalleComprobanteDaoTest.java:75)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+

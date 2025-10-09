@@ -5,6 +5,7 @@ package pe.edu.pucp.squirlearn.model.item;
         private Integer itemId;
         private Double precio;
         private String nombre;
+        private String descripcion;
         private Boolean esVenta;
         private SubcategoriaDto subcategoria;
         private CategoriaDto categoria;
@@ -19,6 +20,7 @@ package pe.edu.pucp.squirlearn.model.item;
         this.itemId = null;
         this.precio = null;
         this.nombre = null;
+        this.descripcion = null;
         this.esVenta = null;
         this.subcategoria = null;
         this.categoria = null;
@@ -30,13 +32,14 @@ package pe.edu.pucp.squirlearn.model.item;
     }
 
     // Constructor con parámetros
-    public ItemDto(Integer itemId, Double precio, String nombre, Boolean esVenta,
+    public ItemDto(Integer itemId, Double precio, String nombre,String descripcion ,Boolean esVenta,
                    SubcategoriaDto subcategoria, CategoriaDto categoria, ColorDto color, 
                    EstadoItemDto estadoItem, CondicionDto condicion,
                    TamanoDto tamano, FormatoDto formato) {
         this.itemId = itemId;
         this.precio = precio;
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.esVenta = esVenta;
         this.subcategoria = subcategoria;
         this.categoria = categoria;
@@ -70,6 +73,14 @@ package pe.edu.pucp.squirlearn.model.item;
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Boolean getEsVenta() {

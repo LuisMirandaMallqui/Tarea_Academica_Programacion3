@@ -1,0 +1,74 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 5.935 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest
+pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.testModificar -- Time elapsed: 1.188 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.insertarCondicions(CondicionDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.testModificar(CondicionDaoTest.java:91)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.testObtenerPorId -- Time elapsed: 1.180 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.insertarCondicions(CondicionDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.testObtenerPorId(CondicionDaoTest.java:61)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.testEliminar -- Time elapsed: 1.193 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.insertarCondicions(CondicionDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.testEliminar(CondicionDaoTest.java:109)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.testInsertar -- Time elapsed: 1.182 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.insertarCondicions(CondicionDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.testInsertar(CondicionDaoTest.java:21)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.testListarTodos -- Time elapsed: 1.189 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.insertarCondicions(CondicionDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.item.CondicionDaoTest.testListarTodos(CondicionDaoTest.java:77)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
