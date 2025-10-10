@@ -1,0 +1,224 @@
+-- ========================================================
+-- DUMMY INSERTS SOLO PARA TABLAS VACÍAS (ajustado al esquema)
+-- ========================================================
+USE mydb;
+
+-- PERSONAS (si está vacía)
+INSERT INTO `personas` (
+  `PERSONA_ID`,
+  `NOMBRES`, `PRIMER_APELLIDO`, `SEGUNDO_APELLIDO`,
+  `CODIGO`, `CORREO`, `CONTRASENA`,
+  `ROL_PERSONA_ID_ROLPERSONA`, `ESTADO_PERSONA_ID_ESTADOPERSONA`,
+  `FECHA_CREACION`, `USUARIO_CREACION`,
+  `FECHA_MODIFICACION`, `USUARIO_MODIFICACION`
+)
+SELECT
+  1,
+  'Dummy', 'Persona', 'Test',
+  '00000001', 'dummy.persona@example.com', '123456',
+  1, 1,
+  '2025-01-01 00:00:00', 1,
+  NULL, NULL
+WHERE NOT EXISTS (SELECT 1 FROM `personas`);
+
+-- ITEMS (si está vacía)
+INSERT INTO `items` (
+  `ITEM_ID`,
+  `PRECIO`, `NOMBRE`, `DESCRIPCION`, `ES_VENTA`,
+  `COLOR_ID`, `ESTADO_ITEM_ID`, `CONDICION_ID`, `TAMANO_ID`, `FORMATO_ID`,
+  `subcategoria_ID_SUBCATEGORIA`, `subcategoria_CATEGORIA_ID`
+)
+SELECT
+  1,
+  1.00, 'Dummy Item', 'Para pruebas', 1,
+  1, 1, 1, 1, 1,
+  1, 1
+WHERE NOT EXISTS (SELECT 1 FROM `items`);
+
+-- CHATS (si está vacía)
+INSERT INTO `chats` (
+  `CHAT_ID`,
+  `FECHA_CREACION`, `estado_chat_ID_ESTADOCHAT`, `USUARIO_CREACION`,
+  `FECHA_MODIFICACION`, `USUARIO_MODIFICACION`
+)
+SELECT
+  1,
+  '2025-01-01 00:00:00', 1, 1,
+  NULL, NULL
+WHERE NOT EXISTS (SELECT 1 FROM `chats`);
+
+-- PUBLICACIONES (si está vacía)
+INSERT INTO `publicaciones` (
+  `PUBLICACION_ID`,
+  `FECHA_ALTA`, `FECHA_BAJA`,
+  `ESTADO_PUBLICACION_ID`,
+  `ITEM_ID_ITEM`, `PERSONA_ID`,
+  `CALIFICACION`
+)
+SELECT
+  1,
+  '2025-01-01 00:00:00', NULL,
+  1,
+  1, 1,
+  0
+WHERE NOT EXISTS (SELECT 1 FROM `publicaciones`);
+
+-- ALQUILERES (si está vacía)
+INSERT INTO `alquileres` (
+  `PERSONA_ID`, `ITEM_ID`,
+  `FECHA_INICIO`, `FECHA_FIN`,
+  `MONTO`,
+  `FECHA_CREACION`, `USUARIO_CREACION`,
+  `FECHA_MODIFICACION`, `USUARIO_MODIFICACION`,
+  `ALQUILER_ID`,
+  `DEVUELTO`
+)
+SELECT
+  1, 1,
+  '2025-01-01 00:00:00', '2025-01-02 00:00:00',
+  1.00,
+  '2025-01-01 00:00:00', 1,
+  NULL, NULL,
+  1,
+  0
+WHERE NOT EXISTS (SELECT 1 FROM `alquileres`);
+
+-- COMPROBANTES (si está vacía)
+INSERT INTO `comprobantes` (
+  `COMPROBANTE_ID`,
+  `MONTO`, `TRANSACCION_ID`, `FECHA_EMISION`,
+  `PERSONA_ID_PERSONA`,
+  `FORMA_PAGO_ID_FORMAPAGO`, `MONEDA_ID_MONEDA`,
+  `IMPUESTO`,
+  `FECHA_MODIFICACION`, `USUARIO_MODIFICIACION`
+)
+SELECT
+  1,
+  1.00, 'TX-TEST-0001', '2025-01-01 00:00:00',
+  1,
+  1, 1,
+  NULL,
+  NULL, NULL
+WHERE NOT EXISTS (SELECT 1 FROM `comprobantes`);
+
+-- DETALLES_COMPROBANTES (si está vacía)
+INSERT INTO `detalles_comprobantes` (
+  `DETALLECOM_ID`, `DESCRIPCION`, `PRECIO`,
+  `ITEM_ID_ITEM`, `ALQUILER_ID_ALQUILER`,
+  `COMPROBANTE_ID_COMPROBANTE`,
+  `FECHA_MODIFICACION`, `USUARIO_MODIFICACION`
+)
+SELECT
+  1, 'Detalle dummy', 1.00,
+  1, 1,
+  1,
+  NULL, NULL
+WHERE NOT EXISTS (SELECT 1 FROM `detalles_comprobantes`);
+
+-- NOTIFICACIONES (si está vacía)
+INSERT INTO `notificaciones` (
+  `NOTIFICACION_ID`,
+  `FECHA`, `MENSAJE`,
+  `PERSONA_ID`, `MOTIVO_ID_MOTIVO`
+)
+SELECT
+  1,
+  '2025-01-01 00:00:00', 'Mensaje de prueba',
+  1, 1
+WHERE NOT EXISTS (SELECT 1 FROM `notificaciones`);
+
+-- INCIDENCIAS (si está vacía)
+INSERT INTO `incidencias` (
+  `INCIDENCIA_ID`,
+  `DESCRIPCION`,
+  `FECHA_CREACION`, `FECHA_SOLUCION`,
+  `NOTIFIFACION_ID`, `PERSONA_ID`, `MOTIVO_ID_MOTIVO`,
+  `USUARIO_CREACION`, `USUARIO_SOLUCION`,
+  `FECHA_MODIFICACION`, `USUARIO_MODIFICACION`,
+  `RESUELTO`
+)
+SELECT
+  1,
+  'Descripcion dummy',
+  '2025-01-01 00:00:00', NULL,
+  1, 1, 1,
+  1, NULL,
+  NULL, NULL,
+  0
+WHERE NOT EXISTS (SELECT 1 FROM `incidencias`);
+
+-- ESTADOS_MENSAJES (solo si realmente está vacía y tu carga inicial no la pobló)
+-- (Si ya la llenaste en tu archivo de inserts iniciales, este bloque no hará nada)
+INSERT INTO `estados_mensajes` (
+  `ESTADOMSJ_ID`, `NOMBRE`, `FECHA_CREACION`, `USUARIO_CREACION`,
+  `FECHA_MODIFICACION`, `USUARIO_MODIFICACION`
+)
+SELECT
+  1, 'Enviado', '2025-01-01 00:00:00', 'seed', NULL, NULL
+WHERE NOT EXISTS (SELECT 1 FROM `estados_mensajes`);
+
+-- ESTADOS_CHATS (igual: solo si está vacía)
+INSERT INTO `estados_chats` (
+  `ESTADOCHAT_ID`, `NOMBRE`, `FECHA_CREACION`, `USUARIO_CREACION`,
+  `FECHA_MODIFICACION`, `USUARIO_MODIFICACION`
+)
+SELECT
+  1, 'Activo', '2025-01-01 00:00:00', 'seed', NULL, NULL
+WHERE NOT EXISTS (SELECT 1 FROM `estados_chats`);
+
+-- ESTADOS_PUBLICACIONES (solo si está vacía)
+INSERT INTO `estados_publicaciones` (
+  `ESTADOPUBLI_ID`, `NOMBRE`, `FECHA_CREACION`, `USUARIO_CREACION`,
+  `FECHA_MODIFICACION`, `USUARIO_MODIFICACION`
+)
+SELECT
+  1, 'Activa', '2025-01-01 00:00:00', 'seed', NULL, NULL
+WHERE NOT EXISTS (SELECT 1 FROM `estados_publicaciones`);
+
+-- FORMAS_PAGO (solo si está vacía)
+INSERT INTO `formas_pago` (
+  `FORMAPAGO_ID`, `NOMBRE`, `FECHA_CREACION`, `USUARIO_CREACION`,
+  `FECHA_MODIFICACION`, `USUARIO_MODIFICACION`
+)
+SELECT
+  1, 'Efectivo', '2025-01-01 00:00:00', 'seed', NULL, NULL
+WHERE NOT EXISTS (SELECT 1 FROM `formas_pago`);
+
+-- MONEDAS (solo si está vacía)
+INSERT INTO `monedas` (
+  `MONEDA_ID`, `NOMBRE`, `FECHA_CREACION`, `USUARIO_CREACION`,
+  `FECHA_MODIFICACION`, `USUARIO_MODIFICACION`
+)
+SELECT
+  1, 'PEN', '2025-01-01 00:00:00', 'seed', NULL, NULL
+WHERE NOT EXISTS (SELECT 1 FROM `monedas`);
+
+-- MENSAJES (si está vacía)
+INSERT INTO `mensajes` (
+  `MENSAJE_ID`,
+  `CHAT_ID_CHAT`, `FECHA_ENVIO`, `FECHA_LEIDO`,
+  `MENSAJE`, `ESTADO_MSJ_ID`, `PERSONA_ID`
+)
+SELECT
+  1,
+  1, '2025-01-01 00:00:00', NULL,
+  'Mensaje de prueba', 1, 1
+WHERE NOT EXISTS (SELECT 1 FROM `mensajes`);
+
+-- PERSONAS_CHATS (si está vacía)
+INSERT INTO `personas_chats` (
+  `PERSONA_ID`, `CHAT_ID`, `ULTIMA_ACTIVIDAD`
+)
+SELECT
+  1, 1, '2025-01-01 00:00:00'
+WHERE NOT EXISTS (SELECT 1 FROM `personas_chats`);
+
+-- HISTORIAS_PUBLICACIONES (si está vacía)
+INSERT INTO `historias_publicaciones` (
+  `HISTORIAPUBLI_ID`, `FECHA_MODIFICACION`, `PUBLICACION_ID`, `USUARIO_MODIFICACION`
+)
+SELECT
+  1, '2025-01-02 00:00:00', 1, 1
+WHERE NOT EXISTS (SELECT 1 FROM `historias_publicaciones`);
+commit;
+
