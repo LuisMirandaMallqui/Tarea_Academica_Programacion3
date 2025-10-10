@@ -25,6 +25,10 @@ public class SubcategoriaBo {
         return this.subcategoriaDao.listarPorCategoria(categoriaId);// necesita implementacion
     }
     
+    public ArrayList<SubcategoriaDto> listarTodos(){
+        return this.subcategoriaDao.listarTodos();
+    }
+    
     public SubcategoriaDto obtenerPorId(Integer id){
         return this.subcategoriaDao.obtenerPorId(id);
     }

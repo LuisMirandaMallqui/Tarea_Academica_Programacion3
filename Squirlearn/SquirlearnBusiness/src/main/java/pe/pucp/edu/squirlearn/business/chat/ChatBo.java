@@ -2,6 +2,7 @@
 package pe.pucp.edu.squirlearn.business.chat;
 
 import java.util.ArrayList;
+import java.util.Date;
 import pe.edu.pucp.squirlearn.dao.chat.ChatDao;
 import pe.edu.pucp.squirlearn.daoImpl.chat.ChatDaoImpl;
 import pe.edu.pucp.squirlearn.model.chat.ChatDto;
@@ -28,14 +29,19 @@ public class ChatBo {
         return this.chatDao.insertar(chatDto);
     }
     
-    public Integer modificar(Integer estadoId, Integer modificadorId){
+    public Integer modificar(Integer chatId, Integer estadoId, Date creacion,
+            Integer creador, Integer modificadorId){
         ChatDto chatDto = new ChatDto();
         
         EstadoChatDto estadoChat = new EstadoChatDto();
         estadoChat.setEstadoChatId(estadoId);
         
+        chatDto.setChatId(chatId);
+        chatDto.setUsuarioCreacion(creador);
+        chatDto.setFechaCreacion(creacion);
         chatDto.setEstadoChat(estadoChat);
         chatDto.setUsuarioModificacion(modificadorId);
+        
         return this.chatDao.modificar(chatDto);
     }
     

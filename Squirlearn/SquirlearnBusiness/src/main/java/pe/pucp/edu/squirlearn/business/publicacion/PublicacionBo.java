@@ -2,6 +2,7 @@
 package pe.pucp.edu.squirlearn.business.publicacion;
 
 import java.util.ArrayList;
+import java.util.Date;
 import pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDao;
 import pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl;
 import pe.edu.pucp.squirlearn.model.item.ItemDto;
@@ -20,25 +21,39 @@ public class PublicacionBo {
     
     public Integer insertar(Integer itemId, Integer personaId){
         PublicacionDto publicacionDto= new PublicacionDto();
+        
         ItemDto itemDto = new ItemDto();
         itemDto.setItemId(itemId);
         PersonaDto personaDto = new PersonaDto();
         personaDto.setPersonaId(personaId);
         EstadoPublicacionDto estadoPublicacion = new EstadoPublicacionDto();
         estadoPublicacion.setEstadoPublicacionId(1);
+        
         publicacionDto.setEstadoPublicacion(estadoPublicacion);
         publicacionDto.setItem(itemDto);
         publicacionDto.setPersona(personaDto);
+        
         return this.publicacionDao.insertar(publicacionDto);
     }
     
-    public Integer modificar(Integer publicacionId, Integer estadoId, Integer calificacion){
+    public Integer modificar(Integer publicacionId, Date fechaAlta ,Integer estadoId,
+            Integer itemId, Integer personaId, Integer calificacion){
         PublicacionDto publicacionDto= new PublicacionDto();
-        publicacionDto.setPublicacionId(publicacionId);
+        
         EstadoPublicacionDto estadoPublicacion = new EstadoPublicacionDto();
         estadoPublicacion.setEstadoPublicacionId(estadoId);
+        ItemDto itemDto = new ItemDto();
+        itemDto.setItemId(itemId);
+        PersonaDto personaDto = new PersonaDto();
+        personaDto.setPersonaId(personaId);
+        
+        publicacionDto.setPublicacionId(publicacionId);
+        publicacionDto.setFechaAlta(fechaAlta);
         publicacionDto.setEstadoPublicacion(estadoPublicacion);
+        publicacionDto.setItem(itemDto);
+        publicacionDto.setPersona(personaDto);
         publicacionDto.setCalificacion(calificacion);
+        
         return this.publicacionDao.modificar(publicacionDto);
     }
     

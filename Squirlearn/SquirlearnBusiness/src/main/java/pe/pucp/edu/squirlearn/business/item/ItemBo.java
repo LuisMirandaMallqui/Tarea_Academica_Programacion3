@@ -42,6 +42,7 @@ public class ItemBo {
         itemdto.setPrecio(precio);
         itemdto.setNombre(nombre);
         itemdto.setDescripcion(descripcion);
+        itemdto.setEsVenta(esVenta);
         itemdto.setColor(color);
         itemdto.setCondicion(condicion);
         itemdto.setTamano(tamano);
@@ -53,7 +54,7 @@ public class ItemBo {
     }
     
     public Integer modificar(Integer id,Double precio,String nombre, String descripcion, Boolean esVenta ,
-            Integer colorId, Integer condicionId, Integer tamanoId, Integer formatoId,
+            Integer colorId, Integer estadoId ,Integer condicionId, Integer tamanoId, Integer formatoId,
             Integer categoriaId, Integer subcategoriaId){
         ItemDto itemdto = new ItemDto();
         
@@ -69,30 +70,25 @@ public class ItemBo {
         categoria.setCategoriaId(categoriaId);
         SubcategoriaDto subcategoria = new SubcategoriaDto();
         subcategoria.setSubcategoriaId(subcategoriaId);
+        EstadoItemDto estado = new EstadoItemDto();
+        estado.setEstadoItemId(estadoId);
         
         itemdto.setItemId(id);
         itemdto.setPrecio(precio);
         itemdto.setNombre(nombre);
         itemdto.setDescripcion(descripcion);
+        itemdto.setEsVenta(esVenta);
         itemdto.setColor(color);
         itemdto.setCondicion(condicion);
         itemdto.setTamano(tamano);
         itemdto.setFormato(formato);
         itemdto.setCategoria(categoria);
         itemdto.setSubcategoria(subcategoria);
+        itemdto.setEstadoItem(estado);
+        
         return this.itemDao.modificar(itemdto);
     }
     
-    public Integer modificarEstado(Integer id,Integer estadoId){
-        ItemDto itemdto = new ItemDto();
-        
-        itemdto.setItemId(id);
-        EstadoItemDto estado = new EstadoItemDto();
-        estado.setEstadoItemId(estadoId);
-        itemdto.setEstadoItem(estado);
-        
-        return this.itemDao.modificarEstado(itemdto); // necesita implementación
-    }
     
     public ItemDto obtenerPorId(Integer id){
         return this.itemDao.obtenerPorId(id);

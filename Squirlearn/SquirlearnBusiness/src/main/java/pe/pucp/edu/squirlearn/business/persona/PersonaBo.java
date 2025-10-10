@@ -2,6 +2,7 @@
 package pe.pucp.edu.squirlearn.business.persona;
 
 import java.util.ArrayList;
+import java.util.Date;
 import pe.edu.pucp.squirlearn.dao.persona.PersonaDao;
 import pe.edu.pucp.squirlearn.daoImpl.persona.PersonaDaoImpl;
 import pe.edu.pucp.squirlearn.model.persona.EstadoPersonaDto;
@@ -22,33 +23,48 @@ public class PersonaBo {
     }
     
     public Integer insertar(String nombres, String primerApellido, String segundoApellido, 
-            String codigo, String correo, String contrasena, Integer rol){
+            String codigo, String correo, String contrasena, Integer rol, Integer creadorId){
         PersonaDto personaDto = new PersonaDto();
+        
+        RolPersonaDto rolPersona = new RolPersonaDto();
+        rolPersona.setRolPersonaId(rol);
+        EstadoPersonaDto estado = new EstadoPersonaDto();
+        estado.setEstadoPersonaId(1);
+        
         personaDto.setNombres(nombres);
         personaDto.setPrimerApellido(primerApellido);
         personaDto.setSegundoApellido(segundoApellido);
         personaDto.setCodigo(codigo);
         personaDto.setCorreo(correo);
-        personaDto.setContrasena(contrasena);
-        RolPersonaDto rolPersona = new RolPersonaDto();
-        rolPersona.setRolPersonaId(rol);
+        personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));
         personaDto.setRolPersona(rolPersona);
-        EstadoPersonaDto estado = new EstadoPersonaDto();
-        estado.setEstadoPersonaId(1);
         personaDto.setEstadoPersona(estado);
+        personaDto.setUsuarioCreacion(creadorId);
         
         return this.personaDao.insertar(personaDto);
     }
     
-    public Integer modificar(Integer id, String correo, String contrasena,Integer estadoPersona
-            , Integer idModifcador){
+    public Integer modificar(Integer id, String nombres, String primerApellido, String segundoApellido, 
+            String codigo, String correo, String contrasena, Integer rol,Integer estadoId ,
+            Date fechaCreacion ,Integer creadorId, Integer idModifcador){
         PersonaDto personaDto = new PersonaDto();
-        personaDto.setPersonaId(id);
-        personaDto.setCorreo(correo);
+        
         personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));
         EstadoPersonaDto estado = new EstadoPersonaDto();
-        estado.setEstadoPersonaId(estadoPersona);
+        estado.setEstadoPersonaId(estadoId);
+        RolPersonaDto rolPersona = new RolPersonaDto();
+        rolPersona.setRolPersonaId(rol);
+        
+        personaDto.setPersonaId(id);
+        personaDto.setNombres(nombres);
+        personaDto.setPrimerApellido(primerApellido);
+        personaDto.setSegundoApellido(segundoApellido);
+        personaDto.setCodigo(codigo);
+        personaDto.setCorreo(correo);
+        personaDto.setRolPersona(rolPersona);
         personaDto.setEstadoPersona(estado);
+        personaDto.setFechaCreacion(fechaCreacion);
+        personaDto.setUsuarioCreacion(creadorId);
         personaDto.setUsuarioModificacion(idModifcador);
         
         return this.personaDao.modificar(personaDto);
