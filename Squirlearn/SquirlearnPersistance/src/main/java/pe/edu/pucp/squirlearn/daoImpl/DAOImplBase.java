@@ -82,6 +82,8 @@ public abstract class DAOImplBase {
     protected Integer eliminar() {
         return this.ejecuta_DML(Tipo_Operacion.ELIMINAR);
     }
+    
+    
 
     private Integer ejecuta_DML(Tipo_Operacion tipo_operacion) {
         Integer resultado = 0;
@@ -349,7 +351,7 @@ public abstract class DAOImplBase {
         }
         return lista;
     }
-
+    
     protected void agregarObjetoALaLista(List lista) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

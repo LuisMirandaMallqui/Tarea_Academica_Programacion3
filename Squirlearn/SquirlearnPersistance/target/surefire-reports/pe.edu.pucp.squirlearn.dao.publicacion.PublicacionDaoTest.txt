@@ -1,0 +1,69 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 5.026 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest
+pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.testModificar -- Time elapsed: 1.006 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.incluirValorDeParametrosParaInsercion(PublicacionDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.insertar(PublicacionDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.insertar(PublicacionDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.insertarPublicacions(PublicacionDaoTest.java:31)
+	at pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.testModificar(PublicacionDaoTest.java:84)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.testObtenerPorId -- Time elapsed: 0.998 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.incluirValorDeParametrosParaInsercion(PublicacionDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.insertar(PublicacionDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.insertar(PublicacionDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.insertarPublicacions(PublicacionDaoTest.java:31)
+	at pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.testObtenerPorId(PublicacionDaoTest.java:54)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.testEliminar -- Time elapsed: 1.002 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.incluirValorDeParametrosParaInsercion(PublicacionDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.insertar(PublicacionDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.insertar(PublicacionDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.insertarPublicacions(PublicacionDaoTest.java:31)
+	at pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.testEliminar(PublicacionDaoTest.java:102)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.testInsertar -- Time elapsed: 0.995 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.incluirValorDeParametrosParaInsercion(PublicacionDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.insertar(PublicacionDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.insertar(PublicacionDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.insertarPublicacions(PublicacionDaoTest.java:31)
+	at pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.testInsertar(PublicacionDaoTest.java:22)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.testListarTodos -- Time elapsed: 1.020 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.incluirValorDeParametrosParaInsercion(PublicacionDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.insertar(PublicacionDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl.insertar(PublicacionDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.insertarPublicacions(PublicacionDaoTest.java:31)
+	at pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDaoTest.testListarTodos(PublicacionDaoTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+

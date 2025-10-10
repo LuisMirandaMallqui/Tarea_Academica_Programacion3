@@ -1,0 +1,69 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 5.304 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest
+pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.testModificar -- Time elapsed: 1.265 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.incluirValorDeParametrosParaInsercion(ComprobanteDaoImpl.java:39)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.insertar(ComprobanteDaoImpl.java:98)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.insertar(ComprobanteDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.insertarComprobantes(ComprobanteDaoTest.java:34)
+	at pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.testModificar(ComprobanteDaoTest.java:95)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.testObtenerPorId -- Time elapsed: 1.011 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.incluirValorDeParametrosParaInsercion(ComprobanteDaoImpl.java:39)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.insertar(ComprobanteDaoImpl.java:98)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.insertar(ComprobanteDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.insertarComprobantes(ComprobanteDaoTest.java:34)
+	at pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.testObtenerPorId(ComprobanteDaoTest.java:65)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.testEliminar -- Time elapsed: 1.008 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.incluirValorDeParametrosParaInsercion(ComprobanteDaoImpl.java:39)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.insertar(ComprobanteDaoImpl.java:98)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.insertar(ComprobanteDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.insertarComprobantes(ComprobanteDaoTest.java:34)
+	at pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.testEliminar(ComprobanteDaoTest.java:113)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.testInsertar -- Time elapsed: 1.008 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.incluirValorDeParametrosParaInsercion(ComprobanteDaoImpl.java:39)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.insertar(ComprobanteDaoImpl.java:98)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.insertar(ComprobanteDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.insertarComprobantes(ComprobanteDaoTest.java:34)
+	at pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.testInsertar(ComprobanteDaoTest.java:22)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.testListarTodos -- Time elapsed: 1.007 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.incluirValorDeParametrosParaInsercion(ComprobanteDaoImpl.java:39)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.insertar(ComprobanteDaoImpl.java:98)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl.insertar(ComprobanteDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.insertarComprobantes(ComprobanteDaoTest.java:34)
+	at pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDaoTest.testListarTodos(ComprobanteDaoTest.java:81)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+

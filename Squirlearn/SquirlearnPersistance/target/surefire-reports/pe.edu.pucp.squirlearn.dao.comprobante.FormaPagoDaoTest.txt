@@ -1,0 +1,69 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 5.030 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest
+pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.testModificar -- Time elapsed: 0.998 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.incluirValorDeParametrosParaInsercion(FormaPagoDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.insertar(FormaPagoDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.insertar(FormaPagoDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.insertarFormaPagos(FormaPagoDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.testModificar(FormaPagoDaoTest.java:92)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.testObtenerPorId -- Time elapsed: 1.006 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.incluirValorDeParametrosParaInsercion(FormaPagoDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.insertar(FormaPagoDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.insertar(FormaPagoDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.insertarFormaPagos(FormaPagoDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.testObtenerPorId(FormaPagoDaoTest.java:62)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.testEliminar -- Time elapsed: 1.015 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.incluirValorDeParametrosParaInsercion(FormaPagoDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.insertar(FormaPagoDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.insertar(FormaPagoDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.insertarFormaPagos(FormaPagoDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.testEliminar(FormaPagoDaoTest.java:110)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.testInsertar -- Time elapsed: 1.005 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.incluirValorDeParametrosParaInsercion(FormaPagoDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.insertar(FormaPagoDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.insertar(FormaPagoDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.insertarFormaPagos(FormaPagoDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.testInsertar(FormaPagoDaoTest.java:22)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.testListarTodos -- Time elapsed: 1.001 s <<< ERROR!
+java.lang.ClassCastException: class java.util.Date cannot be cast to class java.sql.Date (java.util.Date is in module java.base of loader 'bootstrap'; java.sql.Date is in module java.sql of loader 'platform')
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.incluirValorDeParametrosParaInsercion(FormaPagoDaoImpl.java:34)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.insertar(FormaPagoDaoImpl.java:85)
+	at pe.edu.pucp.squirlearn.daoImpl.comprobante.FormaPagoDaoImpl.insertar(FormaPagoDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.insertarFormaPagos(FormaPagoDaoTest.java:33)
+	at pe.edu.pucp.squirlearn.dao.comprobante.FormaPagoDaoTest.testListarTodos(FormaPagoDaoTest.java:78)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+

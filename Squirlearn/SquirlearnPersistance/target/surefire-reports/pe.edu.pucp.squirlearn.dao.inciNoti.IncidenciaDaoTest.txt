@@ -1,0 +1,43 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.squirlearn.dao.inciNoti.IncidenciaDaoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 3.038 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.inciNoti.IncidenciaDaoTest
+pe.edu.pucp.squirlearn.dao.inciNoti.IncidenciaDaoTest.testModificar -- Time elapsed: 1.009 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto.getNotificacionId()" because the return value of "pe.edu.pucp.squirlearn.model.inciNoti.IncidenciaDto.getNotificacion()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.IncidenciaDaoImpl.incluirValorDeParametrosParaInsercion(IncidenciaDaoImpl.java:46)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.IncidenciaDaoImpl.insertar(IncidenciaDaoImpl.java:103)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.IncidenciaDaoImpl.insertar(IncidenciaDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.IncidenciaDaoTest.insertarIncidencias(IncidenciaDaoTest.java:35)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.IncidenciaDaoTest.testModificar(IncidenciaDaoTest.java:79)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.inciNoti.IncidenciaDaoTest.testEliminar -- Time elapsed: 1.010 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto.getNotificacionId()" because the return value of "pe.edu.pucp.squirlearn.model.inciNoti.IncidenciaDto.getNotificacion()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.IncidenciaDaoImpl.incluirValorDeParametrosParaInsercion(IncidenciaDaoImpl.java:46)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.IncidenciaDaoImpl.insertar(IncidenciaDaoImpl.java:103)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.IncidenciaDaoImpl.insertar(IncidenciaDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.IncidenciaDaoTest.insertarIncidencias(IncidenciaDaoTest.java:35)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.IncidenciaDaoTest.testEliminar(IncidenciaDaoTest.java:97)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.inciNoti.IncidenciaDaoTest.testInsertar -- Time elapsed: 1.012 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto.getNotificacionId()" because the return value of "pe.edu.pucp.squirlearn.model.inciNoti.IncidenciaDto.getNotificacion()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.IncidenciaDaoImpl.incluirValorDeParametrosParaInsercion(IncidenciaDaoImpl.java:46)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.IncidenciaDaoImpl.insertar(IncidenciaDaoImpl.java:103)
+	at pe.edu.pucp.squirlearn.daoImpl.inciNoti.IncidenciaDaoImpl.insertar(IncidenciaDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.IncidenciaDaoTest.insertarIncidencias(IncidenciaDaoTest.java:35)
+	at pe.edu.pucp.squirlearn.dao.inciNoti.IncidenciaDaoTest.testInsertar(IncidenciaDaoTest.java:21)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+

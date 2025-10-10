@@ -1,0 +1,43 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.squirlearn.dao.chat.PersonaChatDaoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 3.042 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.chat.PersonaChatDaoTest
+pe.edu.pucp.squirlearn.dao.chat.PersonaChatDaoTest.testModificar -- Time elapsed: 1.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.chat.PersonaChatDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.chat.PersonaChatDaoImpl.incluirValorDeParametrosParaInsercion(PersonaChatDaoImpl.java:30)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.PersonaChatDaoImpl.insertar(PersonaChatDaoImpl.java:72)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.PersonaChatDaoImpl.insertar(PersonaChatDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.chat.PersonaChatDaoTest.insertarPersonaChats(PersonaChatDaoTest.java:29)
+	at pe.edu.pucp.squirlearn.dao.chat.PersonaChatDaoTest.testModificar(PersonaChatDaoTest.java:58)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.chat.PersonaChatDaoTest.testEliminar -- Time elapsed: 1.012 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.chat.PersonaChatDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.chat.PersonaChatDaoImpl.incluirValorDeParametrosParaInsercion(PersonaChatDaoImpl.java:30)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.PersonaChatDaoImpl.insertar(PersonaChatDaoImpl.java:72)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.PersonaChatDaoImpl.insertar(PersonaChatDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.chat.PersonaChatDaoTest.insertarPersonaChats(PersonaChatDaoTest.java:29)
+	at pe.edu.pucp.squirlearn.dao.chat.PersonaChatDaoTest.testEliminar(PersonaChatDaoTest.java:76)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.chat.PersonaChatDaoTest.testInsertar -- Time elapsed: 1.021 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "pe.edu.pucp.squirlearn.model.persona.PersonaDto.getPersonaId()" because the return value of "pe.edu.pucp.squirlearn.model.chat.PersonaChatDto.getPersona()" is null
+	at pe.edu.pucp.squirlearn.daoImpl.chat.PersonaChatDaoImpl.incluirValorDeParametrosParaInsercion(PersonaChatDaoImpl.java:30)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.ejecuta_DML(DAOImplBase.java:105)
+	at pe.edu.pucp.squirlearn.daoImpl.DAOImplBase.insertar(DAOImplBase.java:75)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.PersonaChatDaoImpl.insertar(PersonaChatDaoImpl.java:72)
+	at pe.edu.pucp.squirlearn.daoImpl.chat.PersonaChatDaoImpl.insertar(PersonaChatDaoImpl.java:11)
+	at pe.edu.pucp.squirlearn.dao.chat.PersonaChatDaoTest.insertarPersonaChats(PersonaChatDaoTest.java:29)
+	at pe.edu.pucp.squirlearn.dao.chat.PersonaChatDaoTest.testInsertar(PersonaChatDaoTest.java:22)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
