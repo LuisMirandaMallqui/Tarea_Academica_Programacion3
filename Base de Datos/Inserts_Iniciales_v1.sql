@@ -1,7 +1,7 @@
 -- INSERTS DE TABLAS QUE ACOMPAÑ
 ----------------------------------------------------
 -- INSERT DE PERSONAS PUCP
-INSERT INTO PERSONAS_PUCP ( NOMBRES, PRIMER_APELLIDO, SEGUNDO_APELLIDO, CODIGO, CORREO)
+INSERT INTO personas_pucp ( NOMBRES, PRIMER_APELLIDO, SEGUNDO_APELLIDO, CODIGO, CORREO)
 VALUES
 ('María Fernanda', 'Lopez', 'Ramirez', '20231547', 'a20231547@pucp.edu.pe'),
 ('José Luis', 'Castro', 'Vargas', '20228459', 'a20228459@pucp.edu.pe'),
@@ -15,7 +15,7 @@ VALUES
 ('Santiago Nicolás', 'Gonzales', 'Linares', '20238417', 'a20238417@pucp.edu.pe');
 
 -- INSERT DE TARJETAS
-INSERT INTO TARJETAS (NUMERO, CCV, FECHA_VENCIMIENTO)
+INSERT INTO tarjetas (NUMERO, CCV, FECHA_VENCIMIENTO)
 VALUES
 ('4556738901246789', '321', '2027-05-31 00:00:00'),
 ('5234789012569874', '842', '2026-11-30 00:00:00'),
@@ -29,7 +29,7 @@ VALUES
 ('5123123498765123', '604', '2030-04-30 00:00:00');
 
 -- INSERT DE YAPE
-INSERT INTO YAPE (NUMERO, CODIGO_APROBACION)
+INSERT INTO yape (NUMERO, CODIGO_APROBACION)
 VALUES
 ('912345678', '654321'),
 ('934567890', '123456'),
@@ -41,34 +41,34 @@ VALUES
 -- INSERTS DE TABLAS MAESTRAS
 --------------------------------------------------
 -- INSERT DE ESTADOS_PERSONAS
-INSERT INTO ESTADOS_PERSONAS (NOMBRE)
+INSERT INTO estados_personas (NOMBRE)
 VALUES
 ('Activo'),
 ('Suspendido'),
 ('Eliminado');
 
 -- INSERT DE ESTADOS_CHATS
-INSERT INTO ESTADOS_CHATS (NOMBRE)
+INSERT INTO estados_chats (NOMBRE)
 VALUES
 ('Activo'),
 ('Eliminado');
 
 -- INSERT DE ESTADOS_ITEMS
-INSERT INTO ESTADOS_ITEMS (NOMBRE)
+INSERT INTO estados_items (NOMBRE)
 VALUES
 ('Disponible'),
 ('Vendido'),
 ('Alquilado');
 
 -- INSERT DE ESTADOS_MENSAJES
-INSERT INTO ESTADOS_MENSAJES (NOMBRE)
+INSERT INTO estados_mensajes (NOMBRE)
 VALUES
 ('Enviado'),
 ('Recibido'),
 ('Leido');
 
 -- INSERT DE ESTADOS_PUBLICACIONES
-INSERT INTO ESTADOS_PUBLICACIONES (NOMBRE)
+INSERT INTO estados_publicaciones (NOMBRE)
 VALUES
 ('Pendiente'),
 ('Aprobada'),
@@ -76,14 +76,14 @@ VALUES
 ('Eliminada');
 
 -- INSERT DE CONDICIONES
-INSERT INTO CONDICIONES (NOMBRE)
+INSERT INTO condiciones (NOMBRE)
 VALUES
 ('Nuevo'),
 ('Seminuevo'),
 ('Antiguo');
 
 -- INSERT DE COLORES
-INSERT INTO COLORES (NOMBRE)
+INSERT INTO colores (NOMBRE)
 VALUES
 ('Rojo'),
 ('Azul'),
@@ -96,39 +96,39 @@ VALUES
 ('Celeste');
 
 -- INSERT DE FORMAS DE PAGO
-INSERT INTO FORMAS_PAGO (NOMBRE)
+INSERT INTO formas_pago (NOMBRE)
 VALUES
 ('Tarjeta'),
 ('Yape');
 
 -- INSERT DE FORMATOS
-INSERT INTO FORMATOS (NOMBRE)
+INSERT INTO formatos (NOMBRE)
 VALUES
 ('Físico'),
 ('Digital');
 
 -- INSERT DE MONEDAS
-INSERT INTO MONEDAS (NOMBRE)
+INSERT INTO monedas (NOMBRE)
 VALUES
 ('Soles'),
 ('Dólares'),
 ('Euros');
 
 -- INSERT DE ROLES DE PERSONAS
-INSERT INTO ROLES_PERSONAS (NOMBRE)
+INSERT INTO roles_personas (NOMBRE)
 VALUES
 ('Comprador'),
 ('Vendedor');
 
 -- INSERT DE TAMAÑOS
-INSERT INTO TAMANOS (NOMBRE)
+INSERT INTO tamanos (NOMBRE)
 VALUES
 ('Grande'),
 ('Mediano'),
 ('Chico');
 
 -- INSERT DE CATEGORÍAS
-INSERT INTO CATEGORIAS (NOMBRE)
+INSERT INTO categorias (NOMBRE)
 VALUES
 ('Libros'),
 ('Evaluaciones'),
@@ -136,7 +136,7 @@ VALUES
 ('Útiles y accesorios');
 
 -- INSERT DE SUB-CATEGORÍAS
-INSERT INTO SUBCATEGORIAS (NOMBRE,CATEGORIA_ID)
+INSERT INTO subcategorias (NOMBRE,CATEGORIA_ID)
 VALUES
 ('Ciencias e ingeniería',1),
 ('Ciencias Sociales',1),
@@ -160,7 +160,7 @@ VALUES
 ('Ropa',4);
 
 -- INSERT DE MOTIVOS
-INSERT INTO MOTIVOS (NOMBRE)
+INSERT INTO motivos (NOMBRE)
 VALUES
 ('Suspención de cuenta'),
 ('Rechazo de publicación'),
