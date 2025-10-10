@@ -36,14 +36,29 @@ public class AlquilerBo {
         return this.alquilerDao.insertar(alquilerDto);
     }
     
-    public Integer devolver(Integer id, Integer modificiadorId){
+    public Integer Modificar(Integer id,Integer personaId, Integer itemId, Date inicio,
+            Date fin , Double monto, Integer modificiadorId, Boolean devuelto, Date creacion,
+            Integer creador){
         AlquilerDto alquilerDto = new AlquilerDto();
         
+        
+        PersonaDto persona = new PersonaDto();
+        persona.setPersonaId(personaId);
+        ItemDto item = new ItemDto();
+        item.setItemId(itemId);
+        
+        alquilerDto.setPersona(persona);
+        alquilerDto.setItem(item);
+        alquilerDto.setFechaFin(fin);
+        alquilerDto.setFechaInicio(inicio);
+        alquilerDto.setMonto(monto);
+        alquilerDto.setUsuarioCreacion(creador);
+        alquilerDto.setFechaCreacion(creacion);
         alquilerDto.setAlquilerId(id);
         alquilerDto.setUsuarioModificacion(modificiadorId);
-        alquilerDto.setDevuelto(Boolean.TRUE);
+        alquilerDto.setDevuelto(devuelto);
         
-        return this.alquilerDao.devolver(alquilerDto);// falta implementación
+        return this.alquilerDao.modificar(alquilerDto);
     }
     
     

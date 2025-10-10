@@ -43,7 +43,7 @@ public class PersonaChatBo {
         PersonaChatDto personaChatDto = new PersonaChatDto();
         personaChatDto.setId(id);
         personaChatDto.setUltimaActividad(ultimaVez);
-        return this.personaChatDao.insertar(personaChatDto);
+        return this.personaChatDao.modificar(personaChatDto);
     }
     
     public ArrayList<PersonaChatDto> listarPorPersona(Integer personaId){
