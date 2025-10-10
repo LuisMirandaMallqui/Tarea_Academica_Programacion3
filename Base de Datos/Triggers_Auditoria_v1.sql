@@ -387,7 +387,7 @@ END $$
 
 /*MENSAJES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 CREATE TRIGGER TRG_MENSAJES_CREACION
-BEFORE INSERT ON MENSAJES
+BEFORE INSERT ON mensajes
 FOR EACH ROW 
 BEGIN
 	IF NEW.ESTADO_MSJ_ID = 1 THEN
@@ -406,7 +406,7 @@ END $$
 
 /*NOTIFICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 CREATE TRIGGER TRG_NOTIFICACIONES_CREACION
-BEFORE INSERT ON NOTIFICACIONES
+BEFORE INSERT ON notificaciones
 FOR EACH ROW 
 BEGIN
 	SET NEW.FECHA = NOW();
