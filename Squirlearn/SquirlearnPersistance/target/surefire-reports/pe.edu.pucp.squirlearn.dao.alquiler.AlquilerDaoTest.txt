@@ -1,0 +1,72 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 41.80 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testModificar -- Time elapsed: 7.044 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <3> but was: <4>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testModificar(AlquilerDaoTest.java:105)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testObtenerPorId -- Time elapsed: 11.82 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not equal but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertNotEquals.failEqual(AssertNotEquals.java:277)
+	at org.junit.jupiter.api.AssertNotEquals.assertNotEquals(AssertNotEquals.java:263)
+	at org.junit.jupiter.api.AssertNotEquals.assertNotEquals(AssertNotEquals.java:258)
+	at org.junit.jupiter.api.Assertions.assertNotEquals(Assertions.java:1991)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.eliminarTodo(AlquilerDaoTest.java:128)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testObtenerPorId(AlquilerDaoTest.java:81)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testEliminar -- Time elapsed: 8.018 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not equal but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertNotEquals.failEqual(AssertNotEquals.java:277)
+	at org.junit.jupiter.api.AssertNotEquals.assertNotEquals(AssertNotEquals.java:263)
+	at org.junit.jupiter.api.AssertNotEquals.assertNotEquals(AssertNotEquals.java:258)
+	at org.junit.jupiter.api.Assertions.assertNotEquals(Assertions.java:1991)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.eliminarTodo(AlquilerDaoTest.java:128)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testEliminar(AlquilerDaoTest.java:121)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testInsertar -- Time elapsed: 7.913 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not equal but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertNotEquals.failEqual(AssertNotEquals.java:277)
+	at org.junit.jupiter.api.AssertNotEquals.assertNotEquals(AssertNotEquals.java:263)
+	at org.junit.jupiter.api.AssertNotEquals.assertNotEquals(AssertNotEquals.java:258)
+	at org.junit.jupiter.api.Assertions.assertNotEquals(Assertions.java:1991)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.eliminarTodo(AlquilerDaoTest.java:128)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testInsertar(AlquilerDaoTest.java:22)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testListarTodos -- Time elapsed: 6.978 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <3> but was: <16>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testListarTodos(AlquilerDaoTest.java:91)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
