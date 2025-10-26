@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 -- INSERTS DE TABLAS QUE ACOMPAÑ
 ----------------------------------------------------
 -- INSERT DE PERSONAS PUCP
@@ -174,3 +175,187 @@ VALUES
 
 
 
+=======
+-- Usamos una variable para el usuario administrador del sistema
+SET @admin_user = 'ADMIN_SISTEMA';
+
+-- -----------------------------------------------------
+-- GRUPO 1: CATÁLOGOS SIMPLES (Sin dependencias)
+-- (Auditoría con VARCHAR)
+-- -----------------------------------------------------
+
+-- Insertar colores
+INSERT INTO colores(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES
+('Rojo', @admin_user, NOW()),
+('Azul', @admin_user, NOW()),
+('Negro', @admin_user, NOW());
+-- (Asumimos que generan IDs 1, 2, 3)
+
+-- Insertar condiciones
+INSERT INTO condiciones(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES
+('Nuevo (10/10)', @admin_user, NOW()),
+('Usado (7/10)', @admin_user, NOW()),
+('Desgastado (4/10)', @admin_user, NOW());
+-- (Asumimos que generan IDs 1, 2, 3)
+
+-- Insertar estados de item
+INSERT INTO estados_items(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES
+('Disponible', @admin_user, NOW()),
+('Alquilado', @admin_user, NOW()),
+('Vendido', @admin_user, NOW());
+-- (Asumimos que generan IDs 1, 2, 3)
+
+-- Insertar formatos
+INSERT INTO formatos(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES
+('Físico', @admin_user, NOW()),
+('Digital', @admin_user, NOW());
+-- (Asumimos que generan IDs 1, 2)
+
+-- Insertar categorías
+INSERT INTO categorias(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES
+('Ropa', @admin_user, NOW()),
+('Libros', @admin_user, NOW()),
+('Electrónica', @admin_user, NOW());
+-- (Asumimos que generan IDs 1, 2, 3)
+
+-- Insertar tamaños
+INSERT INTO tamanos(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES
+('S', @admin_user, NOW()),
+('M', @admin_user, NOW()),
+('L', @admin_user, NOW());
+-- (Asumimos que generan IDs 1, 2, 3)
+
+-- Insertar estados de persona
+INSERT INTO estados_personas(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES
+('Activo', @admin_user, NOW()),
+('Bloqueado', @admin_user, NOW());
+-- (Asumimos que generan IDs 1, 2)
+
+-- Insertar roles
+INSERT INTO roles_personas(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES
+('Vendedor', @admin_user, NOW()),
+('Comprador', @admin_user, NOW()),
+('Administrador', @admin_user, NOW());
+-- (Asumimos que generan IDs 1, 2, 3)
+
+-- Insertar catálogos de pago
+INSERT INTO formas_pago(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES ('Tarjeta de Crédito', @admin_user, NOW());
+INSERT INTO monedas(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES ('Soles (PEN)', @admin_user, NOW());
+INSERT INTO estados_publicaciones(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES ('Pendiente de Aprobación', @admin_user, NOW()), ('Activa', @admin_user, NOW());
+INSERT INTO estados_chats(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES ('Abierto', @admin_user, NOW());
+INSERT INTO estados_mensajes(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES ('Enviado', @admin_user, NOW());
+INSERT INTO motivos(NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES ('Reporte de Publicación', @admin_user, NOW());
+
+-- -----------------------------------------------------
+-- GRUPO 2: CATÁLOGOS CON DEPENDENCIAS
+-- (Auditoría con VARCHAR)
+-- -----------------------------------------------------
+
+-- Insertar subcategorías (depende de 'categorias')
+-- (Como SUBCATEGORIA_ID es AUTO_INCREMENT, no lo especificamos)
+INSERT INTO subcategorias(CATEGORIA_ID, NOMBRE, USUARIO_CREACION, FECHA_CREACION) VALUES
+(1, 'Polos', @admin_user, NOW()),  -- (ID 1, Cat 1 'Ropa')
+(1, 'Pantalones', @admin_user, NOW()), -- (ID 2, Cat 1 'Ropa')
+(2, 'Ciencia Ficción', @admin_user, NOW()); -- (ID 3, Cat 2 'Libros')
+-- (Asumimos que generan SUBCATEGORIA_ID 1, 2, 3)
+
+
+-- -----------------------------------------------------
+-- GRUPO 3: DATOS PRINCIPALES (Personas e Items)
+-- -----------------------------------------------------
+
+-- Insertar una Persona (Auditoría con INT)
+-- Asumimos que el ID 1 de 'estados_personas' es 'Activo'
+-- Asumimos que la creación la hace un admin (ID 1)
+INSERT INTO personas(
+    ESTADO_PERSONA_ID_ESTADOPERSONA, NOMBRES, PRIMER_APELLIDO, SEGUNDO_APELLIDO, 
+    CODIGO, CORREO, CONTRASENA, 
+    USUARIO_CREACION, FECHA_CREACION
+) VALUES (
+    1, 'Luis', 'Miranda', 'Mallqui', 
+    '20223796', 'luis.miranda@pucp.edu.pe', 'claveEncriptada123', 
+    1, -- (ID 1, asumimos que es un 'ADMIN')
+    NOW()
+);
+-- (Este INSERT genera un nuevo PERSONA_ID, asumamos que es el ID 2)
+-- (Asumimos que el admin es la PERSONA_ID = 1)
+
+-- Insertar un Item (Auditoría con VARCHAR)
+-- Asumimos IDs de los catálogos insertados arriba
+INSERT INTO items(
+    COLOR_ID, ESTADO_ITEM_ID, CONDICION_ID, TAMANO_ID, FORMATO_ID, 
+    subcategoria_ID_SUBCATEGORIA, subcategoria_CATEGORIA_ID,
+    NOMBRE, DESCRIPCION, PRECIO, ES_VENTA, 
+    USUARIO_CREACION, FECHA_CREACION
+) VALUES (
+    3, 1, 1, 2, 1,  -- (Negro, Disponible, Nuevo, M, Físico)
+    1, 1, -- (FK a subcategorias: ID 1 'Polos', Cat 1 'Ropa')
+    'Polo Algodón Pima', 'Polo color negro talla M de algodón pima', 70.00, 1, -- (Es Venta = 1)
+    @admin_user, NOW()
+);
+-- (Este INSERT genera un nuevo ITEM_ID, asumamos que es el ID 1)
+
+
+-- -----------------------------------------------------
+-- GRUPO 4: RELACIONES M-M (Muchos-a-Muchos)
+-- (Auditoría con INT)
+-- -----------------------------------------------------
+
+-- Asignar roles a la persona creada (ID 2)
+-- Asumimos que los roles son 1='Vendedor', 2='Comprador'
+-- Asumimos que la asignación la hace el admin (ID 1)
+INSERT INTO personas_roles(PERSONA_ID, ROLPERSONA_ID, USUARIO_CREACION, FECHA_CREACION) VALUES
+(2, 1, 1, NOW()), -- (Asignamos rol Vendedor a Luis)
+(2, 2, 1, NOW()); -- (Asignamos rol Comprador a Luis)
+
+-- -----------------------------------------------------
+-- GRUPO 5: TRANSACCIONES (Publicaciones, Alquileres, etc.)
+-- -----------------------------------------------------
+
+-- Insertar una Publicación (Auditoría con VARCHAR)
+-- La persona 2 ('Luis') publica el item 1 ('Polo')
+-- Asumimos ID 1 de 'estados_publicaciones' es 'Pendiente'
+INSERT INTO publicaciones(
+    ESTADO_PUBLICACION_ID, ITEM_ID_ITEM, PERSONA_ID, 
+    FECHA_ALTA, CALIFICACION, 
+    USUARIO_CREACION, FECHA_CREACION
+) VALUES (
+    1, 1, 2, 
+    NOW(), 0, 
+    'USER_2', NOW() -- (Aquí podría ir el código o ID de la persona 2)
+);
+-- (Genera PUBLICACION_ID = 1)
+
+-- Insertar un Alquiler (Auditoría con INT)
+-- Asumimos que la persona 1 (Admin) alquila el item 1 a la persona 2 (Luis)
+INSERT INTO alquileres(
+    PERSONA_ID, ITEM_ID, FECHA_INICIO, MONTO, DEVUELTO,
+    USUARIO_CREACION, FECHA_CREACION
+) VALUES (
+    2, 1, NOW(), 15.00, 0, -- (Devuelto = 0)
+    1, NOW() -- (Creado por el Admin ID 1)
+);
+-- (Genera ALQUILER_ID = 1)
+
+-- Insertar un Comprobante (Auditoría con VARCHAR)
+-- La persona 2 paga por el alquiler 1
+INSERT INTO comprobantes(
+    PERSONA_ID_PERSONA, FORMA_PAGO_ID_FORMAPAGO, MONEDA_ID_MONEDA,
+    TRANSACCION_ID, FECHA_EMISION, MONTO, IMPUESTO,
+    USUARIO_CREACION, FECHA_CREACION
+) VALUES (
+    2, 1, 1, -- (Persona 2, Tarjeta, Soles)
+    'TXN_12345ABC', NOW(), 17.70, 2.70,
+    @admin_user, NOW() -- (El sistema genera el comprobante)
+);
+-- (Genera COMPROBANTE_ID = 1)
+
+-- Insertar Detalle de Comprobante (Falta auditoría de creación)
+INSERT INTO detalles_comprobantes(
+    COMPROBANTE_ID_COMPROBANTE, ALQUILER_ID_ALQUILER, ITEM_ID_ITEM,
+    DESCRIPCION, PRECIO
+) VALUES (
+    1, 1, NULL, -- (Comprobante 1, Alquiler 1, No es venta de item)
+    'Alquiler de Polo Algodón Pima (3 días)', 15.00
+);
+>>>>>>> Stashed changes
