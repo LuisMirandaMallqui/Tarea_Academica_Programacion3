@@ -1,176 +1,130 @@
--- INSERTS DE TABLAS QUE ACOMPAÑ
-----------------------------------------------------
--- INSERT DE PERSONAS PUCP
-INSERT INTO personas_pucp ( NOMBRES, PRIMER_APELLIDO, SEGUNDO_APELLIDO, CODIGO, CORREO)
-VALUES
-('María Fernanda', 'Lopez', 'Ramirez', '20231547', 'a20231547@pucp.edu.pe'),
-('José Luis', 'Castro', 'Vargas', '20228459', 'a20228459@pucp.edu.pe'),
-('Andrea Carolina', 'Torres', 'Mendoza', '20235681', 'a20235681@pucp.edu.pe'),
-('Diego Armando', 'Quispe', 'Huamán', '20217732', 'a20217732@pucp.edu.pe'),
-('Lucía Alejandra', 'Salazar', 'Flores', '20229418', 'a20229418@pucp.edu.pe'),
-('Carlos Alberto', 'Rojas', 'Cáceres', '20219845', 'a20219845@pucp.edu.pe'),
-('Gabriela Sofía', 'Paredes', 'Chavez', '20237591', 'a20237591@pucp.edu.pe'),
-('Fernando Enrique', 'Huerta', 'Guzmán', '20226789', 'a20226789@pucp.edu.pe'),
-('Valeria Isabel', 'Martínez', 'Zamora', '20231852', 'a20231852@pucp.edu.pe'),
-('Santiago Nicolás', 'Gonzales', 'Linares', '20238417', 'a20238417@pucp.edu.pe');
-
--- INSERT DE TARJETAS
-INSERT INTO tarjetas (NUMERO, CCV, FECHA_VENCIMIENTO)
-VALUES
-('4556738901246789', '321', '2027-05-31 00:00:00'),
-('5234789012569874', '842', '2026-11-30 00:00:00'),
-('4023987645123456', '097', '2028-01-31 00:00:00'),
-('5198765432109876', '654', '2029-09-30 00:00:00'),
-('4532123498765432', '778', '2026-07-31 00:00:00'),
-('5367123498751234', '130', '2030-02-28 00:00:00'),
-('4716123487654321', '245', '2028-06-30 00:00:00'),
-('5178123476543210', '382', '2027-10-31 00:00:00'),
-('4485123498012345', '519', '2029-12-31 00:00:00'),
-('5123123498765123', '604', '2030-04-30 00:00:00');
-
--- INSERT DE YAPE
-INSERT INTO yape (NUMERO, CODIGO_APROBACION)
-VALUES
-('912345678', '654321'),
-('934567890', '123456'),
-('976543210', '789012'),
-('998765432', '345678'),
-('923456789', '987654');
-
---------------------------------------------------
--- INSERTS DE TABLAS MAESTRAS
---------------------------------------------------
 -- INSERT DE ESTADOS_PERSONAS
-INSERT INTO estados_personas (NOMBRE)
+INSERT INTO estados_personas (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Activo'),
-('Suspendido'),
-('Eliminado');
+('Activo', 'admin', NOW()),
+('Suspendido', 'admin', NOW()),
+('Eliminado', 'admin', NOW());
 
 -- INSERT DE ESTADOS_CHATS
-INSERT INTO estados_chats (NOMBRE)
+INSERT INTO estados_chats (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Activo'),
-('Eliminado');
+('Activo', 'admin', NOW()),
+('Eliminado', 'admin', NOW());
 
 -- INSERT DE ESTADOS_ITEMS
-INSERT INTO estados_items (NOMBRE)
+INSERT INTO estados_items (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Disponible'),
-('Vendido'),
-('Alquilado');
+('Disponible', 'admin', NOW()),
+('Vendido', 'admin', NOW()),
+('Alquilado', 'admin', NOW());
 
 -- INSERT DE ESTADOS_MENSAJES
-INSERT INTO estados_mensajes (NOMBRE)
+INSERT INTO estados_mensajes (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Enviado'),
-('Recibido'),
-('Leido');
+('Enviado', 'admin', NOW()),
+('Recibido', 'admin', NOW()),
+('Leido', 'admin', NOW());
 
 -- INSERT DE ESTADOS_PUBLICACIONES
-INSERT INTO estados_publicaciones (NOMBRE)
+INSERT INTO estados_publicaciones (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Pendiente'),
-('Aprobada'),
-('Rechazada'),
-('Eliminada');
+('Pendiente', 'admin', NOW()),
+('Aprobada', 'admin', NOW()),
+('Rechazada', 'admin', NOW()),
+('Eliminada', 'admin', NOW());
 
 -- INSERT DE CONDICIONES
-INSERT INTO condiciones (NOMBRE)
+INSERT INTO condiciones (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Nuevo'),
-('Seminuevo'),
-('Antiguo');
+('Nuevo', 'admin', NOW()),
+('Seminuevo', 'admin', NOW()),
+('Antiguo', 'admin', NOW());
 
 -- INSERT DE COLORES
-INSERT INTO colores (NOMBRE)
+INSERT INTO colores (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Rojo'),
-('Azul'),
-('Verde'),
-('Morado'),
-('Amarillo'),
-('Negro'),
-('Blanco'),
-('Gris'),
-('Celeste');
+('Rojo', 'admin', NOW()),
+('Azul', 'admin', NOW()),
+('Verde', 'admin', NOW()),
+('Morado', 'admin', NOW()),
+('Amarillo', 'admin', NOW()),
+('Negro', 'admin', NOW()),
+('Blanco', 'admin', NOW()),
+('Gris', 'admin', NOW()),
+('Celeste', 'admin', NOW());
 
 -- INSERT DE FORMAS DE PAGO
-INSERT INTO formas_pago (NOMBRE)
+INSERT INTO formas_pago (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Tarjeta'),
-('Yape');
+('Tarjeta', 'admin', NOW()),
+('Yape', 'admin', NOW());
 
 -- INSERT DE FORMATOS
-INSERT INTO formatos (NOMBRE)
+INSERT INTO formatos (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Físico'),
-('Digital');
+('Físico', 'admin', NOW()),
+('Digital', 'admin', NOW());
 
 -- INSERT DE MONEDAS
-INSERT INTO monedas (NOMBRE)
+INSERT INTO monedas (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Soles'),
-('Dólares'),
-('Euros');
+('Soles', 'admin', NOW()),
+('Dólares', 'admin', NOW()),
+('Euros', 'admin', NOW());
 
 -- INSERT DE ROLES DE PERSONAS
-INSERT INTO roles_personas (NOMBRE)
+INSERT INTO roles_personas (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Comprador'),
-('Vendedor');
+('Comprador', 'admin', NOW()),
+('Vendedor', 'admin', NOW());
 
 -- INSERT DE TAMAÑOS
-INSERT INTO tamanos (NOMBRE)
+INSERT INTO tamanos (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Grande'),
-('Mediano'),
-('Chico');
+('Grande', 'admin', NOW()),
+('Mediano', 'admin', NOW()),
+('Chico', 'admin', NOW());
 
 -- INSERT DE CATEGORÍAS
-INSERT INTO categorias (NOMBRE)
+INSERT INTO categorias (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Libros'),
-('Evaluaciones'),
-('Electrónicos'),
-('Útiles y accesorios');
+('Libros', 'admin', NOW()),
+('Evaluaciones', 'admin', NOW()),
+('Electrónicos', 'admin', NOW()),
+('Útiles y accesorios', 'admin', NOW());
 
 -- INSERT DE SUB-CATEGORÍAS
-INSERT INTO subcategorias (NOMBRE,CATEGORIA_ID)
+INSERT INTO subcategorias (NOMBRE, CATEGORIA_ID, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Ciencias e ingeniería',1),
-('Ciencias Sociales',1),
-('Artes y Humanidades',1),
-('Negocios y Gestión',1),
-('Idiomas',1),
-('Práctica calificada',2),
-('Práctica dirigida',2),
-('Exámen 1',2),
-('Exámen 2',2),
-('Exámen especial',2),
-('Control de lectura',2),
-('Calculadora',3),
-('Componente electrónico',3),
-('Multímetro',3),
-('Teclado',3),
-('Auriculares',3),
-('Mochila',4),
-('Estuche',4),
-('Material de escritorio',4),
-('Ropa',4);
+('Ciencias e ingeniería', 1, 'admin', NOW()),
+('Ciencias Sociales', 1, 'admin', NOW()),
+('Artes y Humanidades', 1, 'admin', NOW()),
+('Negocios y Gestión', 1, 'admin', NOW()),
+('Idiomas', 1, 'admin', NOW()),
+('Práctica calificada', 2, 'admin', NOW()),
+('Práctica dirigida', 2, 'admin', NOW()),
+('Exámen 1', 2, 'admin', NOW()),
+('Exámen 2', 2, 'admin', NOW()),
+('Exámen especial', 2, 'admin', NOW()),
+('Control de lectura', 2, 'admin', NOW()),
+('Calculadora', 3, 'admin', NOW()),
+('Componente electrónico', 3, 'admin', NOW()),
+('Multímetro', 3, 'admin', NOW()),
+('Teclado', 3, 'admin', NOW()),
+('Auriculares', 3, 'admin', NOW()),
+('Mochila', 4, 'admin', NOW()),
+('Estuche', 4, 'admin', NOW()),
+('Material de escritorio', 4, 'admin', NOW()),
+('Ropa', 4, 'admin', NOW());
 
 -- INSERT DE MOTIVOS
-INSERT INTO motivos (NOMBRE)
+INSERT INTO motivos (NOMBRE, USUARIO_CREACION, FECHA_CREACION)
 VALUES
-('Suspención de cuenta'),
-('Rechazo de publicación'),
-('Aceptación de publicación'),
-('Nueva incidencia'),
-('Solución de incidencia'),
-('Datos incorrectos'),
-('Problemas con otro usuario'),
-('Problemas con la venta'),
-('Problemas con el alquiler');
-
-
-
+('Suspención de cuenta', 'admin', NOW()),
+('Rechazo de publicación', 'admin', NOW()),
+('Aceptación de publicación', 'admin', NOW()),
+('Nueva incidencia', 'admin', NOW()),
+('Solución de incidencia', 'admin', NOW()),
+('Datos incorrectos', 'admin', NOW()),
+('Problemas con otro usuario', 'admin', NOW()),
+('Problemas con la venta', 'admin',
