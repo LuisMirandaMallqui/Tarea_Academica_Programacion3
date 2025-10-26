@@ -1,0 +1,74 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest
+pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.testModificar -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.insertarHistoriaPublicacions(HistoriaPublicacionDaoTest.java:32)
+	at pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.testModificar(HistoriaPublicacionDaoTest.java:84)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.testObtenerPorId -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.insertarHistoriaPublicacions(HistoriaPublicacionDaoTest.java:32)
+	at pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.testObtenerPorId(HistoriaPublicacionDaoTest.java:54)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.testEliminar -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.insertarHistoriaPublicacions(HistoriaPublicacionDaoTest.java:32)
+	at pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.testEliminar(HistoriaPublicacionDaoTest.java:102)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.testInsertar -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.insertarHistoriaPublicacions(HistoriaPublicacionDaoTest.java:32)
+	at pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.testInsertar(HistoriaPublicacionDaoTest.java:22)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.testListarTodos -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.insertarHistoriaPublicacions(HistoriaPublicacionDaoTest.java:32)
+	at pe.edu.pucp.squirlearn.dao.publicacion.HistoriaPublicacionDaoTest.testListarTodos(HistoriaPublicacionDaoTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
