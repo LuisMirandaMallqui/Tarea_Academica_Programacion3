@@ -1,4 +1,20 @@
 -------------------------------------------------------------------------------
 Test set: pe.edu.pucp.squirlearn.db.DBManagerTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.629 s -- in pe.edu.pucp.squirlearn.db.DBManagerTest
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.400 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.db.DBManagerTest
+pe.edu.pucp.squirlearn.db.DBManagerTest.testGetConnection -- Time elapsed: 2.371 s <<< ERROR!
+java.sql.SQLSyntaxErrorException: Unknown database 'squirlearn'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:837)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:420)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:238)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at pe.edu.pucp.squirlearn.db.DBManager.getConnection(DBManager.java:47)
+	at pe.edu.pucp.squirlearn.db.DBManagerTest.testGetConnection(DBManagerTest.java:29)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
