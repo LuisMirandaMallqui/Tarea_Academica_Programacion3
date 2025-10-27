@@ -167,7 +167,6 @@ INSERT INTO alquileres(
 );
 
 
--- La persona 2 paga por el alquiler 1
 INSERT INTO comprobantes(
     PERSONA_ID_PERSONA, FORMA_PAGO_ID_FORMAPAGO, MONEDA_ID_MONEDA,
     TRANSACCION_ID, FECHA_EMISION, MONTO, IMPUESTO,
@@ -175,15 +174,14 @@ INSERT INTO comprobantes(
 ) VALUES (
     2, 1, 1, -- (Persona 2, Tarjeta, Soles)
     'TXN_12345ABC', NOW(), 17.70, 2.70,
-    @admin_user, NOW() -- (El sistema genera el comprobante)
+    @admin_user, NOW() 
 );
--- (Genera COMPROBANTE_ID = 1)
 
--- Insertar Detalle de Comprobante (Falta auditoría de creación)
+-- Insertar Detalle de Comprobante 
 INSERT INTO detalles_comprobantes(
     COMPROBANTE_ID_COMPROBANTE, ALQUILER_ID_ALQUILER, ITEM_ID_ITEM,
     DESCRIPCION, PRECIO
 ) VALUES (
-    1, 1, NULL, -- (Comprobante 1, Alquiler 1, No es venta de item)
-    'Alquiler de Polo Algodón Pima (3 días)', 15.00
+    1, 1, 1, -- (Comprobante 1, Alquiler 1, No es venta de item)
+    'Apuntes del curso Fisica 1', 15.00
 );
