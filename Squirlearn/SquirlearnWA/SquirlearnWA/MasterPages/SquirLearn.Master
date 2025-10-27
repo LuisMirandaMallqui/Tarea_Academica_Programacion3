@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SquirLearn.master.cs" Inherits="SquirlearnWA.MasterPages.SquirLearn" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>SquirLearn</title>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/fonts/css/all.css" rel="stylesheet" />
+    <link href="../Content/Inicio.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.bundle.js"></script>
+    <script src="../Scripts/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <!-- Contenedor general -->
+    <div class="layout-container d-flex">
+        
+        <!-- 🟦 Barra lateral -->
+        <div class="sidebar">
+            <div class="logo text-center mb-4">
+                <img src="../Imagenes/ardilla2.png" alt="Logo" class="img-fluid" style="max-width: 60px;">
+                <h5 class="fw-bold mt-2">SQUIR<br>LEARN</h5>
+            </div>
+
+            <ul class="nav flex-column">
+                <li><a href="SquirLearnInicio.aspx" class="active"><i class="fa fa-search"></i> Buscar</a></li>
+                <li><a href="Vender.aspx"><i class="fa fa-plus-circle"></i> Vender</a></li>
+                <li><a href="Mensajes.aspx"><i class="fa fa-envelope"></i> Mensajes</a></li>
+            </ul>
+
+            <div class="footer">
+                <p>© 2025 SquirLearn<br><span class="small">Aprende. Comparte. Enseña.</span></p>
+            </div>
+        </div>
+
+        <!-- 🟨 Contenido principal -->
+        <div class="main-content flex-grow-1">
+            <div class="topbar d-flex justify-content-between align-items-center px-4 py-2">
+                <div class="ms-auto">
+                  
+                    <div>
+                        <a href="Perfil.aspx" class="btn perfil-btn"><i class="fa fa-user-circle"></i> Perfil</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-area p-4">
+                <asp:ContentPlaceHolder ID="cphContenido" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

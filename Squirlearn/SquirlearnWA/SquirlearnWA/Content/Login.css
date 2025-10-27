@@ -1,0 +1,199 @@
+﻿/* =========================
+   ESTILO GENERAL
+========================= */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #EAF4FF;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================
+   LAYOUT GENERAL
+========================= */
+.layout-container {
+    height: 100vh;
+    display: flex;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+    width: 220px;
+    background-color: #BFD8F2;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    text-align: center;
+    border-right: 1px solid #a5c6e8;
+}
+
+    .sidebar .logo img {
+        width: 65px;
+    }
+
+    .sidebar .logo h5 {
+        font-weight: 700;
+        line-height: 1.1;
+        color: #4a6788;
+    }
+
+    .sidebar .nav {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+        .sidebar .nav li {
+            margin: 15px 0;
+        }
+
+        .sidebar .nav a {
+            text-decoration: none;
+            color: #2f4c70;
+            font-weight: 500;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 0;
+            transition: background 0.3s ease;
+        }
+
+            .sidebar .nav a.active,
+            .sidebar .nav a:hover {
+                background-color: #A9C7E8;
+                border-radius: 8px;
+            }
+
+    .sidebar .footer {
+        font-size: 13px;
+        color: #4a6788;
+    }
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8fbff;
+}
+
+/* Topbar */
+.topbar {
+    background-color: #C8E0F9;
+    padding: 10px 25px;
+    border-bottom: 1px solid #a5c6e8;
+}
+
+.search-bar .input-group {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.search-bar span {
+    background-color: #fff;
+    border: none;
+    color: #7a9fc9;
+}
+
+.perfil-btn {
+    background: transparent;
+    border: none;
+    color: #2f4c70;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+    .perfil-btn i {
+        font-size: 20px;
+    }
+
+/* =========================
+   GRID DE OPCIONES
+========================= */
+.content-area {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-grid {
+    width: 80%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 15px;
+    background-color: #D7E9FA;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.card-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    border-radius: 10px;
+}
+
+    .card-option:hover {
+        background-color: rgba(255,255,255,0.7);
+        transform: scale(1.05);
+    }
+
+    .card-option img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+
+    .card-option h5 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #2f4c70;
+    }
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .layout-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}

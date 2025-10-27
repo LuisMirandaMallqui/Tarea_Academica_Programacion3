@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="SquirlearnWA.MasterPages.Login" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>SquirLearn - Inicio de Sesión</title>
+
+     
+   
+    <link href="Content/Login.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/fonts/css/all.css" rel="stylesheet" />
+
+      <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/bootstrap.bundle.js"></script>
+    <script src="Scripts/jquery-3.7.1.js"></script>
+</head>
+<body class="bg-white d-flex align-items-center justify-content-center vh-100">
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="cphContenido" runat="server"></asp:ContentPlaceHolder>
+    </form>
+
+    
+</body>
+</html>

@@ -1,0 +1,267 @@
+﻿/* ===== GENERAL ===== */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F9FF;
+    font-family: 'Segoe UI', sans-serif;
+}
+/* ===== HEADER (barra superior con buscador y perfil) ===== */
+.header {
+    background-color: #CFE4F7; /* mismo color que el panel izquierdo */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+}
+/* ===== LAYOUT GENERAL ===== */
+.layout-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 230px;
+    background-color: #CFE4F7;
+    color: #1F3C5A;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 🔹 sube los botones */
+    padding: 1.5rem 1rem;
+}
+
+    .sidebar .logo {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+        .sidebar .logo h5 {
+            line-height: 1.1;
+        }
+
+    .sidebar ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+        .sidebar ul li {
+            margin-bottom: 1rem;
+        }
+
+            .sidebar ul li a {
+                color: #1F3C5A;
+                text-decoration: none;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 0.4rem 0.6rem;
+                border-radius: 10px;
+                transition: all 0.2s ease-in-out;
+            }
+
+                .sidebar ul li a:hover,
+                .sidebar ul li a.active {
+                    background-color: #B3D4F0;
+                }
+
+    .sidebar .footer {
+        font-size: 0.8rem;
+        text-align: center;
+        color: #444;
+        margin-top: auto;
+    }
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff; /* fondo blanco total */
+}
+
+/* ===== TOPBAR Y BUSCADOR ===== */
+.topbar {
+    background-color: #CFE4F7; /* mismo color que el sidebar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+}
+<!-- 🔹 Recuadro gris del buscador -->
+<div class="search-wrapper" >
+<div class="search-bar" >
+<div class="input-group" >
+<span class="input-group-text bg-light" > <i class="fa fa-search" > </i > </span >
+<input type="text" class="form-control" placeholder="Busca libros, cursos..." >
+</div >
+</div >
+</div >
+
+.perfil-btn {
+    background-color: #9FC8EC;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #1F3C5A;
+    text-decoration: none;
+    padding: 6px 14px;
+}
+
+    .perfil-btn:hover {
+        background-color: #86B8E2;
+    }
+
+/* ===== RECUADRO GRIS DEL BUSCADOR ===== */
+/* Contenedor de búsqueda */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff; /* fondo blanco interno del buscador */
+    border-radius: 20px;
+    padding: 0.4rem 0.8rem;
+    width: 380px;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.08);
+}
+
+    .search-wrapper input {
+        border: none;
+        outline: none;
+        background: transparent;
+        margin-left: 0.5rem;
+        width: 100%;
+    }
+
+.search-bar {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+    .search-bar .input-group {
+        background-color: #E9EEF5;
+        border-radius: 12px;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .search-bar input {
+        border: none;
+        background: transparent;
+        font-size: 0.95rem;
+    }
+
+        .search-bar input:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+/* ===== CONTENIDO CENTRAL ===== */
+.content-area {
+    background-color: #E7F2FC; /* azul claro interno */
+    border-radius: 20px;
+    margin: 2rem 2rem;
+    flex-grow: 1;
+    width: 75%;
+    align-self: flex-start;
+    padding: 2rem;
+}
+
+/* ===== TARJETAS ===== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.card-option {
+    background-color: #D8E9FA;
+    border-radius: 15px;
+    text-align: center;
+    padding: 2rem 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 220px;
+    height: 180px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .card-option:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-option img {
+        width: 70px;
+        margin-bottom: 1rem;
+    }
+
+    .card-option h5 {
+        font-weight: 600;
+        color: #1F3C5A;
+    }
+/* ===== PERFIL CON RECTÁNGULO GRIS ===== */
+.perfil-wrapper {
+    background-color: #E9EEF5; /* gris claro */
+    border-radius: 10px;
+    padding: 6px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+    .perfil-wrapper .perfil-btn {
+        background: transparent;
+        color: #0E2E4A;
+        padding: 0;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+    }
+/* ===============================
+   NOTIFICACIONES
+=============================== */
+.notificaciones-container {
+    max-height: 400px; /* altura máxima del recuadro */
+    overflow-y: auto; /* habilita el scroll vertical */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+    .notificaciones-container h2 {
+        color: #3b5998;
+        letter-spacing: 1px;
+    }
+
+.list-group-item {
+    background-color: #ffffff;
+    border: 1px solid #e1e8f0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease;
+}
+
+    .list-group-item:hover {
+        background-color: #f0f6ff;
+    }
+
+    .list-group-item i {
+        color: #28a745;
+    }
+
+    .list-group-item small {
+        white-space: nowrap;
+        margin-left: 15px;
+    }
