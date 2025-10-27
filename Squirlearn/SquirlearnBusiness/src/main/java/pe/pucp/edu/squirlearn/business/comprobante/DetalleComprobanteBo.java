@@ -48,7 +48,7 @@ public class DetalleComprobanteBo {
         return this.detalleComprobanteDao.listarPorComprobante(comprabanteId); // necesita implementación
     }
     
-    public DetalleComprobanteDto obtnerPorId(Integer id){
+    public DetalleComprobanteDto obtenerPorId(Integer id){
         return this.detalleComprobanteDao.obtenerPorId(id);
     }
 }

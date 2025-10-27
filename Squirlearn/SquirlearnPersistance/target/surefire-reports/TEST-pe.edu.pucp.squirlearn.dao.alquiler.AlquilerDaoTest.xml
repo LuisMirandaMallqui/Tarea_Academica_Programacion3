@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest" time="0.411" tests="5" errors="0" skipped="0" failures="5">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest" time="18.562" tests="5" errors="0" skipped="0" failures="5">
   <properties>
     <property name="java.specification.version" value="24"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="D:\PUCP\2025-2\Programación3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\target\test-classes;D:\PUCP\2025-2\Programación3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\target\classes;C:\Users\gabri\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\gabri\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\gabri\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\gabri\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\gabri\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\gabri\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\gabri\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\gabri\.m2\repository\com\mycompany\SquirlearnDBManager\1.0-SNAPSHOT\SquirlearnDBManager-1.0-SNAPSHOT.jar;C:\Users\gabri\.m2\repository\commons-codec\commons-codec\1.18.0\commons-codec-1.18.0.jar;C:\Users\gabri\.m2\repository\com\mysql\mysql-connector-j\9.2.0\mysql-connector-j-9.2.0.jar;C:\Users\gabri\.m2\repository\com\google\protobuf\protobuf-java\4.29.0\protobuf-java-4.29.0.jar;C:\Users\gabri\.m2\repository\com\mycompany\SquirlearnModel\1.0-SNAPSHOT\SquirlearnModel-1.0-SNAPSHOT.jar;"/>
+    <property name="java.class.path" value="D:\PUCP\Squirlearn\SquirlearnPersistance\target\test-classes;D:\PUCP\Squirlearn\SquirlearnPersistance\target\classes;C:\Users\gabri\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\gabri\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\gabri\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\gabri\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\gabri\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\gabri\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\gabri\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\gabri\.m2\repository\com\mycompany\SquirlearnDBManager\1.0-SNAPSHOT\SquirlearnDBManager-1.0-SNAPSHOT.jar;C:\Users\gabri\.m2\repository\commons-codec\commons-codec\1.18.0\commons-codec-1.18.0.jar;C:\Users\gabri\.m2\repository\com\mysql\mysql-connector-j\9.2.0\mysql-connector-j-9.2.0.jar;C:\Users\gabri\.m2\repository\com\google\protobuf\protobuf-java\4.29.0\protobuf-java-4.29.0.jar;C:\Users\gabri\.m2\repository\com\mycompany\SquirlearnModel\1.0-SNAPSHOT\SquirlearnModel-1.0-SNAPSHOT.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="user.country" value="PE"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Users\gabri\Downloads\jdk-24_windows-x64_bin\jdk-24.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\gabri\AppData\Local\Temp\surefire9194250884767242990\surefirebooter-20251026171722150_3.jar C:\Users\gabri\AppData\Local\Temp\surefire9194250884767242990 2025-10-26T17-17-22_030-jvmRun1 surefire-20251026171722150_1tmp surefire_0-20251026171722150_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\gabri\AppData\Local\Temp\surefire2813541987087326995\surefirebooter-20251026172635954_3.jar C:\Users\gabri\AppData\Local\Temp\surefire2813541987087326995 2025-10-26T17-26-35_842-jvmRun1 surefire-20251026172635954_1tmp surefire_0-20251026172635954_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="D:\PUCP\2025-2\Programación3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\target\test-classes;D:\PUCP\2025-2\Programación3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\target\classes;C:\Users\gabri\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\gabri\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\gabri\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\gabri\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\gabri\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\gabri\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\gabri\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\gabri\.m2\repository\com\mycompany\SquirlearnDBManager\1.0-SNAPSHOT\SquirlearnDBManager-1.0-SNAPSHOT.jar;C:\Users\gabri\.m2\repository\commons-codec\commons-codec\1.18.0\commons-codec-1.18.0.jar;C:\Users\gabri\.m2\repository\com\mysql\mysql-connector-j\9.2.0\mysql-connector-j-9.2.0.jar;C:\Users\gabri\.m2\repository\com\google\protobuf\protobuf-java\4.29.0\protobuf-java-4.29.0.jar;C:\Users\gabri\.m2\repository\com\mycompany\SquirlearnModel\1.0-SNAPSHOT\SquirlearnModel-1.0-SNAPSHOT.jar;"/>
+    <property name="surefire.test.class.path" value="D:\PUCP\Squirlearn\SquirlearnPersistance\target\test-classes;D:\PUCP\Squirlearn\SquirlearnPersistance\target\classes;C:\Users\gabri\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\gabri\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\gabri\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\gabri\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\gabri\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\gabri\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\gabri\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\gabri\.m2\repository\com\mycompany\SquirlearnDBManager\1.0-SNAPSHOT\SquirlearnDBManager-1.0-SNAPSHOT.jar;C:\Users\gabri\.m2\repository\commons-codec\commons-codec\1.18.0\commons-codec-1.18.0.jar;C:\Users\gabri\.m2\repository\com\mysql\mysql-connector-j\9.2.0\mysql-connector-j-9.2.0.jar;C:\Users\gabri\.m2\repository\com\google\protobuf\protobuf-java\4.29.0\protobuf-java-4.29.0.jar;C:\Users\gabri\.m2\repository\com\mycompany\SquirlearnModel\1.0-SNAPSHOT\SquirlearnModel-1.0-SNAPSHOT.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\gabri"/>
     <property name="user.language" value="es"/>
@@ -25,12 +25,12 @@
     <property name="java.version.date" value="2025-07-15"/>
     <property name="java.home" value="C:\Users\gabri\Downloads\jdk-24_windows-x64_bin\jdk-24.0.2"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="D:\PUCP\2025-2\Programación3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance"/>
+    <property name="basedir" value="D:\PUCP\Squirlearn\SquirlearnPersistance"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\gabri\AppData\Local\Temp\surefire9194250884767242990\surefirebooter-20251026171722150_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\gabri\AppData\Local\Temp\surefire2813541987087326995\surefirebooter-20251026172635954_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="24.0.2+12-54"/>
@@ -46,7 +46,7 @@
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\gabri\AppData\Local\Temp\"/>
     <property name="java.version" value="24.0.2"/>
-    <property name="user.dir" value="D:\PUCP\2025-2\Programación3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance"/>
+    <property name="user.dir" value="D:\PUCP\Squirlearn\SquirlearnPersistance"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
@@ -59,7 +59,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="68.0"/>
   </properties>
-  <testcase name="testModificar" classname="pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest" time="0.372">
+  <testcase name="testModificar" classname="pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest" time="4.896">
     <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -74,13 +74,12 @@
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 ]]></failure>
     <system-out><![CDATA[modificar
+INSERT INTO alquileres(PERSONA_ID, ITEM_ID, FECHA_INICIO, FECHA_FIN, DEVUELTO, MONTO, FECHA_CREACION, USUARIO_CREACION, FECHA_MODIFICACION, USUARIO_MODIFICACION) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ]]></system-out>
-    <system-err><![CDATA[Error al intentar insertar - com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+    <system-err><![CDATA[Error al intentar insertar - java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`mydb`.`alquileres`, CONSTRAINT `fk_PERSONA_has_ITEM_ITEM1` FOREIGN KEY (`ITEM_ID`) REFERENCES `items` (`ITEM_ID`))
 ]]></system-err>
   </testcase>
-  <testcase name="testObtenerPorId" classname="pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest" time="0.003">
+  <testcase name="testObtenerPorId" classname="pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest" time="3.198">
     <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -95,13 +94,12 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 ]]></failure>
     <system-out><![CDATA[obtenerPorId
+INSERT INTO alquileres(PERSONA_ID, ITEM_ID, FECHA_INICIO, FECHA_FIN, DEVUELTO, MONTO, FECHA_CREACION, USUARIO_CREACION, FECHA_MODIFICACION, USUARIO_MODIFICACION) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ]]></system-out>
-    <system-err><![CDATA[Error al intentar insertar - com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+    <system-err><![CDATA[Error al intentar insertar - java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`mydb`.`alquileres`, CONSTRAINT `fk_PERSONA_has_ITEM_ITEM1` FOREIGN KEY (`ITEM_ID`) REFERENCES `items` (`ITEM_ID`))
 ]]></system-err>
   </testcase>
-  <testcase name="testEliminar" classname="pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest" time="0.003">
+  <testcase name="testEliminar" classname="pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest" time="3.342">
     <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -116,13 +114,12 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 ]]></failure>
     <system-out><![CDATA[eliminar
+INSERT INTO alquileres(PERSONA_ID, ITEM_ID, FECHA_INICIO, FECHA_FIN, DEVUELTO, MONTO, FECHA_CREACION, USUARIO_CREACION, FECHA_MODIFICACION, USUARIO_MODIFICACION) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ]]></system-out>
-    <system-err><![CDATA[Error al intentar insertar - com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+    <system-err><![CDATA[Error al intentar insertar - java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`mydb`.`alquileres`, CONSTRAINT `fk_PERSONA_has_ITEM_ITEM1` FOREIGN KEY (`ITEM_ID`) REFERENCES `items` (`ITEM_ID`))
 ]]></system-err>
   </testcase>
-  <testcase name="testInsertar" classname="pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest" time="0.002">
+  <testcase name="testInsertar" classname="pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest" time="3.551">
     <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -137,13 +134,12 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 ]]></failure>
     <system-out><![CDATA[insertar
+INSERT INTO alquileres(PERSONA_ID, ITEM_ID, FECHA_INICIO, FECHA_FIN, DEVUELTO, MONTO, FECHA_CREACION, USUARIO_CREACION, FECHA_MODIFICACION, USUARIO_MODIFICACION) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ]]></system-out>
-    <system-err><![CDATA[Error al intentar insertar - com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+    <system-err><![CDATA[Error al intentar insertar - java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`mydb`.`alquileres`, CONSTRAINT `fk_PERSONA_has_ITEM_ITEM1` FOREIGN KEY (`ITEM_ID`) REFERENCES `items` (`ITEM_ID`))
 ]]></system-err>
   </testcase>
-  <testcase name="testListarTodos" classname="pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest" time="0.002">
+  <testcase name="testListarTodos" classname="pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest" time="3.543">
     <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -158,10 +154,9 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 ]]></failure>
     <system-out><![CDATA[listarTodos
+INSERT INTO alquileres(PERSONA_ID, ITEM_ID, FECHA_INICIO, FECHA_FIN, DEVUELTO, MONTO, FECHA_CREACION, USUARIO_CREACION, FECHA_MODIFICACION, USUARIO_MODIFICACION) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ]]></system-out>
-    <system-err><![CDATA[Error al intentar insertar - com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+    <system-err><![CDATA[Error al intentar insertar - java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`mydb`.`alquileres`, CONSTRAINT `fk_PERSONA_has_ITEM_ITEM1` FOREIGN KEY (`ITEM_ID`) REFERENCES `items` (`ITEM_ID`))
 ]]></system-err>
   </testcase>
 </testsuite>

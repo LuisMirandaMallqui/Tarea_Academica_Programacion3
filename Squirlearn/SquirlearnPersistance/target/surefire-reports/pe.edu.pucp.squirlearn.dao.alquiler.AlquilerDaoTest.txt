@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.411 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest
-pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testModificar -- Time elapsed: 0.372 s <<< FAILURE!
+Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 18.56 s <<< FAILURE! -- in pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testModificar -- Time elapsed: 4.896 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -16,7 +16,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 
-pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testObtenerPorId -- Time elapsed: 0.003 s <<< FAILURE!
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testObtenerPorId -- Time elapsed: 3.198 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -30,7 +30,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 
-pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testEliminar -- Time elapsed: 0.003 s <<< FAILURE!
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testEliminar -- Time elapsed: 3.342 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -44,7 +44,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 
-pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testInsertar -- Time elapsed: 0.002 s <<< FAILURE!
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testInsertar -- Time elapsed: 3.551 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -58,7 +58,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 
-pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testListarTodos -- Time elapsed: 0.002 s <<< FAILURE!
+pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDaoTest.testListarTodos -- Time elapsed: 3.543 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
