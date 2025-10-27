@@ -20,13 +20,17 @@ public class Tamano {
 
     private TamanoBo tamanoBo;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<TamañoDto> listarTodos() {
+    public Tamano(){
+        this.tamanoBo= new TamanoBo();
+    }
+    
+    @WebMethod(operationName = "listarTodosTamano")
+    public ArrayList<TamañoDto> listarTodosTamano() {
         return this.tamanoBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public TamañoDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdTamano")
+    public TamañoDto obtenerPorIdTamano(@WebParam(name = "id") Integer id) {
         return this.tamanoBo.obtenerPorId(id);
     }
 

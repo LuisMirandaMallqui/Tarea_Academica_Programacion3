@@ -20,21 +20,25 @@ public class HistoriaPublicacion {
 
     private HistoriaPublicacionBo historiaPublicacionBo;
     
-    @WebMethod(operationName = "insertar")
-    public Integer insertar(
+    public HistoriaPublicacion(){
+        this.historiaPublicacionBo = new HistoriaPublicacionBo();
+    }
+    
+    @WebMethod(operationName = "insertarHistoriaPublicacion")
+    public Integer insertarHistoriaPublicacion(
             @WebParam(name = "publicacionId") Integer publicacionId,
             @WebParam(name = "modificadorId") Integer modificadorId
     ) {
         return this.historiaPublicacionBo.insertar(publicacionId, modificadorId);
     }
 
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<HistoriaPublicacionDto> listarTodos() {
+    @WebMethod(operationName = "listarTodosHistoriaPublicacion")
+    public ArrayList<HistoriaPublicacionDto> listarTodosHistoriaPublicacion() {
         return this.historiaPublicacionBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public HistoriaPublicacionDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdHistoriaPublicacion")
+    public HistoriaPublicacionDto obtenerPorIdHistoriaPublicacion(@WebParam(name = "id") Integer id) {
         return this.historiaPublicacionBo.obtenerPorId(id);
     }
 

@@ -19,8 +19,12 @@ public class Item {
 
     private ItemBo itemBo;
     
-    @WebMethod(operationName = "insertar")
-    public Integer insertar(
+    public Item(){
+        this.itemBo = new ItemBo();
+    }
+    
+    @WebMethod(operationName = "insertarItem")
+    public Integer insertarItem(
             @WebParam(name = "precio") Double precio,
             @WebParam(name = "nombre") String nombre,
             @WebParam(name = "descripcion") String descripcion,
@@ -35,8 +39,8 @@ public class Item {
 
     }
 
-    @WebMethod(operationName = "modificar")
-    public Integer modificar(
+    @WebMethod(operationName = "modificarItem")
+    public Integer modificarItem(
             @WebParam(name = "id") Integer id,
             @WebParam(name = "precio") Double precio,
             @WebParam(name = "nombre") String nombre,
@@ -53,8 +57,8 @@ public class Item {
 
         }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public ItemDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdItem")
+    public ItemDto obtenerPorIdItem(@WebParam(name = "id") Integer id) {
         return this.itemBo.obtenerPorId(id);
     }
 

@@ -20,8 +20,12 @@ public class Persona {
 
     private PersonaBo personaBo;
     
-    @WebMethod(operationName = "insertar")
-    public Integer insertar(
+    public Persona(){
+        this.personaBo = new PersonaBo();
+    }
+    
+    @WebMethod(operationName = "insertarPersona")
+    public Integer insertarPersona(
             @WebParam(name = "nombres") String nombres,
             @WebParam(name = "primerApellido") String primerApellido,
             @WebParam(name = "segundoApellido") String segundoApellido,
@@ -33,8 +37,8 @@ public class Persona {
         return this.personaBo.insertar(nombres, primerApellido, segundoApellido, codigo, correo, contrasena, rol, creadorId);
     }
 
-    @WebMethod(operationName = "modificar")
-    public Integer modificar(
+    @WebMethod(operationName = "modificarPersona")
+    public Integer modificarPersona(
             @WebParam(name = "id") Integer id,
             @WebParam(name = "nombres") String nombres,
             @WebParam(name = "primerApellido") String primerApellido,
@@ -51,21 +55,21 @@ public class Persona {
                 rol, estadoId, fechaCreacion, creadorId, modificadorId);
     }
 
-    @WebMethod(operationName = "logIn")
-    public PersonaDto logIn(
+    @WebMethod(operationName = "logInPersona")
+    public PersonaDto logInPersona(
             @WebParam(name = "correo") String correo,
             @WebParam(name = "contrasena") String contrasena) {
         return this.personaBo.logIn(correo, contrasena);
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public PersonaDto obtenerPorId(
+    @WebMethod(operationName = "obtenerPorIdPersona")
+    public PersonaDto obtenerPorIdPersona(
             @WebParam(name = "id") Integer id) {
         return this.personaBo.obtenerPorId(id);
     }
 
-    @WebMethod(operationName = "obtenerPorCodigo")
-    public PersonaDto obtenerPorCodigo(
+    @WebMethod(operationName = "obtenerPorCodigoPersona")
+    public PersonaDto obtenerPorCodigoPersona(
             @WebParam(name = "codigo") String codigo) {
         return this.personaBo.obtenerPorCodigo(codigo);
     }

@@ -20,13 +20,17 @@ public class Formato {
 
     private FormatoBo formatoBo;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<FormatoDto> listarTodos() {
+    public Formato(){
+        this.formatoBo = new FormatoBo();
+    }
+    
+    @WebMethod(operationName = "listarTodosFormato")
+    public ArrayList<FormatoDto> listarTodosFormato() {
         return this.formatoBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public FormatoDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdFormato")
+    public FormatoDto obtenerPorIdFormato(@WebParam(name = "id") Integer id) {
         return this.formatoBo.obtenerPorId(id);
     }
 

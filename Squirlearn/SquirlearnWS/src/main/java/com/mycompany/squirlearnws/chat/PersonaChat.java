@@ -20,16 +20,20 @@ public class PersonaChat {
 
     private PersonaChatBo personaChatBo;
     
-    @WebMethod(operationName = "insertar")
-    public Integer insertar(
+    public PersonaChat(){
+        this.personaChatBo = new PersonaChatBo();
+    }
+    
+    @WebMethod(operationName = "insertarPersonaChat")
+    public Integer insertarPersonaChat(
             @WebParam(name = "personaId") Integer personaId,
             @WebParam(name = "chatId") Integer chatId,
             @WebParam(name = "ultimaVez") Date ultimaVez) {
         return this.personaChatBo.insertar(personaId, chatId, ultimaVez);
     }
 
-    @WebMethod(operationName = "modificar")
-    public Integer modificar(
+    @WebMethod(operationName = "modificarPersonaChat")
+    public Integer modificarPersonaChat(
             @WebParam(name = "id") Integer id,
             @WebParam(name = "ultimaVez") Date ultimaVez) {
         return this.personaChatBo.modificar(id, ultimaVez);

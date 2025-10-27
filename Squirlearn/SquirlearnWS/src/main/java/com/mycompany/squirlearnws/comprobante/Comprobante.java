@@ -20,8 +20,12 @@ public class Comprobante {
 
     private ComprobanteBo comprobanteBo;
     
-    @WebMethod(operationName = "insertar")
-    public Integer insertar(
+    public Comprobante(){
+        this.comprobanteBo = new ComprobanteBo();
+    }
+    
+    @WebMethod(operationName = "insertarComprobante")
+    public Integer insertarComprobante(
             @WebParam(name = "monto") Double monto,
             @WebParam(name = "transaccionId") String transaccionId,
             @WebParam(name = "personaId") Integer personaId,
@@ -31,14 +35,14 @@ public class Comprobante {
         return this.comprobanteBo.insertar(monto, transaccionId, personaId, formaPagoId, monedaId, impuesto);
     }
 
-    @WebMethod(operationName = "listarPorDueno")
-    public ArrayList listarPorDueno(
+    @WebMethod(operationName = "listarPorDuenoComprobante")
+    public ArrayList listarPorDuenoComprobante(
             @WebParam(name = "personaId") Integer personaId) {
         return this.comprobanteBo.listarPorDueno(personaId);
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public ComprobanteDto obtenerPorId(
+    @WebMethod(operationName = "obtenerPorIdComprobante")
+    public ComprobanteDto obtenerPorIdComprobante(
             @WebParam(name = "id") Integer id) {
         return this.comprobanteBo.obtenerPorId(id);
     }

@@ -20,13 +20,17 @@ public class RolPersona {
 
     private RolPersonaBo rolPersonaBo;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<RolPersonaDto> listarTodos() {
+    public RolPersona(){
+        this.rolPersonaBo = new RolPersonaBo();
+    }
+    
+    @WebMethod(operationName = "listarTodosRolPersona")
+    public ArrayList<RolPersonaDto> listarTodosRolPersona() {
         return this.rolPersonaBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public RolPersonaDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdRolPersona")
+    public RolPersonaDto obtenerPorIdRolPersona(@WebParam(name = "id") Integer id) {
         return this.rolPersonaBo.obtenerPorId(id);
     }
 
