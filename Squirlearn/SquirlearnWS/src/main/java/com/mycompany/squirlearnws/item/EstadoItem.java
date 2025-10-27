@@ -20,13 +20,17 @@ public class EstadoItem {
 
     private EstadoItemBo estadoItemBo;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<EstadoItemDto> listarTodos() {
+    public EstadoItem(){
+        this.estadoItemBo = new EstadoItemBo();
+    }
+    
+    @WebMethod(operationName = "listarTodosEstadoItem")
+    public ArrayList<EstadoItemDto> listarTodosEstadoItem() {
         return this.estadoItemBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public EstadoItemDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdEstadoItem")
+    public EstadoItemDto obtenerPorIdEstadoItem(@WebParam(name = "id") Integer id) {
         return this.estadoItemBo.obtenerPorId(id);
     }
 

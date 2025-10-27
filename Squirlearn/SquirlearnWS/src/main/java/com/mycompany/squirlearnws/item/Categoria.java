@@ -20,13 +20,17 @@ public class Categoria {
 
     private CategoriaBo categoriaBo;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<CategoriaDto> listarTodos() {
+    public Categoria(){
+        this.categoriaBo = new CategoriaBo();
+    }
+    
+    @WebMethod(operationName = "listarTodosCategoria")
+    public ArrayList<CategoriaDto> listarTodosCategoria() {
         return this.categoriaBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public CategoriaDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdCategoria")
+    public CategoriaDto obtenerPorIdCategoria(@WebParam(name = "id") Integer id) {
         return this.categoriaBo.obtenerPorId(id);
     }
 

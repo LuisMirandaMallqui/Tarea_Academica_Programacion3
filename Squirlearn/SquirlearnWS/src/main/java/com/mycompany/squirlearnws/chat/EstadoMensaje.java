@@ -19,14 +19,18 @@ import pe.pucp.edu.squirlearn.business.chat.EstadoMensajeBo;
 public class EstadoMensaje {
     
     private EstadoMensajeBo estadoMensajeBo;
+    
+    public EstadoMensaje(){
+        this.estadoMensajeBo = new EstadoMensajeBo();
+    }
 
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList listarTodos() {
+    @WebMethod(operationName = "listarTodosEstadoMensaje")
+    public ArrayList listarTodosEstadoMensaje() {
         return this.estadoMensajeBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public EstadoMensajeDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdEstadoMensaje")
+    public EstadoMensajeDto obtenerPorIdEstadoMensaje(@WebParam(name = "id") Integer id) {
         return this.estadoMensajeBo.obtenerPorId(id);
     }
 }

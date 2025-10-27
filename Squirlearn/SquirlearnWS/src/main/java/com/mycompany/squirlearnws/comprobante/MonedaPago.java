@@ -20,13 +20,17 @@ public class MonedaPago {
 
     private MonedaPagoBo monedaPagoBo;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList listarTodos() {
+    public MonedaPago(){
+        this.monedaPagoBo = new MonedaPagoBo();
+    }
+    
+    @WebMethod(operationName = "listarTodosMonedaPago")
+    public ArrayList listarTodosMonedaPago() {
         return this.monedaPagoBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public MonedaPagoDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdMonedaPago")
+    public MonedaPagoDto obtenerPorIdMonedaPago(@WebParam(name = "id") Integer id) {
         return this.monedaPagoBo.obtenerPorId(id);
     }
 }

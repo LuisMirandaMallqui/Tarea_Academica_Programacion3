@@ -21,7 +21,11 @@ public class Publicacion {
 
     private PublicacionBo publicacionBo;
     
-    @WebMethod(operationName = "insertar")
+    public Publicacion(){
+        this.publicacionBo = new PublicacionBo();
+    }
+    
+    @WebMethod(operationName = "insertarPublicacion")
     public Integer insertar(
             @WebParam(name = "itemId") Integer itemId,
             @WebParam(name = "personaId") Integer personaId
@@ -29,8 +33,8 @@ public class Publicacion {
         return this.publicacionBo.insertar(itemId, personaId);
     }
 
-    @WebMethod(operationName = "modificar")
-    public Integer modificar(
+    @WebMethod(operationName = "modificarPublicacion")
+    public Integer modificarPublicacion(
             @WebParam(name = "publicacionId") Integer publicacionId,
             @WebParam(name = "fechaAlta") Date fechaAlta,
             @WebParam(name = "estadoId") Integer estadoId,
@@ -41,18 +45,18 @@ public class Publicacion {
         return this.publicacionBo.modificar(publicacionId, fechaAlta, estadoId, itemId, personaId, calificacion);
     }
 
-    @WebMethod(operationName = "listarPorEstado")
-    public ArrayList<PublicacionDto> listarPorEstado(@WebParam(name = "estadoId") Integer estadoId) {
+    @WebMethod(operationName = "listarPorEstadoPublicacion")
+    public ArrayList<PublicacionDto> listarPorEstadoPublicacion(@WebParam(name = "estadoId") Integer estadoId) {
         return this.publicacionBo.listarPorEstado(estadoId);
     }
 
-    @WebMethod(operationName = "listarPorDueno")
-    public ArrayList<PublicacionDto> listarPorDueno(@WebParam(name = "personaId") Integer personaId) {
+    @WebMethod(operationName = "listarPorDuenoPublicacion")
+    public ArrayList<PublicacionDto> listarPorDuenoPublicacion(@WebParam(name = "personaId") Integer personaId) {
         return this.publicacionBo.listarPorDueno(personaId);
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public PublicacionDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdPublicacion")
+    public PublicacionDto obtenerPorIdPublicacion(@WebParam(name = "id") Integer id) {
         return this.publicacionBo.obtenerPorId(id);
     }
 

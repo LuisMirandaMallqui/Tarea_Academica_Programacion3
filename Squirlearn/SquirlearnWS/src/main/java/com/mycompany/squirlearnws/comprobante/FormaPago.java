@@ -14,13 +14,17 @@ public class FormaPago {
 
     private FormaPagoBo formaPagoBo;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList listarTodos() {
+    public FormaPago(){
+        this.formaPagoBo = new FormaPagoBo();
+    }
+    
+    @WebMethod(operationName = "listarTodosFormaPago")
+    public ArrayList listarTodosFormaPago() {
         return this.formaPagoBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public FormaPagoDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdFormaPago")
+    public FormaPagoDto obtenerPorIdFormaPago(@WebParam(name = "id") Integer id) {
         return this.formaPagoBo.obtenerPorId(id);
     }
 }

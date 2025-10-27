@@ -20,13 +20,17 @@ public class Color {
 
     private ColorBo colorBo;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<ColorDto> listarTodos() {
+    public Color(){
+        this.colorBo = new ColorBo();
+    }
+    
+    @WebMethod(operationName = "listarTodosColor")
+    public ArrayList<ColorDto> listarTodosColor() {
         return this.colorBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public ColorDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdColor")
+    public ColorDto obtenerPorIdColor(@WebParam(name = "id") Integer id) {
         return this.colorBo.obtenerPorId(id);
     }
 

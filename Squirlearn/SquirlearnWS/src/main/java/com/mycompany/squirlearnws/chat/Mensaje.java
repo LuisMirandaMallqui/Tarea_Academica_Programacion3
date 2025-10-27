@@ -21,16 +21,20 @@ public class Mensaje {
 
     private MensajeBo mensajeBo;
     
-    @WebMethod(operationName = "insertar")
-    public Integer insertar(
+    public Mensaje(){
+        this.mensajeBo = new MensajeBo();
+    }
+    
+    @WebMethod(operationName = "insertarMensaje")
+    public Integer insertarMensaje(
             @WebParam(name = "chatId") Integer chatId,
             @WebParam(name = "mensaje") String mensaje,
             @WebParam(name = "personaId") Integer personaId) {
         return this.mensajeBo.insertar(chatId, mensaje, personaId);
     }
 
-    @WebMethod(operationName = "modificar")
-    public Integer modificar(
+    @WebMethod(operationName = "modificarMensaje")
+    public Integer modificarMensaje(
             @WebParam(name = "id") Integer id,
             @WebParam(name = "chatId") Integer chatId,
             @WebParam(name = "mensaje") String mensaje,
@@ -40,13 +44,13 @@ public class Mensaje {
         return this.mensajeBo.modificar(id, chatId, mensaje, estadoId, personaId, fechaEnvio);
     }
 
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList listarTodos() {
+    @WebMethod(operationName = "listarTodosMensaje")
+    public ArrayList listarTodosMensaje() {
         return this.mensajeBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public MensajeDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdMensaje")
+    public MensajeDto obtenerPorIdMensaje(@WebParam(name = "id") Integer id) {
         return this.mensajeBo.obtenerPorId(id);
     }
 }
