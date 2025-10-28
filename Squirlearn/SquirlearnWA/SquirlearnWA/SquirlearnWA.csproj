@@ -119,6 +119,7 @@
     <Content Include="LoginRecuperarContraseña.aspx" />
     <Content Include="LoginRegistro.aspx" />
     <Content Include="Notificaciones.aspx" />
+    <Content Include="Pedidos.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="ReestablecerContraseña.aspx" />
     <Content Include="RegistrarIncidencia.aspx" />
@@ -141,6 +142,7 @@
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="SquirLearnInicio.aspx" />
+    <Content Include="VentasAlquiler.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +173,13 @@
     </Compile>
     <Compile Include="Notificaciones.aspx.designer.cs">
       <DependentUpon>Notificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos.aspx.cs">
+      <DependentUpon>Pedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pedidos.aspx.designer.cs">
+      <DependentUpon>Pedidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
@@ -214,6 +223,13 @@
     </Compile>
     <Compile Include="SquirLearnInicio.aspx.designer.cs">
       <DependentUpon>SquirLearnInicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VentasAlquiler.aspx.cs">
+      <DependentUpon>VentasAlquiler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VentasAlquiler.aspx.designer.cs">
+      <DependentUpon>VentasAlquiler.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/SquirLearn.Master" AutoEventWireup="true" CodeBehind="RegistrarIncidencia.aspx.cs" Inherits="SquirlearnWA.RegistrarIncidencia" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
-
+     <asp:LinkButton ID="btnVolver" runat="server" CssClass="btn btn-link text-dark mb-3 btn-flecha" OnClick="btnVolver_Click4">
+   <i class="fa fa-arrow-left"></i>
+   </asp:LinkButton>
 
     <div class="container mt-5">
         <!-- Título -->

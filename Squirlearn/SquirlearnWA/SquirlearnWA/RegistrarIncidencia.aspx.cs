@@ -37,6 +37,11 @@ namespace SquirlearnWA
         {
             Response.Redirect("Perfil.aspx");
         }
+
+        protected void btnVolver_Click4(object sender, EventArgs e)
+        {
+            Response.Redirect("Perfil.aspx");
+        }
     }
 
 }

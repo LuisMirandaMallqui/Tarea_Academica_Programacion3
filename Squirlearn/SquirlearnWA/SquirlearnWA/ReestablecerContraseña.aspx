@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/SquirLearn.Master" AutoEventWireup="true" CodeBehind="ReestablecerContraseña.aspx.cs" Inherits="SquirlearnWA.ReestablecerContraseña" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
 
+     <asp:LinkButton ID="btnVolver" runat="server" CssClass="btn btn-link text-dark mb-3 ms-n2 btn-flecha" OnClick="btnVolver_Click3">
+             <i class="fa fa-arrow-left"></i>
+         </asp:LinkButton>
      <div class="container reestablecerContraseña-container mt-4">
 
-          <asp:LinkButton ID="btnVolver" runat="server" CssClass="btn btn-link text-dark mb-3 btn-flecha" OnClick="btnVolver_Click">
-            <i class="fa fa-arrow-left"></i>
-            </asp:LinkButton>
+         
        <div class="d-flex align-items-center justify-content-center vh-100" style="transform: translateY(-200px);">
            
         <div class="card shadow text-center" style="max-width: 420px; width: 100%;">
