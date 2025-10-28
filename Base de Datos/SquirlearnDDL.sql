@@ -327,7 +327,7 @@ COMMENT = 'Tabla intermedia para la relación M-M entre personas y roles.';
 -- -----------------------------------------------------
 -- Table `mydb`.`alquileres`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`alquileres` ;
+DROP TABLE IF EXISTS `mydb`.`alquileres` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`alquileres` (
   -- Primary Keys
