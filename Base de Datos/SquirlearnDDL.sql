@@ -583,11 +583,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`publicaciones` (
   `ITEM_ID_ITEM` INT NOT NULL COMMENT 'FK que referencia al item que se está publicando.',
   `PERSONA_ID` INT NOT NULL COMMENT 'FK que referencia a la persona (vendedor) que crea la publicación.',
   -- Atributos
-  `FECHA_ALTA` DATETIME NOT NULL COMMENT 'Fecha en que la publicación entra en el sistema',
+  `FECHA_ALTA` DATETIME NOT NULL COMMENT 'Fecha en que la publicación es aprobada',
   `FECHA_BAJA` DATETIME NULL DEFAULT NULL COMMENT 'Fecha en que la publicación deja de visualizarse.',
   `CALIFICACION` INT NULL DEFAULT '0' COMMENT 'Calificación promedio de la publicación',
   -- Auditoria
   `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
+  `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
   `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
   `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`PUBLICACION_ID`),
@@ -616,6 +617,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`historias_publicaciones` (
   -- Primary Keys
   `HISTORIAPUBLI_ID` INT NOT NULL AUTO_INCREMENT COMMENT 'Identificador único del registro de historia.',
   `PUBLICACION_ID` INT NOT NULL COMMENT 'FK que referencia a la publicación modificada.',
+  -- Atributos
+  `USUARIO_MODIFICACION_PUBLICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Usuario que modifico la publicación',
+  `FECHA_MODIFICACION_PUBLICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora del registro de la modificacion.',
+  `ESTADO_ID_ANTERIOR` INT NOT NULL COMMENT 'FK que referencia al estado actual de la publicación.',
+  `ITEM_ID_ITEM_ANTERIOR` INT NOT NULL COMMENT 'FK que referencia al item que se está publicando.',
+  `ESTADO_ID_ACTUAL` INT NOT NULL COMMENT 'FK que referencia al estado actual de la publicación.',
+  `ITEM_ID_ITEM_ACTUAL` INT NOT NULL COMMENT 'FK que referencia al item que se está publicando.',
   -- Auditoria
   `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
   `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',

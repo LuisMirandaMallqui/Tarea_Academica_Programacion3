@@ -170,7 +170,7 @@ INSERT INTO personas_roles(PERSONA_ID, ROLPERSONA_ID) VALUES
 -- GRUPO 5: TRANSACCIONES (Publicaciones, Alquileres, etc.)
 -- -----------------------------------------------------
 INSERT INTO publicaciones(
-    ESTADO_PUBLICACION_ID, ITEM_ID_ITEM, PERSONA_ID, CALIFICACION
+    ESTADO_PUBLICACION_ID, ITEM_ID_ITEM, PERSONA_ID, CALIFICACION, USUARIO_CREACION, FECHA_CREACION
 ) VALUES 
 (1, 1, 2, 4),   -- Publicación 1, "FISICA 1", Persona 2, con calificación 4
 (2, 2, 3, 5),   -- Publicación 2, "PROGRAMACION 3", Persona 3, con calificación 5
