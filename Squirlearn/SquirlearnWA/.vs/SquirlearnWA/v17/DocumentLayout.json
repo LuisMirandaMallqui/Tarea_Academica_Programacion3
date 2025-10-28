@@ -1,5 +1,28 @@
 {
   "Version": 1,
+<<<<<<< HEAD
+  "WorkspaceRootPath": "D:\\GitHub\\Squirlearn\\SquirlearnWA\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\github\\squirlearn\\squirlearnwa\\squirlearnwa\\pedidos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\pedidos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|D:\\GitHub\\Squirlearn\\SquirlearnWA\\squirlearnwa\\pedidos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\pedidos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|D:\\GitHub\\Squirlearn\\SquirlearnWA\\squirlearnwa\\ventasalquiler.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\ventasalquiler.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|D:\\GitHub\\Squirlearn\\SquirlearnWA\\squirlearnwa\\ventasalquiler.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\ventasalquiler.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|D:\\GitHub\\Squirlearn\\SquirlearnWA\\squirlearnwa\\perfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\perfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+=======
   "WorkspaceRootPath": "D:\\PUCP\\2025-2\\Programaci\u00F3n3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\",
   "Documents": [
     {
@@ -17,6 +40,7 @@
     {
       "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|D:\\PUCP\\2025-2\\Programaci\u00F3n3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\squirlearnwa\\registrarincidencia.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\registrarincidencia.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 330b055eb0761cc6bec10a4d4efb5d437071e5cc
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
+          "SelectedChildIndex": 3,
+=======
           "SelectedChildIndex": 4,
+>>>>>>> 330b055eb0761cc6bec10a4d4efb5d437071e5cc
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,6 +62,37 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 3,
+              "Title": "VentasAlquiler.aspx.cs",
+              "DocumentMoniker": "D:\\GitHub\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\VentasAlquiler.aspx.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\VentasAlquiler.aspx.cs",
+              "ToolTip": "D:\\GitHub\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\VentasAlquiler.aspx.cs",
+              "RelativeToolTip": "SquirlearnWA\\VentasAlquiler.aspx.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAowFoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T00:09:43.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VentasAlquiler.aspx",
+              "DocumentMoniker": "D:\\GitHub\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\VentasAlquiler.aspx",
+              "RelativeDocumentMoniker": "SquirlearnWA\\VentasAlquiler.aspx",
+              "ToolTip": "D:\\GitHub\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\VentasAlquiler.aspx",
+              "RelativeToolTip": "SquirlearnWA\\VentasAlquiler.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-10-28T00:07:14.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Perfil.aspx",
+              "DocumentMoniker": "D:\\GitHub\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Perfil.aspx",
+              "RelativeDocumentMoniker": "SquirlearnWA\\Perfil.aspx",
+              "ToolTip": "D:\\GitHub\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Perfil.aspx",
+=======
               "DocumentIndex": 2,
               "Title": "Notificaciones.aspx.cs",
               "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Notificaciones.aspx.cs",
@@ -77,11 +136,36 @@
               "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Perfil.aspx",
               "RelativeDocumentMoniker": "SquirlearnWA\\Perfil.aspx",
               "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Perfil.aspx",
+>>>>>>> 330b055eb0761cc6bec10a4d4efb5d437071e5cc
               "RelativeToolTip": "SquirlearnWA\\Perfil.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-10-26T23:53:11.524Z",
+              "WhenOpened": "2025-10-28T00:05:46.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Pedidos.aspx.cs",
+              "DocumentMoniker": "D:\\GitHub\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Pedidos.aspx.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\Pedidos.aspx.cs",
+              "ToolTip": "D:\\GitHub\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Pedidos.aspx.cs",
+              "RelativeToolTip": "SquirlearnWA\\Pedidos.aspx.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowDQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T00:04:35.52Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Pedidos.aspx",
+              "DocumentMoniker": "D:\\GitHub\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Pedidos.aspx",
+              "RelativeDocumentMoniker": "SquirlearnWA\\Pedidos.aspx",
+              "ToolTip": "D:\\GitHub\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Pedidos.aspx",
+              "RelativeToolTip": "SquirlearnWA\\Pedidos.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-10-27T23:17:59.932Z"
             }
           ]
         }

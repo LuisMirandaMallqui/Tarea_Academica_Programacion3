@@ -11,7 +11,7 @@ namespace SquirlearnWA
 {
 
 
-    public partial class RegistrarIncidencia
+    public partial class VentasAlquiler
     {
 
         /// <summary>
@@ -24,30 +24,30 @@ namespace SquirlearnWA
         protected global::System.Web.UI.WebControls.LinkButton btnVolver;
 
         /// <summary>
-        /// Control txtIncidencia.
+        /// Control chkCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIncidencia;
+        protected global::System.Web.UI.WebControls.CheckBox chkCompra;
 
         /// <summary>
-        /// Control btnEnviar.
+        /// Control chkAlquiler.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEnviar;
+        protected global::System.Web.UI.WebControls.CheckBox chkAlquiler;
 
         /// <summary>
-        /// Control btnContinuar.
+        /// Control rptPedidos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnContinuar;
+        protected global::System.Web.UI.WebControls.Repeater rptPedidos;
     }
 }
