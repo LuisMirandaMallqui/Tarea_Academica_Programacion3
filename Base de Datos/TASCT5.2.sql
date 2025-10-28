@@ -245,11 +245,11 @@ DEFAULT CHARACTER SET = utf8mb3
 COMMENT = 'Almacena los estados de una persona/usuario en el sistema.';
 
 -- -----------------------------------------------------
--- Table `mydb`.`roles_personas`
+-- Table `mydb`.`roles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`roles_personas` ;
+DROP TABLE IF EXISTS `mydb`.`roles` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`roles_personas` (
+CREATE TABLE IF NOT EXISTS `mydb`.`roles` (
   -- Primary Keys
   `ROLPERSONA_ID` INT NOT NULL AUTO_INCREMENT COMMENT 'Identificador único del rol.',
   -- Atributos
@@ -283,9 +283,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`personas` (
   `CORREO` VARCHAR(100) NOT NULL COMMENT 'Correo electrónico (debe ser único).',
   `CONTRASENA` VARCHAR(45) NOT NULL COMMENT 'Contraseña del usuario (debería estar encriptada).',
   -- Auditoria
-  `USUARIO_CREACION` INT NOT NULL COMMENT 'ID del usuario que creó el registro.',
+  `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
   `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
-  `USUARIO_MODIFICACION` INT NULL DEFAULT NULL COMMENT 'ID del último usuario que modificó el registro.',
+  `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
   `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`PERSONA_ID`),
   INDEX `fk_PERSONA_ESTADO_PERSONA1_idx` (`ESTADO_PERSONA_ID_ESTADOPERSONA` ASC) VISIBLE,
@@ -304,11 +304,11 @@ DROP TABLE IF EXISTS `mydb`.`personas_roles` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`personas_roles` (
   -- Primary Keys
   `PERSONA_ID` INT NOT NULL COMMENT 'FK que referencia a la tabla personas.',
-  `ROLPERSONA_ID` INT NOT NULL COMMENT 'FK que referencia a la tabla roles_personas.',
+  `ROLPERSONA_ID` INT NOT NULL COMMENT 'FK que referencia a la tabla roles.',
   -- Auditoria 
-  `USUARIO_CREACION` INT NOT NULL COMMENT 'ID del usuario que creó el registro.',
+  `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
   `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
-  `USUARIO_MODIFICACION` INT NULL DEFAULT NULL COMMENT 'ID del último usuario que modificó el registro.',
+  `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
   `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`PERSONA_ID`, `ROLPERSONA_ID`) COMMENT 'Llave primaria compuesta para la relación M-M.',
   INDEX `fk_personas_roles_roles1_idx` (`ROLPERSONA_ID` ASC) VISIBLE,
@@ -318,7 +318,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`personas_roles` (
     REFERENCES `mydb`.`personas` (`PERSONA_ID`),
   CONSTRAINT `fk_personas_roles_roles1`
     FOREIGN KEY (`ROLPERSONA_ID`)
-    REFERENCES `mydb`.`roles_personas` (`ROLPERSONA_ID`)
+    REFERENCES `mydb`.`roles` (`ROLPERSONA_ID`)
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3
@@ -341,9 +341,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`alquileres` (
   `MONTO` DECIMAL(10,2) NOT NULL COMMENT 'Monto total pagado por el alquiler.',
   `DEVUELTO` TINYINT NOT NULL COMMENT 'Flag (1=Devuelto, 0=No devuelto) para estado de devolución.',
   -- Auditoria
-  `USUARIO_CREACION` INT NOT NULL COMMENT 'ID del usuario que creó el registro.',
+  `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
   `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
-  `USUARIO_MODIFICACION` INT NULL DEFAULT NULL COMMENT 'ID del último usuario que modificó el registro.',
+  `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
   `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`ALQUILER_ID`),
   INDEX `fk_PERSONA_has_ITEM_ITEM1_idx` (`ITEM_ID` ASC) VISIBLE,
@@ -370,10 +370,10 @@ CREATE TABLE IF NOT EXISTS `mydb`.`estados_chats` (
   -- Atributos
   `NOMBRE` VARCHAR(45) NOT NULL COMMENT 'Nombre del estado (ej. Abierto, Cerrado, Archivado).',
   -- Auditoria
-  `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
   `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
-  `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
+  `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
   `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
+  `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`ESTADOCHAT_ID`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
@@ -392,9 +392,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`chats` (
   -- Foreign Keys
   `estado_chat_ID_ESTADOCHAT` INT NOT NULL COMMENT 'FK que referencia al estado actual del chat.',
   -- Auditoria
-  `USUARIO_CREACION` INT NOT NULL COMMENT 'ID del usuario que inició el chat.',
-  `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del chat.',
-  `USUARIO_MODIFICACION` INT NULL DEFAULT NULL COMMENT 'ID del último usuario que modificó el registro.',
+  `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
+  `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
+  `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
   `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`CHAT_ID`),
   INDEX `fk_CHAT_estado_chat1_idx` (`estado_chat_ID_ESTADOCHAT` ASC) VISIBLE,
@@ -505,8 +505,11 @@ CREATE TABLE IF NOT EXISTS `mydb`.`detalles_comprobantes` (
   `DESCRIPCION` VARCHAR(100) NOT NULL COMMENT 'Descripción de la línea de detalle (ej. Venta de Item X).',
   `PRECIO` DECIMAL(10,2) NOT NULL COMMENT 'Precio de esta línea de detalle.',
   -- Auditoria
-  `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
+  `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
+  `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
   `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
+  `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
+
   PRIMARY KEY (`DETALLECOM_ID`, `COMPROBANTE_ID_COMPROBANTE`),
   INDEX `fk_DETALLE_COMPROBANTE_ITEM1_idx` (`ITEM_ID_ITEM` ASC) VISIBLE,
   INDEX `fk_DETALLE_COMPROBANTE_ALQUILER1_idx` (`ALQUILER_ID_ALQUILER` ASC) VISIBLE,
@@ -580,12 +583,11 @@ CREATE TABLE IF NOT EXISTS `mydb`.`publicaciones` (
   `ITEM_ID_ITEM` INT NOT NULL COMMENT 'FK que referencia al item que se está publicando.',
   `PERSONA_ID` INT NOT NULL COMMENT 'FK que referencia a la persona (vendedor) que crea la publicación.',
   -- Atributos
-  `FECHA_ALTA` DATETIME NOT NULL COMMENT 'Fecha en que la publicación se vuelve visible/activa.',
-  `FECHA_BAJA` DATETIME NULL DEFAULT NULL COMMENT 'Fecha en que la publicación deja de ser visible.',
-  `CALIFICACION` INT NULL DEFAULT '0' COMMENT 'Calificación promedio de la publicación (ej. 1 a 5 estrellas).',
+  `FECHA_ALTA` DATETIME NOT NULL COMMENT 'Fecha en que la publicación entra en el sistema',
+  `FECHA_BAJA` DATETIME NULL DEFAULT NULL COMMENT 'Fecha en que la publicación deja de visualizarse.',
+  `CALIFICACION` INT NULL DEFAULT '0' COMMENT 'Calificación promedio de la publicación',
   -- Auditoria
   `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
-  `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
   `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
   `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`PUBLICACION_ID`),
@@ -615,8 +617,10 @@ CREATE TABLE IF NOT EXISTS `mydb`.`historias_publicaciones` (
   `HISTORIAPUBLI_ID` INT NOT NULL AUTO_INCREMENT COMMENT 'Identificador único del registro de historia.',
   `PUBLICACION_ID` INT NOT NULL COMMENT 'FK que referencia a la publicación modificada.',
   -- Auditoria
-  `FECHA_MODIFICACION` DATETIME NOT NULL COMMENT 'Fecha y hora en que se realizó la modificación.',
-  `USUARIO_MODIFICACION` INT NOT NULL COMMENT 'ID del usuario que realizó la modificación.',
+  `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
+  `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
+  `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
+  `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`HISTORIAPUBLI_ID`, `PUBLICACION_ID`),
   INDEX `fk_HISTORIA_PUBLI_PUBLICACION1_idx` (`PUBLICACION_ID` ASC) VISIBLE,
   CONSTRAINT `fk_HISTORIA_PUBLI_PUBLICACION1`
@@ -693,9 +697,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`incidencias` (
   `FECHA_SOLUCION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora en que se solucionó la incidencia.',
   `USUARIO_SOLUCION` INT NULL DEFAULT NULL COMMENT 'ID del usuario (administrador) que solucionó la incidencia.',
   -- Auditoria
-  `USUARIO_CREACION` INT NOT NULL COMMENT 'ID del usuario que creó el registro.',
+  `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
   `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
-  `USUARIO_MODIFICACION` INT NULL DEFAULT NULL COMMENT 'ID del último usuario que modificó el registro.',
+  `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
   `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`INCIDENCIA_ID`),
   INDEX `fk_INCIDENCIA_NOTIFIFACION1_idx` (`NOTIFIFACION_ID` ASC) VISIBLE,
