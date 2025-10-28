@@ -20,13 +20,17 @@ public class Condicion {
 
     private CondicionBo condicionBo;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<CondicionDto> listarTodos() {
+    public Condicion(){
+        this.condicionBo = new CondicionBo();
+    }
+    
+    @WebMethod(operationName = "listarTodosCondicion")
+    public ArrayList<CondicionDto> listarTodosCondicion() {
         return this.condicionBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public CondicionDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdCondicion")
+    public CondicionDto obtenerPorIdCondicion(@WebParam(name = "id") Integer id) {
         return this.condicionBo.obtenerPorId(id);
     }
 

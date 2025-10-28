@@ -20,18 +20,22 @@ public class Subcategoria {
 
     private SubcategoriaBo subcategoriaBo;
     
-    @WebMethod(operationName = "listarPorCategoria")
-    public ArrayList<SubcategoriaDto> listarPorCategoria(@WebParam(name = "categoriaId") Integer categoriaId) {
+    public Subcategoria(){
+        this.subcategoriaBo = new SubcategoriaBo();
+    }
+    
+    @WebMethod(operationName = "listarPorCategoriaSubcategoria")
+    public ArrayList<SubcategoriaDto> listarPorCategoriaSubcategoria(@WebParam(name = "categoriaId") Integer categoriaId) {
         return this.subcategoriaBo.listarPorCategoria(categoriaId);
     }
 
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<SubcategoriaDto> listarTodos() {
+    @WebMethod(operationName = "listarTodosSubcategoria")
+    public ArrayList<SubcategoriaDto> listarTodosSubcategoria() {
         return this.subcategoriaBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public SubcategoriaDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdSubcategoria")
+    public SubcategoriaDto obtenerPorIdSubcategoria(@WebParam(name = "id") Integer id) {
         return this.subcategoriaBo.obtenerPorId(id);
     }
 

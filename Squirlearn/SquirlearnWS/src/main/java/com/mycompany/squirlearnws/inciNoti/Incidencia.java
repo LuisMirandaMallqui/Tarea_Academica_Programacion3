@@ -21,8 +21,12 @@ public class Incidencia {
 
     private IncidenciaBo incidenciaBo; 
     
-    @WebMethod(operationName = "insertar")
-    public Integer insertar(
+    public Incidencia(){
+        this.incidenciaBo = new IncidenciaBo();
+    }
+    
+    @WebMethod(operationName = "insertarIncidencia")
+    public Integer insertarIncidencia(
             @WebParam(name = "descripcion") String descripcion,
             @WebParam(name = "notificacionId") Integer notificacionId,
             @WebParam(name = "personaId") Integer personaId,
@@ -31,8 +35,8 @@ public class Incidencia {
         return this.incidenciaBo.insertar(descripcion, notificacionId, personaId, motivoId, creadorId);
     }
 
-    @WebMethod(operationName = "modificar")
-    public Integer modificar(
+    @WebMethod(operationName = "modificarIncidencia")
+    public Integer modificarIncidencia(
             @WebParam(name = "id") Integer id,
             @WebParam(name = "descripcion") String descripcion,
             @WebParam(name = "fechaCreacion") Date fechaCreacion,
@@ -48,14 +52,14 @@ public class Incidencia {
                 personaId, motivoId, resuelto, creadorId, solucionadorId, modificadorId);
     }
 
-    @WebMethod(operationName = "listarPorResolucion")
-    public ArrayList<IncidenciaDto> listarPorResolucion(
+    @WebMethod(operationName = "listarPorResolucionIncidencia")
+    public ArrayList<IncidenciaDto> listarPorResolucionIncidencia(
             @WebParam(name = "resuelto") Boolean resuelto) {
         return this.incidenciaBo.listarPorResolucion(resuelto);
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public IncidenciaDto obtenerPorId(
+    @WebMethod(operationName = "obtenerPorIdIncidencia")
+    public IncidenciaDto obtenerPorIdIncidencia(
             @WebParam(name = "id") Integer id) {
         return this.incidenciaBo.obtenerPorId(id);
     }

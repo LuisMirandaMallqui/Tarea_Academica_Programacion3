@@ -20,13 +20,17 @@ public class EstadoChat {
 
     private EstadoChatBo estadoChatBo;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList listarTodos() {
+    public EstadoChat(){
+        this.estadoChatBo = new EstadoChatBo();
+    }
+    
+    @WebMethod(operationName = "listarTodosEstadoChat")
+    public ArrayList listarTodosEstadoChat() {
         return this.estadoChatBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public EstadoChatDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdEstadoChat")
+    public EstadoChatDto obtenerPorIdEstadoChat(@WebParam(name = "id") Integer id) {
         return this.estadoChatBo.obtenerPorId(id);
     }
 }

@@ -21,13 +21,17 @@ public class Chat {
 
     private ChatBo chatBo;
     
-    @WebMethod(operationName = "insertar")
-    public Integer insertar(@WebParam(name = "creadorId") Integer creadorId) {
+    public Chat(){
+        this.chatBo = new ChatBo();
+    }
+    
+    @WebMethod(operationName = "insertarChat")
+    public Integer insertarChat(@WebParam(name = "creadorId") Integer creadorId) {
         return this.chatBo.insertar(creadorId);
     }
 
-    @WebMethod(operationName = "modificar")
-    public Integer modificar(
+    @WebMethod(operationName = "modificarChat")
+    public Integer modificarChat(
             @WebParam(name = "chatId") Integer chatId,
             @WebParam(name = "estadoId") Integer estadoId,
             @WebParam(name = "fechaCreacion") Date creacion,
@@ -36,13 +40,13 @@ public class Chat {
         return this.chatBo.modificar(chatId, estadoId, creacion, creador, modificadorId);
     }
 
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList listarTodos() {
+    @WebMethod(operationName = "listarTodosChat")
+    public ArrayList listarTodosChat() {
         return this.chatBo.listarTodos();
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public ChatDto obtenerPorId(@WebParam(name = "id") Integer id) {
+    @WebMethod(operationName = "obtenerPorIdChat")
+    public ChatDto obtenerPorIdChat(@WebParam(name = "id") Integer id) {
         return this.chatBo.obtenerPorId(id);
     }
 }

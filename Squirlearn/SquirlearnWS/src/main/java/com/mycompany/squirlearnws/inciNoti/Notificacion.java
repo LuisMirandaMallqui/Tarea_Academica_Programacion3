@@ -20,22 +20,26 @@ public class Notificacion {
 
     private NotificacionBo notificacionBo;
     
-    @WebMethod(operationName = "insertar")
-    public Integer insertar(
+    public Notificacion(){
+        this.notificacionBo = new NotificacionBo();
+    }
+    
+    @WebMethod(operationName = "insertarNotificacion")
+    public Integer insertarNotificacion(
             @WebParam(name = "mensaje") String mensaje,
             @WebParam(name = "personaId") Integer personaId,
             @WebParam(name = "motivoId") Integer motivoId) {
         return this.notificacionBo.insertar(mensaje, personaId, motivoId);
     }
 
-    @WebMethod(operationName = "listarPorPersona")
-    public ArrayList<NotificacionDto> listarPorPersona(
+    @WebMethod(operationName = "listarPorPersonaNotificacion")
+    public ArrayList<NotificacionDto> listarPorPersonaNotificacion(
             @WebParam(name = "personaId") Integer personaId) {
         return this.notificacionBo.listarPorPersona(personaId);
     }
 
-    @WebMethod(operationName = "obtenerPorId")
-    public NotificacionDto obtenerPorId(
+    @WebMethod(operationName = "obtenerPorIdNotificacion")
+    public NotificacionDto obtenerPorIdNotificacion(
             @WebParam(name = "id") Integer id) {
         return this.notificacionBo.obtenerPorId(id);
     }
