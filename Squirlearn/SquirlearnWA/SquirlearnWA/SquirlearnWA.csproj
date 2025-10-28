@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ConfirmacionPedido.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -106,6 +107,9 @@
     <Content Include="Content\fonts\LICENSE.txt" />
     <Content Include="Content\Inicio.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="DetalleAlquiler.aspx" />
+    <Content Include="DetalleCompra.aspx" />
+    <Content Include="DetalleProductoCompra.aspx" />
     <Content Include="Imagenes\apuntes.png" />
     <Content Include="Imagenes\ardilla.png" />
     <Content Include="Imagenes\ardilla2.png" />
@@ -115,12 +119,14 @@
     <Content Include="Imagenes\instrumentos.png" />
     <Content Include="Imagenes\libros.png" />
     <Content Include="Imagenes\más.png" />
+    <Content Include="Instrumentos.aspx" />
     <Content Include="LoginInicio.aspx" />
     <Content Include="LoginRecuperarContraseña.aspx" />
     <Content Include="LoginRegistro.aspx" />
     <Content Include="Notificaciones.aspx" />
     <Content Include="Pedidos.aspx" />
     <Content Include="Perfil.aspx" />
+    <Content Include="QuillaTip.aspx" />
     <Content Include="ReestablecerContraseña.aspx" />
     <Content Include="RegistrarIncidencia.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -146,6 +152,41 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfirmacionPedido.aspx.cs">
+      <DependentUpon>ConfirmacionPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmacionPedido.aspx.designer.cs">
+      <DependentUpon>ConfirmacionPedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleAlquiler.aspx.cs">
+      <DependentUpon>DetalleAlquiler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleAlquiler.aspx.designer.cs">
+      <DependentUpon>DetalleAlquiler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleCompra.aspx.cs">
+      <DependentUpon>DetalleCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleCompra.aspx.designer.cs">
+      <DependentUpon>DetalleCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleProductoCompra.aspx.cs">
+      <DependentUpon>DetalleProductoCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleProductoCompra.aspx.designer.cs">
+      <DependentUpon>DetalleProductoCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Instrumentos.aspx.cs">
+      <DependentUpon>Instrumentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Instrumentos.aspx.designer.cs">
+      <DependentUpon>Instrumentos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LoginInicio.aspx.cs">
       <DependentUpon>LoginInicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -202,6 +243,13 @@
     </Compile>
     <Compile Include="LoginRegistro.aspx.designer.cs">
       <DependentUpon>LoginRegistro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuillaTip.aspx.cs">
+      <DependentUpon>QuillaTip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuillaTip.aspx.designer.cs">
+      <DependentUpon>QuillaTip.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReestablecerContraseña.aspx.cs">
       <DependentUpon>ReestablecerContraseña.aspx</DependentUpon>
