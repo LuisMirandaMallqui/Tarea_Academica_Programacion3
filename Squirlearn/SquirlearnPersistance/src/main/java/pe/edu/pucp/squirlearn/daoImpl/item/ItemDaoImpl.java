@@ -11,7 +11,7 @@ import pe.edu.pucp.squirlearn.model.item.EstadoItemDto;
 import pe.edu.pucp.squirlearn.model.item.FormatoDto;
 import pe.edu.pucp.squirlearn.model.item.ItemDto;
 import pe.edu.pucp.squirlearn.model.item.SubcategoriaDto;
-import pe.edu.pucp.squirlearn.model.item.TamañoDto;
+import pe.edu.pucp.squirlearn.model.item.TamanoDto;
 
 public class ItemDaoImpl extends DAOImplBase implements ItemDao{
 
@@ -120,7 +120,7 @@ public class ItemDaoImpl extends DAOImplBase implements ItemDao{
         this.item.setCondicion(cond);
 
         // Tamano
-        TamañoDto tam = new TamañoDto();
+        TamanoDto tam = new TamanoDto();
         tam.setTamanoId(this.resultSet.getInt("TAMANO_ID"));
         this.item.setTamano(tam);
 

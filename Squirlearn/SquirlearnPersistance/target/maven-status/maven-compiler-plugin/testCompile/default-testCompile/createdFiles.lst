@@ -2,8 +2,8 @@ pe\edu\pucp\squirlearn\dao\item\EstadoItemDaoTest.class
 pe\edu\pucp\squirlearn\dao\publicacion\PublicacionDaoTest.class
 pe\edu\pucp\squirlearn\dao\item\SubcategoriaDaoTest.class
 pe\edu\pucp\squirlearn\dao\comprobante\DetalleComprobanteDaoTest.class
+pe\edu\pucp\squirlearn\dao\item\TamanoDaoTest.class
 pe\edu\pucp\squirlearn\dao\comprobante\FormaPagoDaoTest.class
-pe\edu\pucp\squirlearn\dao\item\TamañoDaoTest.class
 pe\edu\pucp\squirlearn\dao\chat\MensajeDaoTest.class
 pe\edu\pucp\squirlearn\dao\chat\PersonaChatDaoTest.class
 pe\edu\pucp\squirlearn\dao\inciNoti\MotivoDaoTest.class
@@ -18,7 +18,6 @@ pe\edu\pucp\squirlearn\dao\inciNoti\IncidenciaDaoTest.class
 pe\edu\pucp\squirlearn\dao\persona\RolPersonaDaoTest.class
 pe\edu\pucp\squirlearn\dao\comprobante\MonedaPagoDaoTest.class
 pe\edu\pucp\squirlearn\dao\item\ColorDaoTest.class
-pe\edu\pucp\squirlearn\dao\publicacion\HistoriaPublicacionDaoTest.class
 pe\edu\pucp\squirlearn\dao\comprobante\ComprobanteDaoTest.class
 pe\edu\pucp\squirlearn\dao\item\CategoriaDaoTest.class
 pe\edu\pucp\squirlearn\dao\item\ItemDaoTest.class

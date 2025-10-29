@@ -1,28 +1,28 @@
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\inciNoti\Incidencia.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\chat\Chat.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\JakartaRestConfiguration.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\chat\PersonaChat.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\publicacion\EstadoPublicacion.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\comprobante\DetalleComprobante.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Item.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\persona\Persona.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\publicacion\Publicacion.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\alquiler\Alquiler.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Condicion.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\EstadoItem.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Tamano.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\persona\RolPersona.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\inciNoti\Notificacion.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Subcategoria.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\comprobante\MonedaPago.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\inciNoti\Motivo.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\chat\EstadoMensaje.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Color.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\resources\JakartaEE10Resource.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Categoria.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\comprobante\Comprobante.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\persona\EstadoPersona.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Formato.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\chat\EstadoChat.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\chat\Mensaje.java
-D:\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\comprobante\FormaPago.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\JakartaRestConfiguration.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Tamano.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\publicacion\Publicacion.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Subcategoria.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\inciNoti\Incidencia.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\chat\Mensaje.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\comprobante\DetalleComprobante.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\chat\Chat.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Condicion.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\publicacion\EstadoPublicacion.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\resources\JakartaEE10Resource.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Color.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\comprobante\MonedaPago.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\inciNoti\Notificacion.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\chat\PersonaChat.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\EstadoItem.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\chat\EstadoMensaje.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Item.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Formato.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\persona\RolPersona.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\inciNoti\Motivo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\persona\EstadoPersona.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\alquiler\Alquiler.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\item\Categoria.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\comprobante\Comprobante.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\chat\EstadoChat.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\persona\Persona.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWS\src\main\java\com\mycompany\squirlearnws\comprobante\FormaPago.java
