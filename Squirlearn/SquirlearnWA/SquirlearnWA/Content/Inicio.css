@@ -280,3 +280,65 @@ html, body {
     background-color: #0d6efd;
     border-color: #0d6efd;
 }
+/*TABLA INCIDENCIA*/
+.tabla-incidencias {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .tabla-incidencias th {
+        background-color: #e9e9e9;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    .tabla-incidencias td {
+        padding: 10px;
+        border-top: 1px solid #ccc;
+    }
+
+.estado-pendiente {
+    background-color: #FFF6A0;
+    color: #555;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.estado-resuelta {
+    background-color: #9BEA8A;
+    color: #1a441a;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.btn-responder {
+    background-color: #4A90E2;
+    color: white !important;
+    padding: 6px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-resolver:hover {
+    background-color: #357ABD;
+}
+
+.btn-resuelta {
+    background-color: #A5A5A5;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    pointer-events: none;
+    cursor: default;
+}
+.readonly {
+    background-color: #e9ecef !important; /* gris Bootstrap */
+    color: #495057; /* texto oscuro */
+}

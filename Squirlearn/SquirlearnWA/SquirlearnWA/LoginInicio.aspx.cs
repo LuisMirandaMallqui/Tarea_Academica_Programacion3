@@ -19,8 +19,27 @@ namespace SquirlearnWA
             // Simulación de autenticación
             string usuario = txtUsuario.Text.Trim();
             string contrasena = txtContraseña.Text.Trim();
+            //var usuarioBO = new UsuarioBO();
+            //var usuario = usuarioBO.ValidarUsuario(usuario,contrasena);
+            // Simulamos usuarios con roles distintos
+            if (usuario == "admin" && contrasena == "123")
+            {
+                Session["Usuario"] = usuario;
+                Session["Rol"] = "Administrador";
+                Response.Redirect("~/AdminInicio.aspx");
+            }
+            else if (usuario == "usuario" && contrasena == "123")
+            {
+                Session["Usuario"] = usuario;
+                Session["Rol"] = "Usuario";
+                Response.Redirect("~/SquirLearnInicio.aspx");
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Usuario o contraseña incorrectos');", true);
+            }
 
-            Response.Redirect("~/SquirLearnInicio.aspx");
+            
             /*
             if (usuario == "admin" && contrasena == "123")
             {

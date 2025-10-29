@@ -27,6 +27,13 @@
                 <li><a href="SquirLearnInicio.aspx" class="active"><i class="fa fa-search"></i> Buscar</a></li>
                 <li><a href="Vender.aspx"><i class="fa fa-plus-circle"></i> Vender</a></li>
                 <li><a href="Mensajes.aspx"><i class="fa fa-envelope"></i> Mensajes</a></li>
+                 
+                <!-- 🟦 Vista administrador -->
+                <asp:Panel ID="menuAdmin" runat="server" Visible="false">
+                <li><a href="ListadoDeSolicitudesAdmin.aspx"> Solicitudes de publicaciones</a></li>
+                <li><a href="IncidenciasAdmin.aspx">Incidencias</a></li>
+                <li><a href="ReportesAdmin.aspx">Reportes</a></li>               
+                </asp:Panel>
             </ul>
 
             <div class="footer">

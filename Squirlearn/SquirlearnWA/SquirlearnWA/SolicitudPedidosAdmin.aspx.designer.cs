@@ -7,38 +7,29 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SquirlearnWA.MasterPages
+namespace SquirlearnWA
 {
 
 
-    public partial class SquirLearn
+    public partial class SolicitudPedidosAdmin
     {
 
         /// <summary>
-        /// Control form1.
+        /// Control btnVolver.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.LinkButton btnVolver;
 
         /// <summary>
-        /// Control menuAdmin.
+        /// Control fvPedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel menuAdmin;
-
-        /// <summary>
-        /// Control cphContenido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cphContenido;
+        protected global::System.Web.UI.WebControls.FormView fvPedido;
     }
 }
