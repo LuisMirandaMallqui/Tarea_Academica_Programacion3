@@ -1,3 +1,4 @@
+
 DELIMITER $$
 /*CATEGORIAS*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 DROP TRIGGER IF EXISTS TRG_CATEGORIAS_INSERT_CREACION $$ 
@@ -97,8 +98,15 @@ DROP TRIGGER IF EXISTS TRG_MENSAJES_INSERT_CREACION $$
 DROP TRIGGER IF EXISTS TRG_MENSAJES_UPDATE_LEIDO $$
 
 /*NOTIFICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
-DROP TRIGGER IF EXISTS TRG_NOTIFICACIONES_INSERT_CREACION $$
+DROP TRIGGER IF EXISTS TRG_NOTIFICACIONES_UPDATE_AUDITORIA $$
 
+/*ITEMS*/
+DROP TRIGGER IF EXISTS TRG_ITEMS_INSERT_CREACION $$
+DROP TRIGGER IF EXISTS TRG_ITEMS_UPDATE_AUDITORIA $$
+
+/*ROLES*/
+DROP TRIGGER IF EXISTS TRG_ROLES_INSERT_CREACION $$
+DROP TRIGGER IF EXISTS TRG_ROLES_UPDATE_AUDITORIA $$
 /*CATEGORIAS*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 CREATE TRIGGER TRG_CATEGORIAS_INSERT_CREACION
 BEFORE INSERT ON categorias
@@ -225,7 +233,7 @@ BEFORE INSERT ON estados_publicaciones
 FOR EACH ROW 
 BEGIN
 	SET NEW.FECHA_CREACION = NOW();
-    -- Usuario viene desde arriba
+    SET NEW.USUARIO_CREACION = CURRENT_USER();
 END $$
 
 CREATE TRIGGER TRG_ESTADOS_PUBLICACIONES_UPDATE_AUDITORIA
@@ -358,6 +366,7 @@ END $$
 
 /*ALQUILERES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 -- no se considera creacion, se llena desde front
+
 CREATE TRIGGER TRG_ALQUILERES_UPDATE_AUDITORIA
 BEFORE UPDATE ON alquileres
 FOR EACH ROW
@@ -405,7 +414,6 @@ BEGIN
 END $$
 
 /*HISTORIAS_PUBLICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
--- no considere trigger de inserción
 CREATE TRIGGER TRG_HISTORIAS_PUBLICACIONES_INSERT_CREACION
 BEFORE INSERT ON historias_publicaciones
 FOR EACH ROW 
@@ -450,6 +458,7 @@ BEFORE INSERT ON personas
 FOR EACH ROW 
 BEGIN
 	SET NEW.FECHA_CREACION = NOW();
+    -- Usuario creacion del front 
 END $$
 
 CREATE TRIGGER TRG_PERSONAS_UPDATE_AUDITORIA
@@ -457,6 +466,7 @@ BEFORE UPDATE ON personas
 FOR EACH ROW
 BEGIN
    	SET NEW.FECHA_MODIFICACION = NOW();
+	SET NEW.USUARIO_MODIFICACION = CURRENT_USER(); 
 END $$
 
 /*PUBLICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
@@ -513,11 +523,45 @@ BEGIN
 END $$
 
 /*NOTIFICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
-CREATE TRIGGER TRG_NOTIFICACIONES_INSERT_CREACION
-BEFORE INSERT ON notificaciones
+CREATE TRIGGER TRG_NOTIFICACIONES_UPDATE_AUDITORIA
+BEFORE UPDATE ON notificaciones
 FOR EACH ROW 
 BEGIN
-	SET NEW.FECHA = NOW();    
+	SET NEW.FECHA_MODIFICACION = NOW();
+    SET NEW.USUARIO_MODIFICACION = CURRENT_USER();    
 END $$
 
+/*ITEMS*/
+CREATE TRIGGER TRG_ITEMS_INSERT_CREACION
+BEFORE INSERT ON items
+FOR EACH ROW 
+BEGIN
+	SET NEW.FECHA_CREACION = NOW();
+	-- Usuario_crecion viene desde el front
+END $$
+
+CREATE TRIGGER TRG_ITEMS_UPDATE_AUDITORIA
+BEFORE UPDATE ON items
+FOR EACH ROW
+BEGIN
+   	SET NEW.FECHA_MODIFICACION = NOW();
+    SET NEW.USUARIO_MODIFICACION = CURRENT_USER();
+END $$
+
+/*ROLES*/
+CREATE TRIGGER TRG_ROLES_INSERT_CREACION
+BEFORE INSERT ON roles
+FOR EACH ROW 
+BEGIN
+	SET NEW.USUARIO_CREACION = CURRENT_USER();
+	SET NEW.FECHA_CREACION = NOW();
+END $$
+
+CREATE TRIGGER TRG_ROLES_UPDATE_AUDITORIA
+BEFORE UPDATE ON roles
+FOR EACH ROW
+BEGIN
+   	SET NEW.FECHA_MODIFICACION = NOW();
+    SET NEW.USUARIO_MODIFICACION = CURRENT_USER();
+END $$
 DELIMITER ;
