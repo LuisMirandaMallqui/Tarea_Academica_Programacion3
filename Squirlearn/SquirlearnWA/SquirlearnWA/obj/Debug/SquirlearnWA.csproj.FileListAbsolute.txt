@@ -1,13 +1,6 @@
 D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\SquirlearnWA.dll.config
 D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\SquirlearnWA.dll
 D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\SquirlearnWA.pdb
-D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.csproj.AssemblyReference.cache
-D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.csproj.CoreCompileInputs.cache
-D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\Squirlea.A9310218.Up2Date
-D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.dll
-D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.pdb
 D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\roslyn\csc.exe
 D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\roslyn\csc.exe.config
 D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\roslyn\csc.rsp
@@ -57,3 +50,10 @@ D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\roslyn\vbc.exe.config
 D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\roslyn\vbc.rsp
 D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\roslyn\VBCSCompiler.exe
 D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\roslyn\VBCSCompiler.exe.config
+D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.csproj.AssemblyReference.cache
+D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.csproj.CoreCompileInputs.cache
+D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\Squirlea.A9310218.Up2Date
+D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.dll
+D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.pdb

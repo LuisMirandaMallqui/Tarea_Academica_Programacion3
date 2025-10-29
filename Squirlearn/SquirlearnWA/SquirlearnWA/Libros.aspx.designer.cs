@@ -11,25 +11,43 @@ namespace SquirlearnWA
 {
 
 
-    public partial class ConfirmacionPedido
+    public partial class Libros
     {
 
         /// <summary>
-        /// Control btnIrChat.
+        /// Control lblCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIrChat;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblCategoria;
 
         /// <summary>
-        /// Control btnVolverInicio.
+        /// Control btnCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVolverInicio;
+        protected global::System.Web.UI.WebControls.Button btnCompra;
+
+        /// <summary>
+        /// Control btnAlquiler.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAlquiler;
+
+        /// <summary>
+        /// Control rptLibros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptLibros;
     }
 }

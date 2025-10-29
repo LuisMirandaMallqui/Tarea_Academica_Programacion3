@@ -6,18 +6,19 @@
 
             <!-- Flecha de regreso -->
             <div class="col-12 mb-3">
-                <asp:LinkButton ID="btnVolver" runat="server" CssClass="text-decoration-none text-dark fw-semibold" OnClick="btnVolver_Click">
-                    <i class="fa fa-arrow-left"></i>
+                <asp:LinkButton ID="btnVolver" runat="server" CssClass="text-decoration-none text-dark fw-semibold"
+                    OnClick="btnVolver_Click">
+                    <i class="fa fa-arrow-left"></i> Volver
                 </asp:LinkButton>
             </div>
-             <!-- ESTOS DATOS SE TRAEN DEL BO -->
+
             <!-- VENDEDOR -->
             <div class="col-md-3 text-center border-end">
-                <img src="../Imagenes/Avatar.png" 
-                     alt="Vendedor" style="width:120px; height:120px; border-radius:50%;">
+                <img src="../Imagenes/Avatar.png" alt="Vendedor" style="width:120px; height:120px; border-radius:50%;">
                 <h5 class="fw-semibold mt-3">JAVIER PEREZ</h5>
                 <div class="text-warning mb-2">
-                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                 </div>
                 <p class="text-muted small mt-2">Excelente reputación y tiempo de respuesta rápido</p>
             </div>
@@ -28,24 +29,23 @@
                     <h6 class="fw-bold text-secondary">DETALLE – COMPRA</h6>
 
                     <div class="d-flex align-items-center mb-3">
-                        <img src="../Imagenes/instrumentos.png"
-                             alt="Calculadora científica" style="width:100px; height:100px; object-fit:contain; margin-right:15px;">
+                        <asp:Image ID="imgProducto" runat="server" Style="width:100px; height:100px; object-fit:contain; margin-right:15px;" />
                         <div>
-                            <h5 class="fw-bold mb-1">Calculadora Científica</h5>
-                            <p class="text-muted small mb-0">Modelo fx-350 PLUS</p>
+                            <h5 class="fw-bold mb-1">
+                                <asp:Label ID="lblNombreProducto" runat="server" />
+                            </h5>
+                            <p class="text-muted small mb-0">
+                                <asp:Label ID="lblDescripcion" runat="server" />
+                            </p>
                         </div>
                     </div>
 
-                    <div class="text-primary fw-bold fs-4 mb-2">s/. 30.50</div>
-                    <p class="text-muted small mb-1">Envío: s/. 2.00</p>
-                    <p class="text-muted small mb-3">Entrega estimada: 28 JUL</p>
-
-                    <label class="fw-semibold">Cantidad:</label>
-                    <div class="d-flex align-items-center mt-1">
-                        <button type="button" class="btn btn-outline-secondary btn-sm px-2">-</button>
-                        <span class="px-3 fw-semibold">1</span>
-                        <button type="button" class="btn btn-outline-secondary btn-sm px-2">+</button>
+                    <div class="text-primary fw-bold fs-4 mb-2">
+                        <asp:Label ID="lblPrecio" runat="server" />
                     </div>
+
+                    <!-- Información -->
+                    <p class="text-muted small">Entrega y acceso coordinados directamente con el vendedor.</p>
                 </div>
             </div>
 
@@ -54,6 +54,7 @@
                 <div class="px-4">
                     <h6 class="fw-bold text-secondary">PAGO</h6>
 
+                    <!-- Métodos de pago -->
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="metodoPago" id="tarjeta" checked>
                         <label class="form-check-label" for="tarjeta">
@@ -69,18 +70,26 @@
                     </div>
 
                     <hr />
-                    <h6 class="fw-bold">Resumen</h6>
-                    <p class="mb-1">Subtotal: <span class="float-end">s/. 30.50</span></p>
-                    <p class="mb-1">Ahorro: <span class="float-end">-s/. 1.50</span></p>
-                    <p class="mb-1">Código promocional 
-                        <a href="CodigoPromocional.aspx" class="small text-primary">más info</a>
-                    </p>
-                    <p class="mb-1">Total de envío: <span class="float-end">s/. 2.00</span></p>
 
-                    <hr />
-                    <h5>Total: <span class="float-end fw-bold">s/. 31.00</span></h5>
+                    <!-- Código promocional -->
+                    <div class="mt-3">
+                        <label class="fw-semibold">Código promocional:</label>
+                        <div class="input-group">
+                            <asp:TextBox ID="txtCodigoPromo" runat="server" CssClass="form-control" Placeholder="Ingresa tu código aquí"></asp:TextBox>
+                            <asp:Button ID="btnAplicarCodigo" runat="server" Text="Aplicar" CssClass="btn btn-outline-primary" OnClick="btnAplicarCodigo_Click" />
+                        </div>
+                    </div>
 
-                    <asp:Button ID="btnConfirmar" runat="server" CssClass="btn btn-primary w-100 mt-3" 
+                    <!-- Resumen -->
+                    <div class="mt-4">
+                        <h6 class="fw-bold">Resumen</h6>
+                        <p class="mb-1">Subtotal: <span class="float-end">s/. <asp:Label ID="lblSubtotal" runat="server" Text="0.00"></asp:Label></span></p>
+                        <p class="mb-1">Ahorro: <span class="float-end">- s/. <asp:Label ID="lblAhorro" runat="server" Text="0.00"></asp:Label></span></p>
+                        <hr />
+                        <h5>Total: <span id="lblTotal" runat="server" class="float-end fw-bold text-primary">s/. 0.00</span></h5>
+                    </div>
+
+                    <asp:Button ID="btnConfirmar" runat="server" CssClass="btn btn-primary w-100 mt-3"
                                 Text="Realizar pedido" OnClick="btnConfirmar_Click" />
                 </div>
             </div>
@@ -88,4 +97,3 @@
     </div>
 
 </asp:Content>
-

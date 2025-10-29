@@ -11,7 +11,7 @@ namespace SquirlearnWA
 {
 
 
-    public partial class Instrumentos
+    public partial class Apuntes
     {
 
         /// <summary>
@@ -22,15 +22,6 @@ namespace SquirlearnWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBusqueda;
-
-        /// <summary>
-        /// Control ddlCondicion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCondicion;
 
         /// <summary>
         /// Control ddlSubcategoria.
@@ -60,39 +51,12 @@ namespace SquirlearnWA
         protected global::System.Web.UI.WebControls.Button btnInicio;
 
         /// <summary>
-        /// Control lblCategoria.
+        /// Control rptApuntes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblCategoria;
-
-        /// <summary>
-        /// Control btnCompra.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCompra;
-
-        /// <summary>
-        /// Control btnAlquiler.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAlquiler;
-
-        /// <summary>
-        /// Control rptInstrumentos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptInstrumentos;
+        protected global::System.Web.UI.WebControls.Repeater rptApuntes;
     }
 }

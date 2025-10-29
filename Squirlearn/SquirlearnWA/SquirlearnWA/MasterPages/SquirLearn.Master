@@ -25,7 +25,7 @@
 
             <ul class="nav flex-column">
                 <li><a href="SquirLearnInicio.aspx" class="active"><i class="fa fa-search"></i> Buscar</a></li>
-                <li><a href="Vender.aspx"><i class="fa fa-plus-circle"></i> Vender</a></li>
+                <li><a href="Publicar.aspx"><i class="fa fa-plus-circle"></i> Vender</a></li>
                 <li><a href="Mensajes.aspx"><i class="fa fa-envelope"></i> Mensajes</a></li>
                  
                 <!-- 🟦 Vista administrador -->
