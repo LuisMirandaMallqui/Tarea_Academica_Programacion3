@@ -17,7 +17,7 @@ public class AlquilerBo {
     }
     
     public Integer insertar(Integer personaId, Integer itemId, Date inicio,
-            Date fin , Double monto){
+            Date fin , Double monto, String usuario){
         AlquilerDto alquilerDto = new AlquilerDto();
         
         PersonaDto persona = new PersonaDto();
@@ -30,15 +30,14 @@ public class AlquilerBo {
         alquilerDto.setFechaFin((java.sql.Date) fin);
         alquilerDto.setFechaInicio((java.sql.Date) inicio);
         alquilerDto.setMonto(monto);
-        alquilerDto.setUsuarioCreacion(personaId);
+        alquilerDto.setUsuario(usuario);
         alquilerDto.setDevuelto(Boolean.FALSE);
         
         return this.alquilerDao.insertar(alquilerDto);
     }
     
     public Integer Modificar(Integer id,Integer personaId, Integer itemId, Date inicio,
-            Date fin , Double monto, Integer modificiadorId, Boolean devuelto, Date creacion,
-            Integer creador){
+            Date fin , Double monto, Boolean devuelto, String usuario, String usuarioCreacion){
         AlquilerDto alquilerDto = new AlquilerDto();
         
         
@@ -52,11 +51,10 @@ public class AlquilerBo {
         alquilerDto.setFechaFin((java.sql.Date) fin);
         alquilerDto.setFechaInicio((java.sql.Date) inicio);
         alquilerDto.setMonto(monto);
-        alquilerDto.setUsuarioCreacion(creador);
-        alquilerDto.setFechaCreacion((java.sql.Date) creacion);
         alquilerDto.setAlquilerId(id);
-        alquilerDto.setUsuarioModificacion(modificiadorId);
+        alquilerDto.setUsuario(usuario);
         alquilerDto.setDevuelto(devuelto);
+        alquilerDto.setUsuarioCreacion(usuarioCreacion);
         
         return this.alquilerDao.modificar(alquilerDto);
     }

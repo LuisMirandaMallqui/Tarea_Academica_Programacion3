@@ -1,6 +1,7 @@
 package pe.edu.pucp.squirlearn.model.persona;
 
 import java.sql.Date;
+import java.util.List;
 
 public class PersonaDto {
     
@@ -11,12 +12,11 @@ public class PersonaDto {
     private String codigo;
     private String correo;
     private String contrasena;
-    private Date fechaCreacion;
-    private Integer usuarioCreacion;
-    private Date fechaModificacion;
-    private Integer usuarioModificacion;
-    private RolPersonaDto rolPersona;
+    private String usuario;
+    private String usuarioCreacion;
     private EstadoPersonaDto estadoPersona;
+    private Date ultimaActividad;
+    private List<RolPersonaDto> rolesPersona;
     
     // Constructor vacío
     public PersonaDto() {
@@ -27,19 +27,18 @@ public class PersonaDto {
         this.codigo = null;
         this.correo = null;
         this.contrasena = null;
-        this.fechaCreacion = null;
-        this.usuarioCreacion = null;
-        this.fechaModificacion = null;
-        this.usuarioModificacion = null;
-        this.rolPersona = null;
+        this.usuario = null;
+        this.ultimaActividad = null;
         this.estadoPersona = null;
+        this.rolesPersona = null;
+        this.usuarioCreacion = null;
     }
 
     // Constructor con parámetros
     public PersonaDto(Integer personaId, String nombres, String primerApellido, String segundoApellido,
-                      String codigo, String correo, String contrasena, Date fechaCreacion,
-                      Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion,
-                      RolPersonaDto rolPersona, EstadoPersonaDto estadoPersona) {
+                      String codigo, String correo, String contrasena, String usuario, 
+                      Date ultimaActividad, EstadoPersonaDto estadoPersona,List<RolPersonaDto> rolPersona,
+                      String usuarioCreacion) {
         this.personaId = personaId;
         this.nombres = nombres;
         this.primerApellido = primerApellido;
@@ -47,12 +46,11 @@ public class PersonaDto {
         this.codigo = codigo;
         this.correo = correo;
         this.contrasena = contrasena;
-        this.fechaCreacion = fechaCreacion;
-        this.usuarioCreacion = usuarioCreacion;
-        this.fechaModificacion = fechaModificacion;
-        this.usuarioModificacion = usuarioModificacion;
-        this.rolPersona = rolPersona;
+        this.usuario = usuario;
+        this.rolesPersona = rolPersona;
         this.estadoPersona = estadoPersona;
+        this.ultimaActividad = ultimaActividad;
+        this.usuarioCreacion = usuarioCreacion;
     }
     
     // Getters y Setters
@@ -112,44 +110,20 @@ public class PersonaDto {
         this.contrasena = contrasena;
     }
 
-    public Date getFechaCreacion() {
-        return fechaCreacion;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public Integer getUsuarioCreacion() {
-        return usuarioCreacion;
+    public List<RolPersonaDto> getRolPersona() {
+        return rolesPersona;
     }
 
-    public void setUsuarioCreacion(Integer usuarioCreacion) {
-        this.usuarioCreacion = usuarioCreacion;
-    }
-
-    public Date getFechaModificacion() {
-        return fechaModificacion;
-    }
-
-    public void setFechaModificacion(Date fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
-    }
-
-    public Integer getUsuarioModificacion() {
-        return usuarioModificacion;
-    }
-
-    public void setUsuarioModificacion(Integer usuarioModificacion) {
-        this.usuarioModificacion = usuarioModificacion;
-    }
-
-    public RolPersonaDto getRolPersona() {
-        return rolPersona;
-    }
-
-    public void setRolPersona(RolPersonaDto rolPersona) {
-        this.rolPersona = rolPersona;
+    public void setRolPersona(List<RolPersonaDto> rolPersona) {
+        this.rolesPersona = rolPersona;
     }
 
     public EstadoPersonaDto getEstadoPersona() {
@@ -158,5 +132,23 @@ public class PersonaDto {
 
     public void setEstadoPersona(EstadoPersonaDto estadoPersona) {
         this.estadoPersona = estadoPersona;
+    }
+    
+    public Date getUltimaActividad() {
+        return ultimaActividad;
+    }
+    
+
+    public void setUltimaActividad(Date ultimaActividad) {
+        this.ultimaActividad = ultimaActividad;
+    }
+    
+    
+    public String getUsuarioCreacion() {
+        return usuarioCreacion;
+    }
+
+    public void setUsuarioCreacion(String usuarioCreacion) {
+        this.usuarioCreacion = usuarioCreacion;
     }
 }

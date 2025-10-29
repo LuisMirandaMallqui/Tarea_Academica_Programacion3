@@ -1,19 +1,23 @@
 package pe.edu.pucp.squirlearn.model.item;
 
+import java.sql.Date;
+
 public class ItemDto {
 
     private Integer itemId;
-    private Double precio;
-    private String nombre;
-    private Boolean esVenta;
     private SubcategoriaDto subcategoria;
     private CategoriaDto categoria;
     private ColorDto color;
     private EstadoItemDto estadoItem;
     private CondicionDto condicion;
-    private TamañoDto tamano;
+    private TamanoDto tamano;
     private FormatoDto formato;
+    private Double precio;
+    private String nombre;
+    private Boolean esVenta;
     private String descripcion;
+    private String usuario;
+    private String usuarioCreacion;
         
         // Constructor vacío
     public ItemDto() {
@@ -29,13 +33,15 @@ public class ItemDto {
         this.tamano = null;
         this.formato = null;
         this.descripcion = null;
+        this.usuario = null;
+        this.usuarioCreacion = null;
     }
 
     // Constructor con parámetros
     public ItemDto(Integer itemId, Double precio, String nombre, Boolean esVenta,
                    SubcategoriaDto subcategoria, CategoriaDto categoria, ColorDto color, 
-                   EstadoItemDto estadoItem, CondicionDto condicion,
-                   TamañoDto tamano, FormatoDto formato,String descripcion) {
+                   EstadoItemDto estadoItem, CondicionDto condicion,String usuarioCreacion,
+                   TamanoDto tamano, FormatoDto formato,String descripcion, String usuario) {
         this.itemId = itemId;
         this.precio = precio;
         this.nombre = nombre;
@@ -48,6 +54,8 @@ public class ItemDto {
         this.tamano = tamano;
         this.formato = formato;
         this.descripcion = descripcion;
+        this.usuario = usuario;
+        this.usuarioCreacion = usuarioCreacion;
     }
 
     // Getters y Setters
@@ -123,11 +131,11 @@ public class ItemDto {
         this.condicion = condicion;
     }
 
-    public TamañoDto getTamano() {
+    public TamanoDto getTamano() {
         return tamano;
     }
 
-    public void setTamano(TamañoDto tamano) {
+    public void setTamano(TamanoDto tamano) {
         this.tamano = tamano;
     }
 
@@ -150,6 +158,23 @@ public class ItemDto {
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
+    
+    public String getUsuarioCreacion() {
+        return usuarioCreacion;
+    }
+
+    public void setUsuarioCreacion(String usuarioCreacion) {
+        this.usuarioCreacion = usuarioCreacion;
     }
 
 }

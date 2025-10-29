@@ -7,7 +7,6 @@ pe\edu\pucp\squirlearn\model\chat\ChatDto.class
 pe\edu\pucp\squirlearn\model\item\ItemDto.class
 pe\edu\pucp\squirlearn\model\item\FormatoDto.class
 pe\edu\pucp\squirlearn\model\persona\PersonaDto.class
-pe\edu\pucp\squirlearn\model\publicacion\HistoriaPublicacionDto.class
 pe\edu\pucp\squirlearn\model\item\CondicionDto.class
 pe\edu\pucp\squirlearn\model\chat\PersonaChatDto.class
 pe\edu\pucp\squirlearn\model\persona\EstadoPersonaDto.class
@@ -20,8 +19,8 @@ pe\edu\pucp\squirlearn\model\inciNoti\MotivoDto.class
 pe\edu\pucp\squirlearn\model\persona\RolPersonaDto.class
 pe\edu\pucp\squirlearn\model\chat\EstadoMensajeDto.class
 pe\edu\pucp\squirlearn\model\inciNoti\IncidenciaDto.class
-pe\edu\pucp\squirlearn\model\item\TamañoDto.class
 pe\edu\pucp\squirlearn\model\publicacion\PublicacionDto.class
 pe\edu\pucp\squirlearn\model\chat\EstadoChatDto.class
 pe\edu\pucp\squirlearn\model\chat\MensajeDto.class
 pe\edu\pucp\squirlearn\model\alquiler\AlquilerDto.class
+pe\edu\pucp\squirlearn\model\item\TamanoDto.class

@@ -6,29 +6,24 @@ import java.sql.Date;
 public class IncidenciaDto {
 
     
-    private Integer incidenciaDto;
-    private String descripcion;
-    private Date fechaCreacion;
-    private Date fechaSolucion;
-    private Integer usuarioCreacion;
-    private Integer usuarioSolucion;
-    private Date fechaModificacion;
-    private Integer usuarioModificacion;
+    private Integer incidenciaId;
     private NotificacionDto notificacion;
     private PersonaDto persona;
     private MotivoDto motivo;
+    private String descripcion;
     private Integer resuelto;
+    private Date fechaSolucion;
+    private Integer usuarioSolucion;
+    private String usuario;
+    private String usuarioCreacion;
     
     // Constructor vacío
     public IncidenciaDto() {
-        this.incidenciaDto = null;
+        this.incidenciaId = null;
         this.descripcion = null;
-        this.fechaCreacion = null;
         this.fechaSolucion = null;
-        this.usuarioCreacion = null;
+        this.usuario = null;
         this.usuarioSolucion = null;
-        this.fechaModificacion = null;
-        this.usuarioModificacion = null;
         this.notificacion = null;
         this.persona = null;
         this.motivo = null;
@@ -36,18 +31,14 @@ public class IncidenciaDto {
     }
 
     // Constructor con parámetros
-    public IncidenciaDto(Integer incidenciaDto, String descripcion, Date fechaCreacion, Date fechaSolucion,
-                         Integer usuarioCreacion, Integer usuarioSolucion, Date fechaModificacion,
-                         Integer usuarioModificacion, NotificacionDto notificacion, PersonaDto persona,
+    public IncidenciaDto(Integer incidenciaId, String descripcion, Date fechaSolucion,
+                         String usuario, Integer usuarioSolucion, NotificacionDto notificacion, PersonaDto persona,
                          MotivoDto motivo,Integer resuelto) {
-        this.incidenciaDto = incidenciaDto;
+        this.incidenciaId = incidenciaId;
         this.descripcion = descripcion;
-        this.fechaCreacion = fechaCreacion;
         this.fechaSolucion = fechaSolucion;
-        this.usuarioCreacion = usuarioCreacion;
+        this.usuario = usuario;
         this.usuarioSolucion = usuarioSolucion;
-        this.fechaModificacion = fechaModificacion;
-        this.usuarioModificacion = usuarioModificacion;
         this.notificacion = notificacion;
         this.persona = persona;
         this.motivo = motivo;
@@ -55,12 +46,12 @@ public class IncidenciaDto {
     }
 
     // Getters y Setters
-    public Integer getIncidenciaDto() {
-        return incidenciaDto;
+    public Integer getIncidenciaId() {
+        return incidenciaId;
     }
 
-    public void setIncidenciaDto(Integer incidenciaDto) {
-        this.incidenciaDto = incidenciaDto;
+    public void setIncidenciaId(Integer incidenciaId) {
+        this.incidenciaId = incidenciaId;
     }
 
     public String getDescripcion() {
@@ -71,14 +62,6 @@ public class IncidenciaDto {
         this.descripcion = descripcion;
     }
 
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
     public Date getFechaSolucion() {
         return fechaSolucion;
     }
@@ -87,12 +70,12 @@ public class IncidenciaDto {
         this.fechaSolucion = fechaSolucion;
     }
 
-    public Integer getUsuarioCreacion() {
-        return usuarioCreacion;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setUsuarioCreacion(Integer usuarioCreacion) {
-        this.usuarioCreacion = usuarioCreacion;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public Integer getUsuarioSolucion() {
@@ -101,22 +84,6 @@ public class IncidenciaDto {
 
     public void setUsuarioSolucion(Integer usuarioSolucion) {
         this.usuarioSolucion = usuarioSolucion;
-    }
-
-    public Date getFechaModificacion() {
-        return fechaModificacion;
-    }
-
-    public void setFechaModificacion(Date fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
-    }
-
-    public Integer getUsuarioModificacion() {
-        return usuarioModificacion;
-    }
-
-    public void setUsuarioModificacion(Integer usuarioModificacion) {
-        this.usuarioModificacion = usuarioModificacion;
     }
 
     public NotificacionDto getNotificacion() {
@@ -155,5 +122,14 @@ public class IncidenciaDto {
      */
     public void setResuelto(Integer resuelto) {
         this.resuelto = resuelto;
+    }
+    
+    
+    public String getUsuarioCreacion() {
+        return usuarioCreacion;
+    }
+
+    public void setUsuarioCreacion(String usuarioCreacion) {
+        this.usuarioCreacion = usuarioCreacion;
     }
 }   

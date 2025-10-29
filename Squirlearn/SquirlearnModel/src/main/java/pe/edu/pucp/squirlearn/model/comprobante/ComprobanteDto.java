@@ -1,20 +1,21 @@
 package pe.edu.pucp.squirlearn.model.comprobante;
 
 import java.sql.Date;
+import java.util.List;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
 public class ComprobanteDto {
     
     private Integer comprobanteId;
+    private PersonaDto persona;
+    private FormaPagoDto formaPago;
+    private MonedaPagoDto moneda;
     private Double monto;
     private String transaccion;
     private Date fechaEmision;
     private Double impuesto;
-    private PersonaDto persona;
-    private FormaPagoDto formaPago;
-    private MonedaPagoDto moneda;
-    private Date fechaModificacion;
-    private Integer usuarioModificacion; 
+    private String usuario;
+    private List<DetalleComprobanteDto> detallesComprobante;
     
     // Constructor vacío
     public ComprobanteDto() {
@@ -26,14 +27,14 @@ public class ComprobanteDto {
         this.persona = null;
         this.formaPago = null;
         this.moneda = null;
-        this.fechaModificacion = null;
-        this.usuarioModificacion = null;
+        this.usuario = null;
+        this.detallesComprobante = null;
     }
 
     // Constructor con parámetros
     public ComprobanteDto(Integer comprobanteId, Double monto, String transaccion, Date fechaEmision,
-                          Double impuesto, PersonaDto persona, FormaPagoDto formaPago, MonedaPagoDto moneda,
-                          Date fechaModificacion, Integer usuarioModificacion) {
+                          Double impuesto, PersonaDto persona, FormaPagoDto formaPago, MonedaPagoDto moneda,String usuario,
+                          List<DetalleComprobanteDto> detallesComprobante) {
         this.comprobanteId = comprobanteId;
         this.monto = monto;
         this.transaccion = transaccion;
@@ -42,8 +43,8 @@ public class ComprobanteDto {
         this.persona = persona;
         this.formaPago = formaPago;
         this.moneda = moneda;
-        this.fechaModificacion = fechaModificacion;
-        this.usuarioModificacion = usuarioModificacion;
+        this.usuario = usuario;
+        this.detallesComprobante = detallesComprobante;
     }
 
     // Getters y Setters
@@ -111,19 +112,19 @@ public class ComprobanteDto {
         this.moneda = moneda;
     }
 
-    public Date getFechaModificacion() {
-        return fechaModificacion;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setFechaModificacion(Date fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
+    public List<DetalleComprobanteDto> getDetallesComprobante() {
+        return detallesComprobante;
     }
 
-    public Integer getUsuarioModificacion() {
-        return usuarioModificacion;
-    }
-
-    public void setUsuarioModificacion(Integer usuarioModificacion) {
-        this.usuarioModificacion = usuarioModificacion;
+    public void setDetallesComprobante(List<DetalleComprobanteDto> detallesComprobante) {
+        this.detallesComprobante = detallesComprobante;
     }
 }

@@ -7,6 +7,7 @@ package com.mycompany.squirlearnws.comprobante;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
+import java.sql.Date;
 import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.model.comprobante.ComprobanteDto;
 import pe.pucp.edu.squirlearn.business.comprobante.ComprobanteBo;
@@ -31,8 +32,10 @@ public class Comprobante {
             @WebParam(name = "personaId") Integer personaId,
             @WebParam(name = "formaPagoId") Integer formaPagoId,
             @WebParam(name = "monedaId") Integer monedaId,
-            @WebParam(name = "impuesto") Double impuesto) {
-        return this.comprobanteBo.insertar(monto, transaccionId, personaId, formaPagoId, monedaId, impuesto);
+            @WebParam(name = "impuesto") Double impuesto,
+            @WebParam(name = "fechaEmision") Date fechaEmision,
+            @WebParam(name = "usuario") String usuario) {
+        return this.comprobanteBo.insertar(monto, transaccionId, personaId, formaPagoId, monedaId, impuesto,fechaEmision,usuario);
     }
 
     @WebMethod(operationName = "listarPorDuenoComprobante")

@@ -21,16 +21,15 @@ public class Alquiler {
     
     @WebMethod(operationName = "insertarAlquiler")
     public Integer insertarAlquiler(@WebParam(name = "id")Integer personaId,@WebParam(name = "itemId") Integer itemId, @WebParam(name = "fechaInicio")Date inicio,
-            @WebParam(name = "fechaFin") Date fin , @WebParam(name = "monto") Double monto){
-        return this.alquilerBo.insertar(personaId, itemId, inicio, fin, monto);
+            @WebParam(name = "fechaFin") Date fin , @WebParam(name = "monto") Double monto, @WebParam(name = "usuario") String usuario){
+        return this.alquilerBo.insertar( personaId, itemId, inicio, fin , monto,usuario);
     }
     
     @WebMethod(operationName = "modificarAlquiler")
     public Integer modificarAlquiler(@WebParam(name = "id") Integer id,@WebParam(name = "personaId") Integer personaId, @WebParam(name = "itemId") Integer itemId,
             @WebParam(name = "fechaInicio") Date inicio,@WebParam(name = "fechaFin") Date fin ,@WebParam(name = "monto") Double monto,
-            @WebParam(name = "modificadorId") Integer modificiadorId, @WebParam(name = "devuelto") Boolean devuelto, @WebParam(name = "fechaCreacion")Date creacion,
-            @WebParam(name = "creadorId") Integer creador){
-        return this.alquilerBo.Modificar(id, personaId, itemId, inicio, fin, monto, modificiadorId, devuelto, creacion, creador);
+            @WebParam(name = "devuelto") Boolean devuelto, @WebParam(name = "usuario")String usuario, @WebParam(name = "usuarioCreacion") String usuarioCreacion){
+        return this.alquilerBo.Modificar(id, personaId, itemId, inicio, fin, monto, devuelto, usuario, usuarioCreacion);
     }
     
     @WebMethod(operationName = "listarPorDuenoAlquiler")

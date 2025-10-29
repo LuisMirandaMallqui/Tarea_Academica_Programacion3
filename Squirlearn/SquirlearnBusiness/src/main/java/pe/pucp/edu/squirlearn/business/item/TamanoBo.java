@@ -4,7 +4,7 @@ package pe.pucp.edu.squirlearn.business.item;
 import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.dao.item.TamañoDao;
 import pe.edu.pucp.squirlearn.daoImpl.item.TamañoDaoImpl;
-import pe.edu.pucp.squirlearn.model.item.TamañoDto;
+import pe.edu.pucp.squirlearn.model.item.TamanoDto;
 
 public class TamanoBo {
     
@@ -14,11 +14,11 @@ public class TamanoBo {
         this.tamanoDao = new TamañoDaoImpl();
     }
     
-    public ArrayList<TamañoDto> listarTodos(){
+    public ArrayList<TamanoDto> listarTodos(){
         return this.tamanoDao.listarTodos();
     }
     
-    public TamañoDto obtenerPorId(Integer id){
+    public TamanoDto obtenerPorId(Integer id){
         return this.tamanoDao.obtenerPorId(id);
     }
 }

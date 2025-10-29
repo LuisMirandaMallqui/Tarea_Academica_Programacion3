@@ -1,19 +1,17 @@
 package pe.edu.pucp.squirlearn.model.comprobante;
 
-import java.sql.Date;
 import pe.edu.pucp.squirlearn.model.alquiler.AlquilerDto;
 import pe.edu.pucp.squirlearn.model.item.ItemDto;
 
 public class DetalleComprobanteDto {
     
     private Integer detalleComId;
-    private String descripcion;
-    private Double precio;
+    private ComprobanteDto comprobante;
     private ItemDto item;
     private AlquilerDto alquiler;
-    private ComprobanteDto comprobante;
-    private Date fechaModificacion;
-    private Integer usuarioModificacion;
+    private String descripcion;
+    private Double precio;
+    private String usuario;
     
     // Constructor vacío
     public DetalleComprobanteDto() {
@@ -23,22 +21,19 @@ public class DetalleComprobanteDto {
         this.item = null;
         this.alquiler = null;
         this.comprobante = null;
-        this.fechaModificacion = null;
-        this.usuarioModificacion = null;
+        this.usuario = null;
     }
 
     // Constructor con parámetros
     public DetalleComprobanteDto(Integer detalleComId, String descripcion, Double precio,
-                                 ItemDto item, AlquilerDto alquiler, ComprobanteDto comprobante,
-                                 Date fechaModificacion, Integer usuarioModificacion) {
+                                 ItemDto item, AlquilerDto alquiler, ComprobanteDto comprobante, String usuario) {
         this.detalleComId = detalleComId;
         this.descripcion = descripcion;
         this.precio = precio;
         this.item = item;
         this.alquiler = alquiler;
         this.comprobante = comprobante;
-        this.fechaModificacion = fechaModificacion;
-        this.usuarioModificacion = usuarioModificacion;
+        this.usuario = usuario;
     }
 
     // Getters y Setters
@@ -89,20 +84,12 @@ public class DetalleComprobanteDto {
     public void setComprobante(ComprobanteDto comprobante) {
         this.comprobante = comprobante;
     }
-
-    public Date getFechaModificacion() {
-        return fechaModificacion;
+    
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setFechaModificacion(Date fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
-    }
-
-    public Integer getUsuarioModificacion() {
-        return usuarioModificacion;
-    }
-
-    public void setUsuarioModificacion(Integer usuarioModificacion) {
-        this.usuarioModificacion = usuarioModificacion;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }

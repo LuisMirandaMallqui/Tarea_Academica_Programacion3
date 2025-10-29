@@ -9,7 +9,7 @@ import pe.edu.pucp.squirlearn.model.item.EstadoItemDto;
 import pe.edu.pucp.squirlearn.model.item.FormatoDto;
 import pe.edu.pucp.squirlearn.model.item.ItemDto;
 import pe.edu.pucp.squirlearn.model.item.SubcategoriaDto;
-import pe.edu.pucp.squirlearn.model.item.TamañoDto;
+import pe.edu.pucp.squirlearn.model.item.TamanoDto;
 
 public class ItemBo {
     
@@ -21,14 +21,14 @@ public class ItemBo {
     
     public Integer insertar(Double precio, String nombre,String descripcion ,Boolean esVenta ,
             Integer colorId, Integer condicionId, Integer tamanoId, Integer formatoId,
-            Integer categoriaId, Integer subcategoriaId){
+            Integer categoriaId, Integer subcategoriaId,String usuario){
         ItemDto itemdto = new ItemDto();
         
         ColorDto color = new ColorDto();
         color.setColorId(colorId);
         CondicionDto condicion = new CondicionDto();
         condicion.setCondicionId(condicionId);
-        TamañoDto tamano = new TamañoDto();
+        TamanoDto tamano = new TamanoDto();
         tamano.setTamanoId(tamanoId);
         FormatoDto formato = new FormatoDto();
         formato.setFormatoId(formatoId);
@@ -50,19 +50,20 @@ public class ItemBo {
         itemdto.setCategoria(categoria);
         itemdto.setSubcategoria(subcategoria);
         itemdto.setEstadoItem(estado);
+        itemdto.setUsuario(usuario);
         return this.itemDao.insertar(itemdto);
     }
     
     public Integer modificar(Integer id,Double precio,String nombre, String descripcion, Boolean esVenta ,
             Integer colorId, Integer estadoId ,Integer condicionId, Integer tamanoId, Integer formatoId,
-            Integer categoriaId, Integer subcategoriaId){
+            Integer categoriaId, Integer subcategoriaId,String usuario,String usuarioCreacion){
         ItemDto itemdto = new ItemDto();
         
         ColorDto color = new ColorDto();
         color.setColorId(colorId);
         CondicionDto condicion = new CondicionDto();
         condicion.setCondicionId(condicionId);
-        TamañoDto tamano = new TamañoDto();
+        TamanoDto tamano = new TamanoDto();
         tamano.setTamanoId(tamanoId);
         FormatoDto formato = new FormatoDto();
         formato.setFormatoId(formatoId);
@@ -85,7 +86,8 @@ public class ItemBo {
         itemdto.setCategoria(categoria);
         itemdto.setSubcategoria(subcategoria);
         itemdto.setEstadoItem(estado);
-        
+        itemdto.setUsuario(usuario);
+        itemdto.setUsuarioCreacion(usuarioCreacion);
         return this.itemDao.modificar(itemdto);
     }
     

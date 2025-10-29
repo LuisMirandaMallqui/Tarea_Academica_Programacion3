@@ -13,6 +13,8 @@ public class PublicacionDto {
     private ItemDto item;
     private PersonaDto persona;
     private Integer calificacion;
+    private String usuario;
+    private String usuarioCreacion;
     
     // Constructor vacío (todo en null)
     public PublicacionDto() {
@@ -23,12 +25,15 @@ public class PublicacionDto {
         this.item = null;
         this.persona = null;
         this.calificacion = null;
+        this.usuario = null;
+        this.usuarioCreacion = null;
     }
 
     // Constructor con parámetros
     public PublicacionDto(Integer publicacionId, Date fechaAlta, Date fechaBaja,
                           EstadoPublicacionDto estadoPublicacion, ItemDto item,
-                          PersonaDto persona, Integer calificacion) {
+                          PersonaDto persona, Integer calificacion, String usuario,
+                          String usuarioCreacion) {
         this.publicacionId = publicacionId;
         this.fechaAlta = fechaAlta;
         this.fechaBaja = fechaBaja;
@@ -36,6 +41,8 @@ public class PublicacionDto {
         this.item = item;
         this.persona = persona;
         this.calificacion = calificacion;
+        this.usuario = usuario;
+        this.usuarioCreacion = usuarioCreacion;
     }
 
     // Getters y Setters
@@ -93,5 +100,23 @@ public class PublicacionDto {
 
     public void setCalificacion(Integer calificacion) {
         this.calificacion = calificacion;
+    }
+    
+    
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
+    
+    public String getUsuarioCreacion() {
+        return usuarioCreacion;
+    }
+
+    public void setUsuarioCreacion(String usuarioCreacion) {
+        this.usuarioCreacion = usuarioCreacion;
     }
 }

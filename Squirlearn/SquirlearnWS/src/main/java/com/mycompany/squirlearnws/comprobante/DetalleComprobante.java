@@ -30,8 +30,9 @@ public class DetalleComprobante {
             @WebParam(name = "precio") Double precio,
             @WebParam(name = "itemId") Integer itemId,
             @WebParam(name = "alquilerId") Integer alquilerId,
-            @WebParam(name = "comprobanteId") Integer comprobanteId) {
-        return this.detalleComprobanteBo.insertar(descripcion, precio, itemId, alquilerId, comprobanteId);
+            @WebParam(name = "comprobanteId") Integer comprobanteId,
+            @WebParam(name = "usuario") String usuario) {
+        return this.detalleComprobanteBo.insertar(descripcion, precio, itemId, alquilerId, comprobanteId,usuario);
     }
 
     @WebMethod(operationName = "listarPorComprobanteDetalleComprobante")
