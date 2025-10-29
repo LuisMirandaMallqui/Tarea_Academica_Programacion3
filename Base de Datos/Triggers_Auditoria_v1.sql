@@ -77,7 +77,8 @@ DROP TRIGGER IF EXISTS TRG_DETALLES_COMPROBANTES_INSERT_CREACION $$
 DROP TRIGGER IF EXISTS TRG_DETALLES_COMPROBANTES_UPDATE_AUDITORIA $$
 
 /*HISTORIAS_PUBLICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
-DROP TRIGGER IF EXISTS TRG_HISTORIAS_PUBLICACIONES_INSERT_CREACION $$ 
+DROP TRIGGER IF EXISTS TRG_PUBLICACIONES_INSERT_HISTORIA$$
+DROP TRIGGER IF EXISTS TRG_PUBLICACIONES_UPDATE_HISTORIA $$
 DROP TRIGGER IF EXISTS TRG_HISTORIAS_PUBLICACIONES_UPDATE_AUDITORIA $$
 
 /*INCIDENCIAS*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
@@ -107,6 +108,12 @@ DROP TRIGGER IF EXISTS TRG_ITEMS_UPDATE_AUDITORIA $$
 /*ROLES*/
 DROP TRIGGER IF EXISTS TRG_ROLES_INSERT_CREACION $$
 DROP TRIGGER IF EXISTS TRG_ROLES_UPDATE_AUDITORIA $$
+ 
+/* CHATS */
+DROP TRIGGER IF EXISTS TRG_CHATS_INSERT_CREACION $$
+DROP TRIGGER IF EXISTS TRH_CHATS_UPDATE_AUDITORIA $$
+
+-- TRIGGERS -- 
 /*CATEGORIAS*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 CREATE TRIGGER TRG_CATEGORIAS_INSERT_CREACION
 BEFORE INSERT ON categorias
@@ -376,6 +383,22 @@ BEGIN
 END $$
 
 /*CHATS*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
+CREATE TRIGGER TRG_CHATS_INSERT_CREACION
+BEFORE INSERT ON chats
+FOR EACH ROW
+BEGIN
+	SET NEW.FECHA_CREACION = NOW();
+	-- Usuario_creacion viene desde el frente 
+END $$
+
+CREATE TRIGGER TRG_CHATS_UPDATE_AUDITORIA
+BEFORE UPDATE ON chats
+FOR EACH ROW
+BEGIN
+   	SET NEW.FECHA_MODIFICACION = NOW();
+    -- Usuario_modificacion desde adelante
+END $$	
+
 
 /*COMPROBANTES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 CREATE TRIGGER TRG_COMPROBANTES_INSERT_CREACION
@@ -414,12 +437,58 @@ BEGIN
 END $$
 
 /*HISTORIAS_PUBLICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
-CREATE TRIGGER TRG_HISTORIAS_PUBLICACIONES_INSERT_CREACION
-BEFORE INSERT ON historias_publicaciones
-FOR EACH ROW 
+CREATE TRIGGER TRG_PUBLICACIONES_INSERT_HISTORIA
+AFTER INSERT ON publicaciones
+FOR EACH ROW
 BEGIN
-	SET NEW.FECHA_CREACION = NOW();
-    SET NEW.USUARIO_CREACION = NEW.USUARIO_MODIFICACION_PUBLICACION;
+    INSERT INTO historias_publicaciones (
+        PUBLICACION_ID,
+        ESTADO_ID_ANTERIOR,
+        ITEM_ID_ITEM_ANTERIOR,
+        ESTADO_ID_ACTUAL,
+        ITEM_ID_ITEM_ACTUAL,
+        USUARIO_MODIFICACION_PUBLICACION,
+        FECHA_MODIFICACION_PUBLICACION
+    )
+    VALUES (
+        NEW.PUBLICACION_ID,      -- El ID que se acaba de crear
+        NULL,                    -- No hay estado anterior
+        NULL,                    -- No hay ítem anterior
+        NEW.ESTADO_PUBLICACION_ID, -- El estado con el que se creó
+        NEW.ITEM_ID_ITEM,        -- El ítem con el que se creó
+        NEW.USUARIO_CREACION,    -- El usuario que creó la publicación
+        NOW()                    -- La fecha del evento
+    );
+END $$
+
+CREATE TRIGGER TRG_PUBLICACIONES_UPDATE_HISTORIA
+AFTER UPDATE ON publicaciones
+FOR EACH ROW
+BEGIN
+    -- ¡Buena práctica! Solo inserta en el historial SI algo relevante cambió.
+    IF OLD.ESTADO_PUBLICACION_ID <> NEW.ESTADO_PUBLICACION_ID OR OLD.ITEM_ID_ITEM <> NEW.ITEM_ID_ITEM THEN
+    
+        INSERT INTO historias_publicaciones (
+            PUBLICACION_ID,
+            ESTADO_ID_ANTERIOR,
+            ITEM_ID_ITEM_ANTERIOR,
+            ESTADO_ID_ACTUAL,
+            ITEM_ID_ITEM_ACTUAL,
+            USUARIO_MODIFICACION_PUBLICACION,
+            FECHA_MODIFICACION_PUBLICACION
+            -- (y los campos de auditoría de la tabla historia)
+        )
+        VALUES (
+            NEW.PUBLICACION_ID,      -- El ID de la publicación (OLD.ID también sirve)
+            OLD.ESTADO_PUBLICACION_ID, -- El valor ANTES del update
+            OLD.ITEM_ID_ITEM,        -- El valor ANTES del update
+            NEW.ESTADO_PUBLICACION_ID, -- El valor NUEVO después del update
+            NEW.ITEM_ID_ITEM,        -- El valor NUEVO después del update
+            NEW.USUARIO_MODIFICACION,  -- El usuario que hizo el cambio
+            NOW()                      -- La fecha del evento
+        );
+        
+    END IF;
 END $$
 
 CREATE TRIGGER TRG_HISTORIAS_PUBLICACIONES_UPDATE_AUDITORIA
@@ -466,7 +535,7 @@ BEFORE UPDATE ON personas
 FOR EACH ROW
 BEGIN
    	SET NEW.FECHA_MODIFICACION = NOW();
-	SET NEW.USUARIO_MODIFICACION = CURRENT_USER(); 
+	-- Usuario modificación viene desde el front
 END $$
 
 /*PUBLICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
@@ -483,9 +552,10 @@ BEFORE UPDATE ON publicaciones
 FOR EACH ROW 
 BEGIN
 	SET NEW.FECHA_MODIFICACION = NOW();
-    SET NEW.USUARIO_MODIFICACION = CURRENT_USER(); 
+    -- viene desde el frente
 END $$
 
+/*
 CREATE TRIGGER TRG_PUBLICACIONES_UPDATE_BAJA
 BEFORE UPDATE ON publicaciones
 FOR EACH ROW
@@ -502,6 +572,7 @@ BEGIN
 		END IF;
 	END IF;
 END $$
+*/
 
 /*MENSAJES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 CREATE TRIGGER TRG_MENSAJES_INSERT_CREACION
@@ -511,6 +582,7 @@ BEGIN
 	IF NEW.ESTADO_MSJ_ID = 1 THEN
         SET NEW.FECHA_ENVIO = NOW();
     END IF;
+	SET NEW.FECHA_CREACION = Now();
 END $$
 
 CREATE TRIGGER TRG_MENSAJES_UPDATE_LEIDO
@@ -520,6 +592,7 @@ BEGIN
     IF NEW.ESTADO_MSJ_ID = 3 THEN
         SET NEW.FECHA_LEIDO = NOW();
     END IF;
+    SET NEW.FECHA_MODIFICACION = NOW();
 END $$
 
 /*NOTIFICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
@@ -545,7 +618,7 @@ BEFORE UPDATE ON items
 FOR EACH ROW
 BEGIN
    	SET NEW.FECHA_MODIFICACION = NOW();
-    SET NEW.USUARIO_MODIFICACION = CURRENT_USER();
+    -- Usuario_modificacion viene desde arriba 
 END $$
 
 /*ROLES*/
