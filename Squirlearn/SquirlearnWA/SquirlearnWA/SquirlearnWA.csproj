@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AceptacionPublicacion.aspx" />
+    <Content Include="AdminInicio.aspx" />
     <Content Include="ConfirmacionPedido.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -119,7 +121,9 @@
     <Content Include="Imagenes\instrumentos.png" />
     <Content Include="Imagenes\libros.png" />
     <Content Include="Imagenes\más.png" />
+    <Content Include="IncidenciasAdmin.aspx" />
     <Content Include="Instrumentos.aspx" />
+    <Content Include="ListadoDeSolicitudesAdmin.aspx" />
     <Content Include="LoginInicio.aspx" />
     <Content Include="LoginRecuperarContraseña.aspx" />
     <Content Include="LoginRegistro.aspx" />
@@ -127,8 +131,11 @@
     <Content Include="Pedidos.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="QuillaTip.aspx" />
+    <Content Include="RechazoPublicacion.aspx" />
     <Content Include="ReestablecerContraseña.aspx" />
     <Content Include="RegistrarIncidencia.aspx" />
+    <Content Include="ReportesAdmin.aspx" />
+    <Content Include="ResponderIncidencia.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -147,11 +154,26 @@
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="SolicitudPedidosAdmin.aspx" />
     <Content Include="SquirLearnInicio.aspx" />
     <Content Include="VentasAlquiler.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AceptacionPublicacion.aspx.cs">
+      <DependentUpon>AceptacionPublicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AceptacionPublicacion.aspx.designer.cs">
+      <DependentUpon>AceptacionPublicacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminInicio.aspx.cs">
+      <DependentUpon>AdminInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminInicio.aspx.designer.cs">
+      <DependentUpon>AdminInicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConfirmacionPedido.aspx.cs">
       <DependentUpon>ConfirmacionPedido.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -180,12 +202,26 @@
     <Compile Include="DetalleProductoCompra.aspx.designer.cs">
       <DependentUpon>DetalleProductoCompra.aspx</DependentUpon>
     </Compile>
+    <Compile Include="IncidenciasAdmin.aspx.cs">
+      <DependentUpon>IncidenciasAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IncidenciasAdmin.aspx.designer.cs">
+      <DependentUpon>IncidenciasAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Instrumentos.aspx.cs">
       <DependentUpon>Instrumentos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Instrumentos.aspx.designer.cs">
       <DependentUpon>Instrumentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoDeSolicitudesAdmin.aspx.cs">
+      <DependentUpon>ListadoDeSolicitudesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListadoDeSolicitudesAdmin.aspx.designer.cs">
+      <DependentUpon>ListadoDeSolicitudesAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginInicio.aspx.cs">
       <DependentUpon>LoginInicio.aspx</DependentUpon>
@@ -251,6 +287,13 @@
     <Compile Include="QuillaTip.aspx.designer.cs">
       <DependentUpon>QuillaTip.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RechazoPublicacion.aspx.cs">
+      <DependentUpon>RechazoPublicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RechazoPublicacion.aspx.designer.cs">
+      <DependentUpon>RechazoPublicacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ReestablecerContraseña.aspx.cs">
       <DependentUpon>ReestablecerContraseña.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -264,6 +307,27 @@
     </Compile>
     <Compile Include="RegistrarIncidencia.aspx.designer.cs">
       <DependentUpon>RegistrarIncidencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesAdmin.aspx.cs">
+      <DependentUpon>ReportesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportesAdmin.aspx.designer.cs">
+      <DependentUpon>ReportesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResponderIncidencia.aspx.cs">
+      <DependentUpon>ResponderIncidencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResponderIncidencia.aspx.designer.cs">
+      <DependentUpon>ResponderIncidencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SolicitudPedidosAdmin.aspx.cs">
+      <DependentUpon>SolicitudPedidosAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SolicitudPedidosAdmin.aspx.designer.cs">
+      <DependentUpon>SolicitudPedidosAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="SquirLearnInicio.aspx.cs">
       <DependentUpon>SquirLearnInicio.aspx</DependentUpon>
