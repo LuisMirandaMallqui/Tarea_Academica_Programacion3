@@ -31,25 +31,23 @@ public class Incidencia {
             @WebParam(name = "notificacionId") Integer notificacionId,
             @WebParam(name = "personaId") Integer personaId,
             @WebParam(name = "motivoId") Integer motivoId,
-            @WebParam(name = "creadorId") Integer creadorId) {
-        return this.incidenciaBo.insertar(descripcion, notificacionId, personaId, motivoId, creadorId);
+            @WebParam(name = "usuario") String usuario) {
+        return this.incidenciaBo.insertar(descripcion, notificacionId, personaId, motivoId, usuario);
     }
 
     @WebMethod(operationName = "modificarIncidencia")
     public Integer modificarIncidencia(
             @WebParam(name = "id") Integer id,
             @WebParam(name = "descripcion") String descripcion,
-            @WebParam(name = "fechaCreacion") Date fechaCreacion,
             @WebParam(name = "fechaSolucion") Date fechaSolucion,
             @WebParam(name = "notificacionId") Integer notificacionId,
             @WebParam(name = "personaId") Integer personaId,
             @WebParam(name = "motivoId") Integer motivoId,
             @WebParam(name = "resuelto") Integer resuelto,
-            @WebParam(name = "creadorId") Integer creadorId,
             @WebParam(name = "solucionadorId") Integer solucionadorId,
-            @WebParam(name = "modificadorId") Integer modificadorId) {
-        return this.incidenciaBo.modificar(id, descripcion, fechaCreacion, fechaSolucion, notificacionId,
-                personaId, motivoId, resuelto, creadorId, solucionadorId, modificadorId);
+            @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
+        return this.incidenciaBo.modificar(id, descripcion, fechaSolucion, notificacionId,
+                personaId, motivoId, resuelto, solucionadorId, usuarioCreacion);
     }
 
     @WebMethod(operationName = "listarPorResolucionIncidencia")

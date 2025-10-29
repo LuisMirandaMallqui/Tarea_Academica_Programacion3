@@ -34,8 +34,10 @@ public class Item {
             @WebParam(name = "tamanoId") Integer tamanoId,
             @WebParam(name = "formatoId") Integer formatoId,
             @WebParam(name = "categoriaId") Integer categoriaId,
-            @WebParam(name = "subcategoriaId") Integer subcategoriaId) {
-            return this.itemBo.insertar(precio, nombre, descripcion, esVenta, colorId, condicionId, tamanoId, formatoId, categoriaId, subcategoriaId);
+            @WebParam(name = "subcategoriaId") Integer subcategoriaId,
+            @WebParam(name = "usuario") String usuario) {
+            return this.itemBo.insertar(precio, nombre, descripcion, esVenta, colorId, 
+                    condicionId, tamanoId, formatoId, categoriaId, subcategoriaId,usuario);
 
     }
 
@@ -52,8 +54,12 @@ public class Item {
             @WebParam(name = "tamanoId") Integer tamanoId,
             @WebParam(name = "formatoId") Integer formatoId,
             @WebParam(name = "categoriaId") Integer categoriaId,
-            @WebParam(name = "subcategoriaId") Integer subcategoriaId) {
-            return this.itemBo.modificar(id, precio, nombre, descripcion, esVenta, colorId, estadoId, condicionId, tamanoId, formatoId, categoriaId, subcategoriaId);
+            @WebParam(name = "subcategoriaId") Integer subcategoriaId,
+            @WebParam(name = "usuario") String usuario,
+            @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
+            return this.itemBo.modificar(id, precio, nombre, descripcion, esVenta, 
+                    colorId, estadoId, condicionId, tamanoId, formatoId, categoriaId, 
+                    subcategoriaId,usuario,usuarioCreacion);
 
         }
 

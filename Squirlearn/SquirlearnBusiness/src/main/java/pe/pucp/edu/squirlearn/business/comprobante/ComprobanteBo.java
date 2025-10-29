@@ -1,7 +1,7 @@
 package pe.pucp.edu.squirlearn.business.comprobante;
 
-import java.util.ArrayList;
 import java.sql.Date;
+import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDao;
 import pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl;
 import pe.edu.pucp.squirlearn.model.comprobante.ComprobanteDto;
@@ -18,7 +18,7 @@ public class ComprobanteBo {
     }
     
     public Integer insertar(Double monto, String transaccionId, Integer personaId, 
-            Integer formaPagoId, Integer monedaId, Double impuesto){
+            Integer formaPagoId, Integer monedaId, Double impuesto,Date fechaEmision ,String usuario){
         ComprobanteDto comprobanteDto = new ComprobanteDto();
         
         PersonaDto persona = new PersonaDto();
@@ -34,6 +34,8 @@ public class ComprobanteBo {
         comprobanteDto.setFormaPago(formaPago);
         comprobanteDto.setMoneda(monedaPago);
         comprobanteDto.setImpuesto(impuesto);
+        comprobanteDto.setUsuario(usuario);
+        comprobanteDto.setFechaEmision(fechaEmision);
         return this.comprobanteDao.insertar(comprobanteDto);
     }
     

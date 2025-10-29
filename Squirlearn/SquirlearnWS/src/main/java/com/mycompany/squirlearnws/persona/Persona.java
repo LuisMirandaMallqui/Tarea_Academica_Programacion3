@@ -32,9 +32,10 @@ public class Persona {
             @WebParam(name = "codigo") String codigo,
             @WebParam(name = "correo") String correo,
             @WebParam(name = "contrasena") String contrasena,
-            @WebParam(name = "rol") Integer rol,
-            @WebParam(name = "creadorId") Integer creadorId) {
-        return this.personaBo.insertar(nombres, primerApellido, segundoApellido, codigo, correo, contrasena, rol, creadorId);
+            @WebParam(name = "usuario") String usuario,
+            @WebParam(name = "creadorId") Date actividad) {
+        return this.personaBo.insertar(nombres, primerApellido, segundoApellido, 
+                codigo, correo, contrasena, usuario, actividad);
     }
 
     @WebMethod(operationName = "modificarPersona")
@@ -46,13 +47,12 @@ public class Persona {
             @WebParam(name = "codigo") String codigo,
             @WebParam(name = "correo") String correo,
             @WebParam(name = "contrasena") String contrasena,
-            @WebParam(name = "rol") Integer rol,
             @WebParam(name = "estadoId") Integer estadoId,
-            @WebParam(name = "fechaCreacion") Date fechaCreacion,
-            @WebParam(name = "creadorId") Integer creadorId,
-            @WebParam(name = "modificadorId") Integer modificadorId) {
+            @WebParam(name = "usuario") String usuario,
+            @WebParam(name = "usuarioCreacion") String usuarioCreacion,
+            @WebParam(name = "creadorId") Date actividad) {
         return this.personaBo.modificar(id, nombres, primerApellido, segundoApellido, codigo, correo, contrasena,
-                rol, estadoId, fechaCreacion, creadorId, modificadorId);
+                estadoId, usuario, usuarioCreacion, actividad);
     }
 
     @WebMethod(operationName = "logInPersona")

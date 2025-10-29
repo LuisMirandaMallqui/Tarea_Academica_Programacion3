@@ -6,10 +6,10 @@ import java.sql.Date;
 public class NotificacionDto {
     
     private Integer notificacionId;
-    private Date fecha;
-    private String mensaje;
     private PersonaDto persona;
     private MotivoDto motivo;
+    private Date fecha;
+    private String mensaje;
     
     // Constructor vacío
     public NotificacionDto() {

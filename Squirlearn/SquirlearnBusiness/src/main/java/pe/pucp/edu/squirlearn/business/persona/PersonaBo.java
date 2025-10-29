@@ -23,37 +23,32 @@ public class PersonaBo {
     }
     
     public Integer insertar(String nombres, String primerApellido, String segundoApellido, 
-            String codigo, String correo, String contrasena, Integer rol, Integer creadorId){
+            String codigo, String correo, String contrasena, String usuario,Date actividad){
         PersonaDto personaDto = new PersonaDto();
-        
-        RolPersonaDto rolPersona = new RolPersonaDto();
-        rolPersona.setRolPersonaId(rol);
+     
         EstadoPersonaDto estado = new EstadoPersonaDto();
         estado.setEstadoPersonaId(1);
-        
+        //aqui se cebe hacer el insert del rol de la persona
         personaDto.setNombres(nombres);
         personaDto.setPrimerApellido(primerApellido);
         personaDto.setSegundoApellido(segundoApellido);
         personaDto.setCodigo(codigo);
         personaDto.setCorreo(correo);
-        personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));
-        personaDto.setRolPersona(rolPersona);
-        personaDto.setEstadoPersona(estado);
-        personaDto.setUsuarioCreacion(creadorId);
+        personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));        personaDto.setEstadoPersona(estado);
+        personaDto.setUsuario(usuario);
+        personaDto.setUltimaActividad(actividad);
         
         return this.personaDao.insertar(personaDto);
     }
     
     public Integer modificar(Integer id, String nombres, String primerApellido, String segundoApellido, 
-            String codigo, String correo, String contrasena, Integer rol,Integer estadoId ,
-            Date fechaCreacion ,Integer creadorId, Integer idModifcador){
+            String codigo, String correo, String contrasena,Integer estadoId ,
+            String usuario, String usuarioCreacion, Date actividad){
         PersonaDto personaDto = new PersonaDto();
         
         personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));
         EstadoPersonaDto estado = new EstadoPersonaDto();
         estado.setEstadoPersonaId(estadoId);
-        RolPersonaDto rolPersona = new RolPersonaDto();
-        rolPersona.setRolPersonaId(rol);
         
         personaDto.setPersonaId(id);
         personaDto.setNombres(nombres);
@@ -61,11 +56,10 @@ public class PersonaBo {
         personaDto.setSegundoApellido(segundoApellido);
         personaDto.setCodigo(codigo);
         personaDto.setCorreo(correo);
-        personaDto.setRolPersona(rolPersona);
         personaDto.setEstadoPersona(estado);
-        personaDto.setFechaCreacion((java.sql.Date) fechaCreacion);
-        personaDto.setUsuarioCreacion(creadorId);
-        personaDto.setUsuarioModificacion(idModifcador);
+        personaDto.setUsuario(usuario);
+        personaDto.setUsuarioCreacion(usuarioCreacion);
+        personaDto.setUltimaActividad(actividad);
         
         return this.personaDao.modificar(personaDto);
     }

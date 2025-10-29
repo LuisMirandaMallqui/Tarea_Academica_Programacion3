@@ -11,12 +11,12 @@ public class AlquilerDto {
     private ItemDto item;
     private Date fechaInicio;
     private Date fechaFin;
-    private Boolean devuelto;
     private Double monto;
+    private Boolean devuelto;
     private Date fechaCreacion;
-    private Integer usuarioCreacion;
-    private Date fechaModificacion;
-    private Integer usuarioModificacion;
+    private String usuario;
+
+    private String usuarioCreacion;
     
     // Constructor vacío (inicializa en null)
     public AlquilerDto() {
@@ -28,16 +28,14 @@ public class AlquilerDto {
         this.devuelto = null;
         this.monto = null;
         this.fechaCreacion = null;
+        this.usuario = null;
         this.usuarioCreacion = null;
-        this.fechaModificacion = null;
-        this.usuarioModificacion = null;
     }
 
     // Constructor con parámetros
     public AlquilerDto(Integer alquilerId, PersonaDto persona, ItemDto item,
                        Date fechaInicio, Date fechaFin, Boolean devuelto, Double monto,
-                       Date fechaCreacion, Integer usuarioCreacion,
-                       Date fechaModificacion, Integer usuarioModificacion) {
+                       Date fechaCreacion, String usuario, String usuarioCreacion) {
         this.alquilerId = alquilerId;
         this.persona = persona;
         this.item = item;
@@ -46,9 +44,8 @@ public class AlquilerDto {
         this.devuelto = devuelto;
         this.monto = monto;
         this.fechaCreacion = fechaCreacion;
+        this.usuario = usuario;
         this.usuarioCreacion = usuarioCreacion;
-        this.fechaModificacion = fechaModificacion;
-        this.usuarioModificacion = usuarioModificacion;
     }
 
     // Getters y Setters
@@ -116,27 +113,19 @@ public class AlquilerDto {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Integer getUsuarioCreacion() {
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
+    public String getUsuarioCreacion() {
         return usuarioCreacion;
     }
 
-    public void setUsuarioCreacion(Integer usuarioCreacion) {
+    public void setUsuarioCreacion(String usuarioCreacion) {
         this.usuarioCreacion = usuarioCreacion;
-    }
-
-    public Date getFechaModificacion() {
-        return fechaModificacion;
-    }
-
-    public void setFechaModificacion(Date fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
-    }
-
-    public Integer getUsuarioModificacion() {
-        return usuarioModificacion;
-    }
-
-    public void setUsuarioModificacion(Integer usuarioModificacion) {
-        this.usuarioModificacion = usuarioModificacion;
     }
 }

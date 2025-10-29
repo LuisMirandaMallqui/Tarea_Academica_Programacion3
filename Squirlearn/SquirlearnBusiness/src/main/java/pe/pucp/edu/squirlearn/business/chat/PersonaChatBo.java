@@ -5,10 +5,8 @@
 package pe.pucp.edu.squirlearn.business.chat;
 
 import java.util.ArrayList;
-import java.sql.Date;
 import pe.edu.pucp.squirlearn.dao.chat.PersonaChatDao;
 import pe.edu.pucp.squirlearn.daoImpl.chat.PersonaChatDaoImpl;
-import pe.edu.pucp.squirlearn.model.chat.ChatDto;
 import pe.edu.pucp.squirlearn.model.chat.PersonaChatDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
@@ -23,28 +21,20 @@ public class PersonaChatBo {
     public PersonaChatBo(){
         this.personaChatDao = new PersonaChatDaoImpl();
     }
-    
-    public Integer insertar(Integer personaId, Integer chatId, Date ultimaVez){
-        PersonaChatDto personaChatDto = new PersonaChatDto();
-        
-        ChatDto chat = new ChatDto();
-        chat.setChatId(chatId);
-        PersonaDto persona = new PersonaDto();
-        persona.setPersonaId(personaId);
-        
-        personaChatDto.setChat(chat);
-        personaChatDto.setPersona(persona);
-        personaChatDto.setUltimaActividad((java.sql.Date) ultimaVez);
-        
-        return this.personaChatDao.insertar(personaChatDto);
-    }
-    
-    public Integer modificar(Integer id, Date ultimaVez){
-        PersonaChatDto personaChatDto = new PersonaChatDto();
-        personaChatDto.setId(id);
-        personaChatDto.setUltimaActividad(ultimaVez);
-        return this.personaChatDao.modificar(personaChatDto);
-    }
+     //Este insertar está implementado dentro del BO de insertar Chat 
+//    public Integer insertar(Integer personaId, Integer chatId){
+//        PersonaChatDto personaChatDto = new PersonaChatDto();
+//        
+//        ChatDto chat = new ChatDto();
+//        chat.setChatId(chatId);
+//        PersonaDto persona = new PersonaDto();
+//        persona.setPersonaId(personaId);
+//        
+//        personaChatDto.setChat(chat);
+//        personaChatDto.setPersona(persona);
+//        
+//        return this.personaChatDao.insertar(personaChatDto);
+//    }
     
     public ArrayList<PersonaChatDto> listarPorPersona(Integer personaId){
         PersonaChatDto personaChatDto = new PersonaChatDto();

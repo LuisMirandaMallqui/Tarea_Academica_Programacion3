@@ -28,21 +28,24 @@ public class Publicacion {
     @WebMethod(operationName = "insertarPublicacion")
     public Integer insertar(
             @WebParam(name = "itemId") Integer itemId,
-            @WebParam(name = "personaId") Integer personaId
-    ) {
-        return this.publicacionBo.insertar(itemId, personaId);
+            @WebParam(name = "personaId") Integer personaId,
+            @WebParam(name = "usuario") String usuario) {
+        return this.publicacionBo.insertar(itemId, personaId,usuario);
     }
 
     @WebMethod(operationName = "modificarPublicacion")
     public Integer modificarPublicacion(
             @WebParam(name = "publicacionId") Integer publicacionId,
             @WebParam(name = "fechaAlta") Date fechaAlta,
+            @WebParam(name = "fechaBaja") Date fechaBaja,
             @WebParam(name = "estadoId") Integer estadoId,
             @WebParam(name = "itemId") Integer itemId,
             @WebParam(name = "personaId") Integer personaId,
-            @WebParam(name = "calificacion") Integer calificacion
-    ) {
-        return this.publicacionBo.modificar(publicacionId, fechaAlta, estadoId, itemId, personaId, calificacion);
+            @WebParam(name = "calificacion") Integer calificacion,
+            @WebParam(name = "usuario") String usuario,
+            @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
+        return this.publicacionBo.modificar(publicacionId, fechaAlta,fechaBaja, estadoId, itemId,
+                personaId, calificacion,usuario,usuarioCreacion);
     }
 
     @WebMethod(operationName = "listarPorEstadoPublicacion")

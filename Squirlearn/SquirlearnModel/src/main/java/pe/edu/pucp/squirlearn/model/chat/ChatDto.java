@@ -1,35 +1,32 @@
 package pe.edu.pucp.squirlearn.model.chat;
 
-import java.sql.Date;
+import java.util.List;
 
 public class ChatDto {
     
     private Integer chatId;
     private EstadoChatDto estadoChat;
-    private Date fechaCreacion;
-    private Integer usuarioCreacion;
-    private Date fechaModificacion;
-    private Integer usuarioModificacion;
+    private String usuario;
+    private String usuarioCreacion;
+    private List<MensajeDto> mensajes;
     
     // Constructor vacío
     public ChatDto() {
         this.chatId = null;
         this.estadoChat = null;
-        this.fechaCreacion = null;
+        this.usuario = null;
+        this.mensajes = null;
         this.usuarioCreacion = null;
-        this.fechaModificacion = null;
-        this.usuarioModificacion = null;
     }
 
     // Constructor con parámetros
-    public ChatDto(Integer chatId, EstadoChatDto estadoChat, Date fechaCreacion,
-                   Integer usuarioCreacion, Date fechaModificacion, Integer usuarioModificacion) {
+    public ChatDto(Integer chatId, EstadoChatDto estadoChat, String usuario,
+            List<MensajeDto> mensajes, String usuarioCreacion) {
         this.chatId = chatId;
         this.estadoChat = estadoChat;
-        this.fechaCreacion = fechaCreacion;
+        this.usuario = usuario;
+        this.mensajes = mensajes;
         this.usuarioCreacion = usuarioCreacion;
-        this.fechaModificacion = fechaModificacion;
-        this.usuarioModificacion = usuarioModificacion;
     }
 
     // Getters y Setters
@@ -49,35 +46,27 @@ public class ChatDto {
         this.estadoChat = estadoChat;
     }
 
-    public Date getFechaCreacion() {
-        return fechaCreacion;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
+    public List<MensajeDto> getMensajes() {
+        return mensajes;
     }
 
-    public Integer getUsuarioCreacion() {
+    public void setMensajes(List<MensajeDto> mensajes) {
+        this.mensajes = mensajes;
+    }
+    
+    public String getUsuarioCreacion() {
         return usuarioCreacion;
     }
 
-    public void setUsuarioCreacion(Integer usuarioCreacion) {
+    public void setUsuarioCreacion(String usuarioCreacion) {
         this.usuarioCreacion = usuarioCreacion;
-    }
-
-    public Date getFechaModificacion() {
-        return fechaModificacion;
-    }
-
-    public void setFechaModificacion(Date fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
-    }
-
-    public Integer getUsuarioModificacion() {
-        return usuarioModificacion;
-    }
-
-    public void setUsuarioModificacion(Integer usuarioModificacion) {
-        this.usuarioModificacion = usuarioModificacion;
     }
 }

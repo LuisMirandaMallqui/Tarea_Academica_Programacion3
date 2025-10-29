@@ -8,7 +8,7 @@ import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import java.util.ArrayList;
-import pe.edu.pucp.squirlearn.model.item.TamañoDto;
+import pe.edu.pucp.squirlearn.model.item.TamanoDto;
 import pe.pucp.edu.squirlearn.business.item.TamanoBo;
 
 /**
@@ -25,12 +25,12 @@ public class Tamano {
     }
     
     @WebMethod(operationName = "listarTodosTamano")
-    public ArrayList<TamañoDto> listarTodosTamano() {
+    public ArrayList<TamanoDto> listarTodosTamano() {
         return this.tamanoBo.listarTodos();
     }
 
     @WebMethod(operationName = "obtenerPorIdTamano")
-    public TamañoDto obtenerPorIdTamano(@WebParam(name = "id") Integer id) {
+    public TamanoDto obtenerPorIdTamano(@WebParam(name = "id") Integer id) {
         return this.tamanoBo.obtenerPorId(id);
     }
 
