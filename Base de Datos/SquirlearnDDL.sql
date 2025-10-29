@@ -282,6 +282,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`personas` (
   `CODIGO` VARCHAR(8) NOT NULL COMMENT 'Código único de la persona (ej. Código PUCP).',
   `CORREO` VARCHAR(100) NOT NULL COMMENT 'Correo electrónico (debe ser único).',
   `CONTRASENA` VARCHAR(45) NOT NULL COMMENT 'Contraseña del usuario (debería estar encriptada).',
+  `ULTIMA_ACTIVIDAD` DATETIME NOT NULL COMMENT 'Fecha y hora de la última actividad del usuario en este chat.',
   -- Auditoria
   `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
   `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
@@ -674,6 +675,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`notificaciones` (
   -- Atributos
   `FECHA` DATETIME NOT NULL COMMENT 'Fecha y hora en que se generó la notificación.',
   `MENSAJE` VARCHAR(255) NOT NULL COMMENT 'Contenido del mensaje de la notificación.',
+  -- Auditoria
+  `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
+  `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`NOTIFICACION_ID`),
   INDEX `fk_NOTIFIFACION_PERSONA1_idx` (`PERSONA_ID` ASC) VISIBLE,
   INDEX `fk_notificacion_MOTIVO1_idx` (`MOTIVO_ID_MOTIVO` ASC) VISIBLE,
@@ -773,8 +777,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`personas_chats` (
   -- Primary Keys
   `PERSONA_ID` INT NOT NULL COMMENT 'FK que referencia a la persona.',
   `CHAT_ID` INT NOT NULL COMMENT 'FK que referencia a la sala de chat.',
-  -- Atributos
-  `ULTIMA_ACTIVIDAD` DATETIME NOT NULL COMMENT 'Fecha y hora de la última actividad del usuario en este chat.',
+  --
   PRIMARY KEY (`PERSONA_ID`, `CHAT_ID`),
   INDEX `fk_PERSONA_has_CHAT_CHAT1_idx` (`CHAT_ID` ASC) VISIBLE,
   INDEX `fk_PERSONA_has_CHAT_PERSONA1_idx` (`PERSONA_ID` ASC) VISIBLE,
