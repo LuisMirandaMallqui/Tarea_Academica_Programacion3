@@ -14,14 +14,14 @@
                     <label class="fw-semibold mb-1">Usuario</label>
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light"><i class="fa fa-user"></i></span>
-                        <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="Correo"></asp:TextBox>
+                        <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="Correo PUCP"></asp:TextBox>
                     </div>
 
                     <!-- Contraseña -->
                     <label class="fw-semibold mb-1">Contraseña</label>
                     <div class="input-group mb-1">
                         <span class="input-group-text bg-light"><i class="fa fa-key"></i></span>
-                    <asp:TextBox ID="txtContraseña" runat="server" CssClass="form-control" placeholder="Contraseña"></asp:TextBox>
+                    <asp:TextBox ID="txtContraseña" runat="server" CssClass="form-control" TextMode="Password" placeholder="Contraseña"></asp:TextBox>
 
                     </div>
 

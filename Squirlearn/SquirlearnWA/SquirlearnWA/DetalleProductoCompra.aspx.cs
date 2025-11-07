@@ -17,7 +17,9 @@ namespace SquirlearnWA
 
                 lblNombreProducto.Text = producto.Nombre;
                 lblDescripcion.Text = producto.Descripcion;
-                lblPrecio.Text = "s/. " + producto.Precio;
+                lblPrecio.Text = "S/ " +
+                Convert.ToDecimal(producto.Precio.Replace("S/", "").Trim(),
+                System.Globalization.CultureInfo.InvariantCulture).ToString("F2");
                 imgProducto.ImageUrl = producto.ImagenUrl;
             }
         }

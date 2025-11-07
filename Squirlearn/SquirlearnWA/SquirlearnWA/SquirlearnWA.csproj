@@ -112,6 +112,7 @@
     <Content Include="Content\fonts\LICENSE.txt" />
     <Content Include="Content\Inicio.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="Cursos.aspx" />
     <Content Include="DetalleAlquiler.aspx" />
     <Content Include="DetalleCompra.aspx" />
     <Content Include="DetalleProductoAlquiler.aspx" />
@@ -129,10 +130,12 @@
     <Content Include="Instrumentos.aspx" />
     <Content Include="Libros.aspx" />
     <Content Include="ListadoDeSolicitudesAdmin.aspx" />
+    <Content Include="ListadoPublicaciones.aspx" />
     <Content Include="LoginInicio.aspx" />
     <Content Include="LoginRecuperarContraseña.aspx" />
     <Content Include="LoginRegistro.aspx" />
     <Content Include="Mensajes.aspx" />
+    <Content Include="ModalPago.aspx" />
     <Content Include="Notificaciones.aspx" />
     <Content Include="Otros.aspx" />
     <Content Include="Pedidos.aspx" />
@@ -211,6 +214,13 @@
     <Compile Include="ConfirmacionPedido.aspx.designer.cs">
       <DependentUpon>ConfirmacionPedido.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cursos.aspx.cs">
+      <DependentUpon>Cursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cursos.aspx.designer.cs">
+      <DependentUpon>Cursos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetalleAlquiler.aspx.cs">
       <DependentUpon>DetalleAlquiler.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -267,6 +277,13 @@
     <Compile Include="ListadoDeSolicitudesAdmin.aspx.designer.cs">
       <DependentUpon>ListadoDeSolicitudesAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ListadoPublicaciones.aspx.cs">
+      <DependentUpon>ListadoPublicaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListadoPublicaciones.aspx.designer.cs">
+      <DependentUpon>ListadoPublicaciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LoginInicio.aspx.cs">
       <DependentUpon>LoginInicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -294,6 +311,13 @@
     </Compile>
     <Compile Include="Mensajes.aspx.designer.cs">
       <DependentUpon>Mensajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalPago.aspx.cs">
+      <DependentUpon>ModalPago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalPago.aspx.designer.cs">
+      <DependentUpon>ModalPago.aspx</DependentUpon>
     </Compile>
     <Compile Include="Notificaciones.aspx.cs">
       <DependentUpon>Notificaciones.aspx</DependentUpon>
@@ -449,7 +473,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\alons\OneDrive\Escritorio\Front-End\SoftInv\SoftInvBusiness\SquirdLearnBusiness.csproj">
+      <Project>{E3CA282F-4001-4192-ADC0-A8D2C9A0F7C0}</Project>
+      <Name>SquirdLearnBusiness</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

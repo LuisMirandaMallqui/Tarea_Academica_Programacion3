@@ -5,7 +5,7 @@
      <div class="container perfil-container mt-4">
         <!-- 🔙 Flecha para volver atrás -->
         <asp:LinkButton ID="btnVolver" runat="server" CssClass="btn btn-link text-dark mb-3 btn-flecha" OnClick="btnVolver_Click">
-             <i class="fa fa-arrow-left"></i>
+             <i class="fa fa-arrow-left"></i>Volver
         </asp:LinkButton>
         <div class="row">
             <!-- Columna izquierda -->
@@ -18,13 +18,15 @@
 
                 <!-- Botones -->
                 <div class="d-grid gap-3 mt-4">
-                    <a href="Pedidos.aspx" class="btn btn-outline-primary">Pedidos</a>
-                    <a href="VentasAlquiler.aspx" class="btn btn-outline-primary">Ventas/Alquiler</a>
+                    <a href="Pedidos.aspx" class="btn btn-outline-primary">Mis Pedidos</a>
+                    <a href="VentasAlquiler.aspx" class="btn btn-outline-primary">Mis Ventas/Alquiler</a>
+                    <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" CssClass="btn btn-danger mt-4 w-100 fw-semibold" OnClick="btnCerrarSesion_Click" />
+
                 </div>
             </div>
 
             <!-- Columna derecha -->
-            <div class="col-md-6 offset-md-1">
+            <div class="col-md-6 offset-md-1" style="font-size:18px;">
                 <h5 class="fw-bold mb-4">Configuración</h5>
                 <ul class="list-unstyled">
                     <li class="mb-3"><a href="Notificaciones.aspx" class="text-decoration-none text-primary fw-semibold">Notificaciones</a></li>

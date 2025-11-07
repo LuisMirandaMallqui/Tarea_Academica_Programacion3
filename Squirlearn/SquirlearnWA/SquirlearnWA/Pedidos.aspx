@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
             <asp:LinkButton ID="btnVolver" runat="server" CssClass="btn btn-link text-dark btn-flecha me-3" OnClick="btnVolver_Click3">
-                <i class="fa fa-arrow-left"></i>
+                <i class="fa fa-arrow-left"></i>Volver
             </asp:LinkButton>
             <span class="h3 fw-bold">PEDIDOS</span>
         </div>

@@ -34,7 +34,7 @@
                         <asp:Label ID="lblNombreProducto" runat="server" />
                     </h4>
 
-                    <p><strong>Estado:</strong> Nuevo</p>
+                    <p><strong>Estado:</strong> Nuevo</p>  <!-- cambiar -->
                     <p><strong>Descripción:</strong></p>
                     <ul>
                         <li><asp:Label ID="lblDescripcion" runat="server" /></li>

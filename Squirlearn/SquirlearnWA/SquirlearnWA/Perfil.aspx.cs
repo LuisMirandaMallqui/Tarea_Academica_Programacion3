@@ -32,5 +32,10 @@ namespace SquirlearnWA
             Response.Redirect("SquirLearnInicio.aspx");
           
         }
+
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LoginInicio.aspx");
+        }
     }
 }

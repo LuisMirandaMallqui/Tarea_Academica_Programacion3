@@ -25,7 +25,7 @@
             <!-- DETALLE – ALQUILER -->
             <div class="col-md-5 border-end">
                 <div class="px-4">
-                    <h6 class="fw-bold text-secondary">DETALLE – ALQUILER</h6>
+                    <h1 class="fw-bold text-secondary">DETALLE – ALQUILER</h1>
 
                     <div class="d-flex align-items-center mb-3">
                         <asp:Image ID="imgProducto" runat="server"
@@ -37,7 +37,7 @@
                     </div>
 
                     <asp:Label ID="lblTipo" runat="server" CssClass="fw-semibold d-block" Text="Tipo: Alquiler"></asp:Label>
-                    <asp:Label ID="lblPrecioDia" runat="server" CssClass="text-primary d-block mt-1" Text="Precio por día: s/. 0.00"></asp:Label>
+                    <asp:Label ID="lblPrecioDia" runat="server" CssClass="text-primary d-block mt-1" Text="Precio por día: S/ 0.00"></asp:Label>
                     <asp:Label ID="lblPeriodo" runat="server" CssClass="text-muted small d-block mb-3" Text="Periodo máximo: 0 días"></asp:Label>
 
                     <div class="mt-3">
@@ -58,20 +58,21 @@
                 <div class="px-4">
                     <h6 class="fw-bold text-secondary">PAGO</h6>
 
-                    <!-- Métodos de pago -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="metodoPago" id="tarjeta" checked>
-                        <label class="form-check-label" for="tarjeta">
-                            Pagar con tarjeta de crédito
-                            <i class="fa fa-cc-visa"></i>
-                            <i class="fa fa-cc-mastercard"></i>
-                        </label>
-                    </div>
+                               <!-- Opción Tarjeta -->
+                      <asp:RadioButton ID="rdbTarjeta" runat="server" 
+                          GroupName="metodoPago" 
+                          Text="Pagar con tarjeta de crédito/débito" 
+                          Checked="true" 
+                          CssClass="form-check-input" />
+                    <div> </div> 
 
-                    <div class="form-check mt-2">
-                        <input class="form-check-input" type="radio" name="metodoPago" id="yape">
-                        <label class="form-check-label" for="yape">Pagar con Yape</label>
-                    </div>
+      
+
+                      <!-- Opción Yape -->
+                      <asp:RadioButton ID="rdbYape" runat="server" 
+                          GroupName="metodoPago" 
+                          Text="Pagar con Yape" 
+                          CssClass="form-check-input mt-2" />
 
                     <hr />
 
@@ -94,7 +95,7 @@
                     </div>
 
                     <asp:Button ID="btnAlquilar" runat="server" CssClass="btn btn-primary w-100 mt-3"
-                                Text="Realizar pedido" OnClick="btnAlquilar_Click" />
+                                Text="Realizar pago" OnClick="btnAlquilar_Click" />
                 </div>
             </div>
         </div>

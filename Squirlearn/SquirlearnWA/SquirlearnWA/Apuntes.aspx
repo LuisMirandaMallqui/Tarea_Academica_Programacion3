@@ -31,17 +31,20 @@
                         <label class="form-label fw-semibold small">Escoger subcategoría</label>
                         <asp:DropDownList ID="ddlSubcategoria" runat="server" CssClass="form-select">
                             <asp:ListItem Text="Todas" Value=""></asp:ListItem>
-                            <asp:ListItem Text="Matemáticas" Value="matemática"></asp:ListItem>
-                            <asp:ListItem Text="Física" Value="física"></asp:ListItem>
-                            <asp:ListItem Text="Química" Value="química"></asp:ListItem>
-                            <asp:ListItem Text="Programación" Value="programación"></asp:ListItem>
+                            <asp:ListItem Text="Apuntes de clase" Value="apuntes"></asp:ListItem>
+                            <asp:ListItem Text="Resúmenes" Value="resumen"></asp:ListItem>
+                            <asp:ListItem Text="Guias de práctica" Value="guia"></asp:ListItem>
+                            <asp:ListItem Text="otros" Value="otros"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
 
+     
+
+
+
                     <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary w-100 mb-2"
                         OnClick="btnBuscar_Click" />
-                    <asp:Button ID="btnInicio" runat="server" Text="Regresar al inicio" CssClass="btn btn-outline-secondary w-100"
-                        OnClick="btnInicio_Click" />
+                    
                 </div>
             </div>
 
@@ -61,7 +64,7 @@
                                 </div>
 
                                 <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <span class="text-primary fw-semibold">s/. <%# Eval("Precio") %></span>
+                                    <span class="text-primary fw-semibold">S/ <%# Eval("Precio","{0:N2}") %></span>
                                     <asp:Button ID="btnDetalle" runat="server" CssClass="btn btn-primary btn-sm"
                                                 Text="Ver Detalle" CommandName="VerDetalle"
                                                 CommandArgument='<%# Eval("Nombre") + "|" + Eval("Descripcion") + "|" + Eval("Precio") + "|" + Eval("ImagenUrl") %>' />

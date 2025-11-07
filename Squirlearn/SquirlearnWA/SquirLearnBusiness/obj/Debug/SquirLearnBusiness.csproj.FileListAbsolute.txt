@@ -1,0 +1,6 @@
+D:\GitHub\Squirlearn\SquirlearnWA\SquirLearnBusiness\bin\Debug\SquirLearnBusiness.dll
+D:\GitHub\Squirlearn\SquirlearnWA\SquirLearnBusiness\bin\Debug\SquirLearnBusiness.pdb
+D:\GitHub\Squirlearn\SquirlearnWA\SquirLearnBusiness\obj\Debug\SquirLearnBusiness.csproj.AssemblyReference.cache
+D:\GitHub\Squirlearn\SquirlearnWA\SquirLearnBusiness\obj\Debug\SquirLearnBusiness.csproj.CoreCompileInputs.cache
+D:\GitHub\Squirlearn\SquirlearnWA\SquirLearnBusiness\obj\Debug\SquirLearnBusiness.dll
+D:\GitHub\Squirlearn\SquirlearnWA\SquirLearnBusiness\obj\Debug\SquirLearnBusiness.pdb

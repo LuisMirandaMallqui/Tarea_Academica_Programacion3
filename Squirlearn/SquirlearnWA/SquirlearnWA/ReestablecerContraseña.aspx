@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
 
      <asp:LinkButton ID="btnVolver" runat="server" CssClass="btn btn-link text-dark mb-3 ms-n2 btn-flecha" OnClick="btnVolver_Click3">
-             <i class="fa fa-arrow-left"></i>
+             <i class="fa fa-arrow-left"></i>Volver
          </asp:LinkButton>
      <div class="container reestablecerContraseña-container mt-4">
 

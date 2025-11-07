@@ -26,7 +26,7 @@
             <!-- DETALLE – COMPRA -->
             <div class="col-md-5 border-end">
                 <div class="px-4">
-                    <h6 class="fw-bold text-secondary">DETALLE – COMPRA</h6>
+                    <h1 class="fw-bold text-secondary">DETALLE – COMPRA</h1>
 
                     <div class="d-flex align-items-center mb-3">
                         <asp:Image ID="imgProducto" runat="server" Style="width:100px; height:100px; object-fit:contain; margin-right:15px;" />
@@ -54,20 +54,20 @@
                 <div class="px-4">
                     <h6 class="fw-bold text-secondary">PAGO</h6>
 
-                    <!-- Métodos de pago -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="metodoPago" id="tarjeta" checked>
-                        <label class="form-check-label" for="tarjeta">
-                            Pagar con tarjeta de crédito 
-                            <i class="fa fa-cc-visa"></i> 
-                            <i class="fa fa-cc-mastercard"></i>
-                        </label>
-                    </div>
+                   <!-- Opción Tarjeta -->
+                        <asp:RadioButton ID="rdbTarjeta" runat="server" 
+                            GroupName="metodoPago" 
+                            Text="Pagar con tarjeta de crédito/débito" 
+                            Checked="true" 
+                            CssClass="form-check-input" />
 
-                    <div class="form-check mt-2">
-                        <input class="form-check-input" type="radio" name="metodoPago" id="yape">
-                        <label class="form-check-label" for="yape">Pagar con Yape</label>
-                    </div>
+                         <div> </div> 
+
+                        <!-- Opción Yape -->
+                        <asp:RadioButton ID="rdbYape" runat="server" 
+                            GroupName="metodoPago" 
+                            Text="Pagar con Yape" 
+                            CssClass="form-check-input mt-2" />
 
                     <hr />
 
@@ -90,7 +90,7 @@
                     </div>
 
                     <asp:Button ID="btnConfirmar" runat="server" CssClass="btn btn-primary w-100 mt-3"
-                                Text="Realizar pedido" OnClick="btnConfirmar_Click" />
+                                Text="Realizar pago" OnClick="btnConfirmar_Click" />
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SquirlearnWA.MasterPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,12 +17,33 @@ namespace SquirlearnWA
         
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            // Simulación de autenticación
+            
+            
             string usuario = txtUsuario.Text.Trim();
             string contrasena = txtContraseña.Text.Trim();
-            //var usuarioBO = new UsuarioBO();
-            //var usuario = usuarioBO.ValidarUsuario(usuario,contrasena);
+            
+            var loginBO = new LoginBO();
+            PersonaDto personaDto = loginBO.ValidarUsuario(usuario, contrasena);
+
+            if (personaDto != null)
+            {
+                // Guardamos en sesión solo lo necesario
+                Session["UsuarioId"] = personaDto.Id;
+                Session["Rol"] = personaDto.Rol;
+                Session["NombreUsuario"] = personaDto.Nombres + personaDto.primerApellido;
+                Response.Redirect(personaDto.Rol == "Administrador"
+                                  ? "~/AdminInicio.aspx"
+                                  : "~/SquirLearnInicio.aspx");
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Usuario o contraseña incorrectos');", true);
+            }
+
+            
+            /*
             // Simulamos usuarios con roles distintos
+           
             if (usuario == "admin" && contrasena == "123")
             {
                 Session["Usuario"] = usuario;
@@ -38,20 +60,9 @@ namespace SquirlearnWA
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Usuario o contraseña incorrectos');", true);
             }
-
-            
-            /*
-            if (usuario == "admin" && contrasena == "123")
-            {
-                // Redirige al Master principal
-               
-            }
-            else
-            {
-                // Mostrar mensaje (puedes usar un Label o alert JS)
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Usuario o contraseña incorrectos');", true);
-            }
             */
+            
+            
         }
 
         protected void btnRegistro_Click(object sender, EventArgs e)

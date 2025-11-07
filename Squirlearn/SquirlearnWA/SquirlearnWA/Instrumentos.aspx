@@ -27,18 +27,24 @@
                         <asp:ListItem Text="Usado" Value="Usado" />
                     </asp:DropDownList>
 
+
+           
+
                     <!-- Escoger subcategoría -->
                     <label class="form-label small">Escoger subcategoría</label>
                     <asp:DropDownList ID="ddlSubcategoria" runat="server" CssClass="form-select mb-3">
                         <asp:ListItem Text="Subcategoría" Value="" />
-                        <asp:ListItem Text="Cálculo" Value="Calculo" />
-                        <asp:ListItem Text="Medición" Value="Medicion" />
-                        <asp:ListItem Text="Dibujo técnico" Value="Dibujo" />
+                        <asp:ListItem Text="Cálculo y medición" Value="CalculoMedicion" />
+                        <asp:ListItem Text="Dibujo técnico" Value="DibujoTecnico" />
+                        <asp:ListItem Text="Accesorios electrónicos" Value="Electronica" />
+                        <asp:ListItem Text="Laboratorio químico" Value="Quimica" />
+                        <asp:ListItem Text="Arte y diseño" Value="ArteDiseno" />
+                        <asp:ListItem Text="Otros" Value="Otros" />
                     </asp:DropDownList>
 
                     <!-- Botones -->
                     <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary w-100 mb-2" OnClick="btnBuscar_Click" />
-                    <asp:Button ID="btnInicio" runat="server" Text="Regresar al inicio" CssClass="btn btn-outline-secondary w-100" OnClick="btnInicio_Click" />
+                    
                 </div>
             </div>
 
@@ -67,7 +73,7 @@
                             <div class="card-body p-0">
                                 <asp:Label ID="lblNombre" runat="server" Text='<%# Eval("Nombre") %>' CssClass="fw-bold d-block" />
                                 <asp:Label ID="lblDescripcion" runat="server" Text='<%# Eval("Descripcion") %>' CssClass="text-muted small d-block mb-2" />
-                                <asp:Label ID="lblPrecio" runat="server" Text='<%# Eval("Precio") %>' CssClass="text-primary fw-semibold d-block mb-3" />
+                                <asp:Label ID="lblPrecio" runat="server" Text='<%# "S/ " + Eval("Precio", "{0:N2}") %>'  CssClass="text-primary fw-semibold d-block mb-3" />
                                 <asp:Button ID="btnDetalle" runat="server" CssClass="btn btn-primary btn-sm" 
                                             Text="Ver Detalle" CommandName="VerDetalle" />
                             </div>

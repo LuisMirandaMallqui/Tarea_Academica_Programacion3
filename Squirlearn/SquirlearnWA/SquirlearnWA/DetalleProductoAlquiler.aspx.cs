@@ -21,10 +21,11 @@ namespace SquirlearnWA
 
                     // Mostrar datos comunes
                     lblNombre.Text = p.Nombre;
-                    lblPrecio.Text = $"s/. {p.Precio} / día";
+                    lblPrecio.Text = $"S/.+ {Convert.ToDecimal(p.Precio.Replace("S/","").Trim(),System.Globalization.CultureInfo.InvariantCulture).ToString("F2")} / día";
                     lblDescripcion.Text = p.Descripcion;
                     imgProducto.ImageUrl = p.ImagenUrl;
 
+                   
                     // Detectar tipo para personalizar texto
                     string tipo = p.Tipo ?? "Producto";
 

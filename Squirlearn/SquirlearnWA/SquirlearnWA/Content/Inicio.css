@@ -1,10 +1,9 @@
 ﻿/* ===== GENERAL ===== */
-html, body {
-    height: 100%;
+html, body, form, .layout-container {
     margin: 0;
     padding: 0;
-    background-color: #F5F9FF;
-    font-family: 'Segoe UI', sans-serif;
+    width: 100%;
+    height: 100%;
 }
 /* ===== HEADER (barra superior con buscador y perfil) ===== */
 .header {
@@ -77,12 +76,20 @@ html, body {
     }
 
 /* ===== MAIN CONTENT ===== */
+
 .main-content {
     flex-grow: 1;
+    /*background-color: #E7F2FC; /* azul claro */
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff; /* fondo blanco total */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 0; /* elimina esquinas redondeadas que cortan el fondo */
 }
+
 
 /* ===== TOPBAR Y BUSCADOR ===== */
 .topbar {
@@ -160,14 +167,15 @@ html, body {
         }
 
 /* ===== CONTENIDO CENTRAL ===== */
-.content-area {
-    background-color: #E7F2FC; /* azul claro interno */
-    border-radius: 20px;
+.content-area6 {
+    background-color: #E7F2FC !important; /* azul claro interno */
+    border-radius: 20px !important;
     margin: 2rem 2rem;
-    flex-grow: 1;
-    width: 75%;
-    align-self: flex-start;
-    padding: 2rem;
+    
+    flex-grow: 1 !important;
+    width: 95% !important;
+    align-self: flex-start !important;
+    padding: 2rem !important;
 }
 
 /* ===== TARJETAS ===== */

@@ -120,9 +120,6 @@ namespace SquirlearnWA
             rptInstrumentos.DataBind();
         }
 
-        protected void btnInicio_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("SquirLearnInicio.aspx");
-        }
+       
     }
 }

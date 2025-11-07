@@ -28,20 +28,30 @@
                         <asp:TextBox ID="txtBusqueda" runat="server" CssClass="form-control" Placeholder="Ingresar texto"></asp:TextBox>
                     </div>
 
+        
                     <div class="mb-3">
                         <label class="form-label fw-semibold small">Seleccionar subcategoría</label>
                         <asp:DropDownList ID="ddlSubcategoria" runat="server" CssClass="form-select">
                             <asp:ListItem Text="Todas" Value=""></asp:ListItem>
-                            <asp:ListItem Text="Matemáticas" Value="matemática"></asp:ListItem>
-                            <asp:ListItem Text="Historia" Value="historia"></asp:ListItem>
-                            <asp:ListItem Text="Programación" Value="programación"></asp:ListItem>
+                            <asp:ListItem Text="Estudios generales ciencias" Value="ciencias"></asp:ListItem>
+                            <asp:ListItem Text="Estudios generales letras" Value="letras"></asp:ListItem>
+                            <asp:ListItem Text="Facultad de ciencias e ingineria" Value="ingenieria"></asp:ListItem>
+                            <asp:ListItem Text="Facultad de economia" Value="economia"></asp:ListItem>
+                            <asp:ListItem Text="Facultad de derecho" Value="derecho"></asp:ListItem>
+                            <asp:ListItem Text="Facultad psicologia" Value="psicologia"></asp:ListItem>
+                            <asp:ListItem Text="Facultad gestión y alta dirección" Value="gestion"></asp:ListItem>
+                            <asp:ListItem Text="Facultad educación" Value="educacion"></asp:ListItem>
+                            <asp:ListItem Text="Facultad ciencias sociales" Value="sociales"></asp:ListItem>
+                            <asp:ListItem Text="Facultad comunicación" Value="comunicacion"></asp:ListItem>
+                            <asp:ListItem Text="Facultad artes" Value="artes"></asp:ListItem>
+                            <asp:ListItem Text="Facultad arquitectura" Value="arquitectura"></asp:ListItem>
+
                         </asp:DropDownList>
                     </div>
 
                     <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary w-100 mb-2"
                         OnClick="btnBuscar_Click" />
-                    <asp:Button ID="btnInicio" runat="server" Text="Regresar al inicio" CssClass="btn btn-outline-secondary w-100"
-                        OnClick="btnInicio_Click" />
+                    
                 </div>
             </div>
 
@@ -62,7 +72,7 @@
                                 </div>
 
                                 <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <span class="text-primary fw-semibold">s/. <%# Eval("Precio") %></span>
+                                    <span class="text-primary fw-semibold">S/ <%# Eval("Precio","{0:N2}") %></span>
                                     <asp:Button ID="btnDetalle" runat="server" CssClass="btn btn-primary btn-sm"
                                                 Text="Ver Detalle" CommandName="VerDetalle"
                                                 CommandArgument='<%# Eval("Nombre") + "|" + Eval("Descripcion") + "|" + Eval("Precio") + "|" + Eval("ImagenUrl") %>' />

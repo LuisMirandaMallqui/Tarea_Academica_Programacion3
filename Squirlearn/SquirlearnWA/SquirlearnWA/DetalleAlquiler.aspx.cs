@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -29,13 +30,22 @@ namespace SquirlearnWA
                         : "Periodo máximo: 14 días";
                     imgProducto.ImageUrl = p.ImagenUrl;
 
+
+                    string precioTexto = p.Precio
+                        .Replace("s/.", "")
+                        .Replace("S/.", "")
+                        .Replace("s/", "")
+                        .Replace("S/", "")
+                        .Trim();
                     // Guardar el precio en ViewState
-                    ViewState["PrecioDia"] = Convert.ToDouble(p.Precio);
+                    ViewState["PrecioDia"] = Convert.ToDouble(precioTexto, CultureInfo.InvariantCulture);
 
                     // Cálculo inicial
-                    double precio = Convert.ToDouble(p.Precio);
+                    double precio = Convert.ToDouble(precioTexto, CultureInfo.InvariantCulture);
                     lblSubtotal.Text = precio.ToString("0.00");
                     lblTotal.InnerText = $"s/. {precio:0.00}";
+                    Session["ProductoNombre"] = p.Nombre;
+                    Session["ProductoDescripcion"] = p.Descripcion;
                 }
 
                 // 🔹 Aquí va el bloque nuevo
@@ -45,7 +55,9 @@ namespace SquirlearnWA
                     Session.Remove("DiasAlquiler"); // limpia la sesión
                     ActualizarTotal(); // recalcula total
                 }
+               
             }
+            
         }
 
         // Botón "Volver"
@@ -106,14 +118,35 @@ namespace SquirlearnWA
             double total = subtotal - ahorroTotal;
 
             lblSubtotal.Text = subtotal.ToString("0.00");
-            lblTotal.InnerText = $"s/. {total:0.00}";
+            lblTotal.InnerText = $"S/ {total:0.00}";
+            Session["DiasAlquiler"] = lblDias.Text;
+            Session["TotalCompra"] = total;
         }
 
         // Botón "Realizar pedido"
         protected void btnAlquilar_Click(object sender, EventArgs e)
         {
-            Session["TotalAlquiler"] = lblTotal.InnerText;
-            Response.Redirect("QuillaTip.aspx");
+           
+
+            string metodo = "";
+
+            if (rdbTarjeta.Checked)
+                metodo = "tarjeta";
+            else if (rdbYape.Checked)
+                metodo = "yape";
+
+           
+            
+
+            // Datos adicionales del alquiler
+            
+            Session["EsAlquiler"] = true;
+
+            string nombrePagina = System.IO.Path.GetFileName(Request.Url.AbsolutePath);
+            Response.Redirect("ModalPago.aspx?metodo=" + metodo + "&origen=" + nombrePagina);
+
+            //Session["TotalAlquiler"] = lblTotal.InnerText;
+            //Response.Redirect("QuillaTip.aspx");
         }
     }
 }

@@ -10,12 +10,12 @@
             <div class="p-4 mb-3 rounded" style="background-color:#d9dee3; max-width:800px;">
                 <div class="text-center mb-3">
                     <span class="fw-semibold">SOLICITUD : </span>
-                    <span><%# Eval("VendedorNombre") %></span>
+                    <span><%# Eval("NombreUsuario") %></span>
                     <span><%#Eval("FechaSolicitud", "{0:dd MMM yyyy}") %></span>
                     
                 </div>
                 <div class="text-center">
-                    <a href='SolicitudPedidosAdmin.aspx?id=<%# Eval("IdSolicitud") %>' 
+                    <a href='SolicitudPedidosAdmin.aspx?id=<%# Eval("IdPublicacion") %>' 
                        class="btn fw-bold"
                        style="background-color:limegreen; color:black; border-radius:25px; padding:10px 40px; font-size:18px;">
                        REVISAR

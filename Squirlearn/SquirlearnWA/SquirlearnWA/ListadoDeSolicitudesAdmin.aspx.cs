@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftInvBusiness;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,6 +27,7 @@ namespace SquirlearnWA
             rptSolicitudes.DataSource = solicitudes;
             rptSolicitudes.DataBind();
             */
+            /*
             var solicitudes = new List<dynamic>
             {
                 new { IdSolicitud = 1, VendedorNombre = "Pedro Enrique de Paul",FechaSolicitud = new DateTime(2025, 10, 25) },
@@ -34,6 +36,13 @@ namespace SquirlearnWA
                 new { IdSolicitud = 4, VendedorNombre = "Lucía Fernández",FechaSolicitud = new DateTime(2025, 10, 25) },
                 new { IdSolicitud = 5, VendedorNombre = "José Ramírez",FechaSolicitud = new DateTime(2025, 10, 25) }
             };
+
+            rptSolicitudes.DataSource = solicitudes;
+            rptSolicitudes.DataBind();
+            */
+
+            AdminBO adminBO = new AdminBO();
+            var solicitudes = adminBO.ListarSolicitudesPendientes();
 
             rptSolicitudes.DataSource = solicitudes;
             rptSolicitudes.DataBind();

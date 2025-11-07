@@ -18,5 +18,43 @@ namespace SquirlearnWA
         {
 
         }
+        protected void btnMostrarFiltro_Click(object sender, EventArgs e)
+        {
+            pnlFiltro.Visible = !pnlFiltro.Visible;
+        }
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            string busqueda = txtBuscar.Text.Trim();
+            string categoria = ddlCategoria.SelectedValue;
+            string tipo = rblVentaAlquiler.SelectedValue;
+            string estado = rblEstado.SelectedValue;
+            string tamano= RadioButtonList1.SelectedValue;
+
+            // Ejemplo: llamar a tu BO para obtener resultados
+           // var resultados = miBO.BuscarProductos(busqueda, categoria, tipo, estado);
+           /*
+            if (resultados.Count == 0)
+            {
+                lblNoResultados.Text = "No se encontraron coincidencias";
+                gvResultados.DataSource = null;
+                gvResultados.DataBind();
+            }
+            else
+            {
+                lblNoResultados.Text = "";
+                gvResultados.DataSource = resultados;
+                gvResultados.DataBind();
+            }
+           */
+        }
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtBuscar.Text = "";
+            ddlCategoria.SelectedIndex = 0;
+            rblVentaAlquiler.SelectedIndex = 0;
+            rblEstado.SelectedIndex = 0;
+            gvResultados.DataSource = null;
+            gvResultados.DataBind();
+        }
     }
 }

@@ -2,15 +2,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
 
     <div class="container text-center mt-5">
+        <!-- Mensaje de error -->
+        <asp:Panel ID="pnlError" runat="server" Visible="false" CssClass="alert alert-danger fw-semibold mt-5">
+            <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
+            <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary fw-semibold"
+            Text="Volver a intentarlo" OnClick="Button3_Click1" />
+        </asp:Panel>
+
         <!-- Imagen de confirmación -->
-        <div class="mt-5">
+        <div id="divExito" runat="server" class="mt-5">
             <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png"
                  alt="Confirmado"
                  style="width:120px; margin-bottom:20px; animation: pop 0.6s ease;">
             
             <h4 class="fw-bold text-success">¡Proceso realizado con éxito!</h4>
             <p class="text-muted mb-4">
-                Tu pedido ha sido confirmado correctamente.<br />
+                Tu pedido ha sido confirmado correctamente. Resumen de su  compra: <br />
+                <p><strong>Producto:</strong> <asp:Label ID="lblNombre" runat="server" /></p>
+                <p><strong>Descripción:</strong> <asp:Label ID="lblDescripcion" runat="server" /></p>
+                <p><strong>Total: S/</strong> <asp:Label ID="lblTotal" runat="server" /></p>
+                <p><strong>Tipo de operación:</strong> <asp:Label ID="lblTipoOperacion" runat="server" /></p>
                 El vendedor se pondrá en contacto contigo para coordinar la entrega.
             </p>
 

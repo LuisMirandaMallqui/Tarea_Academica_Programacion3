@@ -25,9 +25,10 @@
 
             <ul class="nav flex-column">
                 <li><a href="SquirLearnInicio.aspx" class="active"><i class="fa fa-search"></i> Buscar</a></li>
-                <li><a href="Publicar.aspx"><i class="fa fa-plus-circle"></i> Vender</a></li>
+                <li><a href="ListadoPublicaciones.aspx"><i class="fa fa-plus-circle"></i> Vender</a></li>
                 <li><a href="Mensajes.aspx"><i class="fa fa-envelope"></i> Mensajes</a></li>
-                 
+                <li> <a href="Pedidos.aspx" class="btn btn-outline-primary">Mis Pedidos</a></li>
+                <li> <a href="VentasAlquiler.aspx" class="btn btn-outline-primary">Mis Ventas/Alquiler</a></li>
                 <!-- 🟦 Vista administrador -->
                 <asp:Panel ID="menuAdmin" runat="server" Visible="false">
                 <li><a href="ListadoDeSolicitudesAdmin.aspx"> Solicitudes de publicaciones</a></li>
@@ -51,8 +52,8 @@
                     </div>
                 </div>
             </div>
-
-            <div class="content-area p-4">
+            
+            <div class="content-area6">
                 <asp:ContentPlaceHolder ID="cphContenido" runat="server"></asp:ContentPlaceHolder>
             </div>
         </div>

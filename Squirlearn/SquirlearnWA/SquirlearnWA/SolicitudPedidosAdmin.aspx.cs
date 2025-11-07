@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SquirLearnBusiness;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -32,6 +33,7 @@ namespace SquirlearnWA
             fvPedido.DataSource = new[] { pedido };
             fvPedido.DataBind();
             */
+            /*
             var pedido = new
             {
                 
@@ -46,11 +48,21 @@ namespace SquirlearnWA
                 PeriodoTiempo=15
             };
 
+            */
 
+            // 1️⃣ Obtener el ID de la publicación desde la URL
+            int idPublicacion = Convert.ToInt32(Request.QueryString["id"]);
 
+            // 2️⃣ Llamar al backend (BO → SOAP)
+            PublicacionBO bo = new PublicacionBO();
+            var publicacion = bo.ObtenerPorId(idPublicacion);
 
-            // Enlazar el pedido directamente al FormView
-            fvPedido.DataSource = new[] { pedido };
+            // 3️⃣ También obtener el nombre del usuario si solo tienes su ID
+            UsuarioBO usuarioBO = new UsuarioBO();
+            publicacion.NombreUsuario = usuarioBO.obtenerNombreUsuario(publicacion.UsuarioId);
+
+            // 4️⃣ Enlazar los datos al FormView
+            fvPedido.DataSource = new[] { publicacion };
             fvPedido.DataBind();
         }
     }

@@ -12,13 +12,11 @@ namespace SquirlearnWA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string origen= Request.QueryString["origen"];
             // Redirigir automáticamente luego de 3 segundos
-            Response.AddHeader("REFRESH", "3;URL=ConfirmacionPedido.aspx");
+            Response.AddHeader("REFRESH", "3;URL=ConfirmacionPedido.aspx?origen=" + Server.UrlEncode(origen));
         }
 
-        protected void btnVolver_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("DetalleCompra.aspx");
-        }
+        
     }
 }

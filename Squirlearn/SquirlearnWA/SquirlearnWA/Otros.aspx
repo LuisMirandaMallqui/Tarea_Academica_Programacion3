@@ -37,8 +37,8 @@
                         <asp:DropDownList ID="ddlCondicion" runat="server" CssClass="form-select">
                             <asp:ListItem Text="Todas" Value=""></asp:ListItem>
                             <asp:ListItem Text="Nuevo" Value="Nuevo"></asp:ListItem>
-                            <asp:ListItem Text="Seminuevo" Value="Seminuevo"></asp:ListItem>
-                            <asp:ListItem Text="Antiguo" Value="Antiguo"></asp:ListItem>
+                            
+                            <asp:ListItem Text="Usado" Value="Antiguo"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
 
@@ -62,21 +62,22 @@
                         </asp:DropDownList>
                     </div>
 
+    
+
+
                     <div class="mb-3">
                         <label class="form-label fw-semibold small">Subcategoría</label>
                         <asp:DropDownList ID="ddlSubcategoria" runat="server" CssClass="form-select">
                             <asp:ListItem Text="Todas" Value=""></asp:ListItem>
-                            <asp:ListItem Text="Mochila" Value="Mochila"></asp:ListItem>
-                            <asp:ListItem Text="Estuche" Value="Estuche"></asp:ListItem>
-                            <asp:ListItem Text="Material de escritorio" Value="Material de escritorio"></asp:ListItem>
-                            <asp:ListItem Text="Ropa" Value="Ropa"></asp:ListItem>
+                            <asp:ListItem Text="Accesorios" Value="accesorios"></asp:ListItem>
+                            <asp:ListItem Text="Mochila" Value="mochila"></asp:ListItem>
+                            <asp:ListItem Text="Prenda de vestir" Value="prenda"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
 
                     <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary w-100 mb-2"
                         OnClick="btnBuscar_Click" />
-                    <asp:Button ID="btnInicio" runat="server" Text="Regresar al inicio" CssClass="btn btn-outline-secondary w-100"
-                        OnClick="btnInicio_Click" />
+                    
                 </div>
             </div>
 
@@ -91,7 +92,7 @@
                                 <div class="card-body p-0">
                                     <h5 class="fw-bold mb-1"><%# Eval("Nombre") %></h5>
                                     <p class="text-muted small mb-1"><%# Eval("Descripcion") %></p>
-                                    <p class="text-primary fw-semibold mb-2">s/. <%# Eval("Precio") %></p>
+                                    <p class="text-primary fw-semibold mb-2">S/ <%# Eval("Precio","{0:N2}") %></p>
                                     <asp:Button ID="btnDetalle" runat="server" CssClass="btn btn-outline-primary btn-sm w-100"
                                         Text="Ver Detalle" CommandName="VerDetalle"
                                         CommandArgument='<%# Eval("Nombre") + "|" + Eval("Descripcion") + "|" + Eval("Precio") + "|" + Eval("ImagenUrl") %>' />
