@@ -3,6 +3,7 @@ package pe.pucp.edu.squirlearn.business.persona;
 
 import java.util.ArrayList;
 import java.sql.Date;
+import java.util.List;
 import pe.edu.pucp.squirlearn.dao.persona.PersonaDao;
 import pe.edu.pucp.squirlearn.daoImpl.persona.PersonaDaoImpl;
 import pe.edu.pucp.squirlearn.model.persona.EstadoPersonaDto;
@@ -28,7 +29,12 @@ public class PersonaBo {
      
         EstadoPersonaDto estado = new EstadoPersonaDto();
         estado.setEstadoPersonaId(1);
-        //aqui se cebe hacer el insert del rol de la persona
+        //aqui se cebe hacer el insert del rol de la persona en el DAO
+        List<RolPersonaDto> roles = new ArrayList<RolPersonaDto>();
+        RolPersonaDto rol = new RolPersonaDto();
+        rol.setRolPersonaId(1);
+        roles.add(rol);
+        personaDto.setRolPersona(roles);
         personaDto.setNombres(nombres);
         personaDto.setPrimerApellido(primerApellido);
         personaDto.setSegundoApellido(segundoApellido);
@@ -37,6 +43,11 @@ public class PersonaBo {
         personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));        personaDto.setEstadoPersona(estado);
         personaDto.setUsuario(usuario);
         personaDto.setUltimaActividad(actividad);
+        
+        if(!existeUsuarioEnPUCP(codigo,correo))//falta implementar
+            return 0;
+        if(this.personaDao.obtenerPorCodigo(codigo) == null)
+            return 0;
         
         return this.personaDao.insertar(personaDto);
     }
@@ -67,7 +78,7 @@ public class PersonaBo {
     public PersonaDto logIn(String correo, String contrasena){
         PersonaDto personaDto = new PersonaDto();
         personaDto.setCorreo(correo);
-        PersonaDto perDto = this.personaDao.buscarPorCorreo(correo);//necesita implementación
+        PersonaDto perDto = this.personaDao.buscarPorCorreo(correo);
         if(Cifrado.descifrarMD5(perDto.getContrasena()).equals(contrasena))
             return personaDto;
         else
@@ -79,6 +90,6 @@ public class PersonaBo {
     }
     
     public PersonaDto obtenerPorCodigo(String codigo){
-        return this.personaDao.obtenerPorCodigo(codigo); //necesita implementación 
+        return this.personaDao.obtenerPorCodigo(codigo); 
     }
 }
