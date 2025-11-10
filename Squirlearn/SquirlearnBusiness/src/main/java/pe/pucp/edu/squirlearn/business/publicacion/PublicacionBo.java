@@ -1,6 +1,7 @@
 
 package pe.pucp.edu.squirlearn.business.publicacion;
 
+import static java.time.Instant.now;
 import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDao;
@@ -45,10 +46,10 @@ public class PublicacionBo {
         estadoPublicacion.setEstadoPublicacionId(estadoId);
         switch (estadoId){
             case 2: 
-                fechaAlta = Date();
+                fechaAlta = Date.from(now());
                 break;
             case 4:
-                fechaBaja = Date();
+                fechaBaja = Date.from(now());
                 break;
         }
         
@@ -73,6 +74,13 @@ public class PublicacionBo {
         return this.publicacionDao.listarPorEstado(estadoId); //necesita implementación
     }
     
+    public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(String terminoBusqueda,Boolean esVenta,
+            Integer idCategoria,Integer idSubcategoria,Integer idColores, Integer idTamanos,Integer idFormatos,
+            Integer idCondicion,Integer idEstado);{
+        return this.publicacionDao.listarPorFiltrosPublicacion(terminoBusqueda,esVenta,idCategoria,idSubcategoria,idColores,
+                idTamanos,idFormatos,idCondicion,idEstado);; //necesita implementación
+    }
+    
     public ArrayList<PublicacionDto> listarPorDueno(Integer personaId){
         return this.publicacionDao.listarPorEstado(personaId); //necesita implementación
     }
@@ -81,7 +89,4 @@ public class PublicacionBo {
         return this.publicacionDao.obtenerPorId(id);
     }
 
-    private Date Date() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

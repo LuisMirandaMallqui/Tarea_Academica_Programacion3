@@ -33,7 +33,7 @@ public class Persona {
             @WebParam(name = "correo") String correo,
             @WebParam(name = "contrasena") String contrasena,
             @WebParam(name = "usuario") String usuario,
-            @WebParam(name = "creadorId") Date actividad) {
+            @WebParam(name = "ultimaVez") Date actividad) {
         return this.personaBo.insertar(nombres, primerApellido, segundoApellido, 
                 codigo, correo, contrasena, usuario, actividad);
     }
@@ -50,7 +50,7 @@ public class Persona {
             @WebParam(name = "estadoId") Integer estadoId,
             @WebParam(name = "usuario") String usuario,
             @WebParam(name = "usuarioCreacion") String usuarioCreacion,
-            @WebParam(name = "creadorId") Date actividad) {
+            @WebParam(name = "ultimaVez") Date actividad) {
         return this.personaBo.modificar(id, nombres, primerApellido, segundoApellido, codigo, correo, contrasena,
                 estadoId, usuario, usuarioCreacion, actividad);
     }
