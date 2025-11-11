@@ -11,9 +11,11 @@
         </div>
 
         <!-- Título -->
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold mb-0">ÚTILES Y ACCESORIOS</h2>
-        </div>
+             <div class="d-flex justify-content-between align-items-center mb-4">
+                 <h2 class="fw-bold mb-0">ÚTILES Y ACCESORIOS
+                     <span id="Span1" runat="server" class="text-primary fw-bold ms-2">COMPRA</span>
+                 </h2>
+             </div>
 
         <p class="text-muted mb-4">
             Encuentra mochilas, estuches, materiales de escritorio y más artículos complementarios para tus clases o prácticas.
@@ -80,7 +82,10 @@
                     
                 </div>
             </div>
-
+              <!-- 🔹 Cantidad de resultados -->
+              <div class="mb-3 text-end">
+                  <asp:Label ID="lblTotalResultados" runat="server" CssClass="fw-semibold text-secondary"></asp:Label>
+              </div>
             <!-- Lista de productos -->
             <div class="col-md-9">
                 <div class="d-flex flex-wrap justify-content-start">
@@ -95,13 +100,30 @@
                                     <p class="text-primary fw-semibold mb-2">S/ <%# Eval("Precio","{0:N2}") %></p>
                                     <asp:Button ID="btnDetalle" runat="server" CssClass="btn btn-outline-primary btn-sm w-100"
                                         Text="Ver Detalle" CommandName="VerDetalle"
-                                        CommandArgument='<%# Eval("Nombre") + "|" + Eval("Descripcion") + "|" + Eval("Precio") + "|" + Eval("ImagenUrl") %>' />
+                                        CommandArgument='<%# Eval("IdVendedor") + "|" + Eval("ImagenUrl")  + "|" + Eval("Titulo") + "|" + Eval("Subcategoria") 
+                                           + "|"  + Eval("Precio") + "|"  + Eval("Descripcion")  + "|" + Eval("EstadoProducto")
+                                         + "|" + Eval("Periodo") + "|" + Eval("IdPublicacion") + "|" + Eval("Tipo")  %>'  />
                                 </div>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
             </div>
+
+             <!-- 🔹 Sin resultados -->
+             <div class="text-center mt-3">
+                 <asp:Label ID="lblSinResultados" runat="server" CssClass="text-danger fw-semibold"></asp:Label>
+             </div>
+
+             <!-- 🔹 Paginación -->
+             <div class="d-flex justify-content-center mt-4">
+                 <asp:Button ID="btnAnterior" runat="server" Text="« Anterior" CssClass="btn btn-outline-secondary me-2" OnClick="btnAnterior_Click" />
+                 <asp:Label ID="lblPagina" runat="server" CssClass="align-self-center fw-semibold"></asp:Label>
+                 <asp:Button ID="btnSiguiente" runat="server" Text="Siguiente »" CssClass="btn btn-outline-secondary ms-2" OnClick="btnSiguiente_Click" />
+             </div>
+
+
+
         </div>
     </div>
 </asp:Content>

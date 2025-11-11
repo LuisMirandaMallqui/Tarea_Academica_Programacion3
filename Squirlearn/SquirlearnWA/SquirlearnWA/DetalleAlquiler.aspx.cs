@@ -29,7 +29,7 @@ namespace SquirlearnWA
                         ? "Periodo máximo: 7 días"
                         : "Periodo máximo: 14 días";
                     imgProducto.ImageUrl = p.ImagenUrl;
-
+                    lblVendedor.Text = p.Vendedor;
 
                     string precioTexto = p.Precio
                         .Replace("s/.", "")
@@ -44,7 +44,7 @@ namespace SquirlearnWA
                     double precio = Convert.ToDouble(precioTexto, CultureInfo.InvariantCulture);
                     lblSubtotal.Text = precio.ToString("0.00");
                     lblTotal.InnerText = $"s/. {precio:0.00}";
-                    Session["ProductoNombre"] = p.Nombre;
+                    Session["ProductoNombre"] = p.Titulo;
                     Session["ProductoDescripcion"] = p.Descripcion;
                 }
 
@@ -126,7 +126,18 @@ namespace SquirlearnWA
         // Botón "Realizar pedido"
         protected void btnAlquilar_Click(object sender, EventArgs e)
         {
-           
+
+            //TERMINOS Y CONDICIONES
+            if (!chkAceptar.Checked)
+            {
+                lblErrorTerminos.Visible = true;
+                return;
+            }
+
+            lblErrorTerminos.Visible = false;
+
+
+
 
             string metodo = "";
 

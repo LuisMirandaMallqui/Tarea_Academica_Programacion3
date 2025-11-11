@@ -17,10 +17,12 @@ namespace SquirlearnWA
             {
                 dynamic producto = Session["ProductoSeleccionado"];
 
+
                 lblNombreProducto.Text = producto.Nombre;
                 lblDescripcion.Text = producto.Descripcion;
                 lblPrecio.Text = "s/. " + producto.Precio; 
                 imgProducto.ImageUrl = producto.ImagenUrl;
+                lblVendedor.Text = producto.Vendedor;
 
                 // Limpia texto y convierte
                 string precioTexto = producto.Precio
@@ -40,7 +42,7 @@ namespace SquirlearnWA
                 lblAhorro.Text = ahorro.ToString("0.00");
                 lblTotal.InnerText = "S/ " + total.ToString("0.00");
                 Session["TotalCompra"] = total;
-                Session["ProductoNombre"] = producto.Nombre;
+                Session["ProductoNombre"] = producto.Titulo;
                 Session["ProductoDescripcion"] = producto.Descripcion;
             }
         }

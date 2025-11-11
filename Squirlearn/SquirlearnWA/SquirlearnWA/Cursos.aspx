@@ -8,17 +8,17 @@
             </a>
         </div>
 
-        <!-- Título -->
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold mb-0">
-                CURSOS <span id="lblCategoria" runat="server" class="text-primary fw-bold ms-2"></span>
-            </h2>
-            
-        </div>
+         <!-- Título -->
+         <div class="d-flex justify-content-between align-items-center mb-4">
+             <h2 class="fw-bold mb-0">
+                 CURSOS <span id="lblCategoria" runat="server" class="text-primary fw-bold ms-2">COMPRA</span>
+             </h2>
+     
+         </div>
 
         <hr />
 
-        <div class="row">
+         <div class="row">
             <!-- Panel lateral de filtros -->
             <div class="col-md-3">
                 <div class="card shadow-sm p-3">
@@ -29,16 +29,12 @@
                         <asp:TextBox ID="txtBusqueda" runat="server" CssClass="form-control" Placeholder="Ej. Programación 2"></asp:TextBox>
                     </div>
 
-                
-
-
-
                     <div class="mb-3">
                         <label class="form-label fw-semibold small">Seleccionar subcategoría</label>
                         <asp:DropDownList ID="ddlSubcategoria" runat="server" CssClass="form-select">
                             <asp:ListItem Text="Todos" Value=""></asp:ListItem>
-                            <asp:ListItem Text="Practica calificada" Value="calificada"></asp:ListItem>
-                            <asp:ListItem Text="Practica dirigida" Value="dirigida"></asp:ListItem>
+                            <asp:ListItem Text="Práctica calificada" Value="calificada"></asp:ListItem>
+                            <asp:ListItem Text="Práctica dirigida" Value="dirigida"></asp:ListItem>
                             <asp:ListItem Text="Examen" Value="examen"></asp:ListItem>
                             <asp:ListItem Text="Laboratorio" Value="laboratorio"></asp:ListItem>
                         </asp:DropDownList>
@@ -46,25 +42,29 @@
 
                     <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary w-100 mb-2"
                         OnClick="btnBuscar_Click" />
-                    
                 </div>
             </div>
 
             <!-- Lista de cursos -->
             <div class="col-md-9">
+                <div class="mb-3">
+                    <asp:Label ID="lblTotalResultados" runat="server" CssClass="fw-semibold text-success"></asp:Label>
+                    
+                </div>
+
                 <div class="d-flex flex-wrap justify-content-start">
                     <asp:Repeater ID="rptCursos" runat="server" OnItemCommand="rptCursos_ItemCommand">
                         <ItemTemplate>
                             <div class="card shadow-sm border-0 p-3 mx-2 mb-4" style="width: 21rem;">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="../Imagenes/cursos.png" alt="Curso" 
+                                    <img src='<%# Eval("ImagenUrl") %>' alt="Curso"
                                          class="img-fluid me-3" style="width:70px; height:70px; object-fit:contain;">
                                     <div>
-                                        <h5 class="fw-bold mb-1"><%# Eval("Nombre") %></h5>
+                                        <h5 class="fw-bold mb-1"><%# Eval("Titulo") %></h5>
                                         <p class="text-muted small mb-0"><%# Eval("Descripcion") %></p>
                                     </div>
                                 </div>
-                                 <!-- cambiar -->
+
                                 <div class="mb-2">
                                     <p class="text-muted small mb-1">Incluye:</p>
                                     <ul class="small text-secondary ps-3 mb-2">
@@ -74,14 +74,27 @@
                                 </div>
 
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <span class="text-primary fw-semibold">S/ <%# Eval("Precio") %></span>
+                                    <span class="text-primary fw-semibold">S/ <%# Eval("Precio", "{0:N2}") %></span>
                                     <asp:Button ID="btnVerDetalle" runat="server" CssClass="btn btn-primary btn-sm"
-                                                Text="Ver Detalle" CommandName="VerDetalle"
-                                                CommandArgument='<%# Eval("Nombre") + "|" + Eval("Descripcion") + "|" + Eval("Precio") %>' />
+                                        Text="Ver Detalle" CommandName="VerDetalle"
+                                         CommandArgument='<%# Eval("IdVendedor") + "|" + Eval("ImagenUrl")  + "|" + Eval("Titulo") + "|" + Eval("Subcategoria") 
+                    + "|"  + Eval("Precio") + "|"  + Eval("Descripcion")  + "|" + Eval("EstadoProducto")
+                  + "|" + Eval("Periodo") + "|" + Eval("IdPublicacion") + "|" + Eval("Tipo")  %>'  />
                                 </div>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
+                </div>
+                    <!-- 🔹 Sin resultados -->
+                    <div class="text-center mt-3">
+                        <asp:Label ID="lblSinResultados" runat="server" CssClass="text-danger fw-semibold"></asp:Label>
+                    </div>
+
+                <!-- Paginación -->
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <asp:Button ID="btnAnterior" runat="server" Text="Anterior" CssClass="btn btn-secondary btn-sm" OnClick="btnAnterior_Click" />
+                    <asp:Label ID="lblPagina" runat="server" CssClass="fw-bold mx-3"></asp:Label>
+                    <asp:Button ID="btnSiguiente" runat="server" Text="Siguiente" CssClass="btn btn-secondary btn-sm" OnClick="btnSiguiente_Click" />
                 </div>
             </div>
         </div>

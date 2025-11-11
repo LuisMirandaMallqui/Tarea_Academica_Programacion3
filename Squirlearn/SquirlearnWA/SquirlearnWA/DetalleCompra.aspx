@@ -15,7 +15,7 @@
             <!-- VENDEDOR -->
             <div class="col-md-3 text-center border-end">
                 <img src="../Imagenes/Avatar.png" alt="Vendedor" style="width:120px; height:120px; border-radius:50%;">
-                <h5 class="fw-semibold mt-3">JAVIER PEREZ</h5>
+                <h5 class="fw-semibold mt-3"><asp:Label ID="lblVendedor" runat="server" /></h5>
                 <div class="text-warning mb-2">
                     <i class="fa fa-star"></i><i class="fa fa-star"></i>
                     <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>

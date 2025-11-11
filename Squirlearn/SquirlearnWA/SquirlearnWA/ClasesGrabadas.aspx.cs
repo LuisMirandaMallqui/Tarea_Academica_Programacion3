@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SoftInvBusiness;
+using SquirLearnBusiness;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,22 +11,36 @@ namespace SquirlearnWA
 {
     public partial class ClasesGrabadas : Page
     {
+        private FiltroPorCategoriaBO filtroPorCategoriaBO = new FiltroPorCategoriaBO();
+        private const int RegistrosPorPagina = 5;
+
+        private List<PublicacionDTO> ListaClases
+        {
+            get => ViewState["ListaClases"] as List<PublicacionDTO>;
+            set => ViewState["ListaClases"] = value;
+        }
+
+        private int PaginaActual
+        {
+            get => ViewState["PaginaActual"] != null ? (int)ViewState["PaginaActual"] : 1;
+            set => ViewState["PaginaActual"] = value;
+        }
+
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            // if (!IsPostBack)
+            //    CargarClases("Compra");
             if (!IsPostBack)
-                CargarClases("Compra");
+            {
+                PaginaActual = 0;
+                CargarClases();
+            }
         }
 
-        protected void btnCompra_Click(object sender, EventArgs e)
-        {
-            CargarClases("Compra");
-        }
 
-        protected void btnAlquiler_Click(object sender, EventArgs e)
-        {
-            CargarClases("Alquiler");
-        }
-
+        //SIMULACION
+        /*
         private void CargarClases(string categoria)
         {
             lblCategoria.InnerText = categoria.ToUpper();
@@ -54,62 +70,113 @@ namespace SquirlearnWA
             rptClases.DataSource = clases;
             rptClases.DataBind();
         }
+        */
+        private void CargarClases()
+        {
+            string palabra = txtBusqueda.Text.Trim();
+            string condicion = null; // No aplica aquí
+            string subcategoria = ddlSubcategoria.SelectedValue;
+            string tamano = null;
+            string color = null;
+
+            List<PublicacionDTO> lista = filtroPorCategoriaBO.FiltrarPorCategoria(
+                categoria: "Clases Grabadas",
+                tipo: "Compra",         // 🔹 Solo compra
+                palabraClave: palabra,
+                condicion: condicion,
+                subcategoria: subcategoria,
+                tamano:tamano,
+                color:color
+            );
+
+            if (lista != null && lista.Count > 0)
+            {
+                ListaClases = lista;
+                lblTotalResultados.Text = $"Se encontraron {lista.Count} resultados.";
+                lblSinResultados.Text = "";
+                MostrarPagina();
+            }
+            else
+            {
+                rptClases.DataSource = null;
+                rptClases.DataBind();
+                lblTotalResultados.Text = "";
+                lblSinResultados.Text = "No se encontraron clases grabadas con los filtros seleccionados.";
+            }
+        }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            string texto = txtBusqueda.Text.Trim().ToLower();
-            string subcategoria = ddlSubcategoria.SelectedValue;
-            string categoria = ViewState["CategoriaActual"]?.ToString() ?? "Compra";
-
-            // Vuelve a cargar la lista completa
-            CargarClases(categoria);
-
-            // Aplica filtros simples
-            var filtradas = new List<dynamic>();
-            foreach (dynamic item in rptClases.DataSource as List<dynamic>)
-            {
-                bool cumple = true;
-                if (!string.IsNullOrEmpty(texto) && !item.Nombre.ToLower().Contains(texto))
-                    cumple = false;
-                if (!string.IsNullOrEmpty(subcategoria) && !item.Descripcion.ToLower().Contains(subcategoria))
-                    cumple = false;
-
-                if (cumple)
-                    filtradas.Add(item);
-            }
-
-            rptClases.DataSource = filtradas;
-            rptClases.DataBind();
+            PaginaActual = 0;
+            CargarClases();
         }
 
         protected void rptClases_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "VerDetalle")
             {
-                string categoria = ViewState["CategoriaActual"].ToString();
                 string[] datos = e.CommandArgument.ToString().Split('|');
 
-                if (datos.Length >= 4)
+                if (datos.Length >= 9)
                 {
+                    Session.Remove("ProductoSeleccionado");
                     Session["ProductoSeleccionado"] = new
                     {
-                        Nombre = datos[0],
-                        Descripcion = datos[1],
-                        Precio = datos[2],
-                        ImagenUrl = datos[3]
+                        IdVendedor = datos[0],
+                        ImagenUrl = datos[1],
+                        Titulo = datos[2],
+                        Subcategoria = datos[3],
+                        Precio = datos[4],
+                        Descripcion = datos[5],
+                        EstadoProducto = datos[6],
+                        Periodo = datos[7],
+                        IdPublicacion = datos[8],
+                        Tipo = "Compra" // 🔹 Fijo a compra
                     };
 
                     Session["PaginaAnterior"] = "ClasesGrabadas.aspx";
-
-                    string url = categoria == "Compra"
-                        ? "DetalleProductoCompra.aspx"
-                        : "DetalleProductoAlquiler.aspx";
-
-                    Response.Redirect(url);
+                    Response.Redirect("DetalleProductoCompra.aspx");
                 }
             }
         }
+        private void MostrarPagina()
+        {
+            if (ListaClases == null || ListaClases.Count == 0)
+                return;
 
-        
+            int totalPaginas = (int)Math.Ceiling((double)ListaClases.Count / RegistrosPorPagina);
+            int inicio = PaginaActual * RegistrosPorPagina;
+            int fin = Math.Min(inicio + RegistrosPorPagina, ListaClases.Count);
+
+            var pagina = ListaClases.GetRange(inicio, fin - inicio);
+
+            rptClases.DataSource = pagina;
+            rptClases.DataBind();
+
+            lblPagina.Text = $"Página {PaginaActual + 1} de {totalPaginas}";
+            btnAnterior.Enabled = PaginaActual > 0;
+            btnSiguiente.Enabled = PaginaActual < totalPaginas - 1;
+        }
+
+        protected void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (PaginaActual > 0)
+            {
+                PaginaActual--;
+                MostrarPagina();
+            }
+        }
+
+        protected void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            int totalPaginas = (int)Math.Ceiling((double)ListaClases.Count / RegistrosPorPagina);
+            if (PaginaActual < totalPaginas - 1)
+            {
+                PaginaActual++;
+                MostrarPagina();
+            }
+        }
+
+
     }
 }

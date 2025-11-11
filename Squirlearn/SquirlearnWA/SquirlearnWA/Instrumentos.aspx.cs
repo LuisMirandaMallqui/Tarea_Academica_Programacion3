@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SoftInvBusiness;
+using SquirLearnBusiness;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,22 +11,55 @@ namespace SquirlearnWA
 {
     public partial class Instrumentos : Page
     {
+        private FiltroPorCategoriaBO filtroPorCategoriaBO = new FiltroPorCategoriaBO();
+        private const int RegistrosPorPagina = 5;
+        private List<PublicacionDTO> ListaInstrumentos
+        {
+            get => ViewState["ListaInstrumentos"] as List<PublicacionDTO>;
+            set => ViewState["ListaInstrumentos"] = value;
+        }
+
+        private int PaginaActual
+        {
+            get => ViewState["PaginaActual"] != null ? (int)ViewState["PaginaActual"] : 0;
+            set => ViewState["PaginaActual"] = value;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
+            // if (!IsPostBack)
+            //    CargarInstrumentos("Compra");
             if (!IsPostBack)
+            {
+                CategoriaActual = "Compra";
+                lblCategoria.InnerText = "(Compra)";
+                PaginaActual = 0;
                 CargarInstrumentos("Compra");
+            }
+
+        }
+        private string CategoriaActual
+        {
+            get => ViewState["CategoriaActual"]?.ToString() ?? "Compra";
+            set => ViewState["CategoriaActual"] = value;
         }
 
         protected void btnCompra_Click(object sender, EventArgs e)
         {
+            CategoriaActual = "Compra";
+            PaginaActual = 0;
+            lblCategoria.InnerText = "(Compra)";
             CargarInstrumentos("Compra");
         }
 
         protected void btnAlquiler_Click(object sender, EventArgs e)
         {
+            CategoriaActual = "Alquiler";
+            PaginaActual = 0;
+            lblCategoria.InnerText = "(Alquiler)";
             CargarInstrumentos("Alquiler");
         }
-
+        //SIMULACION
+        /*
         private void CargarInstrumentos(string categoria)
         {
             lblCategoria.InnerText = categoria.ToUpper();
@@ -54,72 +89,126 @@ namespace SquirlearnWA
             rptInstrumentos.DataSource = instrumentos;
             rptInstrumentos.DataBind();
         }
+        */
+        private void CargarInstrumentos(string tipo)
+        {
+            string palabra = txtBusqueda.Text.Trim();
+            string condicion = ddlCondicion.SelectedValue;
+            string subcategoria = ddlSubcategoria.SelectedValue;
+            string tamano = null;
+            string color = null;
+
+            List<PublicacionDTO> lista = filtroPorCategoriaBO.FiltrarPorCategoria(
+                categoria: "Instrumentos",
+                tipo: tipo,
+                palabraClave: palabra,
+                condicion: condicion,
+                subcategoria: subcategoria,
+                tamano:tamano,
+                color:color
+
+            );
+
+            if (lista != null && lista.Count > 0)
+            {
+                ListaInstrumentos = lista;
+                lblTotalResultados.Text = $"Se encontraron {lista.Count} resultados.";
+                MostrarPagina();
+            }
+            else
+            {
+                rptInstrumentos.DataSource = null;
+                rptInstrumentos.DataBind();
+                lblTotalResultados.Text = "";
+                lblSinResultados.Text = "No se encontraron instrumentos con los filtros seleccionados.";
+            }
+        }
+        private void MostrarPagina()
+        {
+            if (ListaInstrumentos == null || ListaInstrumentos.Count == 0)
+                return;
+
+            int totalPaginas = (int)Math.Ceiling((double)ListaInstrumentos.Count / RegistrosPorPagina);
+            int inicio = PaginaActual * RegistrosPorPagina;
+            int fin = Math.Min(inicio + RegistrosPorPagina, ListaInstrumentos.Count);
+
+            var pagina = ListaInstrumentos.GetRange(inicio, fin - inicio);
+
+            rptInstrumentos.DataSource = pagina;
+            rptInstrumentos.DataBind();
+
+            lblPagina.Text = $"Página {PaginaActual + 1} de {totalPaginas}";
+            btnAnterior.Enabled = PaginaActual > 0;
+            btnSiguiente.Enabled = PaginaActual < totalPaginas - 1;
+            lblSinResultados.Text = "";
+        }
+        protected void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (PaginaActual > 0)
+            {
+                PaginaActual--;
+                MostrarPagina();
+            }
+        }
+
+        protected void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            int totalPaginas = (int)Math.Ceiling((double)ListaInstrumentos.Count / RegistrosPorPagina);
+            if (PaginaActual < totalPaginas - 1)
+            {
+                PaginaActual++;
+                MostrarPagina();
+            }
+        }
 
         protected void rptInstrumentos_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "VerDetalle")
             {
-                // Obtenemos la categoría actual (Compra o Alquiler)
-                string categoria = ViewState["CategoriaActual"].ToString();
+                string[] datos = e.CommandArgument.ToString().Split('|');
 
-                // 🔹 Obtenemos los datos del producto seleccionado
-                string nombre = ((Label)e.Item.FindControl("lblNombre")).Text;
-                string descripcion = ((Label)e.Item.FindControl("lblDescripcion")).Text;
-                string precio = ((Label)e.Item.FindControl("lblPrecio")).Text;
-                string imagen = ((Image)e.Item.FindControl("imgProducto")).ImageUrl;
-
-                // 🔹 Guardamos la info en la sesión para pasarla al detalle
-                Session["ProductoSeleccionado"] = new
+                if (datos.Length >= 9)
                 {
-                    Tipo = "Instrumento",
-                    Nombre = nombre,
-                    Descripcion = descripcion,
-                    Precio = precio,
-                    ImagenUrl = imagen
-                };
+                    Session.Remove("ProductoSeleccionado");
+                    Session["ProductoSeleccionado"] = new
+                    {
+                        IdVendedor = datos[0],
+                        ImagenUrl = datos[1],
+                        Titulo = datos[2],
+                        Subcategoria = datos[3],
+                        Precio = datos[4],
+                        Descripcion = datos[5],
+                        EstadoProducto = datos[6],
+                        Periodo = datos[7],
+                        IdPublicacion = datos[8],
+                        Tipo = CategoriaActual
+                    };
 
-                // 🔹 Guardamos la página actual antes de ir al detalle
-                Session["PaginaAnterior"] = "Instrumentos.aspx";
+                    Session["PaginaAnterior"] = "Instrumentos.aspx";
+                    string url = CategoriaActual == "Compra"
+                        ? "DetalleProductoCompra.aspx"
+                        : "DetalleAlquiler.aspx";
 
-                // 🔹 Redirigimos según la categoría
-                string url = categoria == "Compra"
-                    ? "DetalleProductoCompra.aspx"
-                    : "DetalleProductoAlquiler.aspx";
-
-                Response.Redirect(url);
+                    Response.Redirect(url);
+                }
             }
         }
+
+
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            // 🔹 Esto por ahora solo refresca los datos filtrando en memoria (más adelante será desde BO)
-            string texto = txtBusqueda.Text.Trim().ToLower();
-            string condicion = ddlCondicion.SelectedValue;
-            string subcategoria = ddlSubcategoria.SelectedValue;
-            string categoria = ViewState["CategoriaActual"]?.ToString() ?? "Compra";
-
-            // Vuelve a cargar
-            CargarInstrumentos(categoria);
-
-            // Aplica filtros simples (solo visuales)
-            var filtrados = new List<dynamic>();
-            foreach (dynamic item in rptInstrumentos.DataSource as List<dynamic>)
-            {
-                bool cumple = true;
-                if (!string.IsNullOrEmpty(texto) && !item.Nombre.ToLower().Contains(texto))
-                    cumple = false;
-                if (!string.IsNullOrEmpty(condicion) && condicion == "Usado" && item.Nombre.Contains("Nuevo"))
-                    cumple = false;
-                if (!string.IsNullOrEmpty(subcategoria) && !item.Descripcion.ToLower().Contains(subcategoria.ToLower()))
-                    cumple = false;
-
-                if (cumple)
-                    filtrados.Add(item);
-            }
-
-            rptInstrumentos.DataSource = filtrados;
-            rptInstrumentos.DataBind();
+            PaginaActual = 0;
+            CargarInstrumentos(CategoriaActual);
         }
 
-       
+
+
+
+
+
+
+
     }
+
+
 }

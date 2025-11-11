@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftInvBusiness;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,12 +21,21 @@ namespace SquirlearnWA
                     dynamic p = producto;
 
                     // Mostrar datos comunes
-                    lblNombre.Text = p.Nombre;
+                    
                     lblPrecio.Text = $"S/.+ {Convert.ToDecimal(p.Precio.Replace("S/","").Trim(),System.Globalization.CultureInfo.InvariantCulture).ToString("F2")} / día";
+                    
+                    
+
+                    PersonaDto personaDto = buscarPersonaBO.BuscarPersonaPorId(p.UsuarioId, p.Id);
+                    lblVendedor.Text = personaDto.Nombre;
+                    lblNombre.Text = p.Titulo;
                     lblDescripcion.Text = p.Descripcion;
+                    lblSubcategoria.Text = p.Subcategoria;
+                    lblEstado = p.EstadoProducto;
+                   
                     imgProducto.ImageUrl = p.ImagenUrl;
 
-                   
+
                     // Detectar tipo para personalizar texto
                     string tipo = p.Tipo ?? "Producto";
 
@@ -44,6 +54,21 @@ namespace SquirlearnWA
                         lblTipo.Text = "Tipo: Alquiler general";
                         lblPeriodo.Text = "Periodo máximo: 10 días";
                     }
+
+                    Session["ProductoSeleccionado"] = new
+                    {
+                        p.UsuarioId,
+                        p.ImagenUrl,
+                        p.Titulo,
+                        p.Subcategoria,
+                        p.Precio,
+                        p.Descripcion,
+                        p.EstadoProducto,
+                        p.Periodo,
+                        p.IdPublicacion,
+                        p.Tipo, //categoria
+                        Vendedor = personaDto.Nombre
+                    };
                 }
             }
         }

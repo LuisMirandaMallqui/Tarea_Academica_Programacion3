@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SoftInvBusiness;
+using SquirLearnBusiness;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,28 +11,57 @@ namespace SquirlearnWA
 {
     public partial class Libros : Page
     {
-        //private string categoriaActual = "Compra"; <- Eliminar
+        private FiltroPorCategoriaBO filtroPorCategoriaBO = new FiltroPorCategoriaBO();
+        private const int RegistrosPorPagina = 5;
+        // 🟦 Propiedades limpias con ViewState
+        private List<PublicacionDTO> ListaLibros
+        {
+            get => ViewState["ListaLibros"] as List<PublicacionDTO>;
+            set => ViewState["ListaLibros"] = value;
+        }
 
+        private int PaginaActual
+        {
+            get => ViewState["PaginaActual"] != null ? (int)ViewState["PaginaActual"] : 0;
+            set => ViewState["PaginaActual"] = value;
+        }
+
+        private string CategoriaActual
+        {
+            get => ViewState["CategoriaActual"]?.ToString() ?? "Compra";
+            set => ViewState["CategoriaActual"] = value;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                //CargarLibros("Compra");
+
+                // Mostrar por defecto la categoría "Compra"
+                ViewState["CategoriaActual"] = "Compra";
+                lblCategoria.InnerText = "(Compra)";
+                ViewState["PaginaActual"] = 0;
                 CargarLibros("Compra");
             }
         }
 
         protected void btnCompra_Click(object sender, EventArgs e)
         {
-            ViewState["CategoriaActual"] = "Compra";
+            CategoriaActual = "Compra";
+            PaginaActual = 0;
+            lblCategoria.InnerText = "(Compra)";
             CargarLibros("Compra");
         }
 
         protected void btnAlquiler_Click(object sender, EventArgs e)
         {
-            ViewState["CategoriaActual"] = "Alquiler";
+            CategoriaActual = "Alquiler";
+            PaginaActual = 0;
+            lblCategoria.InnerText = "(Alquiler)";
             CargarLibros("Alquiler");
         }
-
+        //SIMULACION
+        /*
         private void CargarLibros(string categoria)
         {
             lblCategoria.InnerText = categoria.ToUpper();
@@ -60,7 +91,41 @@ namespace SquirlearnWA
             rptLibros.DataSource = libros;
             rptLibros.DataBind();
         }
+        */
+        private void CargarLibros(string tipo)
+        {
+            string palabra = txtBusqueda.Text.Trim();
+            string condicion = ddlCondicion.SelectedValue;
+            string subcategoria = ddlSubcategoria.SelectedValue;
+            string tamano = null;
+            string color = null;
 
+            List<PublicacionDTO> lista = filtroPorCategoriaBO.FiltrarPorCategoria(
+                categoria: "Libros",
+                 tipo:tipo,
+                palabraClave: palabra,
+                condicion: condicion,
+                subcategoria: subcategoria,
+                tamano:tamano,
+                color:color
+
+            );
+
+            if (lista != null && lista.Count > 0)
+            {
+                ListaLibros = lista;
+                lblTotalResultados.Text = $"Se encontraron {lista.Count} resultados.";
+                MostrarPagina();
+            }
+            else
+            {
+                rptLibros.DataSource = null;
+                rptLibros.DataBind();
+                lblTotalResultados.Text = "";
+                lblSinResultados.Text = "No se encontraron libros con los filtros seleccionados.";
+            }
+        }
+        /*
         protected void rptLibros_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "VerDetalle")
@@ -100,10 +165,83 @@ namespace SquirlearnWA
                 }
             }
         }
+        */
+
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            PaginaActual = 0;
+            CargarLibros(CategoriaActual);
+        }
 
+        protected void rptLibros_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "VerDetalle")
+            {
+                string[] datos = e.CommandArgument.ToString().Split('|');
+
+                if (datos.Length >= 9)
+                {
+                    Session.Remove("ProductoSeleccionado");
+                    Session["ProductoSeleccionado"] = new
+                    {
+                        IdVendedor = datos[0],
+                        ImagenUrl = datos[1],
+                        Titulo = datos[2],
+                        Subcategoria = datos[3],
+                        Precio = datos[4],
+                        Descripcion = datos[5],
+                        EstadoProducto = datos[6],
+                        Periodo = datos[7],
+                        IdPublicacion = datos[8],
+                        Tipo = CategoriaActual
+                    };
+
+                    Session["PaginaAnterior"] = "Libros.aspx";
+                    string url = CategoriaActual == "Compra"
+                        ? "DetalleProductoCompra.aspx"
+                        : "DetalleAlquiler.aspx";
+
+                    Response.Redirect(url);
+                }
+            }
+        }
+
+        private void MostrarPagina()
+        {
+            if (ListaLibros == null || ListaLibros.Count == 0)
+                return;
+
+            int totalPaginas = (int)Math.Ceiling((double)ListaLibros.Count / RegistrosPorPagina);
+            int inicio = PaginaActual * RegistrosPorPagina;
+            int fin = Math.Min(inicio + RegistrosPorPagina, ListaLibros.Count);
+
+            var pagina = ListaLibros.GetRange(inicio, fin - inicio);
+
+            rptLibros.DataSource = pagina;
+            rptLibros.DataBind();
+
+            lblPagina.Text = $"Página {PaginaActual + 1} de {totalPaginas}";
+            btnAnterior.Enabled = PaginaActual > 0;
+            btnSiguiente.Enabled = PaginaActual < totalPaginas - 1;
+            lblSinResultados.Text = "";
+        }
+        protected void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (PaginaActual > 0)
+            {
+                PaginaActual--;
+                MostrarPagina();
+            }
+        }
+        protected void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            int totalPaginas = (int)Math.Ceiling((double)ListaLibros.Count / RegistrosPorPagina);
+            if (PaginaActual < totalPaginas - 1)
+            {
+                PaginaActual++;
+                MostrarPagina();
+            }
         }
     }
 }

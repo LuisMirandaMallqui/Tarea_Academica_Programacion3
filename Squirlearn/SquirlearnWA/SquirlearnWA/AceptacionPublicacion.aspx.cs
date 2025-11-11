@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SoftInvBusiness;
+using SquirLearnBusiness;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,7 +21,32 @@ namespace SquirlearnWA
         }
 
         protected void btnEnviar_Click(object sender, EventArgs e)
+
         {
+
+            // 1️⃣ Obtener el texto ingresado
+            string comentario = txtIncidencia.Text.Trim();
+
+            // 2️⃣ Obtener la fecha actual del sistema
+            DateTime fechaRechazo = DateTime.Now;
+
+            // 3️⃣ Obtener el id de la publicación desde la sesión (si lo guardaste antes)
+            int idPublicacion = Convert.ToInt32(Session["IdPublicacion"]);
+            int idPersona = Convert.ToInt32(Session["UsuarioId"]);
+
+            NotificacionDTO notificacion = new NotificacionDTO
+            {
+                UsuarioId = idPersona,
+
+                Mensaje = comentario,
+                Fecha = fechaRechazo,
+
+            };
+            notificacionBO.Insertar(notificacion);
+
+            publicacionBO.CambiarEstado(idPublicacion, "Aceptado");
+
+
             Response.Redirect("ListadoDeSolicitudesAdmin.aspx");
         }
 
