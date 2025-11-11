@@ -44,10 +44,10 @@ public class PersonaBo {
         personaDto.setUsuario(usuario);
         personaDto.setUltimaActividad(actividad);
         
-        if(!existeUsuarioEnPUCP(codigo,correo))//falta implementar
-            return 0;
-        if(this.personaDao.obtenerPorCodigo(codigo) == null)
-            return 0;
+//        if(!existeUsuarioEnPUCP(codigo,correo))//falta implementar
+//            return 0;
+//        if(this.personaDao.obtenerPorCodigo(codigo) == null)
+//            return 0;
         
         return this.personaDao.insertar(personaDto);
     }

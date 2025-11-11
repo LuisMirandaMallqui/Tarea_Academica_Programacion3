@@ -60,15 +60,15 @@ public class Publicacion {
     
     @WebMethod(operationName = "listarPorFiltrosPublicacion")
     public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(
-            @WebParam(name = "terminoBusqueda") String terminoBusqueda,
-            @WebParam(name = "esVenta") Boolean esVenta,
-            @WebParam(name = "idCategoria") Integer idCategoria,
-            @WebParam(name = "idSubcategoria") Integer idSubcategoria,
-            @WebParam(name = "idColores") Integer idColores,
-            @WebParam(name = "idTamanos") Integer idTamanos,
-            @WebParam(name = "idFormatos") Integer idFormatos,
-            @WebParam(name = "idCondicion") Integer idCondicion,
-            @WebParam(name = "idEstado") Integer idEstado ) {
+            @WebParam(name = "terminoBusqueda") String terminoBusqueda, // CON ITEM
+            @WebParam(name = "esVenta") Boolean esVenta, // De ITEM
+            @WebParam(name = "idCategoria") Integer idCategoria, // De ITEM
+            @WebParam(name = "idSubcategoria") Integer idSubcategoria, // De ITEM
+            @WebParam(name = "idColores") Integer idColores, // De ITEM
+            @WebParam(name = "idTamanos") Integer idTamanos, // De ITEM
+            @WebParam(name = "idFormatos") Integer idFormatos, // De ITEM
+            @WebParam(name = "idCondicion") Integer idCondicion, // De ITEM
+            @WebParam(name = "idEstado") Integer idEstado ) { // De ITEM
         return this.publicacionBo.listarPorFiltrosPublicacion(terminoBusqueda,esVenta,idCategoria,idSubcategoria,idColores,
                 idTamanos,idFormatos,idCondicion,idEstado);
     }
