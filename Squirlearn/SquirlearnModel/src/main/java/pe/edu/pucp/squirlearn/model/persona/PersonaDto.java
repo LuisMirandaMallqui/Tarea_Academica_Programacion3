@@ -12,7 +12,7 @@ public class PersonaDto {
     private String codigo;
     private String correo;
     private String contrasena;
-    private String usuario;
+    private String usuarioModificacion;
     private String usuarioCreacion;
     private EstadoPersonaDto estadoPersona;
     private Date ultimaActividad;
@@ -27,7 +27,7 @@ public class PersonaDto {
         this.codigo = null;
         this.correo = null;
         this.contrasena = null;
-        this.usuario = null;
+        this.usuarioModificacion = null;
         this.ultimaActividad = null;
         this.estadoPersona = null;
         this.rolesPersona = null;
@@ -36,7 +36,7 @@ public class PersonaDto {
 
     // Constructor con parámetros
     public PersonaDto(Integer personaId, String nombres, String primerApellido, String segundoApellido,
-                      String codigo, String correo, String contrasena, String usuario, 
+                      String codigo, String correo, String contrasena, String usuarioModificacion, 
                       Date ultimaActividad, EstadoPersonaDto estadoPersona,List<RolPersonaDto> rolPersona,
                       String usuarioCreacion) {
         this.personaId = personaId;
@@ -46,7 +46,7 @@ public class PersonaDto {
         this.codigo = codigo;
         this.correo = correo;
         this.contrasena = contrasena;
-        this.usuario = usuario;
+        this.usuarioModificacion = usuarioModificacion;
         this.rolesPersona = rolPersona;
         this.estadoPersona = estadoPersona;
         this.ultimaActividad = ultimaActividad;
@@ -110,12 +110,12 @@ public class PersonaDto {
         this.contrasena = contrasena;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getusuarioModificacion() {
+        return usuarioModificacion;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setusuarioModificacion(String usuarioModificacion) {
+        this.usuarioModificacion = usuarioModificacion;
     }
 
     public List<RolPersonaDto> getRolPersona() {
@@ -144,11 +144,11 @@ public class PersonaDto {
     }
     
     
-    public String getUsuarioCreacion() {
+    public String getusuarioCreacion() {
         return usuarioCreacion;
     }
 
-    public void setUsuarioCreacion(String usuarioCreacion) {
+    public void setusuarioCreacion(String usuarioCreacion) {
         this.usuarioCreacion = usuarioCreacion;
     }
 }

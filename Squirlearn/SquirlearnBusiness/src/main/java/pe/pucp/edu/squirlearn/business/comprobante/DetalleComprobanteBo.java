@@ -25,7 +25,7 @@ public class DetalleComprobanteBo {
     }
     
     public Integer insertar(String descripcion, Double precio, Integer itemId,
-            Integer alquilerId, Integer comprobanteId, String usuario){
+            Integer alquilerId, Integer comprobanteId, String usuarioCreacion){
         DetalleComprobanteDto detalleComprobanteDto = new DetalleComprobanteDto();
         
         ItemDto item = new ItemDto();
@@ -40,7 +40,7 @@ public class DetalleComprobanteBo {
         detalleComprobanteDto.setItem(item);
         detalleComprobanteDto.setAlquiler(alquiler);
         detalleComprobanteDto.setComprobante(comprobante);
-        detalleComprobanteDto.setUsuario(usuario);
+        detalleComprobanteDto.setusuarioCreacion(usuarioCreacion);
         
         return this.detalleComprobanteDao.insertar(detalleComprobanteDto);
     }

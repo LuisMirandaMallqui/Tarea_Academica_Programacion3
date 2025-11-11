@@ -24,7 +24,8 @@ public class PersonaBo {
     }
     
     public Integer insertar(String nombres, String primerApellido, String segundoApellido, 
-            String codigo, String correo, String contrasena, String usuario,Date actividad){
+            String codigo, String correo, String contrasena, String usuarioCreacion, 
+            String usuarioModificacion,Date actividad){
         PersonaDto personaDto = new PersonaDto();
      
         EstadoPersonaDto estado = new EstadoPersonaDto();
@@ -40,8 +41,10 @@ public class PersonaBo {
         personaDto.setSegundoApellido(segundoApellido);
         personaDto.setCodigo(codigo);
         personaDto.setCorreo(correo);
-        personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));        personaDto.setEstadoPersona(estado);
-        personaDto.setUsuario(usuario);
+        personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));       
+        personaDto.setEstadoPersona(estado);
+        personaDto.setusuarioCreacion(usuarioCreacion);
+        personaDto.setusuarioModificacion(usuarioModificacion);
         personaDto.setUltimaActividad(actividad);
         
 //        if(!existeUsuarioEnPUCP(codigo,correo))//falta implementar
@@ -68,8 +71,7 @@ public class PersonaBo {
         personaDto.setCodigo(codigo);
         personaDto.setCorreo(correo);
         personaDto.setEstadoPersona(estado);
-        personaDto.setUsuario(usuario);
-        personaDto.setUsuarioCreacion(usuarioCreacion);
+        personaDto.setusuarioCreacion(usuarioCreacion);
         personaDto.setUltimaActividad(actividad);
         
         return this.personaDao.modificar(personaDto);

@@ -18,7 +18,7 @@ public class ComprobanteBo {
     }
     
     public Integer insertar(Double monto, String transaccionId, Integer personaId, 
-            Integer formaPagoId, Integer monedaId, Double impuesto,Date fechaEmision ,String usuario){
+            Integer formaPagoId, Integer monedaId, Double impuesto,Date fechaEmision ,String usuarioCreacion){
         ComprobanteDto comprobanteDto = new ComprobanteDto();
         
         PersonaDto persona = new PersonaDto();
@@ -34,7 +34,7 @@ public class ComprobanteBo {
         comprobanteDto.setFormaPago(formaPago);
         comprobanteDto.setMoneda(monedaPago);
         comprobanteDto.setImpuesto(impuesto);
-        comprobanteDto.setUsuario(usuario);
+        comprobanteDto.setusuarioCreacion(usuarioCreacion);
         comprobanteDto.setFechaEmision(fechaEmision);
         return this.comprobanteDao.insertar(comprobanteDto);
     }

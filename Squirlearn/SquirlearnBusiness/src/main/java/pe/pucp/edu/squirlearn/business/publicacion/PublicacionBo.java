@@ -18,7 +18,7 @@ public class PublicacionBo {
         this.publicacionDao = new PublicacionDaoImpl();
     }
 
-    public Integer insertar(Integer itemId, Integer personaId, String usuario) {
+    public Integer insertar(Integer itemId, Integer personaId, String usuarioCreacion) {
         PublicacionDto publicacionDto = new PublicacionDto();
 
         ItemDto itemDto = new ItemDto();
@@ -31,13 +31,13 @@ public class PublicacionBo {
         publicacionDto.setEstadoPublicacion(estadoPublicacion);
         publicacionDto.setItem(itemDto);
         publicacionDto.setPersona(personaDto);
-        publicacionDto.setUsuario(usuario);
+        publicacionDto.setusuarioCreacion(usuarioCreacion);
 
         return this.publicacionDao.insertar(publicacionDto);
     }
 
     public Integer modificar(Integer publicacionId, Date fechaAlta, Date fechaBaja, Integer estadoId,
-            Integer itemId, Integer personaId, Integer calificacion, String usuario, String usuarioCreacion) {
+            Integer itemId, Integer personaId, Integer calificacion, String usuario, String usuarioCreacion, String usuarioModificacion) {
         PublicacionDto publicacionDto = new PublicacionDto();
 
         EstadoPublicacionDto estadoPublicacion = new EstadoPublicacionDto();
@@ -62,8 +62,8 @@ public class PublicacionBo {
         publicacionDto.setItem(itemDto);
         publicacionDto.setPersona(personaDto);
         publicacionDto.setCalificacion(calificacion);
-        publicacionDto.setUsuario(usuario);
-        publicacionDto.setUsuarioCreacion(usuarioCreacion);
+        publicacionDto.setusuarioCreacion(usuarioCreacion);
+        publicacionDto.setusuarioModificacion(usuarioModificacion);
 
         return this.publicacionDao.modificar(publicacionDto);
     }

@@ -13,10 +13,10 @@ public class AlquilerDto {
     private Date fechaFin;
     private Double monto;
     private Boolean devuelto;
-    private Date fechaCreacion;
-    private String usuario;
-
+    
     private String usuarioCreacion;
+    private Date fechaCreacion;
+    
     
     // Constructor vacío (inicializa en null)
     public AlquilerDto() {
@@ -28,14 +28,13 @@ public class AlquilerDto {
         this.devuelto = null;
         this.monto = null;
         this.fechaCreacion = null;
-        this.usuario = null;
         this.usuarioCreacion = null;
     }
 
     // Constructor con parámetros
     public AlquilerDto(Integer alquilerId, PersonaDto persona, ItemDto item,
                        Date fechaInicio, Date fechaFin, Boolean devuelto, Double monto,
-                       Date fechaCreacion, String usuario, String usuarioCreacion) {
+                       Date fechaCreacion, String usuarioCreacion) {
         this.alquilerId = alquilerId;
         this.persona = persona;
         this.item = item;
@@ -44,7 +43,6 @@ public class AlquilerDto {
         this.devuelto = devuelto;
         this.monto = monto;
         this.fechaCreacion = fechaCreacion;
-        this.usuario = usuario;
         this.usuarioCreacion = usuarioCreacion;
     }
 
@@ -111,14 +109,6 @@ public class AlquilerDto {
 
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
     
     public String getUsuarioCreacion() {

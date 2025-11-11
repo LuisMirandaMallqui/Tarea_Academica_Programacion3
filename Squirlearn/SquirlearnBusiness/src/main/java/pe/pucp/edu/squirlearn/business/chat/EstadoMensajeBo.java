@@ -1,4 +1,3 @@
-
 package pe.pucp.edu.squirlearn.business.chat;
 
 import java.util.ArrayList;
