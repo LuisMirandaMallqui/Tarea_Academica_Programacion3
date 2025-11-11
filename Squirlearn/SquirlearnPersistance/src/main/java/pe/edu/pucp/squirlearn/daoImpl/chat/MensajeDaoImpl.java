@@ -24,12 +24,12 @@ public class MensajeDaoImpl extends DAOImplBase implements MensajeDao{
     @Override
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("MENSAJE_ID", true, true));
-        this.listaColumnas.add(new Columna("CHAT_ID_CHAT", false, false));
-        this.listaColumnas.add(new Columna("ESTADO_MSJ_ID", false, false));
-        this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
+        this.listaColumnas.add(new Columna("CHAT", false, false));
         this.listaColumnas.add(new Columna("FECHA_ENVIO", false, false));
         this.listaColumnas.add(new Columna("FECHA_LEIDO", false, false));
         this.listaColumnas.add(new Columna("MENSAJE", false, false));
+        this.listaColumnas.add(new Columna("ESTADO_MENSAJE", false, false));
+        this.listaColumnas.add(new Columna("PERSONA", false, false));
     }
 
     @Override

@@ -20,7 +20,7 @@ public class EstadoPublicacionDaoImpl extends DAOImplBase implements EstadoPubli
 
     @Override
     protected void configurarListaDeColumnas() {
-        this.listaColumnas.add(new Columna("ESTADOPUBLI_ID", true, true));
+        this.listaColumnas.add(new Columna("ESTADO_PUBLICACION_ID", true, true));
         this.listaColumnas.add(new Columna("NOMBRE", false, false));
 
 

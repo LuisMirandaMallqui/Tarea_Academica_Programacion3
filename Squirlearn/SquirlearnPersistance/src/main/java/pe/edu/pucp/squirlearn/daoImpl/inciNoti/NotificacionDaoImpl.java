@@ -25,10 +25,10 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao{
     @Override
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("NOTIFICACION_ID", true, true));
-        this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
-        this.listaColumnas.add(new Columna("MOTIVO_ID_MOTIVO", false, false));
         this.listaColumnas.add(new Columna("FECHA", false, false));
         this.listaColumnas.add(new Columna("MENSAJE", false, false));
+        this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
+        this.listaColumnas.add(new Columna("MOTIVO_ID", false, false));
     }
 
     @Override
@@ -43,27 +43,10 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao{
         );
 
         int i = 1;
-        this.statement.setInt(i++, personaId);
-        this.statement.setInt(i++, motivoId);
         this.statement.setDate(i++, this.notificacion.getFecha());
         this.statement.setString(i++, this.notificacion.getMensaje());
-    }
-    @Override
-    protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        int personaId = safeFkId(
-            (this.notificacion.getPersona() == null ? null : this.notificacion.getPersona().getPersonaId()),
-            "personas", "PERSONA_ID"
-        );
-        int motivoId = safeFkId(
-            (this.notificacion.getMotivo() == null ? null : this.notificacion.getMotivo().getMotivoId()),
-            "motivos", "MOTIVO_ID"
-        );
-
-        int i = 1;
         this.statement.setInt(i++, personaId);
         this.statement.setInt(i++, motivoId);
-        this.statement.setDate(i++, this.notificacion.getFecha());
-        this.statement.setString(i++, this.notificacion.getMensaje());
     }
 
     @Override

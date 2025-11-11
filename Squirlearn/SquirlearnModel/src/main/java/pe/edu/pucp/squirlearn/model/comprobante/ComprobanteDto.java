@@ -14,7 +14,7 @@ public class ComprobanteDto {
     private String transaccion;
     private Date fechaEmision;
     private Double impuesto;
-    private String usuarioCreacion;
+    private String usuario;
     private List<DetalleComprobanteDto> detallesComprobante;
     
     // Constructor vacío
@@ -27,14 +27,13 @@ public class ComprobanteDto {
         this.persona = null;
         this.formaPago = null;
         this.moneda = null;
-        this.usuarioCreacion = null;
+        this.usuario = null;
         this.detallesComprobante = null;
     }
 
     // Constructor con parámetros
     public ComprobanteDto(Integer comprobanteId, Double monto, String transaccion, Date fechaEmision,
-                          Double impuesto, PersonaDto persona, FormaPagoDto formaPago, 
-                          MonedaPagoDto moneda,String usuarioCreacion,
+                          Double impuesto, PersonaDto persona, FormaPagoDto formaPago, MonedaPagoDto moneda,String usuario,
                           List<DetalleComprobanteDto> detallesComprobante) {
         this.comprobanteId = comprobanteId;
         this.monto = monto;
@@ -44,7 +43,7 @@ public class ComprobanteDto {
         this.persona = persona;
         this.formaPago = formaPago;
         this.moneda = moneda;
-        this.usuarioCreacion = usuarioCreacion;
+        this.usuario = usuario;
         this.detallesComprobante = detallesComprobante;
     }
 
@@ -113,12 +112,12 @@ public class ComprobanteDto {
         this.moneda = moneda;
     }
 
-    public String getusuarioCreacion() {
-        return usuarioCreacion;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setusuarioCreacion(String usuarioCreacion) {
-        this.usuarioCreacion = usuarioCreacion;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
     
     public List<DetalleComprobanteDto> getDetallesComprobante() {

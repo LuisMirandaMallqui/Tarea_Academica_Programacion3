@@ -19,7 +19,7 @@ public class IncidenciaBo {
     }
     
     public Integer insertar(String descripcion, Integer notificcionId, Integer personaId,
-            Integer motivoId, Integer usuarioSolucion, String usuarioCreacion){
+            Integer motivoId, String usuario){
         IncidenciaDto incidenciaDto = new IncidenciaDto();
         
         NotificacionDto notificacion = new NotificacionDto();
@@ -33,15 +33,14 @@ public class IncidenciaBo {
         incidenciaDto.setNotificacion(notificacion);
         incidenciaDto.setPersona(persona);
         incidenciaDto.setMotivo(motivo);
-        incidenciaDto.setUsuarioSolucion(usuarioSolucion);
-        incidenciaDto.setUsuarioCreacion(usuarioCreacion);
+        incidenciaDto.setUsuario(usuario);
         
         return this.incidenciaDao.insertar(incidenciaDto);
     }
     
-    public Integer modificar(Integer id,String descripcion , 
+    public Integer modificar(Integer id,String descripcion , Date fechaSolucion, 
             Integer notificcionId, Integer personaId, Integer motivoId, Integer resuelto
-            ,Integer usuarioSolucion,String usuarioCreacion ){
+            ,Integer solucionadorID,String usuarioCreacion ){
         IncidenciaDto incidenciaDto = new IncidenciaDto();
         
         NotificacionDto notificacion = new NotificacionDto();
@@ -53,12 +52,13 @@ public class IncidenciaBo {
         
         incidenciaDto.setIncidenciaId(id);
         incidenciaDto.setDescripcion(descripcion);
+        incidenciaDto.setFechaSolucion(fechaSolucion);
         incidenciaDto.setNotificacion(notificacion);
         incidenciaDto.setPersona(persona);
         incidenciaDto.setMotivo(motivo);
         incidenciaDto.setResuelto(resuelto);
         incidenciaDto.setUsuarioCreacion(usuarioCreacion);
-        incidenciaDto.setUsuarioSolucion(usuarioSolucion);
+        incidenciaDto.setUsuarioSolucion(solucionadorID);
         
         return this.incidenciaDao.modificar(incidenciaDto); //falta implementación
     }

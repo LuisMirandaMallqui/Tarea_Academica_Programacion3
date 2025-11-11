@@ -57,21 +57,6 @@ public class Publicacion {
     public ArrayList<PublicacionDto> listarPorDuenoPublicacion(@WebParam(name = "personaId") Integer personaId) {
         return this.publicacionBo.listarPorDueno(personaId);
     }
-    
-    @WebMethod(operationName = "listarPorFiltrosPublicacion")
-    public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(
-            @WebParam(name = "terminoBusqueda") String terminoBusqueda, // CON ITEM
-            @WebParam(name = "esVenta") Boolean esVenta, // De ITEM
-            @WebParam(name = "idCategoria") Integer idCategoria, // De ITEM
-            @WebParam(name = "idSubcategoria") Integer idSubcategoria, // De ITEM
-            @WebParam(name = "idColores") Integer idColores, // De ITEM
-            @WebParam(name = "idTamanos") Integer idTamanos, // De ITEM
-            @WebParam(name = "idFormatos") Integer idFormatos, // De ITEM
-            @WebParam(name = "idCondicion") Integer idCondicion, // De ITEM
-            @WebParam(name = "idEstado") Integer idEstado ) { // De ITEM
-        return this.publicacionBo.listarPorFiltrosPublicacion(terminoBusqueda,esVenta,idCategoria,idSubcategoria,idColores,
-                idTamanos,idFormatos,idCondicion,idEstado);
-    }
 
     @WebMethod(operationName = "obtenerPorIdPublicacion")
     public PublicacionDto obtenerPorIdPublicacion(@WebParam(name = "id") Integer id) {

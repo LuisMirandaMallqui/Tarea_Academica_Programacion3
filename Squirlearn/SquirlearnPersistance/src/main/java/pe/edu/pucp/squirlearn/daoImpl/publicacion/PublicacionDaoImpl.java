@@ -1,5 +1,6 @@
 package pe.edu.pucp.squirlearn.daoImpl.publicacion;
 
+import pe.edu.pucp.squirlearn.daoImpl.util.ParamReporteAlquiler;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -29,19 +30,16 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
     @Override
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("PUBLICACION_ID", true, true));
-        this.listaColumnas.add(new Columna("ESTADO_PUBLICACION_ID", false, false));
-        this.listaColumnas.add(new Columna("ITEM_ID", false, false));
-        this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
         this.listaColumnas.add(new Columna("FECHA_ALTA", false, false));
         this.listaColumnas.add(new Columna("FECHA_BAJA", false, false));
+        this.listaColumnas.add(new Columna("ESTADO_PUBLICACION", false, false));
+        this.listaColumnas.add(new Columna("ITEM", false, false));
+        this.listaColumnas.add(new Columna("PERSONA", false, false));
         this.listaColumnas.add(new Columna("CALIFICACION", false, false));
-        this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
-        this.listaColumnas.add(new Columna("USUARIO_MODIFICACION", false, false));
     }
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int i=1;
         int estadoId = safeFkId(
             (this.publicacion.getEstadoPublicacion() == null ? null : this.publicacion.getEstadoPublicacion().getEstadoPublicacionId()),
             "estados_publicaciones", "ESTADOPUBLI_ID"
@@ -55,14 +53,12 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
             "personas", "PERSONA_ID"
         );
 
-        this.statement.setInt(i++, estadoId);
-        this.statement.setInt(i++, itemId);
-        this.statement.setInt(i++, personaId);
-        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaAlta());
-        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaBaja());
-        this.statement.setInt(i++, this.publicacion.getCalificacion()); 
-        this.statement.setString(i++, this.publicacion.getusuarioCreacion()); 
-        this.statement.setString(i++, this.publicacion.getusuarioModificacion()); 
+        this.statement.setDate(1, (java.sql.Date) this.publicacion.getFechaAlta());
+        this.statement.setDate(2, (java.sql.Date) this.publicacion.getFechaBaja());
+        this.statement.setInt(3, estadoId);
+        this.statement.setInt(4, itemId);
+        this.statement.setInt(5, personaId);
+        this.statement.setInt(6, this.publicacion.getCalificacion()); // es int, no DTO
     }
 
     @Override
@@ -81,20 +77,18 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
         );
 
         int i = 1;
+        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaAlta());
+        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaBaja());
         this.statement.setInt(i++, estadoId);
         this.statement.setInt(i++, itemId);
         this.statement.setInt(i++, personaId);
-        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaAlta());
-        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaBaja());
-        this.statement.setInt(i++, this.publicacion.getCalificacion()); 
-        this.statement.setString(i++, this.publicacion.getusuarioCreacion()); 
-        this.statement.setString(i++, this.publicacion.getusuarioModificacion()); 
+        this.statement.setInt(i++, this.publicacion.getCalificacion());
         this.statement.setInt(i++, this.publicacion.getPublicacionId()); // WHERE
     }
 
     @Override
     protected void instanciarObjetoDelResultSet() throws SQLException {
-        this.publicacion = new PublicacionDto();
+        this.publicacion = new pe.edu.pucp.squirlearn.model.publicacion.PublicacionDto();
 
         // EstadoPublicacion
         EstadoPublicacionDto ep = new EstadoPublicacionDto();
@@ -173,19 +167,18 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
     @Override
     public ArrayList<PublicacionDto> listarPorEstado(Integer estadoId) {
         String sql = this.generarSQLParaListarTodos() + " WHERE ESTADO_PUBLICACION_ID=?";
-        Consumer<PreparedStatement> incluir = ps -> {
-            try {
-                ps.setInt(1, estadoId);
+        Consumer<PreparedStatement> incluir = ps -> { 
+            try { ps.setInt(1, estadoId); 
             } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+                throw new RuntimeException(e); 
+            } 
         };
         return (ArrayList<PublicacionDto>) (ArrayList) this.listarTodos(sql, incluir, null);
     }
 
     public void ejecutarReporteVenta() {
         Object parametros = new ParamReporteVenta(
-                /* _persona */1
+            /* _persona */ 1
         );
         String sql = "{CALL REPORTE_VENTA(?)}";
         Boolean conTransaccion = true;
@@ -242,89 +235,5 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
         } catch (java.sql.SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-    
-    @Override
-    public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(
-            String terminoBusqueda,
-            Boolean esVenta,
-            Integer idCategoria,
-            Integer idSubcategoria,
-            Integer idColores,
-            Integer idTamanos,
-            Integer idFormatos,
-            Integer idCondicion,
-            Integer idEstado
-    ) {
-        StringBuilder sql = new StringBuilder(
-                "SELECT P.PUBLICACION_ID, P.FECHA_ALTA, P.FECHA_BAJA, P.CALIFICACION, "
-                + "P.ESTADO_PUBLICACION_ID, P.PERSONA_ID, "
-                + "I.ITEM_ID AS ITEM_ID_ITEM, I.NOMBRE, I.DESCRIPCION, I.PRECIO, I.ES_VENTA, "
-                + "I.COLOR_ID, I.CONDICION_ID, I.TAMANO_ID, I.FORMATO_ID, "
-                + "I.subcategoria_ID_SUBCATEGORIA, I.subcategoria_CATEGORIA_ID "
-                + "FROM publicaciones P "
-                + "JOIN items I ON P.ITEM_ID_ITEM = I.ITEM_ID "
-                + "WHERE 1=1 "
-        );
-
-        ArrayList<Object> parametros = new ArrayList<>();
-
-        if (terminoBusqueda != null && !terminoBusqueda.isBlank()) {
-            sql.append(" AND I.NOMBRE LIKE ? ");
-            parametros.add("%" + terminoBusqueda + "%");
-        }
-
-        if (esVenta != null) {
-            sql.append(" AND I.ES_VENTA = ? ");
-            parametros.add(esVenta ? 1 : 0);
-        }
-
-        if (idCategoria != null) {
-            sql.append(" AND I.subcategoria_CATEGORIA_ID = ? ");
-            parametros.add(idCategoria);
-        }
-
-        if (idSubcategoria != null) {
-            sql.append(" AND I.subcategoria_ID_SUBCATEGORIA = ? ");
-            parametros.add(idSubcategoria);
-        }
-
-        if (idColores != null) {
-            sql.append(" AND I.COLOR_ID = ? ");
-            parametros.add(idColores);
-        }
-
-        if (idTamanos != null) {
-            sql.append(" AND I.TAMANO_ID = ? ");
-            parametros.add(idTamanos);
-        }
-
-        if (idFormatos != null) {
-            sql.append(" AND I.FORMATO_ID = ? ");
-            parametros.add(idFormatos);
-        }
-
-        if (idCondicion != null) {
-            sql.append(" AND I.CONDICION_ID = ? ");
-            parametros.add(idCondicion);
-        }
-
-        if (idEstado != null) {
-            sql.append(" AND P.ESTADO_PUBLICACION_ID = ? ");
-            parametros.add(idEstado);
-        }
-
-        Consumer<PreparedStatement> incluirValores = p -> {
-            try {
-                int i = 1;
-                for (Object param : parametros) {
-                    this.statement.setObject(i++, param);
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        };
-
-        return (ArrayList<PublicacionDto>) this.listarTodos(sql.toString(), incluirValores, null);
     }
 }

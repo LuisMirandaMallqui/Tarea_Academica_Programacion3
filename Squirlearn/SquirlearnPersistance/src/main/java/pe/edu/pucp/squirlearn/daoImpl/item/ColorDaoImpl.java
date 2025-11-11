@@ -22,19 +22,22 @@ public class ColorDaoImpl extends DAOImplBase implements ColorDao{
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("COLOR_ID", true, true));
         this.listaColumnas.add(new Columna("NOMBRE", false, false));
-    }
+
+
+
+}
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.color.getNombre());
-    }
+}
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.color.getNombre());
-        this.statement.setInt(i++, this.color.getColorId()); // WHERE
+this.statement.setInt(i++, this.color.getColorId()); // WHERE
     }
 
     @Override

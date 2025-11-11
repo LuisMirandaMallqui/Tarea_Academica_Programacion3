@@ -18,7 +18,7 @@ public class SubcategoriaBo {
     }
     
     public ArrayList<SubcategoriaDto> listarPorCategoria(Integer categoriaId){
-        return this.subcategoriaDao.listarPorCategoria(categoriaId);
+        return this.subcategoriaDao.listarPorCategoria(categoriaId);// necesita implementacion
     }
     
     public ArrayList<SubcategoriaDto> listarTodos(){
