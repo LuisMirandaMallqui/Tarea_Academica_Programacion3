@@ -6,25 +6,25 @@ public class ChatDto {
     
     private Integer chatId;
     private EstadoChatDto estadoChat;
+    private String usuario;
     private String usuarioCreacion;
-    private String usuarioModificacion;
     private List<MensajeDto> mensajes;
     
     // Constructor vacío
     public ChatDto() {
         this.chatId = null;
         this.estadoChat = null;
-        this.usuarioModificacion = null;
+        this.usuario = null;
         this.mensajes = null;
         this.usuarioCreacion = null;
     }
 
     // Constructor con parámetros
-    public ChatDto(Integer chatId, EstadoChatDto estadoChat, String usuarioModificacion,
+    public ChatDto(Integer chatId, EstadoChatDto estadoChat, String usuario,
             List<MensajeDto> mensajes, String usuarioCreacion) {
         this.chatId = chatId;
         this.estadoChat = estadoChat;
-        this.usuarioModificacion = usuarioModificacion;
+        this.usuario = usuario;
         this.mensajes = mensajes;
         this.usuarioCreacion = usuarioCreacion;
     }
@@ -46,6 +46,13 @@ public class ChatDto {
         this.estadoChat = estadoChat;
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
     
     public List<MensajeDto> getMensajes() {
         return mensajes;
@@ -61,19 +68,5 @@ public class ChatDto {
 
     public void setUsuarioCreacion(String usuarioCreacion) {
         this.usuarioCreacion = usuarioCreacion;
-    }
-
-    /**
-     * @return the usuarioModificacion
-     */
-    public String getUsuarioModificacion() {
-        return usuarioModificacion;
-    }
-
-    /**
-     * @param usuarioModificacion the usuarioModificacion to set
-     */
-    public void setUsuarioModificacion(String usuarioModificacion) {
-        this.usuarioModificacion = usuarioModificacion;
     }
 }

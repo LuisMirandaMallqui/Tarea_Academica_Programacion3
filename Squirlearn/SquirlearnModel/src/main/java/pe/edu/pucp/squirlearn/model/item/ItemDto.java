@@ -16,7 +16,7 @@ public class ItemDto {
     private String nombre;
     private Boolean esVenta;
     private String descripcion;
-    private String usuarioModificacion;
+    private String usuario;
     private String usuarioCreacion;
         
         // Constructor vacío
@@ -33,7 +33,7 @@ public class ItemDto {
         this.tamano = null;
         this.formato = null;
         this.descripcion = null;
-        this.usuarioModificacion = null;
+        this.usuario = null;
         this.usuarioCreacion = null;
     }
 
@@ -41,7 +41,7 @@ public class ItemDto {
     public ItemDto(Integer itemId, Double precio, String nombre, Boolean esVenta,
                    SubcategoriaDto subcategoria, CategoriaDto categoria, ColorDto color, 
                    EstadoItemDto estadoItem, CondicionDto condicion,String usuarioCreacion,
-                   TamanoDto tamano, FormatoDto formato,String descripcion, String usuarioModificacion) {
+                   TamanoDto tamano, FormatoDto formato,String descripcion, String usuario) {
         this.itemId = itemId;
         this.precio = precio;
         this.nombre = nombre;
@@ -54,7 +54,7 @@ public class ItemDto {
         this.tamano = tamano;
         this.formato = formato;
         this.descripcion = descripcion;
-        this.usuarioModificacion = usuarioModificacion;
+        this.usuario = usuario;
         this.usuarioCreacion = usuarioCreacion;
     }
 
@@ -160,20 +160,20 @@ public class ItemDto {
         this.descripcion = descripcion;
     }
 
-    public String getusuarioModificacion() {
-        return usuarioModificacion;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setusuarioModificacion(String usuarioModificacion) {
-        this.usuarioModificacion = usuarioModificacion;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
     
     
-    public String getusuarioCreacion() {
+    public String getUsuarioCreacion() {
         return usuarioCreacion;
     }
 
-    public void setusuarioCreacion(String usuarioCreacion) {
+    public void setUsuarioCreacion(String usuarioCreacion) {
         this.usuarioCreacion = usuarioCreacion;
     }
 

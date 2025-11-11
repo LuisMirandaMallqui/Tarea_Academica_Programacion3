@@ -21,7 +21,7 @@ public class ItemBo {
     
     public Integer insertar(Double precio, String nombre,String descripcion ,Boolean esVenta ,
             Integer colorId, Integer condicionId, Integer tamanoId, Integer formatoId,
-            Integer categoriaId, Integer subcategoriaId,String usuarioCreacion){
+            Integer categoriaId, Integer subcategoriaId,String usuario){
         ItemDto itemdto = new ItemDto();
         
         ColorDto color = new ColorDto();
@@ -50,13 +50,13 @@ public class ItemBo {
         itemdto.setCategoria(categoria);
         itemdto.setSubcategoria(subcategoria);
         itemdto.setEstadoItem(estado);
-        itemdto.setusuarioCreacion(usuarioCreacion);
+        itemdto.setUsuario(usuario);
         return this.itemDao.insertar(itemdto);
     }
     
     public Integer modificar(Integer id,Double precio,String nombre, String descripcion, Boolean esVenta ,
             Integer colorId, Integer estadoId ,Integer condicionId, Integer tamanoId, Integer formatoId,
-            Integer categoriaId, Integer subcategoriaId,String usuario,String usuarioCreacion,String usuarioModificacion){
+            Integer categoriaId, Integer subcategoriaId,String usuario,String usuarioCreacion){
         ItemDto itemdto = new ItemDto();
         
         ColorDto color = new ColorDto();
@@ -86,8 +86,8 @@ public class ItemBo {
         itemdto.setCategoria(categoria);
         itemdto.setSubcategoria(subcategoria);
         itemdto.setEstadoItem(estado);
-        itemdto.setusuarioCreacion(usuarioCreacion);
-        itemdto.setusuarioModificacion(usuarioModificacion);
+        itemdto.setUsuario(usuario);
+        itemdto.setUsuarioCreacion(usuarioCreacion);
         return this.itemDao.modificar(itemdto);
     }
     

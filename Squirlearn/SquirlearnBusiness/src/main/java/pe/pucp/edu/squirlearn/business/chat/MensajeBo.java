@@ -18,7 +18,7 @@ public class MensajeBo {
         this.mensajeDao = new MensajeDaoImpl();
     }
     
-    public Integer insertar(Integer chatId, String mensaje, Integer personaId){
+    public Integer insertar(Integer chatId, String mensaje, Integer personaId, String Usuario){
         MensajeDto mensajeDto = new MensajeDto();
         
         ChatDto chat = new ChatDto();
@@ -32,12 +32,13 @@ public class MensajeBo {
         mensajeDto.setMensaje(mensaje);
         mensajeDto.setPersona(persona);
         mensajeDto.setEstadoMensaje(estado);
+        mensajeDto.setUsuario(Usuario);
         
         return this.mensajeDao.insertar(mensajeDto);
     }
     
     public Integer modificar(Integer id, Integer chatId, String mensaje,Integer estadoId,
-            Integer personaId, Date fechaEnvio, Date fechaLeido){
+            Integer personaId, Date fechaEnvio, Date fechaLeido, String usuario,String usuarioCreacion){
         MensajeDto mensajeDto = new MensajeDto(); 
         
         EstadoMensajeDto estado = new EstadoMensajeDto();
@@ -54,6 +55,8 @@ public class MensajeBo {
         mensajeDto.setFechaEnvio((java.sql.Date) fechaEnvio);
         mensajeDto.setFechaLeido(fechaLeido);
         mensajeDto.setEstadoMensaje(estado);
+        mensajeDto.setUsuario(usuario);
+        mensajeDto.setUsuarioCreacion(usuarioCreacion);
         
         return this.mensajeDao.modificar(mensajeDto);
     }

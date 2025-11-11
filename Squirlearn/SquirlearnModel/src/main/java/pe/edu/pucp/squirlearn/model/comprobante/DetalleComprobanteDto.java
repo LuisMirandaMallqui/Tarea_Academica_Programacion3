@@ -11,7 +11,7 @@ public class DetalleComprobanteDto {
     private AlquilerDto alquiler;
     private String descripcion;
     private Double precio;
-    private String usuarioCreacion;
+    private String usuario;
     
     // Constructor vacío
     public DetalleComprobanteDto() {
@@ -21,20 +21,19 @@ public class DetalleComprobanteDto {
         this.item = null;
         this.alquiler = null;
         this.comprobante = null;
-        this.usuarioCreacion = null;
+        this.usuario = null;
     }
 
     // Constructor con parámetros
     public DetalleComprobanteDto(Integer detalleComId, String descripcion, Double precio,
-                                 ItemDto item, AlquilerDto alquiler, ComprobanteDto comprobante, 
-                                 String usuarioCreacion) {
+                                 ItemDto item, AlquilerDto alquiler, ComprobanteDto comprobante, String usuario) {
         this.detalleComId = detalleComId;
         this.descripcion = descripcion;
         this.precio = precio;
         this.item = item;
         this.alquiler = alquiler;
         this.comprobante = comprobante;
-        this.usuarioCreacion = usuarioCreacion;
+        this.usuario = usuario;
     }
 
     // Getters y Setters
@@ -86,11 +85,11 @@ public class DetalleComprobanteDto {
         this.comprobante = comprobante;
     }
     
-    public String getusuarioCreacion() {
-        return usuarioCreacion;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setusuarioCreacion(String usuarioCreacion) {
-        this.usuarioCreacion = usuarioCreacion;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }

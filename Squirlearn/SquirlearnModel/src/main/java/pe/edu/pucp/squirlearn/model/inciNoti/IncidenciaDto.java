@@ -12,13 +12,17 @@ public class IncidenciaDto {
     private MotivoDto motivo;
     private String descripcion;
     private Integer resuelto;
+    private Date fechaSolucion;
     private Integer usuarioSolucion;
+    private String usuario;
     private String usuarioCreacion;
     
     // Constructor vacío
     public IncidenciaDto() {
         this.incidenciaId = null;
         this.descripcion = null;
+        this.fechaSolucion = null;
+        this.usuario = null;
         this.usuarioSolucion = null;
         this.notificacion = null;
         this.persona = null;
@@ -27,11 +31,13 @@ public class IncidenciaDto {
     }
 
     // Constructor con parámetros
-    public IncidenciaDto(Integer incidenciaId, String descripcion,
-                         Integer usuarioSolucion, NotificacionDto notificacion, PersonaDto persona,
+    public IncidenciaDto(Integer incidenciaId, String descripcion, Date fechaSolucion,
+                         String usuario, Integer usuarioSolucion, NotificacionDto notificacion, PersonaDto persona,
                          MotivoDto motivo,Integer resuelto) {
         this.incidenciaId = incidenciaId;
         this.descripcion = descripcion;
+        this.fechaSolucion = fechaSolucion;
+        this.usuario = usuario;
         this.usuarioSolucion = usuarioSolucion;
         this.notificacion = notificacion;
         this.persona = persona;
@@ -54,6 +60,22 @@ public class IncidenciaDto {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Date getFechaSolucion() {
+        return fechaSolucion;
+    }
+
+    public void setFechaSolucion(Date fechaSolucion) {
+        this.fechaSolucion = fechaSolucion;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public Integer getUsuarioSolucion() {

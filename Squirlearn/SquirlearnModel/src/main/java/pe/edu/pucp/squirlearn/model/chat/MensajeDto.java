@@ -12,6 +12,8 @@ public class MensajeDto {
     private Date fechaEnvio;
     private Date fechaLeido;
     private String mensaje;
+    private String usuario;
+    private String usuarioCreacion;
     
     // Constructor vacío
     public MensajeDto() {
@@ -22,11 +24,14 @@ public class MensajeDto {
         this.mensaje = null;
         this.estadoMensaje = null;
         this.persona = null;
+        this.usuario = null;
+        this.usuarioCreacion = null;
     }
 
     // Constructor con parámetros
     public MensajeDto(Integer mensajeId, ChatDto chat, Date fechaEnvio, Date fechaLeido,
-                      String mensaje, EstadoMensajeDto estadoMensaje, PersonaDto persona) {
+                      String mensaje, EstadoMensajeDto estadoMensaje, PersonaDto persona,
+                      String usuario,String usuarioCreacion) {
         this.mensajeId = mensajeId;
         this.chat = chat;
         this.fechaEnvio = fechaEnvio;
@@ -34,6 +39,8 @@ public class MensajeDto {
         this.mensaje = mensaje;
         this.estadoMensaje = estadoMensaje;
         this.persona = persona;
+        this.usuario = usuario;
+        this.usuario = usuarioCreacion;
     }
 
     // Getters y Setters
@@ -92,5 +99,20 @@ public class MensajeDto {
     public void setPersona(PersonaDto persona) {
         this.persona = persona;
     }
-   
+    
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
+    public String getUsuarioCreacion() {
+        return usuarioCreacion;
+    }
+
+    public void setUsuarioCreacion(String usuarioCreacion) {
+        this.usuarioCreacion = usuarioCreacion;
+    }
 }

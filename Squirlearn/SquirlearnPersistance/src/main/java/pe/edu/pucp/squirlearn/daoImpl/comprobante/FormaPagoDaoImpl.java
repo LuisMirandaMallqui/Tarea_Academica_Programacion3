@@ -37,12 +37,12 @@ public class FormaPagoDaoImpl extends DAOImplBase implements FormaPagoDao{
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.formaPago.getNombre());
-        this.statement.setInt(i++, this.formaPago.getFormaPagoId()); // WHERE
+this.statement.setInt(i++, this.formaPago.getFormaPagoId()); // WHERE
     }
 
     @Override
     protected void instanciarObjetoDelResultSet() throws SQLException {
-        this.formaPago = new FormaPagoDto();
+        this.formaPago = new pe.edu.pucp.squirlearn.model.comprobante.FormaPagoDto();
         this.formaPago.setFormaPagoId(this.resultSet.getInt("FORMAPAGO_ID"));
         this.formaPago.setNombre(this.resultSet.getString("NOMBRE"));
 }

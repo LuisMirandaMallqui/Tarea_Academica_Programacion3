@@ -3,7 +3,6 @@ package pe.pucp.edu.squirlearn.business.persona;
 
 import java.util.ArrayList;
 import java.sql.Date;
-import java.util.List;
 import pe.edu.pucp.squirlearn.dao.persona.PersonaDao;
 import pe.edu.pucp.squirlearn.daoImpl.persona.PersonaDaoImpl;
 import pe.edu.pucp.squirlearn.model.persona.EstadoPersonaDto;
@@ -24,33 +23,20 @@ public class PersonaBo {
     }
     
     public Integer insertar(String nombres, String primerApellido, String segundoApellido, 
-            String codigo, String correo, String contrasena, String usuarioCreacion, 
-            String usuarioModificacion,Date actividad){
+            String codigo, String correo, String contrasena, String usuario,Date actividad){
         PersonaDto personaDto = new PersonaDto();
      
         EstadoPersonaDto estado = new EstadoPersonaDto();
         estado.setEstadoPersonaId(1);
-        //aqui se cebe hacer el insert del rol de la persona en el DAO
-        List<RolPersonaDto> roles = new ArrayList<RolPersonaDto>();
-        RolPersonaDto rol = new RolPersonaDto();
-        rol.setRolPersonaId(1);
-        roles.add(rol);
-        personaDto.setRolPersona(roles);
+        //aqui se cebe hacer el insert del rol de la persona
         personaDto.setNombres(nombres);
         personaDto.setPrimerApellido(primerApellido);
         personaDto.setSegundoApellido(segundoApellido);
         personaDto.setCodigo(codigo);
         personaDto.setCorreo(correo);
-        personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));       
-        personaDto.setEstadoPersona(estado);
-        personaDto.setusuarioCreacion(usuarioCreacion);
-        personaDto.setusuarioModificacion(usuarioModificacion);
+        personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));        personaDto.setEstadoPersona(estado);
+        personaDto.setUsuario(usuario);
         personaDto.setUltimaActividad(actividad);
-        
-//        if(!existeUsuarioEnPUCP(codigo,correo))//falta implementar
-//            return 0;
-//        if(this.personaDao.obtenerPorCodigo(codigo) == null)
-//            return 0;
         
         return this.personaDao.insertar(personaDto);
     }
@@ -71,7 +57,8 @@ public class PersonaBo {
         personaDto.setCodigo(codigo);
         personaDto.setCorreo(correo);
         personaDto.setEstadoPersona(estado);
-        personaDto.setusuarioCreacion(usuarioCreacion);
+        personaDto.setUsuario(usuario);
+        personaDto.setUsuarioCreacion(usuarioCreacion);
         personaDto.setUltimaActividad(actividad);
         
         return this.personaDao.modificar(personaDto);
@@ -80,7 +67,7 @@ public class PersonaBo {
     public PersonaDto logIn(String correo, String contrasena){
         PersonaDto personaDto = new PersonaDto();
         personaDto.setCorreo(correo);
-        PersonaDto perDto = this.personaDao.buscarPorCorreo(correo);
+        PersonaDto perDto = this.personaDao.buscarPorCorreo(correo);//necesita implementación
         if(Cifrado.descifrarMD5(perDto.getContrasena()).equals(contrasena))
             return personaDto;
         else
@@ -92,6 +79,6 @@ public class PersonaBo {
     }
     
     public PersonaDto obtenerPorCodigo(String codigo){
-        return this.personaDao.obtenerPorCodigo(codigo); 
+        return this.personaDao.obtenerPorCodigo(codigo); //necesita implementación 
     }
 }
