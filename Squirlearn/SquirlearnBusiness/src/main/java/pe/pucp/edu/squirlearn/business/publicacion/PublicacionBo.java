@@ -84,4 +84,11 @@ public class PublicacionBo {
     private Date Date() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(String terminoBusqueda, Boolean esVenta,
+            Integer idCategoria, Integer idSubcategoria, Integer idColores, Integer idTamanos, Integer idFormatos,
+            Integer idCondicion, Integer idEstado) {
+        return this.publicacionDao.listarPorFiltrosPublicacion(terminoBusqueda, esVenta, idCategoria, idSubcategoria, idColores,
+                idTamanos, idFormatos, idCondicion, idEstado); //necesita implementación
+    }
 }
