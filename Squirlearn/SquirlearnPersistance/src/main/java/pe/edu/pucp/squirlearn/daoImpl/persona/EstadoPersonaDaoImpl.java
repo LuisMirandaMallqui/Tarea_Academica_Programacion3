@@ -20,7 +20,7 @@ public class EstadoPersonaDaoImpl extends DAOImplBase implements EstadoPersonaDa
 
     @Override
     protected void configurarListaDeColumnas() {
-        this.listaColumnas.add(new Columna("ESTADO_PERSONA_ID", true, true));
+        this.listaColumnas.add(new Columna("ESTADOPERSONA_ID", true, true));
         this.listaColumnas.add(new Columna("NOMBRE", false, false));
 
 

@@ -32,59 +32,55 @@ public class AlquilerDaoImpl extends DAOImplBase implements AlquilerDao{
         this.listaColumnas.add(new Columna("FECHA_FIN", false, false));
         this.listaColumnas.add(new Columna("DEVUELTO", false, false));
         this.listaColumnas.add(new Columna("MONTO", false, false));
-        this.listaColumnas.add(new Columna("FECHA_CREACION", false, false));
         this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
-        this.listaColumnas.add(new Columna("USUARIO", false, false));
+        this.listaColumnas.add(new Columna("FECHA_CREACION", false, false));
     }
 
     @Override
-    protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int idx = 1;
+protected void incluirValorDeParametrosParaInsercion() throws SQLException {
+    int idx = 1;
 
-        // Resolver IDs de claves foráneas de forma segura desde la BD (mínimo ID disponible)
-        Integer _personaId = (this.alquiler.getPersona() == null) ? null : this.alquiler.getPersona().getPersonaId();
-        Integer _itemId    = (this.alquiler.getItem() == null)    ? null : this.alquiler.getItem().getItemId();
+    // Resolver IDs de claves foráneas de forma segura desde la BD (mínimo ID disponible)
+    Integer _personaId = (this.alquiler.getPersona() == null) ? null : this.alquiler.getPersona().getPersonaId();
+    Integer _itemId    = (this.alquiler.getItem() == null)    ? null : this.alquiler.getItem().getItemId();
 
-        int personaId = safeFkId(_personaId, "personas", "PERSONA_ID");
-        int itemId    = safeFkId(_itemId,    "items",    "ITEM_ID");
+    int personaId = safeFkId(_personaId, "personas", "PERSONA_ID");
+    int itemId    = safeFkId(_itemId,    "items",    "ITEM_ID");
 
-        this.statement.setInt(idx++, personaId);
-        this.statement.setInt(idx++, itemId);
-        this.statement.setDate(idx++, this.alquiler.getFechaInicio());
-        this.statement.setDate(idx++, this.alquiler.getFechaFin());
-        this.statement.setInt(idx++, this.alquiler.getDevuelto() ? 1 : 0);
-        this.statement.setDouble(idx++, this.alquiler.getMonto());
-        this.statement.setBoolean(idx++, this.alquiler.getDevuelto());
-        this.statement.setDate(idx++, this.alquiler.getFechaCreacion());
-        this.statement.setString(idx++, this.alquiler.getUsuarioCreacion());
-        this.statement.setString(idx++, this.alquiler.getUsuario());
-    }
+    this.statement.setInt(idx++, personaId);
+    this.statement.setInt(idx++, itemId);
+    this.statement.setDate(idx++, this.alquiler.getFechaInicio());
+    this.statement.setDate(idx++, this.alquiler.getFechaFin());
+    this.statement.setInt(idx++, this.alquiler.getDevuelto() ? 1 : 0);
+    this.statement.setDouble(idx++, this.alquiler.getMonto());
+    this.statement.setString(idx++, this.alquiler.getUsuarioCreacion());
+    this.statement.setDate(idx++, this.alquiler.getFechaCreacion());
+}
 
-    @Override
-    protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        int i = 1;
+@Override
+protected void incluirValorDeParametrosParaModificacion() throws SQLException {
+    int i = 1;
 
-        // Permitir que Persona/Item vengan nulos desde el test y ponerles un ID válido
-        Integer providedPersonaId = (this.alquiler.getPersona() == null) ? null : this.alquiler.getPersona().getPersonaId();
-        Integer providedItemId    = (this.alquiler.getItem()    == null) ? null : this.alquiler.getItem().getItemId();
+    // Permitir que Persona/Item vengan nulos desde el test y ponerles un ID válido
+    Integer providedPersonaId = (this.alquiler.getPersona() == null) ? null : this.alquiler.getPersona().getPersonaId();
+    Integer providedItemId    = (this.alquiler.getItem()    == null) ? null : this.alquiler.getItem().getItemId();
 
-        int personaId = safeFkId(providedPersonaId, "personas", "PERSONA_ID");
-        int itemId    = safeFkId(providedItemId,    "items",    "ITEM_ID");
+    int personaId = safeFkId(providedPersonaId, "personas", "PERSONA_ID");
+    int itemId    = safeFkId(providedItemId,    "items",    "ITEM_ID");
 
-        // Orden EXACTO del UPDATE impreso por tu DAO
-        this.statement.setInt(i++, personaId);
-        this.statement.setInt(i++, itemId);
-        this.statement.setDate(i++, this.alquiler.getFechaInicio());
-        this.statement.setDate(i++, this.alquiler.getFechaFin());
-        this.statement.setInt(i++, this.alquiler.getDevuelto() ? 1 : 0);
-        this.statement.setDouble(i++, this.alquiler.getMonto());
-        this.statement.setBoolean(i++, this.alquiler.getDevuelto());
-        this.statement.setDate(i++, this.alquiler.getFechaCreacion());
-        this.statement.setString(i++, this.alquiler.getUsuarioCreacion());
+    // Orden EXACTO del UPDATE impreso por el DAO
+    this.statement.setInt(i++, personaId);                                   // PERSONA_ID=?
+    this.statement.setInt(i++, itemId);                                      // ITEM_ID=?
+    this.statement.setDate(i++, this.alquiler.getFechaInicio());             // FECHA_INICIO=?
+    this.statement.setDate(i++, this.alquiler.getFechaFin());                // FECHA_FIN=?
+    this.statement.setInt(i++, this.alquiler.getDevuelto() ? 1 : 0);         // DEVUELTO=?
+    this.statement.setDouble(i++, this.alquiler.getMonto());                 // MONTO=?
+    this.statement.setString(i++, this.alquiler.getUsuarioCreacion());
+    this.statement.setDate(i++, this.alquiler.getFechaCreacion());
+    // WHERE ALQUILER_ID=?
+    this.statement.setInt(i++, this.alquiler.getAlquilerId());
+}
 
-        // WHERE ALQUILER_ID=?
-        this.statement.setInt(i++, this.alquiler.getAlquilerId());
-    }
 
 
     @Override
@@ -101,19 +97,19 @@ public class AlquilerDaoImpl extends DAOImplBase implements AlquilerDao{
     protected void instanciarObjetoDelResultSet() throws SQLException {
         this.alquiler = new AlquilerDto();
         PersonaDto per = new PersonaDto();
-        per.setPersonaId(1);
+        per.setPersonaId(this.resultSet.getInt("PERSONA_ID"));
         this.alquiler.setPersona(per);
         ItemDto item = new ItemDto();
-        item.setItemId(1);
+        item.setItemId(this.resultSet.getInt("ITEM_ID"));
         this.alquiler.setPersona(per);
+        this.alquiler.setItem(item);
         this.alquiler.setAlquilerId(this.resultSet.getInt("ALQUILER_ID"));
         this.alquiler.setFechaInicio(this.resultSet.getDate("FECHA_INICIO"));
         this.alquiler.setFechaFin(this.resultSet.getDate("FECHA_FIN"));
         this.alquiler.setDevuelto(this.resultSet.getInt("DEVUELTO") == 1);
         this.alquiler.setMonto(this.resultSet.getDouble("MONTO"));
-        this.alquiler.setFechaCreacion(this.resultSet.getDate("FECHA_CREACION"));
         this.alquiler.setUsuarioCreacion(this.resultSet.getString("USUARIO_CREACION"));
-        this.alquiler.setUsuario(this.resultSet.getString("USUARIO"));
+        this.alquiler.setFechaCreacion(this.resultSet.getDate("FECHA_CREACION"));
     }
 
     @Override

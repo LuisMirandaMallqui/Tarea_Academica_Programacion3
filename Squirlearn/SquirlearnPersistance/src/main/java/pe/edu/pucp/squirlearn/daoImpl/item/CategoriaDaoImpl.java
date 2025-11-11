@@ -22,22 +22,19 @@ public class CategoriaDaoImpl extends DAOImplBase implements CategoriaDao{
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("CATEGORIA_ID", true, true));
         this.listaColumnas.add(new Columna("NOMBRE", false, false));
-
-
-
-}
+    }
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.categoria.getNombre());
-}
+    }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.categoria.getNombre());
-this.statement.setInt(i++, this.categoria.getCategoriaId()); // WHERE
+        this.statement.setInt(i++, this.categoria.getCategoriaId()); // WHERE
     }
 
     @Override

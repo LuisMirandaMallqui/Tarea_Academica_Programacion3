@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.model.publicacion.PublicacionDto;
 import pe.edu.pucp.squirlearn.dao.IDAO;
 
-public interface PublicacionDao extends IDAO<PublicacionDto> {
+public interface PublicacionDao extends IDAO<PublicacionDto>{
 
     ArrayList<PublicacionDto> listarPorEstado(
             Integer estadoId
@@ -21,5 +21,4 @@ public interface PublicacionDao extends IDAO<PublicacionDto> {
             Integer idCondicion,
             Integer idEstado
     ); 
-
 }
