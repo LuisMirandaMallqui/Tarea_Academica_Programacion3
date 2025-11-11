@@ -34,7 +34,7 @@ public class AlquilerDaoImpl extends DAOImplBase implements AlquilerDao{
         this.listaColumnas.add(new Columna("MONTO", false, false));
         this.listaColumnas.add(new Columna("FECHA_CREACION", false, false));
         this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
-        this.listaColumnas.add(new Columna("USUARIO", false, false));
+        this.listaColumnas.add(new Columna("USUARIO_MODIFICACION", false, false));// Antes estaba solo como USUARIO
     }
 
     @Override
@@ -52,12 +52,11 @@ public class AlquilerDaoImpl extends DAOImplBase implements AlquilerDao{
         this.statement.setInt(idx++, itemId);
         this.statement.setDate(idx++, this.alquiler.getFechaInicio());
         this.statement.setDate(idx++, this.alquiler.getFechaFin());
-        this.statement.setInt(idx++, this.alquiler.getDevuelto() ? 1 : 0);
+        this.statement.setInt(idx++, this.alquiler.getDevuelto() ? 1 : 0); // Esta bien como setInt o lo cambiamos a setBool?
         this.statement.setDouble(idx++, this.alquiler.getMonto());
-        this.statement.setBoolean(idx++, this.alquiler.getDevuelto());
         this.statement.setDate(idx++, this.alquiler.getFechaCreacion());
-        this.statement.setString(idx++, this.alquiler.getUsuarioCreacion());
-        this.statement.setString(idx++, this.alquiler.getUsuario());
+        this.statement.setString(idx++, this.alquiler.getUsuario()); 
+        this.statement.setString(idx++, this.alquiler.getUsuario()); 
     }
 
     @Override
@@ -71,7 +70,7 @@ public class AlquilerDaoImpl extends DAOImplBase implements AlquilerDao{
         int personaId = safeFkId(providedPersonaId, "personas", "PERSONA_ID");
         int itemId    = safeFkId(providedItemId,    "items",    "ITEM_ID");
 
-        // Orden EXACTO del UPDATE impreso por tu DAO
+        // Orden EXACTO del UPDATE impreso por el DAO
         this.statement.setInt(i++, personaId);
         this.statement.setInt(i++, itemId);
         this.statement.setDate(i++, this.alquiler.getFechaInicio());
@@ -101,10 +100,10 @@ public class AlquilerDaoImpl extends DAOImplBase implements AlquilerDao{
     protected void instanciarObjetoDelResultSet() throws SQLException {
         this.alquiler = new AlquilerDto();
         PersonaDto per = new PersonaDto();
-        per.setPersonaId(1);
+        per.setPersonaId(this.resultSet.getInt("PERSONA_ID"));
         this.alquiler.setPersona(per);
         ItemDto item = new ItemDto();
-        item.setItemId(1);
+        item.setItemId(this.resultSet.getInt("ITEM_ID"));
         this.alquiler.setPersona(per);
         this.alquiler.setAlquilerId(this.resultSet.getInt("ALQUILER_ID"));
         this.alquiler.setFechaInicio(this.resultSet.getDate("FECHA_INICIO"));
@@ -113,7 +112,7 @@ public class AlquilerDaoImpl extends DAOImplBase implements AlquilerDao{
         this.alquiler.setMonto(this.resultSet.getDouble("MONTO"));
         this.alquiler.setFechaCreacion(this.resultSet.getDate("FECHA_CREACION"));
         this.alquiler.setUsuarioCreacion(this.resultSet.getString("USUARIO_CREACION"));
-        this.alquiler.setUsuario(this.resultSet.getString("USUARIO"));
+        this.alquiler.setUsuario(this.resultSet.getString("USUARIO_MODIFICACION"));
     }
 
     @Override
@@ -162,7 +161,7 @@ public class AlquilerDaoImpl extends DAOImplBase implements AlquilerDao{
         String sql = this.generarSQLParaListarTodos() + " WHERE PERSONA_ID=?";
         Consumer<PreparedStatement> incluir = ps -> {
             try { 
-                ps.setInt(1, personaId); 
+                this.statement.setInt(1, personaId); 
             } catch (SQLException e) { 
                 throw new RuntimeException(e); 
             }
