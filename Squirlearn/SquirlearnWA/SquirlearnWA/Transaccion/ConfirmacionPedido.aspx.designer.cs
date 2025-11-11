@@ -51,6 +51,15 @@ namespace SquirlearnWA.Transaccion
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExito;
 
         /// <summary>
+        /// Control lblVendedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVendedor;
+
+        /// <summary>
         /// Control lblNombre.
         /// </summary>
         /// <remarks>
@@ -60,6 +69,36 @@ namespace SquirlearnWA.Transaccion
         protected global::System.Web.UI.WebControls.Label lblNombre;
 
         /// <summary>
+<<<<<<< HEAD:Squirlearn/SquirlearnWA/SquirlearnWA/DetalleProductoAlquiler.aspx.designer.cs
+        /// Control lblSubcategoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSubcategoria;
+
+        /// <summary>
+        /// Control lblEstado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEstado;
+
+        /// <summary>
+        /// Control lblPeriodo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPeriodo;
+
+        /// <summary>
+=======
+>>>>>>> 226c941c4fefe1ee8760a25dab879a65d6492184:Squirlearn/SquirlearnWA/SquirlearnWA/Transaccion/ConfirmacionPedido.aspx.designer.cs
         /// Control lblDescripcion.
         /// </summary>
         /// <remarks>
@@ -69,7 +108,20 @@ namespace SquirlearnWA.Transaccion
         protected global::System.Web.UI.WebControls.Label lblDescripcion;
 
         /// <summary>
+<<<<<<< HEAD:Squirlearn/SquirlearnWA/SquirlearnWA/DetalleProductoAlquiler.aspx.designer.cs
+        /// Control lblTipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTipo;
+
+        /// <summary>
+        /// Control lblPrecioDia.
+=======
         /// Control lblTotal.
+>>>>>>> 226c941c4fefe1ee8760a25dab879a65d6492184:Squirlearn/SquirlearnWA/SquirlearnWA/Transaccion/ConfirmacionPedido.aspx.designer.cs
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

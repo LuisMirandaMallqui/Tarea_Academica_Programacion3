@@ -1,5 +1,5 @@
 -- Variable para el usuario 
-SET @admin_user = 'admin';
+SET @admin_user = 'root';
 
 -- -----------------------------------------------------
 -- GRUPO 1: CATÁLOGOS SIMPLES 
@@ -112,18 +112,18 @@ VALUES
 -- GRUPO 3: DATOS PRINCIPALES (Personas e Items)
 -- -----------------------------------------------------
 INSERT INTO personas(
- NOMBRES, PRIMER_APELLIDO, SEGUNDO_APELLIDO, CODIGO, CORREO, CONTRASENA,ESTADO_PERSONA_ID_ESTADOPERSONA,USUARIO_CREACION)
+ NOMBRES, PRIMER_APELLIDO, SEGUNDO_APELLIDO, CODIGO, CORREO, CONTRASENA,ESTADO_PERSONA_ID_ESTADOPERSONA,USUARIO_CREACION,ULTIMA_ACTIVIDAD)
 VALUES
-('María Fernanda', 'Lopez', 'Ramirez', '20231547', 'a20231547@pucp.edu.pe','pacoflaco123',1,'María Fernanda Lopez Ramirez'),
-('José Luis', 'Castro', 'Vargas', '20228459', 'a20228459@pucp.edu.pe','joselu123',2,'José Luis Castro Vargas'),
-('Andrea Carolina', 'Torres', 'Mendoza', '20235681', 'a20235681@pucp.edu.pe','andreatorres',3,'Andrea Carolina Torres Mendoza'),
-('Diego Armando', 'Quispe', 'Huamán', '20217732', 'a20217732@pucp.edu.pe','diegoquispe',1,'Diego Armando Quispe Huamán'),
-('Lucía Alejandra', 'Salazar', 'Flores', '20229418', 'a20229418@pucp.edu.pe','luciaalej',2,'Lucía Alejandra Salazar Flores'),
-('Carlos Alberto', 'Rojas', 'Cáceres', '20219845', 'a20219845@pucp.edu.pe','carlberto',3,'Carlos Alberto Rojas Cáceres'),
-('Gabriela Sofía', 'Paredes', 'Chavez', '20237591', 'a20237591@pucp.edu.pe','gabsof',1,'Gabriela Sofía Paredes Chavez'),
-('Fernando Enrique', 'Huerta', 'Guzmán', '20226789', 'a20226789@pucp.edu.pe','feriq',2,'Fernando Enrique Huerta Guzmán'),
-('Valeria Isabel', 'Martínez', 'Zamora', '20231852', 'a20231852@pucp.edu.pe','valeri',3,'Valeria Isabel Martínez Zamora'),
-('Santiago Nicolás', 'Gonzales', 'Linares', '20238417', 'a20238417@pucp.edu.pe','santi123',1,'Santiago Nicolás Gonzales Linares');
+('María Fernanda', 'Lopez', 'Ramirez', '20231547', 'a20231547@pucp.edu.pe','pacoflaco123',1,'María Fernanda Lopez Ramirez',CURRENT_TIMESTAMP),
+('José Luis', 'Castro', 'Vargas', '20228459', 'a20228459@pucp.edu.pe','joselu123',2,'José Luis Castro Vargas',CURRENT_TIMESTAMP),
+('Andrea Carolina', 'Torres', 'Mendoza', '20235681', 'a20235681@pucp.edu.pe','andreatorres',3,'Andrea Carolina Torres Mendoza',CURRENT_TIMESTAMP),
+('Diego Armando', 'Quispe', 'Huamán', '20217732', 'a20217732@pucp.edu.pe','diegoquispe',1,'Diego Armando Quispe Huamán',CURRENT_TIMESTAMP),
+('Lucía Alejandra', 'Salazar', 'Flores', '20229418', 'a20229418@pucp.edu.pe','luciaalej',2,'Lucía Alejandra Salazar Flores',CURRENT_TIMESTAMP),
+('Carlos Alberto', 'Rojas', 'Cáceres', '20219845', 'a20219845@pucp.edu.pe','carlberto',3,'Carlos Alberto Rojas Cáceres',CURRENT_TIMESTAMP),
+('Gabriela Sofía', 'Paredes', 'Chavez', '20237591', 'a20237591@pucp.edu.pe','gabsof',1,'Gabriela Sofía Paredes Chavez',CURRENT_TIMESTAMP),
+('Fernando Enrique', 'Huerta', 'Guzmán', '20226789', 'a20226789@pucp.edu.pe','feriq',2,'Fernando Enrique Huerta Guzmán',CURRENT_TIMESTAMP),
+('Valeria Isabel', 'Martínez', 'Zamora', '20231852', 'a20231852@pucp.edu.pe','valeri',3,'Valeria Isabel Martínez Zamora',CURRENT_TIMESTAMP),
+('Santiago Nicolás', 'Gonzales', 'Linares', '20238417', 'a20238417@pucp.edu.pe','santi123',1,'Santiago Nicolás Gonzales Linares',CURRENT_TIMESTAMP);
 
 INSERT INTO items(
     COLOR_ID, ESTADO_ITEM_ID, CONDICION_ID, TAMANO_ID, FORMATO_ID, 
@@ -154,19 +154,19 @@ INSERT INTO items(
 
 -- Insertar un nuevo chat
 INSERT INTO chats (
-    estado_chat_ID_ESTADOCHAT
+    estado_chat_ID_ESTADOCHAT,USUARIO_CREACION
 )
 VALUES 
-(1),
-(2),
-(1),
-(2);
+(1,@admin_user),
+(2,@admin_user),
+(1,@admin_user),
+(2,@admin_user);
 
 -- -----------------------------------------------------
 -- GRUPO 4: RELACIONES M-M (Muchos-a-Muchos)
 -- -----------------------------------------------------
 INSERT INTO personas_roles(PERSONA_ID, ROLPERSONA_ID) VALUES
-(1, 1), 
+(1, 1),
 (2, 2),
 (3, 3),
 (4, 1),
@@ -195,9 +195,9 @@ INSERT INTO publicaciones(
 (2, 10, 2, 5, 'José Luis Castro Vargas');  -- Publicación 10, "PSICOLOGIA BASICA", Persona 2, con calificación 5
 
 INSERT INTO alquileres(
-    PERSONA_ID, ITEM_ID, FECHA_INICIO, MONTO, DEVUELTO
+    PERSONA_ID, ITEM_ID, FECHA_INICIO, MONTO, DEVUELTO, USUARIO_CREACION, FECHA_CREACION
 ) VALUES (
-    2, 1, NOW(), 15.00, 0 
+    2, 1, NOW(), 15.00, 0, @admin_user,CURRENT_TIMESTAMP 
 );
 
 
@@ -218,18 +218,18 @@ INSERT INTO comprobantes(
 (10, 1, 1, 'TXN_010', 60.00, 18.00,'Santiago Nicolás Gonzales Linares');    -- Persona 10, Tarjeta de Crédito, Soles
 
 INSERT INTO alquileres(
-    PERSONA_ID, ITEM_ID, FECHA_INICIO, FECHA_FIN, MONTO, DEVUELTO
+    PERSONA_ID, ITEM_ID, FECHA_INICIO, FECHA_FIN, MONTO, DEVUELTO, USUARIO_CREACION
 ) VALUES 
-(2, 1, NOW(), NULL, 15.00, 0),  -- Alquiler 1, Persona 2, Item 1
-(2, 2, NOW(), NULL, 25.00, 0),  -- Alquiler 2, Persona 2, Item 2
-(3, 3, NOW(), NULL, 35.00, 0),  -- Alquiler 3, Persona 3, Item 3
-(4, 4, NOW(), NULL, 20.00, 0),  -- Alquiler 4, Persona 4, Item 4
-(5, 5, NOW(), NULL, 10.00, 0),  -- Alquiler 5, Persona 5, Item 5
-(6, 6, NOW(), NULL, 40.00, 0),  -- Alquiler 6, Persona 6, Item 6
-(7, 7, NOW(), NULL, 30.00, 0),  -- Alquiler 7, Persona 7, Item 7
-(8, 8, NOW(), NULL, 22.50, 0),  -- Alquiler 8, Persona 8, Item 8
-(9, 9, NOW(), NULL, 50.00, 0),  -- Alquiler 9, Persona 9, Item 9
-(2, 10, NOW(), NULL, 60.00, 0); -- Alquiler 10, Persona 2, Item 10
+(2, 1, NOW(), NULL, 15.00, 0, @admin_user),  -- Alquiler 1, Persona 2, Item 1
+(2, 2, NOW(), NULL, 25.00, 0, @admin_user),  -- Alquiler 2, Persona 2, Item 2
+(3, 3, NOW(), NULL, 35.00, 0, @admin_user),  -- Alquiler 3, Persona 3, Item 3
+(4, 4, NOW(), NULL, 20.00, 0, @admin_user),  -- Alquiler 4, Persona 4, Item 4
+(5, 5, NOW(), NULL, 10.00, 0, @admin_user),  -- Alquiler 5, Persona 5, Item 5
+(6, 6, NOW(), NULL, 40.00, 0, @admin_user),  -- Alquiler 6, Persona 6, Item 6
+(7, 7, NOW(), NULL, 30.00, 0, @admin_user),  -- Alquiler 7, Persona 7, Item 7
+(8, 8, NOW(), NULL, 22.50, 0, @admin_user),  -- Alquiler 8, Persona 8, Item 8
+(9, 9, NOW(), NULL, 50.00, 0, @admin_user),  -- Alquiler 9, Persona 9, Item 9
+(2, 10, NOW(), NULL, 60.00, 0, @admin_user); -- Alquiler 10, Persona 2, Item 10
 
 -- Insertar Detalle de Comprobante 
 INSERT INTO detalles_comprobantes(
@@ -253,18 +253,18 @@ INSERT INTO detalles_comprobantes(
 -- Mensajes para los chats previos
 INSERT INTO mensajes(
     CHAT_ID_CHAT, ESTADO_MSJ_ID, PERSONA_ID, 
-    FECHA_ENVIO, FECHA_LEIDO, MENSAJE
+    FECHA_ENVIO, FECHA_LEIDO, MENSAJE, USUARIO_CREACION
 ) VALUES 
-(1, 1, 2, NOW(), NULL, 'Hola, ¿cómo estás?'),    -- Mensaje 1 en Chat 1, enviado por Persona 2
-(1, 1, 1, NOW(), NULL, '¡Hola! Todo bien, ¿y tú?'), -- Mensaje 2 en Chat 2, enviado por Persona 3
-(2, 2, 3, NOW(), NULL, 'Este es un mensaje de prueba.'), -- Mensaje 3 en Chat 3, enviado por Persona 4
-(1, 1, 1, NOW(), NULL, 'Recuerda estudiar para el examen de física.'), -- Mensaje 4 en Chat 4, enviado por Persona 5
-(3, 1, 4, NOW(), NULL, '¿Nos vemos mañana?'),  -- Mensaje 5 en Chat 5, enviado por Persona 6
-(3, 2, 3, NOW(), NULL, 'Aquí tienes el archivo que me pediste.'), -- Mensaje 6 en Chat 6, enviado por Persona 7
-(3, 1, 4, NOW(), NULL, '¿Puedo ayudarte con algo?'), -- Mensaje 7 en Chat 7, enviado por Persona 8
-(4, 1, 5, NOW(), NULL, 'Hola, ¿ya terminaste el informe?'), -- Mensaje 8 en Chat 8, enviado por Persona 9
-(4, 1, 6, NOW(), NULL, 'Sí, ya lo terminé, lo enviaré mañana.'), -- Mensaje 9 en Chat 9, enviado por Persona 10
-(4, 1, 5, NOW(), NULL, 'Confirmado, nos vemos a las 3 PM.'); -- Mensaje 10 en Chat 10, enviado por Persona 2
+(1, 1, 2, NOW(), NULL, 'Hola, ¿cómo estás?',@admin_user ),    -- Mensaje 1 en Chat 1, enviado por Persona 2
+(1, 1, 1, NOW(), NULL, '¡Hola! Todo bien, ¿y tú?',@admin_user ), -- Mensaje 2 en Chat 2, enviado por Persona 3
+(2, 2, 3, NOW(), NULL, 'Este es un mensaje de prueba.',@admin_user ), -- Mensaje 3 en Chat 3, enviado por Persona 4
+(1, 1, 1, NOW(), NULL, 'Recuerda estudiar para el examen de física.',@admin_user ), -- Mensaje 4 en Chat 4, enviado por Persona 5
+(3, 1, 4, NOW(), NULL, '¿Nos vemos mañana?', @admin_user ),  -- Mensaje 5 en Chat 5, enviado por Persona 6
+(3, 2, 3, NOW(), NULL, 'Aquí tienes el archivo que me pediste.',@admin_user ), -- Mensaje 6 en Chat 6, enviado por Persona 7
+(3, 1, 4, NOW(), NULL, '¿Puedo ayudarte con algo?', @admin_user ), -- Mensaje 7 en Chat 7, enviado por Persona 8
+(4, 1, 5, NOW(), NULL, 'Hola, ¿ya terminaste el informe?', @admin_user ), -- Mensaje 8 en Chat 8, enviado por Persona 9
+(4, 1, 6, NOW(), NULL, 'Sí, ya lo terminé, lo enviaré mañana.',@admin_user ), -- Mensaje 9 en Chat 9, enviado por Persona 10
+(4, 1, 5, NOW(), NULL, 'Confirmado, nos vemos a las 3 PM.',@admin_user ); -- Mensaje 10 en Chat 10, enviado por Persona 2
 
 -- Notificaciones enviadas
 INSERT INTO notificaciones(

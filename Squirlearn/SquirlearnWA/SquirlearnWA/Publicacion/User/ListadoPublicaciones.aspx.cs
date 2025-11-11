@@ -221,7 +221,7 @@ namespace SquirlearnWA
 
        
 
-        protected string GetEstadoColor(string estado) { 
+        public string GetEstadoColor(string estado) { 
             string color;
                 switch (estado)
                 {

@@ -15,7 +15,20 @@ namespace SquirlearnWA.Principal
     {
 
         /// <summary>
+<<<<<<< HEAD:Squirlearn/SquirlearnWA/SquirlearnWA/DetalleAlquiler.aspx.designer.cs
+        /// Control lblVendedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVendedor;
+
+        /// <summary>
+        /// Control imgProducto.
+=======
         /// Control txtBuscar.
+>>>>>>> 226c941c4fefe1ee8760a25dab879a65d6492184:Squirlearn/SquirlearnWA/SquirlearnWA/Principal/SquirLearnInicio.aspx.designer.cs
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -138,6 +151,46 @@ namespace SquirlearnWA.Principal
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
+<<<<<<< HEAD:Squirlearn/SquirlearnWA/SquirlearnWA/DetalleAlquiler.aspx.designer.cs
+        protected global::System.Web.UI.WebControls.Label lblSubtotal;
+
+        /// <summary>
+        /// Control lblTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTotal;
+
+        /// <summary>
+        /// Control chkAceptar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkAceptar;
+
+        /// <summary>
+        /// Control lblErrorTerminos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorTerminos;
+
+        /// <summary>
+        /// Control btnAlquilar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAlquilar;
+=======
         protected global::System.Web.UI.WebControls.Repeater rptProductos;
+>>>>>>> 226c941c4fefe1ee8760a25dab879a65d6492184:Squirlearn/SquirlearnWA/SquirlearnWA/Principal/SquirLearnInicio.aspx.designer.cs
     }
 }

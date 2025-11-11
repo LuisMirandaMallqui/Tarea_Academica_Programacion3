@@ -395,5 +395,5 @@ namespace SquirlearnWA
             public DateTime FechaEnvio { get; set; } = DateTime.Now;
         }
         */
-    }
+    
 }

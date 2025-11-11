@@ -1,4 +1,5 @@
-﻿using SquirLearnBusiness;
+﻿using SoftInvBusiness;
+using SquirLearnBusiness;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,8 +59,13 @@ namespace SquirlearnWA
             var publicacion = bo.ObtenerPorId(idPublicacion);
 
             // 3️⃣ También obtener el nombre del usuario si solo tienes su ID
-            UsuarioBO usuarioBO = new UsuarioBO();
-            publicacion.NombreUsuario = usuarioBO.obtenerNombreUsuario(publicacion.UsuarioId);
+            BuscarPersonaBO usuarioBO = new BuscarPersonaBO();
+            PersonaDto persona = usuarioBO.BuscarPersonaPorId(publicacion.UsuarioId, idPublicacion);
+            publicacion.NombreVendedor = persona.Nombre;
+
+            // Guardar los IDs en la sesión
+            Session["IdPublicacion"] = publicacion.IdPublicacion;
+            Session["IdPersona"] = persona.Id;
 
             // 4️⃣ Enlazar los datos al FormView
             fvPedido.DataSource = new[] { publicacion };
