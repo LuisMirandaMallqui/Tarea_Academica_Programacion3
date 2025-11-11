@@ -25,6 +25,11 @@ public class Comprobante {
         this.comprobanteBo = new ComprobanteBo();
     }
     
+    @WebMethod(operationName = "procesarPago")
+    public Integer procesaPago(){
+        
+    }
+    
     @WebMethod(operationName = "insertarComprobante")
     public Integer insertarComprobante(
             @WebParam(name = "monto") Double monto,

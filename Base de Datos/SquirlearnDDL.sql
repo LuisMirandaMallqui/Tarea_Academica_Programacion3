@@ -343,7 +343,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`alquileres` (
   `DEVUELTO` TINYINT NOT NULL COMMENT 'Flag (1=Devuelto, 0=No devuelto) para estado de devolución.',
   -- Auditoria
   `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
-  `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
+  `FECHA_CREACION` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha y hora de creación del registro.',
   `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
   `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`ALQUILER_ID`),
@@ -464,7 +464,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`comprobantes` (
   `MONEDA_ID_MONEDA` INT NOT NULL COMMENT 'FK que referencia a la moneda del pago.',
   -- Atributos
   `TRANSACCION_ID` VARCHAR(45) NOT NULL COMMENT 'ID de la transacción devuelto por la pasarela de pago.',
-  `FECHA_EMISION` DATETIME NOT NULL COMMENT 'Fecha y hora de emisión del comprobante.',
+  `FECHA_EMISION` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha y hora de emisión del comprobante.',
   `MONTO` DECIMAL(10,2) NOT NULL COMMENT 'Monto total pagado.',
   `IMPUESTO` DECIMAL(10,2) NULL DEFAULT NULL COMMENT 'Impuesto (IGV) aplicado al monto.',
   -- Auditoria
@@ -747,7 +747,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`mensajes` (
   `MENSAJE` TEXT NOT NULL COMMENT 'Contenido del mensaje.',
   -- Auditoria
   `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
-  `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
+  `FECHA_CREACION` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha y hora de creación del registro.',
   `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
   `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`MENSAJE_ID`, `CHAT_ID_CHAT`),
