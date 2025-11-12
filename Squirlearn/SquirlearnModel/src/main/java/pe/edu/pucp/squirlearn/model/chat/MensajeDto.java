@@ -1,6 +1,6 @@
 package pe.edu.pucp.squirlearn.model.chat;
 
-import java.sql.Date;
+import java.util.Date;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
 public class MensajeDto {
