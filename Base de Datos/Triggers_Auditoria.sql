@@ -1,4 +1,3 @@
-
 DELIMITER $$
 /*CATEGORIAS*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 DROP TRIGGER IF EXISTS TRG_CATEGORIAS_INSERT_CREACION $$ 
@@ -92,7 +91,6 @@ DROP TRIGGER IF EXISTS TRG_PERSONAS_UPDATE_AUDITORIA $$
 /*PUBLICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 DROP TRIGGER IF EXISTS TRG_PUBLICACIONES_INSERT_CREACION $$ 
 DROP TRIGGER IF EXISTS TRG_PUBLICACIONES_UPDATE_AUDITORIA $$ 
-DROP TRIGGER IF EXISTS TRG_PUBLICACIONES_UPDATE_BAJA $$
 
 /*MENSAJES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 DROP TRIGGER IF EXISTS TRG_MENSAJES_INSERT_CREACION $$ 
@@ -551,28 +549,27 @@ CREATE TRIGGER TRG_PUBLICACIONES_UPDATE_AUDITORIA
 BEFORE UPDATE ON publicaciones
 FOR EACH ROW 
 BEGIN
+	DECLARE v_nuevo_estado_nombre VARCHAR(100);
 	SET NEW.FECHA_MODIFICACION = NOW();
-    -- viene desde el frente
-END $$
+    -- Usuario viene desde el frente
 
-/*
-CREATE TRIGGER TRG_PUBLICACIONES_UPDATE_BAJA
-BEFORE UPDATE ON publicaciones
-FOR EACH ROW
-BEGIN
-	DECLARE v_id_aprobado  INT;
+    -- Comprobar si el estado de la publicación realmente cambió
     IF NEW.ESTADO_PUBLICACION_ID <> OLD.ESTADO_PUBLICACION_ID THEN
-		SELECT ep.ESTADOPUBLI_ID
-			INTO v_id_aprobado
-			FROM estados_publicaciones ep
-		WHERE UPPER(ep.NOMBRE) IN ('Eliminada')
-		LIMIT 1;
-		IF v_id_aprobado IS NOT NULL AND NEW.ESTADO_PUBLICACION_ID = v_id_aprobado THEN
+        -- Obtener el NOMBRE del nuevo estado
+        SELECT NOMBRE 
+        INTO v_nuevo_estado_nombre 
+        FROM estados_publicaciones 
+        WHERE ESTADOPUBLI_ID = NEW.ESTADO_PUBLICACION_ID;
+        -- Lógica de FECHA_ALTA y FECHA_BAJA
+        IF (v_nuevo_estado_nombre = 'Aprobada') THEN
+            SET NEW.FECHA_ALTA = NOW();
+            SET NEW.FECHA_BAJA = NULL; 
+        ELSEIF (v_nuevo_estado_nombre = 'Eliminada' ) THEN -- por ver si se incluye a 'Rechazada'
             SET NEW.FECHA_BAJA = NOW();
-		END IF;
-	END IF;
+            SET NEW.FECHA_ALTA = NULL; 
+        END IF;
+    END IF;
 END $$
-*/
 
 /*MENSAJES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 CREATE TRIGGER TRG_MENSAJES_INSERT_CREACION
