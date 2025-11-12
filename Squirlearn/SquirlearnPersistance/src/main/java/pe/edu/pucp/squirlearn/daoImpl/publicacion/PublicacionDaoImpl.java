@@ -175,7 +175,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         String sql = this.generarSQLParaListarTodos() + " WHERE ESTADO_PUBLICACION_ID=?";
         Consumer<PreparedStatement> incluir = ps -> {
             try {
-                ps.setInt(1, estadoId);
+                this.statement.setInt(1, estadoId);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

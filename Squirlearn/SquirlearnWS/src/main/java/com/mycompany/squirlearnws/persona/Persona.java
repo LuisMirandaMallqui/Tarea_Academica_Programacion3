@@ -8,6 +8,8 @@ import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import java.util.Date;
+//import jakarta.xml.datatype.XMLGregorianCalendar;
+import javax.xml.datatype.XMLGregorianCalendar;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 import pe.pucp.edu.squirlearn.business.persona.PersonaBo;
 
@@ -19,11 +21,11 @@ import pe.pucp.edu.squirlearn.business.persona.PersonaBo;
 public class Persona {
 
     private PersonaBo personaBo;
-    
-    public Persona(){
+
+    public Persona() {
         this.personaBo = new PersonaBo();
     }
-    
+
     @WebMethod(operationName = "insertarPersona")
     public Integer insertarPersona(
             @WebParam(name = "nombres") String nombres,
@@ -33,9 +35,13 @@ public class Persona {
             @WebParam(name = "correo") String correo,
             @WebParam(name = "contrasena") String contrasena,
             @WebParam(name = "usuario") String usuario,
-            @WebParam(name = "creadorId") Date actividad) {
-        return this.personaBo.insertar(nombres, primerApellido, segundoApellido, 
-                codigo, correo, contrasena, usuario, actividad);
+            @WebParam(name = "ultimaActividad") Date actividadXML) {
+//        Date actividadDate = null;
+//        if (actividadXML != null) {
+//            actividadDate = actividadXML.toGregorianCalendar().getTime();
+//        }
+        return this.personaBo.insertar(nombres, primerApellido, segundoApellido,
+                codigo, correo, contrasena, usuario, actividadXML);
     }
 
     @WebMethod(operationName = "modificarPersona")
@@ -50,9 +56,14 @@ public class Persona {
             @WebParam(name = "estadoId") Integer estadoId,
             @WebParam(name = "usuario") String usuario,
             @WebParam(name = "usuarioCreacion") String usuarioCreacion,
-            @WebParam(name = "creadorId") Date actividad) {
+            @WebParam(name = "ultimaActividad") XMLGregorianCalendar actividadXML) {
+        Date actividadDate = null;
+        if (actividadXML != null) {
+            actividadDate = actividadXML.toGregorianCalendar().getTime();
+        }
+
         return this.personaBo.modificar(id, nombres, primerApellido, segundoApellido, codigo, correo, contrasena,
-                estadoId, usuarioCreacion, usuario, actividad);
+                estadoId, usuarioCreacion, usuario, actividadDate);
     }
 
     @WebMethod(operationName = "logInPersona")

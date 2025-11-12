@@ -109,7 +109,7 @@ public class PersonaDaoImpl extends DAOImplBase implements PersonaDao {
         this.persona = new PersonaDto();
         
         EstadoPersonaDto ep = new EstadoPersonaDto();
-        ep.setEstadoPersonaId(this.resultSet.getInt("ESTADOPERSONA_ID"));
+        ep.setEstadoPersonaId(this.resultSet.getInt("ESTADO_PERSONA_ID_ESTADOPERSONA"));
         this.persona.setEstadoPersona(ep);
 
         this.persona.setPersonaId(this.resultSet.getInt("PERSONA_ID"));
