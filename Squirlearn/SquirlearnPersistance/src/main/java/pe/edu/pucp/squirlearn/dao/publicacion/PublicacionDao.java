@@ -10,6 +10,10 @@ public interface PublicacionDao extends IDAO<PublicacionDto>{
             Integer estadoId
     );
 
+    ArrayList<PublicacionDto> listarPorDueno(
+            Integer personaId
+    );
+
     public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(
             String terminoBusqueda,
             Boolean esVenta,

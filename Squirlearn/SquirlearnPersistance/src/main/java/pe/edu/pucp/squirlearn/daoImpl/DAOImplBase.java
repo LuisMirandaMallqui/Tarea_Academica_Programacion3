@@ -412,4 +412,5 @@ public abstract class DAOImplBase {
         if (provided != null && provided > 0) return provided;
         return getMinId(tabla, col);
     }
+
 }

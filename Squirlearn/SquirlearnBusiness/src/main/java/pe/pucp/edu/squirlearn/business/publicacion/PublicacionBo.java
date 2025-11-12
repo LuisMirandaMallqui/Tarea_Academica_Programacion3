@@ -84,7 +84,7 @@ public class PublicacionBo {
     }
 
     public ArrayList<PublicacionDto> listarPorDueno(Integer personaId) {
-        return this.publicacionDao.listarPorEstado(personaId); //necesita implementación
+        return this.publicacionDao.listarPorDueno(personaId); //necesita implementación
     }
 
     public PublicacionDto obtenerPorId(Integer id) {

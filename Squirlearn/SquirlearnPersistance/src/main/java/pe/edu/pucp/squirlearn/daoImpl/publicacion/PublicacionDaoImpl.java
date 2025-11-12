@@ -30,7 +30,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("PUBLICACION_ID", true, true));
         this.listaColumnas.add(new Columna("ESTADO_PUBLICACION_ID", false, false));
-        this.listaColumnas.add(new Columna("ITEM_ID", false, false));
+        this.listaColumnas.add(new Columna("ITEM_ID_ITEM", false, false));
         this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
         this.listaColumnas.add(new Columna("FECHA_ALTA", false, false));
         this.listaColumnas.add(new Columna("FECHA_BAJA", false, false));
@@ -175,7 +175,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         String sql = this.generarSQLParaListarTodos() + " WHERE ESTADO_PUBLICACION_ID=?";
         Consumer<PreparedStatement> incluir = ps -> {
             try {
-                ps.setInt(1, estadoId);
+                this.statement.setInt(1, estadoId);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -324,4 +324,18 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
 
         return (ArrayList<PublicacionDto>) this.listarTodos(sql.toString(), incluirValores, null);
     }
+
+    @Override
+    public ArrayList<PublicacionDto> listarPorDueno(Integer personaId) {
+        String sql = this.generarSQLParaListarTodos() + " WHERE PERSONA_ID=?";
+        Consumer<PreparedStatement> incluir = ps -> {
+            try {
+                this.statement.setInt(1, personaId);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        };
+        return (ArrayList<PublicacionDto>) (ArrayList) this.listarTodos(sql, incluir, null);
+    }
+
 }
