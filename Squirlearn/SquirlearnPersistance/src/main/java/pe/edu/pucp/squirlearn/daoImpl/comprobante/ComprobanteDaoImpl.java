@@ -9,7 +9,9 @@ import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
 import pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
 import pe.edu.pucp.squirlearn.model.comprobante.ComprobanteDto;
+import pe.edu.pucp.squirlearn.model.comprobante.FormaPagoDto;
 import pe.edu.pucp.squirlearn.model.comprobante.MonedaPagoDto;
+import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
 public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao{
 
@@ -24,15 +26,14 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao{
     @Override
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("COMPROBANTE_ID", true, true));
-        this.listaColumnas.add(new Columna("MONTO", false, false));
-        this.listaColumnas.add(new Columna("TRANSACCION", false, false));
+        this.listaColumnas.add(new Columna("PERSONA_ID_PERSONA", false, false));
+        this.listaColumnas.add(new Columna("FORMA_PAGO_ID_FORMAPAGO", false, false));
+        this.listaColumnas.add(new Columna("MONEDA_ID_MONEDA", false, false));
+        this.listaColumnas.add(new Columna("TRANSACCION_ID", false, false));
         this.listaColumnas.add(new Columna("FECHA_EMISION", false, false));
+        this.listaColumnas.add(new Columna("MONTO", false, false));
         this.listaColumnas.add(new Columna("IMPUESTO", false, false));
-        this.listaColumnas.add(new Columna("PERSONA", false, false));
-        this.listaColumnas.add(new Columna("FORMA_PAGO", false, false));
-        this.listaColumnas.add(new Columna("MONEDA", false, false));
-        this.listaColumnas.add(new Columna("FECHA_MODIFICACION", false, false));
-        this.listaColumnas.add(new Columna("USUARIO_MODIFICACION", false, false));
+        this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
     }
 
     @Override
@@ -51,13 +52,14 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao{
         );
 
         int i = 1;
-        this.statement.setDouble(i++, this.comprobante.getMonto());
-        this.statement.setString(i++, this.comprobante.getTransaccion());
-        this.statement.setDate(i++, this.comprobante.getFechaEmision());
         this.statement.setInt(i++, personaId);
         this.statement.setInt(i++, formaPagoId);
         this.statement.setInt(i++, monedaId);
-        this.statement.setDouble(i++, this.comprobante.getImpuesto()); // puede ser null
+        this.statement.setString(i++, this.comprobante.getTransaccion());
+        this.statement.setDate(i++, this.comprobante.getFechaEmision());
+        this.statement.setDouble(i++, this.comprobante.getMonto());
+        this.statement.setDouble(i++, this.comprobante.getImpuesto() == null ? 0.0 :this.comprobante.getImpuesto()); // puede ser null
+        this.statement.setString(i++, this.comprobante.getusuarioCreacion());
     }
 
     @Override
@@ -76,27 +78,29 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao{
         );
 
         int i = 1;
-        this.statement.setDouble(i++, this.comprobante.getMonto());
-        this.statement.setString(i++, this.comprobante.getTransaccion());
-        this.statement.setDate(i++, this.comprobante.getFechaEmision());
         this.statement.setInt(i++, personaId);
         this.statement.setInt(i++, formaPagoId);
         this.statement.setInt(i++, monedaId);
-        this.statement.setDouble(i++, this.comprobante.getImpuesto());
+        this.statement.setString(i++, this.comprobante.getTransaccion());
+        this.statement.setDate(i++, this.comprobante.getFechaEmision());
+        this.statement.setDouble(i++, this.comprobante.getMonto());
+        this.statement.setDouble(i++, this.comprobante.getImpuesto() == null ? 0.0 :this.comprobante.getImpuesto()); // puede ser null
+        this.statement.setString(i++, this.comprobante.getusuarioCreacion());
         this.statement.setInt(i++, this.comprobante.getComprobanteId()); // WHERE
     }
 
     @Override
     protected void instanciarObjetoDelResultSet() throws SQLException {
-        this.comprobante = new pe.edu.pucp.squirlearn.model.comprobante.ComprobanteDto();
-
+        this.comprobante = new ComprobanteDto();
+        
+        this.comprobante.setComprobanteId(this.resultSet.getInt("COMPROBANTE_ID"));
         // Persona
-        pe.edu.pucp.squirlearn.model.persona.PersonaDto persona = new pe.edu.pucp.squirlearn.model.persona.PersonaDto();
+        PersonaDto persona = new PersonaDto();
         persona.setPersonaId(this.resultSet.getInt("PERSONA_ID_PERSONA"));
         this.comprobante.setPersona(persona);
 
         // FormaPago
-        pe.edu.pucp.squirlearn.model.comprobante.FormaPagoDto fp = new pe.edu.pucp.squirlearn.model.comprobante.FormaPagoDto();
+        FormaPagoDto fp = new FormaPagoDto();
         fp.setFormaPagoId(this.resultSet.getInt("FORMA_PAGO_ID_FORMAPAGO"));
         this.comprobante.setFormaPago(fp);
 
@@ -106,11 +110,12 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao{
         this.comprobante.setMoneda(mon);
 
         // Escalares
-        this.comprobante.setComprobanteId(this.resultSet.getInt("COMPROBANTE_ID"));
+        
         this.comprobante.setMonto(this.resultSet.getDouble("MONTO"));
         this.comprobante.setTransaccion(this.resultSet.getString("TRANSACCION_ID"));
         this.comprobante.setFechaEmision(this.resultSet.getDate("FECHA_EMISION"));
         this.comprobante.setImpuesto(this.resultSet.getDouble("IMPUESTO"));
+        this.comprobante.setusuarioCreacion(this.resultSet.getString("USUARIO_CREACION"));
     }
 
 

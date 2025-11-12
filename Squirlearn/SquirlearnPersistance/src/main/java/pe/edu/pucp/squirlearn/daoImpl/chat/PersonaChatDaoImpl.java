@@ -40,9 +40,8 @@ public class PersonaChatDaoImpl extends DAOImplBase implements PersonaChatDao{
         );
 
         int i = 1;
-        this.statement.setInt(i++, this.personaChat.getPersona().getPersonaId());   // PERSONA_ID
-        this.statement.setInt(i++, this.personaChat.getChat().getChatId());         // CHAT_ID
-// ULTIMA_ACTIVIDAD
+        this.statement.setInt(i++, personaId);   // PERSONA_ID
+        this.statement.setInt(i++, chatId);         // CHAT_ID
     }
 
 
@@ -60,10 +59,6 @@ public class PersonaChatDaoImpl extends DAOImplBase implements PersonaChatDao{
         int i = 1;
         this.statement.setInt(i++, personaId);                                     // PERSONA_ID=?
         this.statement.setInt(i++, chatId);                                        // CHAT_ID=?
-// ULTIMA_ACTIVIDAD=?
-        // WHERE PERSONA_ID=? AND CHAT_ID=?
-        this.statement.setInt(i++, personaId);
-        this.statement.setInt(i++, chatId);
     }
 
 

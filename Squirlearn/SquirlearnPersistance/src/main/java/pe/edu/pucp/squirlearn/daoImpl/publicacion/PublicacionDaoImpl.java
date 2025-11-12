@@ -1,6 +1,5 @@
 package pe.edu.pucp.squirlearn.daoImpl.publicacion;
 
-import pe.edu.pucp.squirlearn.daoImpl.util.ParamReporteAlquiler;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -17,7 +16,7 @@ import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 import pe.edu.pucp.squirlearn.model.publicacion.EstadoPublicacionDto;
 import pe.edu.pucp.squirlearn.model.publicacion.PublicacionDto;
 
-public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
+public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
 
     private PublicacionDto publicacion;
 
@@ -30,65 +29,72 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
     @Override
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("PUBLICACION_ID", true, true));
+        this.listaColumnas.add(new Columna("ESTADO_PUBLICACION_ID", false, false));
+        this.listaColumnas.add(new Columna("ITEM_ID", false, false));
+        this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
         this.listaColumnas.add(new Columna("FECHA_ALTA", false, false));
         this.listaColumnas.add(new Columna("FECHA_BAJA", false, false));
-        this.listaColumnas.add(new Columna("ESTADO_PUBLICACION", false, false));
-        this.listaColumnas.add(new Columna("ITEM", false, false));
-        this.listaColumnas.add(new Columna("PERSONA", false, false));
         this.listaColumnas.add(new Columna("CALIFICACION", false, false));
+        this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
+        this.listaColumnas.add(new Columna("USUARIO_MODIFICACION", false, false));
     }
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
+        int i=1;
         int estadoId = safeFkId(
-                (this.publicacion.getEstadoPublicacion() == null ? null : this.publicacion.getEstadoPublicacion().getEstadoPublicacionId()),
-                "estados_publicaciones", "ESTADOPUBLI_ID"
+            (this.publicacion.getEstadoPublicacion() == null ? null : this.publicacion.getEstadoPublicacion().getEstadoPublicacionId()),
+            "estados_publicaciones", "ESTADOPUBLI_ID"
         );
         int itemId = safeFkId(
-                (this.publicacion.getItem() == null ? null : this.publicacion.getItem().getItemId()),
-                "items", "ITEM_ID"
+            (this.publicacion.getItem() == null ? null : this.publicacion.getItem().getItemId()),
+            "items", "ITEM_ID"
         );
         int personaId = safeFkId(
-                (this.publicacion.getPersona() == null ? null : this.publicacion.getPersona().getPersonaId()),
-                "personas", "PERSONA_ID"
+            (this.publicacion.getPersona() == null ? null : this.publicacion.getPersona().getPersonaId()),
+            "personas", "PERSONA_ID"
         );
 
-        this.statement.setDate(1, (java.sql.Date) this.publicacion.getFechaAlta());
-        this.statement.setDate(2, (java.sql.Date) this.publicacion.getFechaBaja());
-        this.statement.setInt(3, estadoId);
-        this.statement.setInt(4, itemId);
-        this.statement.setInt(5, personaId);
-        this.statement.setInt(6, this.publicacion.getCalificacion()); // es int, no DTO
+        this.statement.setInt(i++, estadoId);
+        this.statement.setInt(i++, itemId);
+        this.statement.setInt(i++, personaId);
+        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaAlta());
+        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaBaja());
+        this.statement.setInt(i++, this.publicacion.getCalificacion()); 
+        this.statement.setString(i++, this.publicacion.getusuarioCreacion()); 
+        this.statement.setString(i++, this.publicacion.getusuarioModificacion()); 
     }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int estadoId = safeFkId(
-                (this.publicacion.getEstadoPublicacion() == null ? null : this.publicacion.getEstadoPublicacion().getEstadoPublicacionId()),
-                "estados_publicaciones", "ESTADOPUBLI_ID"
+            (this.publicacion.getEstadoPublicacion() == null ? null : this.publicacion.getEstadoPublicacion().getEstadoPublicacionId()),
+            "estados_publicaciones", "ESTADOPUBLI_ID"
         );
         int itemId = safeFkId(
-                (this.publicacion.getItem() == null ? null : this.publicacion.getItem().getItemId()),
-                "items", "ITEM_ID"
+            (this.publicacion.getItem() == null ? null : this.publicacion.getItem().getItemId()),
+            "items", "ITEM_ID"
         );
         int personaId = safeFkId(
-                (this.publicacion.getPersona() == null ? null : this.publicacion.getPersona().getPersonaId()),
-                "personas", "PERSONA_ID"
+            (this.publicacion.getPersona() == null ? null : this.publicacion.getPersona().getPersonaId()),
+            "personas", "PERSONA_ID"
         );
 
         int i = 1;
-        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaAlta());
-        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaBaja());
         this.statement.setInt(i++, estadoId);
         this.statement.setInt(i++, itemId);
         this.statement.setInt(i++, personaId);
-        this.statement.setInt(i++, this.publicacion.getCalificacion());
+        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaAlta());
+        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaBaja());
+        this.statement.setInt(i++, this.publicacion.getCalificacion()); 
+        this.statement.setString(i++, this.publicacion.getusuarioCreacion()); 
+        this.statement.setString(i++, this.publicacion.getusuarioModificacion()); 
         this.statement.setInt(i++, this.publicacion.getPublicacionId()); // WHERE
     }
 
     @Override
     protected void instanciarObjetoDelResultSet() throws SQLException {
-        this.publicacion = new pe.edu.pucp.squirlearn.model.publicacion.PublicacionDto();
+        this.publicacion = new PublicacionDto();
 
         // EstadoPublicacion
         EstadoPublicacionDto ep = new EstadoPublicacionDto();
@@ -112,6 +118,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         this.publicacion.setCalificacion(this.resultSet.getInt("CALIFICACION"));
     }
 
+
     @Override
     protected void incluirValorDeParametrosParaEliminacion() throws SQLException {
         this.statement.setInt(1, this.publicacion.getPublicacionId());
@@ -132,13 +139,12 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         this.instanciarObjetoDelResultSet();
         lista.add(this.publicacion);
     }
-
+    
     @Override
     public Integer insertar(PublicacionDto publicacion) {
         this.publicacion = publicacion;
         return super.insertar();
     }
-
     @Override
     public PublicacionDto obtenerPorId(Integer id) {
         this.publicacion = new PublicacionDto();
@@ -194,12 +200,12 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         } catch (java.sql.SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
+    }   
+    
     public void ejecutarReporteTransaccionesOfertador() {
         Object parametros = new ParamReporteTransaccionesOfertador(
-                /* _inicio */Date.valueOf("2025-01-01"),
-                /* _fin    */ Date.valueOf("2025-12-31")
+            /* _inicio */ Date.valueOf("2025-01-01"),
+            /* _fin    */ Date.valueOf("2025-12-31")
         );
         String sql = "{CALL REPORTE_TRANSACCCIONES_OFERTADOR(?, ?)}";
         Boolean conTransaccion = true;
@@ -216,11 +222,11 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
             throw new RuntimeException(e);
         }
     }
-
+    
     public void ejecutarReporteTransaccionesReceptor() {
         Object parametros = new ParamReporteTransaccionesReceptor(
-                /* _inicio */Date.valueOf("2025-01-01"),
-                /* _fin    */ Date.valueOf("2025-12-31")
+            /* _inicio */ Date.valueOf("2025-01-01"),
+            /* _fin    */ Date.valueOf("2025-12-31")
         );
         String sql = "{CALL REPORTE_TRANSACCCIONES_RECEPTOR(?, ?)}";
         Boolean conTransaccion = true;
@@ -237,7 +243,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
             throw new RuntimeException(e);
         }
     }
-
+    
     @Override
     public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(
             String terminoBusqueda,

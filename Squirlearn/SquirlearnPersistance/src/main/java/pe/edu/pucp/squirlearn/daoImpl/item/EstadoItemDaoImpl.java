@@ -20,24 +20,21 @@ public class EstadoItemDaoImpl extends DAOImplBase implements EstadoItemDao{
 
     @Override
     protected void configurarListaDeColumnas() {
-        this.listaColumnas.add(new Columna("ESTADO_ITEM_ID", true, true));
+        this.listaColumnas.add(new Columna("ESTADOITEM_ID", true, true));
         this.listaColumnas.add(new Columna("NOMBRE", false, false));
-
-
-
-}
+    }
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.estadoItem.getNombre());
-}
+    }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.estadoItem.getNombre());
-this.statement.setInt(i++, this.estadoItem.getEstadoItemId()); // WHERE
+        this.statement.setInt(i++, this.estadoItem.getEstadoItemId()); // WHERE
     }
 
     @Override

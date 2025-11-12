@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
 import pe.edu.pucp.squirlearn.dao.item.ItemDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
+import pe.edu.pucp.squirlearn.model.item.CategoriaDto;
 import pe.edu.pucp.squirlearn.model.item.ColorDto;
 import pe.edu.pucp.squirlearn.model.item.CondicionDto;
 import pe.edu.pucp.squirlearn.model.item.EstadoItemDto;
@@ -26,66 +27,101 @@ public class ItemDaoImpl extends DAOImplBase implements ItemDao{
     @Override
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("ITEM_ID", true, true));
-        this.listaColumnas.add(new Columna("PRECIO", false, false));
+        this.listaColumnas.add(new Columna("COLOR_ID", false, false));
+        this.listaColumnas.add(new Columna("ESTADO_ITEM_ID", false, false));
+        this.listaColumnas.add(new Columna("CONDICION_ID", false, false));
+        this.listaColumnas.add(new Columna("TAMANO_ID", false, false));
+        this.listaColumnas.add(new Columna("FORMATO_ID", false, false));
+        this.listaColumnas.add(new Columna("subcategoria_ID_SUBCATEGORIA", false, false));
+        this.listaColumnas.add(new Columna("subcategoria_CATEGORIA_ID", false, false));
         this.listaColumnas.add(new Columna("NOMBRE", false, false));
+        this.listaColumnas.add(new Columna("DESCRIPCION", false, false));
+        this.listaColumnas.add(new Columna("PRECIO", false, false));
         this.listaColumnas.add(new Columna("ES_VENTA", false, false));
-        this.listaColumnas.add(new Columna("SUBCATEGORIA", false, false));
-        this.listaColumnas.add(new Columna("CATEGORIA", false, false));
-        this.listaColumnas.add(new Columna("COLOR", false, false));
-        this.listaColumnas.add(new Columna("ESTADO_ITEM", false, false));
-        this.listaColumnas.add(new Columna("CONDICION", false, false));
-        this.listaColumnas.add(new Columna("FORMATO", false, false));
+        this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
+        this.listaColumnas.add(new Columna("USUARIO_MODIFICACION", false, false));
     }
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int colorId      = safeFkId((this.item.getColor() == null ? null : this.item.getColor().getColorId()), "colores", "COLOR_ID");
-        int estadoItemId = safeFkId((this.item.getEstadoItem() == null ? null : this.item.getEstadoItem().getEstadoItemId()), "estados_items", "ESTADOITEM_ID");
-        int condicionId  = safeFkId((this.item.getCondicion() == null ? null : this.item.getCondicion().getCondicionId()), "condiciones", "CONDICION_ID");
-        int tamanoId     = safeFkId((this.item.getTamano() == null ? null : this.item.getTamano().getTamanoId()), "tamanos", "TAMANO_ID");
-        int formatoId    = safeFkId((this.item.getFormato() == null ? null : this.item.getFormato().getFormatoId()), "formatos", "FORMATO_ID");
+        int colorId      = safeFkId(
+                (this.item.getColor() == null ? null : this.item.getColor().getColorId()), 
+                "colores", "COLOR_ID");
+        int estadoItemId = safeFkId(
+                (this.item.getEstadoItem() == null ? null : this.item.getEstadoItem().getEstadoItemId()), 
+                "estados_items", "ESTADOITEM_ID");
+        int condicionId  = safeFkId(
+                (this.item.getCondicion() == null ? null : this.item.getCondicion().getCondicionId()), 
+                "condiciones", "CONDICION_ID");
+        int tamanoId     = safeFkId(
+                (this.item.getTamano() == null ? null : this.item.getTamano().getTamanoId()), 
+                "tamanos", "TAMANO_ID");
+        int formatoId    = safeFkId(
+                (this.item.getFormato() == null ? null : this.item.getFormato().getFormatoId()), 
+                "formatos", "FORMATO_ID");
 
-        Integer providedSubId = (this.item.getSubcategoria() == null ? null : this.item.getSubcategoria().getSubcategoriaId());
-        Integer providedCatId = null;
+        int providedSubId =  safeFkId(
+                (this.item.getSubcategoria() == null ? null : this.item.getSubcategoria().getSubcategoriaId()),
+                "subcategorias","SUBCATEGORIA_ID");
+        int providedCatId =  safeFkId(
+                (this.item.getCategoria()== null ? null : this.item.getCategoria().getCategoriaId()),
+                "categorias","CATEGORIA_ID");
         
         int i = 1;
-        this.statement.setDouble(i++, this.item.getPrecio());                           // PRECIO
-        this.statement.setString(i++, this.item.getNombre());                               // NOMBRE
-        this.statement.setString(i++, this.item.getDescripcion());                          // DESCRIPCION
-        this.statement.setInt(i++, this.item.getEsVenta()? 1 : 0);                          // ES_VENTA (TINYINT)
         this.statement.setInt(i++, colorId);                                                // COLOR_ID
         this.statement.setInt(i++, estadoItemId);                                           // ESTADO_ITEM_ID
         this.statement.setInt(i++, condicionId);                                            // CONDICION_ID
         this.statement.setInt(i++, tamanoId);                                               // TAMANO_ID
         this.statement.setInt(i++, formatoId);                                              // FORMATO_ID
         this.statement.setInt(i++, providedSubId);                                                  // subcategoria_ID_SUBCATEGORIA
-        this.statement.setInt(i++, providedCatId);                                                  // subcategoria_CATEGORIA_ID
+        this.statement.setInt(i++, providedCatId);         
+        this.statement.setString(i++, this.item.getNombre());                               // NOMBRE
+        this.statement.setString(i++, this.item.getDescripcion());                          // DESCRIPCION
+        this.statement.setDouble(i++, this.item.getPrecio());                           // PRECIO
+        this.statement.setInt(i++, this.item.getEsVenta()? 1 : 0);                          // ES_VENTA (TINYINT)
+        this.statement.setString(i++, this.item.getusuarioCreacion());   
+        this.statement.setString(i++, this.item.getusuarioModificacion());          
     }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        int colorId      = safeFkId((this.item.getColor() == null ? null : this.item.getColor().getColorId()), "colores", "COLOR_ID");
-        int estadoItemId = safeFkId((this.item.getEstadoItem() == null ? null : this.item.getEstadoItem().getEstadoItemId()), "estados_items", "ESTADOITEM_ID");
-        int condicionId  = safeFkId((this.item.getCondicion() == null ? null : this.item.getCondicion().getCondicionId()), "condiciones", "CONDICION_ID");
-        int tamanoId     = safeFkId((this.item.getTamano() == null ? null : this.item.getTamano().getTamanoId()), "tamanos", "TAMANO_ID");
-        int formatoId    = safeFkId((this.item.getFormato() == null ? null : this.item.getFormato().getFormatoId()), "formatos", "FORMATO_ID");
+        int colorId      = safeFkId(
+                (this.item.getColor() == null ? null : this.item.getColor().getColorId()), 
+                "colores", "COLOR_ID");
+        int estadoItemId = safeFkId(
+                (this.item.getEstadoItem() == null ? null : this.item.getEstadoItem().getEstadoItemId()), 
+                "estados_items", "ESTADOITEM_ID");
+        int condicionId  = safeFkId(
+                (this.item.getCondicion() == null ? null : this.item.getCondicion().getCondicionId()), 
+                "condiciones", "CONDICION_ID");
+        int tamanoId     = safeFkId(
+                (this.item.getTamano() == null ? null : this.item.getTamano().getTamanoId()), 
+                "tamanos", "TAMANO_ID");
+        int formatoId    = safeFkId(
+                (this.item.getFormato() == null ? null : this.item.getFormato().getFormatoId()), 
+                "formatos", "FORMATO_ID");
 
-        Integer providedSubId = (this.item.getSubcategoria() == null ? null : this.item.getSubcategoria().getSubcategoriaId());
-        Integer providedCatId = null;
-
-
+        int providedSubId =  safeFkId(
+                (this.item.getSubcategoria() == null ? null : this.item.getSubcategoria().getSubcategoriaId()),
+                "subcategorias","SUBCATEGORIA_ID");
+        int providedCatId =  safeFkId(
+                (this.item.getCategoria()== null ? null : this.item.getCategoria().getCategoriaId()),
+                "categorias","CATEGORIA_ID");
+        
         int i = 1;
-        this.statement.setDouble(i++, this.item.getPrecio());
-        this.statement.setString(i++, this.item.getNombre());
-        this.statement.setString(i++, this.item.getDescripcion());
-        this.statement.setInt(i++, this.item.getEsVenta() ? 1 : 0);
-        this.statement.setInt(i++, colorId);
-        this.statement.setInt(i++, estadoItemId);
-        this.statement.setInt(i++, condicionId);
-        this.statement.setInt(i++, tamanoId);
-        this.statement.setInt(i++, formatoId);
-        this.statement.setInt(i++, providedSubId);
-        this.statement.setInt(i++, providedCatId);
+        this.statement.setInt(i++, colorId);                                                // COLOR_ID
+        this.statement.setInt(i++, estadoItemId);                                           // ESTADO_ITEM_ID
+        this.statement.setInt(i++, condicionId);                                            // CONDICION_ID
+        this.statement.setInt(i++, tamanoId);                                               // TAMANO_ID
+        this.statement.setInt(i++, formatoId);                                              // FORMATO_ID
+        this.statement.setInt(i++, providedSubId);                                                  // subcategoria_ID_SUBCATEGORIA
+        this.statement.setInt(i++, providedCatId);         
+        this.statement.setString(i++, this.item.getNombre());                               // NOMBRE
+        this.statement.setString(i++, this.item.getDescripcion());                          // DESCRIPCION
+        this.statement.setDouble(i++, this.item.getPrecio());                           // PRECIO
+        this.statement.setInt(i++, this.item.getEsVenta()? 1 : 0);                          // ES_VENTA (TINYINT)
+        this.statement.setString(i++, this.item.getusuarioCreacion());   
+        this.statement.setString(i++, this.item.getusuarioModificacion());   
         this.statement.setInt(i++, this.item.getItemId()); // WHERE ITEM_ID=?
     }
 
@@ -104,6 +140,7 @@ public class ItemDaoImpl extends DAOImplBase implements ItemDao{
     protected void instanciarObjetoDelResultSet() throws SQLException {
         this.item = new ItemDto();
 
+        this.item.setItemId(this.resultSet.getInt("ITEM_ID"));
         // Color
         ColorDto color = new ColorDto();
         color.setColorId(this.resultSet.getInt("COLOR_ID"));
@@ -133,11 +170,15 @@ public class ItemDaoImpl extends DAOImplBase implements ItemDao{
         SubcategoriaDto sub = new SubcategoriaDto();
         sub.setSubcategoriaId(this.resultSet.getInt("subcategoria_ID_SUBCATEGORIA"));
         this.item.setSubcategoria(sub);
+        
+        // Categoria
+        CategoriaDto cat = new CategoriaDto();
+        cat.setCategoriaId(this.resultSet.getInt("subcategoria_CATEGORIA_ID"));
+        this.item.setCategoria(cat);
 
         // Escalares
-        this.item.setItemId(this.resultSet.getInt("ITEM_ID"));
-        this.item.setPrecio(this.resultSet.getDouble("PRECIO"));
         this.item.setNombre(this.resultSet.getString("NOMBRE"));
+        this.item.setPrecio(this.resultSet.getDouble("PRECIO"));
         this.item.setDescripcion(this.resultSet.getString("DESCRIPCION"));
         this.item.setEsVenta(this.resultSet.getInt("ES_VENTA") == 1);
     }

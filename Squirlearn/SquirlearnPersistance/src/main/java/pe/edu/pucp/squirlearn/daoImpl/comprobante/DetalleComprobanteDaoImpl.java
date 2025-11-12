@@ -8,6 +8,7 @@ import java.util.function.Consumer;
 import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
 import pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
+import pe.edu.pucp.squirlearn.model.alquiler.AlquilerDto;
 import pe.edu.pucp.squirlearn.model.comprobante.ComprobanteDto;
 import pe.edu.pucp.squirlearn.model.comprobante.DetalleComprobanteDto;
 import pe.edu.pucp.squirlearn.model.item.ItemDto;
@@ -24,14 +25,13 @@ public class DetalleComprobanteDaoImpl extends DAOImplBase implements DetalleCom
 
     @Override
     protected void configurarListaDeColumnas() {
-        this.listaColumnas.add(new Columna("DETALLE_COM_ID", true, true));
+        this.listaColumnas.add(new Columna("DETALLECOM_ID", true, true));
+        this.listaColumnas.add(new Columna("COMPROBANTE_ID_COMPROBANTE", false, false));
+        this.listaColumnas.add(new Columna("ITEM_ID_ITEM", false, false));
+        this.listaColumnas.add(new Columna("ALQUILER_ID_ALQUILER", false, false));
         this.listaColumnas.add(new Columna("DESCRIPCION", false, false));
         this.listaColumnas.add(new Columna("PRECIO", false, false));
-        this.listaColumnas.add(new Columna("ITEM", false, false));
-        this.listaColumnas.add(new Columna("ALQUILER", false, false));
-        this.listaColumnas.add(new Columna("COMPROBANTE", false, false));
-        this.listaColumnas.add(new Columna("FECHA_MODIFICACION", false, false));
-        this.listaColumnas.add(new Columna("USUARIO_MODIFICACION", false, false));
+        this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
     }
 
     @Override
@@ -40,23 +40,50 @@ public class DetalleComprobanteDaoImpl extends DAOImplBase implements DetalleCom
             (this.detalleComprobante.getComprobante() == null ? null : this.detalleComprobante.getComprobante().getComprobanteId()),
             "comprobantes", "COMPROBANTE_ID"
         );
-        Integer itemIdOpt = (this.detalleComprobante.getItem() == null ? null : this.detalleComprobante.getItem().getItemId());
-        Integer alquilerIdOpt = (this.detalleComprobante.getAlquiler() == null ? null : this.detalleComprobante.getAlquiler().getAlquilerId());
+        int itemIdOpt = safeFkId(
+                (this.detalleComprobante.getItem() == null ? null : this.detalleComprobante.getItem().getItemId()),
+                "items","ITEM_ID");
+        int alquilerIdOpt = safeFkId(
+                (this.detalleComprobante.getAlquiler() == null ? null : this.detalleComprobante.getAlquiler().getAlquilerId()),
+                "alquileres","ALQUILER_ID");
 
         int i = 1;
+        this.statement.setInt(i++, compId);
+        this.statement.setInt(i++, itemIdOpt);
+        this.statement.setInt(i++, alquilerIdOpt);
         this.statement.setString(i++, this.detalleComprobante.getDescripcion());
         this.statement.setDouble(i++, this.detalleComprobante.getPrecio());
-        if (itemIdOpt == null) this.statement.setNull(i++, java.sql.Types.INTEGER);
-        else this.statement.setInt(i++, itemIdOpt);
-        if (alquilerIdOpt == null) this.statement.setNull(i++, java.sql.Types.INTEGER);
-        else this.statement.setInt(i++, alquilerIdOpt);
+        this.statement.setString(i++, this.detalleComprobante.getusuarioCreacion());
+       
+        
+    }
+    @Override
+    protected void incluirValorDeParametrosParaModificacion() throws SQLException {
+        int compId = safeFkId(
+            (this.detalleComprobante.getComprobante() == null ? null : this.detalleComprobante.getComprobante().getComprobanteId()),
+            "comprobantes", "COMPROBANTE_ID"
+        );
+        int itemIdOpt = safeFkId(
+                (this.detalleComprobante.getItem() == null ? null : this.detalleComprobante.getItem().getItemId()),
+                "items","ITEM_ID");
+        int alquilerIdOpt = safeFkId(
+                (this.detalleComprobante.getAlquiler() == null ? null : this.detalleComprobante.getAlquiler().getAlquilerId()),
+                "alquileres","ALQUILER_ID");
+
+        int i = 1;
         this.statement.setInt(i++, compId);
+        this.statement.setInt(i++, itemIdOpt);
+        this.statement.setInt(i++, alquilerIdOpt);
+        this.statement.setString(i++, this.detalleComprobante.getDescripcion());
+        this.statement.setDouble(i++, this.detalleComprobante.getPrecio());
+        this.statement.setString(i++, this.detalleComprobante.getusuarioCreacion());
     }
 
     @Override
     protected void instanciarObjetoDelResultSet() throws SQLException {
         this.detalleComprobante = new DetalleComprobanteDto();
 
+        this.detalleComprobante.setDetalleComId(this.resultSet.getInt("DETALLECOM_ID"));
         // Comprobante
         ComprobanteDto comp = new ComprobanteDto();
         comp.setComprobanteId(this.resultSet.getInt("COMPROBANTE_ID_COMPROBANTE"));
@@ -73,13 +100,12 @@ public class DetalleComprobanteDaoImpl extends DAOImplBase implements DetalleCom
         // Alquiler (nullable)
         int alqId = this.resultSet.getInt("ALQUILER_ID_ALQUILER");
         if (!this.resultSet.wasNull()) {
-            pe.edu.pucp.squirlearn.model.alquiler.AlquilerDto alq = new pe.edu.pucp.squirlearn.model.alquiler.AlquilerDto();
+            AlquilerDto alq = new AlquilerDto();
             alq.setAlquilerId(alqId);
             this.detalleComprobante.setAlquiler(alq);
         }
 
         // Escalares
-        this.detalleComprobante.setDetalleComId(this.resultSet.getInt("DETALLECOM_ID"));
         this.detalleComprobante.setDescripcion(this.resultSet.getString("DESCRIPCION"));
         this.detalleComprobante.setPrecio(this.resultSet.getDouble("PRECIO"));
     }
