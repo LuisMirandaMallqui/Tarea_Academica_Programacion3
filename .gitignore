@@ -20,3 +20,4 @@ Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT/WEB-INF/lib/SquirlearnP
 *.dumpstream
 *.txt
 *.lst
+*.jar
