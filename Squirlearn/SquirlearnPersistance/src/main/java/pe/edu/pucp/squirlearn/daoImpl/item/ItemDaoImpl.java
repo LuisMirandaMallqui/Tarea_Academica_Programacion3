@@ -80,7 +80,7 @@ public class ItemDaoImpl extends DAOImplBase implements ItemDao{
         this.statement.setDouble(i++, this.item.getPrecio());                           // PRECIO
         this.statement.setInt(i++, this.item.getEsVenta()? 1 : 0);                          // ES_VENTA (TINYINT)
         this.statement.setString(i++, this.item.getusuarioCreacion());   
-        this.statement.setString(i++, this.item.getusuarioModificacion());          
+        this.statement.setString(i++, null);          
     }
 
     @Override

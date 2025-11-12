@@ -63,7 +63,7 @@ public class PersonaDaoImpl extends DAOImplBase implements PersonaDao {
         this.statement.setString(i++, this.persona.getContrasena());
         this.statement.setTimestamp(i++, ultActividadSQL);
         this.statement.setString(i++, this.persona.getusuarioCreacion());
-        this.statement.setString(i++, this.persona.getusuarioModificacion());
+        this.statement.setString(i++, null);
     }
 
     @Override
@@ -73,8 +73,11 @@ public class PersonaDaoImpl extends DAOImplBase implements PersonaDao {
             (this.persona.getEstadoPersona() == null ? null : this.persona.getEstadoPersona().getEstadoPersonaId()),
                 "estados_personas","ESTADOPERSONA_ID");
         
-        java.sql.Timestamp ultActividadSQL = 
-                TraduccionesSQL.toSqlTimestamp(this.persona.getUltimaActividad());
+        // 1. Obtiene el java.util.Date (limpio) de tu DTO
+        java.util.Date ultimaActividadUtil = this.persona.getUltimaActividad();
+
+        // 2. Prepara el "traductor" (Timestamp) para JDBC
+        java.sql.Timestamp ultimaActividadSql = (ultimaActividadUtil == null) ? null : new java.sql.Timestamp(ultimaActividadUtil.getTime());
         
         int i = 1;
         this.statement.setInt(i++, estadoId);
@@ -84,7 +87,7 @@ public class PersonaDaoImpl extends DAOImplBase implements PersonaDao {
         this.statement.setString(i++, this.persona.getCodigo());
         this.statement.setString(i++, this.persona.getCorreo());
         this.statement.setString(i++, this.persona.getContrasena());
-        this.statement.setTimestamp(i++, ultActividadSQL);
+        this.statement.setTimestamp(i++, ultimaActividadSql);
         this.statement.setString(i++, this.persona.getusuarioCreacion());
         this.statement.setString(i++, this.persona.getusuarioModificacion());
        // WHERE PERSONA_ID=?

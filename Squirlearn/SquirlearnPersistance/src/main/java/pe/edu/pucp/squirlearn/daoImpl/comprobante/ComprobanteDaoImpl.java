@@ -1,6 +1,5 @@
 package pe.edu.pucp.squirlearn.daoImpl.comprobante;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;

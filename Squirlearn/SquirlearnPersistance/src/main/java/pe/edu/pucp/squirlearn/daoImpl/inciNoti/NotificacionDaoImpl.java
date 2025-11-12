@@ -61,8 +61,11 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao{
             (this.notificacion.getMotivo() == null ? null : this.notificacion.getMotivo().getMotivoId()),
             "motivos", "MOTIVO_ID"
         );
+        // 1. Obtiene el java.util.Date (limpio) de tu DTO
+        java.util.Date fechaUtil = this.notificacion.getFecha();
 
-        java.sql.Timestamp fechaSQL = TraduccionesSQL.toSqlTimestamp(this.notificacion.getFecha());
+        // 2. Prepara el "traductor" (Timestamp) para JDBC
+        java.sql.Timestamp fechaSQL = (fechaUtil == null) ? null : new java.sql.Timestamp(fechaUtil.getTime());
         
         int i = 1;
         this.statement.setInt(i++, personaId);

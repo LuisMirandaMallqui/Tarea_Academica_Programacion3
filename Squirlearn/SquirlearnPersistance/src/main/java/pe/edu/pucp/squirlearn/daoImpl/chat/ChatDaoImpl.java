@@ -38,7 +38,7 @@ public class ChatDaoImpl extends DAOImplBase implements ChatDao{
         int i = 1;
         this.statement.setInt(i++, estadoId);         // estado_chat_ID_ESTADOCHAT
         this.statement.setString(i++, this.chat.getUsuarioCreacion());    
-        this.statement.setString(i++, this.chat.getUsuarioModificacion());  // USUARIO_modificacion   
+        this.statement.setString(i++, null);  // USUARIO_modificacion   
     }
 
     @Override
