@@ -41,7 +41,7 @@ public class IncidenciaBo {
     
     public Integer modificar(Integer id,String descripcion , 
             Integer notificcionId, Integer personaId, Integer motivoId, Integer resuelto
-            ,Integer usuarioSolucion,String usuarioCreacion ){
+            ,Integer usuarioSolucion,String usuarioCreacion){
         IncidenciaDto incidenciaDto = new IncidenciaDto();
         
         NotificacionDto notificacion = new NotificacionDto();

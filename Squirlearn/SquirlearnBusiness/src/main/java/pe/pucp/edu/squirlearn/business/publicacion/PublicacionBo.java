@@ -1,4 +1,3 @@
-
 package pe.pucp.edu.squirlearn.business.publicacion;
 
 import static java.time.Instant.now;
@@ -38,9 +37,12 @@ public class PublicacionBo {
         return this.publicacionDao.insertar(publicacionDto);
     }
     
-    public Integer modificar(Integer publicacionId, Date fechaAlta, Date fechaBaja, Integer estadoId,
-            Integer itemId, Integer personaId, Integer calificacion, String usuario, String usuarioCreacion, String usuarioModificacion) {
+    public Integer modificar(Integer publicacionId, Date fechaAlta, Date fechaBaja, 
+            Integer estadoId, Integer itemId, Integer personaId, Integer calificacion, 
+            String usuarioCreacion, String usuarioModificacion) {
+        
         PublicacionDto publicacionDto = new PublicacionDto();
+        
 
         EstadoPublicacionDto estadoPublicacion = new EstadoPublicacionDto();
         estadoPublicacion.setEstadoPublicacionId(estadoId);

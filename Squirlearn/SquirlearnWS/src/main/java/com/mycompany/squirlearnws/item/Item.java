@@ -56,10 +56,11 @@ public class Item {
             @WebParam(name = "categoriaId") Integer categoriaId,
             @WebParam(name = "subcategoriaId") Integer subcategoriaId,
             @WebParam(name = "usuario") String usuario,
-            @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
+            @WebParam(name = "usuarioCreacion") String usuarioCreacion,
+            @WebParam(name = "UsuarioModificación") String usuarioModificacion) {
             return this.itemBo.modificar(id, precio, nombre, descripcion, esVenta, 
                     colorId, estadoId, condicionId, tamanoId, formatoId, categoriaId, 
-                    subcategoriaId,usuario,usuarioCreacion);
+                    subcategoriaId,usuario,usuarioCreacion,usuarioModificacion);
 
         }
 

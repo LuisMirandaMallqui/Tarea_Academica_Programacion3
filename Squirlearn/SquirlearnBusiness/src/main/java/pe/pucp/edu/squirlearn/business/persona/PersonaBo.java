@@ -1,4 +1,3 @@
-
 package pe.pucp.edu.squirlearn.business.persona;
 
 import java.util.ArrayList;
@@ -24,8 +23,7 @@ public class PersonaBo {
     }
     
     public Integer insertar(String nombres, String primerApellido, String segundoApellido, 
-            String codigo, String correo, String contrasena, String usuarioCreacion, 
-            String usuarioModificacion,Date actividad){
+            String codigo, String correo, String contrasena, String usuarioCreacion,Date actividad){
         PersonaDto personaDto = new PersonaDto();
      
         EstadoPersonaDto estado = new EstadoPersonaDto();
@@ -44,19 +42,15 @@ public class PersonaBo {
         personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));       
         personaDto.setEstadoPersona(estado);
         personaDto.setusuarioCreacion(usuarioCreacion);
-        personaDto.setusuarioModificacion(usuarioModificacion);
+        personaDto.setusuarioModificacion(null);
         personaDto.setUltimaActividad(actividad);
-        
-        if(!this.personaDao.existeUsuarioEnPUCP(codigo,correo))//falta implementar
-            return 0;
-
         
         return this.personaDao.insertar(personaDto);
     }
     
     public Integer modificar(Integer id, String nombres, String primerApellido, String segundoApellido, 
             String codigo, String correo, String contrasena,Integer estadoId ,
-            String usuario, String usuarioCreacion, Date actividad){
+            String usuarioCreacion, String usuarioModificacion, Date actividad){
         PersonaDto personaDto = new PersonaDto();
         
         personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));
@@ -71,6 +65,7 @@ public class PersonaBo {
         personaDto.setCorreo(correo);
         personaDto.setEstadoPersona(estado);
         personaDto.setusuarioCreacion(usuarioCreacion);
+        personaDto.setusuarioModificacion(usuarioModificacion);
         personaDto.setUltimaActividad(actividad);
         
         return this.personaDao.modificar(personaDto);

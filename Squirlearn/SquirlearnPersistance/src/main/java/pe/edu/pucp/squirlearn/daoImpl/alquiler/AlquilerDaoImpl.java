@@ -158,7 +158,7 @@ protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         String sql = this.generarSQLParaListarTodos() + " WHERE PERSONA_ID=?";
         Consumer<PreparedStatement> incluir = ps -> {
             try { 
-                ps.setInt(1, personaId); 
+                this.statement.setInt(1, personaId); 
             } catch (SQLException e) { 
                 throw new RuntimeException(e); 
             }
