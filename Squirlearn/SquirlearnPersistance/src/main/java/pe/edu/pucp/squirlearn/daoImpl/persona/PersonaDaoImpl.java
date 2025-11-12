@@ -10,6 +10,7 @@ import pe.edu.pucp.squirlearn.dao.persona.PersonaDao;
 import pe.edu.pucp.squirlearn.dao.persona.RolPersonaDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
 import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
+import pe.edu.pucp.squirlearn.daoImpl.util.TraduccionesSQL;
 import pe.edu.pucp.squirlearn.model.persona.EstadoPersonaDto;
 import pe.edu.pucp.squirlearn.model.persona.RolPersonaDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
@@ -50,6 +51,9 @@ public class PersonaDaoImpl extends DAOImplBase implements PersonaDao {
             (this.persona.getEstadoPersona() == null ? null : this.persona.getEstadoPersona().getEstadoPersonaId()),
                 "estados_personas","ESTADOPERSONA_ID");
         
+        java.sql.Timestamp ultActividadSQL = 
+                TraduccionesSQL.toSqlTimestamp(this.persona.getUltimaActividad());
+        
         this.statement.setInt(i++, estadoId);
         this.statement.setString(i++, this.persona.getNombres());
         this.statement.setString(i++, this.persona.getPrimerApellido());
@@ -57,7 +61,7 @@ public class PersonaDaoImpl extends DAOImplBase implements PersonaDao {
         this.statement.setString(i++, this.persona.getCodigo());
         this.statement.setString(i++, this.persona.getCorreo());
         this.statement.setString(i++, this.persona.getContrasena());
-        this.statement.setDate(i++, (Date) this.persona.getUltimaActividad());
+        this.statement.setTimestamp(i++, ultActividadSQL);
         this.statement.setString(i++, this.persona.getusuarioCreacion());
         this.statement.setString(i++, this.persona.getusuarioModificacion());
     }
@@ -68,6 +72,10 @@ public class PersonaDaoImpl extends DAOImplBase implements PersonaDao {
         int estadoId = safeFkId(
             (this.persona.getEstadoPersona() == null ? null : this.persona.getEstadoPersona().getEstadoPersonaId()),
                 "estados_personas","ESTADOPERSONA_ID");
+        
+        java.sql.Timestamp ultActividadSQL = 
+                TraduccionesSQL.toSqlTimestamp(this.persona.getUltimaActividad());
+        
         int i = 1;
         this.statement.setInt(i++, estadoId);
         this.statement.setString(i++, this.persona.getNombres());
@@ -76,7 +84,7 @@ public class PersonaDaoImpl extends DAOImplBase implements PersonaDao {
         this.statement.setString(i++, this.persona.getCodigo());
         this.statement.setString(i++, this.persona.getCorreo());
         this.statement.setString(i++, this.persona.getContrasena());
-        this.statement.setDate(i++, (Date) this.persona.getUltimaActividad());
+        this.statement.setTimestamp(i++, ultActividadSQL);
         this.statement.setString(i++, this.persona.getusuarioCreacion());
         this.statement.setString(i++, this.persona.getusuarioModificacion());
        // WHERE PERSONA_ID=?
@@ -108,10 +116,11 @@ public class PersonaDaoImpl extends DAOImplBase implements PersonaDao {
         this.persona.setCodigo(this.resultSet.getString("CODIGO"));
         this.persona.setCorreo(this.resultSet.getString("CORREO"));
         this.persona.setContrasena(this.resultSet.getString("CONTRASENA"));
-        this.persona.setUltimaActividad(this.resultSet.getDate("ULTIMA_ACTIVIDAD"));
+        this.persona.setUltimaActividad(this.resultSet.getTimestamp("ULTIMA_ACTIVIDAD"));
         this.persona.setusuarioModificacion(this.resultSet.getString("USUARIO_MODIFICACION"));
         this.persona.setusuarioCreacion(this.resultSet.getString("USUARIO_CREACION"));
-
+        
+        
         // >>> IMPORTANTE: Poblar roles usando el método creado (tabla puente)
         RolPersonaDao rolDao = new RolPersonaDaoImpl();
         ArrayList<RolPersonaDto> roles = rolDao.listarPorPersona(this.persona.getPersonaId());
