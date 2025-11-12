@@ -32,7 +32,7 @@ public class NotificacionBo {
     }
     
     public ArrayList<NotificacionDto> listarPorPersona(Integer personaID){
-        return this.notificacionDao.listarPorPersona(personaID); // necesita implementación
+        return this.notificacionDao.listarPorPersona(personaID);
     }
     
     public NotificacionDto obtenerPorId(Integer id){

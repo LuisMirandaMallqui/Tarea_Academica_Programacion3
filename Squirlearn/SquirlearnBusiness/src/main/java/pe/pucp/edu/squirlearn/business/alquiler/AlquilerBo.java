@@ -16,8 +16,9 @@ public class AlquilerBo {
         this.alquilerDao = new AlquilerDaoImpl();
     }
     
+   
     public Integer insertar(Integer personaId, Integer itemId, Date inicio,
-            Date fin , Double monto, String usuario){
+            Date fin , Double monto, String usuarioCreacion){
         AlquilerDto alquilerDto = new AlquilerDto();
         
         PersonaDto persona = new PersonaDto();
@@ -30,14 +31,14 @@ public class AlquilerBo {
         alquilerDto.setFechaFin((java.sql.Date) fin);
         alquilerDto.setFechaInicio((java.sql.Date) inicio);
         alquilerDto.setMonto(monto);
-        alquilerDto.setUsuario(usuario);
+        alquilerDto.setUsuarioCreacion(usuarioCreacion);
         alquilerDto.setDevuelto(Boolean.FALSE);
         
         return this.alquilerDao.insertar(alquilerDto);
     }
     
     public Integer Modificar(Integer id,Integer personaId, Integer itemId, Date inicio,
-            Date fin , Double monto, Boolean devuelto, String usuario, String usuarioCreacion){
+            Date fin , Double monto, Boolean devuelto, String usuarioCreacion){
         AlquilerDto alquilerDto = new AlquilerDto();
         
         
@@ -52,7 +53,6 @@ public class AlquilerBo {
         alquilerDto.setFechaInicio((java.sql.Date) inicio);
         alquilerDto.setMonto(monto);
         alquilerDto.setAlquilerId(id);
-        alquilerDto.setUsuario(usuario);
         alquilerDto.setDevuelto(devuelto);
         alquilerDto.setUsuarioCreacion(usuarioCreacion);
         
@@ -61,7 +61,7 @@ public class AlquilerBo {
     
     
     public ArrayList<AlquilerDto> listarPorDueno(Integer personaId){
-        return this.alquilerDao.listarPorDueno(personaId); // falta implementación
+        return this.alquilerDao.listarPorDueno(personaId); 
     }
     
     public AlquilerDto obtenerPorId(Integer id){

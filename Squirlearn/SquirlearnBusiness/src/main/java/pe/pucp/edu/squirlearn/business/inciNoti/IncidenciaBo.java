@@ -19,7 +19,7 @@ public class IncidenciaBo {
     }
     
     public Integer insertar(String descripcion, Integer notificcionId, Integer personaId,
-            Integer motivoId, String usuario){
+            Integer motivoId, Integer usuarioSolucion, String usuarioCreacion){
         IncidenciaDto incidenciaDto = new IncidenciaDto();
         
         NotificacionDto notificacion = new NotificacionDto();
@@ -33,14 +33,15 @@ public class IncidenciaBo {
         incidenciaDto.setNotificacion(notificacion);
         incidenciaDto.setPersona(persona);
         incidenciaDto.setMotivo(motivo);
-        incidenciaDto.setUsuario(usuario);
+        incidenciaDto.setUsuarioSolucion(usuarioSolucion);
+        incidenciaDto.setUsuarioCreacion(usuarioCreacion);
         
         return this.incidenciaDao.insertar(incidenciaDto);
     }
     
-    public Integer modificar(Integer id,String descripcion , Date fechaSolucion, 
+    public Integer modificar(Integer id,String descripcion , 
             Integer notificcionId, Integer personaId, Integer motivoId, Integer resuelto
-            ,Integer solucionadorID,String usuarioCreacion ){
+            ,Integer usuarioSolucion,String usuarioCreacion ){
         IncidenciaDto incidenciaDto = new IncidenciaDto();
         
         NotificacionDto notificacion = new NotificacionDto();
@@ -52,20 +53,19 @@ public class IncidenciaBo {
         
         incidenciaDto.setIncidenciaId(id);
         incidenciaDto.setDescripcion(descripcion);
-        incidenciaDto.setFechaSolucion(fechaSolucion);
         incidenciaDto.setNotificacion(notificacion);
         incidenciaDto.setPersona(persona);
         incidenciaDto.setMotivo(motivo);
         incidenciaDto.setResuelto(resuelto);
         incidenciaDto.setUsuarioCreacion(usuarioCreacion);
-        incidenciaDto.setUsuarioSolucion(solucionadorID);
+        incidenciaDto.setUsuarioSolucion(usuarioSolucion);
         
-        return this.incidenciaDao.modificar(incidenciaDto); //falta implementación
+        return this.incidenciaDao.modificar(incidenciaDto); 
     }
     
     
     public ArrayList<IncidenciaDto> listarPorResolucion(Boolean resuelto){
-        return this.incidenciaDao.listarPorResolucion(resuelto); // necesita implementación
+        return this.incidenciaDao.listarPorResolucion(resuelto); 
     }
     
     public IncidenciaDto obtenerPorId(Integer id){

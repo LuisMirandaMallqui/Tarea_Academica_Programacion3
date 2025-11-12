@@ -22,14 +22,14 @@ public class ChatBo {
         this.chatDao = new ChatDaoImpl();
     }
     
-    public Integer insertar(Integer creadorId,String usuario){
+    public Integer insertar(Integer creadorId,String usuarioCreacion){
         ChatDto chatDto = new ChatDto();
         
         EstadoChatDto estadoChat = new EstadoChatDto();
         estadoChat.setEstadoChatId(1);
         
         chatDto.setEstadoChat(estadoChat);
-        chatDto.setUsuario(usuario);
+        chatDto.setUsuarioCreacion(usuarioCreacion);
         
         int resultado =  this.chatDao.insertar(chatDto);
         
@@ -50,7 +50,7 @@ public class ChatBo {
     }
     
     public Integer modificar(Integer chatId, Integer estadoId,
-            String usuario,String usuarioCreacion){
+            String usuario,String usuarioCreacion,String usuarioModificacion){
         ChatDto chatDto = new ChatDto();
         
         EstadoChatDto estadoChat = new EstadoChatDto();
@@ -59,7 +59,8 @@ public class ChatBo {
         chatDto.setChatId(chatId);
         chatDto.setUsuarioCreacion(usuarioCreacion);
         chatDto.setEstadoChat(estadoChat);
-        chatDto.setUsuario(usuario);
+        chatDto.setUsuarioCreacion(usuarioCreacion);
+        chatDto.setUsuarioModificacion(usuarioModificacion);
         
         return this.chatDao.modificar(chatDto);
     }
