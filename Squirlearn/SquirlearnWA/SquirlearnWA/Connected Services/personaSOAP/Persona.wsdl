@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://persona.squirlearnws.mycompany.com/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Persona" targetNamespace="http://persona.squirlearnws.mycompany.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Persona?xsd=1" namespace="http://persona.squirlearnws.mycompany.com/" />
+    </xsd:schema>
+  </types>
+  <message name="obtenerPorIdPersona">
+    <part name="parameters" element="tns:obtenerPorIdPersona" />
+  </message>
+  <message name="obtenerPorIdPersonaResponse">
+    <part name="parameters" element="tns:obtenerPorIdPersonaResponse" />
+  </message>
+  <message name="obtenerPorCodigoPersona">
+    <part name="parameters" element="tns:obtenerPorCodigoPersona" />
+  </message>
+  <message name="obtenerPorCodigoPersonaResponse">
+    <part name="parameters" element="tns:obtenerPorCodigoPersonaResponse" />
+  </message>
+  <message name="logInPersona">
+    <part name="parameters" element="tns:logInPersona" />
+  </message>
+  <message name="logInPersonaResponse">
+    <part name="parameters" element="tns:logInPersonaResponse" />
+  </message>
+  <message name="modificarPersona">
+    <part name="parameters" element="tns:modificarPersona" />
+  </message>
+  <message name="modificarPersonaResponse">
+    <part name="parameters" element="tns:modificarPersonaResponse" />
+  </message>
+  <message name="insertarPersona">
+    <part name="parameters" element="tns:insertarPersona" />
+  </message>
+  <message name="insertarPersonaResponse">
+    <part name="parameters" element="tns:insertarPersonaResponse" />
+  </message>
+  <portType name="Persona">
+    <operation name="obtenerPorIdPersona">
+      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorIdPersonaRequest" message="tns:obtenerPorIdPersona" />
+      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorIdPersonaResponse" message="tns:obtenerPorIdPersonaResponse" />
+    </operation>
+    <operation name="obtenerPorCodigoPersona">
+      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaRequest" message="tns:obtenerPorCodigoPersona" />
+      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaResponse" message="tns:obtenerPorCodigoPersonaResponse" />
+    </operation>
+    <operation name="logInPersona">
+      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaRequest" message="tns:logInPersona" />
+      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaResponse" message="tns:logInPersonaResponse" />
+    </operation>
+    <operation name="modificarPersona">
+      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/modificarPersonaRequest" message="tns:modificarPersona" />
+      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/modificarPersonaResponse" message="tns:modificarPersonaResponse" />
+    </operation>
+    <operation name="insertarPersona">
+      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/insertarPersonaRequest" message="tns:insertarPersona" />
+      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/insertarPersonaResponse" message="tns:insertarPersonaResponse" />
+    </operation>
+  </portType>
+  <binding name="PersonaPortBinding" type="tns:Persona">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="obtenerPorIdPersona">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorCodigoPersona">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="logInPersona">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarPersona">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarPersona">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Persona">
+    <port name="PersonaPort" binding="tns:PersonaPortBinding">
+      <soap:address location="http://localhost:8080/SquirlearnWS/Persona" />
+    </port>
+  </service>
+</definitions>

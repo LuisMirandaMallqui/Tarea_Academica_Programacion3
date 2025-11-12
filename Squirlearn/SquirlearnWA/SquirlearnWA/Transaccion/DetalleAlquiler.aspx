@@ -76,15 +76,6 @@
 
                     <hr />
 
-                    <!-- Código promocional -->
-                    <div class="mt-4">
-                        <label class="fw-semibold">Código promocional:</label>
-                        <div class="input-group">
-                            <asp:TextBox ID="txtCodigoPromo" runat="server" CssClass="form-control" Placeholder="Ingresa tu código aquí"></asp:TextBox>
-                            <asp:Button ID="btnAplicarCodigo" runat="server" Text="Aplicar" CssClass="btn btn-outline-primary" OnClick="btnAplicarCodigo_Click" />
-                        </div>
-                    </div>
-
                     <!-- Resumen -->
                     <div class="mt-4">
                         <h6 class="fw-bold">Resumen</h6>

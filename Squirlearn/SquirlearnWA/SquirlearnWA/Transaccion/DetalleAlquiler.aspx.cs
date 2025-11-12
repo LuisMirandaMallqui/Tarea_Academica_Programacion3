@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SquirlearnWA.publicacionSOAP;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -10,33 +11,29 @@ namespace SquirlearnWA
 {
     public partial class DetalleAlquiler : Page
     {
-        private const double descuentoFijo = 1.50; // Ahorro fijo mostrado en pantalla
-
+        private PublicacionClient publicacionSoap;
+        
+        public DetalleAlquiler()
+        {
+            publicacionSoap = new PublicacionClient(); 
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                var producto = Session["ProductoSeleccionado"];
-                if (producto != null)
+                publicacionDto publicacion = publicacionSoap.obtenerPorIdPublicacion((int)Session["ProductoSeleccionado"]);
+                if (publicacion != null)
                 {
-                    dynamic p = producto;
-                    string tipo = p.Tipo ?? "Instrumento";
+                    itemDto item = publicacion.item;
 
-                    lblNombre.Text = p.Nombre;
-                    lblDescripcion.Text = p.Descripcion;
-                    lblPrecioDia.Text = $"Precio por día: s/. {p.Precio} / día";
-                    lblPeriodo.Text = tipo == "Libro"
-                        ? "Periodo máximo: 7 días"
-                        : "Periodo máximo: 14 días";
-                    imgProducto.ImageUrl = p.ImagenUrl;
-                    lblVendedor.Text = p.Vendedor;
+                    lblNombre.Text = item.nombre;
+                    lblDescripcion.Text = item.descripcion;
+                    lblPrecioDia.Text = $"Precio por día: s/. {item.precio} / día";
+                    imgProducto.ImageUrl = "https://via.placeholder.com/250";
+                    lblVendedor.Text = publicacion.persona.nombres;
 
-                    string precioTexto = p.Precio
-                        .Replace("s/.", "")
-                        .Replace("S/.", "")
-                        .Replace("s/", "")
-                        .Replace("S/", "")
-                        .Trim();
+                    string precioTexto = $"S/ {item.precio:F2}"; 
+
                     // Guardar el precio en ViewState
                     ViewState["PrecioDia"] = Convert.ToDouble(precioTexto, CultureInfo.InvariantCulture);
 
@@ -44,8 +41,8 @@ namespace SquirlearnWA
                     double precio = Convert.ToDouble(precioTexto, CultureInfo.InvariantCulture);
                     lblSubtotal.Text = precio.ToString("0.00");
                     lblTotal.InnerText = $"s/. {precio:0.00}";
-                    Session["ProductoNombre"] = p.Titulo;
-                    Session["ProductoDescripcion"] = p.Descripcion;
+                    Session["ProductoNombre"] = item.nombre;
+                    Session["ProductoDescripcion"] = item.descripcion;
                 }
 
                 // 🔹 Aquí va el bloque nuevo
@@ -90,18 +87,6 @@ namespace SquirlearnWA
             ActualizarTotal();
         }
 
-        // Aplicar código promocional
-        protected void btnAplicarCodigo_Click(object sender, EventArgs e)
-        {
-            string codigo = txtCodigoPromo.Text.Trim();
-
-            if (codigo.Equals("SQUIR10", StringComparison.OrdinalIgnoreCase))
-                ViewState["DescuentoExtra"] = 0.10; // 10% de descuento
-            else
-                ViewState["DescuentoExtra"] = 0.0;
-
-            ActualizarTotal();
-        }
 
         // Cálculo del total según días y descuentos
         private void ActualizarTotal()
@@ -110,12 +95,9 @@ namespace SquirlearnWA
             int dias = int.Parse(lblDias.Text);
 
             double subtotal = precioDia * dias;
-            double descuentoExtra = ViewState["DescuentoExtra"] != null ? (double)ViewState["DescuentoExtra"] : 0.0;
 
-            double ahorroTotal = descuentoFijo + (subtotal * descuentoExtra);
-            if (ahorroTotal > subtotal) ahorroTotal = subtotal; // evita negativos
 
-            double total = subtotal - ahorroTotal;
+            double total = subtotal ;
 
             lblSubtotal.Text = subtotal.ToString("0.00");
             lblTotal.InnerText = $"S/ {total:0.00}";

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://publicacion.squirlearnws.mycompany.com/" targetNamespace="http://publicacion.squirlearnws.mycompany.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="insertarPublicacion" type="tns:insertarPublicacion" />
+  <xs:element name="insertarPublicacionResponse" type="tns:insertarPublicacionResponse" />
+  <xs:element name="listarPorDuenoPublicacion" type="tns:listarPorDuenoPublicacion" />
+  <xs:element name="listarPorDuenoPublicacionResponse" type="tns:listarPorDuenoPublicacionResponse" />
+  <xs:element name="listarPorEstadoPublicacion" type="tns:listarPorEstadoPublicacion" />
+  <xs:element name="listarPorEstadoPublicacionResponse" type="tns:listarPorEstadoPublicacionResponse" />
+  <xs:element name="listarPorFiltrosPublicacion" type="tns:listarPorFiltrosPublicacion" />
+  <xs:element name="listarPorFiltrosPublicacionResponse" type="tns:listarPorFiltrosPublicacionResponse" />
+  <xs:element name="modificarPublicacion" type="tns:modificarPublicacion" />
+  <xs:element name="modificarPublicacionResponse" type="tns:modificarPublicacionResponse" />
+  <xs:element name="obtenerPorIdPublicacion" type="tns:obtenerPorIdPublicacion" />
+  <xs:element name="obtenerPorIdPublicacionResponse" type="tns:obtenerPorIdPublicacionResponse" />
+  <xs:complexType name="modificarPublicacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="publicacionId" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaAlta" type="tns:date" />
+      <xs:element minOccurs="0" name="fechaBaja" type="tns:date" />
+      <xs:element minOccurs="0" name="estadoId" type="xs:int" />
+      <xs:element minOccurs="0" name="itemId" type="xs:int" />
+      <xs:element minOccurs="0" name="personaId" type="xs:int" />
+      <xs:element minOccurs="0" name="calificacion" type="xs:int" />
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="date">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="modificarPublicacionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarPublicacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="itemId" type="xs:int" />
+      <xs:element minOccurs="0" name="personaId" type="xs:int" />
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element minOccurs="0" name="precio" type="xs:double" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="esVenta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="colorId" type="xs:int" />
+      <xs:element minOccurs="0" name="condicionId" type="xs:int" />
+      <xs:element minOccurs="0" name="tamanoId" type="xs:int" />
+      <xs:element minOccurs="0" name="formatoId" type="xs:int" />
+      <xs:element minOccurs="0" name="categoriaId" type="xs:int" />
+      <xs:element minOccurs="0" name="subcategoriaId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarPublicacionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPorFiltrosPublicacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="terminoBusqueda" type="xs:string" />
+      <xs:element minOccurs="0" name="esVenta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="idCategoria" type="xs:int" />
+      <xs:element minOccurs="0" name="idSubcategoria" type="xs:int" />
+      <xs:element minOccurs="0" name="idColores" type="xs:int" />
+      <xs:element minOccurs="0" name="idTamanos" type="xs:int" />
+      <xs:element minOccurs="0" name="idFormatos" type="xs:int" />
+      <xs:element minOccurs="0" name="idCondicion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPorFiltrosPublicacionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:publicacionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="publicacionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="calificacion" type="xs:int" />
+      <xs:element minOccurs="0" name="estadoPublicacion" type="tns:estadoPublicacionDto" />
+      <xs:element minOccurs="0" name="fechaAlta" type="tns:date" />
+      <xs:element minOccurs="0" name="fechaBaja" type="tns:date" />
+      <xs:element minOccurs="0" name="item" type="tns:itemDto" />
+      <xs:element minOccurs="0" name="persona" type="tns:personaDto" />
+      <xs:element minOccurs="0" name="publicacionId" type="xs:int" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoPublicacionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estadoPublicacionId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="itemDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="categoria" type="tns:categoriaDto" />
+      <xs:element minOccurs="0" name="color" type="tns:colorDto" />
+      <xs:element minOccurs="0" name="condicion" type="tns:condicionDto" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="esVenta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="estadoItem" type="tns:estadoItemDto" />
+      <xs:element minOccurs="0" name="formato" type="tns:formatoDto" />
+      <xs:element minOccurs="0" name="itemId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="precio" type="xs:double" />
+      <xs:element minOccurs="0" name="subcategoria" type="tns:subcategoriaDto" />
+      <xs:element minOccurs="0" name="tamano" type="tns:tamanoDto" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="categoriaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="categoriaId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="colorDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="colorId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="condicionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="condicionId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoItemDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estadoItemId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="formatoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="formatoId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="subcategoriaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="categoria" type="tns:categoriaDto" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="subcategoriaId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tamanoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="tamanoId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="personaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" type="xs:string" />
+      <xs:element minOccurs="0" name="contrasena" type="xs:string" />
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="estadoPersona" type="tns:estadoPersonaDto" />
+      <xs:element minOccurs="0" name="nombres" type="xs:string" />
+      <xs:element minOccurs="0" name="personaId" type="xs:int" />
+      <xs:element minOccurs="0" name="primerApellido" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="rolPersona" nillable="true" type="tns:rolPersonaDto" />
+      <xs:element minOccurs="0" name="segundoApellido" type="xs:string" />
+      <xs:element minOccurs="0" name="ultimaActividad" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoPersonaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estadoPersonaId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="rolPersonaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="rolPersonaId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPorEstadoPublicacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estadoId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPorEstadoPublicacionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:publicacionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPorDuenoPublicacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="personaId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPorDuenoPublicacionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:publicacionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdPublicacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdPublicacionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:publicacionDto" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
