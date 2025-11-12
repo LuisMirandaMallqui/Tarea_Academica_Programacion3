@@ -332,7 +332,7 @@ public abstract class DAOImplBase {
             }
             this.colocarSQLEnStatement(sql);
             if (incluirValorDeParametros != null) {
-                incluirValorDeParametros.accept(parametros);
+                incluirValorDeParametros.accept(this.statement);
             }
             this.ejecutarSelectEnDB();
             while (this.resultSet.next()) {

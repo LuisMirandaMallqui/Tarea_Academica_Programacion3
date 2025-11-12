@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://item.squirlearnws.mycompany.com/" targetNamespace="http://item.squirlearnws.mycompany.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="listarTodosFormato" type="tns:listarTodosFormato" />
+  <xs:element name="listarTodosFormatoResponse" type="tns:listarTodosFormatoResponse" />
+  <xs:element name="obtenerPorIdFormato" type="tns:obtenerPorIdFormato" />
+  <xs:element name="obtenerPorIdFormatoResponse" type="tns:obtenerPorIdFormatoResponse" />
+  <xs:complexType name="listarTodosFormato">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodosFormatoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:formatoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="formatoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="formatoId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdFormato">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdFormatoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:formatoDto" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

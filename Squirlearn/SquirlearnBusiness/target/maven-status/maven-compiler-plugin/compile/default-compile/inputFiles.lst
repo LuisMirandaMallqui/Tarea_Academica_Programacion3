@@ -1,27 +1,27 @@
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\alquiler\AlquilerBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\chat\ChatBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\chat\EstadoChatBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\chat\EstadoMensajeBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\chat\MensajeBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\chat\PersonaChatBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\comprobante\ComprobanteBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\comprobante\DetalleComprobanteBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\comprobante\FormaPagoBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\comprobante\MonedaPagoBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\inciNoti\IncidenciaBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\inciNoti\MotivoBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\inciNoti\NotificacionBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\CategoriaBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\ColorBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\CondicionBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\EstadoItemBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\FormatoBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\ItemBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\SubcategoriaBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\TamanoBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\persona\EstadoPersonaBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\persona\PersonaBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\persona\RolPersonaBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\publicacion\EstadoPublicacionBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\publicacion\PublicacionBo.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-n3\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\util\Cifrado.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\chat\EstadoMensajeBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\chat\MensajeBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\inciNoti\MotivoBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\persona\RolPersonaBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\EstadoItemBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\publicacion\PublicacionBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\chat\ChatBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\comprobante\DetalleComprobanteBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\comprobante\ComprobanteBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\comprobante\MonedaPagoBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\persona\EstadoPersonaBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\TamanoBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\alquiler\AlquilerBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\CategoriaBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\inciNoti\NotificacionBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\publicacion\EstadoPublicacionBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\CondicionBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\inciNoti\IncidenciaBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\chat\EstadoChatBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\chat\PersonaChatBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\FormatoBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\SubcategoriaBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\comprobante\FormaPagoBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\ColorBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\item\ItemBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\persona\PersonaBo.java
+D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnBusiness\src\main\java\pe\pucp\edu\squirlearn\business\util\Cifrado.java

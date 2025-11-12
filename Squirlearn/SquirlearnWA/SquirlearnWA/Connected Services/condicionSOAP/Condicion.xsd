@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://item.squirlearnws.mycompany.com/" targetNamespace="http://item.squirlearnws.mycompany.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="listarTodosCondicion" type="tns:listarTodosCondicion" />
+  <xs:element name="listarTodosCondicionResponse" type="tns:listarTodosCondicionResponse" />
+  <xs:element name="obtenerPorIdCondicion" type="tns:obtenerPorIdCondicion" />
+  <xs:element name="obtenerPorIdCondicionResponse" type="tns:obtenerPorIdCondicionResponse" />
+  <xs:complexType name="listarTodosCondicion">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodosCondicionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:condicionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="condicionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="condicionId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdCondicion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdCondicionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:condicionDto" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

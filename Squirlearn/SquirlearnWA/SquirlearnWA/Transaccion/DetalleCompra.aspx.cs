@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SquirlearnWA.publicacionSOAP;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -11,25 +12,30 @@ namespace SquirlearnWA
 {
     public partial class DetalleCompra : Page
     {
+
+        private PublicacionClient publicacionSoap;
+
+        public DetalleCompra()
+        {
+            publicacionSoap = new PublicacionClient();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack && Session["ProductoSeleccionado"] != null)
             {
-                dynamic producto = Session["ProductoSeleccionado"];
+                publicacionDto publicacion = publicacionSoap.obtenerPorIdPublicacion((int)Session["ProductoSeleccionado"]);
 
+                itemDto item = publicacion.item;
 
-                lblNombreProducto.Text = producto.Nombre;
-                lblDescripcion.Text = producto.Descripcion;
-                lblPrecio.Text = "s/. " + producto.Precio; 
-                imgProducto.ImageUrl = producto.ImagenUrl;
-                lblVendedor.Text = producto.Vendedor;
+                lblNombreProducto.Text = item.nombre;
+                lblDescripcion.Text = item.descripcion;
+                lblPrecio.Text = "s/. " + item.precio; 
+                imgProducto.ImageUrl = "https://via.placeholder.com/250";
+                lblVendedor.Text = publicacion.persona.nombres;
 
                 // Limpia texto y convierte
-                string precioTexto = producto.Precio
-                    .Replace("S/", "")
-                    .Replace("s/.", "")
-                    .Replace("s/ ", "")
-                    .Trim();
+                string precioTexto = $"S/ {item.precio:F2}";
 
 
 
@@ -42,8 +48,8 @@ namespace SquirlearnWA
                 lblAhorro.Text = ahorro.ToString("0.00");
                 lblTotal.InnerText = "S/ " + total.ToString("0.00");
                 Session["TotalCompra"] = total;
-                Session["ProductoNombre"] = producto.Titulo;
-                Session["ProductoDescripcion"] = producto.Descripcion;
+                Session["ProductoNombre"] = item.nombre;
+                Session["ProductoDescripcion"] = item.descripcion;
             }
         }
 
@@ -51,20 +57,6 @@ namespace SquirlearnWA
         {
             // Vuelve al listado general
             Response.Redirect("DetalleProductoCompra.aspx");
-        }
-
-        protected void btnAplicarCodigo_Click(object sender, EventArgs e)
-        {
-            if (txtCodigoPromo.Text.Trim().ToUpper() == "SQUIR10")
-            {
-                decimal subtotal = Convert.ToDecimal(lblSubtotal.Text);
-                decimal ahorro = subtotal * 0.10M; // 10% descuento
-                decimal total = subtotal - ahorro;
-
-                lblAhorro.Text = ahorro.ToString("0.00");
-                lblTotal.InnerText = "s/. " + total.ToString("0.00");
-                Session["TotalCompra"] =total;
-            }
         }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
@@ -79,12 +71,6 @@ namespace SquirlearnWA
             // Si es compra:
             Session["EsAlquiler"] = false;
             Response.Redirect("ModalPago.aspx?metodo=" + metodo + "&origen=" + nombrePagina);
-
-           
-            
-
-            
-            
 
             //Response.Redirect("QuillaTip.aspx");
         }
