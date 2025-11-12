@@ -45,7 +45,7 @@ public class Publicacion {
             @WebParam(name = "usuario") String usuario,
             @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
         return this.publicacionBo.modificar(publicacionId, fechaAlta, fechaBaja, estadoId, itemId,
-                personaId, calificacion, usuario, usuarioCreacion);
+                personaId, calificacion, usuarioCreacion,usuario);
     }
 
     @WebMethod(operationName = "listarPorEstadoPublicacion")
