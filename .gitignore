@@ -1,3 +1,15 @@
 /Squirlearn_POM/Squirlearn/SquirlearnDBManager/nbproject/
 /Squirlearn_POM/Squirlearn/SquirlearnDBManager/target/
 Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT/WEB-INF/lib/SquirlearnBusiness-1.0-SNAPSHOT.jar
+Squirlearn/SquirlearnBusiness/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+Squirlearn/SquirlearnBusiness/target/SquirlearnBusiness-1.0-SNAPSHOT.jar
+Squirlearn/SquirlearnDBManager/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+Squirlearn/SquirlearnDBManager/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+Squirlearn/SquirlearnDBManager/target/SquirlearnDBManager-1.0-SNAPSHOT.jar
+Squirlearn/SquirlearnPersistance/target/SquirlearnPersistance-1.0-SNAPSHOT.jar
+Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT.war
+Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/squirlearnws/persona/Persona.class
+Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT/WEB-INF/lib/SquirlearnBusiness-1.0-SNAPSHOT.jar
+Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT/WEB-INF/lib/SquirlearnDBManager-1.0-SNAPSHOT.jar
+Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT/WEB-INF/lib/SquirlearnModel-1.0-SNAPSHOT.jar
+Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT/WEB-INF/lib/SquirlearnPersistance-1.0-SNAPSHOT.jar

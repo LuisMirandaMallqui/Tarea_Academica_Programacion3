@@ -20,14 +20,19 @@ public class Alquiler {
     }
     
     @WebMethod(operationName = "insertarAlquiler")
-    public Integer insertarAlquiler(@WebParam(name = "id")Integer personaId,@WebParam(name = "itemId") Integer itemId, @WebParam(name = "fechaInicio")Date inicio,
-            @WebParam(name = "fechaFin") Date fin , @WebParam(name = "monto") Double monto, @WebParam(name = "usuario") String usuario){
-        return this.alquilerBo.insertar( personaId, itemId, inicio, fin , monto,usuario);
+    public Integer insertarAlquiler(
+            @WebParam(name = "id")Integer personaId,
+            @WebParam(name = "itemId") Integer itemId,
+            @WebParam(name = "fechaInicio")Date inicio,
+            @WebParam(name = "fechaFin") Date fin , 
+            @WebParam(name = "monto") Double monto,
+            @WebParam(name = "usuario") String usuario){
+        return this.alquilerBo.insertar(personaId,itemId,inicio,fin,monto,usuario);
     }
     
     @WebMethod(operationName = "modificarAlquiler")
     public Integer modificarAlquiler(
-            @WebParam(name = "id") Integer id,
+            @WebParam(name = "personaId") Integer id,
             @WebParam(name = "personaId") Integer personaId, 
             @WebParam(name = "itemId") Integer itemId,
             @WebParam(name = "fechaInicio") Date inicio,
@@ -49,3 +54,4 @@ public class Alquiler {
     }
     
 }
+

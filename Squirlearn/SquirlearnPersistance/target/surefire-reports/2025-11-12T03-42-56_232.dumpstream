@@ -1,0 +1,5 @@
+# Created at 2025-11-12T03:42:56.393
+Boot Manifest-JAR contains absolute paths in classpath 'D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

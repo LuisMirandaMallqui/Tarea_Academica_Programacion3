@@ -75,6 +75,8 @@ public class PersonaBo {
         PersonaDto personaDto = new PersonaDto();
         personaDto.setCorreo(correo);
         PersonaDto perDto = this.personaDao.buscarPorCorreo(correo);
+        if (perDto == null)
+                return null;
         if(Cifrado.descifrarMD5(perDto.getContrasena()).equals(contrasena))
             return personaDto;
         else

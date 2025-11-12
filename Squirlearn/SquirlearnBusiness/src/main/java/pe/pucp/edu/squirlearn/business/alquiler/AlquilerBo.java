@@ -49,8 +49,8 @@ public class AlquilerBo {
         
         alquilerDto.setPersona(persona);
         alquilerDto.setItem(item);
-        alquilerDto.setFechaFin((java.sql.Date) fin);
-        alquilerDto.setFechaInicio((java.sql.Date) inicio);
+        alquilerDto.setFechaFin(fin);
+        alquilerDto.setFechaInicio(inicio);
         alquilerDto.setMonto(monto);
         alquilerDto.setAlquilerId(id);
         alquilerDto.setDevuelto(devuelto);
