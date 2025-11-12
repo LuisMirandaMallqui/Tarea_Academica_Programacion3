@@ -15,7 +15,7 @@
     <property name="user.country" value="PE"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Apache NetBeans\jdk\bin"/>
-    <property name="sun.java.command" value="C:\Users\luism\AppData\Local\Temp\surefire12922124519970590225\surefirebooter-20251111233218460_3.jar C:\Users\luism\AppData\Local\Temp\surefire12922124519970590225 2025-11-11T23-32-18_367-jvmRun1 surefire-20251111233218460_1tmp surefire_0-20251111233218460_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\luism\AppData\Local\Temp\surefire288252678091078665\surefirebooter-20251111234151297_3.jar C:\Users\luism\AppData\Local\Temp\surefire288252678091078665 2025-11-11T23-41-51_208-jvmRun1 surefire-20251111234151297_1tmp surefire_0-20251111234151297_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnDBManager\target\test-classes;D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnDBManager\target\classes;C:\Users\luism\.m2\repository\commons-codec\commons-codec\1.18.0\commons-codec-1.18.0.jar;C:\Users\luism\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\luism\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\luism\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\luism\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\luism\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\luism\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\luism\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\luism\.m2\repository\com\mysql\mysql-connector-j\9.2.0\mysql-connector-j-9.2.0.jar;C:\Users\luism\.m2\repository\com\google\protobuf\protobuf-java\4.29.0\protobuf-java-4.29.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\luism\AppData\Local\Temp\surefire12922124519970590225\surefirebooter-20251111233218460_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\luism\AppData\Local\Temp\surefire288252678091078665\surefirebooter-20251111234151297_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="24.0.1+9"/>
@@ -65,7 +65,7 @@
 Programacion3!
 ]]></system-out>
   </testcase>
-  <testcase name="testCifrarMD5" classname="pe.edu.pucp.squirlearn.db.util.CifradoTest" time="0.0">
+  <testcase name="testCifrarMD5" classname="pe.edu.pucp.squirlearn.db.util.CifradoTest" time="0.001">
     <system-out><![CDATA[cifrarMD5
 ]]></system-out>
   </testcase>

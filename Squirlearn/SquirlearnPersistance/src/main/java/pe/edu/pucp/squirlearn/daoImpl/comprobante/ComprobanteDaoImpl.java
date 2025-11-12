@@ -179,7 +179,7 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao {
         String sql = this.generarSQLParaListarTodos() + " WHERE PERSONA_ID_PERSONA=?";
         Consumer<PreparedStatement> incluir = ps -> {
             try {
-                ps.setInt(1, personaId);
+                this.statement.setInt(1, personaId);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

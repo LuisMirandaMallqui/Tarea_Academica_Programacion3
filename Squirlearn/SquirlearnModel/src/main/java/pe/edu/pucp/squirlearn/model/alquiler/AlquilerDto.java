@@ -1,6 +1,5 @@
 package pe.edu.pucp.squirlearn.model.alquiler;
 
-//import java.sql.Date;
 import java.util.Date;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 import pe.edu.pucp.squirlearn.model.item.ItemDto;
@@ -13,14 +12,10 @@ public class AlquilerDto {
     private Double monto;
     private Boolean devuelto;
     private String usuarioCreacion;
-//    private Date fechaInicio;
-//    private Date fechaFin;
-//    private Date fechaCreacion; 
     
-    
-    private java.util.Date fechaInicio;  // <--- POR ESTO
-    private java.util.Date fechaFin;
-    private java.util.Date fechaCreacion;
+    private Date fechaInicio;  // <--- POR ESTO
+    private Date fechaFin;
+    private Date fechaCreacion;
     
     // Constructor vacío (inicializa en null)
     public AlquilerDto() {
@@ -74,31 +69,6 @@ public class AlquilerDto {
     public void setItem(ItemDto item) {
         this.item = item;
     }
-
-//    public Date getFechaInicio() {
-//        return fechaInicio;
-//    }
-//
-//    public void setFechaInicio(Date fechaInicio) {
-//        this.fechaInicio = fechaInicio;
-//    }
-
-//    public Date getFechaFin() {
-//        return fechaFin;
-//    }
-
-//    public void setFechaFin(Date fechaFin) {
-//        this.fechaFin = fechaFin;
-//    }
-
-    
-//    public Date getFechaCreacion() {
-//        return fechaCreacion;
-//    }
-//
-//    public void setFechaCreacion(Date fechaCreacion) {
-//        this.fechaCreacion = fechaCreacion;
-//    }
     
     public Boolean getDevuelto() {
         return devuelto;
