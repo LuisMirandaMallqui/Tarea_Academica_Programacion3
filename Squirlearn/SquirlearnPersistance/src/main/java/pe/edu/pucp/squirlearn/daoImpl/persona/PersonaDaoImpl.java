@@ -177,7 +177,7 @@ public class PersonaDaoImpl extends DAOImplBase implements PersonaDao {
         String sql = this.generarSQLParaListarTodos() + " WHERE CODIGO=?";
         Consumer<PreparedStatement> incluir = ps -> {
             try {
-                ps.setString(1, codigo);
+                this.statement.setString(1, codigo);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
