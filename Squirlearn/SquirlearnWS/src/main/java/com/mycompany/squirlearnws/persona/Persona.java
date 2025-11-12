@@ -52,7 +52,7 @@ public class Persona {
             @WebParam(name = "usuarioCreacion") String usuarioCreacion,
             @WebParam(name = "creadorId") Date actividad) {
         return this.personaBo.modificar(id, nombres, primerApellido, segundoApellido, codigo, correo, contrasena,
-                estadoId, usuario, usuarioCreacion, actividad);
+                estadoId, usuarioCreacion, usuario, actividad);
     }
 
     @WebMethod(operationName = "logInPersona")
