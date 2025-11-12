@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/WebService.java to edit this template
- */
 package com.mycompany.squirlearnws.comprobante;
 
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.model.comprobante.ComprobanteDto;
 import pe.pucp.edu.squirlearn.business.comprobante.ComprobanteBo;

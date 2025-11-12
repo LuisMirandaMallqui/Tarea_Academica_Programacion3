@@ -25,8 +25,20 @@ public class Publicacion {
     public Integer insertar(
             @WebParam(name = "itemId") Integer itemId,
             @WebParam(name = "personaId") Integer personaId,
-            @WebParam(name = "usuario") String usuario) {
-        return this.publicacionBo.insertar(itemId, personaId, usuario);
+            @WebParam(name = "usuario") String usuario,
+            @WebParam(name = "precio") Double precio,
+            @WebParam(name = "nombre") String nombre,
+            @WebParam(name = "descripcion") String descripcion,
+            @WebParam(name = "esVenta") Boolean esVenta,
+            @WebParam(name = "colorId") Integer colorId,
+            @WebParam(name = "condicionId") Integer condicionId,
+            @WebParam(name = "tamanoId") Integer tamanoId,
+            @WebParam(name = "formatoId") Integer formatoId,
+            @WebParam(name = "categoriaId") Integer categoriaId,
+            @WebParam(name = "subcategoriaId") Integer subcategoriaId) {
+        return this.publicacionBo.insertar(itemId,personaId,usuario,
+            precio,nombre,descripcion,esVenta,colorId, condicionId, tamanoId,
+            formatoId,categoriaId,subcategoriaId);
     }
 
     @WebMethod(operationName = "modificarPublicacion")
