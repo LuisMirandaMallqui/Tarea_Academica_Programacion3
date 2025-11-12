@@ -36,8 +36,9 @@ public class Chat {
             @WebParam(name = "chatId") Integer chatId,
             @WebParam(name = "estadoId") Integer estadoId,
             @WebParam(name = "usuario") String usuario,
-            @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
-        return this.chatBo.modificar(chatId, estadoId, usuario,usuarioCreacion);
+            @WebParam(name = "usuarioCreacion") String usuarioCreacion,
+            @WebParam(name = "usuarioModificacion") String usuarioModificacion) {
+        return this.chatBo.modificar(chatId, estadoId, usuario,usuarioCreacion,usuarioModificacion);
     }
 
     @WebMethod(operationName = "listarTodosChat")

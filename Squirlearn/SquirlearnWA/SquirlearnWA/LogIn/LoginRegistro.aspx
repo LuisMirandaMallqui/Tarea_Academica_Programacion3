@@ -14,10 +14,15 @@
 
             </div>
             <div class="mb-3">
-                    <label class="fw-semibold">¿Cuál es tu apellido?</label>
-                    <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" placeholder="Apellidos"></asp:TextBox>
+                    <label class="fw-semibold">¿Cuál es tu  primer apellido?</label>
+                    <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="form-control" placeholder="Primer Apellido"></asp:TextBox>
 
-                </div>
+            </div>
+             <div class="mb-3">
+                     <label class="fw-semibold">¿Cuál es tu segundo apellido?</label>
+                     <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass="form-control" placeholder="Segundo Apellido"></asp:TextBox>
+
+             </div>
 
             <div class="mb-3">
                 <label class="fw-semibold">¿Cuál es tu correo PUCP?</label>

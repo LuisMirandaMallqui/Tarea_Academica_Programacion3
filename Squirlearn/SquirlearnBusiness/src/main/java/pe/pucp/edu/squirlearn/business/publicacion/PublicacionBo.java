@@ -1,11 +1,19 @@
-
 package pe.pucp.edu.squirlearn.business.publicacion;
 
+import static java.time.Instant.now;
 import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDao;
 import pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl;
 import pe.edu.pucp.squirlearn.model.item.ItemDto;
+import pe.edu.pucp.squirlearn.daoImpl.item.ItemDaoImpl;
+import pe.edu.pucp.squirlearn.model.item.CategoriaDto;
+import pe.edu.pucp.squirlearn.model.item.ColorDto;
+import pe.edu.pucp.squirlearn.model.item.CondicionDto;
+import pe.edu.pucp.squirlearn.model.item.EstadoItemDto;
+import pe.edu.pucp.squirlearn.model.item.FormatoDto;
+import pe.edu.pucp.squirlearn.model.item.SubcategoriaDto;
+import pe.edu.pucp.squirlearn.model.item.TamanoDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 import pe.edu.pucp.squirlearn.model.publicacion.EstadoPublicacionDto;
 import pe.edu.pucp.squirlearn.model.publicacion.PublicacionDto;
@@ -14,81 +22,113 @@ import pe.edu.pucp.squirlearn.model.publicacion.PublicacionDto;
 public class PublicacionBo {
     
     private PublicacionDao publicacionDao;
+    private ItemDaoImpl itemDao;
     
     public PublicacionBo (){
         this.publicacionDao = new PublicacionDaoImpl();
     }
     
-    public Integer insertar(Integer itemId, Integer personaId,String usuario){
-        PublicacionDto publicacionDto= new PublicacionDto();
+    public Integer insertar(Integer itemId, Integer personaId, String usuarioCreacion,
+            Double precio, String nombre,String descripcion ,Boolean esVenta ,
+            Integer colorId, Integer condicionId, Integer tamanoId, Integer formatoId,
+            Integer categoriaId, Integer subcategoriaId) {
         
-        ItemDto itemDto = new ItemDto();
-        itemDto.setItemId(itemId);
+        PublicacionDto publicacionDto = new PublicacionDto();
+        //Instanciar un item
+        ItemDto itemdto = new ItemDto();
+        itemdto.setItemId(itemId);
+        ColorDto color = new ColorDto();
+        color.setColorId(colorId);
+        CondicionDto condicion = new CondicionDto();
+        condicion.setCondicionId(condicionId);
+        TamanoDto tamano = new TamanoDto();
+        tamano.setTamanoId(tamanoId);
+        FormatoDto formato = new FormatoDto();
+        formato.setFormatoId(formatoId);
+        CategoriaDto categoria = new CategoriaDto();
+        categoria.setCategoriaId(categoriaId);
+        SubcategoriaDto subcategoria = new SubcategoriaDto();
+        subcategoria.setSubcategoriaId(subcategoriaId);
+        EstadoItemDto estado = new EstadoItemDto();
+        estado.setEstadoItemId(1);
+        //Asignar atributos item
+        itemdto.setPrecio(precio);
+        itemdto.setNombre(nombre);
+        itemdto.setDescripcion(descripcion);
+        itemdto.setEsVenta(esVenta);
+        itemdto.setColor(color);
+        itemdto.setCondicion(condicion);
+        itemdto.setTamano(tamano);
+        itemdto.setFormato(formato);
+        itemdto.setCategoria(categoria);
+        itemdto.setSubcategoria(subcategoria);
+        itemdto.setEstadoItem(estado);
+        itemdto.setusuarioCreacion(usuarioCreacion);
+        
+        //Asignar atributos publicacion
         PersonaDto personaDto = new PersonaDto();
         personaDto.setPersonaId(personaId);
         EstadoPublicacionDto estadoPublicacion = new EstadoPublicacionDto();
         estadoPublicacion.setEstadoPublicacionId(1);
-        
+
         publicacionDto.setEstadoPublicacion(estadoPublicacion);
-        publicacionDto.setItem(itemDto);
+        publicacionDto.setItem(itemdto);
         publicacionDto.setPersona(personaDto);
-        publicacionDto.setUsuario(usuario);
+        publicacionDto.setusuarioCreacion(usuarioCreacion);
         
-        return this.publicacionDao.insertar(publicacionDto);
+        return this.publicacionDao.insertar(publicacionDto) + this.itemDao.insertar(itemdto);
     }
     
-    public Integer modificar(Integer publicacionId, Date fechaAlta , Date fechaBaja,Integer estadoId,
-            Integer itemId, Integer personaId, Integer calificacion, String usuario, String usuarioCreacion){
-        PublicacionDto publicacionDto= new PublicacionDto();
+    public Integer modificar(Integer publicacionId, Date fechaAlta, Date fechaBaja, 
+            Integer estadoId, Integer itemId, Integer personaId, Integer calificacion, 
+            String usuarioCreacion, String usuarioModificacion) {
         
+        PublicacionDto publicacionDto = new PublicacionDto();
+        
+
         EstadoPublicacionDto estadoPublicacion = new EstadoPublicacionDto();
         estadoPublicacion.setEstadoPublicacionId(estadoId);
-        switch (estadoId){
-            case 2: 
-                fechaAlta = Date();
+        switch (estadoId) {
+            case 2:
+                fechaAlta = Date.from(now());
                 break;
             case 4:
-                fechaBaja = Date();
+                fechaBaja = Date.from(now());
                 break;
         }
-        
+
         ItemDto itemDto = new ItemDto();
         itemDto.setItemId(itemId);
         PersonaDto personaDto = new PersonaDto();
         personaDto.setPersonaId(personaId);
-        
+
         publicacionDto.setPublicacionId(publicacionId);
         publicacionDto.setFechaAlta((java.sql.Date) fechaAlta);
         publicacionDto.setEstadoPublicacion(estadoPublicacion);
         publicacionDto.setItem(itemDto);
         publicacionDto.setPersona(personaDto);
         publicacionDto.setCalificacion(calificacion);
-        publicacionDto.setUsuario(usuario);
-        publicacionDto.setUsuarioCreacion(usuarioCreacion);
-        
+        publicacionDto.setusuarioCreacion(usuarioCreacion);
+        publicacionDto.setusuarioModificacion(usuarioModificacion);
+
         return this.publicacionDao.modificar(publicacionDto);
     }
-    
-    public ArrayList<PublicacionDto> listarPorEstado(Integer estadoId){
+     public ArrayList<PublicacionDto> listarPorEstado(Integer estadoId) {
         return this.publicacionDao.listarPorEstado(estadoId); //necesita implementación
     }
-    
-    public ArrayList<PublicacionDto> listarPorDueno(Integer personaId){
-        return this.publicacionDao.listarPorEstado(personaId); //necesita implementación
-    }
-    
-    public PublicacionDto obtenerPorId(Integer id){
-        return this.publicacionDao.obtenerPorId(id);
-    }
 
-    private Date Date() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
     public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(String terminoBusqueda, Boolean esVenta,
             Integer idCategoria, Integer idSubcategoria, Integer idColores, Integer idTamanos, Integer idFormatos,
-            Integer idCondicion, Integer idEstado) {
+            Integer idCondicion) {
         return this.publicacionDao.listarPorFiltrosPublicacion(terminoBusqueda, esVenta, idCategoria, idSubcategoria, idColores,
-                idTamanos, idFormatos, idCondicion, idEstado); //necesita implementación
+                idTamanos, idFormatos, idCondicion); //necesita implementación
+    }
+
+    public ArrayList<PublicacionDto> listarPorDueno(Integer personaId) {
+        return this.publicacionDao.listarPorDueno(personaId); //necesita implementación
+    }
+
+    public PublicacionDto obtenerPorId(Integer id) {
+        return this.publicacionDao.obtenerPorId(id);
     }
 }

@@ -1,6 +1,6 @@
 package pe.pucp.edu.squirlearn.business.comprobante;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDao;
 import pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl;
@@ -18,7 +18,7 @@ public class ComprobanteBo {
     }
     
     public Integer insertar(Double monto, String transaccionId, Integer personaId, 
-            Integer formaPagoId, Integer monedaId, Double impuesto,Date fechaEmision ,String usuario){
+            Integer formaPagoId, Integer monedaId, Double impuesto,Date fechaEmision ,String usuarioCreacion){
         ComprobanteDto comprobanteDto = new ComprobanteDto();
         
         PersonaDto persona = new PersonaDto();
@@ -34,13 +34,35 @@ public class ComprobanteBo {
         comprobanteDto.setFormaPago(formaPago);
         comprobanteDto.setMoneda(monedaPago);
         comprobanteDto.setImpuesto(impuesto);
-        comprobanteDto.setUsuario(usuario);
+        comprobanteDto.setusuarioCreacion(usuarioCreacion);
         comprobanteDto.setFechaEmision(fechaEmision);
         return this.comprobanteDao.insertar(comprobanteDto);
     }
     
+    public Integer modificar(Double monto, String transaccionId, Integer personaId, 
+            Integer formaPagoId, Integer monedaId, Double impuesto,Date fechaEmision ,String usuarioCreacion){
+        ComprobanteDto comprobanteDto = new ComprobanteDto();
+        
+        PersonaDto persona = new PersonaDto();
+        persona.setPersonaId(personaId);
+        FormaPagoDto formaPago = new FormaPagoDto();
+        formaPago.setFormaPagoId(formaPagoId);
+        MonedaPagoDto monedaPago = new MonedaPagoDto();
+        monedaPago.setMonedaId(monedaId);
+        
+        comprobanteDto.setMonto(monto);
+        comprobanteDto.setTransaccion(transaccionId);
+        comprobanteDto.setPersona(persona);
+        comprobanteDto.setFormaPago(formaPago);
+        comprobanteDto.setMoneda(monedaPago);
+        comprobanteDto.setImpuesto(impuesto);
+        comprobanteDto.setusuarioCreacion(usuarioCreacion);
+        comprobanteDto.setFechaEmision(fechaEmision);
+        return this.comprobanteDao.modificar(comprobanteDto);
+    }
+    
     public ArrayList<ComprobanteDto> listarPorDueno(Integer personaId){
-        return this.comprobanteDao.listarPorDueno(personaId); // necesita implementación
+        return this.comprobanteDao.listarPorDueno(personaId); 
     }
     
     public ComprobanteDto obtenerPorId(Integer id){

@@ -25,18 +25,14 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
 
     @Override
     protected void configurarListaDeColumnas() {
-        this.listaColumnas.add(new Columna("INCIDENCIA_DTO", false, false));
+        this.listaColumnas.add(new Columna("INCIDENCIA_ID", false, false));
+        this.listaColumnas.add(new Columna("NOTIFICACION_ID", false, false));
+        this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
+        this.listaColumnas.add(new Columna("MOTIVO_ID_MOTIVO", false, false));
         this.listaColumnas.add(new Columna("DESCRIPCION", false, false));
-        this.listaColumnas.add(new Columna("FECHA_CREACION", false, false));
-        this.listaColumnas.add(new Columna("FECHA_SOLUCION", false, false));
-        this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
-        this.listaColumnas.add(new Columna("USUARIO_SOLUCION", false, false));
-        this.listaColumnas.add(new Columna("FECHA_MODIFICACION", false, false));
-        this.listaColumnas.add(new Columna("USUARIO_MODIFICACION", false, false));
-        this.listaColumnas.add(new Columna("NOTIFICACION", false, false));
-        this.listaColumnas.add(new Columna("PERSONA", false, false));
-        this.listaColumnas.add(new Columna("MOTIVO", false, false));
         this.listaColumnas.add(new Columna("RESUELTO", false, false));
+        this.listaColumnas.add(new Columna("USUARIO_SOLUCION", false, false));
+        this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
     }
 
     @Override
@@ -55,19 +51,20 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
         );
 
         int i = 1;
-        this.statement.setString(i++, this.incidencia.getDescripcion());
-        this.statement.setDate(i++, this.incidencia.getFechaSolucion());
         this.statement.setInt(i++, notifId);
         this.statement.setInt(i++, personaId);
         this.statement.setInt(i++, motivoId);
-        this.statement.setObject(i++, this.incidencia.getUsuarioSolucion(), java.sql.Types.INTEGER);
+        this.statement.setString(i++, this.incidencia.getDescripcion());
         this.statement.setInt(i++, this.incidencia.getResuelto());
+        this.statement.setInt(i++, this.incidencia.getUsuarioSolucion());
+        this.statement.setString(i++, this.incidencia.getUsuarioCreacion());
     }
 
     @Override
     protected void instanciarObjetoDelResultSet() throws SQLException {
-        this.incidencia = new pe.edu.pucp.squirlearn.model.inciNoti.IncidenciaDto();
+        this.incidencia = new IncidenciaDto();
 
+        this.incidencia.setIncidenciaId(this.resultSet.getInt("INCIDENCIA_ID"));
         // Notificacion
         NotificacionDto notif = new NotificacionDto();
         notif.setNotificacionId(this.resultSet.getInt("NOTIFIFACION_ID"));
@@ -84,12 +81,10 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
         this.incidencia.setMotivo(motivo);
 
         // Escalares
-        this.incidencia.setIncidenciaId(this.resultSet.getInt("INCIDENCIA_ID"));
         this.incidencia.setDescripcion(this.resultSet.getString("DESCRIPCION"));
-        this.incidencia.setFechaSolucion(this.resultSet.getDate("FECHA_SOLUCION"));
-        this.incidencia.setUsuarioCreacion(this.resultSet.getString("USUARIO_CREACION"));
-        this.incidencia.setUsuarioSolucion((Integer) this.resultSet.getObject("USUARIO_SOLUCION"));
         this.incidencia.setResuelto(this.resultSet.getInt("RESUELTO"));
+        this.incidencia.setUsuarioSolucion( this.resultSet.getInt("USUARIO_SOLUCION"));
+        this.incidencia.setUsuarioCreacion(this.resultSet.getString("USUARIO_CREACION"));
     }
 
 

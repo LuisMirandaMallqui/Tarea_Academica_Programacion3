@@ -1,4 +1,5 @@
 ﻿using SquirlearnWA.MasterPages;
+using SquirlearnWA.personaSOAP;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,14 @@ namespace SquirlearnWA
 {
     public partial class LoginInicio : System.Web.UI.Page
     {
+
+        private PersonaClient personaSoap;
+
+        public LoginInicio()
+        {
+            personaSoap = new PersonaClient();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -17,21 +26,21 @@ namespace SquirlearnWA
         
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            
-            
+
+
             string usuario = txtUsuario.Text.Trim();
             string contrasena = txtContraseña.Text.Trim();
             
-            var loginBO = new LoginBO();
-            PersonaDto personaDto = loginBO.ValidarUsuario(usuario, contrasena);
+            personaDto personaDto = personaSoap.logInPersona(usuario, contrasena);
 
             if (personaDto != null)
             {
                 // Guardamos en sesión solo lo necesario
-                Session["UsuarioId"] = personaDto.Id;
-                Session["Rol"] = personaDto.Rol;
-                Session["NombreUsuario"] = personaDto.Nombres + personaDto.primerApellido;
-                Response.Redirect(personaDto.Rol == "Administrador"
+                Session["UsuarioId"] = personaDto.personaId;
+                IList<rolPersonaDto> lista = personaDto.rolPersona;
+                Session["Rol"] = lista[1].nombre;
+                Session["NombreUsuario"] = personaDto.nombres + personaDto.primerApellido;
+                Response.Redirect(lista[1].nombre == "Administrador"
                                   ? "../PantallaInicio/AdminInicio.aspx"
                                   : "../PantallaInicio/SquirLearnInicio.aspx");
             }
@@ -40,29 +49,7 @@ namespace SquirlearnWA
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Usuario o contraseña incorrectos');", true);
             }
 
-            
-            /*
-            // Simulamos usuarios con roles distintos
-           
-            if (usuario == "admin" && contrasena == "123")
-            {
-                Session["Usuario"] = usuario;
-                Session["Rol"] = "Administrador";
-                Response.Redirect("~/AdminInicio.aspx");
-            }
-            else if (usuario == "usuario" && contrasena == "123")
-            {
-                Session["Usuario"] = usuario;
-                Session["Rol"] = "Usuario";
-                Response.Redirect("~/SquirLearnInicio.aspx");
-            }
-            else
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Usuario o contraseña incorrectos');", true);
-            }
-            */
-            
-            
+
         }
 
         protected void btnRegistro_Click(object sender, EventArgs e)

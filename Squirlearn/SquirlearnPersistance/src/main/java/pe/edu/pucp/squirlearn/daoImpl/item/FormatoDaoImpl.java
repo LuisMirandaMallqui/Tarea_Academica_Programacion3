@@ -22,22 +22,19 @@ public class FormatoDaoImpl extends DAOImplBase implements FormatoDao{
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("FORMATO_ID", true, true));
         this.listaColumnas.add(new Columna("NOMBRE", false, false));
-
-
-
-}
+    }
 
    @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.formato.getNombre());
-}
+    }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.formato.getNombre());
-this.statement.setInt(i++, this.formato.getFormatoId()); // WHERE
+        this.statement.setInt(i++, this.formato.getFormatoId()); // WHERE
     }
 
     @Override
@@ -45,7 +42,7 @@ this.statement.setInt(i++, this.formato.getFormatoId()); // WHERE
         this.formato = new FormatoDto();
         this.formato.setFormatoId(this.resultSet.getInt("FORMATO_ID"));
         this.formato.setNombre(this.resultSet.getString("NOMBRE"));
-}
+    }
 
 
     @Override

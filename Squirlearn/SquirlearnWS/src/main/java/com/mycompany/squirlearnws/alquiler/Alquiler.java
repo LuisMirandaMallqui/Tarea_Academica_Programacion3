@@ -26,10 +26,16 @@ public class Alquiler {
     }
     
     @WebMethod(operationName = "modificarAlquiler")
-    public Integer modificarAlquiler(@WebParam(name = "id") Integer id,@WebParam(name = "personaId") Integer personaId, @WebParam(name = "itemId") Integer itemId,
-            @WebParam(name = "fechaInicio") Date inicio,@WebParam(name = "fechaFin") Date fin ,@WebParam(name = "monto") Double monto,
-            @WebParam(name = "devuelto") Boolean devuelto, @WebParam(name = "usuario")String usuario, @WebParam(name = "usuarioCreacion") String usuarioCreacion){
-        return this.alquilerBo.Modificar(id, personaId, itemId, inicio, fin, monto, devuelto, usuario, usuarioCreacion);
+    public Integer modificarAlquiler(
+            @WebParam(name = "id") Integer id,
+            @WebParam(name = "personaId") Integer personaId, 
+            @WebParam(name = "itemId") Integer itemId,
+            @WebParam(name = "fechaInicio") Date inicio,
+            @WebParam(name = "fechaFin") Date fin ,
+            @WebParam(name = "monto") Double monto,
+            @WebParam(name = "devuelto") Boolean devuelto, 
+            @WebParam(name = "usuarioCreacion") String usuarioCreacion){
+        return this.alquilerBo.Modificar(id, personaId, itemId, inicio, fin, monto, devuelto, usuarioCreacion);
     }
     
     @WebMethod(operationName = "listarPorDuenoAlquiler")

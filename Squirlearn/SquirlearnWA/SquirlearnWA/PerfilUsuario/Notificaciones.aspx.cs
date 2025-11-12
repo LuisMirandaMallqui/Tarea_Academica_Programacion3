@@ -14,11 +14,11 @@ namespace SquirlearnWA
         private NotificacionBO notificacionBO = new NotificacionBO();
         private const int RegistrosPorPagina = 5;
 
-        private List<NotificacionDTO> ListaNotificaciones
-        {
-            get => ViewState["ListaNotificaciones"] as List<NotificacionDTO>;
-            set => ViewState["ListaNotificaciones"] = value;
-        }
+        //private List<NotificacionDTO> ListaNotificaciones
+        //{
+        //    get => ViewState["ListaNotificaciones"] as List<NotificacionDTO>;
+        //    set => ViewState["ListaNotificaciones"] = value;
+        //}
 
         private int PaginaActual
         {
@@ -45,48 +45,48 @@ namespace SquirlearnWA
         }
         private void CargarNotificaciones()
         {
-            int usuarioId = Convert.ToInt32(Session["UsuarioId"]);
-            string orden = ddlOrden.SelectedValue;
+            //int usuarioId = Convert.ToInt32(Session["UsuarioId"]);
+            //string orden = ddlOrden.SelectedValue;
 
-            List<NotificacionDTO> lista = notificacionBO.ObtenerPorUsuario(usuarioId);
+            //List<NotificacionDTO> lista = notificacionBO.ObtenerPorUsuario(usuarioId);
 
-            if (orden == "desc")
-                lista = lista.OrderByDescending(n => n.Fecha).ToList();
-            else
-                lista = lista.OrderBy(n => n.Fecha).ToList();
+            //if (orden == "desc")
+            //    lista = lista.OrderByDescending(n => n.Fecha).ToList();
+            //else
+            //    lista = lista.OrderBy(n => n.Fecha).ToList();
 
-            if (lista != null && lista.Count > 0)
-            {
-                ListaNotificaciones = lista;
-                lblTotalResultados.Text = $"Se encontraron {lista.Count} notificaciones.";
-                lblSinResultados.Text = "";
-                MostrarPagina();
-            }
-            else
-            {
-                rptNotificaciones.DataSource = null;
-                rptNotificaciones.DataBind();
-                lblTotalResultados.Text = "";
-                lblSinResultados.Text = "No tienes notificaciones disponibles.";
-            }
+            //if (lista != null && lista.Count > 0)
+            //{
+            //    ListaNotificaciones = lista;
+            //    lblTotalResultados.Text = $"Se encontraron {lista.Count} notificaciones.";
+            //    lblSinResultados.Text = "";
+            //    MostrarPagina();
+            //}
+            //else
+            //{
+            //    rptNotificaciones.DataSource = null;
+            //    rptNotificaciones.DataBind();
+            //    lblTotalResultados.Text = "";
+            //    lblSinResultados.Text = "No tienes notificaciones disponibles.";
+            //}
         }
         private void MostrarPagina()
         {
-            if (ListaNotificaciones == null || ListaNotificaciones.Count == 0)
-                return;
+            //if (ListaNotificaciones == null || ListaNotificaciones.Count == 0)
+            //    return;
 
-            int totalPaginas = (int)Math.Ceiling((double)ListaNotificaciones.Count / RegistrosPorPagina);
-            int inicio = PaginaActual * RegistrosPorPagina;
-            int fin = Math.Min(inicio + RegistrosPorPagina, ListaNotificaciones.Count);
+            //int totalPaginas = (int)Math.Ceiling((double)ListaNotificaciones.Count / RegistrosPorPagina);
+            //int inicio = PaginaActual * RegistrosPorPagina;
+            //int fin = Math.Min(inicio + RegistrosPorPagina, ListaNotificaciones.Count);
 
-            var pagina = ListaNotificaciones.GetRange(inicio, fin - inicio);
+            //var pagina = ListaNotificaciones.GetRange(inicio, fin - inicio);
 
-            rptNotificaciones.DataSource = pagina;
-            rptNotificaciones.DataBind();
+            //rptNotificaciones.DataSource = pagina;
+            //rptNotificaciones.DataBind();
 
-            lblPagina.Text = $"Página {PaginaActual + 1} de {totalPaginas}";
-            btnAnterior.Enabled = PaginaActual > 0;
-            btnSiguiente.Enabled = PaginaActual < totalPaginas - 1;
+            //lblPagina.Text = $"Página {PaginaActual + 1} de {totalPaginas}";
+            //btnAnterior.Enabled = PaginaActual > 0;
+            //btnSiguiente.Enabled = PaginaActual < totalPaginas - 1;
         }
         protected void btnAnterior_Click(object sender, EventArgs e)
         {
@@ -99,12 +99,12 @@ namespace SquirlearnWA
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-            int totalPaginas = (int)Math.Ceiling((double)ListaNotificaciones.Count / RegistrosPorPagina);
-            if (PaginaActual < totalPaginas - 1)
-            {
-                PaginaActual++;
-                MostrarPagina();
-            }
+            //int totalPaginas = (int)Math.Ceiling((double)ListaNotificaciones.Count / RegistrosPorPagina);
+            //if (PaginaActual < totalPaginas - 1)
+            //{
+            //    PaginaActual++;
+            //    MostrarPagina();
+            //}
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/WebService.java to edit this template
- */
 package com.mycompany.squirlearnws.publicacion;
 
 import jakarta.jws.WebService;
@@ -29,8 +25,20 @@ public class Publicacion {
     public Integer insertar(
             @WebParam(name = "itemId") Integer itemId,
             @WebParam(name = "personaId") Integer personaId,
-            @WebParam(name = "usuario") String usuario) {
-        return this.publicacionBo.insertar(itemId, personaId, usuario);
+            @WebParam(name = "usuario") String usuario,
+            @WebParam(name = "precio") Double precio,
+            @WebParam(name = "nombre") String nombre,
+            @WebParam(name = "descripcion") String descripcion,
+            @WebParam(name = "esVenta") Boolean esVenta,
+            @WebParam(name = "colorId") Integer colorId,
+            @WebParam(name = "condicionId") Integer condicionId,
+            @WebParam(name = "tamanoId") Integer tamanoId,
+            @WebParam(name = "formatoId") Integer formatoId,
+            @WebParam(name = "categoriaId") Integer categoriaId,
+            @WebParam(name = "subcategoriaId") Integer subcategoriaId) {
+        return this.publicacionBo.insertar(itemId,personaId,usuario,
+            precio,nombre,descripcion,esVenta,colorId, condicionId, tamanoId,
+            formatoId,categoriaId,subcategoriaId);
     }
 
     @WebMethod(operationName = "modificarPublicacion")
@@ -45,7 +53,7 @@ public class Publicacion {
             @WebParam(name = "usuario") String usuario,
             @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
         return this.publicacionBo.modificar(publicacionId, fechaAlta, fechaBaja, estadoId, itemId,
-                personaId, calificacion, usuario, usuarioCreacion);
+                personaId, calificacion, usuarioCreacion,usuario);
     }
 
     @WebMethod(operationName = "listarPorEstadoPublicacion")
@@ -72,9 +80,9 @@ public class Publicacion {
             @WebParam(name = "idColores") Integer idColores, // De ITEM
             @WebParam(name = "idTamanos") Integer idTamanos, // De ITEM
             @WebParam(name = "idFormatos") Integer idFormatos, // De ITEM
-            @WebParam(name = "idCondicion") Integer idCondicion, // De ITEM
-            @WebParam(name = "idEstado") Integer idEstado) { // De ITEM
+            @WebParam(name = "idCondicion") Integer idCondicion){ // De ITEM
+//            @WebParam(name = "idEstado") Integer idEstado) { // De PUB
         return this.publicacionBo.listarPorFiltrosPublicacion(terminoBusqueda, esVenta, idCategoria, idSubcategoria, idColores,
-                idTamanos, idFormatos, idCondicion, idEstado);
+                idTamanos, idFormatos, idCondicion);
     }
 }

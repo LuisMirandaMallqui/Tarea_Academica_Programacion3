@@ -29,9 +29,8 @@ public class Mensaje {
     public Integer insertarMensaje(
             @WebParam(name = "chatId") Integer chatId,
             @WebParam(name = "mensaje") String mensaje,
-            @WebParam(name = "personaId") Integer personaId,
-            @WebParam(name = "usuario") String usuario) {
-        return this.mensajeBo.insertar(chatId, mensaje, personaId,usuario);
+            @WebParam(name = "personaId") Integer personaId){
+        return this.mensajeBo.insertar(chatId, mensaje, personaId);
     }
 
     @WebMethod(operationName = "modificarMensaje")
@@ -42,11 +41,9 @@ public class Mensaje {
             @WebParam(name = "estadoId") Integer estadoId,
             @WebParam(name = "personaId") Integer personaId,
             @WebParam(name = "fechaEnvio") Date fechaEnvio,
-            @WebParam(name = "fechaLeido") Date fechaLeido,
-            @WebParam(name = "usuario") String usuario,
-            @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
+            @WebParam(name = "fechaLeido") Date fechaLeido){
         return this.mensajeBo.modificar(id, chatId, mensaje, estadoId, personaId, fechaEnvio,
-                fechaLeido, usuario, usuarioCreacion);
+                fechaLeido);
     }
 
     @WebMethod(operationName = "listarTodosMensaje")

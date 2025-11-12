@@ -1,22 +1,22 @@
 package pe.edu.pucp.squirlearn.model.comprobante;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
 public class ComprobanteDto {
-    
+
     private Integer comprobanteId;
     private PersonaDto persona;
     private FormaPagoDto formaPago;
     private MonedaPagoDto moneda;
     private Double monto;
     private String transaccion;
-    private Date fechaEmision;
     private Double impuesto;
-    private String usuario;
+    private String usuarioCreacion;
     private List<DetalleComprobanteDto> detallesComprobante;
-    
+    private Date fechaEmision;
+
     // Constructor vacío
     public ComprobanteDto() {
         this.comprobanteId = null;
@@ -27,14 +27,15 @@ public class ComprobanteDto {
         this.persona = null;
         this.formaPago = null;
         this.moneda = null;
-        this.usuario = null;
+        this.usuarioCreacion = null;
         this.detallesComprobante = null;
     }
 
     // Constructor con parámetros
     public ComprobanteDto(Integer comprobanteId, Double monto, String transaccion, Date fechaEmision,
-                          Double impuesto, PersonaDto persona, FormaPagoDto formaPago, MonedaPagoDto moneda,String usuario,
-                          List<DetalleComprobanteDto> detallesComprobante) {
+            Double impuesto, PersonaDto persona, FormaPagoDto formaPago,
+            MonedaPagoDto moneda, String usuarioCreacion,
+            List<DetalleComprobanteDto> detallesComprobante) {
         this.comprobanteId = comprobanteId;
         this.monto = monto;
         this.transaccion = transaccion;
@@ -43,7 +44,7 @@ public class ComprobanteDto {
         this.persona = persona;
         this.formaPago = formaPago;
         this.moneda = moneda;
-        this.usuario = usuario;
+        this.usuarioCreacion = usuarioCreacion;
         this.detallesComprobante = detallesComprobante;
     }
 
@@ -112,14 +113,14 @@ public class ComprobanteDto {
         this.moneda = moneda;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getusuarioCreacion() {
+        return usuarioCreacion;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setusuarioCreacion(String usuarioCreacion) {
+        this.usuarioCreacion = usuarioCreacion;
     }
-    
+
     public List<DetalleComprobanteDto> getDetallesComprobante() {
         return detallesComprobante;
     }

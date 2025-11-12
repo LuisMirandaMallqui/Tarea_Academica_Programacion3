@@ -1,0 +1,293 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\pantallainicio\\busqueda.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\pantallainicio\\busqueda.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\pantallainicio\\busqueda.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\pantallainicio\\busqueda.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\pantallainicio\\busqueda.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\pantallainicio\\busqueda.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\pantallainicio\\squirlearninicio.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\pantallainicio\\squirlearninicio.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\pantallainicio\\squirlearninicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\pantallainicio\\squirlearninicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\pantallainicio\\squirlearninicio.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\pantallainicio\\squirlearninicio.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\login\\logininicio.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\login\\logininicio.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\login\\loginregistro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\login\\loginregistro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\login\\loginregistro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\login\\loginregistro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\login\\logininicio.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\login\\logininicio.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\administrador\\aceptacionpublicacion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\administrador\\aceptacionpublicacion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\publicaciondelusuario\\listadopublicaciones.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\publicaciondelusuario\\listadopublicaciones.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\publicaciondelusuario\\publicar.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\publicaciondelusuario\\publicar.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\perfilusuario\\notificaciones.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\perfilusuario\\notificaciones.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\login\\logininicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|solutionrelative:squirlearnwa\\login\\logininicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|SquirlearnWA||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F460FAD5-E047-4FA2-87AD-E84231223F3D}|SquirlearnWA\\SquirlearnWA.csproj|d:\\pucp\\2025-2\\programaci\u00F3n 3\\proyecto\\tarea_academica_programacion3\\squirlearn\\squirlearnwa\\squirlearnwa\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|909d16b3-c8e8-43d1-a2b8-26ea0d4b6b57"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Busqueda.aspx.designer.cs",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PantallaInicio\\Busqueda.aspx.designer.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\PantallaInicio\\Busqueda.aspx.designer.cs",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PantallaInicio\\Busqueda.aspx.designer.cs",
+              "RelativeToolTip": "SquirlearnWA\\PantallaInicio\\Busqueda.aspx.designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T04:49:35.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Busqueda.aspx",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PantallaInicio\\Busqueda.aspx",
+              "RelativeDocumentMoniker": "SquirlearnWA\\PantallaInicio\\Busqueda.aspx",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PantallaInicio\\Busqueda.aspx",
+              "RelativeToolTip": "SquirlearnWA\\PantallaInicio\\Busqueda.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-11-12T04:00:15.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SquirLearnInicio.aspx.cs",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PantallaInicio\\SquirLearnInicio.aspx.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\PantallaInicio\\SquirLearnInicio.aspx.cs",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PantallaInicio\\SquirLearnInicio.aspx.cs",
+              "RelativeToolTip": "SquirlearnWA\\PantallaInicio\\SquirLearnInicio.aspx.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwDUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T03:52:37.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SquirLearnInicio.aspx",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PantallaInicio\\SquirLearnInicio.aspx",
+              "RelativeDocumentMoniker": "SquirlearnWA\\PantallaInicio\\SquirLearnInicio.aspx",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PantallaInicio\\SquirLearnInicio.aspx",
+              "RelativeToolTip": "SquirlearnWA\\PantallaInicio\\SquirLearnInicio.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-11-12T02:47:35.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Busqueda.aspx.cs",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PantallaInicio\\Busqueda.aspx.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\PantallaInicio\\Busqueda.aspx.cs",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PantallaInicio\\Busqueda.aspx.cs",
+              "RelativeToolTip": "SquirlearnWA\\PantallaInicio\\Busqueda.aspx.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAmwIIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T01:38:42.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SquirLearnInicio.aspx.designer.cs",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PantallaInicio\\SquirLearnInicio.aspx.designer.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\PantallaInicio\\SquirLearnInicio.aspx.designer.cs",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PantallaInicio\\SquirLearnInicio.aspx.designer.cs",
+              "RelativeToolTip": "SquirlearnWA\\PantallaInicio\\SquirLearnInicio.aspx.designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T03:39:20.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LoginInicio.aspx.designer.cs",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Login\\LoginInicio.aspx.designer.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\Login\\LoginInicio.aspx.designer.cs",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Login\\LoginInicio.aspx.designer.cs",
+              "RelativeToolTip": "SquirlearnWA\\Login\\LoginInicio.aspx.designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T02:36:15.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoginRegistro.aspx",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Login\\LoginRegistro.aspx",
+              "RelativeDocumentMoniker": "SquirlearnWA\\Login\\LoginRegistro.aspx",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Login\\LoginRegistro.aspx",
+              "RelativeToolTip": "SquirlearnWA\\Login\\LoginRegistro.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-11-12T02:45:11.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginRegistro.aspx.cs",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Login\\LoginRegistro.aspx.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\Login\\LoginRegistro.aspx.cs",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Login\\LoginRegistro.aspx.cs",
+              "RelativeToolTip": "SquirlearnWA\\Login\\LoginRegistro.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T02:29:59.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ListadoPublicaciones.aspx.cs",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PublicacionDelUsuario\\ListadoPublicaciones.aspx.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\PublicacionDelUsuario\\ListadoPublicaciones.aspx.cs",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PublicacionDelUsuario\\ListadoPublicaciones.aspx.cs",
+              "RelativeToolTip": "SquirlearnWA\\PublicacionDelUsuario\\ListadoPublicaciones.aspx.cs",
+              "ViewState": "AgIAAB0BAAAAAAAAAAAuwMEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T01:42:44.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AceptacionPublicacion.aspx.cs",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Administrador\\AceptacionPublicacion.aspx.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\Administrador\\AceptacionPublicacion.aspx.cs",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Administrador\\AceptacionPublicacion.aspx.cs",
+              "RelativeToolTip": "SquirlearnWA\\Administrador\\AceptacionPublicacion.aspx.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAC4AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T01:42:27.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginInicio.aspx.cs",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Login\\LoginInicio.aspx.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\Login\\LoginInicio.aspx.cs",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Login\\LoginInicio.aspx.cs",
+              "RelativeToolTip": "SquirlearnWA\\Login\\LoginInicio.aspx.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwA4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T01:30:12.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Publicar.aspx.cs",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PublicacionDelUsuario\\Publicar.aspx.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\PublicacionDelUsuario\\Publicar.aspx.cs",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PublicacionDelUsuario\\Publicar.aspx.cs",
+              "RelativeToolTip": "SquirlearnWA\\PublicacionDelUsuario\\Publicar.aspx.cs",
+              "ViewState": "AgIAADMBAAAAAAAAAAAcwEABAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T01:41:00.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Notificaciones.aspx.cs",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PerfilUsuario\\Notificaciones.aspx.cs",
+              "RelativeDocumentMoniker": "SquirlearnWA\\PerfilUsuario\\Notificaciones.aspx.cs",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\PerfilUsuario\\Notificaciones.aspx.cs",
+              "RelativeToolTip": "SquirlearnWA\\PerfilUsuario\\Notificaciones.aspx.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAMwEYAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T01:40:16.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SquirlearnWA",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\SquirlearnWA.csproj",
+              "RelativeDocumentMoniker": "SquirlearnWA\\SquirlearnWA.csproj",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\SquirlearnWA.csproj",
+              "RelativeToolTip": "SquirlearnWA\\SquirlearnWA.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-12T01:28:17.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LoginInicio.aspx",
+              "DocumentMoniker": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Login\\LoginInicio.aspx",
+              "RelativeDocumentMoniker": "SquirlearnWA\\Login\\LoginInicio.aspx",
+              "ToolTip": "D:\\PUCP\\2025-2\\Programaci\u00F3n 3\\Proyecto\\Tarea_Academica_Programacion3\\Squirlearn\\SquirlearnWA\\SquirlearnWA\\Login\\LoginInicio.aspx",
+              "RelativeToolTip": "SquirlearnWA\\Login\\LoginInicio.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-11-12T01:27:16.877Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

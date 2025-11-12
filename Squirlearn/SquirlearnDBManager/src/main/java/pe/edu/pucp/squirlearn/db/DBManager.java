@@ -43,8 +43,7 @@ public class DBManager {
     public Connection getConnection() throws SQLException {
         try {            
             Class.forName(this.driver);
-        
-            this.conexion = DriverManager.getConnection(getURL(), this.usuario, this.contraseña);
+            this.conexion = DriverManager.getConnection(getURL(), this.usuario, Cifrado.descifrarMD5(this.contraseña));
 //            this.conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb","root","13Ag2019");
         } catch (ClassNotFoundException ex) {
             System.err.println("Error al generar la conexión - " + ex);

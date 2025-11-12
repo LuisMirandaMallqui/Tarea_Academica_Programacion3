@@ -8,6 +8,7 @@ import java.util.function.Consumer;
 import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
 import pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
+import pe.edu.pucp.squirlearn.daoImpl.util.TraduccionesSQL;
 import pe.edu.pucp.squirlearn.model.inciNoti.MotivoDto;
 import pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
@@ -25,10 +26,10 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao{
     @Override
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("NOTIFICACION_ID", true, true));
+        this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
+        this.listaColumnas.add(new Columna("MOTIVO_ID_MOTIVO", false, false));
         this.listaColumnas.add(new Columna("FECHA", false, false));
         this.listaColumnas.add(new Columna("MENSAJE", false, false));
-        this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
-        this.listaColumnas.add(new Columna("MOTIVO_ID", false, false));
     }
 
     @Override
@@ -42,11 +43,35 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao{
             "motivos", "MOTIVO_ID"
         );
 
+        java.sql.Timestamp fechaSQL = TraduccionesSQL.toSqlTimestamp(this.notificacion.getFecha());
+        
         int i = 1;
-        this.statement.setDate(i++, this.notificacion.getFecha());
-        this.statement.setString(i++, this.notificacion.getMensaje());
         this.statement.setInt(i++, personaId);
         this.statement.setInt(i++, motivoId);
+        this.statement.setTimestamp(i++, fechaSQL);
+        this.statement.setString(i++, this.notificacion.getMensaje());
+    }
+    @Override
+    protected void incluirValorDeParametrosParaModificacion() throws SQLException {
+        int personaId = safeFkId(
+            (this.notificacion.getPersona() == null ? null : this.notificacion.getPersona().getPersonaId()),
+            "personas", "PERSONA_ID"
+        );
+        int motivoId = safeFkId(
+            (this.notificacion.getMotivo() == null ? null : this.notificacion.getMotivo().getMotivoId()),
+            "motivos", "MOTIVO_ID"
+        );
+        // 1. Obtiene el java.util.Date (limpio) de tu DTO
+        java.util.Date fechaUtil = this.notificacion.getFecha();
+
+        // 2. Prepara el "traductor" (Timestamp) para JDBC
+        java.sql.Timestamp fechaSQL = (fechaUtil == null) ? null : new java.sql.Timestamp(fechaUtil.getTime());
+        
+        int i = 1;
+        this.statement.setInt(i++, personaId);
+        this.statement.setInt(i++, motivoId);
+        this.statement.setTimestamp(i++, fechaSQL);
+        this.statement.setString(i++, this.notificacion.getMensaje());
     }
 
     @Override
@@ -62,7 +87,7 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao{
         this.notificacion.setMotivo(motivo);
 
         this.notificacion.setNotificacionId(this.resultSet.getInt("NOTIFICACION_ID"));
-        this.notificacion.setFecha(this.resultSet.getDate("FECHA"));
+        this.notificacion.setFecha(this.resultSet.getTimestamp("FECHA"));
         this.notificacion.setMensaje(this.resultSet.getString("MENSAJE"));
     }
 

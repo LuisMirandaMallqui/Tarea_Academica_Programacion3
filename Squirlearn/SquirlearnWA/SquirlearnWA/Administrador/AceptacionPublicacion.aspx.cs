@@ -31,20 +31,20 @@ namespace SquirlearnWA
             DateTime fechaRechazo = DateTime.Now;
 
             // 3️⃣ Obtener el id de la publicación desde la sesión (si lo guardaste antes)
-            int idPublicacion = Convert.ToInt32(Session["IdPublicacion"]);
-            int idPersona = Convert.ToInt32(Session["UsuarioId"]);
+            //int idPublicacion = Convert.ToInt32(Session["IdPublicacion"]);
+            //int idPersona = Convert.ToInt32(Session["UsuarioId"]);
 
-            NotificacionDTO notificacion = new NotificacionDTO
-            {
-                UsuarioId = idPersona,
+            //NotificacionDTO notificacion = new NotificacionDTO
+            //{
+            //    UsuarioId = idPersona,
 
-                Mensaje = comentario,
-                Fecha = fechaRechazo,
+            //    Mensaje = comentario,
+            //    Fecha = fechaRechazo,
 
-            };
-            notificacionBO.Insertar(notificacion);
+            //};
+            //notificacionBO.Insertar(notificacion);
 
-            publicacionBO.CambiarEstado(idPublicacion, "Aceptado");
+            //publicacionBO.CambiarEstado(idPublicacion, "Aceptado");
 
 
             Response.Redirect("ListadoDeSolicitudesAdmin.aspx");

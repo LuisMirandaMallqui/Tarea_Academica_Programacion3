@@ -1,7 +1,7 @@
 package pe.edu.pucp.squirlearn.model.inciNoti;
 
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
-import java.sql.Date;
+import java.util.Date;
 
 public class NotificacionDto {
     

@@ -1,11 +1,12 @@
 package pe.edu.pucp.squirlearn.daoImpl.chat;
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
 import pe.edu.pucp.squirlearn.dao.chat.MensajeDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
+import pe.edu.pucp.squirlearn.daoImpl.util.TraduccionesSQL;
 import pe.edu.pucp.squirlearn.model.chat.ChatDto;
 import pe.edu.pucp.squirlearn.model.chat.EstadoMensajeDto;
 import pe.edu.pucp.squirlearn.model.chat.MensajeDto;
@@ -24,12 +25,12 @@ public class MensajeDaoImpl extends DAOImplBase implements MensajeDao{
     @Override
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("MENSAJE_ID", true, true));
-        this.listaColumnas.add(new Columna("CHAT", false, false));
+        this.listaColumnas.add(new Columna("CHAT_ID_CHAT", false, false));
+        this.listaColumnas.add(new Columna("ESTADO_MSJ_ID", false, false));
+        this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
         this.listaColumnas.add(new Columna("FECHA_ENVIO", false, false));
         this.listaColumnas.add(new Columna("FECHA_LEIDO", false, false));
         this.listaColumnas.add(new Columna("MENSAJE", false, false));
-        this.listaColumnas.add(new Columna("ESTADO_MENSAJE", false, false));
-        this.listaColumnas.add(new Columna("PERSONA", false, false));
     }
 
     @Override
@@ -46,11 +47,11 @@ public class MensajeDaoImpl extends DAOImplBase implements MensajeDao{
             (this.mensaje.getPersona() == null ? null : this.mensaje.getPersona().getPersonaId()),
             "personas", "PERSONA_ID"
         );
-
+        java.sql.Timestamp fechaEnvSQL = TraduccionesSQL.toSqlTimestamp(this.mensaje.getFechaEnvio());
         int i = 1;
         this.statement.setInt(i++, chatId);
-        this.statement.setDate(i++, this.mensaje.getFechaEnvio());
-        this.statement.setDate(i++, this.mensaje.getFechaLeido());
+        this.statement.setTimestamp(i++, fechaEnvSQL);
+        this.statement.setDate(i++, null);
         this.statement.setString(i++, this.mensaje.getMensaje());
         this.statement.setInt(i++, estadoMsjId);
         this.statement.setInt(i++, personaId);
@@ -70,11 +71,19 @@ public class MensajeDaoImpl extends DAOImplBase implements MensajeDao{
             (this.mensaje.getPersona() == null ? null : this.mensaje.getPersona().getPersonaId()),
             "personas", "PERSONA_ID"
         );
+        
+        // 1. Obtiene el java.util.Date (limpio) de tu DTO
+        java.util.Date FechaEnvio = this.mensaje.getFechaEnvio();
+        java.util.Date FechaLeido = this.mensaje.getFechaLeido();
 
+        // 2. Prepara el "traductor" (Timestamp) para JDBC
+        java.sql.Timestamp FechaEnvioSql = (FechaEnvio == null) ? null : new java.sql.Timestamp(FechaEnvio.getTime());
+        java.sql.Timestamp FechaLeidoSql = (FechaLeido == null) ? null : new java.sql.Timestamp(FechaLeido.getTime());
+        
         int i = 1;
         this.statement.setInt(i++, chatId);
-        this.statement.setDate(i++, this.mensaje.getFechaEnvio());
-        this.statement.setDate(i++, this.mensaje.getFechaLeido());
+        this.statement.setTimestamp(i++, FechaEnvioSql);
+        this.statement.setTimestamp(i++, FechaLeidoSql);
         this.statement.setString(i++, this.mensaje.getMensaje());
         this.statement.setInt(i++, estadoMsjId);
         this.statement.setInt(i++, personaId);
@@ -102,8 +111,8 @@ public class MensajeDaoImpl extends DAOImplBase implements MensajeDao{
 
         // Escalares
         this.mensaje.setMensajeId(this.resultSet.getInt("MENSAJE_ID"));
-        this.mensaje.setFechaEnvio(this.resultSet.getDate("FECHA_ENVIO"));
-        this.mensaje.setFechaLeido(this.resultSet.getDate("FECHA_LEIDO"));
+        this.mensaje.setFechaEnvio(this.resultSet.getTimestamp("FECHA_ENVIO"));
+        this.mensaje.setFechaLeido(this.resultSet.getTimestamp("FECHA_LEIDO"));
         this.mensaje.setMensaje(this.resultSet.getString("MENSAJE"));
     }
 
