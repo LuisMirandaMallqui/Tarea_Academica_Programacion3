@@ -1,7 +1,7 @@
 package pe.pucp.edu.squirlearn.business.alquiler;
 
 import java.util.ArrayList;
-import java.sql.Date;
+import java.util.Date;
 import pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDao;
 import pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl;
 import pe.edu.pucp.squirlearn.model.alquiler.AlquilerDto;

@@ -1,7 +1,7 @@
 package pe.pucp.edu.squirlearn.business.persona;
 
 import java.util.ArrayList;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 import pe.edu.pucp.squirlearn.dao.persona.PersonaDao;
 import pe.edu.pucp.squirlearn.daoImpl.persona.PersonaDaoImpl;

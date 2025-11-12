@@ -1,7 +1,7 @@
 package pe.pucp.edu.squirlearn.business.chat;
 
 import java.util.ArrayList;
-import java.sql.Date;
+import java.util.Date;
 import pe.edu.pucp.squirlearn.dao.chat.MensajeDao;
 import pe.edu.pucp.squirlearn.daoImpl.chat.MensajeDaoImpl;
 import pe.edu.pucp.squirlearn.model.chat.ChatDto;

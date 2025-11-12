@@ -1,6 +1,6 @@
 package pe.pucp.edu.squirlearn.business.comprobante;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDao;
 import pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl;
