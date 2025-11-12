@@ -41,4 +41,6 @@ Squirlearn/SquirlearnWA/.vs/SquirlearnWA/v17/DocumentLayout.json
 *.nupkg
 *.jar
 *.jar
-*.xml
+Squirlearn/SquirlearnDBManager/target/surefire-reports/TEST-pe.edu.pucp.squirlearn.db.DBManagerTest.xml
+Squirlearn/SquirlearnDBManager/target/surefire-reports/TEST-pe.edu.pucp.squirlearn.db.DBManagerTest.xml
+Squirlearn/SquirlearnDBManager/target/surefire-reports/TEST-pe.edu.pucp.squirlearn.db.util.CifradoTest.xml
