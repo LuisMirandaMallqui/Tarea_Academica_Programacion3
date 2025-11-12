@@ -4,9 +4,3 @@ D:\GitHub\Squirlearn\SquirlearnWA\SquirLearnBusiness\obj\Debug\SquirLearnBusines
 D:\GitHub\Squirlearn\SquirlearnWA\SquirLearnBusiness\obj\Debug\SquirLearnBusiness.csproj.CoreCompileInputs.cache
 D:\GitHub\Squirlearn\SquirlearnWA\SquirLearnBusiness\obj\Debug\SquirLearnBusiness.dll
 D:\GitHub\Squirlearn\SquirlearnWA\SquirLearnBusiness\obj\Debug\SquirLearnBusiness.pdb
-D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWA\SquirLearnBusiness\bin\Debug\SquirLearnBusiness.dll
-D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWA\SquirLearnBusiness\bin\Debug\SquirLearnBusiness.pdb
-D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWA\SquirLearnBusiness\obj\Debug\SquirLearnBusiness.csproj.AssemblyReference.cache
-D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWA\SquirLearnBusiness\obj\Debug\SquirLearnBusiness.csproj.CoreCompileInputs.cache
-D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWA\SquirLearnBusiness\obj\Debug\SquirLearnBusiness.dll
-D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWA\SquirLearnBusiness\obj\Debug\SquirLearnBusiness.pdb

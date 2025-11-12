@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SquirlearnWA.Transaccion
+namespace SquirlearnWA
 {
     public partial class ConfirmacionPedido : Page
     {
@@ -29,7 +29,7 @@ namespace SquirlearnWA.Transaccion
                 }
                 else
                 {
-                    // No hay error: mostrar solo el éxito, mostrar detalles del pedido
+                    // No hay error: mostrar solo el éxito
                     pnlError.Visible = false;
                     divExito.Visible = true;
                      lblNombre.Text = Session["ProductoNombre"].ToString();
@@ -57,7 +57,7 @@ namespace SquirlearnWA.Transaccion
 
         protected void btnVolverInicio_Click(object sender, EventArgs e)
         {
-            Response.Redirect("SquirLearnInicio.aspx");
+            Response.Redirect("../PantallaInicio/SquirLearnInicio.aspx");
         }
 
         protected void btnIrChat_Click(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace SquirlearnWA.Transaccion
             Session["ProductoNombre"] = producto;
 
             // Redirigir al chat del pedido
-            Response.Redirect("Chat.aspx?chatId=" + chatId);
+            Response.Redirect("../PantallaInicio/Chat.aspx?chatId=" + chatId);
         }
 
         protected void Button3_Click(object sender, EventArgs e)

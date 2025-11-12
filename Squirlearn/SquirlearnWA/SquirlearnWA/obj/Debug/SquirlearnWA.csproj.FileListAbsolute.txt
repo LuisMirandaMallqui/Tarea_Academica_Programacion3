@@ -1,10 +1,4 @@
 D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.csproj.AssemblyReference.cache
 D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.csproj.CoreCompileInputs.cache
-<<<<<<< HEAD
-=======
-D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\Squirlea.A9310218.Up2Date
-D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.dll
-D:\GitHub\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.pdb
-D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.csproj.AssemblyReference.cache
-D:\PUCP\2025-2\Programación 3\Proyecto\Tarea_Academica_Programacion3\Squirlearn\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.csproj.CoreCompileInputs.cache
->>>>>>> 226c941c4fefe1ee8760a25dab879a65d6492184
+C:\Users\alons\OneDrive\Escritorio\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.csproj.AssemblyReference.cache
+C:\Users\alons\OneDrive\Escritorio\SquirlearnWA\SquirlearnWA\obj\Debug\SquirlearnWA.csproj.CoreCompileInputs.cache
