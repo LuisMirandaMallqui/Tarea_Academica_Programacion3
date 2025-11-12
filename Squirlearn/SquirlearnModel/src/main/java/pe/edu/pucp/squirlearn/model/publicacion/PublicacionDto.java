@@ -13,8 +13,8 @@ public class PublicacionDto {
     private ItemDto item;
     private PersonaDto persona;
     private Integer calificacion;
-    private String usuario;
     private String usuarioCreacion;
+    private String usuarioModificacion;
     
     // Constructor vacío (todo en null)
     public PublicacionDto() {
@@ -25,15 +25,15 @@ public class PublicacionDto {
         this.item = null;
         this.persona = null;
         this.calificacion = null;
-        this.usuario = null;
         this.usuarioCreacion = null;
+        this.usuarioModificacion = null;
     }
 
     // Constructor con parámetros
     public PublicacionDto(Integer publicacionId, Date fechaAlta, Date fechaBaja,
                           EstadoPublicacionDto estadoPublicacion, ItemDto item,
-                          PersonaDto persona, Integer calificacion, String usuario,
-                          String usuarioCreacion) {
+                          PersonaDto persona, Integer calificacion, String usuarioCreacion,
+                          String usuarioModificacion) {
         this.publicacionId = publicacionId;
         this.fechaAlta = fechaAlta;
         this.fechaBaja = fechaBaja;
@@ -41,8 +41,8 @@ public class PublicacionDto {
         this.item = item;
         this.persona = persona;
         this.calificacion = calificacion;
-        this.usuario = usuario;
         this.usuarioCreacion = usuarioCreacion;
+        this.usuarioModificacion = usuarioModificacion;
     }
 
     // Getters y Setters
@@ -103,20 +103,20 @@ public class PublicacionDto {
     }
     
     
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-    
-    
-    public String getUsuarioCreacion() {
+    public String getusuarioCreacion() {
         return usuarioCreacion;
     }
 
-    public void setUsuarioCreacion(String usuarioCreacion) {
+    public void setusuarioCreacion(String usuarioCreacion) {
         this.usuarioCreacion = usuarioCreacion;
+    }
+    
+    
+    public String getusuarioModificacion() {
+        return usuarioModificacion;
+    }
+
+    public void setusuarioModificacion(String usuarioModificacion) {
+        this.usuarioModificacion = usuarioModificacion;
     }
 }
