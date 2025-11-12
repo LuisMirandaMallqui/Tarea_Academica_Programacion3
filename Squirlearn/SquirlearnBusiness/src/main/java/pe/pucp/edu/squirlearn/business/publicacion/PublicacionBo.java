@@ -78,9 +78,9 @@ public class PublicacionBo {
 
     public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(String terminoBusqueda, Boolean esVenta,
             Integer idCategoria, Integer idSubcategoria, Integer idColores, Integer idTamanos, Integer idFormatos,
-            Integer idCondicion, Integer idEstado) {
+            Integer idCondicion) {
         return this.publicacionDao.listarPorFiltrosPublicacion(terminoBusqueda, esVenta, idCategoria, idSubcategoria, idColores,
-                idTamanos, idFormatos, idCondicion, idEstado); //necesita implementación
+                idTamanos, idFormatos, idCondicion); //necesita implementación
     }
 
     public ArrayList<PublicacionDto> listarPorDueno(Integer personaId) {

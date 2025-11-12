@@ -18,7 +18,7 @@ public interface PublicacionDao extends IDAO<PublicacionDto>{
             Integer idColor,
             Integer idTamano,
             Integer idFormato,
-            Integer idCondicion,
-            Integer idEstado
+            Integer idCondicion
+//            Integer idEstado
     ); 
 }

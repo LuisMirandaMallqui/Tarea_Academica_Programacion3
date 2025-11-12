@@ -1,6 +1,6 @@
 package pe.edu.pucp.squirlearn.daoImpl.alquiler;
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,11 +9,12 @@ import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
 import pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
 import pe.edu.pucp.squirlearn.daoImpl.util.ParamReporteAlquiler;
+import pe.edu.pucp.squirlearn.daoImpl.util.TraduccionesSQL;
 import pe.edu.pucp.squirlearn.model.alquiler.AlquilerDto;
 import pe.edu.pucp.squirlearn.model.item.ItemDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
-public class AlquilerDaoImpl extends DAOImplBase implements AlquilerDao{
+public class AlquilerDaoImpl extends DAOImplBase implements AlquilerDao {
 
     private AlquilerDto alquiler;
 
@@ -37,51 +38,63 @@ public class AlquilerDaoImpl extends DAOImplBase implements AlquilerDao{
     }
 
     @Override
-protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-    int idx = 1;
+    protected void incluirValorDeParametrosParaInsercion() throws SQLException {
+        int idx = 1;
 
-    // Resolver IDs de claves foráneas de forma segura desde la BD (mínimo ID disponible)
-    Integer _personaId = (this.alquiler.getPersona() == null) ? null : this.alquiler.getPersona().getPersonaId();
-    Integer _itemId    = (this.alquiler.getItem() == null)    ? null : this.alquiler.getItem().getItemId();
+        // Resolver IDs de claves foráneas de forma segura desde la BD (mínimo ID disponible)
+        Integer _personaId = (this.alquiler.getPersona() == null) ? null : this.alquiler.getPersona().getPersonaId();
+        Integer _itemId = (this.alquiler.getItem() == null) ? null : this.alquiler.getItem().getItemId();
 
-    int personaId = safeFkId(_personaId, "personas", "PERSONA_ID");
-    int itemId    = safeFkId(_itemId,    "items",    "ITEM_ID");
+        int personaId = safeFkId(_personaId, "personas", "PERSONA_ID");
+        int itemId = safeFkId(_itemId, "items", "ITEM_ID");
 
-    this.statement.setInt(idx++, personaId);
-    this.statement.setInt(idx++, itemId);
-    this.statement.setDate(idx++, this.alquiler.getFechaInicio());
-    this.statement.setDate(idx++, this.alquiler.getFechaFin());
-    this.statement.setInt(idx++, this.alquiler.getDevuelto() ? 1 : 0);
-    this.statement.setDouble(idx++, this.alquiler.getMonto());
-    this.statement.setString(idx++, this.alquiler.getUsuarioCreacion());
-    this.statement.setDate(idx++, this.alquiler.getFechaCreacion());
-}
+        java.sql.Timestamp fechaInicioSql = TraduccionesSQL.toSqlTimestamp(this.alquiler.getFechaInicio());
+        java.sql.Timestamp fechaFinSql = TraduccionesSQL.toSqlTimestamp(this.alquiler.getFechaFin());
+        java.sql.Timestamp fechaCreacionSql = TraduccionesSQL.toSqlTimestamp(this.alquiler.getFechaCreacion());
 
-@Override
-protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-    int i = 1;
+        this.statement.setInt(idx++, personaId);
+        this.statement.setInt(idx++, itemId);
+        this.statement.setTimestamp(idx++, fechaInicioSql);
+        this.statement.setTimestamp(idx++, fechaFinSql);
+        this.statement.setInt(idx++, this.alquiler.getDevuelto() ? 1 : 0);
+        this.statement.setDouble(idx++, this.alquiler.getMonto());
+        this.statement.setString(idx++, this.alquiler.getUsuarioCreacion());
+        this.statement.setTimestamp(idx++, fechaCreacionSql);
+    }
 
-    // Permitir que Persona/Item vengan nulos desde el test y ponerles un ID válido
-    Integer providedPersonaId = (this.alquiler.getPersona() == null) ? null : this.alquiler.getPersona().getPersonaId();
-    Integer providedItemId    = (this.alquiler.getItem()    == null) ? null : this.alquiler.getItem().getItemId();
+    @Override
+    protected void incluirValorDeParametrosParaModificacion() throws SQLException {
+        int i = 1;
 
-    int personaId = safeFkId(providedPersonaId, "personas", "PERSONA_ID");
-    int itemId    = safeFkId(providedItemId,    "items",    "ITEM_ID");
+        // Permitir que Persona/Item vengan nulos desde el test y ponerles un ID válido
+        Integer providedPersonaId = (this.alquiler.getPersona() == null) ? null : this.alquiler.getPersona().getPersonaId();
+        Integer providedItemId = (this.alquiler.getItem() == null) ? null : this.alquiler.getItem().getItemId();
 
-    // Orden EXACTO del UPDATE impreso por el DAO
-    this.statement.setInt(i++, personaId);                                   // PERSONA_ID=?
-    this.statement.setInt(i++, itemId);                                      // ITEM_ID=?
-    this.statement.setDate(i++, this.alquiler.getFechaInicio());             // FECHA_INICIO=?
-    this.statement.setDate(i++, this.alquiler.getFechaFin());                // FECHA_FIN=?
-    this.statement.setInt(i++, this.alquiler.getDevuelto() ? 1 : 0);         // DEVUELTO=?
-    this.statement.setDouble(i++, this.alquiler.getMonto());                 // MONTO=?
-    this.statement.setString(i++, this.alquiler.getUsuarioCreacion());
-    this.statement.setDate(i++, this.alquiler.getFechaCreacion());
-    // WHERE ALQUILER_ID=?
-    this.statement.setInt(i++, this.alquiler.getAlquilerId());
-}
+        int personaId = safeFkId(providedPersonaId, "personas", "PERSONA_ID");
+        int itemId = safeFkId(providedItemId, "items", "ITEM_ID");
 
+        // 1. Obtiene el java.util.Date (limpio) de tu DTO
+        java.util.Date fechaInicioUtil = this.alquiler.getFechaInicio();
+        java.util.Date fechaFinUtil = this.alquiler.getFechaFin();
+        java.util.Date fechaCreacionUtil = this.alquiler.getFechaCreacion();
 
+        // 2. Prepara el "traductor" (Timestamp) para JDBC
+        java.sql.Timestamp fechaInicioSql = (fechaInicioUtil == null) ? null : new java.sql.Timestamp(fechaInicioUtil.getTime());
+        java.sql.Timestamp fechaFinSql = (fechaFinUtil == null) ? null : new java.sql.Timestamp(fechaFinUtil.getTime());
+        java.sql.Timestamp fechaCreacionSql = (fechaCreacionUtil == null) ? null : new java.sql.Timestamp(fechaCreacionUtil.getTime());
+
+        // Orden EXACTO del UPDATE impreso por el DAO
+        this.statement.setInt(i++, personaId);                                   // PERSONA_ID=?
+        this.statement.setInt(i++, itemId);                                      // ITEM_ID=?
+        this.statement.setTimestamp(i++, fechaInicioSql);             // FECHA_INICIO=?
+        this.statement.setTimestamp(i++, fechaFinSql);                // FECHA_FIN=?
+        this.statement.setTimestamp(i++, fechaCreacionSql);
+        this.statement.setInt(i++, this.alquiler.getDevuelto() ? 1 : 0);         // DEVUELTO=?
+        this.statement.setDouble(i++, this.alquiler.getMonto());                 // MONTO=?
+        this.statement.setString(i++, this.alquiler.getUsuarioCreacion());
+        // WHERE ALQUILER_ID=?
+        this.statement.setInt(i++, this.alquiler.getAlquilerId());
+    }
 
     @Override
     protected void incluirValorDeParametrosParaEliminacion() throws SQLException {
@@ -98,18 +111,20 @@ protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         this.alquiler = new AlquilerDto();
         PersonaDto per = new PersonaDto();
         per.setPersonaId(this.resultSet.getInt("PERSONA_ID"));
-        this.alquiler.setPersona(per);
         ItemDto item = new ItemDto();
         item.setItemId(this.resultSet.getInt("ITEM_ID"));
         this.alquiler.setPersona(per);
         this.alquiler.setItem(item);
         this.alquiler.setAlquilerId(this.resultSet.getInt("ALQUILER_ID"));
-        this.alquiler.setFechaInicio(this.resultSet.getDate("FECHA_INICIO"));
-        this.alquiler.setFechaFin(this.resultSet.getDate("FECHA_FIN"));
+//        this.alquiler.setFechaInicio(this.resultSet.getDate("FECHA_INICIO"));
+//        this.alquiler.setFechaFin(this.resultSet.getDate("FECHA_FIN"));
+//        this.alquiler.setFechaCreacion(this.resultSet.getDate("FECHA_CREACION"));
+        this.alquiler.setFechaInicio(this.resultSet.getTimestamp("FECHA_INICIO"));
+        this.alquiler.setFechaFin(this.resultSet.getTimestamp("FECHA_FIN"));
+        this.alquiler.setFechaCreacion(this.resultSet.getTimestamp("FECHA_CREACION"));
         this.alquiler.setDevuelto(this.resultSet.getInt("DEVUELTO") == 1);
         this.alquiler.setMonto(this.resultSet.getDouble("MONTO"));
         this.alquiler.setUsuarioCreacion(this.resultSet.getString("USUARIO_CREACION"));
-        this.alquiler.setFechaCreacion(this.resultSet.getDate("FECHA_CREACION"));
     }
 
     @Override
@@ -122,12 +137,13 @@ protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         this.instanciarObjetoDelResultSet();
         lista.add(this.alquiler);
     }
-    
+
     @Override
     public Integer insertar(AlquilerDto alquiler) {
         this.alquiler = alquiler;
         return super.insertar();
     }
+
     @Override
     public AlquilerDto obtenerPorId(Integer id) {
         this.alquiler = new AlquilerDto();
@@ -157,20 +173,24 @@ protected void incluirValorDeParametrosParaModificacion() throws SQLException {
     public ArrayList<AlquilerDto> listarPorDueno(Integer personaId) {
         String sql = this.generarSQLParaListarTodos() + " WHERE PERSONA_ID=?";
         Consumer<PreparedStatement> incluir = ps -> {
-            try { 
-                this.statement.setInt(1, personaId); 
-            } catch (SQLException e) { 
-                throw new RuntimeException(e); 
+            try {
+                this.statement.setInt(1, personaId);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
         };
         return (ArrayList<AlquilerDto>) (ArrayList) this.listarTodos(sql, incluir, null);
     }
-    
+
     public void ejecutarReporteAlquiler() {
         Object parametros = new ParamReporteAlquiler(
-            /* _persona */ 1,
-            /* _inicio  */ Date.valueOf("2025-01-01"),
-            /* _fin     */ Date.valueOf("2025-12-31")
+                //                /* _persona */1,
+                //                /* _inicio  */ Date.valueOf("2025-01-01"),
+                //                /* _fin     */ Date.valueOf("2025-12-31")
+
+                /* _persona */1,
+                /* _inicio  */ java.sql.Date.valueOf("2025-01-01"),
+                /* _fin     */ java.sql.Date.valueOf("2025-12-31")
         );
         String sql = "{CALL REPORTE_ALQUILER(?, ?, ?)}";
         Boolean conTransaccion = true;

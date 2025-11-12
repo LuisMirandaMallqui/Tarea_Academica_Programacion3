@@ -16,7 +16,7 @@ import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 import pe.edu.pucp.squirlearn.model.publicacion.EstadoPublicacionDto;
 import pe.edu.pucp.squirlearn.model.publicacion.PublicacionDto;
 
-public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
+public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
 
     private PublicacionDto publicacion;
 
@@ -41,18 +41,18 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int i=1;
+        int i = 1;
         int estadoId = safeFkId(
-            (this.publicacion.getEstadoPublicacion() == null ? null : this.publicacion.getEstadoPublicacion().getEstadoPublicacionId()),
-            "estados_publicaciones", "ESTADOPUBLI_ID"
+                (this.publicacion.getEstadoPublicacion() == null ? null : this.publicacion.getEstadoPublicacion().getEstadoPublicacionId()),
+                "estados_publicaciones", "ESTADOPUBLI_ID"
         );
         int itemId = safeFkId(
-            (this.publicacion.getItem() == null ? null : this.publicacion.getItem().getItemId()),
-            "items", "ITEM_ID"
+                (this.publicacion.getItem() == null ? null : this.publicacion.getItem().getItemId()),
+                "items", "ITEM_ID"
         );
         int personaId = safeFkId(
-            (this.publicacion.getPersona() == null ? null : this.publicacion.getPersona().getPersonaId()),
-            "personas", "PERSONA_ID"
+                (this.publicacion.getPersona() == null ? null : this.publicacion.getPersona().getPersonaId()),
+                "personas", "PERSONA_ID"
         );
 
         this.statement.setInt(i++, estadoId);
@@ -60,24 +60,24 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
         this.statement.setInt(i++, personaId);
         this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaAlta());
         this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaBaja());
-        this.statement.setInt(i++, this.publicacion.getCalificacion()); 
-        this.statement.setString(i++, this.publicacion.getusuarioCreacion()); 
-        this.statement.setString(i++, this.publicacion.getusuarioModificacion()); 
+        this.statement.setInt(i++, this.publicacion.getCalificacion());
+        this.statement.setString(i++, this.publicacion.getusuarioCreacion());
+        this.statement.setString(i++, this.publicacion.getusuarioModificacion());
     }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int estadoId = safeFkId(
-            (this.publicacion.getEstadoPublicacion() == null ? null : this.publicacion.getEstadoPublicacion().getEstadoPublicacionId()),
-            "estados_publicaciones", "ESTADOPUBLI_ID"
+                (this.publicacion.getEstadoPublicacion() == null ? null : this.publicacion.getEstadoPublicacion().getEstadoPublicacionId()),
+                "estados_publicaciones", "ESTADOPUBLI_ID"
         );
         int itemId = safeFkId(
-            (this.publicacion.getItem() == null ? null : this.publicacion.getItem().getItemId()),
-            "items", "ITEM_ID"
+                (this.publicacion.getItem() == null ? null : this.publicacion.getItem().getItemId()),
+                "items", "ITEM_ID"
         );
         int personaId = safeFkId(
-            (this.publicacion.getPersona() == null ? null : this.publicacion.getPersona().getPersonaId()),
-            "personas", "PERSONA_ID"
+                (this.publicacion.getPersona() == null ? null : this.publicacion.getPersona().getPersonaId()),
+                "personas", "PERSONA_ID"
         );
 
         int i = 1;
@@ -86,9 +86,9 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
         this.statement.setInt(i++, personaId);
         this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaAlta());
         this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaBaja());
-        this.statement.setInt(i++, this.publicacion.getCalificacion()); 
-        this.statement.setString(i++, this.publicacion.getusuarioCreacion()); 
-        this.statement.setString(i++, this.publicacion.getusuarioModificacion()); 
+        this.statement.setInt(i++, this.publicacion.getCalificacion());
+        this.statement.setString(i++, this.publicacion.getusuarioCreacion());
+        this.statement.setString(i++, this.publicacion.getusuarioModificacion());
         this.statement.setInt(i++, this.publicacion.getPublicacionId()); // WHERE
     }
 
@@ -118,7 +118,6 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
         this.publicacion.setCalificacion(this.resultSet.getInt("CALIFICACION"));
     }
 
-
     @Override
     protected void incluirValorDeParametrosParaEliminacion() throws SQLException {
         this.statement.setInt(1, this.publicacion.getPublicacionId());
@@ -139,12 +138,13 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
         this.instanciarObjetoDelResultSet();
         lista.add(this.publicacion);
     }
-    
+
     @Override
     public Integer insertar(PublicacionDto publicacion) {
         this.publicacion = publicacion;
         return super.insertar();
     }
+
     @Override
     public PublicacionDto obtenerPorId(Integer id) {
         this.publicacion = new PublicacionDto();
@@ -200,12 +200,12 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
         } catch (java.sql.SQLException e) {
             throw new RuntimeException(e);
         }
-    }   
-    
+    }
+
     public void ejecutarReporteTransaccionesOfertador() {
         Object parametros = new ParamReporteTransaccionesOfertador(
-            /* _inicio */ Date.valueOf("2025-01-01"),
-            /* _fin    */ Date.valueOf("2025-12-31")
+                /* _inicio */Date.valueOf("2025-01-01"),
+                /* _fin    */ Date.valueOf("2025-12-31")
         );
         String sql = "{CALL REPORTE_TRANSACCCIONES_OFERTADOR(?, ?)}";
         Boolean conTransaccion = true;
@@ -222,11 +222,11 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
             throw new RuntimeException(e);
         }
     }
-    
+
     public void ejecutarReporteTransaccionesReceptor() {
         Object parametros = new ParamReporteTransaccionesReceptor(
-            /* _inicio */ Date.valueOf("2025-01-01"),
-            /* _fin    */ Date.valueOf("2025-12-31")
+                /* _inicio */Date.valueOf("2025-01-01"),
+                /* _fin    */ Date.valueOf("2025-12-31")
         );
         String sql = "{CALL REPORTE_TRANSACCCIONES_RECEPTOR(?, ?)}";
         Boolean conTransaccion = true;
@@ -243,7 +243,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
             throw new RuntimeException(e);
         }
     }
-    
+
     @Override
     public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(
             String terminoBusqueda,
@@ -253,8 +253,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
             Integer idColores,
             Integer idTamanos,
             Integer idFormatos,
-            Integer idCondicion,
-            Integer idEstado
+            Integer idCondicion
     ) {
         StringBuilder sql = new StringBuilder(
                 "SELECT P.PUBLICACION_ID, P.FECHA_ALTA, P.FECHA_BAJA, P.CALIFICACION, "
@@ -265,7 +264,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
                 + "FROM publicaciones P "
                 + "JOIN items I ON P.ITEM_ID_ITEM = I.ITEM_ID "
                 + "WHERE 1=1 "
-        );
+        ); //en la parte del SELECT obvie I.ESTADO_ITEM_ID, esta correcto JP?
 
         ArrayList<Object> parametros = new ArrayList<>();
 
@@ -309,10 +308,8 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao{
             parametros.add(idCondicion);
         }
 
-        if (idEstado != null) {
-            sql.append(" AND P.ESTADO_PUBLICACION_ID = ? ");
-            parametros.add(idEstado);
-        }
+        sql.append(" AND I.ESTADO_ITEM_ID = 1 ");
+        sql.append(" AND P.ESTADO_PUBLICACION_ID = 2 ");
 
         Consumer<PreparedStatement> incluirValores = p -> {
             try {

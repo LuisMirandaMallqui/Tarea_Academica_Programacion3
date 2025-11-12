@@ -43,6 +43,7 @@ pe\edu\pucp\squirlearn\daoImpl\persona\EstadoPersonaDaoImpl.class
 pe\edu\pucp\squirlearn\daoImpl\item\CategoriaDaoImpl.class
 pe\edu\pucp\squirlearn\dao\publicacion\PublicacionDao.class
 pe\edu\pucp\squirlearn\daoImpl\util\Columna.class
+pe\edu\pucp\squirlearn\daoImpl\util\TraduccionesSQL.class
 pe\edu\pucp\squirlearn\dao\publicacion\EstadoPublicacionDao.class
 pe\edu\pucp\squirlearn\daoImpl\inciNoti\MotivoDaoImpl.class
 pe\edu\pucp\squirlearn\daoImpl\chat\EstadoMensajeDaoImpl.class

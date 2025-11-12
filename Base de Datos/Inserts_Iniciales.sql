@@ -183,7 +183,7 @@ INSERT INTO personas_roles(PERSONA_ID, ROLPERSONA_ID) VALUES
 INSERT INTO publicaciones(
     ESTADO_PUBLICACION_ID, ITEM_ID_ITEM, PERSONA_ID, CALIFICACION, USUARIO_CREACION
 ) VALUES 
-(1, 1, 2, 4, 'José Luis Castro Vargas'),   -- Publicación 1, "FISICA 1", Persona 2, con calificación 4
+(2, 1, 2, 4, 'José Luis Castro Vargas'),   -- Publicación 1, "FISICA 1", Persona 2, con calificación 4
 (2, 2, 3, 5, 'Andrea Carolina Torres Mendoza'),  -- Publicación 2, "PROGRAMACION 3", Persona 3, con calificación 5
 (1, 3, 4, 3, 'Diego Armando Quispe Huamán'),   -- Publicación 3, "QUIMICA BASICA", Persona 4, con calificación 3
 (2, 4, 5, 4, 'Lucía Alejandra Salazar Flores'),   -- Publicación 4, "CALCULADORA CIENTIFICA", Persona 5, con calificación 4

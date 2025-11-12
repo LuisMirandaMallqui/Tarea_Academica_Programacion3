@@ -68,9 +68,9 @@ public class Publicacion {
             @WebParam(name = "idColores") Integer idColores, // De ITEM
             @WebParam(name = "idTamanos") Integer idTamanos, // De ITEM
             @WebParam(name = "idFormatos") Integer idFormatos, // De ITEM
-            @WebParam(name = "idCondicion") Integer idCondicion, // De ITEM
-            @WebParam(name = "idEstado") Integer idEstado) { // De ITEM
+            @WebParam(name = "idCondicion") Integer idCondicion){ // De ITEM
+//            @WebParam(name = "idEstado") Integer idEstado) { // De PUB
         return this.publicacionBo.listarPorFiltrosPublicacion(terminoBusqueda, esVenta, idCategoria, idSubcategoria, idColores,
-                idTamanos, idFormatos, idCondicion, idEstado);
+                idTamanos, idFormatos, idCondicion);
     }
 }

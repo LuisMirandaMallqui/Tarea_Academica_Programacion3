@@ -8,12 +8,13 @@ import java.util.function.Consumer;
 import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
 import pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
+import pe.edu.pucp.squirlearn.daoImpl.util.TraduccionesSQL;
 import pe.edu.pucp.squirlearn.model.comprobante.ComprobanteDto;
 import pe.edu.pucp.squirlearn.model.comprobante.FormaPagoDto;
 import pe.edu.pucp.squirlearn.model.comprobante.MonedaPagoDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
-public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao{
+public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao {
 
     private ComprobanteDto comprobante;
 
@@ -39,52 +40,56 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao{
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
         int personaId = safeFkId(
-            (this.comprobante.getPersona() == null ? null : this.comprobante.getPersona().getPersonaId()),
-            "personas", "PERSONA_ID"
+                (this.comprobante.getPersona() == null ? null : this.comprobante.getPersona().getPersonaId()),
+                "personas", "PERSONA_ID"
         );
         int formaPagoId = safeFkId(
-            (this.comprobante.getFormaPago() == null ? null : this.comprobante.getFormaPago().getFormaPagoId()),
-            "formas_pago", "FORMAPAGO_ID"
+                (this.comprobante.getFormaPago() == null ? null : this.comprobante.getFormaPago().getFormaPagoId()),
+                "formas_pago", "FORMAPAGO_ID"
         );
         int monedaId = safeFkId(
-            (this.comprobante.getMoneda() == null ? null : this.comprobante.getMoneda().getMonedaId()),
-            "monedas", "MONEDA_ID"
+                (this.comprobante.getMoneda() == null ? null : this.comprobante.getMoneda().getMonedaId()),
+                "monedas", "MONEDA_ID"
         );
+
+        java.sql.Timestamp fechaEmisionSql = TraduccionesSQL.toSqlTimestamp(this.comprobante.getFechaEmision());
 
         int i = 1;
         this.statement.setInt(i++, personaId);
         this.statement.setInt(i++, formaPagoId);
         this.statement.setInt(i++, monedaId);
         this.statement.setString(i++, this.comprobante.getTransaccion());
-        this.statement.setDate(i++, this.comprobante.getFechaEmision());
+        this.statement.setTimestamp(i++, fechaEmisionSql);
         this.statement.setDouble(i++, this.comprobante.getMonto());
-        this.statement.setDouble(i++, this.comprobante.getImpuesto() == null ? 0.0 :this.comprobante.getImpuesto()); // puede ser null
+        this.statement.setDouble(i++, this.comprobante.getImpuesto() == null ? 0.0 : this.comprobante.getImpuesto()); // puede ser null
         this.statement.setString(i++, this.comprobante.getusuarioCreacion());
     }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int personaId = safeFkId(
-            (this.comprobante.getPersona() == null ? null : this.comprobante.getPersona().getPersonaId()),
-            "personas", "PERSONA_ID"
+                (this.comprobante.getPersona() == null ? null : this.comprobante.getPersona().getPersonaId()),
+                "personas", "PERSONA_ID"
         );
         int formaPagoId = safeFkId(
-            (this.comprobante.getFormaPago() == null ? null : this.comprobante.getFormaPago().getFormaPagoId()),
-            "formas_pago", "FORMAPAGO_ID"
+                (this.comprobante.getFormaPago() == null ? null : this.comprobante.getFormaPago().getFormaPagoId()),
+                "formas_pago", "FORMAPAGO_ID"
         );
         int monedaId = safeFkId(
-            (this.comprobante.getMoneda() == null ? null : this.comprobante.getMoneda().getMonedaId()),
-            "monedas", "MONEDA_ID"
+                (this.comprobante.getMoneda() == null ? null : this.comprobante.getMoneda().getMonedaId()),
+                "monedas", "MONEDA_ID"
         );
+
+        java.sql.Timestamp fechaEmisionSql = TraduccionesSQL.toSqlTimestamp(this.comprobante.getFechaEmision());
 
         int i = 1;
         this.statement.setInt(i++, personaId);
         this.statement.setInt(i++, formaPagoId);
         this.statement.setInt(i++, monedaId);
         this.statement.setString(i++, this.comprobante.getTransaccion());
-        this.statement.setDate(i++, this.comprobante.getFechaEmision());
+        this.statement.setTimestamp(i++, fechaEmisionSql);
         this.statement.setDouble(i++, this.comprobante.getMonto());
-        this.statement.setDouble(i++, this.comprobante.getImpuesto() == null ? 0.0 :this.comprobante.getImpuesto()); // puede ser null
+        this.statement.setDouble(i++, this.comprobante.getImpuesto() == null ? 0.0 : this.comprobante.getImpuesto()); // puede ser null
         this.statement.setString(i++, this.comprobante.getusuarioCreacion());
         this.statement.setInt(i++, this.comprobante.getComprobanteId()); // WHERE
     }
@@ -92,7 +97,7 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao{
     @Override
     protected void instanciarObjetoDelResultSet() throws SQLException {
         this.comprobante = new ComprobanteDto();
-        
+
         this.comprobante.setComprobanteId(this.resultSet.getInt("COMPROBANTE_ID"));
         // Persona
         PersonaDto persona = new PersonaDto();
@@ -110,14 +115,12 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao{
         this.comprobante.setMoneda(mon);
 
         // Escalares
-        
         this.comprobante.setMonto(this.resultSet.getDouble("MONTO"));
         this.comprobante.setTransaccion(this.resultSet.getString("TRANSACCION_ID"));
-        this.comprobante.setFechaEmision(this.resultSet.getDate("FECHA_EMISION"));
+        this.comprobante.setFechaEmision(this.resultSet.getTimestamp("FECHA_EMISION"));
         this.comprobante.setImpuesto(this.resultSet.getDouble("IMPUESTO"));
         this.comprobante.setusuarioCreacion(this.resultSet.getString("USUARIO_CREACION"));
     }
-
 
     @Override
     protected void incluirValorDeParametrosParaEliminacion() throws SQLException {
@@ -139,12 +142,13 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao{
         this.instanciarObjetoDelResultSet();
         lista.add(this.comprobante);
     }
-    
+
     @Override
     public Integer insertar(ComprobanteDto comprobante) {
         this.comprobante = comprobante;
         return super.insertar();
     }
+
     @Override
     public ComprobanteDto obtenerPorId(Integer id) {
         this.comprobante = new ComprobanteDto();
@@ -173,10 +177,11 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao{
     @Override
     public ArrayList<ComprobanteDto> listarPorDueno(Integer personaId) {
         String sql = this.generarSQLParaListarTodos() + " WHERE PERSONA_ID_PERSONA=?";
-        Consumer<PreparedStatement> incluir = ps -> { 
-            try { ps.setInt(1, personaId); 
-            } catch (SQLException e) 
-            { throw new RuntimeException(e); 
+        Consumer<PreparedStatement> incluir = ps -> {
+            try {
+                ps.setInt(1, personaId);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
         };
         return (ArrayList<ComprobanteDto>) (ArrayList) this.listarTodos(sql, incluir, null);

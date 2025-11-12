@@ -1,22 +1,22 @@
 package pe.edu.pucp.squirlearn.model.comprobante;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
 public class ComprobanteDto {
-    
+
     private Integer comprobanteId;
     private PersonaDto persona;
     private FormaPagoDto formaPago;
     private MonedaPagoDto moneda;
     private Double monto;
     private String transaccion;
-    private Date fechaEmision;
     private Double impuesto;
     private String usuarioCreacion;
     private List<DetalleComprobanteDto> detallesComprobante;
-    
+    private Date fechaEmision;
+
     // Constructor vacío
     public ComprobanteDto() {
         this.comprobanteId = null;
@@ -33,9 +33,9 @@ public class ComprobanteDto {
 
     // Constructor con parámetros
     public ComprobanteDto(Integer comprobanteId, Double monto, String transaccion, Date fechaEmision,
-                          Double impuesto, PersonaDto persona, FormaPagoDto formaPago, 
-                          MonedaPagoDto moneda,String usuarioCreacion,
-                          List<DetalleComprobanteDto> detallesComprobante) {
+            Double impuesto, PersonaDto persona, FormaPagoDto formaPago,
+            MonedaPagoDto moneda, String usuarioCreacion,
+            List<DetalleComprobanteDto> detallesComprobante) {
         this.comprobanteId = comprobanteId;
         this.monto = monto;
         this.transaccion = transaccion;
@@ -120,7 +120,7 @@ public class ComprobanteDto {
     public void setusuarioCreacion(String usuarioCreacion) {
         this.usuarioCreacion = usuarioCreacion;
     }
-    
+
     public List<DetalleComprobanteDto> getDetallesComprobante() {
         return detallesComprobante;
     }
