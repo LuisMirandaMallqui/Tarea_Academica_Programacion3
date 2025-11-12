@@ -13,3 +13,10 @@ Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT/WEB-INF/lib/SquirlearnB
 Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT/WEB-INF/lib/SquirlearnDBManager-1.0-SNAPSHOT.jar
 Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT/WEB-INF/lib/SquirlearnModel-1.0-SNAPSHOT.jar
 Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT/WEB-INF/lib/SquirlearnPersistance-1.0-SNAPSHOT.jar
+*.class
+*.class
+*.lst
+*.jar
+*.dumpstream
+*.txt
+*.lst
