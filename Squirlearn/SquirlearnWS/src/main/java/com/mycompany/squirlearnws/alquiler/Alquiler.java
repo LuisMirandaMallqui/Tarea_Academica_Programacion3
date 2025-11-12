@@ -32,7 +32,7 @@ public class Alquiler {
     
     @WebMethod(operationName = "modificarAlquiler")
     public Integer modificarAlquiler(
-            @WebParam(name = "personaId") Integer id,
+            @WebParam(name = "Id") Integer id,
             @WebParam(name = "personaId") Integer personaId, 
             @WebParam(name = "itemId") Integer itemId,
             @WebParam(name = "fechaInicio") Date inicio,
