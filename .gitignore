@@ -29,3 +29,13 @@ Squirlearn/SquirlearnWS/target/SquirlearnWS-1.0-SNAPSHOT/WEB-INF/lib/SquirlearnP
 *.lst
 *.class
 *.war
+*.class
+Squirlearn/SquirlearnWA/.vs/SquirlearnWA/config/applicationhost.config
+Squirlearn/SquirlearnWA/.vs/SquirlearnWA/CopilotIndices/17.14.995.13737/CodeChunks.db
+Squirlearn/SquirlearnWA/.vs/SquirlearnWA/CopilotIndices/17.14.995.13737/SemanticSymbols.db
+*.vsidx
+Squirlearn/SquirlearnWA/.vs/SquirlearnWA/v17/.suo
+Squirlearn/SquirlearnWA/.vs/SquirlearnWA/v17/DocumentLayout.backup.json
+Squirlearn/SquirlearnWA/.vs/SquirlearnWA/v17/DocumentLayout.json
+*.p7s
+*.nupkg
