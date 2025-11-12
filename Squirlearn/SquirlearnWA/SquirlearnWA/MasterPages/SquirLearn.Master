@@ -15,7 +15,7 @@
     <form id="form1" runat="server">
     <!-- Contenedor general -->
     <div class="layout-container d-flex">
-    
+        
         <!-- 🟦 Barra lateral -->
         <div class="sidebar">
             <div class="logo text-center mb-4">
@@ -24,10 +24,17 @@
             </div>
 
             <ul class="nav flex-column">
-                <li><a href="../Principal/SquirLearnInicio.aspx" class="active"><i class="fa fa-search"></i> Buscar</a></li>
-                <li><a href="../ListadoPublicaciones.aspx"><i class="fa-solid fa-clipboard"></i>Mis publicaciones</a></li>
-                <li> <a href="../Pedidos.aspx"><i class="fa-solid fa-cash-register"></i>Mis Pedidos</a></li>
-                <li><a href="../Mensajes.aspx"><i class="fa fa-envelope"></i> Mensajes</a></li>
+                <li><a href="../PantallaInicio/SquirLearnInicio.aspx" class="active"><i class="fa fa-search"></i> Buscar</a></li>
+                <li><a href="../PublicacionDelUsuario/ListadoPublicaciones.aspx"><i class="fa fa-plus-circle"></i> Vender</a></li>
+                <li><a href="../PantallaInicio/Mensajes.aspx"><i class="fa fa-envelope"></i> Mensajes</a></li>
+                <li> <a href="../PerfilUsuario/Pedidos.aspx" class="btn btn-outline-primary">Mis Pedidos</a></li>
+                <li> <a href="../PerfilUsuario/VentasAlquiler.aspx" class="btn btn-outline-primary">Mis Ventas/Alquiler</a></li>
+                <!-- 🟦 Vista administrador -->
+                <asp:Panel ID="menuAdmin" runat="server" Visible="false">
+                <li><a href="../Administrador/ListadoDeSolicitudesAdmin.aspx"> Solicitudes de publicaciones</a></li>
+                <li><a href="../Administrador/IncidenciasAdmin.aspx">Incidencias</a></li>
+                <li><a href="../Administrador/ReportesAdmin.aspx">Reportes</a></li>               
+                </asp:Panel>
             </ul>
 
             <div class="footer">
@@ -41,7 +48,7 @@
                 <div class="ms-auto">
                   
                     <div>
-                        <a href="Perfil.aspx" class="btn perfil-btn"><i class="fa fa-user-circle"></i> Perfil</a>
+                        <a href="../PerfilUsuario/Perfil.aspx" class="btn perfil-btn"><i class="fa fa-user-circle"></i> Perfil</a>
                     </div>
                 </div>
             </div>

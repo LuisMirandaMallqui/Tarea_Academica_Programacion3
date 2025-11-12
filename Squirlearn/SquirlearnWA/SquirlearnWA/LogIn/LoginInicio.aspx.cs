@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SquirlearnWA.LogIn
+namespace SquirlearnWA
 {
     public partial class LoginInicio : System.Web.UI.Page
     {
@@ -32,19 +32,42 @@ namespace SquirlearnWA.LogIn
                 Session["Rol"] = personaDto.Rol;
                 Session["NombreUsuario"] = personaDto.Nombres + personaDto.primerApellido;
                 Response.Redirect(personaDto.Rol == "Administrador"
-                                  ? "../Principal/AdminInicio.aspx"
-                                  : "../Principal/SquirLearnInicio.aspx");
+                                  ? "../PantallaInicio/AdminInicio.aspx"
+                                  : "../PantallaInicio/SquirLearnInicio.aspx");
             }
             else
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Usuario o contraseña incorrectos');", true);
             }
+
+            
+            /*
+            // Simulamos usuarios con roles distintos
+           
+            if (usuario == "admin" && contrasena == "123")
+            {
+                Session["Usuario"] = usuario;
+                Session["Rol"] = "Administrador";
+                Response.Redirect("~/AdminInicio.aspx");
+            }
+            else if (usuario == "usuario" && contrasena == "123")
+            {
+                Session["Usuario"] = usuario;
+                Session["Rol"] = "Usuario";
+                Response.Redirect("~/SquirLearnInicio.aspx");
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Usuario o contraseña incorrectos');", true);
+            }
+            */
+            
             
         }
 
         protected void btnRegistro_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/LoginRegistro.aspx");
+            Response.Redirect("~/LoginRegistro.aspx");
            
         }
 
