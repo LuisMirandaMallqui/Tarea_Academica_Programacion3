@@ -8,7 +8,7 @@ public class NotificacionDto {
     private Integer notificacionId;
     private PersonaDto persona;
     private MotivoDto motivo;
-    private Date fecha;
+    private String fecha;
     private String mensaje;
     
     // Constructor vacío
@@ -21,7 +21,7 @@ public class NotificacionDto {
     }
 
     // Constructor con parámetros
-    public NotificacionDto(Integer notificacionId, Date fecha, String mensaje,
+    public NotificacionDto(Integer notificacionId, String fecha, String mensaje,
                            PersonaDto persona, MotivoDto motivo) {
         this.notificacionId = notificacionId;
         this.fecha = fecha;
@@ -39,11 +39,11 @@ public class NotificacionDto {
         this.notificacionId = notificacionId;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

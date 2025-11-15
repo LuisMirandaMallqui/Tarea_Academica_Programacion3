@@ -9,8 +9,8 @@ public class MensajeDto {
     private ChatDto chat;
     private EstadoMensajeDto estadoMensaje;
     private PersonaDto persona;
-    private Date fechaEnvio;
-    private Date fechaLeido;
+    private String fechaEnvio;
+    private String fechaLeido;
     private String mensaje;
     
     // Constructor vacío
@@ -25,7 +25,7 @@ public class MensajeDto {
     }
 
     // Constructor con parámetros
-    public MensajeDto(Integer mensajeId, ChatDto chat, Date fechaEnvio, Date fechaLeido,
+    public MensajeDto(Integer mensajeId, ChatDto chat, String fechaEnvio, String fechaLeido,
                       String mensaje, EstadoMensajeDto estadoMensaje, PersonaDto persona) {
         this.mensajeId = mensajeId;
         this.chat = chat;
@@ -53,19 +53,19 @@ public class MensajeDto {
         this.chat = chat;
     }
 
-    public Date getFechaEnvio() {
+    public String getFechaEnvio() {
         return fechaEnvio;
     }
 
-    public void setFechaEnvio(Date fechaEnvio) {
+    public void setFechaEnvio(String fechaEnvio) {
         this.fechaEnvio = fechaEnvio;
     }
 
-    public Date getFechaLeido() {
+    public String getFechaLeido() {
         return fechaLeido;
     }
 
-    public void setFechaLeido(Date fechaLeido) {
+    public void setFechaLeido(String fechaLeido) {
         this.fechaLeido = fechaLeido;
     }
 

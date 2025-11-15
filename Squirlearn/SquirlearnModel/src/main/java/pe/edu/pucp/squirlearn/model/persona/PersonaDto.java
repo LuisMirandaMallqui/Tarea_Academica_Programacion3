@@ -15,7 +15,7 @@ public class PersonaDto {
     private String usuarioModificacion;
     private String usuarioCreacion;
     private EstadoPersonaDto estadoPersona;
-    private Date ultimaActividad;
+    private String ultimaActividad;
     private List<RolPersonaDto> rolesPersona;
     
     // Constructor vacío
@@ -37,7 +37,7 @@ public class PersonaDto {
     // Constructor con parámetros
     public PersonaDto(Integer personaId, String nombres, String primerApellido, String segundoApellido,
                       String codigo, String correo, String contrasena, String usuarioModificacion, 
-                      Date ultimaActividad, EstadoPersonaDto estadoPersona,List<RolPersonaDto> rolPersona,
+                      String ultimaActividad, EstadoPersonaDto estadoPersona,List<RolPersonaDto> rolPersona,
                       String usuarioCreacion) {
         this.personaId = personaId;
         this.nombres = nombres;
@@ -134,12 +134,12 @@ public class PersonaDto {
         this.estadoPersona = estadoPersona;
     }
     
-    public Date getUltimaActividad() {
+    public String getUltimaActividad() {
         return ultimaActividad;
     }
     
 
-    public void setUltimaActividad(Date ultimaActividad) {
+    public void setUltimaActividad(String ultimaActividad) {
         this.ultimaActividad = ultimaActividad;
     }
     

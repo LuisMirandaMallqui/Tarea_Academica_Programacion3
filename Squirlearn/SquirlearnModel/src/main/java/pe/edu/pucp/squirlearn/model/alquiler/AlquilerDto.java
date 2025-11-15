@@ -13,9 +13,9 @@ public class AlquilerDto {
     private Boolean devuelto;
     private String usuarioCreacion;
     
-    private Date fechaInicio;  // <--- POR ESTO
-    private Date fechaFin;
-    private Date fechaCreacion;
+    private String fechaInicio;  // <--- POR ESTO
+    private String fechaFin;
+    private String fechaCreacion;
     
     // Constructor vacío (inicializa en null)
     public AlquilerDto() {
@@ -32,8 +32,8 @@ public class AlquilerDto {
 
     // Constructor con parámetros
     public AlquilerDto(Integer alquilerId, PersonaDto persona, ItemDto item,
-                       Date fechaInicio, Date fechaFin, Boolean devuelto, Double monto,
-                       Date fechaCreacion, String usuarioCreacion) {
+                       String fechaInicio, String fechaFin, Boolean devuelto, Double monto,
+                       String fechaCreacion, String usuarioCreacion) {
         this.alquilerId = alquilerId;
         this.persona = persona;
         this.item = item;
@@ -98,42 +98,42 @@ public class AlquilerDto {
         /**
      * @return the fechaInicio
      */
-    public java.util.Date getFechaInicio() {
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
     /**
      * @param fechaInicio the fechaInicio to set
      */
-    public void setFechaInicio(java.util.Date fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
     /**
      * @return the fechaFin
      */
-    public java.util.Date getFechaFin() {
+    public String getFechaFin() {
         return fechaFin;
     }
 
     /**
      * @param fechaFin the fechaFin to set
      */
-    public void setFechaFin(java.util.Date fechaFin) {
+    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
 
     /**
      * @return the fechaCreacion
      */
-    public java.util.Date getFechaCreacion() {
+    public String getFechaCreacion() {
         return fechaCreacion;
     }
 
     /**
      * @param fechaCreacion the fechaCreacion to set
      */
-    public void setFechaCreacion(java.util.Date fechaCreacion) {
+    public void setFechaCreacion(String fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
     

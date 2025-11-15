@@ -7,8 +7,8 @@ import pe.edu.pucp.squirlearn.model.item.ItemDto;
 public class PublicacionDto {
     
     private Integer publicacionId;
-    private Date fechaAlta;
-    private Date fechaBaja;
+    private String fechaAlta;
+    private String fechaBaja;
     private EstadoPublicacionDto estadoPublicacion;
     private ItemDto item;
     private PersonaDto persona;
@@ -30,7 +30,7 @@ public class PublicacionDto {
     }
 
     // Constructor con parámetros
-    public PublicacionDto(Integer publicacionId, Date fechaAlta, Date fechaBaja,
+    public PublicacionDto(Integer publicacionId, String fechaAlta, String fechaBaja,
                           EstadoPublicacionDto estadoPublicacion, ItemDto item,
                           PersonaDto persona, Integer calificacion, String usuarioCreacion,
                           String usuarioModificacion) {
@@ -54,19 +54,19 @@ public class PublicacionDto {
         this.publicacionId = idPublicacion;
     }
 
-    public Date getFechaAlta() {
+    public String getFechaAlta() {
         return fechaAlta;
     }
 
-    public void setFechaAlta(Date fechaAlta) {
+    public void setFechaAlta(String fechaAlta) {
         this.fechaAlta = fechaAlta;
     }
 
-    public Date getFechaBaja() {
+    public String getFechaBaja() {
         return fechaBaja;
     }
 
-    public void setFechaBaja(Date fechaBaja) {
+    public void setFechaBaja(String fechaBaja) {
         this.fechaBaja = fechaBaja;
     }
 

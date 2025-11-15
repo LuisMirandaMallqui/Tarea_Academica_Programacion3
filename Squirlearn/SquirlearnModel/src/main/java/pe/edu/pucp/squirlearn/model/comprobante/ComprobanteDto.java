@@ -15,7 +15,7 @@ public class ComprobanteDto {
     private Double impuesto;
     private String usuarioCreacion;
     private List<DetalleComprobanteDto> detallesComprobante;
-    private Date fechaEmision;
+    private String fechaEmision;
 
     // Constructor vacío
     public ComprobanteDto() {
@@ -32,7 +32,7 @@ public class ComprobanteDto {
     }
 
     // Constructor con parámetros
-    public ComprobanteDto(Integer comprobanteId, Double monto, String transaccion, Date fechaEmision,
+    public ComprobanteDto(Integer comprobanteId, Double monto, String transaccion, String fechaEmision,
             Double impuesto, PersonaDto persona, FormaPagoDto formaPago,
             MonedaPagoDto moneda, String usuarioCreacion,
             List<DetalleComprobanteDto> detallesComprobante) {
@@ -73,11 +73,11 @@ public class ComprobanteDto {
         this.transaccion = transaccion;
     }
 
-    public Date getFechaEmision() {
+    public String getFechaEmision() {
         return fechaEmision;
     }
 
-    public void setFechaEmision(Date fechaEmision) {
+    public void setFechaEmision(String fechaEmision) {
         this.fechaEmision = fechaEmision;
     }
 
