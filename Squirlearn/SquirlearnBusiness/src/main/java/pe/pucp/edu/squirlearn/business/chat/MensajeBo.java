@@ -36,7 +36,7 @@ public class MensajeBo {
     }
     
     public Integer modificar(Integer id, Integer chatId, String mensaje,Integer estadoId,
-            Integer personaId, Date fechaEnvio, Date fechaLeido){
+            Integer personaId, String fechaEnvio, String fechaLeido){
        
         MensajeDto mensajeDto = new MensajeDto(); 
         
@@ -51,7 +51,7 @@ public class MensajeBo {
         mensajeDto.setMensajeId(id);
         mensajeDto.setPersona(persona);
         mensajeDto.setMensaje(mensaje);
-        mensajeDto.setFechaEnvio((java.sql.Date) fechaEnvio);
+        mensajeDto.setFechaEnvio( fechaEnvio);
         mensajeDto.setFechaLeido(fechaLeido);
         mensajeDto.setEstadoMensaje(estado);
         

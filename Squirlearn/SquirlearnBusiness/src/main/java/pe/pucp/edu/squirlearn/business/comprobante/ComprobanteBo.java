@@ -18,7 +18,7 @@ public class ComprobanteBo {
     }
     
     public Integer insertar(Double monto, String transaccionId, Integer personaId, 
-            Integer formaPagoId, Integer monedaId, Double impuesto,Date fechaEmision ,String usuarioCreacion){
+            Integer formaPagoId, Integer monedaId, Double impuesto,String fechaEmision ,String usuarioCreacion){
         ComprobanteDto comprobanteDto = new ComprobanteDto();
         
         PersonaDto persona = new PersonaDto();
@@ -40,7 +40,7 @@ public class ComprobanteBo {
     }
     
     public Integer modificar(Double monto, String transaccionId, Integer personaId, 
-            Integer formaPagoId, Integer monedaId, Double impuesto,Date fechaEmision ,String usuarioCreacion){
+            Integer formaPagoId, Integer monedaId, Double impuesto,String fechaEmision ,String usuarioCreacion){
         ComprobanteDto comprobanteDto = new ComprobanteDto();
         
         PersonaDto persona = new PersonaDto();

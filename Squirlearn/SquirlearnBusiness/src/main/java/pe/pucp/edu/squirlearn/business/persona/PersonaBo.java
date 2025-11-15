@@ -23,7 +23,7 @@ public class PersonaBo {
     }
     
     public Integer insertar(String nombres, String primerApellido, String segundoApellido, 
-            String codigo, String correo, String contrasena, String usuarioCreacion,Date actividad){
+            String codigo, String correo, String contrasena, String usuarioCreacion,String actividad){
         PersonaDto personaDto = new PersonaDto();
      
         EstadoPersonaDto estado = new EstadoPersonaDto();
@@ -50,7 +50,7 @@ public class PersonaBo {
     
     public Integer modificar(Integer id, String nombres, String primerApellido, String segundoApellido, 
             String codigo, String correo, String contrasena,Integer estadoId ,
-            String usuarioCreacion, String usuarioModificacion, Date actividad){
+            String usuarioCreacion, String usuarioModificacion, String actividad){
         PersonaDto personaDto = new PersonaDto();
         
         personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));

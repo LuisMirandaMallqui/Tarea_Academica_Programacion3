@@ -79,7 +79,7 @@ public class PublicacionBo {
         return this.publicacionDao.insertar(publicacionDto) + this.itemDao.insertar(itemdto);
     }
     
-    public Integer modificar(Integer publicacionId, Date fechaAlta, Date fechaBaja, 
+    public Integer modificar(Integer publicacionId, String fechaAlta, String fechaBaja, 
             Integer estadoId, Integer itemId, Integer personaId, Integer calificacion, 
             String usuarioCreacion, String usuarioModificacion) {
         
@@ -90,10 +90,10 @@ public class PublicacionBo {
         estadoPublicacion.setEstadoPublicacionId(estadoId);
         switch (estadoId) {
             case 2:
-                fechaAlta = Date.from(now());
+                fechaAlta = Date.from(now()).toString();
                 break;
             case 4:
-                fechaBaja = Date.from(now());
+                fechaBaja = Date.from(now()).toString();
                 break;
         }
 
@@ -103,7 +103,7 @@ public class PublicacionBo {
         personaDto.setPersonaId(personaId);
 
         publicacionDto.setPublicacionId(publicacionId);
-        publicacionDto.setFechaAlta((java.sql.Date) fechaAlta);
+        publicacionDto.setFechaAlta(fechaAlta);
         publicacionDto.setEstadoPublicacion(estadoPublicacion);
         publicacionDto.setItem(itemDto);
         publicacionDto.setPersona(personaDto);
