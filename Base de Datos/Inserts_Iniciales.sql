@@ -114,16 +114,16 @@ VALUES
 INSERT INTO personas(
  NOMBRES, PRIMER_APELLIDO, SEGUNDO_APELLIDO, CODIGO, CORREO, CONTRASENA,ESTADO_PERSONA_ID_ESTADOPERSONA,USUARIO_CREACION,ULTIMA_ACTIVIDAD)
 VALUES
-('María Fernanda', 'Lopez', 'Ramirez', '20231547', 'a20231547@pucp.edu.pe','pacoflaco123',1,'María Fernanda Lopez Ramirez',CURRENT_TIMESTAMP),
-('José Luis', 'Castro', 'Vargas', '20228459', 'a20228459@pucp.edu.pe','joselu123',2,'José Luis Castro Vargas',CURRENT_TIMESTAMP),
-('Andrea Carolina', 'Torres', 'Mendoza', '20235681', 'a20235681@pucp.edu.pe','andreatorres',3,'Andrea Carolina Torres Mendoza',CURRENT_TIMESTAMP),
-('Diego Armando', 'Quispe', 'Huamán', '20217732', 'a20217732@pucp.edu.pe','diegoquispe',1,'Diego Armando Quispe Huamán',CURRENT_TIMESTAMP),
-('Lucía Alejandra', 'Salazar', 'Flores', '20229418', 'a20229418@pucp.edu.pe','luciaalej',2,'Lucía Alejandra Salazar Flores',CURRENT_TIMESTAMP),
-('Carlos Alberto', 'Rojas', 'Cáceres', '20219845', 'a20219845@pucp.edu.pe','carlberto',3,'Carlos Alberto Rojas Cáceres',CURRENT_TIMESTAMP),
-('Gabriela Sofía', 'Paredes', 'Chavez', '20237591', 'a20237591@pucp.edu.pe','gabsof',1,'Gabriela Sofía Paredes Chavez',CURRENT_TIMESTAMP),
-('Fernando Enrique', 'Huerta', 'Guzmán', '20226789', 'a20226789@pucp.edu.pe','feriq',2,'Fernando Enrique Huerta Guzmán',CURRENT_TIMESTAMP),
-('Valeria Isabel', 'Martínez', 'Zamora', '20231852', 'a20231852@pucp.edu.pe','valeri',3,'Valeria Isabel Martínez Zamora',CURRENT_TIMESTAMP),
-('Santiago Nicolás', 'Gonzales', 'Linares', '20238417', 'a20238417@pucp.edu.pe','santi123',1,'Santiago Nicolás Gonzales Linares',CURRENT_TIMESTAMP);
+('María Fernanda', 'Lopez', 'Ramirez', '20231547', 'a20231547@pucp.edu.pe','pacoflaco123',1,'María Fernanda Lopez Ramirez',now()),
+('José Luis', 'Castro', 'Vargas', '20228459', 'a20228459@pucp.edu.pe','joselu123',2,'José Luis Castro Vargas',now()),
+('Andrea Carolina', 'Torres', 'Mendoza', '20235681', 'a20235681@pucp.edu.pe','andreatorres',3,'Andrea Carolina Torres Mendoza',now()),
+('Diego Armando', 'Quispe', 'Huamán', '20217732', 'a20217732@pucp.edu.pe','diegoquispe',1,'Diego Armando Quispe Huamán',now()),
+('Lucía Alejandra', 'Salazar', 'Flores', '20229418', 'a20229418@pucp.edu.pe','luciaalej',2,'Lucía Alejandra Salazar Flores',now()),
+('Carlos Alberto', 'Rojas', 'Cáceres', '20219845', 'a20219845@pucp.edu.pe','carlberto',3,'Carlos Alberto Rojas Cáceres',now()),
+('Gabriela Sofía', 'Paredes', 'Chavez', '20237591', 'a20237591@pucp.edu.pe','gabsof',1,'Gabriela Sofía Paredes Chavez',now()),
+('Fernando Enrique', 'Huerta', 'Guzmán', '20226789', 'a20226789@pucp.edu.pe','feriq',2,'Fernando Enrique Huerta Guzmán',now()),
+('Valeria Isabel', 'Martínez', 'Zamora', '20231852', 'a20231852@pucp.edu.pe','valeri',3,'Valeria Isabel Martínez Zamora',now()),
+('Santiago Nicolás', 'Gonzales', 'Linares', '20238417', 'a20238417@pucp.edu.pe','santi123',1,'Santiago Nicolás Gonzales Linares',now());
 
 INSERT INTO items(
     COLOR_ID, ESTADO_ITEM_ID, CONDICION_ID, TAMANO_ID, FORMATO_ID, 
@@ -183,7 +183,7 @@ INSERT INTO personas_roles(PERSONA_ID, ROLPERSONA_ID) VALUES
 INSERT INTO publicaciones(
     ESTADO_PUBLICACION_ID, ITEM_ID_ITEM, PERSONA_ID, CALIFICACION, USUARIO_CREACION
 ) VALUES 
-(2, 1, 2, 4, 'José Luis Castro Vargas'),   -- Publicación 1, "FISICA 1", Persona 2, con calificación 4
+(1, 1, 2, 4, 'José Luis Castro Vargas'),   -- Publicación 1, "FISICA 1", Persona 2, con calificación 4
 (2, 2, 3, 5, 'Andrea Carolina Torres Mendoza'),  -- Publicación 2, "PROGRAMACION 3", Persona 3, con calificación 5
 (1, 3, 4, 3, 'Diego Armando Quispe Huamán'),   -- Publicación 3, "QUIMICA BASICA", Persona 4, con calificación 3
 (2, 4, 5, 4, 'Lucía Alejandra Salazar Flores'),   -- Publicación 4, "CALCULADORA CIENTIFICA", Persona 5, con calificación 4
