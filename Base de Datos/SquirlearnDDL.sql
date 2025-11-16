@@ -698,7 +698,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`incidencias` (
   -- Primary Keys
   `INCIDENCIA_ID` INT NOT NULL AUTO_INCREMENT COMMENT 'Identificador único de la incidencia.',
   -- Foreing Keys
-  `NOTIFIFACION_ID` INT NOT NULL COMMENT 'FK que referencia a la notificación que generó la incidencia.',
+  `NOTIFICACION_ID` INT NOT NULL COMMENT 'FK que referencia a la notificación que generó la incidencia.',
   `PERSONA_ID` INT NOT NULL COMMENT 'FK que referencia a la persona que reporta la incidencia.',
   `MOTIVO_ID_MOTIVO` INT NOT NULL COMMENT 'FK que referencia al motivo de la incidencia.',
   -- Atributos
@@ -712,14 +712,14 @@ CREATE TABLE IF NOT EXISTS `mydb`.`incidencias` (
   `USUARIO_MODIFICACION` VARCHAR(100) NULL DEFAULT NULL COMMENT 'Último usuario que modificó el registro.',
   `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`INCIDENCIA_ID`),
-  INDEX `fk_INCIDENCIA_NOTIFIFACION1_idx` (`NOTIFIFACION_ID` ASC) VISIBLE,
+  INDEX `fk_INCIDENCIA_NOTIFIFACION1_idx` (`NOTIFICACION_ID` ASC) VISIBLE,
   INDEX `fk_INCIDENCIA_PERSONA1_idx` (`PERSONA_ID` ASC) VISIBLE,
   INDEX `fk_INCIDENCIA_MOTIVO1_idx` (`MOTIVO_ID_MOTIVO` ASC) VISIBLE,
   CONSTRAINT `fk_INCIDENCIA_MOTIVO1`
     FOREIGN KEY (`MOTIVO_ID_MOTIVO`)
     REFERENCES `mydb`.`motivos` (`MOTIVO_ID`),
-  CONSTRAINT `fk_INCIDENCIA_NOTIFIFACION1`
-    FOREIGN KEY (`NOTIFIFACION_ID`)
+  CONSTRAINT `fk_INCIDENCIA_NOTIFICACION1`
+    FOREIGN KEY (`NOTIFICACION_ID`)
     REFERENCES `mydb`.`notificaciones` (`NOTIFICACION_ID`),
   CONSTRAINT `fk_INCIDENCIA_PERSONA1`
     FOREIGN KEY (`PERSONA_ID`)
