@@ -10,7 +10,6 @@ import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
 import pe.edu.pucp.squirlearn.dao.alquiler.AlquilerDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
 import pe.edu.pucp.squirlearn.daoImpl.util.ParamReporteAlquiler;
-import pe.edu.pucp.squirlearn.daoImpl.util.TraduccionesSQL;
 import pe.edu.pucp.squirlearn.model.alquiler.AlquilerDto;
 import pe.edu.pucp.squirlearn.model.item.ItemDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
