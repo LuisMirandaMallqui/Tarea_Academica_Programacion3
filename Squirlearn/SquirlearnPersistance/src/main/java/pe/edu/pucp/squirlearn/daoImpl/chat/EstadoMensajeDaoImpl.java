@@ -34,8 +34,9 @@ public class EstadoMensajeDaoImpl extends DAOImplBase implements EstadoMensajeDa
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        this.statement.setString(1, this.estadoMensaje.getNombre());
-this.statement.setInt(6, this.estadoMensaje.getEstadoMsjId());
+        int i=1;
+        this.statement.setString(i++, this.estadoMensaje.getNombre());
+        this.statement.setInt(i++, this.estadoMensaje.getEstadoMsjId());
     }
 
     @Override
@@ -51,7 +52,7 @@ this.statement.setInt(6, this.estadoMensaje.getEstadoMsjId());
     @Override
     protected void instanciarObjetoDelResultSet() throws SQLException {
         this.estadoMensaje = new EstadoMensajeDto();
-        this.estadoMensaje.setEstadoMsjId(this.resultSet.getInt("ESTADO_MSJ_ID"));
+        this.estadoMensaje.setEstadoMsjId(this.resultSet.getInt("ESTADOMSJ_ID"));
         this.estadoMensaje.setNombre(this.resultSet.getString("NOMBRE"));
 }
 

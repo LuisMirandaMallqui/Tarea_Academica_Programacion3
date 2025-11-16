@@ -14,7 +14,6 @@ public class RolPersonaDaoImpl extends DAOImplBase implements RolPersonaDao {
     private RolPersonaDto rolPersona;
 
     public RolPersonaDaoImpl() {
-//        super("roles_personas");
         super("roles");
         this.rolPersona = null;
         this.retornarLlavePrimaria = true;
@@ -22,7 +21,6 @@ public class RolPersonaDaoImpl extends DAOImplBase implements RolPersonaDao {
 
     @Override
     protected void configurarListaDeColumnas() {
-//        this.listaColumnas.add(new Columna("ROL_PERSONA_ID", true, true));
         this.listaColumnas.add(new Columna("ROLPERSONA_ID", true, true));
         this.listaColumnas.add(new Columna("NOMBRE", false, false));
     }
@@ -43,7 +41,6 @@ public class RolPersonaDaoImpl extends DAOImplBase implements RolPersonaDao {
     @Override
     protected void instanciarObjetoDelResultSet() throws SQLException {
         this.rolPersona = new RolPersonaDto();
-//        this.rolPersona.setRolPersonaId(this.resultSet.getInt("ROLPERSONA_ID"));
         this.rolPersona.setRolPersonaId(this.resultSet.getInt("ROLPERSONA_ID"));
         this.rolPersona.setNombre(this.resultSet.getString("NOMBRE"));
     }
@@ -102,13 +99,6 @@ public class RolPersonaDaoImpl extends DAOImplBase implements RolPersonaDao {
 
     @Override
     public ArrayList<RolPersonaDto> listarPorPersona(Integer personaId) {
-        // Ajusta el nombre de la tabla puente si fuese distinto en tu BD.
-        // Supuesto común: 'personas_roles(PERSONA_ID, ROL_PERSONA_ID)'
-//        final String sql =
-//            "SELECT rp.ROL_PERSONA_ID, rp.NOMBRE " +
-//            "FROM roles_personas rp " +
-//            "JOIN personas_roles pr ON pr.ROL_PERSONA_ID = rp.ROL_PERSONA_ID " +
-//            "WHERE pr.PERSONA_ID = ?";
         final String sql
                 = "SELECT r.ROLPERSONA_ID, r.NOMBRE "
                 + "FROM roles r "

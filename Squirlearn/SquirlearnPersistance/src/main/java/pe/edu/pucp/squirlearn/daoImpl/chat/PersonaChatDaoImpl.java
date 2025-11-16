@@ -24,41 +24,21 @@ public class PersonaChatDaoImpl extends DAOImplBase implements PersonaChatDao{
 
     @Override
     protected void configurarListaDeColumnas() {
-        this.listaColumnas.add(new Columna("PERSONA", false, false));
-        this.listaColumnas.add(new Columna("CHAT", false, false));
+        this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
+        this.listaColumnas.add(new Columna("CHAT_ID", false, false));
 }
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int personaId = safeFkId(
-            (this.personaChat.getPersona() == null ? null : this.personaChat.getPersona().getPersonaId()),
-            "personas", "PERSONA_ID"
-        );
-        int chatId = safeFkId(
-            (this.personaChat.getChat()== null ? null : this.personaChat.getChat().getChatId()),
-            "chats", "CHAT_ID"
-        );
-
         int i = 1;
-        this.statement.setInt(i++, personaId);   // PERSONA_ID
-        this.statement.setInt(i++, chatId);         // CHAT_ID
+        this.statement.setInt(i++, this.personaChat.getPersona().getPersonaId());                                     // PERSONA_ID=?
+        this.statement.setInt(i++, this.personaChat.getChat().getChatId());   
     }
 
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        int personaId = safeFkId(
-            (this.personaChat.getPersona() == null ? null : this.personaChat.getPersona().getPersonaId()),
-            "personas", "PERSONA_ID"
-        );
-        int chatId = safeFkId(
-            (this.personaChat.getChat()== null ? null : this.personaChat.getChat().getChatId()),
-            "chats", "CHAT_ID"
-        );
-        
-        int i = 1;
-        this.statement.setInt(i++, personaId);                                     // PERSONA_ID=?
-        this.statement.setInt(i++, chatId);                                        // CHAT_ID=?
+                               // CHAT_ID=?
     }
 
 

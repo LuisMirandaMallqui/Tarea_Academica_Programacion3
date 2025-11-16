@@ -1,117 +1,95 @@
 package pe.edu.pucp.squirlearn.dao.chat;
 
 import java.util.ArrayList;
-import java.sql.Date;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import pe.edu.pucp.squirlearn.daoImpl.chat.MensajeDaoImpl;
+import pe.edu.pucp.squirlearn.model.chat.ChatDto;
+import pe.edu.pucp.squirlearn.model.chat.EstadoMensajeDto;
 import pe.edu.pucp.squirlearn.model.chat.MensajeDto;
+import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
 public class MensajeDaoTest {
-    
-    private MensajeDao mensajeDao;    
-    
+
+    private MensajeDao mensajeDAO;
+
     public MensajeDaoTest() {
-        this.mensajeDao = new MensajeDaoImpl();        
+        this.mensajeDAO = new MensajeDaoImpl();
     }
-    
+
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");
-//        ArrayList<Integer> listaMensajeId = new ArrayList<>();
-//        insertarMensajes(listaMensajeId);
-//        eliminarTodo();
-//    }
-//    
-//    private void insertarMensajes(ArrayList<Integer> listaMensajeId) {
+//        ChatDto chat = new ChatDto();
+//        chat.setChatId(1);
+//        EstadoMensajeDto estado = new EstadoMensajeDto();
+//        estado.setEstadoMsjId(1);
+//        PersonaDto persona = new PersonaDto();
+//        persona.setPersonaId(1);
+//
 //        MensajeDto mensaje = new MensajeDto();
-//        mensaje.setFechaEnvio(new Date(System.currentTimeMillis()));
-//        mensaje.setFechaLeido(new Date(System.currentTimeMillis()));
-//        mensaje.setMensaje("Lorem ipsum mensaje");
-//        Integer resultado = this.mensajeDao.insertar(mensaje);
+//        mensaje.setChat(chat);
+//        mensaje.setEstadoMensaje(estado);
+//        mensaje.setPersona(persona);
+//        mensaje.setFechaEnvio("2025-02-12 10:00:00");
+//        mensaje.setMensaje("Hola desde test");
+//
+//        Integer resultado = this.mensajeDAO.insertar(mensaje);
 //        assertTrue(resultado != 0);
-//        listaMensajeId.add(resultado);
-//        
-//        mensaje.setMensajeId(null);
-//        mensaje.setFechaEnvio(new Date(System.currentTimeMillis()));
-//        mensaje.setFechaLeido(new Date(System.currentTimeMillis()));
-//        mensaje.setMensaje("Lorem ipsum B mensaje");
-//        resultado = this.mensajeDao.insertar(mensaje);
-//        assertTrue(resultado != 0);
-//        listaMensajeId.add(resultado);
-//        
-//        mensaje.setMensajeId(null);
-//        mensaje.setFechaEnvio(new Date(System.currentTimeMillis()));
-//        mensaje.setFechaLeido(new Date(System.currentTimeMillis()));
-//        mensaje.setMensaje("Lorem ipsum C mensaje");
-//        resultado = this.mensajeDao.insertar(mensaje);
-//        assertTrue(resultado != 0);
-//        listaMensajeId.add(resultado);        
 //    }
-//    
+//
 //    @Test
 //    public void testObtenerPorId() {
 //        System.out.println("obtenerPorId");
-//        ArrayList<Integer> listaMensajeId = new ArrayList<>();
-//        insertarMensajes(listaMensajeId);
-//        MensajeDto mensaje = this.mensajeDao.obtenerPorId(listaMensajeId.get(0));
-//        assertEquals(mensaje.getMensajeId(), listaMensajeId.get(0));
-//        
-//        mensaje = this.mensajeDao.obtenerPorId(listaMensajeId.get(1));
-//        assertEquals(mensaje.getMensajeId(), listaMensajeId.get(1));
-//        
-//        mensaje = this.mensajeDao.obtenerPorId(listaMensajeId.get(2));
-//        assertEquals(mensaje.getMensajeId(), listaMensajeId.get(2));
-//        eliminarTodo();
+//        MensajeDto mensaje = this.mensajeDAO.obtenerPorId(1);
+//        if (mensaje != null) {
+//            System.out.println(mensaje.getMensajeId());
+//            System.out.println(mensaje.getMensaje());
+//            System.out.println(mensaje.getFechaEnvio());
+//            if (mensaje.getChat() != null) System.out.println(mensaje.getChat().getChatId());
+//            if (mensaje.getPersona() != null) System.out.println(mensaje.getPersona().getPersonaId());
+//        }
 //    }
-//    
+//
 //    @Test
 //    public void testListarTodos() {
 //        System.out.println("listarTodos");
-//        ArrayList<Integer> listaMensajeId = new ArrayList<>();
-//        insertarMensajes(listaMensajeId);
-//        
-//        ArrayList<MensajeDto> listaMensajes = this.mensajeDao.listarTodos();
-//        assertEquals(listaMensajeId.size(), listaMensajes.size());
-//        for (Integer i = 0; i < listaMensajeId.size(); i++) {
-//            assertEquals(listaMensajeId.get(i), listaMensajes.get(i).getMensajeId());
+//        ArrayList<MensajeDto> lista = this.mensajeDAO.listarTodos();
+//        for (Integer i = 0; i < lista.size(); i++) {
+//            MensajeDto mensaje = lista.get(i);
+//            System.out.println("Dato:");
+//            System.out.println(mensaje.getMensajeId());
+//            System.out.println(mensaje.getMensaje());
 //        }
-//        eliminarTodo();
 //    }
-//    
+
 //    @Test
 //    public void testModificar() {
 //        System.out.println("modificar");
-//        ArrayList<Integer> listaMensajeId = new ArrayList<>();
-//        insertarMensajes(listaMensajeId);
-//        
-//        ArrayList<MensajeDto> listaMensajes = this.mensajeDao.listarTodos();
-//        assertEquals(listaMensajeId.size(), listaMensajes.size());
-//        for (Integer i = 0; i < listaMensajeId.size(); i++) {
-//            // Cambios dummy no nulos
-//            this.mensajeDao.modificar(listaMensajes.get(i));
-//        }
-//        
-//        ArrayList<MensajeDto> listaMensajesModificados = this.mensajeDao.listarTodos();
-//        assertEquals( listaMensajes.size(), listaMensajesModificados.size());
-//        eliminarTodo();
+//        ChatDto chat = new ChatDto();
+//        chat.setChatId(1);
+//        EstadoMensajeDto estado = new EstadoMensajeDto();
+//        estado.setEstadoMsjId(1);
+//        PersonaDto persona = new PersonaDto();
+//        persona.setPersonaId(1);
+//
+//        MensajeDto mensaje = new MensajeDto();
+//        mensaje.setChat(chat);
+//        mensaje.setEstadoMensaje(estado);
+//        mensaje.setPersona(persona);
+//        mensaje.setMensajeId(2);
+//        mensaje.setMensaje("Mensaje modificado");
+//        mensaje.setFechaEnvio("2025-02-12 11:00:00");
+//        mensaje.setFechaLeido("2025-02-12 11:05:00");
+//        Integer resultado = this.mensajeDAO.modificar(mensaje);
+//        assertTrue(resultado != 0);
 //    }
-//    
+
 //    @Test
 //    public void testEliminar() {
 //        System.out.println("eliminar");
-//        ArrayList<Integer> listaMensajeId = new ArrayList<>();
-//        insertarMensajes(listaMensajeId);
-//        eliminarTodo();
-//    }
-//    
-//    private void eliminarTodo(){                
-//        ArrayList<MensajeDto> listaMensajes = this.mensajeDao.listarTodos();
-//        for (Integer i = 0; i < listaMensajes.size(); i++) {
-//            Integer resultado = this.mensajeDao.eliminar(listaMensajes.get(i));
-//            assertNotEquals(0, resultado);
-//            MensajeDto mensaje = this.mensajeDao.obtenerPorId(listaMensajes.get(i).getMensajeId());
-//            assertNull(mensaje);
-//        }
+//        MensajeDto mensaje = new MensajeDto();
+//        mensaje.setMensajeId(3);
+//        this.mensajeDAO.eliminar(mensaje);
 //    }
 }

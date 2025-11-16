@@ -10,113 +10,67 @@ public class RolPersonaDaoTest {
     
     private RolPersonaDao rolPersonaDao;    
     
-//    public RolPersonaDaoTest() {
-//        this.rolPersonaDao = new RolPersonaDaoImpl();        
-//    }
-//    
+    public RolPersonaDaoTest() {
+        this.rolPersonaDao = new RolPersonaDaoImpl();        
+    }
+    
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");
-//        ArrayList<Integer> listaRolPersonaId = new ArrayList<>();
-//        insertarRolPersonas(listaRolPersonaId);
-//        eliminarTodo();
-//    }
-//    
-//    private void insertarRolPersonas(ArrayList<Integer> listaRolPersonaId) {
-//        RolPersonaDto rolPersona = new RolPersonaDto();
-//        rolPersona.setNombre("Lorem ipsum nombre");
-//        rolPersona.setFechaCreacion(new java.sql.Date(System.currentTimeMillis()));
-//        rolPersona.setUsuarioCreacion(1);
-//        rolPersona.setFechaModificacion(new java.sql.Date(System.currentTimeMillis()));
-//        rolPersona.setUsuarioModificacion(1);
-//        Integer resultado = this.rolPersonaDao.insertar(rolPersona);
-//        assertTrue(resultado != 0);
-//        listaRolPersonaId.add(resultado);
 //        
-//        rolPersona.setRolPersonaId(null);
-//        rolPersona.setNombre("Lorem ipsum B nombre");
-//        rolPersona.setFechaCreacion(new java.sql.Date(System.currentTimeMillis()));
-//        rolPersona.setUsuarioCreacion(1);
-//        rolPersona.setFechaModificacion(new java.sql.Date(System.currentTimeMillis()));
-//        rolPersona.setUsuarioModificacion(1);
-//        resultado = this.rolPersonaDao.insertar(rolPersona);
+//        RolPersonaDto rol = new RolPersonaDto();
+//        rol.setNombre("Alumno");
+//        Integer resultado = this.rolPersonaDao.insertar(rol);
 //        assertTrue(resultado != 0);
-//        listaRolPersonaId.add(resultado);
-//        
-//        rolPersona.setRolPersonaId(null);
-//        rolPersona.setNombre("Lorem ipsum C nombre");
-//        rolPersona.setFechaCreacion(new java.sql.Date(System.currentTimeMillis()));
-//        rolPersona.setUsuarioCreacion(1);
-//        rolPersona.setFechaModificacion(new java.sql.Date(System.currentTimeMillis()));
-//        rolPersona.setUsuarioModificacion(1);
-//        resultado = this.rolPersonaDao.insertar(rolPersona);
-//        assertTrue(resultado != 0);
-//        listaRolPersonaId.add(resultado);        
 //    }
 //    
 //    @Test
 //    public void testObtenerPorId() {
 //        System.out.println("obtenerPorId");
-//        ArrayList<Integer> listaRolPersonaId = new ArrayList<>();
-//        insertarRolPersonas(listaRolPersonaId);
-//        RolPersonaDto rolPersona = this.rolPersonaDao.obtenerPorId(listaRolPersonaId.get(0));
-//        assertEquals(rolPersona.getRolPersonaId(), listaRolPersonaId.get(0));
 //        
-//        rolPersona = this.rolPersonaDao.obtenerPorId(listaRolPersonaId.get(1));
-//        assertEquals(rolPersona.getRolPersonaId(), listaRolPersonaId.get(1));
+//        // AJUSTA este ID a uno que exista en tu BD
+//        RolPersonaDto rol = this.rolPersonaDao.obtenerPorId(1);
 //        
-//        rolPersona = this.rolPersonaDao.obtenerPorId(listaRolPersonaId.get(2));
-//        assertEquals(rolPersona.getRolPersonaId(), listaRolPersonaId.get(2));
-//        eliminarTodo();
+//        if (rol != null) {
+//            System.out.println(rol.getRolPersonaId());
+//            System.out.println(rol.getNombre());
+//        }
 //    }
 //    
 //    @Test
 //    public void testListarTodos() {
 //        System.out.println("listarTodos");
-//        ArrayList<Integer> listaRolPersonaId = new ArrayList<>();
-//        insertarRolPersonas(listaRolPersonaId);
 //        
-//        ArrayList<RolPersonaDto> listaRolPersonas = this.rolPersonaDao.listarTodos();
-//        assertEquals(listaRolPersonaId.size(), listaRolPersonas.size());
-//        for (Integer i = 0; i < listaRolPersonaId.size(); i++) {
-//            assertEquals(listaRolPersonaId.get(i), listaRolPersonas.get(i).getRolPersonaId());
+//        ArrayList<RolPersonaDto> listaRoles = this.rolPersonaDao.listarTodos();
+//        for (Integer i = 0; i < listaRoles.size(); i++) {
+//            System.out.println("Dato: ");
+//            System.out.println(listaRoles.get(i).getRolPersonaId());
+//            System.out.println(listaRoles.get(i).getNombre());
 //        }
-//        eliminarTodo();
 //    }
 //    
 //    @Test
 //    public void testModificar() {
 //        System.out.println("modificar");
-//        ArrayList<Integer> listaRolPersonaId = new ArrayList<>();
-//        insertarRolPersonas(listaRolPersonaId);
 //        
-//        ArrayList<RolPersonaDto> listaRolPersonas = this.rolPersonaDao.listarTodos();
-//        assertEquals(listaRolPersonaId.size(), listaRolPersonas.size());
-//        for (Integer i = 0; i < listaRolPersonaId.size(); i++) {
-//            // Cambios dummy no nulos
-//            this.rolPersonaDao.modificar(listaRolPersonas.get(i));
-//        }
+//        RolPersonaDto rol = new RolPersonaDto();
+//        // AJUSTA este ID a uno que realmente exista
+//        rol.setRolPersonaId(1);
+//        rol.setNombre("Alumno Modificado");
 //        
-//        ArrayList<RolPersonaDto> listaRolPersonasModificados = this.rolPersonaDao.listarTodos();
-//        assertEquals( listaRolPersonas.size(), listaRolPersonasModificados.size());
-//        eliminarTodo();
+//        Integer resultado = this.rolPersonaDao.modificar(rol);
+//        assertTrue(resultado != 0);
 //    }
 //    
 //    @Test
 //    public void testEliminar() {
 //        System.out.println("eliminar");
-//        ArrayList<Integer> listaRolPersonaId = new ArrayList<>();
-//        insertarRolPersonas(listaRolPersonaId);
-//        eliminarTodo();
-//    }
-//    
-//    private void eliminarTodo(){                
-//        ArrayList<RolPersonaDto> listaRolPersonas = this.rolPersonaDao.listarTodos();
-//        for (Integer i = 0; i < listaRolPersonas.size(); i++) {
-//            Integer resultado = this.rolPersonaDao.eliminar(listaRolPersonas.get(i));
-//            assertNotEquals(0, resultado);
-//            RolPersonaDto rolPersona = this.rolPersonaDao.obtenerPorId(listaRolPersonas.get(i).getRolPersonaId());
-//            assertNull(rolPersona);
-//        }
+//        
+//        RolPersonaDto rol = new RolPersonaDto();
+//        // AJUSTA este ID al que quieras borrar
+//        rol.setRolPersonaId(5);
+//        this.rolPersonaDao.eliminar(rol);
 //    }
 }
+
+

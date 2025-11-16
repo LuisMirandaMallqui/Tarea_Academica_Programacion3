@@ -23,32 +23,24 @@ public class ChatDaoImpl extends DAOImplBase implements ChatDao{
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("CHAT_ID", true, true));
         this.listaColumnas.add(new Columna("estado_chat_ID_ESTADOCHAT", false, false));
-        this.listaColumnas.add(new Columna("FECHA_CREACION", false, false));
         this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
-        this.listaColumnas.add(new Columna("FECHA_MODIFICACION", false, false));
         this.listaColumnas.add(new Columna("USUARIO_MODIFICACION", false, false));
     }
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int estadoId = safeFkId(
-            (this.chat.getEstadoChat() == null ? null : this.chat.getEstadoChat().getEstadoChatId()),
-            "estados_chats", "ESTADOCHAT_ID"
-        );
+        
         int i = 1;
-        this.statement.setInt(i++, estadoId);         // estado_chat_ID_ESTADOCHAT
+        this.statement.setInt(i++,this.chat.getEstadoChat().getEstadoChatId());     
         this.statement.setString(i++, this.chat.getUsuarioCreacion());    
-        this.statement.setString(i++, null);  // USUARIO_modificacion   
+        this.statement.setString(i++, this.chat.getUsuarioCreacion());  // USUARIO_modificacion   
     }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        int estadoId = safeFkId(
-            (this.chat.getEstadoChat() == null ? null : this.chat.getEstadoChat().getEstadoChatId()),
-            "estados_chats", "ESTADOCHAT_ID"
-        );
+        
         int i = 1;
-        this.statement.setInt(i++, estadoId);
+        this.statement.setInt(i++,  this.chat.getEstadoChat().getEstadoChatId());
         this.statement.setString(i++, this.chat.getUsuarioCreacion());   
         this.statement.setString(i++, this.chat.getUsuarioModificacion());  // USUARIO_modificacion
         this.statement.setInt(i++, this.chat.getChatId()); // WHERE CHAT_ID=?
@@ -67,7 +59,7 @@ public class ChatDaoImpl extends DAOImplBase implements ChatDao{
 
     @Override
     protected void instanciarObjetoDelResultSet() throws SQLException {
-        this.chat = new pe.edu.pucp.squirlearn.model.chat.ChatDto();
+        this.chat = new ChatDto();
 
         EstadoChatDto ec = new EstadoChatDto();
         ec.setEstadoChatId(this.resultSet.getInt("estado_chat_ID_ESTADOCHAT"));

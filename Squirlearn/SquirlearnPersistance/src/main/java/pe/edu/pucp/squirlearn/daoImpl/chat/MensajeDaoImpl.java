@@ -34,65 +34,31 @@ public class MensajeDaoImpl extends DAOImplBase implements MensajeDao{
     }
 
     @Override
-    protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int chatId = safeFkId(
-            (this.mensaje.getChat() == null ? null : this.mensaje.getChat().getChatId()),
-            "chats", "CHAT_ID"
-        );
-        int estadoMsjId = safeFkId(
-            (this.mensaje.getEstadoMensaje() == null ? null : this.mensaje.getEstadoMensaje().getEstadoMsjId()),
-            "estados_mensajes", "ESTADOMSJ_ID"
-        );
-        int personaId = safeFkId(
-            (this.mensaje.getPersona() == null ? null : this.mensaje.getPersona().getPersonaId()),
-            "personas", "PERSONA_ID"
-        );
-        java.sql.Timestamp fechaEnvSQL = TraduccionesSQL.toSqlTimestamp(this.mensaje.getFechaEnvio());
+    protected void incluirValorDeParametrosParaInsercion() throws SQLException {        
         int i = 1;
-        this.statement.setInt(i++, chatId);
-        this.statement.setTimestamp(i++, fechaEnvSQL);
-        this.statement.setDate(i++, null);
+        this.statement.setInt(i++, this.mensaje.getChat().getChatId());
+        this.statement.setInt(i++, this.mensaje.getEstadoMensaje().getEstadoMsjId());
+        this.statement.setInt(i++, this.mensaje.getPersona().getPersonaId());
+        this.statement.setString(i++, this.mensaje.getFechaEnvio());
+        this.statement.setString(i++, this.mensaje.getFechaLeido());
         this.statement.setString(i++, this.mensaje.getMensaje());
-        this.statement.setInt(i++, estadoMsjId);
-        this.statement.setInt(i++, personaId);
     }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        int chatId = safeFkId(
-            (this.mensaje.getChat() == null ? null : this.mensaje.getChat().getChatId()),
-            "chats", "CHAT_ID"
-        );
-        int estadoMsjId = safeFkId(
-            (this.mensaje.getEstadoMensaje() == null ? null : this.mensaje.getEstadoMensaje().getEstadoMsjId()),
-            "estados_mensajes", "ESTADOMSJ_ID"
-        );
-        int personaId = safeFkId(
-            (this.mensaje.getPersona() == null ? null : this.mensaje.getPersona().getPersonaId()),
-            "personas", "PERSONA_ID"
-        );
-        
-        // 1. Obtiene el java.util.Date (limpio) de tu DTO
-        java.util.Date FechaEnvio = this.mensaje.getFechaEnvio();
-        java.util.Date FechaLeido = this.mensaje.getFechaLeido();
-
-        // 2. Prepara el "traductor" (Timestamp) para JDBC
-        java.sql.Timestamp FechaEnvioSql = (FechaEnvio == null) ? null : new java.sql.Timestamp(FechaEnvio.getTime());
-        java.sql.Timestamp FechaLeidoSql = (FechaLeido == null) ? null : new java.sql.Timestamp(FechaLeido.getTime());
-        
         int i = 1;
-        this.statement.setInt(i++, chatId);
-        this.statement.setTimestamp(i++, FechaEnvioSql);
-        this.statement.setTimestamp(i++, FechaLeidoSql);
+        this.statement.setInt(i++, this.mensaje.getChat().getChatId());
+        this.statement.setInt(i++, this.mensaje.getEstadoMensaje().getEstadoMsjId());
+        this.statement.setInt(i++, this.mensaje.getPersona().getPersonaId());
+        this.statement.setString(i++, this.mensaje.getFechaEnvio());
+        this.statement.setString(i++, this.mensaje.getFechaLeido());
         this.statement.setString(i++, this.mensaje.getMensaje());
-        this.statement.setInt(i++, estadoMsjId);
-        this.statement.setInt(i++, personaId);
         this.statement.setInt(i++, this.mensaje.getMensajeId()); // WHERE
     }
 
     @Override
     protected void instanciarObjetoDelResultSet() throws SQLException {
-        this.mensaje = new pe.edu.pucp.squirlearn.model.chat.MensajeDto();
+        this.mensaje = new MensajeDto();
 
         // Chat
         ChatDto chat = new ChatDto();
@@ -111,8 +77,8 @@ public class MensajeDaoImpl extends DAOImplBase implements MensajeDao{
 
         // Escalares
         this.mensaje.setMensajeId(this.resultSet.getInt("MENSAJE_ID"));
-        this.mensaje.setFechaEnvio(this.resultSet.getTimestamp("FECHA_ENVIO"));
-        this.mensaje.setFechaLeido(this.resultSet.getTimestamp("FECHA_LEIDO"));
+        this.mensaje.setFechaEnvio(this.resultSet.getString("FECHA_ENVIO"));
+        this.mensaje.setFechaLeido(this.resultSet.getString("FECHA_LEIDO"));
         this.mensaje.setMensaje(this.resultSet.getString("MENSAJE"));
     }
 

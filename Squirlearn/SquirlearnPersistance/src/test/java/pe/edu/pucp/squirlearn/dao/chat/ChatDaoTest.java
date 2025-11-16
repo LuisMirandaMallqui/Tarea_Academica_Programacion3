@@ -5,115 +5,72 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import pe.edu.pucp.squirlearn.daoImpl.chat.ChatDaoImpl;
 import pe.edu.pucp.squirlearn.model.chat.ChatDto;
+import pe.edu.pucp.squirlearn.model.chat.EstadoChatDto;
 
 public class ChatDaoTest {
-    
-//    private ChatDao chatDAO;    
-//    
-//    public ChatDaoTest() {
-//        this.chatDAO = new ChatDaoImpl();        
-//    }
-//    
+
+    private ChatDao chatDAO;
+
+    public ChatDaoTest() {
+        this.chatDAO = new ChatDaoImpl();
+    }
+
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");
-//        ArrayList<Integer> listaChatId = new ArrayList<>();
-//        insertarChats(listaChatId);
-//        eliminarTodo();
-//    }
-//    
-//    private void insertarChats(ArrayList<Integer> listaChatId) {
+//        EstadoChatDto estado = new EstadoChatDto();
+//        estado.setEstadoChatId(1);
 //        ChatDto chat = new ChatDto();
-//        chat.setFechaCreacion(new java.sql.Date(System.currentTimeMillis()));
-//        chat.setUsuarioCreacion(1);
-//        chat.setFechaModificacion(new java.sql.Date(System.currentTimeMillis()));
-//        chat.setUsuarioModificacion(1);
+//        chat.setEstadoChat(estado);
+//        chat.setUsuarioCreacion("usuarioTest");
 //        Integer resultado = this.chatDAO.insertar(chat);
-//        assertTrue(resultado != 0);
-//        listaChatId.add(resultado);
-//        
-//        chat.setChatId(null);
-//        chat.setFechaCreacion(new java.sql.Date(System.currentTimeMillis()));
-//        chat.setUsuarioCreacion(1);
-//        chat.setFechaModificacion(new java.sql.Date(System.currentTimeMillis()));
-//        chat.setUsuarioModificacion(1);
-//        resultado = this.chatDAO.insertar(chat);
-//        assertTrue(resultado != 0);
-//        listaChatId.add(resultado);
-//        
-//        chat.setChatId(null);
-//        chat.setFechaCreacion(new java.sql.Date(System.currentTimeMillis()));
-//        chat.setUsuarioCreacion(1);
-//        chat.setFechaModificacion(new java.sql.Date(System.currentTimeMillis()));
-//        chat.setUsuarioModificacion(1);
-//        resultado = this.chatDAO.insertar(chat);
-//        assertTrue(resultado != 0);
-//        listaChatId.add(resultado);        
 //    }
-//    
+//
 //    @Test
 //    public void testObtenerPorId() {
 //        System.out.println("obtenerPorId");
-//        ArrayList<Integer> listaChatId = new ArrayList<>();
-//        insertarChats(listaChatId);
-//        ChatDto chat = this.chatDAO.obtenerPorId(listaChatId.get(0));
-//        assertEquals(chat.getChatId(), listaChatId.get(0));
-//        
-//        chat = this.chatDAO.obtenerPorId(listaChatId.get(1));
-//        assertEquals(chat.getChatId(), listaChatId.get(1));
-//        
-//        chat = this.chatDAO.obtenerPorId(listaChatId.get(2));
-//        assertEquals(chat.getChatId(), listaChatId.get(2));
-//        eliminarTodo();
+//        ChatDto chat = this.chatDAO.obtenerPorId(1);
+//        if (chat != null) {
+//            System.out.println(chat.getChatId());
+//            System.out.println(chat.getEstadoChat().getEstadoChatId());
+//            System.out.println(chat.getUsuarioCreacion());
+//            System.out.println(chat.getUsuarioModificacion());
+//        }
 //    }
-//    
+//
 //    @Test
 //    public void testListarTodos() {
 //        System.out.println("listarTodos");
-//        ArrayList<Integer> listaChatId = new ArrayList<>();
-//        insertarChats(listaChatId);
-//        
-//        ArrayList<ChatDto> listaChats = this.chatDAO.listarTodos();
-//        assertEquals(listaChatId.size(), listaChats.size());
-//        for (Integer i = 0; i < listaChatId.size(); i++) {
-//            assertEquals(listaChatId.get(i), listaChats.get(i).getChatId());
+//        ArrayList<ChatDto> lista = this.chatDAO.listarTodos();
+//        for (Integer i = 0; i < lista.size(); i++) {
+//            ChatDto chat = lista.get(i);
+//            System.out.println("Dato:");
+//            System.out.println(chat.getChatId());
+//            if (chat.getEstadoChat() != null) {
+//                System.out.println(chat.getEstadoChat().getEstadoChatId());
+//            }
+//            System.out.println(chat.getUsuarioCreacion());
 //        }
-//        eliminarTodo();
 //    }
-//    
+//
 //    @Test
 //    public void testModificar() {
 //        System.out.println("modificar");
-//        ArrayList<Integer> listaChatId = new ArrayList<>();
-//        insertarChats(listaChatId);
-//        
-//        ArrayList<ChatDto> listaChats = this.chatDAO.listarTodos();
-//        assertEquals(listaChatId.size(), listaChats.size());
-//        for (Integer i = 0; i < listaChatId.size(); i++) {
-//            // Cambios dummy no nulos
-//            this.chatDAO.modificar(listaChats.get(i));
-//        }
-//        
-//        ArrayList<ChatDto> listaChatsModificados = this.chatDAO.listarTodos();
-//        assertEquals( listaChats.size(), listaChatsModificados.size());
-//        eliminarTodo();
+//        EstadoChatDto estado = new EstadoChatDto();
+//        estado.setEstadoChatId(1);
+//        ChatDto chat = new ChatDto();
+//        chat.setChatId(1);
+//        chat.setEstadoChat(estado);
+//        chat.setUsuarioCreacion(null);
+//        chat.setUsuarioModificacion("modificadoTest");
+//        Integer resultado = this.chatDAO.modificar(chat);
 //    }
-//    
+//
 //    @Test
 //    public void testEliminar() {
 //        System.out.println("eliminar");
-//        ArrayList<Integer> listaChatId = new ArrayList<>();
-//        insertarChats(listaChatId);
-//        eliminarTodo();
-//    }
-//    
-//    private void eliminarTodo(){                
-//        ArrayList<ChatDto> listaChats = this.chatDAO.listarTodos();
-//        for (Integer i = 0; i < listaChats.size(); i++) {
-//            Integer resultado = this.chatDAO.eliminar(listaChats.get(i));
-//            assertNotEquals(0, resultado);
-//            ChatDto chat = this.chatDAO.obtenerPorId(listaChats.get(i).getChatId());
-//            assertNull(chat);
-//        }
+//        ChatDto chat = new ChatDto();
+//        chat.setChatId(5);
+//        this.chatDAO.eliminar(chat);
 //    }
 }

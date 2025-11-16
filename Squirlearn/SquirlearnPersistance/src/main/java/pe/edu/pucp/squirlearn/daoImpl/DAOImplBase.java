@@ -117,7 +117,19 @@ public abstract class DAOImplBase {
             }
             this.comitarTransaccion();
         } catch (SQLException ex) {
-            System.err.println("Error al intentar insertar - " + ex);
+            System.err.print("Error al intentar ");
+            switch (tipo_operacion) {
+                case Tipo_Operacion.INSERTAR:
+                    System.err.print("intentar - ");
+                    break;
+                case Tipo_Operacion.MODIFICAR:
+                    System.err.print("modificar - ");
+                    break;
+                case Tipo_Operacion.ELIMINAR:
+                    System.err.print("eliminar - ");
+                    break;
+            }
+            System.err.print(ex);
             try {
                 this.rollbackTransaccion();
             } catch (SQLException ex1) {

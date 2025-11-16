@@ -51,14 +51,12 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao {
                 "monedas", "MONEDA_ID"
         );
 
-        java.sql.Timestamp fechaEmisionSql = TraduccionesSQL.toSqlTimestamp(this.comprobante.getFechaEmision());
-
         int i = 1;
         this.statement.setInt(i++, personaId);
         this.statement.setInt(i++, formaPagoId);
         this.statement.setInt(i++, monedaId);
         this.statement.setString(i++, this.comprobante.getTransaccion());
-        this.statement.setTimestamp(i++, fechaEmisionSql);
+        this.statement.setString(i++, this.comprobante.getFechaEmision());
         this.statement.setDouble(i++, this.comprobante.getMonto());
         this.statement.setDouble(i++, this.comprobante.getImpuesto() == null ? 0.0 : this.comprobante.getImpuesto()); // puede ser null
         this.statement.setString(i++, this.comprobante.getusuarioCreacion());
@@ -79,14 +77,12 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao {
                 "monedas", "MONEDA_ID"
         );
 
-        java.sql.Timestamp fechaEmisionSql = TraduccionesSQL.toSqlTimestamp(this.comprobante.getFechaEmision());
-
         int i = 1;
         this.statement.setInt(i++, personaId);
         this.statement.setInt(i++, formaPagoId);
         this.statement.setInt(i++, monedaId);
         this.statement.setString(i++, this.comprobante.getTransaccion());
-        this.statement.setTimestamp(i++, fechaEmisionSql);
+        this.statement.setString(i++, this.comprobante.getFechaEmision());
         this.statement.setDouble(i++, this.comprobante.getMonto());
         this.statement.setDouble(i++, this.comprobante.getImpuesto() == null ? 0.0 : this.comprobante.getImpuesto()); // puede ser null
         this.statement.setString(i++, this.comprobante.getusuarioCreacion());
@@ -116,7 +112,7 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao {
         // Escalares
         this.comprobante.setMonto(this.resultSet.getDouble("MONTO"));
         this.comprobante.setTransaccion(this.resultSet.getString("TRANSACCION_ID"));
-        this.comprobante.setFechaEmision(this.resultSet.getTimestamp("FECHA_EMISION"));
+        this.comprobante.setFechaEmision(this.resultSet.getString("FECHA_EMISION"));
         this.comprobante.setImpuesto(this.resultSet.getDouble("IMPUESTO"));
         this.comprobante.setusuarioCreacion(this.resultSet.getString("USUARIO_CREACION"));
     }

@@ -1,139 +1,106 @@
 package pe.edu.pucp.squirlearn.dao.persona;
 
 import java.util.ArrayList;
-import java.sql.Date;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import pe.edu.pucp.squirlearn.daoImpl.persona.PersonaDaoImpl;
+import pe.edu.pucp.squirlearn.model.persona.EstadoPersonaDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
 public class PersonaDaoTest {
     
-//    private PersonaDao personaDao;    
-//    
-//    public PersonaDaoTest() {
-//        this.personaDao = new PersonaDaoImpl();        
-//    }
-//    
+    private PersonaDao personaDAO;    
+    
+    public PersonaDaoTest() {
+        this.personaDAO = new PersonaDaoImpl();        
+    }
+    
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");
-//        ArrayList<Integer> listaPersonaId = new ArrayList<>();
-//        insertarPersonas(listaPersonaId);
-//        eliminarTodo();
-//    }
-//    
-//    private void insertarPersonas(ArrayList<Integer> listaPersonaId) {
+//        EstadoPersonaDto estado= new EstadoPersonaDto();
+//        estado.setEstadoPersonaId(1);
 //        PersonaDto persona = new PersonaDto();
-//        persona.setPersonaId(1);
-//        persona.setNombres("Lorem ipsum nombres");
-//        persona.setPrimerApellido("Lorem ipsum primerApellido");
-//        persona.setSegundoApellido("Lorem ipsum segundoApellido");
-//        persona.setCodigo("Lorem ipsum codigo");
-//        persona.setCorreo("Lorem ipsum correo");
-//        persona.setContrasena("Lorem ipsum contrasena");
-//        persona.setFechaCreacion(new Date(System.currentTimeMillis()));
-//        persona.setUsuarioCreacion(1);
-//        persona.setFechaModificacion(new Date(System.currentTimeMillis()));
-//        persona.setUsuarioModificacion(1);
-//        Integer resultado = this.personaDao.insertar(persona);
-//        assertTrue(resultado != 0);
-//        listaPersonaId.add(resultado);
+//        persona.setEstadoPersona(estado);
+//        persona.setNombres("Juan");
+//        persona.setPrimerApellido("Pérez");
+//        persona.setSegundoApellido("Prueba");
+//        persona.setCodigo("20250001");
+//        persona.setCorreo("juan.perez.prueba@pucp.edu.pe");
+//        persona.setContrasena("ContrasenaSegura123");
+//        persona.setUltimaActividad("2025-2-12");
+//        persona.setusuarioCreacion("jueanitoPerez");   // ahora es String
 //        
-//        persona.setPersonaId(2);
-//        persona.setNombres("Lorem ipsum B nombres");
-//        persona.setPrimerApellido("Lorem ipsum B primerApellido");
-//        persona.setSegundoApellido("Lorem ipsum B segundoApellido");
-//        persona.setCodigo("Lorem ipsum B codigo");
-//        persona.setCorreo("Lorem ipsum B correo");
-//        persona.setContrasena("Lorem ipsum B contrasena");
-//        persona.setFechaCreacion(new Date(System.currentTimeMillis()));
-//        persona.setUsuarioCreacion(1);
-//        persona.setFechaModificacion(new Date(System.currentTimeMillis()));
-//        persona.setUsuarioModificacion(1);
-//        resultado = this.personaDao.insertar(persona);
+//        Integer resultado = this.personaDAO.insertar(persona);
 //        assertTrue(resultado != 0);
-//        listaPersonaId.add(resultado);
-//        
-//        persona.setPersonaId(3);
-//        persona.setNombres("Lorem ipsum C nombres");
-//        persona.setPrimerApellido("Lorem ipsum C primerApellido");
-//        persona.setSegundoApellido("Lorem ipsum C segundoApellido");
-//        persona.setCodigo("Lorem ipsum C codigo");
-//        persona.setCorreo("Lorem ipsum C correo");
-//        persona.setContrasena("Lorem ipsum C contrasena");
-//        persona.setFechaCreacion(new Date(System.currentTimeMillis()));
-//        persona.setUsuarioCreacion(1);
-//        persona.setFechaModificacion(new Date(System.currentTimeMillis()));
-//        persona.setUsuarioModificacion(1);
-//        resultado = this.personaDao.insertar(persona);
-//        assertTrue(resultado != 0);
-//        listaPersonaId.add(resultado);        
 //    }
 //    
 //    @Test
 //    public void testObtenerPorId() {
 //        System.out.println("obtenerPorId");
-//        ArrayList<Integer> listaPersonaId = new ArrayList<>();
-//        insertarPersonas(listaPersonaId);
-//        PersonaDto persona = this.personaDao.obtenerPorId(listaPersonaId.get(0));
-//        assertEquals(persona.getPersonaId(), listaPersonaId.get(0));
 //        
-//        persona = this.personaDao.obtenerPorId(listaPersonaId.get(1));
-//        assertEquals(persona.getPersonaId(), listaPersonaId.get(1));
+////         AJUSTA este ID a uno que exista en tu BD
+//        PersonaDto persona = this.personaDAO.obtenerPorId(1);
 //        
-//        persona = this.personaDao.obtenerPorId(listaPersonaId.get(2));
-//        assertEquals(persona.getPersonaId(), listaPersonaId.get(2));
-//        eliminarTodo();
+//        if (persona != null) {
+//            System.out.println(persona.getPersonaId());
+//            System.out.println(persona.getNombres());
+//            System.out.println(persona.getPrimerApellido());
+//            System.out.println(persona.getSegundoApellido());
+//            System.out.println(persona.getCodigo());
+//            System.out.println(persona.getCorreo());
+//            System.out.println(persona.getUltimaActividad());
+//            System.out.println(persona.getusuarioCreacion());
+//        }
 //    }
 //    
 //    @Test
 //    public void testListarTodos() {
 //        System.out.println("listarTodos");
-//        ArrayList<Integer> listaPersonaId = new ArrayList<>();
-//        insertarPersonas(listaPersonaId);
-//        
-//        ArrayList<PersonaDto> listaPersonas = this.personaDao.listarTodos();
-//        assertEquals(listaPersonaId.size(), listaPersonas.size());
-//        for (Integer i = 0; i < listaPersonaId.size(); i++) {
-//            assertEquals(listaPersonaId.get(i), listaPersonas.get(i).getPersonaId());
+//        ArrayList<PersonaDto> listaPersonas = this.personaDAO.listarTodos();
+//        for (Integer i = 0; i < listaPersonas.size(); i++) {
+//            
+//            System.out.println("Dato: ");
+//            System.out.println(listaPersonas.get(i).getPersonaId());
+//            System.out.println(listaPersonas.get(i).getNombres());
+//            System.out.println(listaPersonas.get(i).getCorreo());
+//            for(int j=0; j<listaPersonas.get(i).getRolPersona().size();j++){
+//                System.out.println(listaPersonas.get(i).getRolPersona().get(j).getRolPersonaId());
+//                System.out.println(listaPersonas.get(i).getRolPersona().get(j).getNombre());
+//            }
 //        }
-//        eliminarTodo();
 //    }
 //    
 //    @Test
 //    public void testModificar() {
 //        System.out.println("modificar");
-//        ArrayList<Integer> listaPersonaId = new ArrayList<>();
-//        insertarPersonas(listaPersonaId);
+//        EstadoPersonaDto estado= new EstadoPersonaDto();
+//        estado.setEstadoPersonaId(1);
+//        PersonaDto persona = new PersonaDto();
+//        persona.setEstadoPersona(estado);
+////         AJUSTA este ID a uno que realmente exista
+//        persona.setPersonaId(10);
+//        persona.setNombres("Nombre Modificado");
+//        persona.setPrimerApellido("Apellido Mod");
+//        persona.setSegundoApellido("Apellido Mod2");
+//        persona.setCodigo("20250001");
+//        persona.setCorreo("nombre.modificado@pucp.edu.pe");
+//        persona.setContrasena("NuevaContrasena123");
+//        persona.setUltimaActividad("2025-2-12");
+//        persona.setusuarioCreacion(null);             // similar a lo que haces en alquiler
+//        persona.setusuarioModificacion("Holiwis");
 //        
-//        ArrayList<PersonaDto> listaPersonas = this.personaDao.listarTodos();
-//        assertEquals(listaPersonaId.size(), listaPersonas.size());
-//        for (Integer i = 0; i < listaPersonaId.size(); i++) {
-//            // Cambios dummy no nulos
-//            this.personaDao.modificar(listaPersonas.get(i));
-//        }
-//        
-//        ArrayList<PersonaDto> listaPersonasModificados = this.personaDao.listarTodos();
-//        assertEquals( listaPersonas.size(), listaPersonasModificados.size());
-//        eliminarTodo();
+//        Integer resultado = this.personaDAO.modificar(persona);
+//        assertTrue(resultado != 0);
 //    }
 //    
 //    @Test
 //    public void testEliminar() {
 //        System.out.println("eliminar");
-//        ArrayList<Integer> listaPersonaId = new ArrayList<>();
-//        insertarPersonas(listaPersonaId);
-//        eliminarTodo();
-//    }
-//    
-//    private void eliminarTodo(){                
-//        ArrayList<PersonaDto> listaPersonas = this.personaDao.listarTodos();
-//        for (Integer i = 0; i < listaPersonas.size(); i++) {
-//            Integer resultado = this.personaDao.eliminar(listaPersonas.get(i));
-//            assertNotEquals(0, resultado);
-//            PersonaDto persona = this.personaDao.obtenerPorId(listaPersonas.get(i).getPersonaId());
-//            assertNull(persona);
-//        }
+//        
+//        PersonaDto persona = new PersonaDto();
+//        // AJUSTA este ID al que quieras borrar
+//        persona.setPersonaId(11);
+//        this.personaDAO.eliminar(persona);
 //    }
 }

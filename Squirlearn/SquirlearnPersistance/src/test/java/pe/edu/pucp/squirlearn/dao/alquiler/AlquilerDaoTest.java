@@ -1,6 +1,8 @@
 package pe.edu.pucp.squirlearn.dao.alquiler;
 
+import static java.time.Instant.now;
 import java.util.ArrayList;
+import java.util.Date;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import pe.edu.pucp.squirlearn.daoImpl.alquiler.AlquilerDaoImpl;
@@ -19,11 +21,6 @@ public class AlquilerDaoTest {
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");
-//        ArrayList<Integer> listaAlquilerId = new ArrayList<>();
-//        insertarAlquilers(listaAlquilerId);
-//    }
-//    
-//    private void insertarAlquilers(ArrayList<Integer> listaAlquilerId) {
 //        PersonaDto per = new PersonaDto();
 //        per.setPersonaId(2);
 //        ItemDto item = new ItemDto();
@@ -31,22 +28,28 @@ public class AlquilerDaoTest {
 //        AlquilerDto alquiler = new AlquilerDto();
 //        alquiler.setPersona(per);
 //        alquiler.setItem(item);
-//        alquiler.setFechaInicio(new java.sql.Date(System.currentTimeMillis()));
+//        alquiler.setFechaInicio("2025-11-10");
 //        alquiler.setFechaFin(null);
 //        alquiler.setDevuelto(Boolean.FALSE);
 //        alquiler.setMonto(69.69);
-//        alquiler.setFechaCreacion(new java.sql.Date(System.currentTimeMillis()));
-//        alquiler.setUsuarioCreacion("root");
+//        alquiler.setFechaCreacion("2025-11-10");
+//        alquiler.setUsuarioCreacion("hola");
 //        Integer resultado = this.alquilerDAO.insertar(alquiler);
 //        assertTrue(resultado != 0);
-//        listaAlquilerId.add(resultado); 
 //    }
-    
+//    
 //    @Test
 //    public void testObtenerPorId() {
 //        System.out.println("obtenerPorId");
 //        AlquilerDto alquiler = this.alquilerDAO.obtenerPorId(11);
+//        System.out.println(alquiler.getAlquilerId());
+//        System.out.println(alquiler.getFechaCreacion());
+//        System.out.println(alquiler.getFechaFin());
+//        System.out.println(alquiler.getFechaInicio());
+//        System.out.println(alquiler.getItem().getItemId());
 //        System.out.println(alquiler.getMonto());
+//        System.out.println(alquiler.getPersona().getPersonaId());
+//        System.out.println(alquiler.getUsuarioCreacion());
 //
 //    }
 //    
@@ -75,31 +78,22 @@ public class AlquilerDaoTest {
 //        alquiler.setAlquilerId(11);
 //        alquiler.setPersona(per);
 //        alquiler.setItem(item);
-//        alquiler.setFechaInicio(new java.sql.Date(System.currentTimeMillis()));
+//        alquiler.setFechaInicio("2019-12-10");
 //        alquiler.setFechaFin(null);
-//        alquiler.setDevuelto(Boolean.FALSE);
-//        alquiler.setMonto(69.69);
-//        alquiler.setFechaCreacion(new java.sql.Date(System.currentTimeMillis()));
-//        alquiler.setUsuarioCreacion("root");
+//        alquiler.setDevuelto(Boolean.TRUE);
+//        alquiler.setMonto(69.0);
+//        alquiler.setFechaCreacion(null);
+//        alquiler.setUsuarioCreacion(null);
 //        Integer resultado = this.alquilerDAO.modificar(alquiler);
 //        assertTrue(resultado != 0);
 //    }
-//    
+    
 //    @Test
 //    public void testEliminar() {
 //        System.out.println("eliminar");
 //        AlquilerDto alquiler = new AlquilerDto();
-//        alquiler.setAlquilerId(12);
+//        alquiler.setAlquilerId(13);
 //        alquilerDAO.eliminar(alquiler);
 //    }
-    
-//    private void eliminarTodo(){                
-//        ArrayList<AlquilerDto> listaAlquilers = this.alquilerDAO.listarTodos();
-//        for (Integer i = 0; i < listaAlquilers.size(); i++) {
-//            Integer resultado = this.alquilerDAO.eliminar(listaAlquilers.get(i));
-//            assertNotEquals(0, resultado);
-//            AlquilerDto alquiler = this.alquilerDAO.obtenerPorId(listaAlquilers.get(i).getAlquilerId());
-//            assertNull(alquiler);
-//        }
-//    }
+//    
 }

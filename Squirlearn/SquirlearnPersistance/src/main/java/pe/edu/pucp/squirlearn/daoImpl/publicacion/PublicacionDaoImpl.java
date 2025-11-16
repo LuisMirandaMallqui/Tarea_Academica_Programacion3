@@ -1,6 +1,5 @@
 package pe.edu.pucp.squirlearn.daoImpl.publicacion;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -58,8 +57,8 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         this.statement.setInt(i++, estadoId);
         this.statement.setInt(i++, itemId);
         this.statement.setInt(i++, personaId);
-        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaAlta());
-        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaBaja());
+        this.statement.setString(i++, this.publicacion.getFechaAlta());
+        this.statement.setString(i++, this.publicacion.getFechaBaja());
         this.statement.setInt(i++, this.publicacion.getCalificacion());
         this.statement.setString(i++, this.publicacion.getusuarioCreacion());
         this.statement.setString(i++, null);
@@ -84,8 +83,8 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         this.statement.setInt(i++, estadoId);
         this.statement.setInt(i++, itemId);
         this.statement.setInt(i++, personaId);
-        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaAlta());
-        this.statement.setDate(i++, (java.sql.Date) this.publicacion.getFechaBaja());
+        this.statement.setString(i++, this.publicacion.getFechaAlta());
+        this.statement.setString(i++, this.publicacion.getFechaBaja());
         this.statement.setInt(i++, this.publicacion.getCalificacion());
         this.statement.setString(i++, this.publicacion.getusuarioCreacion());
         this.statement.setString(i++, this.publicacion.getusuarioModificacion());
@@ -113,8 +112,8 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
 
         // Escalares
         this.publicacion.setPublicacionId(this.resultSet.getInt("PUBLICACION_ID"));
-        this.publicacion.setFechaAlta(this.resultSet.getDate("FECHA_ALTA"));
-        this.publicacion.setFechaBaja(this.resultSet.getDate("FECHA_BAJA"));
+        this.publicacion.setFechaAlta(this.resultSet.getString("FECHA_ALTA"));
+        this.publicacion.setFechaBaja(this.resultSet.getString("FECHA_BAJA"));
         this.publicacion.setCalificacion(this.resultSet.getInt("CALIFICACION"));
     }
 
@@ -204,8 +203,8 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
 
     public void ejecutarReporteTransaccionesOfertador() {
         Object parametros = new ParamReporteTransaccionesOfertador(
-                /* _inicio */Date.valueOf("2025-01-01"),
-                /* _fin    */ Date.valueOf("2025-12-31")
+                /* _inicio */("2025-01-01"),
+                /* _fin    */ ("2025-12-31")
         );
         String sql = "{CALL REPORTE_TRANSACCCIONES_OFERTADOR(?, ?)}";
         Boolean conTransaccion = true;
@@ -216,8 +215,8 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         ParamReporteTransaccionesOfertador p = (ParamReporteTransaccionesOfertador) objetoParametros;
         try {
             // 1) _inicio (DATE), 2) _fin (DATE)
-            this.statement.setDate(1, p.getInicio());
-            this.statement.setDate(2, p.getFin());
+            this.statement.setString(1, p.getInicio());
+            this.statement.setString(2, p.getFin());
         } catch (java.sql.SQLException e) {
             throw new RuntimeException(e);
         }
@@ -225,8 +224,8 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
 
     public void ejecutarReporteTransaccionesReceptor() {
         Object parametros = new ParamReporteTransaccionesReceptor(
-                /* _inicio */Date.valueOf("2025-01-01"),
-                /* _fin    */ Date.valueOf("2025-12-31")
+                /* _inicio */("2025-01-01"),
+                /* _fin    */("2025-12-31")
         );
         String sql = "{CALL REPORTE_TRANSACCCIONES_RECEPTOR(?, ?)}";
         Boolean conTransaccion = true;
@@ -237,8 +236,8 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         ParamReporteTransaccionesReceptor p = (ParamReporteTransaccionesReceptor) objetoParametros;
         try {
             // 1) _inicio (DATE), 2) _fin (DATE)
-            this.statement.setDate(1, p.getInicio());
-            this.statement.setDate(2, p.getFin());
+            this.statement.setString(1, p.getInicio());
+            this.statement.setString(2, p.getFin());
         } catch (java.sql.SQLException e) {
             throw new RuntimeException(e);
         }

@@ -4,15 +4,15 @@ import java.sql.Date;
 
 public class ParamReporteAlquiler {
     private Integer personaId;
-    private Date inicio;
-    private Date fin;
+    private String inicio;
+    private String fin;
 
-    public ParamReporteAlquiler(Integer personaId, Date inicio, java.sql.Date fin) {
+    public ParamReporteAlquiler(Integer personaId, String inicio, String fin) {
         this.personaId = personaId;
         this.inicio = inicio;
         this.fin = fin;
     }
     public Integer getPersonaId() { return personaId; }
-    public java.sql.Date getInicio() { return inicio; }
-    public java.sql.Date getFin() { return fin; }
+    public String getInicio() { return inicio; }
+    public String getFin() { return fin; }
 }

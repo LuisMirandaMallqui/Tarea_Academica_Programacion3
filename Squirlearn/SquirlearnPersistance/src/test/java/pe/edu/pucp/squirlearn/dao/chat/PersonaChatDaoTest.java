@@ -1,84 +1,46 @@
 package pe.edu.pucp.squirlearn.dao.chat;
 
 import java.util.ArrayList;
-import java.sql.Date;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import pe.edu.pucp.squirlearn.daoImpl.chat.PersonaChatDaoImpl;
+import pe.edu.pucp.squirlearn.model.chat.ChatDto;
 import pe.edu.pucp.squirlearn.model.chat.PersonaChatDto;
+import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
 public class PersonaChatDaoTest {
-    
-    private PersonaChatDao personaChatDao;    
-    
+
+    private PersonaChatDao personaChatDAO;
+
     public PersonaChatDaoTest() {
-        this.personaChatDao = new PersonaChatDaoImpl();        
+        this.personaChatDAO = new PersonaChatDaoImpl();
     }
-    
+
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");
-//        ArrayList<Integer> listaPersonaChatId = new ArrayList<>();
-//        insertarPersonaChats(listaPersonaChatId);
-//        eliminarTodo();
+//        ChatDto chat = new ChatDto();
+//        chat.setChatId(1);
+//        PersonaDto persona = new PersonaDto();
+//        persona.setPersonaId(2);
+//
+//        PersonaChatDto pc = new PersonaChatDto();
+//        pc.setChat(chat);
+//        pc.setPersona(persona);
+//
 //    }
-//    
-//    private void insertarPersonaChats(ArrayList<Integer> listaPersonaChatId) {
-//        PersonaChatDto personaChat = new PersonaChatDto();
-//        personaChat.setUltimaActividad(new Date(System.currentTimeMillis()));
-//        Integer resultado = this.personaChatDao.insertar(personaChat);
-//        assertTrue(resultado != 0);
-//        listaPersonaChatId.add(resultado);
-//        
-//        personaChat.setUltimaActividad(new Date(System.currentTimeMillis()));
-//        resultado = this.personaChatDao.insertar(personaChat);
-//        assertTrue(resultado != 0);
-//        listaPersonaChatId.add(resultado);
-//        
-//        personaChat.setUltimaActividad(new Date(System.currentTimeMillis()));
-//        resultado = this.personaChatDao.insertar(personaChat);
-//        assertTrue(resultado != 0);
-//        listaPersonaChatId.add(resultado);        
-//    }
-//    
-//    @Test
-//    public void testObtenerPorId() {
-//        
-//    }
-//    
+//
 //    @Test
 //    public void testListarTodos() {
-//        
-//    }
-//    
-//    @Test
-//    public void testModificar() {
-//        System.out.println("modificar");
-//        ArrayList<Integer> listaPersonaChatId = new ArrayList<>();
-//        insertarPersonaChats(listaPersonaChatId);
-//        
-//        ArrayList<PersonaChatDto> listaPersonaChats = this.personaChatDao.listarTodos();
-//        assertEquals(listaPersonaChatId.size(), listaPersonaChats.size());
-//        for (Integer i = 0; i < listaPersonaChatId.size(); i++) {
-//            // Cambios dummy no nulos
-//            this.personaChatDao.modificar(listaPersonaChats.get(i));
+//        System.out.println("listarTodos");
+//        ArrayList<PersonaChatDto> lista = this.personaChatDAO.listarTodos();
+//        for (Integer i = 0; i < lista.size(); i++) {
+//            PersonaChatDto pc = lista.get(i);
+//            System.out.println("Dato:");
+//            System.out.println(pc.getChat().getChatId());
+//            System.out.println(pc.getPersona().getPersonaId());
 //        }
-//        
-//        ArrayList<PersonaChatDto> listaPersonaChatsModificados = this.personaChatDao.listarTodos();
-//        assertEquals( listaPersonaChats.size(), listaPersonaChatsModificados.size());
-//        eliminarTodo();
 //    }
-//    
-//    @Test
-//    public void testEliminar() {
-//        System.out.println("eliminar");
-//        ArrayList<Integer> listaPersonaChatId = new ArrayList<>();
-//        insertarPersonaChats(listaPersonaChatId);
-//        eliminarTodo();
-//    }
-//    
-//    private void eliminarTodo(){                
-//        
-//        
-//    }
+
+
 }
