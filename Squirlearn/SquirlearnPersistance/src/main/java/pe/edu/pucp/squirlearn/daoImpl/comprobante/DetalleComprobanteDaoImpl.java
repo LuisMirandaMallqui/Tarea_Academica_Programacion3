@@ -36,21 +36,10 @@ public class DetalleComprobanteDaoImpl extends DAOImplBase implements DetalleCom
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int compId = safeFkId(
-            (this.detalleComprobante.getComprobante() == null ? null : this.detalleComprobante.getComprobante().getComprobanteId()),
-            "comprobantes", "COMPROBANTE_ID"
-        );
-        int itemIdOpt = safeFkId(
-                (this.detalleComprobante.getItem() == null ? null : this.detalleComprobante.getItem().getItemId()),
-                "items","ITEM_ID");
-        int alquilerIdOpt = safeFkId(
-                (this.detalleComprobante.getAlquiler() == null ? null : this.detalleComprobante.getAlquiler().getAlquilerId()),
-                "alquileres","ALQUILER_ID");
-
         int i = 1;
-        this.statement.setInt(i++, compId);
-        this.statement.setInt(i++, itemIdOpt);
-        this.statement.setInt(i++, alquilerIdOpt);
+        this.statement.setInt(i++,  this.detalleComprobante.getComprobante().getComprobanteId());
+        this.statement.setInt(i++, this.detalleComprobante.getItem().getItemId());
+        this.statement.setInt(i++, this.detalleComprobante.getAlquiler().getAlquilerId());
         this.statement.setString(i++, this.detalleComprobante.getDescripcion());
         this.statement.setDouble(i++, this.detalleComprobante.getPrecio());
         this.statement.setString(i++, this.detalleComprobante.getusuarioCreacion());
@@ -59,24 +48,14 @@ public class DetalleComprobanteDaoImpl extends DAOImplBase implements DetalleCom
     }
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        int compId = safeFkId(
-            (this.detalleComprobante.getComprobante() == null ? null : this.detalleComprobante.getComprobante().getComprobanteId()),
-            "comprobantes", "COMPROBANTE_ID"
-        );
-        int itemIdOpt = safeFkId(
-                (this.detalleComprobante.getItem() == null ? null : this.detalleComprobante.getItem().getItemId()),
-                "items","ITEM_ID");
-        int alquilerIdOpt = safeFkId(
-                (this.detalleComprobante.getAlquiler() == null ? null : this.detalleComprobante.getAlquiler().getAlquilerId()),
-                "alquileres","ALQUILER_ID");
-
         int i = 1;
-        this.statement.setInt(i++, compId);
-        this.statement.setInt(i++, itemIdOpt);
-        this.statement.setInt(i++, alquilerIdOpt);
+        this.statement.setInt(i++, this.detalleComprobante.getComprobante().getComprobanteId());
+        this.statement.setInt(i++, this.detalleComprobante.getItem().getItemId());
+        this.statement.setInt(i++, this.detalleComprobante.getAlquiler().getAlquilerId());
         this.statement.setString(i++, this.detalleComprobante.getDescripcion());
         this.statement.setDouble(i++, this.detalleComprobante.getPrecio());
         this.statement.setString(i++, this.detalleComprobante.getusuarioCreacion());
+        this.statement.setInt(i++, this.detalleComprobante.getDetalleComId());
     }
 
     @Override
@@ -164,7 +143,7 @@ public class DetalleComprobanteDaoImpl extends DAOImplBase implements DetalleCom
 
     @Override
     public ArrayList<DetalleComprobanteDto> listarPorComprobante(Integer personaId) {
-        String sql = this.generarSQLParaListarTodos() + " WHERE PERSONA_ID_PERSONA=?";
+        String sql = this.generarSQLParaListarTodos() + " WHERE COMPROBANTE_ID_COMPROBANTE=?";
         Consumer<PreparedStatement> incluir = ps -> { 
             try { 
                 ps.setInt(1, personaId); 

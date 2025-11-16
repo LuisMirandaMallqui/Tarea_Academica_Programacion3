@@ -25,7 +25,7 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
 
     @Override
     protected void configurarListaDeColumnas() {
-        this.listaColumnas.add(new Columna("INCIDENCIA_ID", false, false));
+        this.listaColumnas.add(new Columna("INCIDENCIA_ID", true, true));
         this.listaColumnas.add(new Columna("NOTIFICACION_ID", false, false));
         this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
         this.listaColumnas.add(new Columna("MOTIVO_ID_MOTIVO", false, false));
@@ -37,27 +37,30 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int notifId = safeFkId(
-            (this.incidencia.getNotificacion() == null ? null : this.incidencia.getNotificacion().getNotificacionId()),
-            "notificaciones", "NOTIFICACION_ID"
-        );
-        int personaId = safeFkId(
-            (this.incidencia.getPersona() == null ? null : this.incidencia.getPersona().getPersonaId()),
-            "personas", "PERSONA_ID"
-        );
-        int motivoId = safeFkId(
-            (this.incidencia.getMotivo() == null ? null : this.incidencia.getMotivo().getMotivoId()),
-            "motivos", "MOTIVO_ID"
-        );
-
         int i = 1;
-        this.statement.setInt(i++, notifId);
-        this.statement.setInt(i++, personaId);
-        this.statement.setInt(i++, motivoId);
+        this.statement.setInt(i++, this.incidencia.getNotificacion().getNotificacionId());
+        this.statement.setInt(i++, this.incidencia.getPersona().getPersonaId());
+        this.statement.setInt(i++, this.incidencia.getMotivo().getMotivoId());
         this.statement.setString(i++, this.incidencia.getDescripcion());
         this.statement.setInt(i++, this.incidencia.getResuelto());
-        this.statement.setInt(i++, this.incidencia.getUsuarioSolucion());
+        if (this.incidencia.getUsuarioSolucion() == null) 
+            this.statement.setNull(i++, java.sql.Types.INTEGER);
+        else this.statement.setInt(i++, incidencia.getUsuarioSolucion());
         this.statement.setString(i++, this.incidencia.getUsuarioCreacion());
+    }
+    @Override
+    protected void incluirValorDeParametrosParaModificacion() throws SQLException {
+        int i = 1;
+        this.statement.setInt(i++, this.incidencia.getNotificacion().getNotificacionId());
+        this.statement.setInt(i++, this.incidencia.getPersona().getPersonaId());
+        this.statement.setInt(i++, this.incidencia.getMotivo().getMotivoId());
+        this.statement.setString(i++, this.incidencia.getDescripcion());
+        this.statement.setInt(i++, this.incidencia.getResuelto());
+        if (this.incidencia.getUsuarioSolucion() == null) 
+            this.statement.setNull(i++, java.sql.Types.INTEGER);
+        else this.statement.setInt(i++, incidencia.getUsuarioSolucion());
+        this.statement.setString(i++, this.incidencia.getUsuarioCreacion());
+        this.statement.setInt(i++, this.incidencia.getIncidenciaId());
     }
 
     @Override
@@ -67,7 +70,7 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
         this.incidencia.setIncidenciaId(this.resultSet.getInt("INCIDENCIA_ID"));
         // Notificacion
         NotificacionDto notif = new NotificacionDto();
-        notif.setNotificacionId(this.resultSet.getInt("NOTIFIFACION_ID"));
+        notif.setNotificacionId(this.resultSet.getInt("NOTIFICACION_ID"));
         this.incidencia.setNotificacion(notif);
 
         // Persona
@@ -90,12 +93,12 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
 
     @Override
     protected void incluirValorDeParametrosParaEliminacion() throws SQLException {
-        // TODO set PK
+        this.statement.setInt(1, this.incidencia.getIncidenciaId());
     }
 
     @Override
     protected void incluirValorDeParametrosParaObtenerPorId() throws SQLException {
-        // TODO set PK
+        this.statement.setInt(1, this.incidencia.getIncidenciaId());
     }
 
     @Override
@@ -117,7 +120,7 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
     @Override
     public IncidenciaDto obtenerPorId(Integer id) {
         this.incidencia = new IncidenciaDto();
-        // TODO set PK
+        this.incidencia.setIncidenciaId(id);
         super.obtenerPorId();
         return this.incidencia;
     }

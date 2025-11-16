@@ -1,123 +1,65 @@
 package pe.edu.pucp.squirlearn.dao.publicacion;
 
 import java.util.ArrayList;
-import java.sql.Date;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import pe.edu.pucp.squirlearn.daoImpl.publicacion.EstadoPublicacionDaoImpl;
 import pe.edu.pucp.squirlearn.model.publicacion.EstadoPublicacionDto;
 
 public class EstadoPublicacionDaoTest {
-    
-//    private EstadoPublicacionDao estadoPublicacionDao;    
-//    
-//    public EstadoPublicacionDaoTest() {
-//        this.estadoPublicacionDao = new EstadoPublicacionDaoImpl();        
-//    }
-//    
+
+    private EstadoPublicacionDao estadoPublicacionDAO;
+
+    public EstadoPublicacionDaoTest() {
+        this.estadoPublicacionDAO = new EstadoPublicacionDaoImpl();
+    }
+
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");
-//        ArrayList<Integer> listaEstadoPublicacionId = new ArrayList<>();
-//        insertarEstadoPublicacions(listaEstadoPublicacionId);
-//        eliminarTodo();
+//        EstadoPublicacionDto e = new EstadoPublicacionDto();
+//        e.setNombre("Activa");
+//        Integer resultado = this.estadoPublicacionDAO.insertar(e);
+//        assertTrue(resultado != 0);
 //    }
-//    
-//    private void insertarEstadoPublicacions(ArrayList<Integer> listaEstadoPublicacionId) {
-//        EstadoPublicacionDto estadoPublicacion = new EstadoPublicacionDto();
-//        estadoPublicacion.setNombre("Lorem ipsum nombre");
-//        estadoPublicacion.setFechaCreacion(new Date(System.currentTimeMillis()));
-//        estadoPublicacion.setUsuarioCreacion(1);
-//        estadoPublicacion.setFechaModificacion(new Date(System.currentTimeMillis()));
-//        estadoPublicacion.setUsuarioModificacion(1);
-//        Integer resultado = this.estadoPublicacionDao.insertar(estadoPublicacion);
-//        assertTrue(resultado != 0);
-//        listaEstadoPublicacionId.add(resultado);
-//        
-//        estadoPublicacion.setEstadoPublicacionId(null);
-//        estadoPublicacion.setNombre("Lorem ipsum B nombre");
-//        estadoPublicacion.setFechaCreacion(new Date(System.currentTimeMillis()));
-//        estadoPublicacion.setUsuarioCreacion(1);
-//        estadoPublicacion.setFechaModificacion(new Date(System.currentTimeMillis()));
-//        estadoPublicacion.setUsuarioModificacion(1);
-//        resultado = this.estadoPublicacionDao.insertar(estadoPublicacion);
-//        assertTrue(resultado != 0);
-//        listaEstadoPublicacionId.add(resultado);
-//        
-//        estadoPublicacion.setEstadoPublicacionId(null);
-//        estadoPublicacion.setNombre("Lorem ipsum C nombre");
-//        estadoPublicacion.setFechaCreacion(new Date(System.currentTimeMillis()));
-//        estadoPublicacion.setUsuarioCreacion(1);
-//        estadoPublicacion.setFechaModificacion(new Date(System.currentTimeMillis()));
-//        estadoPublicacion.setUsuarioModificacion(1);
-//        resultado = this.estadoPublicacionDao.insertar(estadoPublicacion);
-//        assertTrue(resultado != 0);
-//        listaEstadoPublicacionId.add(resultado);        
-//    }
-//    
+//
 //    @Test
 //    public void testObtenerPorId() {
 //        System.out.println("obtenerPorId");
-//        ArrayList<Integer> listaEstadoPublicacionId = new ArrayList<>();
-//        insertarEstadoPublicacions(listaEstadoPublicacionId);
-//        EstadoPublicacionDto estadoPublicacion = this.estadoPublicacionDao.obtenerPorId(listaEstadoPublicacionId.get(0));
-//        assertEquals(estadoPublicacion.getEstadoPublicacionId(), listaEstadoPublicacionId.get(0));
-//        
-//        estadoPublicacion = this.estadoPublicacionDao.obtenerPorId(listaEstadoPublicacionId.get(1));
-//        assertEquals(estadoPublicacion.getEstadoPublicacionId(), listaEstadoPublicacionId.get(1));
-//        
-//        estadoPublicacion = this.estadoPublicacionDao.obtenerPorId(listaEstadoPublicacionId.get(2));
-//        assertEquals(estadoPublicacion.getEstadoPublicacionId(), listaEstadoPublicacionId.get(2));
-//        eliminarTodo();
+//        EstadoPublicacionDto e = this.estadoPublicacionDAO.obtenerPorId(1);
+//        if (e != null) {
+//            System.out.println(e.getEstadoPublicacionId());
+//            System.out.println(e.getNombre());
+//        }
 //    }
-//    
+//
 //    @Test
 //    public void testListarTodos() {
 //        System.out.println("listarTodos");
-//        ArrayList<Integer> listaEstadoPublicacionId = new ArrayList<>();
-//        insertarEstadoPublicacions(listaEstadoPublicacionId);
-//        
-//        ArrayList<EstadoPublicacionDto> listaEstadoPublicacions = this.estadoPublicacionDao.listarTodos();
-//        assertEquals(listaEstadoPublicacionId.size(), listaEstadoPublicacions.size());
-//        for (Integer i = 0; i < listaEstadoPublicacionId.size(); i++) {
-//            assertEquals(listaEstadoPublicacionId.get(i), listaEstadoPublicacions.get(i).getEstadoPublicacionId());
+//        ArrayList<EstadoPublicacionDto> lista = this.estadoPublicacionDAO.listarTodos();
+//        for (Integer i = 0; i < lista.size(); i++) {
+//            EstadoPublicacionDto e = lista.get(i);
+//            System.out.println("Dato:");
+//            System.out.println(e.getEstadoPublicacionId());
+//            System.out.println(e.getNombre());
 //        }
-//        eliminarTodo();
 //    }
-//    
+//
 //    @Test
 //    public void testModificar() {
 //        System.out.println("modificar");
-//        ArrayList<Integer> listaEstadoPublicacionId = new ArrayList<>();
-//        insertarEstadoPublicacions(listaEstadoPublicacionId);
-//        
-//        ArrayList<EstadoPublicacionDto> listaEstadoPublicacions = this.estadoPublicacionDao.listarTodos();
-//        assertEquals(listaEstadoPublicacionId.size(), listaEstadoPublicacions.size());
-//        for (Integer i = 0; i < listaEstadoPublicacionId.size(); i++) {
-//            // Cambios dummy no nulos
-//            this.estadoPublicacionDao.modificar(listaEstadoPublicacions.get(i));
-//        }
-//        
-//        ArrayList<EstadoPublicacionDto> listaEstadoPublicacionsModificados = this.estadoPublicacionDao.listarTodos();
-//        assertEquals( listaEstadoPublicacions.size(), listaEstadoPublicacionsModificados.size());
-//        eliminarTodo();
+//        EstadoPublicacionDto e = new EstadoPublicacionDto();
+//        e.setEstadoPublicacionId(1);
+//        e.setNombre("Activa Mod");
+//        Integer resultado = this.estadoPublicacionDAO.modificar(e);
+//        assertTrue(resultado != 0);
 //    }
-//    
+//
 //    @Test
 //    public void testEliminar() {
 //        System.out.println("eliminar");
-//        ArrayList<Integer> listaEstadoPublicacionId = new ArrayList<>();
-//        insertarEstadoPublicacions(listaEstadoPublicacionId);
-//        eliminarTodo();
-//    }
-//    
-//    private void eliminarTodo(){                
-//        ArrayList<EstadoPublicacionDto> listaEstadoPublicacions = this.estadoPublicacionDao.listarTodos();
-//        for (Integer i = 0; i < listaEstadoPublicacions.size(); i++) {
-//            Integer resultado = this.estadoPublicacionDao.eliminar(listaEstadoPublicacions.get(i));
-//            assertNotEquals(0, resultado);
-//            EstadoPublicacionDto estadoPublicacion = this.estadoPublicacionDao.obtenerPorId(listaEstadoPublicacions.get(i).getEstadoPublicacionId());
-//            assertNull(estadoPublicacion);
-//        }
+//        EstadoPublicacionDto e = new EstadoPublicacionDto();
+//        e.setEstadoPublicacionId(2);
+//        this.estadoPublicacionDAO.eliminar(e);
 //    }
 }

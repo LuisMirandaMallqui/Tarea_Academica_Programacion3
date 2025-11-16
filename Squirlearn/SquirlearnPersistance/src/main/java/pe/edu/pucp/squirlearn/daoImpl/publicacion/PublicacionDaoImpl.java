@@ -29,7 +29,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("PUBLICACION_ID", true, true));
         this.listaColumnas.add(new Columna("ESTADO_PUBLICACION_ID", false, false));
-        this.listaColumnas.add(new Columna("ITEM_ID", false, false));
+        this.listaColumnas.add(new Columna("ITEM_ID_ITEM", false, false));
         this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
         this.listaColumnas.add(new Columna("FECHA_ALTA", false, false));
         this.listaColumnas.add(new Columna("FECHA_BAJA", false, false));
@@ -41,51 +41,29 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
         int i = 1;
-        int estadoId = safeFkId(
-                (this.publicacion.getEstadoPublicacion() == null ? null : this.publicacion.getEstadoPublicacion().getEstadoPublicacionId()),
-                "estados_publicaciones", "ESTADOPUBLI_ID"
-        );
-        int itemId = safeFkId(
-                (this.publicacion.getItem() == null ? null : this.publicacion.getItem().getItemId()),
-                "items", "ITEM_ID"
-        );
-        int personaId = safeFkId(
-                (this.publicacion.getPersona() == null ? null : this.publicacion.getPersona().getPersonaId()),
-                "personas", "PERSONA_ID"
-        );
-
-        this.statement.setInt(i++, estadoId);
-        this.statement.setInt(i++, itemId);
-        this.statement.setInt(i++, personaId);
+        this.statement.setInt(i++, this.publicacion.getEstadoPublicacion().getEstadoPublicacionId());
+        this.statement.setInt(i++, this.publicacion.getItem().getItemId());
+        this.statement.setInt(i++, this.publicacion.getPersona().getPersonaId());
         this.statement.setString(i++, this.publicacion.getFechaAlta());
         this.statement.setString(i++, this.publicacion.getFechaBaja());
-        this.statement.setInt(i++, this.publicacion.getCalificacion());
+        if (this.publicacion.getCalificacion() == null) 
+            this.statement.setNull(i++, 0);
+        else this.statement.setInt(i++, publicacion.getCalificacion());
         this.statement.setString(i++, this.publicacion.getusuarioCreacion());
-        this.statement.setString(i++, null);
+        this.statement.setString(i++, this.publicacion.getusuarioModificacion());
     }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        int estadoId = safeFkId(
-                (this.publicacion.getEstadoPublicacion() == null ? null : this.publicacion.getEstadoPublicacion().getEstadoPublicacionId()),
-                "estados_publicaciones", "ESTADOPUBLI_ID"
-        );
-        int itemId = safeFkId(
-                (this.publicacion.getItem() == null ? null : this.publicacion.getItem().getItemId()),
-                "items", "ITEM_ID"
-        );
-        int personaId = safeFkId(
-                (this.publicacion.getPersona() == null ? null : this.publicacion.getPersona().getPersonaId()),
-                "personas", "PERSONA_ID"
-        );
-
         int i = 1;
-        this.statement.setInt(i++, estadoId);
-        this.statement.setInt(i++, itemId);
-        this.statement.setInt(i++, personaId);
+        this.statement.setInt(i++, this.publicacion.getEstadoPublicacion().getEstadoPublicacionId());
+        this.statement.setInt(i++, this.publicacion.getItem().getItemId());
+        this.statement.setInt(i++, this.publicacion.getPersona().getPersonaId());
         this.statement.setString(i++, this.publicacion.getFechaAlta());
         this.statement.setString(i++, this.publicacion.getFechaBaja());
-        this.statement.setInt(i++, this.publicacion.getCalificacion());
+        if (this.publicacion.getCalificacion() == null) 
+            this.statement.setNull(i++, 0);
+        else this.statement.setInt(i++, publicacion.getCalificacion());
         this.statement.setString(i++, this.publicacion.getusuarioCreacion());
         this.statement.setString(i++, this.publicacion.getusuarioModificacion());
         this.statement.setInt(i++, this.publicacion.getPublicacionId()); // WHERE

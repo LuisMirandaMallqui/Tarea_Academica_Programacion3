@@ -34,37 +34,21 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao{
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int personaId = safeFkId(
-            (this.notificacion.getPersona() == null ? null : this.notificacion.getPersona().getPersonaId()),
-            "personas", "PERSONA_ID"
-        );
-        int motivoId = safeFkId(
-            (this.notificacion.getMotivo() == null ? null : this.notificacion.getMotivo().getMotivoId()),
-            "motivos", "MOTIVO_ID"
-        );
-
         int i = 1;
-        this.statement.setInt(i++, personaId);
-        this.statement.setInt(i++, motivoId);
+        this.statement.setInt(i++,  this.notificacion.getPersona().getPersonaId());
+        this.statement.setInt(i++, this.notificacion.getMotivo().getMotivoId());
         this.statement.setString(i++, this.notificacion.getFecha());
         this.statement.setString(i++, this.notificacion.getMensaje());
     }
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        int personaId = safeFkId(
-            (this.notificacion.getPersona() == null ? null : this.notificacion.getPersona().getPersonaId()),
-            "personas", "PERSONA_ID"
-        );
-        int motivoId = safeFkId(
-            (this.notificacion.getMotivo() == null ? null : this.notificacion.getMotivo().getMotivoId()),
-            "motivos", "MOTIVO_ID"
-        );
-        
         int i = 1;
-        this.statement.setInt(i++, personaId);
-        this.statement.setInt(i++, motivoId);
+        this.statement.setInt(i++,  this.notificacion.getPersona().getPersonaId());
+        this.statement.setInt(i++, this.notificacion.getMotivo().getMotivoId());
         this.statement.setString(i++, this.notificacion.getFecha());
         this.statement.setString(i++, this.notificacion.getMensaje());
+        this.statement.setInt(i++, this.notificacion.getNotificacionId());
+        
     }
 
     @Override

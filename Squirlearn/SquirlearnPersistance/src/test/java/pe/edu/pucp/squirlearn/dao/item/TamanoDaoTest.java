@@ -1,124 +1,64 @@
 package pe.edu.pucp.squirlearn.dao.item;
 
 import java.util.ArrayList;
-import java.sql.Date;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import pe.edu.pucp.squirlearn.daoImpl.item.TamanoDaoImpl;
 import pe.edu.pucp.squirlearn.model.item.TamanoDto;
 
 public class TamanoDaoTest {
-    
-//    private TamanoDao tamañoDao;    
-//    
-//    public TamañoDaoTest() {
-//        this.tamañoDao = new TamanoDaoImpl();        
-//    }
-//    
+
+    private TamanoDao tamanoDAO;
+
+    public TamanoDaoTest() {
+        this.tamanoDAO = new TamanoDaoImpl();
+    }
+//
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");
-//        ArrayList<Integer> listaTamañoId = new ArrayList<>();
-//        insertarTamaños(listaTamañoId);
-//        eliminarTodo();
+//        TamanoDto t = new TamanoDto();
+//        t.setNombre("Tamaño prueba");
+//        Integer resultado = this.tamanoDAO.insertar(t);
+//        assertTrue(resultado != 0);
 //    }
-//    
-//    private void insertarTamaños(ArrayList<Integer> listaTamañoId) {
-//        TamañoDto tamaño = new TamañoDto();
-//        tamaño.setTamanoId(1);
-//        tamaño.setNombre("Lorem ipsum nombre");
-//        tamaño.setFechaCreacion(new Date(System.currentTimeMillis()));
-//        tamaño.setUsuarioCreacion(1);
-//        tamaño.setFechaModificacion(new Date(System.currentTimeMillis()));
-//        tamaño.setUsuarioModificacion(1);
-//        Integer resultado = this.tamañoDao.insertar(tamaño);
-//        assertTrue(resultado != 0);
-//        listaTamañoId.add(resultado);
-//        
-//        tamaño.setTamanoId(2);
-//        tamaño.setNombre("Lorem ipsum B nombre");
-//        tamaño.setFechaCreacion(new Date(System.currentTimeMillis()));
-//        tamaño.setUsuarioCreacion(1);
-//        tamaño.setFechaModificacion(new Date(System.currentTimeMillis()));
-//        tamaño.setUsuarioModificacion(1);
-//        resultado = this.tamañoDao.insertar(tamaño);
-//        assertTrue(resultado != 0);
-//        listaTamañoId.add(resultado);
-//        
-//        tamaño.setTamanoId(3);
-//        tamaño.setNombre("Lorem ipsum C nombre");
-//        tamaño.setFechaCreacion(new Date(System.currentTimeMillis()));
-//        tamaño.setUsuarioCreacion(1);
-//        tamaño.setFechaModificacion(new Date(System.currentTimeMillis()));
-//        tamaño.setUsuarioModificacion(1);
-//        resultado = this.tamañoDao.insertar(tamaño);
-//        assertTrue(resultado != 0);
-//        listaTamañoId.add(resultado);        
-//    }
-//    
+//
 //    @Test
 //    public void testObtenerPorId() {
 //        System.out.println("obtenerPorId");
-//        ArrayList<Integer> listaTamañoId = new ArrayList<>();
-//        insertarTamaños(listaTamañoId);
-//        TamañoDto tamaño = this.tamañoDao.obtenerPorId(listaTamañoId.get(0));
-//        assertEquals(tamaño.getTamanoId(), listaTamañoId.get(0));
-//        
-//        tamaño = this.tamañoDao.obtenerPorId(listaTamañoId.get(1));
-//        assertEquals(tamaño.getTamanoId(), listaTamañoId.get(1));
-//        
-//        tamaño = this.tamañoDao.obtenerPorId(listaTamañoId.get(2));
-//        assertEquals(tamaño.getTamanoId(), listaTamañoId.get(2));
-//        eliminarTodo();
+//        TamanoDto t = this.tamanoDAO.obtenerPorId(1);
+//        if (t != null) {
+//            System.out.println(t.getTamanoId());
+//            System.out.println(t.getNombre());
+//        }
 //    }
-//    
+//
 //    @Test
 //    public void testListarTodos() {
 //        System.out.println("listarTodos");
-//        ArrayList<Integer> listaTamañoId = new ArrayList<>();
-//        insertarTamaños(listaTamañoId);
-//        
-//        ArrayList<TamañoDto> listaTamaños = this.tamañoDao.listarTodos();
-//        assertEquals(listaTamañoId.size(), listaTamaños.size());
-//        for (Integer i = 0; i < listaTamañoId.size(); i++) {
-//            assertEquals(listaTamañoId.get(i), listaTamaños.get(i).getTamanoId());
+//        ArrayList<TamanoDto> lista = this.tamanoDAO.listarTodos();
+//        for (Integer i = 0; i < lista.size(); i++) {
+//            System.out.println("Dato:");
+//            System.out.println(lista.get(i).getTamanoId());
+//            System.out.println(lista.get(i).getNombre());
 //        }
-//        eliminarTodo();
 //    }
-//    
+//
 //    @Test
 //    public void testModificar() {
 //        System.out.println("modificar");
-//        ArrayList<Integer> listaTamañoId = new ArrayList<>();
-//        insertarTamaños(listaTamañoId);
-//        
-//        ArrayList<TamañoDto> listaTamaños = this.tamañoDao.listarTodos();
-//        assertEquals(listaTamañoId.size(), listaTamaños.size());
-//        for (Integer i = 0; i < listaTamañoId.size(); i++) {
-//            // Cambios dummy no nulos
-//            this.tamañoDao.modificar(listaTamaños.get(i));
-//        }
-//        
-//        ArrayList<TamañoDto> listaTamañosModificados = this.tamañoDao.listarTodos();
-//        assertEquals( listaTamaños.size(), listaTamañosModificados.size());
-//        eliminarTodo();
+//        TamanoDto t = new TamanoDto();
+//        t.setTamanoId(1);
+//        t.setNombre("Tamaño MOD");
+//        Integer resultado = this.tamanoDAO.modificar(t);
+//        assertTrue(resultado != 0);
 //    }
-//    
+//
 //    @Test
 //    public void testEliminar() {
 //        System.out.println("eliminar");
-//        ArrayList<Integer> listaTamañoId = new ArrayList<>();
-//        insertarTamaños(listaTamañoId);
-//        eliminarTodo();
-//    }
-//    
-//    private void eliminarTodo(){                
-//        ArrayList<TamañoDto> listaTamaños = this.tamañoDao.listarTodos();
-//        for (Integer i = 0; i < listaTamaños.size(); i++) {
-//            Integer resultado = this.tamañoDao.eliminar(listaTamaños.get(i));
-//            assertNotEquals(0, resultado);
-//            TamañoDto tamaño = this.tamañoDao.obtenerPorId(listaTamaños.get(i).getTamanoId());
-//            assertNull(tamaño);
-//        }
+//        TamanoDto t = new TamanoDto();
+//        t.setTamanoId(2);
+//        this.tamanoDAO.eliminar(t);
 //    }
 }

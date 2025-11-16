@@ -5,109 +5,79 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl;
 import pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto;
+import pe.edu.pucp.squirlearn.model.inciNoti.MotivoDto;
+import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
 public class NotificacionDaoTest {
-    
-    private NotificacionDao notificacionDao;    
-    
+
+    private NotificacionDao notificacionDAO;
+
     public NotificacionDaoTest() {
-        this.notificacionDao = new NotificacionDaoImpl();        
+        this.notificacionDAO = new NotificacionDaoImpl();
     }
-    
+
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");
-//        ArrayList<Integer> listaNotificacionId = new ArrayList<>();
-//        insertarNotificacions(listaNotificacionId);
-//        eliminarTodo();
+//        PersonaDto persona = new PersonaDto();
+//        persona.setPersonaId(1);
+//        MotivoDto motivo = new MotivoDto();
+//        motivo.setMotivoId(1);
+//
+//        NotificacionDto n = new NotificacionDto();
+//        n.setPersona(persona);
+//        n.setMotivo(motivo);
+//        n.setMensaje("Notificación de prueba");
+//        n.setFecha("2025-11-21");
+//
+//        Integer resultado = this.notificacionDAO.insertar(n);
+//        assertTrue(resultado != 0);
 //    }
-//    
-//    private void insertarNotificacions(ArrayList<Integer> listaNotificacionId) {
-//        NotificacionDto notificacion = new NotificacionDto();
-//        notificacion.setFecha(new java.sql.Date(System.currentTimeMillis()));
-//        notificacion.setMensaje("Lorem ipsum mensaje");
-//        Integer resultado = this.notificacionDao.insertar(notificacion);
-//        assertTrue(resultado != 0);
-//        listaNotificacionId.add(resultado);
-//        
-//        notificacion.setNotificacionId(null);
-//        notificacion.setFecha(new java.sql.Date(System.currentTimeMillis()));
-//        notificacion.setMensaje("Lorem ipsum B mensaje");
-//        resultado = this.notificacionDao.insertar(notificacion);
-//        assertTrue(resultado != 0);
-//        listaNotificacionId.add(resultado);
-//        
-//        notificacion.setNotificacionId(null);
-//        notificacion.setFecha(new java.sql.Date(System.currentTimeMillis()));
-//        notificacion.setMensaje("Lorem ipsum C mensaje");
-//        resultado = this.notificacionDao.insertar(notificacion);
-//        assertTrue(resultado != 0);
-//        listaNotificacionId.add(resultado);        
-//    }
-//    
+//
 //    @Test
 //    public void testObtenerPorId() {
 //        System.out.println("obtenerPorId");
-//        ArrayList<Integer> listaNotificacionId = new ArrayList<>();
-//        insertarNotificacions(listaNotificacionId);
-//        NotificacionDto notificacion = this.notificacionDao.obtenerPorId(listaNotificacionId.get(0));
-//        assertEquals(notificacion.getNotificacionId(), listaNotificacionId.get(0));
-//        
-//        notificacion = this.notificacionDao.obtenerPorId(listaNotificacionId.get(1));
-//        assertEquals(notificacion.getNotificacionId(), listaNotificacionId.get(1));
-//        
-//        notificacion = this.notificacionDao.obtenerPorId(listaNotificacionId.get(2));
-//        assertEquals(notificacion.getNotificacionId(), listaNotificacionId.get(2));
-//        eliminarTodo();
+//        NotificacionDto n = this.notificacionDAO.obtenerPorId(1);
+//        if (n != null) {
+//            System.out.println(n.getNotificacionId());
+//            System.out.println(n.getMensaje());
+//        }
 //    }
-//    
+//
 //    @Test
 //    public void testListarTodos() {
 //        System.out.println("listarTodos");
-//        ArrayList<Integer> listaNotificacionId = new ArrayList<>();
-//        insertarNotificacions(listaNotificacionId);
-//        
-//        ArrayList<NotificacionDto> listaNotificacions = this.notificacionDao.listarTodos();
-//        assertEquals(listaNotificacionId.size(), listaNotificacions.size());
-//        for (Integer i = 0; i < listaNotificacionId.size(); i++) {
-//            assertEquals(listaNotificacionId.get(i), listaNotificacions.get(i).getNotificacionId());
+//        ArrayList<NotificacionDto> lista = this.notificacionDAO.listarTodos();
+//        for (Integer i = 0; i < lista.size(); i++) {
+//            NotificacionDto n = lista.get(i);
+//            System.out.println("Dato:");
+//            System.out.println(n.getNotificacionId());
+//            System.out.println(n.getMensaje());
 //        }
-//        eliminarTodo();
 //    }
-//    
+//
 //    @Test
 //    public void testModificar() {
 //        System.out.println("modificar");
-//        ArrayList<Integer> listaNotificacionId = new ArrayList<>();
-//        insertarNotificacions(listaNotificacionId);
-//        
-//        ArrayList<NotificacionDto> listaNotificacions = this.notificacionDao.listarTodos();
-//        assertEquals(listaNotificacionId.size(), listaNotificacions.size());
-//        for (Integer i = 0; i < listaNotificacionId.size(); i++) {
-//            // Cambios dummy no nulos
-//            this.notificacionDao.modificar(listaNotificacions.get(i));
-//        }
-//        
-//        ArrayList<NotificacionDto> listaNotificacionsModificados = this.notificacionDao.listarTodos();
-//        assertEquals( listaNotificacions.size(), listaNotificacionsModificados.size());
-//        eliminarTodo();
+//        NotificacionDto n = new NotificacionDto();
+//        n.setNotificacionId(10);
+//        PersonaDto persona = new PersonaDto();
+//        persona.setPersonaId(1);
+//        MotivoDto motivo = new MotivoDto();
+//        motivo.setMotivoId(1);
+//        n.setPersona(persona);
+//        n.setMotivo(motivo);
+//        n.setMensaje("Notificación modificada");
+//        n.setFecha("2025-11-19");
+//        Integer resultado = this.notificacionDAO.modificar(n);
+//        assertTrue(resultado != 0);
 //    }
-//    
+//
 //    @Test
 //    public void testEliminar() {
 //        System.out.println("eliminar");
-//        ArrayList<Integer> listaNotificacionId = new ArrayList<>();
-//        insertarNotificacions(listaNotificacionId);
-//        eliminarTodo();
-//    }
-//    
-//    private void eliminarTodo(){                
-//        ArrayList<NotificacionDto> listaNotificacions = this.notificacionDao.listarTodos();
-//        for (Integer i = 0; i < listaNotificacions.size(); i++) {
-//            Integer resultado = this.notificacionDao.eliminar(listaNotificacions.get(i));
-//            assertNotEquals(0, resultado);
-//            NotificacionDto notificacion = this.notificacionDao.obtenerPorId(listaNotificacions.get(i).getNotificacionId());
-//            assertNull(notificacion);
-//        }
+//        NotificacionDto n = new NotificacionDto();
+//        n.setNotificacionId(1);
+//        this.notificacionDAO.eliminar(n);
 //    }
 }

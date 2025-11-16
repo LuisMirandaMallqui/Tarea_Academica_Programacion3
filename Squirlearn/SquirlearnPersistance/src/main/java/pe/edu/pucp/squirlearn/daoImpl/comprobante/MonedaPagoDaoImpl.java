@@ -22,22 +22,19 @@ public class MonedaPagoDaoImpl extends DAOImplBase implements MonedaPagoDao{
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("MONEDA_ID", true, true));
         this.listaColumnas.add(new Columna("NOMBRE", false, false));
-
-
-
-}
+    }
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.monedaPago.getNombre());
-}
+    }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.monedaPago.getNombre());
-this.statement.setInt(i++, this.monedaPago.getMonedaId()); // WHERE
+        this.statement.setInt(i++, this.monedaPago.getMonedaId()); // WHERE
     }
 
     @Override

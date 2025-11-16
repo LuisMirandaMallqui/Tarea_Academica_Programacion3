@@ -44,83 +44,37 @@ public class ItemDaoImpl extends DAOImplBase implements ItemDao{
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int colorId      = safeFkId(
-                (this.item.getColor() == null ? null : this.item.getColor().getColorId()), 
-                "colores", "COLOR_ID");
-        int estadoItemId = safeFkId(
-                (this.item.getEstadoItem() == null ? null : this.item.getEstadoItem().getEstadoItemId()), 
-                "estados_items", "ESTADOITEM_ID");
-        int condicionId  = safeFkId(
-                (this.item.getCondicion() == null ? null : this.item.getCondicion().getCondicionId()), 
-                "condiciones", "CONDICION_ID");
-        int tamanoId     = safeFkId(
-                (this.item.getTamano() == null ? null : this.item.getTamano().getTamanoId()), 
-                "tamanos", "TAMANO_ID");
-        int formatoId    = safeFkId(
-                (this.item.getFormato() == null ? null : this.item.getFormato().getFormatoId()), 
-                "formatos", "FORMATO_ID");
-
-        int providedSubId =  safeFkId(
-                (this.item.getSubcategoria() == null ? null : this.item.getSubcategoria().getSubcategoriaId()),
-                "subcategorias","SUBCATEGORIA_ID");
-        int providedCatId =  safeFkId(
-                (this.item.getCategoria()== null ? null : this.item.getCategoria().getCategoriaId()),
-                "categorias","CATEGORIA_ID");
-        
         int i = 1;
-        this.statement.setInt(i++, colorId);                                                // COLOR_ID
-        this.statement.setInt(i++, estadoItemId);                                           // ESTADO_ITEM_ID
-        this.statement.setInt(i++, condicionId);                                            // CONDICION_ID
-        this.statement.setInt(i++, tamanoId);                                               // TAMANO_ID
-        this.statement.setInt(i++, formatoId);                                              // FORMATO_ID
-        this.statement.setInt(i++, providedSubId);                                                  // subcategoria_ID_SUBCATEGORIA
-        this.statement.setInt(i++, providedCatId);         
+        this.statement.setInt(i++, this.item.getColor().getColorId()); 
+        this.statement.setInt(i++, this.item.getEstadoItem().getEstadoItemId());   
+        this.statement.setInt(i++, this.item.getCondicion().getCondicionId());                                                // COLOR_ID
+        this.statement.setInt(i++, this.item.getTamano().getTamanoId());                                             // TAMANO_ID
+        this.statement.setInt(i++, this.item.getFormato().getFormatoId());                                              // FORMATO_ID
+        this.statement.setInt(i++, this.item.getSubcategoria().getSubcategoriaId());                                                  // subcategoria_ID_SUBCATEGORIA
+        this.statement.setInt(i++, this.item.getCategoria().getCategoriaId());         
         this.statement.setString(i++, this.item.getNombre());                               // NOMBRE
         this.statement.setString(i++, this.item.getDescripcion());                          // DESCRIPCION
         this.statement.setDouble(i++, this.item.getPrecio());                           // PRECIO
         this.statement.setInt(i++, this.item.getEsVenta()? 1 : 0);                          // ES_VENTA (TINYINT)
         this.statement.setString(i++, this.item.getusuarioCreacion());   
-        this.statement.setString(i++, null);          
+        this.statement.setString(i++, this.item.getusuarioModificacion());          
     }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        int colorId      = safeFkId(
-                (this.item.getColor() == null ? null : this.item.getColor().getColorId()), 
-                "colores", "COLOR_ID");
-        int estadoItemId = safeFkId(
-                (this.item.getEstadoItem() == null ? null : this.item.getEstadoItem().getEstadoItemId()), 
-                "estados_items", "ESTADOITEM_ID");
-        int condicionId  = safeFkId(
-                (this.item.getCondicion() == null ? null : this.item.getCondicion().getCondicionId()), 
-                "condiciones", "CONDICION_ID");
-        int tamanoId     = safeFkId(
-                (this.item.getTamano() == null ? null : this.item.getTamano().getTamanoId()), 
-                "tamanos", "TAMANO_ID");
-        int formatoId    = safeFkId(
-                (this.item.getFormato() == null ? null : this.item.getFormato().getFormatoId()), 
-                "formatos", "FORMATO_ID");
-
-        int providedSubId =  safeFkId(
-                (this.item.getSubcategoria() == null ? null : this.item.getSubcategoria().getSubcategoriaId()),
-                "subcategorias","SUBCATEGORIA_ID");
-        int providedCatId =  safeFkId(
-                (this.item.getCategoria()== null ? null : this.item.getCategoria().getCategoriaId()),
-                "categorias","CATEGORIA_ID");
-        
-        int i = 1;
-        this.statement.setInt(i++, colorId);                                                // COLOR_ID
-        this.statement.setInt(i++, estadoItemId);                                           // ESTADO_ITEM_ID
-        this.statement.setInt(i++, condicionId);                                            // CONDICION_ID
-        this.statement.setInt(i++, tamanoId);                                               // TAMANO_ID
-        this.statement.setInt(i++, formatoId);                                              // FORMATO_ID
-        this.statement.setInt(i++, providedSubId);                                                  // subcategoria_ID_SUBCATEGORIA
-        this.statement.setInt(i++, providedCatId);         
+        int i=1;
+        this.statement.setInt(i++, this.item.getColor().getColorId()); 
+        this.statement.setInt(i++, this.item.getEstadoItem().getEstadoItemId());   
+        this.statement.setInt(i++, this.item.getCondicion().getCondicionId());                                                // COLOR_ID
+        this.statement.setInt(i++, this.item.getTamano().getTamanoId());                                             // TAMANO_ID
+        this.statement.setInt(i++, this.item.getFormato().getFormatoId());                                              // FORMATO_ID
+        this.statement.setInt(i++, this.item.getSubcategoria().getSubcategoriaId());                                                  // subcategoria_ID_SUBCATEGORIA
+        this.statement.setInt(i++, this.item.getCategoria().getCategoriaId());         
         this.statement.setString(i++, this.item.getNombre());                               // NOMBRE
         this.statement.setString(i++, this.item.getDescripcion());                          // DESCRIPCION
         this.statement.setDouble(i++, this.item.getPrecio());                           // PRECIO
         this.statement.setInt(i++, this.item.getEsVenta()? 1 : 0);                          // ES_VENTA (TINYINT)
-        this.statement.setString(i++, this.item.getusuarioCreacion());   
+        this.statement.setString(i++, this.item.getusuarioCreacion());  
         this.statement.setString(i++, this.item.getusuarioModificacion());   
         this.statement.setInt(i++, this.item.getItemId()); // WHERE ITEM_ID=?
     }

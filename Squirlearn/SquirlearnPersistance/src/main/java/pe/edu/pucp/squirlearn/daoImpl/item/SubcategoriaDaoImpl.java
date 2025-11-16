@@ -25,29 +25,21 @@ public class SubcategoriaDaoImpl extends DAOImplBase implements SubcategoriaDao{
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("SUBCATEGORIA_ID", true, true));
         this.listaColumnas.add(new Columna("NOMBRE", false, false));
-        this.listaColumnas.add(new Columna("CATEGORIA", false, false));
+        this.listaColumnas.add(new Columna("CATEGORIA_ID", false, false));
     }
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int categoriaId = safeFkId(
-            (this.subcategoria.getCategoria() == null ? null : this.subcategoria.getCategoria().getCategoriaId()),
-            "categorias", "CATEGORIA_ID"
-        );
         int i = 1;
         this.statement.setString(i++, this.subcategoria.getNombre());      // NOMBRE
-        this.statement.setInt(i++, categoriaId);                           // CATEGORIA_ID (FK)
+        this.statement.setInt(i++, this.subcategoria.getCategoria().getCategoriaId());                           // CATEGORIA_ID (FK)
     }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        int categoriaId = safeFkId(
-            (this.subcategoria.getCategoria() == null ? null : this.subcategoria.getCategoria().getCategoriaId()),
-            "categorias", "CATEGORIA_ID"
-        );
         int i = 1;
-        this.statement.setString(i++, this.subcategoria.getNombre());
-        this.statement.setInt(i++, categoriaId);
+        this.statement.setString(i++, this.subcategoria.getNombre());      // NOMBRE
+        this.statement.setInt(i++, this.subcategoria.getCategoria().getCategoriaId());        
         this.statement.setInt(i++, this.subcategoria.getSubcategoriaId()); // WHERE
     }
 

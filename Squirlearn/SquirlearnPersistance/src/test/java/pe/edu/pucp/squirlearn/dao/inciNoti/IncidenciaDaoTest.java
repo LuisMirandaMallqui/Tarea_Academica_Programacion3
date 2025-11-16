@@ -5,100 +5,87 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import pe.edu.pucp.squirlearn.daoImpl.inciNoti.IncidenciaDaoImpl;
 import pe.edu.pucp.squirlearn.model.inciNoti.IncidenciaDto;
+import pe.edu.pucp.squirlearn.model.inciNoti.MotivoDto;
+import pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto;
+import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
 public class IncidenciaDaoTest {
-    
-    private IncidenciaDao incidenciaDao;    
-    
+
+    private IncidenciaDao incidenciaDAO;
+
     public IncidenciaDaoTest() {
-        this.incidenciaDao = new IncidenciaDaoImpl();        
+        this.incidenciaDAO = new IncidenciaDaoImpl();
     }
-    
+//
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");
-//        ArrayList<Integer> listaIncidenciaId = new ArrayList<>();
-//        insertarIncidencias(listaIncidenciaId);
-//        eliminarTodo();
+//        PersonaDto persona = new PersonaDto();
+//        persona.setPersonaId(1);
+//        MotivoDto motivo = new MotivoDto();
+//        motivo.setMotivoId(1);
+//        NotificacionDto noti = new NotificacionDto();
+//        noti.setNotificacionId(1);
+//
+//        IncidenciaDto inc = new IncidenciaDto();
+//        inc.setPersona(persona);
+//        inc.setMotivo(motivo);
+//        inc.setNotificacion(noti);
+//        inc.setDescripcion("Incidencia de prueba");
+//        inc.setUsuarioCreacion("Pablito");
+//        inc.setResuelto(1);
+//        Integer resultado = this.incidenciaDAO.insertar(inc);
+//        assertTrue(resultado != 0);
 //    }
-//    
-//    private void insertarIncidencias(ArrayList<Integer> listaIncidenciaId) {
-//        IncidenciaDto incidencia = new IncidenciaDto();
-//        incidencia.setIncidenciaDto(1);
-//        incidencia.setDescripcion("Lorem ipsum descripcion");
-//        incidencia.setFechaCreacion(new java.sql.Date(System.currentTimeMillis()));
-//        incidencia.setFechaSolucion(new java.sql.Date(System.currentTimeMillis()));
-//        incidencia.setUsuarioCreacion(1);
-//        incidencia.setUsuarioSolucion(1);
-//        incidencia.setFechaModificacion(new java.sql.Date(System.currentTimeMillis()));
-//        incidencia.setUsuarioModificacion(1);
-//        Integer resultado = this.incidenciaDao.insertar(incidencia);
-//        assertTrue(resultado != 0);
-//        listaIncidenciaId.add(resultado);
-//        
-//        incidencia.setIncidenciaDto(1);
-//        incidencia.setDescripcion("Lorem ipsum B descripcion");
-//        incidencia.setFechaCreacion(new java.sql.Date(System.currentTimeMillis()));
-//        incidencia.setFechaSolucion(new java.sql.Date(System.currentTimeMillis()));
-//        incidencia.setUsuarioCreacion(1);
-//        incidencia.setUsuarioSolucion(1);
-//        incidencia.setFechaModificacion(new java.sql.Date(System.currentTimeMillis()));
-//        incidencia.setUsuarioModificacion(1);
-//        resultado = this.incidenciaDao.insertar(incidencia);
-//        assertTrue(resultado != 0);
-//        listaIncidenciaId.add(resultado);
-//        
-//        incidencia.setIncidenciaDto(1);
-//        incidencia.setDescripcion("Lorem ipsum C descripcion");
-//        incidencia.setFechaCreacion(new java.sql.Date(System.currentTimeMillis()));
-//        incidencia.setFechaSolucion(new java.sql.Date(System.currentTimeMillis()));
-//        incidencia.setUsuarioCreacion(1);
-//        incidencia.setUsuarioSolucion(1);
-//        incidencia.setFechaModificacion(new java.sql.Date(System.currentTimeMillis()));
-//        incidencia.setUsuarioModificacion(1);
-//        resultado = this.incidenciaDao.insertar(incidencia);
-//        assertTrue(resultado != 0);
-//        listaIncidenciaId.add(resultado);        
-//    }
-//    
+
 //    @Test
 //    public void testObtenerPorId() {
-//        
+//        System.out.println("obtenerPorId");
+//        IncidenciaDto inc = this.incidenciaDAO.obtenerPorId(1);
+//        if (inc != null) {
+//            System.out.println(inc.getIncidenciaId());
+//            System.out.println(inc.getDescripcion());
+//        }
 //    }
-//    
+
 //    @Test
 //    public void testListarTodos() {
-//        
-//        
+//        System.out.println("listarTodos");
+//        ArrayList<IncidenciaDto> lista = this.incidenciaDAO.listarTodos();
+//        for (Integer i = 0; i < lista.size(); i++) {
+//            IncidenciaDto inc = lista.get(i);
+//            System.out.println("Dato:");
+//            System.out.println(inc.getIncidenciaId());
+//            System.out.println(inc.getDescripcion());
+//        }
 //    }
-//    
+//
 //    @Test
 //    public void testModificar() {
 //        System.out.println("modificar");
-//        ArrayList<Integer> listaIncidenciaId = new ArrayList<>();
-//        insertarIncidencias(listaIncidenciaId);
-//        
-//        ArrayList<IncidenciaDto> listaIncidencias = this.incidenciaDao.listarTodos();
-//        assertEquals(listaIncidenciaId.size(), listaIncidencias.size());
-//        for (Integer i = 0; i < listaIncidenciaId.size(); i++) {
-//            // Cambios dummy no nulos
-//            this.incidenciaDao.modificar(listaIncidencias.get(i));
-//        }
-//        
-//        ArrayList<IncidenciaDto> listaIncidenciasModificados = this.incidenciaDao.listarTodos();
-//        assertEquals( listaIncidencias.size(), listaIncidenciasModificados.size());
-//        eliminarTodo();
+//        PersonaDto persona = new PersonaDto();
+//        persona.setPersonaId(1);
+//        MotivoDto motivo = new MotivoDto();
+//        motivo.setMotivoId(1);
+//        NotificacionDto noti = new NotificacionDto();
+//        noti.setNotificacionId(10);
+//
+//        IncidenciaDto inc = new IncidenciaDto();
+//        inc.setPersona(persona);
+//        inc.setMotivo(motivo);
+//        inc.setNotificacion(noti);
+//        inc.setDescripcion("Incidencia de prueba");
+//        inc.setIncidenciaId(2);
+//        inc.setResuelto(0);
+//        Integer resultado = this.incidenciaDAO.modificar(inc);
+//        assertTrue(resultado != 0);
 //    }
-//    
+
 //    @Test
 //    public void testEliminar() {
 //        System.out.println("eliminar");
-//        ArrayList<Integer> listaIncidenciaId = new ArrayList<>();
-//        insertarIncidencias(listaIncidenciaId);
-//        eliminarTodo();
-//    }
-//    
-//    private void eliminarTodo(){   
-//        
+//        IncidenciaDto inc = new IncidenciaDto();
+//        inc.setIncidenciaId(2);
+//        this.incidenciaDAO.eliminar(inc);
 //    }
 }

@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.function.Consumer;
 import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
 import pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDao;
+import pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
 import pe.edu.pucp.squirlearn.daoImpl.util.TraduccionesSQL;
 import pe.edu.pucp.squirlearn.model.comprobante.ComprobanteDto;
+import pe.edu.pucp.squirlearn.model.comprobante.DetalleComprobanteDto;
 import pe.edu.pucp.squirlearn.model.comprobante.FormaPagoDto;
 import pe.edu.pucp.squirlearn.model.comprobante.MonedaPagoDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
@@ -38,53 +40,27 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao {
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
-        int personaId = safeFkId(
-                (this.comprobante.getPersona() == null ? null : this.comprobante.getPersona().getPersonaId()),
-                "personas", "PERSONA_ID"
-        );
-        int formaPagoId = safeFkId(
-                (this.comprobante.getFormaPago() == null ? null : this.comprobante.getFormaPago().getFormaPagoId()),
-                "formas_pago", "FORMAPAGO_ID"
-        );
-        int monedaId = safeFkId(
-                (this.comprobante.getMoneda() == null ? null : this.comprobante.getMoneda().getMonedaId()),
-                "monedas", "MONEDA_ID"
-        );
-
         int i = 1;
-        this.statement.setInt(i++, personaId);
-        this.statement.setInt(i++, formaPagoId);
-        this.statement.setInt(i++, monedaId);
+        this.statement.setInt(i++, this.comprobante.getPersona().getPersonaId());
+        this.statement.setInt(i++, this.comprobante.getFormaPago().getFormaPagoId());
+        this.statement.setInt(i++, this.comprobante.getMoneda().getMonedaId());
         this.statement.setString(i++, this.comprobante.getTransaccion());
         this.statement.setString(i++, this.comprobante.getFechaEmision());
         this.statement.setDouble(i++, this.comprobante.getMonto());
-        this.statement.setDouble(i++, this.comprobante.getImpuesto() == null ? 0.0 : this.comprobante.getImpuesto()); // puede ser null
+        this.statement.setDouble(i++, this.comprobante.getImpuesto()); 
         this.statement.setString(i++, this.comprobante.getusuarioCreacion());
     }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
-        int personaId = safeFkId(
-                (this.comprobante.getPersona() == null ? null : this.comprobante.getPersona().getPersonaId()),
-                "personas", "PERSONA_ID"
-        );
-        int formaPagoId = safeFkId(
-                (this.comprobante.getFormaPago() == null ? null : this.comprobante.getFormaPago().getFormaPagoId()),
-                "formas_pago", "FORMAPAGO_ID"
-        );
-        int monedaId = safeFkId(
-                (this.comprobante.getMoneda() == null ? null : this.comprobante.getMoneda().getMonedaId()),
-                "monedas", "MONEDA_ID"
-        );
-
         int i = 1;
-        this.statement.setInt(i++, personaId);
-        this.statement.setInt(i++, formaPagoId);
-        this.statement.setInt(i++, monedaId);
+        this.statement.setInt(i++, this.comprobante.getPersona().getPersonaId());
+        this.statement.setInt(i++, this.comprobante.getFormaPago().getFormaPagoId());
+        this.statement.setInt(i++, this.comprobante.getMoneda().getMonedaId());
         this.statement.setString(i++, this.comprobante.getTransaccion());
         this.statement.setString(i++, this.comprobante.getFechaEmision());
         this.statement.setDouble(i++, this.comprobante.getMonto());
-        this.statement.setDouble(i++, this.comprobante.getImpuesto() == null ? 0.0 : this.comprobante.getImpuesto()); // puede ser null
+        this.statement.setDouble(i++, this.comprobante.getImpuesto()); // puede ser null
         this.statement.setString(i++, this.comprobante.getusuarioCreacion());
         this.statement.setInt(i++, this.comprobante.getComprobanteId()); // WHERE
     }
@@ -115,6 +91,9 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao {
         this.comprobante.setFechaEmision(this.resultSet.getString("FECHA_EMISION"));
         this.comprobante.setImpuesto(this.resultSet.getDouble("IMPUESTO"));
         this.comprobante.setusuarioCreacion(this.resultSet.getString("USUARIO_CREACION"));
+        DetalleComprobanteDao detalle = new DetalleComprobanteDaoImpl();
+        ArrayList<DetalleComprobanteDto> detalles = detalle.listarPorComprobante(this.comprobante.getComprobanteId());
+        this.comprobante.setDetallesComprobante(detalles);
     }
 
     @Override

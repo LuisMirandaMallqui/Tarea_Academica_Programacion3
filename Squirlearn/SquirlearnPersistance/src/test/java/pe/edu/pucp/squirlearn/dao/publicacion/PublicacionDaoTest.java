@@ -1,115 +1,93 @@
 package pe.edu.pucp.squirlearn.dao.publicacion;
 
 import java.util.ArrayList;
-import java.sql.Date;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import pe.edu.pucp.squirlearn.daoImpl.publicacion.PublicacionDaoImpl;
+import pe.edu.pucp.squirlearn.model.item.ItemDto;
+import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
+import pe.edu.pucp.squirlearn.model.publicacion.EstadoPublicacionDto;
 import pe.edu.pucp.squirlearn.model.publicacion.PublicacionDto;
 
 public class PublicacionDaoTest {
-    
-//    private PublicacionDao publicacionDao;    
-//    
-//    public PublicacionDaoTest() {
-//        this.publicacionDao = new PublicacionDaoImpl();        
-//    }
-//    
+
+    private PublicacionDao publicacionDAO;
+
+    public PublicacionDaoTest() {
+        this.publicacionDAO = new PublicacionDaoImpl();
+    }
+
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");
-//        ArrayList<Integer> listaPublicacionId = new ArrayList<>();
-//        insertarPublicacions(listaPublicacionId);
-//        eliminarTodo();
+//        EstadoPublicacionDto estado = new EstadoPublicacionDto();
+//        estado.setEstadoPublicacionId(1);
+//        ItemDto item = new ItemDto();
+//        item.setItemId(1);
+//        PersonaDto persona = new PersonaDto();
+//        persona.setPersonaId(1);
+//
+//        PublicacionDto p = new PublicacionDto();
+//        p.setEstadoPublicacion(estado);
+//        p.setItem(item);
+//        p.setPersona(persona);
+//        p.setusuarioCreacion("Holas");
+//        p.setFechaAlta("2025-02-12");
+//        p.setFechaBaja(null);
+//
+//        Integer resultado = this.publicacionDAO.insertar(p);
+//        assertTrue(resultado != 0);
 //    }
-//    
-//    private void insertarPublicacions(ArrayList<Integer> listaPublicacionId) {
-//        PublicacionDto publicacion = new PublicacionDto();
-//        publicacion.setPublicacionId(1);
-//        publicacion.setFechaAlta(new Date(System.currentTimeMillis()));
-//        publicacion.setFechaBaja(new Date(System.currentTimeMillis()));
-//        Integer resultado = this.publicacionDao.insertar(publicacion);
-//        assertTrue(resultado != 0);
-//        listaPublicacionId.add(resultado);
-//        
-//        publicacion.setPublicacionId(2);
-//        publicacion.setFechaAlta(new Date(System.currentTimeMillis()));
-//        publicacion.setFechaBaja(new Date(System.currentTimeMillis()));
-//        resultado = this.publicacionDao.insertar(publicacion);
-//        assertTrue(resultado != 0);
-//        listaPublicacionId.add(resultado);
-//        
-//        publicacion.setPublicacionId(3);
-//        publicacion.setFechaAlta(new Date(System.currentTimeMillis()));
-//        publicacion.setFechaBaja(new Date(System.currentTimeMillis()));
-//        resultado = this.publicacionDao.insertar(publicacion);
-//        assertTrue(resultado != 0);
-//        listaPublicacionId.add(resultado);        
-//    }
-//    
+//
 //    @Test
 //    public void testObtenerPorId() {
 //        System.out.println("obtenerPorId");
-//        ArrayList<Integer> listaPublicacionId = new ArrayList<>();
-//        insertarPublicacions(listaPublicacionId);
-//        PublicacionDto publicacion = this.publicacionDao.obtenerPorId(listaPublicacionId.get(0));
-//        assertEquals(publicacion.getPublicacionId(), listaPublicacionId.get(0));
-//        
-//        publicacion = this.publicacionDao.obtenerPorId(listaPublicacionId.get(1));
-//        assertEquals(publicacion.getPublicacionId(), listaPublicacionId.get(1));
-//        
-//        publicacion = this.publicacionDao.obtenerPorId(listaPublicacionId.get(2));
-//        assertEquals(publicacion.getPublicacionId(), listaPublicacionId.get(2));
-//        eliminarTodo();
+//        PublicacionDto p = this.publicacionDAO.obtenerPorId(1);
+//        if (p != null) {
+//            System.out.println(p.getPublicacionId());
+//            System.out.println(p.getFechaAlta());
+//            System.out.println(p.getFechaBaja());
+//        }
 //    }
-//    
+//
 //    @Test
 //    public void testListarTodos() {
 //        System.out.println("listarTodos");
-//        ArrayList<Integer> listaPublicacionId = new ArrayList<>();
-//        insertarPublicacions(listaPublicacionId);
-//        
-//        ArrayList<PublicacionDto> listaPublicacions = this.publicacionDao.listarTodos();
-//        assertEquals(listaPublicacionId.size(), listaPublicacions.size());
-//        for (Integer i = 0; i < listaPublicacionId.size(); i++) {
-//            assertEquals(listaPublicacionId.get(i), listaPublicacions.get(i).getPublicacionId());
+//        ArrayList<PublicacionDto> lista = this.publicacionDAO.listarTodos();
+//        for (Integer i = 0; i < lista.size(); i++) {
+//            PublicacionDto p = lista.get(i);
+//            System.out.println("Dato:");
+//            System.out.println(p.getPublicacionId());
+//            System.out.println(p.getFechaAlta());
 //        }
-//        eliminarTodo();
 //    }
-//    
+//
 //    @Test
 //    public void testModificar() {
 //        System.out.println("modificar");
-//        ArrayList<Integer> listaPublicacionId = new ArrayList<>();
-//        insertarPublicacions(listaPublicacionId);
-//        
-//        ArrayList<PublicacionDto> listaPublicacions = this.publicacionDao.listarTodos();
-//        assertEquals(listaPublicacionId.size(), listaPublicacions.size());
-//        for (Integer i = 0; i < listaPublicacionId.size(); i++) {
-//            // Cambios dummy no nulos
-//            this.publicacionDao.modificar(listaPublicacions.get(i));
-//        }
-//        
-//        ArrayList<PublicacionDto> listaPublicacionsModificados = this.publicacionDao.listarTodos();
-//        assertEquals( listaPublicacions.size(), listaPublicacionsModificados.size());
-//        eliminarTodo();
+//        EstadoPublicacionDto estado = new EstadoPublicacionDto();
+//        estado.setEstadoPublicacionId(1);
+//        ItemDto item = new ItemDto();
+//        item.setItemId(1);
+//        PersonaDto persona = new PersonaDto();
+//        persona.setPersonaId(1);
+//
+//        PublicacionDto p = new PublicacionDto();
+//        p.setEstadoPublicacion(estado);
+//        p.setItem(item);
+//        p.setPersona(persona);
+//        p.setFechaAlta("2025-02-12");
+//        p.setPublicacionId(1);
+//        p.setFechaBaja("2025-03-01");
+//        Integer resultado = this.publicacionDAO.modificar(p);
+//        assertTrue(resultado != 0);
 //    }
-//    
+//
 //    @Test
 //    public void testEliminar() {
 //        System.out.println("eliminar");
-//        ArrayList<Integer> listaPublicacionId = new ArrayList<>();
-//        insertarPublicacions(listaPublicacionId);
-//        eliminarTodo();
-//    }
-//    
-//    private void eliminarTodo(){                
-//        ArrayList<PublicacionDto> listaPublicacions = this.publicacionDao.listarTodos();
-//        for (Integer i = 0; i < listaPublicacions.size(); i++) {
-//            Integer resultado = this.publicacionDao.eliminar(listaPublicacions.get(i));
-//            assertNotEquals(0, resultado);
-//            PublicacionDto publicacion = this.publicacionDao.obtenerPorId(listaPublicacions.get(i).getPublicacionId());
-//            assertNull(publicacion);
-//        }
+//        PublicacionDto p = new PublicacionDto();
+//        p.setPublicacionId(2);
+//        this.publicacionDAO.eliminar(p);
 //    }
 }
