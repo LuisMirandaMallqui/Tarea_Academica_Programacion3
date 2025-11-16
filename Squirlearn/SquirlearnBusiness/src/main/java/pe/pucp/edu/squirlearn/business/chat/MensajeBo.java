@@ -51,6 +51,7 @@ public class MensajeBo {
         mensajeDto.setMensajeId(id);
         mensajeDto.setPersona(persona);
         mensajeDto.setMensaje(mensaje);
+        if(fechaEnvio.compareTo("0")==0) fechaEnvio=null;
         mensajeDto.setFechaEnvio( fechaEnvio);
         mensajeDto.setFechaLeido(fechaLeido);
         mensajeDto.setEstadoMensaje(estado);

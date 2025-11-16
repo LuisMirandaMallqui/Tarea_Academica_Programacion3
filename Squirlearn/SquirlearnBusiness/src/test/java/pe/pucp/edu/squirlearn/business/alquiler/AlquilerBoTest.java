@@ -22,7 +22,7 @@ public class AlquilerBoTest {
 //    public void testInsertar() {
 //        System.out.println("insertar");
 //        Integer resultado = this.alquilerBO.insertar(2,1,"2025-12-01 12:34:56",null,
-//                69.69,"DANIEL","2025-12-01 12:34:56");
+//                69.69,"DANIEL");
 //        
 //        assertTrue(resultado != 0);
 //    }

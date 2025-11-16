@@ -17,7 +17,7 @@ public class AlquilerBo {
     
    
     public Integer insertar(Integer personaId, Integer itemId, String inicio,
-            String fin , Double monto, String usuarioCreacion,String fechaCreacion){
+            String fin , Double monto, String usuarioCreacion){
         AlquilerDto alquilerDto = new AlquilerDto();
         
         PersonaDto persona = new PersonaDto();
@@ -28,10 +28,10 @@ public class AlquilerBo {
         alquilerDto.setPersona(persona);
         alquilerDto.setItem(item);
         alquilerDto.setFechaInicio(inicio);
+        if(fin.compareTo("0")==0) fin=null;
         alquilerDto.setFechaFin(fin);
         alquilerDto.setMonto(monto);
         alquilerDto.setUsuarioCreacion(usuarioCreacion);
-        alquilerDto.setFechaCreacion(fechaCreacion);
         alquilerDto.setDevuelto(Boolean.FALSE);
         
         return this.alquilerDao.insertar(alquilerDto);
@@ -49,6 +49,7 @@ public class AlquilerBo {
         
         alquilerDto.setPersona(persona);
         alquilerDto.setItem(item);
+        if(fin.compareTo("0")==0) fin=null;
         alquilerDto.setFechaFin(fin);
         alquilerDto.setFechaInicio(inicio);
         alquilerDto.setMonto(monto);

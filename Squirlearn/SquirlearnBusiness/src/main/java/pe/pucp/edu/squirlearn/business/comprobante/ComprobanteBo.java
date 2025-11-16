@@ -35,6 +35,7 @@ public class ComprobanteBo {
         comprobanteDto.setMoneda(monedaPago);
         comprobanteDto.setImpuesto(impuesto);
         comprobanteDto.setusuarioCreacion(usuarioCreacion);
+        if(fechaEmision.compareTo("0")==0) fechaEmision=null;
         comprobanteDto.setFechaEmision(fechaEmision);
         return this.comprobanteDao.insertar(comprobanteDto);
     }
