@@ -62,7 +62,7 @@ DROP TRIGGER IF EXISTS TRG_TAMANOS_INSERT_CREACION $$
 DROP TRIGGER IF EXISTS TRG_TAMANOS_UPDATE_AUDITORIA $$
 
 /*ALQUILERES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
-DROP TRIGGER IF EXISTS TRG_ALQUILERES_INSERT_CREACION $$ 
+DROP TRIGGER IF EXISTS TRG_ALQUILERES_INSERT_AUDITORIA $$ 
 DROP TRIGGER IF EXISTS TRG_ALQUILERES_UPDATE_AUDITORIA $$
 /*CHATS*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 DROP TRIGGER IF EXISTS TRG_CHATS_INSERT_CREACION $$ 
@@ -100,6 +100,7 @@ DROP TRIGGER IF EXISTS TRG_MENSAJES_INSERT_CREACION $$
 DROP TRIGGER IF EXISTS TRG_MENSAJES_UPDATE_LEIDO $$
 
 /*NOTIFICACIONES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
+DROP TRIGGER IF EXISTS TRG_NOTIFICACIONES_CREATE_AUDITORIA $$
 DROP TRIGGER IF EXISTS TRG_NOTIFICACIONES_UPDATE_AUDITORIA $$
 
 /*ITEMS*/
@@ -463,15 +464,15 @@ END $$
 
 
 /*ALQUILERES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
--- no se considera creacion, se llena desde front
-/*CREATE TRIGGER TRG_ALQUILERES_INSERT_AUDITORIA
+
+CREATE TRIGGER TRG_ALQUILERES_INSERT_AUDITORIA
 BEFORE INSERT ON alquileres
 FOR EACH ROW
 BEGIN
    	SET NEW.FECHA_CREACION = NOW();
     -- Usuario viene desde el front
 END $$
-*/
+
 
 CREATE TRIGGER TRG_ALQUILERES_UPDATE_AUDITORIA
 BEFORE UPDATE ON alquileres
@@ -514,6 +515,9 @@ CREATE TRIGGER TRG_COMPROBANTES_INSERT_CREACION
 BEFORE INSERT ON comprobantes
 FOR EACH ROW
 BEGIN
+	IF NEW.FECHA_EMISION IS NULL THEN 
+		SET NEW.FECHA_EMISION = NOW();
+	END IF;
 	SET NEW.FECHA_CREACION = NOW();
 	-- Usuario_creacion viene desde el frente 
 END $$
