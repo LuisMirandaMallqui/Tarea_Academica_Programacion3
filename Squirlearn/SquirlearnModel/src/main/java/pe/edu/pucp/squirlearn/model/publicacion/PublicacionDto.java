@@ -1,6 +1,5 @@
 package pe.edu.pucp.squirlearn.model.publicacion;
 
-import java.sql.Date;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 import pe.edu.pucp.squirlearn.model.item.ItemDto;
 

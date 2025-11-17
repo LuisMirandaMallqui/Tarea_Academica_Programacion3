@@ -57,7 +57,6 @@ public class Item {
             return this.itemBo.modificar(id, precio, nombre, descripcion, esVenta, 
                     colorId, estadoId, condicionId, tamanoId, formatoId, categoriaId, 
                     subcategoriaId,usuario,usuarioCreacion,usuarioModificacion);
-
         }
 
     @WebMethod(operationName = "obtenerPorIdItem")
