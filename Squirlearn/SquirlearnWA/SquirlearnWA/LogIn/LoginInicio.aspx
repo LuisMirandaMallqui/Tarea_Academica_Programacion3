@@ -25,10 +25,6 @@
 
                     </div>
 
-                    <div class="text-end mb-3" style="padding-right: 90px;">
-                        <a href="LoginRecuperarContraseña.aspx" class="text-decoration-none small">¿Olvidaste tu contraseña?</a>
-                    </div>
-
                     <!-- Botones -->
                     <asp:Button ID="btnLogin" runat="server" Text="INICIAR SESIÓN" CssClass="btn btn-primary w-100 mb-2 fw-semibold" OnClick="btnLogin_Click" />
                     <asp:Button ID="btnRegistro" runat="server" Text="REGISTRARSE" CssClass="btn btn-outline-dark w-100 fw-semibold" OnClick="btnRegistro_Click" />

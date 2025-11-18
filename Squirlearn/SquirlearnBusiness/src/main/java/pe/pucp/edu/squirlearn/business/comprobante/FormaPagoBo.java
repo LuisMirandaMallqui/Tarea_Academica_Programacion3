@@ -21,4 +21,15 @@ public class FormaPagoBo {
     public FormaPagoDto obtenerPorId(Integer id){
         return this.formaPagoDao.obtenerPorId(id);
     }
+    
+    public Integer obtenerId(String nombreMonedaBuscada ){
+        
+        ArrayList<FormaPagoDto> listaFormas = formaPagoDao.listarTodos();
+        FormaPagoDto formaEncontrada = listaFormas.stream()
+            .filter(m -> (m.getNombre().toUpperCase()).equalsIgnoreCase(nombreMonedaBuscada))
+            .findFirst()
+            .orElse(null);
+                
+        return formaEncontrada.getFormaPagoId();
+    }
 }

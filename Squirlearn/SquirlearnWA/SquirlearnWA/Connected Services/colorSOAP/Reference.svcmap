@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="bf2a6984-a270-4de1-baf7-c93e7851ea80" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="941afe56-c835-45ab-ac70-a7ba89fe17dc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:8080/SquirlearnWS/Color?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Color.wsdl" MetadataType="Wsdl" ID="978d1b50-a667-4284-bdf4-6f5178c4e7ab" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Color?wsdl" />
-    <MetadataFile FileName="Color.xsd" MetadataType="Schema" ID="fb64450e-24e2-47ed-8ce0-84987c408818" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Color?xsd=1" />
+    <MetadataFile FileName="Color.wsdl" MetadataType="Wsdl" ID="236df8df-c544-4036-969f-4fbaf2b73668" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Color?wsdl" />
+    <MetadataFile FileName="Color.xsd" MetadataType="Schema" ID="ebaa492a-1266-4362-aca3-2a87c31bc119" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Color?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

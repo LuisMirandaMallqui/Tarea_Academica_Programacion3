@@ -23,4 +23,15 @@ public class MonedaPagoBo {
         return this.monedaPagoDao.obtenerPorId(id);
     }
     
+    public Integer obtenerId(String nombreMonedaBuscada ){
+        
+        ArrayList<MonedaPagoDto> listaMonedas = monedaPagoDao.listarTodos();
+        MonedaPagoDto monedaEncontrada = listaMonedas.stream()
+            .filter(m -> (m.getNombre().toUpperCase()).equalsIgnoreCase(nombreMonedaBuscada))
+            .findFirst()
+            .orElse(null);
+                
+        return monedaEncontrada.getMonedaId();
+    }
+    
 }

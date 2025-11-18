@@ -29,4 +29,15 @@ public class EstadoItemBo {
         return this.estadoItemDao.obtenerPorId(id);
     }
     
+    public Integer obtenerId(String nombreMonedaBuscada ){
+        
+        ArrayList<EstadoItemDto> lista = estadoItemDao.listarTodos();
+        EstadoItemDto encontrado = lista.stream()
+            .filter(m -> (m.getNombre().toUpperCase()).equalsIgnoreCase(nombreMonedaBuscada))
+            .findFirst()
+            .orElse(null);
+                
+        return encontrado.getEstadoItemId();
+    }
+    
 }

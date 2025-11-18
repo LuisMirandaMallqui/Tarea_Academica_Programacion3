@@ -5,31 +5,31 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Tamano?xsd=1" namespace="http://item.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="listarTodosTamano">
-    <part name="parameters" element="tns:listarTodosTamano" />
-  </message>
-  <message name="listarTodosTamanoResponse">
-    <part name="parameters" element="tns:listarTodosTamanoResponse" />
-  </message>
   <message name="obtenerPorIdTamano">
     <part name="parameters" element="tns:obtenerPorIdTamano" />
   </message>
   <message name="obtenerPorIdTamanoResponse">
     <part name="parameters" element="tns:obtenerPorIdTamanoResponse" />
   </message>
+  <message name="listarTodosTamano">
+    <part name="parameters" element="tns:listarTodosTamano" />
+  </message>
+  <message name="listarTodosTamanoResponse">
+    <part name="parameters" element="tns:listarTodosTamanoResponse" />
+  </message>
   <portType name="Tamano">
-    <operation name="listarTodosTamano">
-      <input wsam:Action="http://item.squirlearnws.mycompany.com/Tamano/listarTodosTamanoRequest" message="tns:listarTodosTamano" />
-      <output wsam:Action="http://item.squirlearnws.mycompany.com/Tamano/listarTodosTamanoResponse" message="tns:listarTodosTamanoResponse" />
-    </operation>
     <operation name="obtenerPorIdTamano">
       <input wsam:Action="http://item.squirlearnws.mycompany.com/Tamano/obtenerPorIdTamanoRequest" message="tns:obtenerPorIdTamano" />
       <output wsam:Action="http://item.squirlearnws.mycompany.com/Tamano/obtenerPorIdTamanoResponse" message="tns:obtenerPorIdTamanoResponse" />
     </operation>
+    <operation name="listarTodosTamano">
+      <input wsam:Action="http://item.squirlearnws.mycompany.com/Tamano/listarTodosTamanoRequest" message="tns:listarTodosTamano" />
+      <output wsam:Action="http://item.squirlearnws.mycompany.com/Tamano/listarTodosTamanoResponse" message="tns:listarTodosTamanoResponse" />
+    </operation>
   </portType>
   <binding name="TamanoPortBinding" type="tns:Tamano">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarTodosTamano">
+    <operation name="obtenerPorIdTamano">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -38,7 +38,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerPorIdTamano">
+    <operation name="listarTodosTamano">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

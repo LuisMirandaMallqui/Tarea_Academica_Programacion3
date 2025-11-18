@@ -27,6 +27,14 @@ namespace SquirlearnWA.PantallaInicio
         private CondicionClient condicionSoap;
         private PublicacionClient publicacionSoap;
 
+        private const int PublicacionesPorPagina = 12; // 12 es bueno para una cuadrícula de 4
+
+        private int PaginaActual
+        {
+            get { return ViewState["PaginaActual"] != null ? (int)ViewState["PaginaActual"] : 1; }
+            set { ViewState["PaginaActual"] = value; }
+        }
+
         public Busqueda()
         {
             categoriaSoap = new CategoriaClient();
@@ -42,30 +50,34 @@ namespace SquirlearnWA.PantallaInicio
         {
             if (!IsPostBack)
             {
+                // ❗️ 2. SIMPLIFICAMOS EL PAGE_LOAD
+                // Carga los filtros y luego ejecuta la búsqueda inicial para la página 1
+                CargarFiltros();
+                PaginaActual = 1;
+
                 // 🟩 Recuperar la categoría seleccionada desde Session
-               int categoriaId = Convert.ToInt32(Session["idCategoria"]);
+                int categoriaId = Convert.ToInt32(Session["idCategoria"]);
+                if (categoriaId != 0)
+                {
+                    // Pre-selecciona el dropdown si viene de la home
+                    ddlCategoria.SelectedValue = categoriaId.ToString();
+                    CargarSubcategorias(categoriaId); // Carga las subcategorías
+                }
 
-                //elilmine el guardado de categoría 
-
-                // 🟢 Cargar las publicaciones iniciales
-                IList<publicacionDto> publicaciones = publicacionSoap.listarPorFiltrosPublicacion(null, false, categoriaId, 0, 0, 0, 0, 0);
-
-                rptProductos.DataSource = publicaciones;
-                rptProductos.DataBind();
-
-
+                BuscarProductos(); // Carga la primera página
             }
         }
 
         private void CargarFiltros()
         {
-            // Categorías
-            IList<categoriaSOAP.categoriaDto> categorias = categoriaSoap.listarTodosCategoria();
-            CargarDropDownList(ddlCategoria, categorias, "Nombre", "categoriaId");
-
-            // Subcategorías
-            IList<subcategoriaSOAP.subcategoriaDto> subcategorias = subcategoriaSoap.listarTodosSubcategoria();
-            CargarDropDownList(ddlSubcategoria, subcategorias, "Nombre", "subcategoriaId");
+            if (!IsPostBack)
+            {
+                //Categorías
+                IList<categoriaSOAP.categoriaDto> categorias = categoriaSoap.listarTodosCategoria();
+                CargarDropDownList(ddlCategoria, categorias, "Nombre", "categoriaId");
+                //Subacategorías
+                CargarSubcategorias(0);
+            }
 
             // Colores
             IList<colorSOAP.colorDto> colores = colorSoap.listarTodosColor();
@@ -82,6 +94,19 @@ namespace SquirlearnWA.PantallaInicio
             // Condiciones
             IList<condicionSOAP.condicionDto> condiciones = condicionSoap.listarTodosCondicion();
             CargarRadioButtonList(rblCondicion, condiciones, "Nombre", "condicionId");
+        }
+
+        private void CargarSubcategorias(int categoriaId)
+        {
+            IList<subcategoriaSOAP.subcategoriaDto> subcategorias = new List<subcategoriaSOAP.subcategoriaDto>();
+
+            if (categoriaId > 0)
+            {
+                // Llama al servicio SOAP para obtener solo las subcategorías de la Categoría seleccionada
+                // ¡Este método debe existir en tu servicio subcategoriaSoap!
+                subcategorias = subcategoriaSoap.listarPorCategoriaSubcategoria(categoriaId);
+            }
+            CargarDropDownList(ddlSubcategoria, subcategorias, "Nombre", "subcategoriaId");
         }
 
         private void CargarDropDownList(DropDownList ddl, object dataSource, string textField, string valueField)
@@ -105,11 +130,13 @@ namespace SquirlearnWA.PantallaInicio
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            PaginaActual = 1;
             BuscarProductos();
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
+            PaginaActual = 1;
             BuscarProductos();
         }
 
@@ -126,13 +153,14 @@ namespace SquirlearnWA.PantallaInicio
             ddlColor.SelectedIndex = 0;
 
             // Recargar sin filtros
+            PaginaActual = 1;
             BuscarProductos();
         }
 
         private void BuscarProductos()
         {
             string terminoBusqueda = txtBuscar.Text.Trim() ?? "";
-            bool tipoTransaccion = rbVenta.Checked ? true : rbAlquiler.Checked ? false : false;
+            int tipoTransaccion = rbVenta.Checked ? 1 : rbAlquiler.Checked ? 0 : 2;
             int categoriaId;
             int.TryParse(ddlCategoria.SelectedValue, out categoriaId);
             int subcategoriaId;
@@ -145,29 +173,98 @@ namespace SquirlearnWA.PantallaInicio
             int.TryParse(rblTamano.SelectedValue, out tamano);
             int color;
             int.TryParse(ddlColor.SelectedValue, out color);
-            IList<publicacionDto> publicaciones = publicacionSoap.listarPorFiltrosPublicacion(terminoBusqueda, tipoTransaccion, categoriaId, subcategoriaId, condicion, formato, tamano, color);
 
-            rptProductos.DataSource = publicaciones;
-            rptProductos.DataBind();
+            try
+            {
+                // 1. Llama al método SOAP actualizado
+                listadoPublicacionGestionDto resultado = publicacionSoap.listarPorFiltrosPublicacion(
+                    terminoBusqueda, tipoTransaccion, categoriaId, subcategoriaId, color, tamano,
+                    formato, condicion,
+                    PaginaActual, PublicacionesPorPagina); 
+
+                // 2. Desempaca el DTO
+                var publicaciones = resultado.lista; 
+                int totalPaginas = resultado.totalPaginas;
+
+                // 3. Enlaza los datos y genera la paginación
+                rptProductos.DataSource = publicaciones;
+                rptProductos.DataBind();
+                GenerarPaginacion(totalPaginas);
+            }
+            catch (Exception ex)
+            {
+                // Manejar error
+                rptProductos.DataSource = null;
+                rptProductos.DataBind();
+                GenerarPaginacion(0);
+            }
         }
 
-        protected void rptPublicaciones_ItemCommand(object source, RepeaterCommandEventArgs e)
+        private void GenerarPaginacion(int totalPaginas)
+        {
+            phPaginacion.Controls.Clear();
+            for (int i = 1; i <= totalPaginas; i++)
+            {
+                Button btnPagina = new Button
+                {
+                    Text = i.ToString(),
+                    CssClass = i == PaginaActual ? "btn btn-dark btn-sm me-1" : "btn btn-outline-dark btn-sm me-1",
+                    CommandArgument = i.ToString(),
+                    ID = "btnPagina_" + i
+                };
+                btnPagina.Click += BtnPagina_Click;
+                ScriptManager.GetCurrent(this).RegisterAsyncPostBackControl(btnPagina);
+                phPaginacion.Controls.Add(btnPagina);
+            }
+        }
+
+        protected void BtnPagina_Click(object sender, EventArgs e)
+        {
+            var btn = (Button)sender;
+            if (int.TryParse(btn.CommandArgument, out int pagina))
+            {
+                PaginaActual = pagina;
+                BuscarProductos(); // Vuelve a buscar, pero para la nueva página
+            }
+        }
+
+        protected void rptProductos_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "Solicitar")
             {
                 // Separar los valores
                 string[] args = e.CommandArgument.ToString().Split('|');
-                int idPublicacion = Convert.ToInt32(args[0]);
+                int publicacionId = Convert.ToInt32(args[0]);
                 bool esVenta = Convert.ToBoolean(args[1]);
+                string nombreProducto = args[2];
+                int itemId = Convert.ToInt32(args[3]);
+                double precio = Convert.ToDouble(args[4]);
+                int vendedorId = Convert.ToInt32(args[5]);
 
                 // Guardar en sesión
-                Session["ProductoSeleccionado"] = idPublicacion;
-                Session["tipoOperacion"] = esVenta ? "venta" : "alquiler";
+                Session["productoSeleccionado"] = publicacionId;
+                Session["esVenta"] = esVenta ? "venta" : "alquiler";
+                Session["nombreProducto"] = nombreProducto;
+                Session["itemId"] = itemId;
+                Session["precioProducto"] = precio;
+                Session["vendedorId"] = vendedorId;
 
                 if (esVenta)
                     Response.Redirect("../Transaccion/DetalleCompra.aspx");
                 else
                     Response.Redirect("../Transaccion/DetalleAlquiler.aspx");
+            }
+        }
+
+        protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(ddlCategoria.SelectedValue, out int categoriaId))
+            {
+                CargarSubcategorias(categoriaId);
+            }
+            else
+            {
+                CargarSubcategorias(0); 
             }
         }
 

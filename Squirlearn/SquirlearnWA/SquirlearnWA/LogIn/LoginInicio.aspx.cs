@@ -28,18 +28,21 @@ namespace SquirlearnWA
         {
 
 
-            string usuario = txtUsuario.Text.Trim();
+            string correoElectronico = txtUsuario.Text.Trim();
             string contrasena = txtContraseña.Text.Trim();
             
-            personaDto personaDto = personaSoap.logInPersona(usuario, contrasena);
+            personaDto usuarioLogeado = personaSoap.logInPersona(correoElectronico, contrasena);
 
-            if (personaDto != null)
+            if (usuarioLogeado != null)
             {
+
                 // Guardamos en sesión solo lo necesario
-                Session["UsuarioId"] = personaDto.personaId;
-                IList<rolPersonaDto> lista = personaDto.rolPersona;
-                Session["Rol"] = lista[1].nombre;
-                Session["NombreUsuario"] = personaDto.nombres + personaDto.primerApellido;
+                Session["usuarioId"] = usuarioLogeado.personaId;
+                
+                IList<rolPersonaDto> lista = usuarioLogeado.rolPersona;
+                Session["rol"] = lista[1].nombre;
+                Session["nombreUsuario"] = usuarioLogeado.nombres + usuarioLogeado.primerApellido;
+                Session["correoUsuario"] = usuarioLogeado.correo;
                 Response.Redirect(lista[1].nombre == "Administrador"
                                   ? "../PantallaInicio/AdminInicio.aspx"
                                   : "../PantallaInicio/SquirLearnInicio.aspx");
