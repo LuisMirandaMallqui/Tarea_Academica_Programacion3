@@ -32,7 +32,7 @@ namespace SquirlearnWA
             string codigo= txtCodigo.Text.Trim();
             string contraseña1= txtContraseña.Text.Trim();
             string contraseña2= txtConfirmarContraseña.Text.Trim();
-
+            string fechaActividad = DateTime.Now.ToString("yyyy-MM-dd");
             if (contraseña1 == contraseña2)
             {
                 if (!chkTerminos.Checked)
@@ -42,8 +42,14 @@ namespace SquirlearnWA
                 }
                 else
                 {
-                    personaSoap.insertarPersona(nombre, primerApellido,segundoApellido, codigo, correo, contraseña1, nombre + primerApellido, DateTime.Now.Date);
-                    lblError.Text = ""; // Limpia el mensaje
+                    int resultado = personaSoap.insertarPersona(nombre, primerApellido,segundoApellido, codigo, correo, contraseña1, 
+                        nombre + primerApellido + segundoApellido, fechaActividad);
+                    if (resultado == 0)
+                    {
+                        lblError.Text = "No se pudo registrar al usuario";
+                        return;
+                    }
+                    lblError.Text = ""; 
                     Response.Redirect("../Login/LoginInicio.aspx");
                 }
                    

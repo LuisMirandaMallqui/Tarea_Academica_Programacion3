@@ -15,15 +15,6 @@ namespace SquirlearnWA
     {
 
         /// <summary>
-        /// Control lblVendedor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVendedor;
-
-        /// <summary>
         /// Control imgProducto.
         /// </summary>
         /// <remarks>
@@ -40,15 +31,6 @@ namespace SquirlearnWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNombre;
-
-        /// <summary>
-        /// Control lblDescripcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcion;
 
         /// <summary>
         /// Control lblTipo.
@@ -69,40 +51,40 @@ namespace SquirlearnWA
         protected global::System.Web.UI.WebControls.Label lblPrecioDia;
 
         /// <summary>
-        /// Control lblPeriodo.
+        /// Control txtFechaInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPeriodo;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaInicio;
 
         /// <summary>
-        /// Control btnRestar.
+        /// Control txtFechaFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRestar;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaFin;
 
         /// <summary>
-        /// Control lblDias.
+        /// Control lblDiasCalculados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDias;
+        protected global::System.Web.UI.WebControls.Label lblDiasCalculados;
 
         /// <summary>
-        /// Control btnSumar.
+        /// Control lblMensajeFechas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSumar;
+        protected global::System.Web.UI.WebControls.Label lblMensajeFechas;
 
         /// <summary>
         /// Control rdbTarjeta.

@@ -17,18 +17,15 @@ public class NotificacionBo {
         this.notificacionDao = new NotificacionDaoImpl();
     }
     
-    public Integer insertar(String mensaje, Integer personaId, Integer motivoId){
+    public Integer insertar(String mensaje, Integer personaId){
         NotificacionDto notificacionDto = new NotificacionDto();
         
         PersonaDto persona = new PersonaDto();
         persona.setPersonaId(personaId);
-        MotivoDto motivo = new MotivoDto();
-        motivo.setMotivoId(motivoId);
         
         notificacionDto.setMensaje(mensaje);
-        notificacionDto.setMotivo(motivo);
         notificacionDto.setPersona(persona);
-        return this.notificacionDao.insertar(notificacionDto);
+        return this.notificacionDao.insertar(notificacionDto); ///modificar esto porque quitamos el motivo 
     }
     
     public ArrayList<NotificacionDto> listarPorPersona(Integer personaID){

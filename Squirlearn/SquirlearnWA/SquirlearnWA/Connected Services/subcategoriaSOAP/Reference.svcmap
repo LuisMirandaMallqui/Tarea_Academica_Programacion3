@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="0cfc8e14-ed9f-4959-b2a5-51992010b752" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="7ae9b121-a444-4e6f-84b2-86f24ba9f20b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:8080/SquirlearnWS/Subcategoria?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Subcategoria.wsdl" MetadataType="Wsdl" ID="858512d5-c104-484d-8845-f5459ffec745" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Subcategoria?wsdl" />
-    <MetadataFile FileName="Subcategoria.xsd" MetadataType="Schema" ID="7440e90d-931d-450e-938b-02539cf51f7b" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Subcategoria?xsd=1" />
+    <MetadataFile FileName="Subcategoria.wsdl" MetadataType="Wsdl" ID="e08120e6-0429-4b03-b440-f14277a53be1" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Subcategoria?wsdl" />
+    <MetadataFile FileName="Subcategoria.xsd" MetadataType="Schema" ID="d3d13511-7f34-4124-bb34-a0e5c6a0d507" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Subcategoria?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

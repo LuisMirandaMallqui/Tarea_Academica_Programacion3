@@ -25,10 +25,6 @@
                 El vendedor se pondrá en contacto contigo para coordinar la entrega.
             </p>
 
-            <!-- Botón para ir al chat con el vendedor -->
-            <asp:Button ID="btnIrChat" runat="server" CssClass="btn btn-outline-success fw-semibold me-2"
-                        Text="Ir al chat con el vendedor" OnClick="btnIrChat_Click" />
-
             <!-- Botón volver al inicio -->
             <asp:Button ID="btnVolverInicio" runat="server" CssClass="btn btn-primary fw-semibold"
                         Text="Volver al inicio" OnClick="btnVolverInicio_Click" />

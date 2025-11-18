@@ -69,9 +69,197 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administrador\AceptacionPublicacion.aspx" />
+    <Content Include="Administrador\ListadoDeSolicitudesAdmin.aspx" />
+    <Content Include="Administrador\RechazoPublicacion.aspx" />
+    <Content Include="Administrador\ReportesAdmin.aspx" />
+    <Content Include="Administrador\SolicitudPedidosAdmin.aspx" />
+    <None Include="Connected Services\alquilerSOAP\Alquiler.wsdl" />
+    <None Include="Connected Services\alquilerSOAP\Alquiler.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\alquilerSOAP\SquirlearnWA.alquilerSOAP.alquilerDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\alquilerSOAP\SquirlearnWA.alquilerSOAP.insertarAlquilerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\alquilerSOAP\SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\alquilerSOAP\SquirlearnWA.alquilerSOAP.modificarAlquilerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\alquilerSOAP\SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\categoriaSOAP\Categoria.wsdl" />
+    <None Include="Connected Services\categoriaSOAP\Categoria.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\alquilerSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\alquilerSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\alquilerSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\categoriaSOAP\SquirlearnWA.categoriaSOAP.categoriaDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\categoriaSOAP\SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\categoriaSOAP\SquirlearnWA.categoriaSOAP.obtenerPorIdCategoriaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\colorSOAP\Color.wsdl" />
+    <None Include="Connected Services\colorSOAP\Color.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\colorSOAP\SquirlearnWA.colorSOAP.colorDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\colorSOAP\SquirlearnWA.colorSOAP.listarTodosColorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\colorSOAP\SquirlearnWA.colorSOAP.obtenerPorIdColorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\comprobanteSOAP\Comprobante.wsdl" />
+    <None Include="Connected Services\comprobanteSOAP\Comprobante.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\comprobanteSOAP\SquirlearnWA.comprobanteSOAP.comprobanteDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\comprobanteSOAP\SquirlearnWA.comprobanteSOAP.insertarComprobanteResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\comprobanteSOAP\SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\comprobanteSOAP\SquirlearnWA.comprobanteSOAP.obtenerPorIdComprobanteResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\condicionSOAP\Condicion.wsdl" />
+    <None Include="Connected Services\condicionSOAP\Condicion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\comprobanteSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\comprobanteSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\comprobanteSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\condicionSOAP\SquirlearnWA.condicionSOAP.condicionDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\condicionSOAP\SquirlearnWA.condicionSOAP.listarTodosCondicionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\condicionSOAP\SquirlearnWA.condicionSOAP.obtenerPorIdCondicionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\estadoPublicacionSOAP\EstadoPublicacion.wsdl" />
+    <None Include="Connected Services\estadoPublicacionSOAP\EstadoPublicacion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\estadoPublicacionSOAP\SquirlearnWA.estadoPublicacionSOAP.estadoPublicacionDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\estadoPublicacionSOAP\SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\estadoPublicacionSOAP\SquirlearnWA.estadoPublicacionSOAP.obtenerPorIdEstadoPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\formatoSOAP\Formato.wsdl" />
+    <None Include="Connected Services\formatoSOAP\Formato.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\condicionSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\condicionSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\condicionSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\estadoPublicacionSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\estadoPublicacionSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\estadoPublicacionSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\formatoSOAP\SquirlearnWA.formatoSOAP.formatoDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\formatoSOAP\SquirlearnWA.formatoSOAP.listarTodosFormatoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\formatoSOAP\SquirlearnWA.formatoSOAP.obtenerPorIdFormatoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\notificacionSOAP\Notificacion.wsdl" />
+    <None Include="Connected Services\notificacionSOAP\Notificacion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\notificacionSOAP\SquirlearnWA.notificacionSOAP.insertarNotificacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\notificacionSOAP\SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\notificacionSOAP\SquirlearnWA.notificacionSOAP.notificacionDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\notificacionSOAP\SquirlearnWA.notificacionSOAP.obtenerPorIdNotificacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\personaSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\personaSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\personaSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Connected Services\categoriaSOAP\configuration91.svcinfo" />
     <None Include="Connected Services\categoriaSOAP\configuration.svcinfo" />
     <None Include="Connected Services\categoriaSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\publicacionSOAP\Publicacion.wsdl" />
+    <None Include="Connected Services\publicacionSOAP\Publicacion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\notificacionSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\notificacionSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\notificacionSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.insertarPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorDuenoPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.modificarPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.obtenerPorIdPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.publicacionDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\subcategoriaSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\subcategoriaSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\subcategoriaSOAP\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -81,9 +269,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\condicionSOAP\configuration91.svcinfo" />
-    <None Include="Connected Services\condicionSOAP\configuration.svcinfo" />
-    <None Include="Connected Services\condicionSOAP\Reference.svcmap">
+    <None Include="Connected Services\tamanoSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\tamanoSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\tamanoSOAP\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -93,33 +281,19 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\personaSOAP\configuration91.svcinfo" />
-    <None Include="Connected Services\personaSOAP\configuration.svcinfo" />
-    <None Include="Connected Services\personaSOAP\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Connected Services\publicacionSOAP\configuration91.svcinfo" />
     <None Include="Connected Services\publicacionSOAP\configuration.svcinfo" />
     <None Include="Connected Services\publicacionSOAP\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\subcategoriaSOAP\configuration91.svcinfo" />
-    <None Include="Connected Services\subcategoriaSOAP\configuration.svcinfo" />
-    <None Include="Connected Services\subcategoriaSOAP\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\tamanoSOAP\configuration91.svcinfo" />
-    <None Include="Connected Services\tamanoSOAP\configuration.svcinfo" />
-    <None Include="Connected Services\tamanoSOAP\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="PantallaInicio\AdminInicio.aspx" />
     <Content Include="PantallaInicio\Busqueda.aspx" />
-    <Content Include="PantallaInicio\Chat.aspx" />
+    <Content Include="PerfilUsuario\Notificaciones.aspx" />
+    <Content Include="PerfilUsuario\Pedidos.aspx" />
+    <Content Include="PerfilUsuario\VentasAlquiler.aspx" />
+    <Content Include="PublicacionDelUsuario\ListadoPublicaciones.aspx" />
+    <Content Include="PublicacionDelUsuario\Publicar.aspx" />
     <Content Include="Transaccion\ConfirmacionPedido.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -162,18 +336,17 @@
     <Content Include="Content\Login.css" />
     <Content Include="Transaccion\DetalleAlquiler.aspx" />
     <Content Include="Transaccion\DetalleCompra.aspx" />
-    <Content Include="Imagenes\apuntes.png" />
+    <Content Include="Imagenes\Apuntes de clase.png" />
     <Content Include="Imagenes\ardilla.png" />
     <Content Include="Imagenes\ardilla2.png" />
     <Content Include="Imagenes\Avatar.png" />
-    <Content Include="Imagenes\clases.png" />
-    <Content Include="Imagenes\cursos.png" />
-    <Content Include="Imagenes\instrumentos.png" />
-    <Content Include="Imagenes\libros.png" />
-    <Content Include="Imagenes\más.png" />
+    <Content Include="Imagenes\Clase grabada.png" />
+    <Content Include="Imagenes\Cursos.png" />
+    <Content Include="Imagenes\Instrumentos.png" />
+    <Content Include="Imagenes\Libros.png" />
+    <Content Include="Imagenes\Otros.png" />
     <Content Include="Login\LoginInicio.aspx" />
     <Content Include="Login\LoginRegistro.aspx" />
-    <Content Include="PantallaInicio\Mensajes.aspx" />
     <Content Include="Transaccion\ModalPago.aspx" />
     <Content Include="Transaccion\QuillaTip.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -189,58 +362,6 @@
     <Content Include="Content\fonts\webfonts\fa-v4compatibility.woff2" />
     <Content Include="MasterPages\Login.Master" />
     <Content Include="MasterPages\SquirLearn.Master" />
-    <None Include="Connected Services\categoriaSOAP\Categoria.wsdl" />
-    <None Include="Connected Services\categoriaSOAP\Categoria.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Connected Services\categoriaSOAP\SquirlearnWA.categoriaSOAP.categoriaDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\categoriaSOAP\SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\categoriaSOAP\SquirlearnWA.categoriaSOAP.obtenerPorIdCategoriaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\colorSOAP\Color.wsdl" />
-    <None Include="Connected Services\colorSOAP\Color.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Connected Services\colorSOAP\SquirlearnWA.colorSOAP.colorDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\colorSOAP\SquirlearnWA.colorSOAP.listarTodosColorResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\colorSOAP\SquirlearnWA.colorSOAP.obtenerPorIdColorResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\condicionSOAP\Condicion.wsdl" />
-    <None Include="Connected Services\condicionSOAP\Condicion.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Connected Services\condicionSOAP\SquirlearnWA.condicionSOAP.condicionDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\condicionSOAP\SquirlearnWA.condicionSOAP.listarTodosCondicionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\condicionSOAP\SquirlearnWA.condicionSOAP.obtenerPorIdCondicionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\formatoSOAP\Formato.wsdl" />
-    <None Include="Connected Services\formatoSOAP\Formato.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Connected Services\formatoSOAP\SquirlearnWA.formatoSOAP.formatoDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\formatoSOAP\SquirlearnWA.formatoSOAP.listarTodosFormatoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\formatoSOAP\SquirlearnWA.formatoSOAP.obtenerPorIdFormatoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Connected Services\personaSOAP\Persona.wsdl" />
     <None Include="Connected Services\personaSOAP\Persona.xsd">
       <SubType>Designer</SubType>
@@ -261,31 +382,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\personaSOAP\SquirlearnWA.personaSOAP.personaDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\publicacionSOAP\Publicacion.wsdl" />
-    <None Include="Connected Services\publicacionSOAP\Publicacion.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.insertarPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorDuenoPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.modificarPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.obtenerPorIdPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.publicacionDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\subcategoriaSOAP\SquirlearnWA.subcategoriaSOAP.listarPorCategoriaSubcategoriaResponse.datasource">
@@ -326,6 +422,46 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\AceptacionPublicacion.aspx.cs">
+      <DependentUpon>AceptacionPublicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\AceptacionPublicacion.aspx.designer.cs">
+      <DependentUpon>AceptacionPublicacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\ListadoDeSolicitudesAdmin.aspx.cs">
+      <DependentUpon>ListadoDeSolicitudesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\ListadoDeSolicitudesAdmin.aspx.designer.cs">
+      <DependentUpon>ListadoDeSolicitudesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\RechazoPublicacion.aspx.cs">
+      <DependentUpon>RechazoPublicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\RechazoPublicacion.aspx.designer.cs">
+      <DependentUpon>RechazoPublicacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\ReportesAdmin.aspx.cs">
+      <DependentUpon>ReportesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\ReportesAdmin.aspx.designer.cs">
+      <DependentUpon>ReportesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\SolicitudPedidosAdmin.aspx.cs">
+      <DependentUpon>SolicitudPedidosAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\SolicitudPedidosAdmin.aspx.designer.cs">
+      <DependentUpon>SolicitudPedidosAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\alquilerSOAP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\categoriaSOAP\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -336,12 +472,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\comprobanteSOAP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\condicionSOAP\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\estadoPublicacionSOAP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\formatoSOAP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\notificacionSOAP\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -380,12 +531,40 @@
     <Compile Include="PantallaInicio\Busqueda.aspx.designer.cs">
       <DependentUpon>Busqueda.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PantallaInicio\Chat.aspx.cs">
-      <DependentUpon>Chat.aspx</DependentUpon>
+    <Compile Include="PerfilUsuario\Notificaciones.aspx.cs">
+      <DependentUpon>Notificaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PantallaInicio\Chat.aspx.designer.cs">
-      <DependentUpon>Chat.aspx</DependentUpon>
+    <Compile Include="PerfilUsuario\Notificaciones.aspx.designer.cs">
+      <DependentUpon>Notificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilUsuario\Pedidos.aspx.cs">
+      <DependentUpon>Pedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilUsuario\Pedidos.aspx.designer.cs">
+      <DependentUpon>Pedidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilUsuario\VentasAlquiler.aspx.cs">
+      <DependentUpon>VentasAlquiler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilUsuario\VentasAlquiler.aspx.designer.cs">
+      <DependentUpon>VentasAlquiler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicacionDelUsuario\ListadoPublicaciones.aspx.cs">
+      <DependentUpon>ListadoPublicaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicacionDelUsuario\ListadoPublicaciones.aspx.designer.cs">
+      <DependentUpon>ListadoPublicaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicacionDelUsuario\Publicar.aspx.cs">
+      <DependentUpon>Publicar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicacionDelUsuario\Publicar.aspx.designer.cs">
+      <DependentUpon>Publicar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transaccion\ConfirmacionPedido.aspx.cs">
       <DependentUpon>ConfirmacionPedido.aspx</DependentUpon>
@@ -428,13 +607,6 @@
     </Compile>
     <Compile Include="MasterPages\SquirLearn.Master.designer.cs">
       <DependentUpon>SquirLearn.Master</DependentUpon>
-    </Compile>
-    <Compile Include="PantallaInicio\Mensajes.aspx.cs">
-      <DependentUpon>Mensajes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PantallaInicio\Mensajes.aspx.designer.cs">
-      <DependentUpon>Mensajes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transaccion\ModalPago.aspx.cs">
       <DependentUpon>ModalPago.aspx</DependentUpon>
@@ -503,10 +675,14 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\alquilerSOAP\" />
     <WCFMetadataStorage Include="Connected Services\categoriaSOAP\" />
     <WCFMetadataStorage Include="Connected Services\colorSOAP\" />
+    <WCFMetadataStorage Include="Connected Services\comprobanteSOAP\" />
     <WCFMetadataStorage Include="Connected Services\condicionSOAP\" />
+    <WCFMetadataStorage Include="Connected Services\estadoPublicacionSOAP\" />
     <WCFMetadataStorage Include="Connected Services\formatoSOAP\" />
+    <WCFMetadataStorage Include="Connected Services\notificacionSOAP\" />
     <WCFMetadataStorage Include="Connected Services\personaSOAP\" />
     <WCFMetadataStorage Include="Connected Services\publicacionSOAP\" />
     <WCFMetadataStorage Include="Connected Services\subcategoriaSOAP\" />

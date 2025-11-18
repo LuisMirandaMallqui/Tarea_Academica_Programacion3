@@ -17,14 +17,27 @@ namespace SquirlearnWA.MasterPages
                 if (Session["Rol"].ToString() == "Administrador")
                 {
                     // Mostrar o habilitar opciones especiales
-                    menuAdmin.Visible = true;
+                    menuAdmin.Visible = false;
+                    menuUsuario.Visible = true;
+                    menuPerfil.Visible = true;
                 }
                 else
                 {
                     menuAdmin.Visible = false;
+                    menuUsuario.Visible = true;
+                    menuPerfil.Visible = true;
                 }
             }
+        }
 
+        protected void lkbCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
 
-   }      }
+            // Redirige al usuario a la página de inicio de sesión
+            Response.Redirect("../Login/LoginInicio.aspx");
+        }
+
+    }     
 }

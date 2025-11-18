@@ -14,11 +14,11 @@
                 CssClass="card-option text-decoration-none text-dark"
                 CommandName="VerCategoria"
                 CommandArgument='<%# Eval("categoriaId") %>'>
-                <img src='<%# ResolveUrl("~/Imagenes/" + Eval("UrlImagen")) %>' alt='<%# Eval("nombre") %>' />
+                <img src='<%# ResolveUrl("../Imagenes/" + Eval("nombre")+ ".png") %>' alt='<%# Eval("nombre") %>' />
                 <asp:Label ID="lblNombreCategoria" runat="server" Text='<%# Eval("nombre") %>' CssClass="d-block fw-semibold"></asp:Label>
             </asp:LinkButton>
 
-
+            
         </ItemTemplate>
 
         <FooterTemplate>

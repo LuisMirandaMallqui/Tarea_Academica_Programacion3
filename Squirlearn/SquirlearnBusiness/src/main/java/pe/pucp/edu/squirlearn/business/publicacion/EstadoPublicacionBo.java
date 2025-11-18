@@ -23,4 +23,15 @@ public class EstadoPublicacionBo {
         return this.estadoPublicacionDao.obtenerPorId(id);
     }
     
+    public Integer obtenerId(String nombreMonedaBuscada ){
+        
+        ArrayList<EstadoPublicacionDto> lista = estadoPublicacionDao.listarTodos();
+        EstadoPublicacionDto encontrado = lista.stream()
+            .filter(m -> (m.getNombre().toUpperCase()).equalsIgnoreCase(nombreMonedaBuscada))
+            .findFirst()
+            .orElse(null);
+                
+        return encontrado.getEstadoPublicacionId();
+    }
+    
 }

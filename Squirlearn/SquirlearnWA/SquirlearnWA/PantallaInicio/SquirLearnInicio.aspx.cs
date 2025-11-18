@@ -23,7 +23,7 @@ namespace SquirlearnWA
 
             if (!IsPostBack)
             {
-                // Llamar al método que lista las categorías (por ahora simuladas)
+                
                 List<categoriaDto> listaCategorias = categoriaSoap.listarTodosCategoria().ToList();
 
                 // Enlazar al control Repeater o DataList (por ejemplo: rptCategorias)
@@ -51,7 +51,7 @@ namespace SquirlearnWA
 
         protected void btnBusqueda_Click(object sender, EventArgs e)
         {
-            Session["idCategoria"] = null;
+            Session["idCategoria"] = 0;
             Response.Redirect("Busqueda.aspx");
         }
 

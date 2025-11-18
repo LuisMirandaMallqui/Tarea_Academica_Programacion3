@@ -24,6 +24,15 @@ namespace SquirlearnWA.MasterPages
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control menuUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel menuUsuario;
+
+        /// <summary>
         /// Control menuAdmin.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace SquirlearnWA.MasterPages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel menuAdmin;
+
+        /// <summary>
+        /// Control lkbCerrarSesion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lkbCerrarSesion;
 
         /// <summary>
         /// Control cphContenido.

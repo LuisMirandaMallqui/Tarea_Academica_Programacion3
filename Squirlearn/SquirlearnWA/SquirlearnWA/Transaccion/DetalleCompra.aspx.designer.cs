@@ -24,15 +24,6 @@ namespace SquirlearnWA
         protected global::System.Web.UI.WebControls.LinkButton btnVolver;
 
         /// <summary>
-        /// Control lblVendedor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVendedor;
-
-        /// <summary>
         /// Control imgProducto.
         /// </summary>
         /// <remarks>
@@ -42,13 +33,13 @@ namespace SquirlearnWA
         protected global::System.Web.UI.WebControls.Image imgProducto;
 
         /// <summary>
-        /// Control lblNombreProducto.
+        /// Control lblNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreProducto;
+        protected global::System.Web.UI.WebControls.Label lblNombre;
 
         /// <summary>
         /// Control lblDescripcion.
@@ -58,6 +49,24 @@ namespace SquirlearnWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDescripcion;
+
+        /// <summary>
+        /// Control lblTipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTipo;
+
+        /// <summary>
+        /// Control lblPrecioDia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPrecioDia;
 
         /// <summary>
         /// Control lblPrecio.
@@ -94,15 +103,6 @@ namespace SquirlearnWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSubtotal;
-
-        /// <summary>
-        /// Control lblAhorro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAhorro;
 
         /// <summary>
         /// Control lblTotal.

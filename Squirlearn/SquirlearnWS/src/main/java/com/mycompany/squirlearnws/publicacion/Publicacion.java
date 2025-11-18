@@ -5,6 +5,7 @@ import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import java.sql.Date;
 import java.util.ArrayList;
+import pe.edu.pucp.squirlearn.model.publicacion.ListadoPublicacionGestionDto;
 import pe.edu.pucp.squirlearn.model.publicacion.PublicacionDto;
 import pe.pucp.edu.squirlearn.business.publicacion.PublicacionBo;
 
@@ -72,17 +73,30 @@ public class Publicacion {
     }
 
     @WebMethod(operationName = "listarPorFiltrosPublicacion")
-    public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(
+    public ListadoPublicacionGestionDto listarPorFiltrosPublicacion(
             @WebParam(name = "terminoBusqueda") String terminoBusqueda, // CON ITEM
-            @WebParam(name = "esVenta") Boolean esVenta, // De ITEM
+            @WebParam(name = "esVenta") Integer esVenta, // De ITEM
             @WebParam(name = "idCategoria") Integer idCategoria, // De ITEM
             @WebParam(name = "idSubcategoria") Integer idSubcategoria, // De ITEM
             @WebParam(name = "idColores") Integer idColores, // De ITEM
             @WebParam(name = "idTamanos") Integer idTamanos, // De ITEM
             @WebParam(name = "idFormatos") Integer idFormatos, // De ITEM
-            @WebParam(name = "idCondicion") Integer idCondicion){ // De ITEM
+            @WebParam(name = "idCondicion") Integer idCondicion,
+            @WebParam(name = "paginaActual") Integer paginaActual,
+            @WebParam(name = "publicacionesPorPagina") Integer publicacionesPorPagina){ // De ITEM
 //            @WebParam(name = "idEstado") Integer idEstado) { // De PUB
         return this.publicacionBo.listarPorFiltrosPublicacion(terminoBusqueda, esVenta, idCategoria, idSubcategoria, idColores,
-                idTamanos, idFormatos, idCondicion);
+                idTamanos, idFormatos, idCondicion,paginaActual,publicacionesPorPagina); // por modificar esto: Miranda está asignado
     }
+    
+    
+    @WebMethod(operationName = "cambiarEstadoPublicacion")
+    public Integer CambiarEstadoPublicacion(
+            @WebParam(name = "publicacionId") Integer publicacionId,
+            @WebParam(name = "usuario") String usuario,
+            @WebParam(name = "estado") String estado){  
+        return this.publicacionBo.cambiarEstadoPublicacion(publicacionId, usuario, estado);   
+    }
+    
+    
 }

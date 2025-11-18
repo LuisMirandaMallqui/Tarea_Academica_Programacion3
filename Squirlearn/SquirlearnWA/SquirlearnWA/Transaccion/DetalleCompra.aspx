@@ -12,33 +12,22 @@
                 </asp:LinkButton>
             </div>
 
-            <!-- VENDEDOR -->
-            <div class="col-md-3 text-center border-end">
-                <img src="../Imagenes/Avatar.png" alt="Vendedor" style="width:120px; height:120px; border-radius:50%;">
-                <h5 class="fw-semibold mt-3"><asp:Label ID="lblVendedor" runat="server" /></h5>
-                <div class="text-warning mb-2">
-                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                </div>
-                <p class="text-muted small mt-2">Excelente reputación y tiempo de respuesta rápido</p>
-            </div>
-
             <!-- DETALLE – COMPRA -->
-            <div class="col-md-5 border-end">
+            <div class="col-md-8 border-end">
                 <div class="px-4">
                     <h1 class="fw-bold text-secondary">DETALLE – COMPRA</h1>
 
                     <div class="d-flex align-items-center mb-3">
-                        <asp:Image ID="imgProducto" runat="server" Style="width:100px; height:100px; object-fit:contain; margin-right:15px;" />
+                        <asp:Image ID="imgProducto" runat="server"
+                                   Style="width:100px; height:100px; object-fit:contain; margin-right:15px;" />
                         <div>
-                            <h5 class="fw-bold mb-1">
-                                <asp:Label ID="lblNombreProducto" runat="server" />
-                            </h5>
-                            <p class="text-muted small mb-0">
-                                <asp:Label ID="lblDescripcion" runat="server" />
-                            </p>
+                            <h5 class="fw-bold mb-1"><asp:Label ID="lblNombre" runat="server" /></h5>
+                            <p class="text-muted small mb-0"><asp:Label ID="lblDescripcion" runat="server" /></p>
                         </div>
                     </div>
+
+                    <asp:Label ID="lblTipo" runat="server" CssClass="fw-semibold d-block" Text="Tipo: Compra"></asp:Label>
+                    <asp:Label ID="lblPrecioDia" runat="server" CssClass="text-primary d-block mt-1" Text="Precio: S/ 0.00"></asp:Label>
 
                     <div class="text-primary fw-bold fs-4 mb-2">
                         <asp:Label ID="lblPrecio" runat="server" />
@@ -75,8 +64,6 @@
                     <div class="mt-4">
                         <h6 class="fw-bold">Resumen</h6>
                         <p class="mb-1">Subtotal: <span class="float-end">s/. <asp:Label ID="lblSubtotal" runat="server" Text="0.00"></asp:Label></span></p>
-                        <p class="mb-1">Ahorro: <span class="float-end">- s/. <asp:Label ID="lblAhorro" runat="server" Text="0.00"></asp:Label></span></p>
-                        <hr />
                         <h5>Total: <span id="lblTotal" runat="server" class="float-end fw-bold text-primary">s/. 0.00</span></h5>
                     </div>
 
