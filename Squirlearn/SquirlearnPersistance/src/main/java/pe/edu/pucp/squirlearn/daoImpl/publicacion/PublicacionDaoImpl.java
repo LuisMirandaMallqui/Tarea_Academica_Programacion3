@@ -46,9 +46,11 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         this.statement.setInt(i++, this.publicacion.getPersona().getPersonaId());
         this.statement.setString(i++, this.publicacion.getFechaAlta());
         this.statement.setString(i++, this.publicacion.getFechaBaja());
-        if (this.publicacion.getCalificacion() == null) 
+        if (this.publicacion.getCalificacion() == null) {
             this.statement.setNull(i++, 0);
-        else this.statement.setInt(i++, publicacion.getCalificacion());
+        } else {
+            this.statement.setInt(i++, publicacion.getCalificacion());
+        }
         this.statement.setString(i++, this.publicacion.getusuarioCreacion());
         this.statement.setString(i++, this.publicacion.getusuarioModificacion());
     }
@@ -61,9 +63,11 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         this.statement.setInt(i++, this.publicacion.getPersona().getPersonaId());
         this.statement.setString(i++, this.publicacion.getFechaAlta());
         this.statement.setString(i++, this.publicacion.getFechaBaja());
-        if (this.publicacion.getCalificacion() == null) 
+        if (this.publicacion.getCalificacion() == null) {
             this.statement.setNull(i++, 0);
-        else this.statement.setInt(i++, publicacion.getCalificacion());
+        } else {
+            this.statement.setInt(i++, publicacion.getCalificacion());
+        }
         this.statement.setString(i++, this.publicacion.getusuarioCreacion());
         this.statement.setString(i++, this.publicacion.getusuarioModificacion());
         this.statement.setInt(i++, this.publicacion.getPublicacionId()); // WHERE
@@ -81,6 +85,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         // Item
         ItemDto item = new ItemDto();
         item.setItemId(this.resultSet.getInt("ITEM_ID_ITEM"));
+
         this.publicacion.setItem(item);
 
         // Persona
@@ -203,7 +208,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
     public void ejecutarReporteTransaccionesReceptor() {
         Object parametros = new ParamReporteTransaccionesReceptor(
                 /* _inicio */("2025-01-01"),
-                /* _fin    */("2025-12-31")
+                /* _fin    */ ("2025-12-31")
         );
         String sql = "{CALL REPORTE_TRANSACCCIONES_RECEPTOR(?, ?)}";
         Boolean conTransaccion = true;
@@ -287,7 +292,15 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
 
         sql.append(" AND I.ESTADO_ITEM_ID = 1 ");
         sql.append(" AND P.ESTADO_PUBLICACION_ID = 2 ");
-
+        sql.append(" ORDER BY P.FECHA_ALTA DESC, P.PUBLICACION_ID DESC ");
+        //pagina y cantidadPorPagina
+        if (pagina != null && cantidadPorPagina != null && pagina > 0) {
+            int offset = (pagina - 1) * cantidadPorPagina;
+            sql.append(" LIMIT ? OFFSET ? ");
+            parametros.add(cantidadPorPagina);
+            parametros.add(offset);
+        }
+        
         Consumer<PreparedStatement> incluirValores = p -> {
             try {
                 int i = 1;
@@ -301,6 +314,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
 
         return (ArrayList<PublicacionDto>) this.listarTodos(sql.toString(), incluirValores, null);
     }
+
     @Override
     public ArrayList<PublicacionDto> listarPorDueno(Integer personaId) {
         String sql = this.generarSQLParaListarTodos() + " WHERE PERSONA_ID=?";

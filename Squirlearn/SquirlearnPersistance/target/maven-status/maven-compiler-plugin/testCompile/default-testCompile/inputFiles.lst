@@ -1,26 +1,26 @@
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\alquiler\AlquilerDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\chat\ChatDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\chat\EstadoChatDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\chat\EstadoMensajeDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\chat\MensajeDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\chat\PersonaChatDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\comprobante\ComprobanteDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\comprobante\DetalleComprobanteDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\comprobante\FormaPagoDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\comprobante\MonedaPagoDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\inciNoti\IncidenciaDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\inciNoti\MotivoDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\inciNoti\NotificacionDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\CategoriaDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\ColorDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\CondicionDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\EstadoItemDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\FormatoDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\ItemDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\SubcategoriaDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\TamanoDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\persona\EstadoPersonaDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\persona\PersonaDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\persona\RolPersonaDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\publicacion\EstadoPublicacionDaoTest.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\publicacion\PublicacionDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\alquiler\AlquilerDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\chat\ChatDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\chat\EstadoChatDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\chat\EstadoMensajeDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\chat\MensajeDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\chat\PersonaChatDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\comprobante\ComprobanteDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\comprobante\DetalleComprobanteDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\comprobante\FormaPagoDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\comprobante\MonedaPagoDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\inciNoti\IncidenciaDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\inciNoti\MotivoDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\inciNoti\NotificacionDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\CategoriaDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\ColorDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\CondicionDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\EstadoItemDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\FormatoDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\ItemDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\SubcategoriaDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\item\TamanoDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\persona\EstadoPersonaDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\persona\PersonaDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\persona\RolPersonaDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\publicacion\EstadoPublicacionDaoTest.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\test\java\pe\edu\pucp\squirlearn\dao\publicacion\PublicacionDaoTest.java

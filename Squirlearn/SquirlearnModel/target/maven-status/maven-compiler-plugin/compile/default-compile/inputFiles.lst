@@ -1,26 +1,26 @@
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\alquiler\AlquilerDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\chat\ChatDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\chat\EstadoChatDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\chat\EstadoMensajeDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\chat\MensajeDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\chat\PersonaChatDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\comprobante\ComprobanteDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\comprobante\DetalleComprobanteDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\comprobante\FormaPagoDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\comprobante\MonedaPagoDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\inciNoti\IncidenciaDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\inciNoti\MotivoDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\inciNoti\NotificacionDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\CategoriaDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\ColorDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\CondicionDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\EstadoItemDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\FormatoDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\ItemDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\SubcategoriaDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\TamanoDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\persona\EstadoPersonaDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\persona\PersonaDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\persona\RolPersonaDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\publicacion\EstadoPublicacionDto.java
-C:\Users\adria\Downloads\Tarea_Academica_Programacion3-main (1)\Tarea_Academica_Programacion3-main\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\publicacion\PublicacionDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\alquiler\AlquilerDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\chat\ChatDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\chat\EstadoChatDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\chat\EstadoMensajeDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\chat\MensajeDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\chat\PersonaChatDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\comprobante\ComprobanteDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\comprobante\DetalleComprobanteDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\comprobante\FormaPagoDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\comprobante\MonedaPagoDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\inciNoti\IncidenciaDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\inciNoti\MotivoDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\inciNoti\NotificacionDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\CategoriaDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\ColorDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\CondicionDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\EstadoItemDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\FormatoDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\ItemDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\SubcategoriaDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\item\TamanoDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\persona\EstadoPersonaDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\persona\PersonaDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\persona\RolPersonaDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\publicacion\EstadoPublicacionDto.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnModel\src\main\java\pe\edu\pucp\squirlearn\model\publicacion\PublicacionDto.java
