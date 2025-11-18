@@ -109,12 +109,12 @@ public class PublicacionBo {
         return this.publicacionDao.listarPorEstado(estadoId); //necesita implementación
     }
 
-    public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(String terminoBusqueda, Boolean esVenta,
-            Integer idCategoria, Integer idSubcategoria, Integer idColores, Integer idTamanos, Integer idFormatos,
-            Integer idCondicion) {
-        return this.publicacionDao.listarPorFiltrosPublicacion(terminoBusqueda, esVenta, idCategoria, idSubcategoria, idColores,
-                idTamanos, idFormatos, idCondicion); //necesita implementación
-    }
+//    public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(String terminoBusqueda, Boolean esVenta,
+//            Integer idCategoria, Integer idSubcategoria, Integer idColores, Integer idTamanos, Integer idFormatos,
+//            Integer idCondicion) {
+//        return this.publicacionDao.listarPorFiltrosPublicacion(terminoBusqueda, esVenta, idCategoria, idSubcategoria, idColores,
+//                idTamanos, idFormatos, idCondicion); //necesita implementación
+//    }
 
     public ArrayList<PublicacionDto> listarPorDueno(Integer personaId) {
         return this.publicacionDao.listarPorDueno(personaId); //necesita implementación

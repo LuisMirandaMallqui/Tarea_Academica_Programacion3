@@ -10,16 +10,17 @@ public interface PublicacionDao extends IDAO<PublicacionDto>{
             Integer estadoId
     );
 
-    public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(
-            String terminoBusqueda,
-            Boolean esVenta,
-            Integer idCategoria,
-            Integer idSubcategoria,
-            Integer idColor,
-            Integer idTamano,
-            Integer idFormato,
-            Integer idCondicion
-//            Integer idEstado
-    ); 
+//    public ArrayList<PublicacionDto> listarPorFiltrosPublicacion(
+//            String terminoBusqueda,
+//            Boolean esVenta,
+//            Integer idCategoria,
+//            Integer idSubcategoria,
+//            Integer idColor,
+//            Integer idTamano,
+//            Integer idFormato,
+//            Integer idCondicion
+////            Integer idEstado
+//    ); 
+    
     public ArrayList<PublicacionDto> listarPorDueno(Integer personaId);
 }

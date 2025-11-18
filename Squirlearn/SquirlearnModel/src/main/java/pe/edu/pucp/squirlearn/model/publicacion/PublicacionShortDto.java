@@ -2,7 +2,6 @@
 package pe.edu.pucp.squirlearn.model.publicacion;
 
 public class PublicacionShortDto {
-
     private Integer publicacionId;
     private String nombre;
     private Integer itemId;
@@ -12,7 +11,7 @@ public class PublicacionShortDto {
     private Boolean esVenta;
     private String categoriaNombre;
     private String estadoNombre;
-    private String fechaEnvio;
+    private String fechaEnvio; // de fecha creación?
     
     public PublicacionShortDto(){
         this.publicacionId = null;

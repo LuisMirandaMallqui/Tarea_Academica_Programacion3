@@ -1,6 +1,7 @@
 pe\edu\pucp\squirlearn\model\comprobante\ComprobanteDto.class
 pe\edu\pucp\squirlearn\model\publicacion\EstadoPublicacionDto.class
 pe\edu\pucp\squirlearn\model\comprobante\MonedaPagoDto.class
+pe\edu\pucp\squirlearn\model\publicacion\ListadoPublicacionGestionDto.class
 pe\edu\pucp\squirlearn\model\item\CategoriaDto.class
 pe\edu\pucp\squirlearn\model\inciNoti\NotificacionDto.class
 pe\edu\pucp\squirlearn\model\chat\ChatDto.class
@@ -24,3 +25,4 @@ pe\edu\pucp\squirlearn\model\chat\EstadoChatDto.class
 pe\edu\pucp\squirlearn\model\chat\MensajeDto.class
 pe\edu\pucp\squirlearn\model\alquiler\AlquilerDto.class
 pe\edu\pucp\squirlearn\model\item\TamanoDto.class
+pe\edu\pucp\squirlearn\model\publicacion\PublicacionShortDto.class

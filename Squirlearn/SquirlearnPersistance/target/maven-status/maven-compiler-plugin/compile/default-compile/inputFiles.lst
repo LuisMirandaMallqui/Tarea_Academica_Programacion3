@@ -25,6 +25,7 @@ D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersi
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\dao\persona\RolPersonaDao.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\dao\publicacion\EstadoPublicacionDao.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\dao\publicacion\PublicacionDao.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\dao\publicacion\PublicacionShortDao.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\alquiler\AlquilerDaoImpl.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\chat\ChatDaoImpl.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\chat\EstadoChatDaoImpl.java
@@ -52,6 +53,7 @@ D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersi
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\persona\RolPersonaDaoImpl.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\publicacion\EstadoPublicacionDaoImpl.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\publicacion\PublicacionDaoImpl.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\publicacion\PublicacionShortDaoImpl.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\util\Columna.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\util\ParamReporteAlquiler.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\util\ParamReporteTransaccionesOfertador.java

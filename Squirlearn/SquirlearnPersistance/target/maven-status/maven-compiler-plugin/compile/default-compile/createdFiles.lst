@@ -25,6 +25,7 @@ pe\edu\pucp\squirlearn\dao\item\EstadoItemDao.class
 pe\edu\pucp\squirlearn\daoImpl\chat\ChatDaoImpl.class
 pe\edu\pucp\squirlearn\daoImpl\publicacion\PublicacionDaoImpl.class
 pe\edu\pucp\squirlearn\daoImpl\item\ItemDaoImpl.class
+pe\edu\pucp\squirlearn\dao\publicacion\PublicacionShortDao.class
 pe\edu\pucp\squirlearn\daoImpl\item\TamanoDaoImpl.class
 pe\edu\pucp\squirlearn\dao\comprobante\FormaPagoDao.class
 pe\edu\pucp\squirlearn\dao\item\TamanoDao.class
@@ -49,6 +50,7 @@ pe\edu\pucp\squirlearn\daoImpl\inciNoti\MotivoDaoImpl.class
 pe\edu\pucp\squirlearn\daoImpl\chat\EstadoMensajeDaoImpl.class
 pe\edu\pucp\squirlearn\daoImpl\item\CondicionDaoImpl.class
 pe\edu\pucp\squirlearn\dao\item\CategoriaDao.class
+pe\edu\pucp\squirlearn\daoImpl\publicacion\PublicacionShortDaoImpl.class
 pe\edu\pucp\squirlearn\daoImpl\comprobante\ComprobanteDaoImpl.class
 pe\edu\pucp\squirlearn\daoImpl\inciNoti\IncidenciaDaoImpl.class
 pe\edu\pucp\squirlearn\dao\persona\EstadoPersonaDao.class
