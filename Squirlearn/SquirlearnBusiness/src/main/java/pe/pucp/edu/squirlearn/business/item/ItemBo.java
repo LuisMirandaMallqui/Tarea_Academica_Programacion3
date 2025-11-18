@@ -14,9 +14,10 @@ import pe.edu.pucp.squirlearn.model.item.TamanoDto;
 public class ItemBo {
     
     private ItemDao itemDao;
-    
+    private EstadoItemBo estadoItemBo;
     public ItemBo(){
         this.itemDao = new ItemDaoImpl();
+        this.estadoItemBo = new EstadoItemBo();
     }
     
     public Integer insertar(Double precio, String nombre,String descripcion ,Boolean esVenta ,
@@ -37,7 +38,7 @@ public class ItemBo {
         SubcategoriaDto subcategoria = new SubcategoriaDto();
         subcategoria.setSubcategoriaId(subcategoriaId);
         EstadoItemDto estado = new EstadoItemDto();
-        estado.setEstadoItemId(1);
+        estado.setEstadoItemId(this.estadoItemBo.obtenerId(("Disponible").toUpperCase()));
         
         itemdto.setPrecio(precio);
         itemdto.setNombre(nombre);
@@ -55,9 +56,9 @@ public class ItemBo {
     }
     
     public Integer modificar(Integer id,Double precio,String nombre, String descripcion, Boolean esVenta ,
-            Integer colorId, Integer estadoId ,Integer condicionId, Integer tamanoId, Integer formatoId,
-            Integer categoriaId, Integer subcategoriaId,String usuario,String usuarioCreacion,String usuarioModificacion){
-        ItemDto itemdto = new ItemDto();
+            Integer colorId ,Integer condicionId, Integer tamanoId, Integer formatoId,
+            Integer categoriaId, Integer subcategoriaId,String usuario){
+        ItemDto itemdto = this.obtenerPorId(id);
         
         ColorDto color = new ColorDto();
         color.setColorId(colorId);
@@ -71,8 +72,6 @@ public class ItemBo {
         categoria.setCategoriaId(categoriaId);
         SubcategoriaDto subcategoria = new SubcategoriaDto();
         subcategoria.setSubcategoriaId(subcategoriaId);
-        EstadoItemDto estado = new EstadoItemDto();
-        estado.setEstadoItemId(estadoId);
         
         itemdto.setItemId(id);
         itemdto.setPrecio(precio);
@@ -85,9 +84,7 @@ public class ItemBo {
         itemdto.setFormato(formato);
         itemdto.setCategoria(categoria);
         itemdto.setSubcategoria(subcategoria);
-        itemdto.setEstadoItem(estado);
-        itemdto.setusuarioCreacion(usuarioCreacion);
-        itemdto.setusuarioModificacion(usuarioModificacion);
+        itemdto.setusuarioModificacion(usuario);
         return this.itemDao.modificar(itemdto);
     }
     

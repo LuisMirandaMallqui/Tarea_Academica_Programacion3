@@ -19,7 +19,7 @@
       <xs:element minOccurs="0" name="correo" type="xs:string" />
       <xs:element minOccurs="0" name="contrasena" type="xs:string" />
       <xs:element minOccurs="0" name="usuario" type="xs:string" />
-      <xs:element minOccurs="0" name="creadorId" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ultimaActividad" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarPersonaResponse">
@@ -48,7 +48,7 @@
       <xs:element minOccurs="0" name="primerApellido" type="xs:string" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="rolPersona" nillable="true" type="tns:rolPersonaDto" />
       <xs:element minOccurs="0" name="segundoApellido" type="xs:string" />
-      <xs:element minOccurs="0" name="ultimaActividad" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ultimaActividad" type="xs:string" />
       <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
       <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
     </xs:sequence>
@@ -98,7 +98,7 @@
       <xs:element minOccurs="0" name="estadoId" type="xs:int" />
       <xs:element minOccurs="0" name="usuario" type="xs:string" />
       <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
-      <xs:element minOccurs="0" name="creadorId" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ultimaActividad" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="modificarPersonaResponse">

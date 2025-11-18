@@ -1,5 +1,4 @@
-﻿using SquirlearnWA.publicacionSOAP;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -12,44 +11,29 @@ namespace SquirlearnWA
 {
     public partial class DetalleCompra : Page
     {
-
-        private PublicacionClient publicacionSoap;
-
-        public DetalleCompra()
-        {
-            publicacionSoap = new PublicacionClient();
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack && Session["ProductoSeleccionado"] != null)
+            if (!IsPostBack)
             {
-                publicacionDto publicacion = publicacionSoap.obtenerPorIdPublicacion((int)Session["ProductoSeleccionado"]);
 
-                itemDto item = publicacion.item;
-
-                lblNombreProducto.Text = item.nombre;
-                lblDescripcion.Text = item.descripcion;
-                lblPrecio.Text = "s/. " + item.precio; 
-                imgProducto.ImageUrl = "https://via.placeholder.com/250";
-                lblVendedor.Text = publicacion.persona.nombres;
-
-                // Limpia texto y convierte
-                string precioTexto = $"S/ {item.precio:F2}";
+                    lblNombre.Text = Session["nombre"].ToString();
+                    lblPrecioDia.Text = $"Precio por día: s/. {Session["precioProducto"].ToString()} / día";
+                    imgProducto.ImageUrl = "https://via.placeholder.com/250";// imagen genérica por ahora... :¿
 
 
+                    string precioTexto = Session["precioProducto"].ToString()
+                        .Replace("s/.", "")
+                        .Replace("S/.", "")
+                        .Replace("s/", "")
+                        .Replace("S/", "")
+                        .Trim();
 
-                // Cálculo inicial sin envío
-                decimal precio = Convert.ToDecimal(precioTexto, CultureInfo.InvariantCulture);
-                decimal ahorro = 0.00M;
-                decimal total = precio - ahorro;
+                    // Cálculo inicial
+                    double precio = Convert.ToDouble(precioTexto, CultureInfo.InvariantCulture);
+                    lblSubtotal.Text = precio.ToString("0.00");
+                    lblTotal.InnerText = $"s/. {precio:0.00}";
+                    Session["montoTotal"] = precio;
 
-                lblSubtotal.Text = precio.ToString("0.00");
-                lblAhorro.Text = ahorro.ToString("0.00");
-                lblTotal.InnerText = "S/ " + total.ToString("0.00");
-                Session["TotalCompra"] = total;
-                Session["ProductoNombre"] = item.nombre;
-                Session["ProductoDescripcion"] = item.descripcion;
             }
         }
 
@@ -62,17 +46,17 @@ namespace SquirlearnWA
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
             string metodo = "";
-            
+
             if (rdbTarjeta.Checked)
                 metodo = "tarjeta";
             else if (rdbYape.Checked)
                 metodo = "yape";
+
+            Session["metodoPago"] = metodo;
             string nombrePagina = System.IO.Path.GetFileName(Request.Url.AbsolutePath);
-            // Si es compra:
-            Session["EsAlquiler"] = false;
+
             Response.Redirect("ModalPago.aspx?metodo=" + metodo + "&origen=" + nombrePagina);
 
-            //Response.Redirect("QuillaTip.aspx");
         }
     }
 }

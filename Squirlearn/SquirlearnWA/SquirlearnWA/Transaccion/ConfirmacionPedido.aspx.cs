@@ -1,4 +1,8 @@
-﻿using System;
+﻿using SquirlearnWA.alquilerSOAP;
+using SquirlearnWA.comprobanteSOAP;
+using SquirlearnWA.notificacionSOAP;
+using SquirlearnWA.publicacionSOAP;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +13,19 @@ namespace SquirlearnWA
 {
     public partial class ConfirmacionPedido : Page
     {
+        private ComprobanteClient comprobanteSoap;
+        private NotificacionClient notificacionSoap;
+        private AlquilerClient alquilerSoap;
+        public ConfirmacionPedido()
+        {
+            this.notificacionSoap = new NotificacionClient();
+            this.alquilerSoap = new AlquilerClient();
+            this.comprobanteSoap = new ComprobanteClient();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             // Si se llega a esta página, el pedido ya fue confirmado
-            // (Aquí podrías guardar en la BD si aún no lo hiciste)
             if (!IsPostBack)
             {
                 if (Session["PagoError"] != null)
@@ -29,62 +42,95 @@ namespace SquirlearnWA
                 }
                 else
                 {
-                    // No hay error: mostrar solo el éxito
+                    //aqui integramos el insertar alquiler y cambiar de estado a vendido
+
+
+                    int alquilerId = 0;
                     pnlError.Visible = false;
                     divExito.Visible = true;
-                     lblNombre.Text = Session["ProductoNombre"].ToString();
-                     lblDescripcion.Text = Session["ProductoDescripcion"].ToString();
-                     lblTotal.Text = Session["TotalCompra"].ToString();
-                    bool esAlquiler = (bool)Session["EsAlquiler"];
+                    lblNombre.Text = Session["nombreProducto"].ToString();
+                    lblDescripcion.Text = Session["descripcionProducto"].ToString();
+                    lblTotal.Text = Session["montoTotal"].ToString();
 
-                    if (esAlquiler)
+                    //estos datos vendrían de la pasarela de pagos
+                    string fechaCompra = DateTime.Now.ToString("yyyy-MM-dd");
+                    string codigoTransaccion = "";
+                    string tipoMoneda = "";
+                    string metodoPago = Session["metodoPago"].ToString();
+                    double impuesto = 0;
+
+                    int idUsuario = Convert.ToInt32(Session["UsuarioId"]);
+                    double totalCompra = Convert.ToDouble(Session["montoTotal"]);
+                    int idPublicacion = Convert.ToInt32(Session["productoSeleccionado"]);
+                    string usuarioNombre = Session["nombreUsuario"].ToString();
+                    string usuarioCorreo= Session["correoUsuario"].ToString();
+                    int idVendedor= Convert.ToInt32(Session["VendedorId"]);
+
+                    bool esVenta= (bool)Session["esVenta"];
+
+                    if (!esVenta)
                     {
-                        string dias = Session["DiasAlquiler"].ToString();
-                        lblTipoOperacion.Text = $"Alquiler por {dias} días";
+
+                        alquilerId = alquilerSoap.insertarAlquiler((int)Session["usuarioId"], (int)Session["itemId"], Session["fechaInicio"].ToString(), Session["fechaFin"].ToString(), (double)Session["montoTotal"], Session["nombreUsuario"].ToString());
+                        lblTipoOperacion.Text = $"Alquiler por inicia en " + Session["fechaInicio"].ToString() + " y termina en " + Session["fechaFin"].ToString();
+
+                        //NOTIFICACION PARA EL USUARIO QUE COMPRO
+                        string mensajeAlquilerUsuario = $"Tu aquiler de"  + $" {lblNombre.Text} "
+                            + "se proceso con exito " + fechaCompra;
+                        //por corregir
+                        notificacionSoap.insertarNotificacion(mensajeAlquilerUsuario, idUsuario) ;
+
+
+                        //NOTIFICACION PARA EL VENDEDOR DE LA PUBLICACION
+                        string mensajeAlquilerVendedor = $"Tu producto en alquiler"  + $" {lblNombre.Text} "
+                              + "ha sido comprado por " + usuarioNombre + ", correo electronico: " + usuarioCorreo + ". Comunícate lo antes posible/n" +
+                              "Inicio de alquiler: " + Session["fechaInicio"].ToString() + "/nFin de alquiler " + Session["fechaFin"].ToString();
+
+                        notificacionSoap.insertarNotificacion(mensajeAlquilerVendedor, idVendedor);
+
+
+
                     }
                     else
                     {
                         lblTipoOperacion.Text = "Compra única";
-                    }
-                }
-            }
+            
 
-          
-            
-            
+                        //NOTIFICACION PARA EL USUARIO QUE COMPRO
+                        string mensajeAlquilerUsuario = $"Tu compra de" + $" {lblNombre.Text} "
+                            + "se proceso con exito " + fechaCompra;
+                        notificacionSoap.insertarNotificacion(mensajeAlquilerUsuario, idUsuario);
+
+                        //NOTIFICACION PARA EL VENDEDOR DE LA PUBLICACION
+                        string mensajeAlquilerVendedor = $"Tu producto en venta" + $" {lblNombre.Text} "
+                             + "ha sido comprado por " + usuarioNombre + ", correo electronico: " + usuarioCorreo;
+                        notificacionSoap.insertarNotificacion(mensajeAlquilerVendedor, idVendedor);
+
+                    }
+                    //por corregir
+                    comprobanteSoap.insertarComprobante(totalCompra, codigoTransaccion, idUsuario, metodoPago, tipoMoneda, impuesto, fechaCompra, usuarioNombre, (int)Session["itemId"],
+                        alquilerId, Session["nombreProducto"].ToString());
+
+                }
+            }           
             
         }
 
         protected void btnVolverInicio_Click(object sender, EventArgs e)
         {
+            Session.Remove("fechaInicio");
+            Session.Remove("fechaFin");
+            Session.Remove("montoTotal");
+            Session.Remove("productoSeleccionado");
+            Session.Remove("esVenta");
+            Session.Remove("nombreProducto");
+            Session.Remove("itemId");
+            Session.Remove("precioProducto");
+            Session.Remove("vendedorId");
+
             Response.Redirect("../PantallaInicio/SquirLearnInicio.aspx");
         }
 
-        protected void btnIrChat_Click(object sender, EventArgs e)
-        {
-            // Simulación de creación de chat para este pedido
-            string chatId = Guid.NewGuid().ToString();
-            string vendedor = Session["VendedorNombre"]?.ToString() ?? "Oscar Ibañez";
-            string producto = Session["ProductoNombre"]?.ToString() ?? "Producto Desconocido";
-
-            // Guardar datos en sesión
-            Session["ChatActivo"] = chatId;
-            Session["VendedorNombre"] = vendedor;
-            Session["ProductoNombre"] = producto;
-
-            // Redirigir al chat del pedido
-            Response.Redirect("../PantallaInicio/Chat.aspx?chatId=" + chatId);
-        }
-
-        protected void Button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Button3_Click1(object sender, EventArgs e)
-        {
-            string origen= Request.QueryString["origen"];
-            Response.Redirect(origen);
-        }
+       
     }
 }

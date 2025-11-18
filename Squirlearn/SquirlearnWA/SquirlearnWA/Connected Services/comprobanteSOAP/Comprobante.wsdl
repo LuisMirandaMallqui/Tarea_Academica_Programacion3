@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://comprobante.squirlearnws.mycompany.com/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Comprobante" targetNamespace="http://comprobante.squirlearnws.mycompany.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Comprobante?xsd=1" namespace="http://comprobante.squirlearnws.mycompany.com/" />
+    </xsd:schema>
+  </types>
+  <message name="listarPorDuenoComprobante">
+    <part name="parameters" element="tns:listarPorDuenoComprobante" />
+  </message>
+  <message name="listarPorDuenoComprobanteResponse">
+    <part name="parameters" element="tns:listarPorDuenoComprobanteResponse" />
+  </message>
+  <message name="insertarComprobante">
+    <part name="parameters" element="tns:insertarComprobante" />
+  </message>
+  <message name="insertarComprobanteResponse">
+    <part name="parameters" element="tns:insertarComprobanteResponse" />
+  </message>
+  <message name="obtenerPorIdComprobante">
+    <part name="parameters" element="tns:obtenerPorIdComprobante" />
+  </message>
+  <message name="obtenerPorIdComprobanteResponse">
+    <part name="parameters" element="tns:obtenerPorIdComprobanteResponse" />
+  </message>
+  <portType name="Comprobante">
+    <operation name="listarPorDuenoComprobante">
+      <input wsam:Action="http://comprobante.squirlearnws.mycompany.com/Comprobante/listarPorDuenoComprobanteRequest" message="tns:listarPorDuenoComprobante" />
+      <output wsam:Action="http://comprobante.squirlearnws.mycompany.com/Comprobante/listarPorDuenoComprobanteResponse" message="tns:listarPorDuenoComprobanteResponse" />
+    </operation>
+    <operation name="insertarComprobante">
+      <input wsam:Action="http://comprobante.squirlearnws.mycompany.com/Comprobante/insertarComprobanteRequest" message="tns:insertarComprobante" />
+      <output wsam:Action="http://comprobante.squirlearnws.mycompany.com/Comprobante/insertarComprobanteResponse" message="tns:insertarComprobanteResponse" />
+    </operation>
+    <operation name="obtenerPorIdComprobante">
+      <input wsam:Action="http://comprobante.squirlearnws.mycompany.com/Comprobante/obtenerPorIdComprobanteRequest" message="tns:obtenerPorIdComprobante" />
+      <output wsam:Action="http://comprobante.squirlearnws.mycompany.com/Comprobante/obtenerPorIdComprobanteResponse" message="tns:obtenerPorIdComprobanteResponse" />
+    </operation>
+  </portType>
+  <binding name="ComprobantePortBinding" type="tns:Comprobante">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarPorDuenoComprobante">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarComprobante">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorIdComprobante">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Comprobante">
+    <port name="ComprobantePort" binding="tns:ComprobantePortBinding">
+      <soap:address location="http://localhost:8080/SquirlearnWS/Comprobante" />
+    </port>
+  </service>
+</definitions>

@@ -45,18 +45,21 @@
 
 
                  <!-- Categoría -->
+
                  <div class="accordion-item">
-                     <h2 class="accordion-header" id="headingCategoria">
-                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCategoria" aria-expanded="false" aria-controls="collapseCategoria">
-                             Categoría</button>
-                     </h2>
-                     <div id="collapseCategoria" class="accordion-collapse collapse" aria-labelledby="headingCategoria" data-bs-parent="#accordionFiltros">
-                         <div class="accordion-body">
-                             <asp:DropDownList ID="ddlCategoria" runat="server" CssClass="form-select mb-2" AppendDataBoundItems="true">
-                             </asp:DropDownList>
-                         </div>
-                     </div>
-                 </div>
+                    <div id="collapseCategoria" class="accordion-collapse collapse" aria-labelledby="headingCategoria" data-bs-parent="#accordionFiltros">
+                        <div class="accordion-body">
+                            <asp:DropDownList 
+                                ID="ddlCategoria" 
+                                runat="server" 
+                                CssClass="form-select mb-2" 
+                                AppendDataBoundItems="true"
+                                AutoPostBack="true" 
+                                OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged">
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
 
                  <!-- Subcategoría -->
                  <div class="accordion-item">
@@ -153,16 +156,16 @@
                      <ItemTemplate>
                          <div class="col">
                              <div class="card h-100 shadow-sm border-0">
-                                 <img src="https://via.placeholder.com/250" class="card-img-top rounded" alt='<%# Eval("item.nombre") %>' />
+                                 <img src="https://via.placeholder.com/250" class="card-img-top rounded" alt='<%# Eval("nombre") %>' />
                                  <div class="card-body">
                                      <!-- Nombre -->
-                                     <h6 class="fw-semibold mb-1"><%# Eval("item.nombre") %></h6>
+                                     <h6 class="fw-semibold mb-1"><%# Eval("nombre") %></h6>
 
                                      <!-- Precio -->
-                                     <h5 class="fw-bold text-danger mb-1">S/ <%# String.Format("{0:N2}", Eval("item.precio")) %></h5>
+                                     <h5 class="fw-bold text-danger mb-1">S/ <%# String.Format("{0:N2}", Eval("precio")) %></h5>
 
                                      <!-- Tipo (Venta o Alquiler) -->
-                                     <p class="text-muted small mb-2"><%# (bool)Eval("item.esVenta") ? "En venta" : "En alquiler" %> </p>
+                                     <p class="text-muted small mb-2"><%# (bool)Eval("esVenta") ? "En venta" : "En alquiler" %> </p>
 
                                      <!-- Botón para solicitar -->
                                      <asp:LinkButton
@@ -171,13 +174,58 @@
                                          CssClass="btn btn-primary w-100 fw-semibold"
                                          Text="Solicitar"
                                          CommandName="Solicitar"
-                                         CommandArgument='<%# Eval("publicacionId") + "|" + Eval("item.esVenta") %>' />
+                                         CommandArgument='<%# Eval("publicacionId") + "|" + Eval("esVenta") + "|" + Eval("nombre") +  "|" + Eval("itemId") + "|" + Eval("precio") + "|" + Eval("personaId)#%>'/>
                                  </div>
                              </div>
                          </div>
                      </ItemTemplate>
                  </asp:Repeater>
              </div>
+
+             <div class="col-md-9">
+                
+                <asp:UpdatePanel ID="upResultados" runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2 class="fw-bold mb-0">
+                                <asp:Label ID="Label1" runat="server" Text="CATEGORÍA"></asp:Label>
+                            </h2>
+                        </div>
+                        <hr />
+
+                        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+                            
+                            <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="rptProductos_ItemCommand">
+                                <ItemTemplate>
+                                    <div class="col">
+                                        <div class="card h-100 shadow-sm border-0">
+                                            <asp:LinkButton
+                                                ID="btnSolicitar"
+                                                runat="server"
+                                                CssClass="btn btn-primary w-100 fw-semibold"
+                                                Text="Solicitar"
+                                                CommandName="Solicitar"
+                                                
+                                                CommandArgument='<%# Eval("publicacionId") + "|" + Eval("esVenta") + "|" + Eval("nombre") +  "|" + Eval("itemId") + "|" + Eval("precio") + "|" + Eval("personaId") %>' />
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                        
+                        <div class="d-flex justify-content-center mt-4">
+                            <asp:PlaceHolder ID="phPaginacion" runat="server"></asp:PlaceHolder>
+                        </div>
+
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnBuscar" EventName="Click" />
+                        <asp:AsyncPostBackTrigger ControlID="btnFiltrar" EventName="Click" />
+                        <asp:AsyncPostBackTrigger ControlID="btnLimpiar" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </div>
+
 
          </div>
      </div>

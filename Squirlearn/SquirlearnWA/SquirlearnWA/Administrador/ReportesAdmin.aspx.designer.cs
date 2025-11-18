@@ -11,7 +11,7 @@ namespace SquirlearnWA
 {
 
 
-    public partial class Mensajes
+    public partial class ReportesAdmin
     {
     }
 }

@@ -23,9 +23,8 @@ public class Notificacion {
     @WebMethod(operationName = "insertarNotificacion")
     public Integer insertarNotificacion(
             @WebParam(name = "mensaje") String mensaje,
-            @WebParam(name = "personaId") Integer personaId,
-            @WebParam(name = "motivoId") Integer motivoId) {
-        return this.notificacionBo.insertar(mensaje, personaId, motivoId);
+            @WebParam(name = "personaId") Integer personaId) {
+        return this.notificacionBo.insertar(mensaje, personaId);
     }
 
     @WebMethod(operationName = "listarPorPersonaNotificacion")
