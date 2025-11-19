@@ -23,7 +23,6 @@ public interface PublicacionShortDao extends IDAO<PublicacionShortDto> {
             Integer idTamano,
             Integer idFormato,
             Integer idCondicion,
-            Integer idEstado,
             Integer pagina,
             Integer cantidadPorPagina
     );

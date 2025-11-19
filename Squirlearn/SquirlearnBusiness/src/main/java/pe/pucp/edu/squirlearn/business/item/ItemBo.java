@@ -15,9 +15,23 @@ public class ItemBo {
     
     private ItemDao itemDao;
     private EstadoItemBo estadoItemBo;
+    private CategoriaBo categoriaBo;
+    private ColorBo colorBo;
+    private CondicionBo condicionBo;
+    private FormatoBo formatoBo;
+    private SubcategoriaBo subcategoriaBo;
+    private TamanoBo tamanoBo;
+    
+            
     public ItemBo(){
         this.itemDao = new ItemDaoImpl();
         this.estadoItemBo = new EstadoItemBo();
+        this.categoriaBo = new CategoriaBo();
+        this.colorBo  = new ColorBo();
+        this.condicionBo = new CondicionBo();
+        this.formatoBo = new FormatoBo();
+        this.subcategoriaBo = new SubcategoriaBo();
+        this.tamanoBo = new TamanoBo();
     }
     
     public Integer insertar(Double precio, String nombre,String descripcion ,Boolean esVenta ,
@@ -93,5 +107,25 @@ public class ItemBo {
         return this.itemDao.obtenerPorId(id);
     }
     
+    public ItemDto obtenerPorIdCompleto(Integer id){
+        
+        ItemDto itemDto = this.itemDao.obtenerPorId(id);
+        itemDto.setCategoria(categoriaBo.obtenerPorId(itemDto.getCategoria().getCategoriaId()));
+        itemDto.setColor(colorBo.obtenerPorId(itemDto.getColor().getColorId()));
+        itemDto.setCondicion(condicionBo.obtenerPorId(itemDto.getCondicion().getCondicionId()));
+        itemDto.setEstadoItem(estadoItemBo.obtenerPorId(itemDto.getEstadoItem().getEstadoItemId()));
+        itemDto.setFormato(formatoBo.obtenerPorId(itemDto.getFormato().getFormatoId()));
+        itemDto.setSubcategoria(subcategoriaBo.obtenerPorId(itemDto.getSubcategoria().getSubcategoriaId()));
+        itemDto.setTamano(tamanoBo.obtenerPorId(itemDto.getTamano().getTamanoId()));
+        return itemDto;
+    }
     
+    public Integer cambiarEstadoItem(Integer itemId, String usuario, String estado){
+        ItemDto itemDto = this.obtenerPorId(itemId);
+        itemDto.setusuarioModificacion(usuario);
+        EstadoItemDto estadoItem = new EstadoItemDto();   
+        estadoItem.setEstadoItemId(this.estadoItemBo.obtenerId((estado).toUpperCase()));
+        itemDto.setEstadoItem(estadoItem);
+        return this.itemDao.modificar(itemDto);
+    }
 }

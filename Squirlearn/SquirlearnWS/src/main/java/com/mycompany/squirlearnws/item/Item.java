@@ -45,23 +45,28 @@ public class Item {
             @WebParam(name = "descripcion") String descripcion,
             @WebParam(name = "esVenta") Boolean esVenta,
             @WebParam(name = "colorId") Integer colorId,
-            @WebParam(name = "estadoId") Integer estadoId,
             @WebParam(name = "condicionId") Integer condicionId,
             @WebParam(name = "tamanoId") Integer tamanoId,
             @WebParam(name = "formatoId") Integer formatoId,
             @WebParam(name = "categoriaId") Integer categoriaId,
             @WebParam(name = "subcategoriaId") Integer subcategoriaId,
-            @WebParam(name = "usuario") String usuario,
-            @WebParam(name = "usuarioCreacion") String usuarioCreacion,
-            @WebParam(name = "UsuarioModificación") String usuarioModificacion) {
+            @WebParam(name = "usuario") String usuario) {
             return this.itemBo.modificar(id, precio, nombre, descripcion, esVenta, 
-                    colorId, estadoId, condicionId, tamanoId, formatoId, categoriaId, 
-                    subcategoriaId,usuario,usuarioCreacion,usuarioModificacion);
+                    colorId, condicionId, tamanoId, formatoId, categoriaId, 
+                    subcategoriaId,usuario);
         }
 
     @WebMethod(operationName = "obtenerPorIdItem")
     public ItemDto obtenerPorIdItem(@WebParam(name = "id") Integer id) {
         return this.itemBo.obtenerPorId(id);
+    }
+    
+    @WebMethod(operationName = "cambiarEstadoItem")
+    public Integer cambiarEstadoItem(
+            @WebParam(name = "itemId") Integer itemId,
+            @WebParam(name = "usuario") String usuario,
+            @WebParam(name = "estado") String estado) {
+        return this.itemBo.cambiarEstadoItem(itemId, usuario, estado);
     }
 
 }

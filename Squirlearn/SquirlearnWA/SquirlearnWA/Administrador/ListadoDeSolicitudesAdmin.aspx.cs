@@ -20,7 +20,6 @@ namespace SquirlearnWA.Administrador
         private const int PublicacionesPorPagina = 10;
 
         // ❗️ Define el ID de tu estado "Pendiente"
-        private const int ID_ESTADO_PENDIENTE = 1;
 
         public ListadoDeSolicitudesAdmin()
         {
@@ -39,49 +38,52 @@ namespace SquirlearnWA.Administrador
             if (!IsPostBack)
             {
                 PaginaActual = 1;
-                CargarSolicitudesDesdeBackend();
-                MostrarSolicitudes();
+                CargarYMostrarSolicitudes();
             }
         }
 
 
         // --- ¡AQUÍ ESTÁ TU IDEA! ---
-        private void CargarSolicitudesDesdeBackend()
+        private void CargarYMostrarSolicitudes()
         {
-
             try
             {
-                // ❗️❗️ TU IDEA: Pasamos -1 como UsuarioId para "TODOS LOS USUARIOS"
-                // (O 0, lo que tu backend entienda como "Todos")
+                // 1. Llamada al Backend
                 listadoPublicacionGestionDto listado = publicacionSoap.obtenerListaPublicacionGestion(
-                    0,
+                    0, 
                     PublicacionesPorPagina,
                     PaginaActual,
-                    ID_ESTADO_PENDIENTE
+                    "Pendiente"
                 );
 
-                Session["AdminPublicaciones"] = listado.lista;
-                Session["AdminTotalPaginas"] = listado.totalPaginas;
+                // 2. Obtener datos limpios (Variables locales = Memoria se libera al terminar la función)
+                var listaPublicaciones = listado.lista; // Tu lista de DTOs
+                int totalRegistros = listado.TotalRegistros;
+
+                // 3. Cálculo de páginas (Lógica C# que acordamos)
+                int totalPaginas = (int)Math.Ceiling((double)totalRegistros / PublicacionesPorPagina);
+
+                // 4. Pasar datos DIRECTAMENTE a la UI
+                MostrarDatosEnPantalla(listaPublicaciones, totalPaginas, totalRegistros);
             }
             catch (Exception ex)
             {
-                Session["AdminPublicaciones"] = new List<publicacionShortDto>();
-                Session["AdminTotalPaginas"] = 0;
-                lblCantidadResultados.Text = "Error al cargar publicaciones.";
+                // Manejo de error limpio
+                rptSolicitudes.DataSource = null;
+                rptSolicitudes.DataBind();
+                lblCantidadResultados.Text = "Error al cargar: " + ex.Message;
+                phPaginacion.Controls.Clear();
             }
         }
 
-        private void MostrarSolicitudes()
+        // Este método ahora recibe los datos por parámetro. No busca nada en Session.
+        private void MostrarDatosEnPantalla(object lista, int totalPaginas, int totalRegistros)
         {
-            var publicaciones = Session["AdminPublicaciones"] as List<publicacionShortDto>;
-            if (publicaciones == null) return;
-
-            rptSolicitudes.DataSource = publicaciones;
+            rptSolicitudes.DataSource = lista;
             rptSolicitudes.DataBind();
 
-            lblCantidadResultados.Text = $"Mostrando {publicaciones.Count} resultados";
+            lblCantidadResultados.Text = $"Mostrando {totalRegistros} resultados"; 
 
-            int totalPaginas = Session["AdminTotalPaginas"] != null ? (int)Session["AdminTotalPaginas"] : 1;
             GenerarPaginacion(totalPaginas);
         }
 
@@ -90,8 +92,7 @@ namespace SquirlearnWA.Administrador
         protected void ddlEstados_SelectedIndexChanged(object sender, EventArgs e)
         {
             PaginaActual = 1;
-            CargarSolicitudesDesdeBackend();
-            MostrarSolicitudes();
+            CargarYMostrarSolicitudes();
         }
 
         private void GenerarPaginacion(int totalPaginas)
@@ -112,40 +113,24 @@ namespace SquirlearnWA.Administrador
                 phPaginacion.Controls.Add(btnPagina);
             }
         }
+
         protected void BtnPagina_Click(object sender, EventArgs e)
         {
             var btn = (Button)sender;
             if (int.TryParse(btn.CommandArgument, out int pagina))
             {
-                // 1. Actualiza la página actual
                 PaginaActual = pagina;
-
-                // 2. Vuelve a cargar los datos (para la página 2, 3, etc.)
-                // ❗️ Asegúrate de llamar al método correcto de esta página
-                CargarSolicitudesDesdeBackend(); // Para el Admin
-                                                 // CargarPublicacionesDesdeBackend(); // Para el Usuario
-
-                // 3. Vuelve a pintar el Repeater
-                MostrarSolicitudes(); // Para el Admin
-                                      // MostrarPublicaciones(); // Para el Usuario
+                CargarYMostrarSolicitudes();
             }
         }
+
         protected string GetEstadoColor(string estado)
         {
             string color;
             switch (estado)
             {
-                case "Aceptado":
-                    color = "bg-success text-white";
-                    break;
-                case "Rechazado":
-                    color = "bg-danger text-white";
-                    break;
                 case "Pendiente":
-                    color = "bg-warning text-dark";
-                    break;
-                case "Borrador":
-                    color = "bg-primary text-white";
+                    color = "bg-success text-white";
                     break;
                 default:
                     color = "bg-secondary text-white";

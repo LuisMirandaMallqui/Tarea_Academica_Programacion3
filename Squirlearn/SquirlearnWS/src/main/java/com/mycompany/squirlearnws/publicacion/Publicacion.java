@@ -3,7 +3,6 @@ package com.mycompany.squirlearnws.publicacion;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
-import java.sql.Date;
 import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.model.publicacion.ListadoPublicacionGestionDto;
 import pe.edu.pucp.squirlearn.model.publicacion.PublicacionDto;
@@ -24,9 +23,9 @@ public class Publicacion {
 
     @WebMethod(operationName = "insertarPublicacion")
     public Integer insertar(
-            @WebParam(name = "itemId") Integer itemId,
             @WebParam(name = "personaId") Integer personaId,
             @WebParam(name = "usuario") String usuario,
+            @WebParam(name = "estado") String estado,
             @WebParam(name = "precio") Double precio,
             @WebParam(name = "nombre") String nombre,
             @WebParam(name = "descripcion") String descripcion,
@@ -37,7 +36,7 @@ public class Publicacion {
             @WebParam(name = "formatoId") Integer formatoId,
             @WebParam(name = "categoriaId") Integer categoriaId,
             @WebParam(name = "subcategoriaId") Integer subcategoriaId) {
-        return this.publicacionBo.insertar(itemId,personaId,usuario,
+        return this.publicacionBo.insertar(personaId,usuario,estado,
             precio,nombre,descripcion,esVenta,colorId, condicionId, tamanoId,
             formatoId,categoriaId,subcategoriaId);
     }
@@ -45,16 +44,20 @@ public class Publicacion {
     @WebMethod(operationName = "modificarPublicacion")
     public Integer modificarPublicacion(
             @WebParam(name = "publicacionId") Integer publicacionId,
-            @WebParam(name = "fechaAlta") String fechaAlta,
-            @WebParam(name = "fechaBaja") String fechaBaja,
-            @WebParam(name = "estadoId") Integer estadoId,
-            @WebParam(name = "itemId") Integer itemId,
-            @WebParam(name = "personaId") Integer personaId,
-            @WebParam(name = "calificacion") Integer calificacion,
             @WebParam(name = "usuario") String usuario,
-            @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
-        return this.publicacionBo.modificar(publicacionId, fechaAlta, fechaBaja, estadoId, itemId,
-                personaId, calificacion, usuarioCreacion,usuario);
+            @WebParam(name = "estado") String estado,
+            @WebParam(name = "precio") Double precio,
+            @WebParam(name = "nombre") String nombre,
+            @WebParam(name = "descripcion") String descripcion,
+            @WebParam(name = "esVenta") Boolean esVenta,
+            @WebParam(name = "colorId") Integer colorId,
+            @WebParam(name = "condicionId") Integer condicionId,
+            @WebParam(name = "tamanoId") Integer tamanoId,
+            @WebParam(name = "formatoId") Integer formatoId,
+            @WebParam(name = "categoriaId") Integer categoriaId,
+            @WebParam(name = "subcategoriaId") Integer subcategoriaId) {
+        return this.publicacionBo.modificar(publicacionId,usuario, estado,precio,nombre,descripcion,esVenta,colorId,
+                condicionId, tamanoId,formatoId,categoriaId,subcategoriaId);
     }
 
     @WebMethod(operationName = "listarPorEstadoPublicacion")
@@ -86,17 +89,32 @@ public class Publicacion {
             @WebParam(name = "publicacionesPorPagina") Integer publicacionesPorPagina){ // De ITEM
 //            @WebParam(name = "idEstado") Integer idEstado) { // De PUB
         return this.publicacionBo.listarPorFiltrosPublicacion(terminoBusqueda, esVenta, idCategoria, idSubcategoria, idColores,
-                idTamanos, idFormatos, idCondicion,paginaActual,publicacionesPorPagina); // por modificar esto: Miranda está asignado
+                idTamanos, idFormatos, idCondicion,paginaActual,publicacionesPorPagina); 
     }
     
     
     @WebMethod(operationName = "cambiarEstadoPublicacion")
-    public Integer CambiarEstadoPublicacion(
+    public Integer cambiarEstadoPublicacion(
             @WebParam(name = "publicacionId") Integer publicacionId,
             @WebParam(name = "usuario") String usuario,
             @WebParam(name = "estado") String estado){  
         return this.publicacionBo.cambiarEstadoPublicacion(publicacionId, usuario, estado);   
     }
     
+    @WebMethod(operationName = "obtenerListaPublicacionGestion")
+    public ListadoPublicacionGestionDto obtenerListaPublicacionGestion(
+            @WebParam(name = "usuarioId") Integer usuarioId,
+            @WebParam(name = "cantidadPorPagina") Integer cantidadPorPagina,
+            @WebParam(name = "pagina") Integer pagina,
+            @WebParam(name = "estadoId") Integer estadoId ){  
+        return this.publicacionBo.listarPorFiltrosPublicacion( usuarioId, cantidadPorPagina, pagina, estadoId);   
+    }
+    
+    
+    @WebMethod(operationName = "obtenerPorIdCompleto")
+    public PublicacionDto obtenerPorIdCompleto(
+            @WebParam(name = "publicacionId") Integer publicacionId){  
+        return this.publicacionBo.obtenerPorIdCompleto(publicacionId);   
+    }
     
 }

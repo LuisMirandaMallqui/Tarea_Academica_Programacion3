@@ -179,12 +179,12 @@ namespace SquirlearnWA.PantallaInicio
                 // 1. Llama al método SOAP actualizado
                 listadoPublicacionGestionDto resultado = publicacionSoap.listarPorFiltrosPublicacion(
                     terminoBusqueda, tipoTransaccion, categoriaId, subcategoriaId, color, tamano,
-                    formato, condicion,
-                    PaginaActual, PublicacionesPorPagina); 
+                    formato, condicion, PaginaActual, PublicacionesPorPagina); 
 
                 // 2. Desempaca el DTO
-                var publicaciones = resultado.lista; 
-                int totalPaginas = resultado.totalPaginas;
+                var publicaciones = resultado.lista;
+                int totalRegistros = resultado.TotalRegistros;
+                int totalPaginas = (int)Math.Ceiling((double)totalRegistros / PublicacionesPorPagina);
 
                 // 3. Enlaza los datos y genera la paginación
                 rptProductos.DataSource = publicaciones;
@@ -254,6 +254,7 @@ namespace SquirlearnWA.PantallaInicio
                 else
                     Response.Redirect("../Transaccion/DetalleAlquiler.aspx");
             }
+
         }
 
         protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -267,6 +268,7 @@ namespace SquirlearnWA.PantallaInicio
                 CargarSubcategorias(0); 
             }
         }
+
 
     }
 }

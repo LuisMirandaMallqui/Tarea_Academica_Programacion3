@@ -2,6 +2,7 @@
 using SquirlearnWA.comprobanteSOAP;
 using SquirlearnWA.notificacionSOAP;
 using SquirlearnWA.publicacionSOAP;
+using SquirlearnWA.ItemSOAP;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,14 @@ namespace SquirlearnWA
         private ComprobanteClient comprobanteSoap;
         private NotificacionClient notificacionSoap;
         private AlquilerClient alquilerSoap;
+        private PublicacionClient publicacionSoap;
+        private ItemClient itemSoap;
         public ConfirmacionPedido()
         {
             this.notificacionSoap = new NotificacionClient();
             this.alquilerSoap = new AlquilerClient();
             this.comprobanteSoap = new ComprobanteClient();
+            this.publicacionSoap = new PublicacionClient();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -44,8 +48,9 @@ namespace SquirlearnWA
                 {
                     //aqui integramos el insertar alquiler y cambiar de estado a vendido
 
-
+                    //regla de negocio 
                     int alquilerId = 0;
+
                     pnlError.Visible = false;
                     divExito.Visible = true;
                     lblNombre.Text = Session["nombreProducto"].ToString();
@@ -88,7 +93,7 @@ namespace SquirlearnWA
 
                         notificacionSoap.insertarNotificacion(mensajeAlquilerVendedor, idVendedor);
 
-
+                        itemSoap.cambiarEstadoItem((int)Session["itemId"], Session["nombreUsuario"].ToString(), "Alquilado");
 
                     }
                     else
@@ -105,9 +110,11 @@ namespace SquirlearnWA
                         string mensajeAlquilerVendedor = $"Tu producto en venta" + $" {lblNombre.Text} "
                              + "ha sido comprado por " + usuarioNombre + ", correo electronico: " + usuarioCorreo;
                         notificacionSoap.insertarNotificacion(mensajeAlquilerVendedor, idVendedor);
+                        itemSoap.cambiarEstadoItem((int)Session["itemId"], Session["nombreUsuario"].ToString(), "Vendido");
 
                     }
                     //por corregir
+                    publicacionSoap.cambiarEstadoPublicacion(Int32.Parse(Session["productoSeleccionado"].ToString(), Session["nombreUsuario"].ToString() , "Transaccionada");
                     comprobanteSoap.insertarComprobante(totalCompra, codigoTransaccion, idUsuario, metodoPago, tipoMoneda, impuesto, fechaCompra, usuarioNombre, (int)Session["itemId"],
                         alquilerId, Session["nombreProducto"].ToString());
 

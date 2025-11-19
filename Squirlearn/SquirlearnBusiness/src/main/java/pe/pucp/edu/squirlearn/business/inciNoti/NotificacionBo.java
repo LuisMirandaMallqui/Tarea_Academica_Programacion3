@@ -3,7 +3,8 @@ package pe.pucp.edu.squirlearn.business.inciNoti;
 import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDao;
 import pe.edu.pucp.squirlearn.daoImpl.inciNoti.NotificacionDaoImpl;
-import pe.edu.pucp.squirlearn.model.inciNoti.MotivoDto;
+import pe.edu.pucp.squirlearn.model.inciNoti.ListadoNotificacionesDto;
+
 import pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
@@ -26,8 +27,13 @@ public class NotificacionBo {
         return this.notificacionDao.insertar(notificacionDto);
     }
     
-    public ArrayList<NotificacionDto> listarPorPersona(Integer personaID, Integer pagina, Integer registrosPorPagina) {
-        return this.notificacionDao.listarPorPersona(personaID, pagina, registrosPorPagina);
+    public ListadoNotificacionesDto listarPorPersona(Integer personaID, Integer pagina, Integer registrosPorPagina){
+        
+        ListadoNotificacionesDto listado = new ListadoNotificacionesDto();
+        listado.setLista(this.notificacionDao.listarPorPersona(personaID, pagina, registrosPorPagina));
+        listado.setTotalRegistros(this.notificacionDao.listarPorPersonaCantidad(personaID, pagina, registrosPorPagina));
+        
+        return listado;
     }
 
     public NotificacionDto obtenerPorId(Integer id) {

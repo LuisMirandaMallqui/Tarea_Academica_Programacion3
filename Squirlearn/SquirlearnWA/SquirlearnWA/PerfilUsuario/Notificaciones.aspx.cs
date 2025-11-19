@@ -54,12 +54,10 @@ namespace SquirlearnWA
             int pagina = PaginaActual;
             int registrosPorPagina = RegistrosPorPagina;
 
-            ListadoNotificacionesDTO resultado = notificacionSOAP.listarPorPersonaNotificacion(usuarioId, pagina, registrosPorPagina);//modificar
+            listadoNotificacionesDTO resultado = notificacionSOAP.listarPorPersonaNotificacion(usuarioId, pagina, registrosPorPagina);
 
             if (resultado?.Lista != null && resultado.Lista.Count > 0)
             {
-                // ❗️ CAMBIO 1: Lógica de ordenamiento eliminada
-                // (El backend ahora lo hace por nosotros)
                 ListaNotificaciones = resultado.Lista;
 
                 lblTotalResultados.Text = $"Se encontraron {resultado.TotalRegistros} notificaciones.";

@@ -60,8 +60,8 @@ namespace SquirlearnWA.PublicacionDelUsuario
                         // --- MODO EDICIÓN ---
                         hTitulo.InnerText = "EDITAR PUBLICACIÓN";
 
-                        // Llama al SOAP para traer el DTO *completo*
-                        var pubCompleta = publicacionSoap.obtenerPorIdPublicacion(id);
+                        // Llama al SOAP para traer el DTO *completo*, se está cambiando el método para listar completo
+                        var pubCompleta = publicacionSoap.obtenerPorIdCompleto(id);
 
                         // Llena el formulario con los datos
                         if (pubCompleta != null)
@@ -82,7 +82,6 @@ namespace SquirlearnWA.PublicacionDelUsuario
 
         #region "MÉTODOS DE CARGA DE DROPDOWNS"
 
-        // Tu método adaptado
         private void CargarDropDownList(DropDownList ddl, object dataSource, string textField, string valueField)
         {
             ddl.DataSource = dataSource;
@@ -92,7 +91,6 @@ namespace SquirlearnWA.PublicacionDelUsuario
             ddl.Items.Insert(0, new ListItem("Seleccionar...", ""));
         }
 
-        // Carga todo lo que no depende de nada
         private void CargarDropDownsIniciales()
         {
             try
@@ -118,7 +116,6 @@ namespace SquirlearnWA.PublicacionDelUsuario
             }
         }
 
-        // Carga las subcategorías (depende de la categoría)
         private void CargarSubcategorias(int categoriaId)
         {
             try
@@ -224,17 +221,17 @@ namespace SquirlearnWA.PublicacionDelUsuario
 
                 if (IdPublicacionActual > 0)
                 {//cambiar el nuevo estado
-                    publicacionSoap.modificarPublicacion(IdPublicacionActual, Session["nombreUsuario"], nuevoEstado, precio, nombre, descripcion, esVenta, colorId, condicionId, tamanoId, formatoId, categoriaId, subcategoriaId);
+                    publicacionSoap.modificarPublicacion(IdPublicacionActual, Session["nombreUsuario"].ToString(), nuevoEstado, precio, nombre, descripcion, esVenta, colorId, condicionId, tamanoId, formatoId, categoriaId, subcategoriaId);
                 }
                 else
                 {
                     // esta eliminando el parámetro crear
                     int personaid = (int)Session["UsuarioId"] ;
-                    publicacionSoap.insertarPublicacion(personaid, Session["nombreUsuario"], nuevoEstado, precio,nombre,descripcion,esVenta,colorId,condicionId,tamanoId,formatoId,categoriaId,subcategoriaId);
+                    publicacionSoap.insertarPublicacion(personaid, Session["nombreUsuario"].ToString() , nuevoEstado, precio,nombre,descripcion,esVenta,colorId,condicionId,tamanoId,formatoId,categoriaId,subcategoriaId);
                 }
 
                 // 5. Si no fue borrador, muestra el modal de éxito
-                if (nuevoEstadoId == "Pendiente")
+                if (nuevoEstado == "Pendiente")
                 {
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModal", "mostrarModalConfirmacion();", true);
                 }
@@ -274,6 +271,6 @@ namespace SquirlearnWA.PublicacionDelUsuario
             Response.Redirect("ListadoPublicaciones.aspx");
         }
 
-        #endregion
+        #endregion  
     }
 }

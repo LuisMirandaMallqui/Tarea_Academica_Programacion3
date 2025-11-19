@@ -3,9 +3,6 @@ package com.mycompany.squirlearnws.persona;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
-import java.util.Date;
-//import jakarta.xml.datatype.XMLGregorianCalendar;
-import javax.xml.datatype.XMLGregorianCalendar;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 import pe.pucp.edu.squirlearn.business.persona.PersonaBo;
 
