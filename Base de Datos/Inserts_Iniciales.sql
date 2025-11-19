@@ -47,8 +47,7 @@ INSERT INTO estados_personas(NOMBRE) VALUES
 
 -- Insertar roles
 INSERT INTO roles(NOMBRE) VALUES
-('Vendedor'),
-('Comprador'),
+('Usuario'),
 ('Administrador');
 
 -- Insertar catálogos de pago
