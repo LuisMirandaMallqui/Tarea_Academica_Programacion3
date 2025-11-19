@@ -28,7 +28,6 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao 
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("NOTIFICACION_ID", true, true));
         this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
-        this.listaColumnas.add(new Columna("MOTIVO_ID_MOTIVO", false, false));
         this.listaColumnas.add(new Columna("FECHA", false, false));
         this.listaColumnas.add(new Columna("MENSAJE", false, false));
     }
@@ -37,7 +36,6 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao 
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
         int i = 1;
         this.statement.setInt(i++, this.notificacion.getPersona().getPersonaId());
-        this.statement.setInt(i++, this.notificacion.getMotivo().getMotivoId());
         this.statement.setString(i++, this.notificacion.getFecha());
         this.statement.setString(i++, this.notificacion.getMensaje());
     }
@@ -46,7 +44,6 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao 
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int i = 1;
         this.statement.setInt(i++, this.notificacion.getPersona().getPersonaId());
-        this.statement.setInt(i++, this.notificacion.getMotivo().getMotivoId());
         this.statement.setString(i++, this.notificacion.getFecha());
         this.statement.setString(i++, this.notificacion.getMensaje());
         this.statement.setInt(i++, this.notificacion.getNotificacionId());
@@ -60,10 +57,6 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao 
         PersonaDto persona = new PersonaDto();
         persona.setPersonaId(this.resultSet.getInt("PERSONA_ID"));
         this.notificacion.setPersona(persona);
-
-        MotivoDto motivo = new MotivoDto();
-        motivo.setMotivoId(this.resultSet.getInt("MOTIVO_ID_MOTIVO"));
-        this.notificacion.setMotivo(motivo);
 
         this.notificacion.setNotificacionId(this.resultSet.getInt("NOTIFICACION_ID"));
         this.notificacion.setFecha(this.resultSet.getString("FECHA"));
