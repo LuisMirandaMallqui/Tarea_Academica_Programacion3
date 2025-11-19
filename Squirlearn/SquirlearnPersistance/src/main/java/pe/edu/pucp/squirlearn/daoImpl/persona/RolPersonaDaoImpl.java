@@ -4,9 +4,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.function.Consumer;
+import pe.edu.pucp.squirlearn.dao.persona.PersonaDao;
 import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
 import pe.edu.pucp.squirlearn.dao.persona.RolPersonaDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
+import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 import pe.edu.pucp.squirlearn.model.persona.RolPersonaDto;
 
 public class RolPersonaDaoImpl extends DAOImplBase implements RolPersonaDao {
@@ -118,4 +120,32 @@ public class RolPersonaDaoImpl extends DAOImplBase implements RolPersonaDao {
         // Reutiliza el mapeo estándar de esta clase (instanciarObjetoDelResultSet)
         return (ArrayList<RolPersonaDto>) (ArrayList) this.listarTodos(sql, incluir, null);
     }
+    
+    public void insertarTablaInter(Integer idRol, String correo) {
+        if (idRol == null) {
+            throw new IllegalArgumentException("idRol no puede ser null");
+        }
+        PersonaDao perDao=new PersonaDaoImpl();
+        PersonaDto per=perDao.buscarPorCorreo(correo);
+        String sql = "INSERT INTO personas_roles (PERSONA_ID, ROLPERSONA_ID) VALUES (?, ?)";
+
+        try {
+            this.abrirConexion();
+            try (PreparedStatement ps = this.conexion.prepareStatement(sql)) {
+                ps.setInt(1, per.getPersonaId());
+                ps.setInt(2, idRol);
+                ps.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al insertar en personas_roles: " + ex.getMessage());
+            ex.printStackTrace();
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException ex) {
+                System.err.println("Error al cerrar conexión en insertarTablaInter: " + ex.getMessage());
+            }
+        }
+    }
+
 }
