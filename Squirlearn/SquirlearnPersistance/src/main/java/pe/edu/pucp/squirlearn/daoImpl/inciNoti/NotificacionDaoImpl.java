@@ -144,7 +144,7 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao 
     }
 
     @Override
-    public Integer listarPorPersonaCantidad(Integer personaId, Integer pagina, Integer registrosPorPagina) {
+    public Integer listarPorPersonaCantidad(Integer personaId) {
         StringBuilder sql = generarPlantillaSqlParaContar();
         ArrayList<Object> parametros = new ArrayList<>();
 
@@ -152,8 +152,6 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao 
             sql.append(" AND PERSONA_ID = ? ");
             parametros.add(personaId);
         }
-        
-        Query.aplicarPaginacion(sql, parametros, pagina, registrosPorPagina); // VA PAGINACION?
 
         return ejecutarConteo(sql, parametros);
     }

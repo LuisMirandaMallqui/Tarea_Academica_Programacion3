@@ -12,10 +12,16 @@ import pe.edu.pucp.squirlearn.model.comprobante.ComprobanteShortDto;
  *
  * @author luism
  */
+
 public interface ComprobanteShortDao extends IDAO<ComprobanteShortDto> {
-    public ArrayList<ComprobanteShortDto> listar(
+    public ArrayList<ComprobanteShortDto> listarPorDuenoComprobanteShort(
+            Integer personaId,
             Boolean esVenta,
             Integer pagina,
             Integer cantidadPorPagina
+    );
+    public Integer listarPorDuenoCantidadComprobanteShort(
+            Integer personaId,
+            Boolean esVenta
     );
 }

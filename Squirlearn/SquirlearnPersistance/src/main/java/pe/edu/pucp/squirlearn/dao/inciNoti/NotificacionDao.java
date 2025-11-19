@@ -8,5 +8,5 @@ public interface NotificacionDao extends IDAO<NotificacionDto> {
 
     ArrayList<NotificacionDto> listarPorPersona(Integer personaId, Integer pagina, Integer registrosPorPagina);
     
-    Integer listarPorPersonaCantidad(Integer personaId, Integer pagina, Integer registrosPorPagina);
+    Integer listarPorPersonaCantidad(Integer personaId);
 }

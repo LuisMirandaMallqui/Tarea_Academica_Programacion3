@@ -85,12 +85,30 @@ public class ComprobanteShortDaoImpl extends DAOImplBase implements ComprobanteS
         );
     }
 
-    @Override
-    public ArrayList<ComprobanteShortDto> listar(Boolean esVenta, Integer pagina, Integer cantidadPorPagina) {
-      StringBuilder sql = generarPlantillaSqlParaFiltros();
+    private StringBuilder generarPlantillaSqlParaContar() {
+        return new StringBuilder(
+                "SELECT COUNT(*) AS TOTAL "
+                + "FROM comprobantes C "
+                + "WHERE 1=1 "
+        );
+    }
 
+    @Override
+    public ArrayList<ComprobanteShortDto> listarPorDuenoComprobanteShort(
+            Integer personaId,
+            Boolean esVenta,
+            Integer pagina,
+            Integer cantidadPorPagina
+    ) {
+        StringBuilder sql = generarPlantillaSqlParaFiltros();
         ArrayList<Object> parametros = new ArrayList<>();
 
+        if (personaId != null) {
+            sql.append(" AND C.PERSONA_ID_PERSONA = ? ");
+            parametros.add(personaId);
+        }
+
+        // Filtro por Tipo: Si Venta o Alquiler
         if (esVenta != null) {
             sql.append(" AND I.ES_VENTA = ? ");
             parametros.add(esVenta ? 1 : 0);
@@ -110,6 +128,40 @@ public class ComprobanteShortDaoImpl extends DAOImplBase implements ComprobanteS
         };
 
         return (ArrayList<ComprobanteShortDto>) this.listarTodos(sql.toString(), incluirValores, null);//
+    }
+
+    @Override
+    public Integer listarPorDuenoCantidadComprobanteShort(
+            Integer personaId,
+            Boolean esVenta
+    ) {
+        StringBuilder sql = generarPlantillaSqlParaContar();
+        ArrayList<Object> parametros = new ArrayList<>();
+
+        if (personaId != null) {
+            sql.append(" AND C.PERSONA_ID_PERSONA = ? ");
+            parametros.add(personaId);
+        }
+
+        // Filtro por Tipo: Si Venta o Alquiler
+        if (esVenta != null) {
+            sql.append(" AND I.ES_VENTA = ? ");
+            parametros.add(esVenta ? 1 : 0);
+        }
+
+
+        Consumer<PreparedStatement> incluirValores = p -> {
+            try {
+                int i = 1;
+                for (Object param : parametros) {
+                    this.statement.setObject(i++, param);
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        };
+
+        return ejecutarConteo(sql, parametros);
     }
 
     @Override

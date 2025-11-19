@@ -1,6 +1,5 @@
 package pe.edu.pucp.squirlearn.daoImpl.publicacion;
 
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
@@ -8,7 +7,7 @@ import pe.edu.pucp.squirlearn.dao.publicacion.EstadoPublicacionDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
 import pe.edu.pucp.squirlearn.model.publicacion.EstadoPublicacionDto;
 
-public class EstadoPublicacionDaoImpl extends DAOImplBase implements EstadoPublicacionDao{
+public class EstadoPublicacionDaoImpl extends DAOImplBase implements EstadoPublicacionDao {
 
     private EstadoPublicacionDto estadoPublicacion;
 
@@ -22,22 +21,19 @@ public class EstadoPublicacionDaoImpl extends DAOImplBase implements EstadoPubli
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("ESTADOPUBLI_ID", true, true));
         this.listaColumnas.add(new Columna("NOMBRE", false, false));
-
-
-
-}
+    }
 
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.estadoPublicacion.getNombre());
-}
+    }
 
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int i = 1;
         this.statement.setString(i++, this.estadoPublicacion.getNombre());
-this.statement.setInt(i++, this.estadoPublicacion.getEstadoPublicacionId()); // WHERE
+        this.statement.setInt(i++, this.estadoPublicacion.getEstadoPublicacionId()); // WHERE
     }
 
     @Override
@@ -55,8 +51,7 @@ this.statement.setInt(i++, this.estadoPublicacion.getEstadoPublicacionId()); // 
         this.estadoPublicacion = new EstadoPublicacionDto();
         this.estadoPublicacion.setEstadoPublicacionId(this.resultSet.getInt("ESTADOPUBLI_ID"));
         this.estadoPublicacion.setNombre(this.resultSet.getString("NOMBRE"));
-}
-
+    }
 
     @Override
     protected void limpiarObjetoDelResultSet() {
@@ -68,12 +63,13 @@ this.statement.setInt(i++, this.estadoPublicacion.getEstadoPublicacionId()); // 
         this.instanciarObjetoDelResultSet();
         lista.add(this.estadoPublicacion);
     }
-    
+
     @Override
     public Integer insertar(EstadoPublicacionDto estadoPublicacion) {
         this.estadoPublicacion = estadoPublicacion;
         return super.insertar();
     }
+
     @Override
     public EstadoPublicacionDto obtenerPorId(Integer id) {
         this.estadoPublicacion = new EstadoPublicacionDto();

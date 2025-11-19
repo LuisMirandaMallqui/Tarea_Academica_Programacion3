@@ -31,7 +31,7 @@ public class NotificacionBo {
         
         ListadoNotificacionesDto listado = new ListadoNotificacionesDto();
         listado.setLista(this.notificacionDao.listarPorPersona(personaID, pagina, registrosPorPagina));
-        listado.setTotalRegistros(this.notificacionDao.listarPorPersonaCantidad(personaID, pagina, registrosPorPagina)); // VA PAGINACION?
+        listado.setTotalRegistros(this.notificacionDao.listarPorPersonaCantidad(personaID)); // VA PAGINACION?
         
         return listado;
     }

@@ -8,6 +8,7 @@ import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
 import pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDao;
 import pe.edu.pucp.squirlearn.dao.comprobante.DetalleComprobanteDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
+import pe.edu.pucp.squirlearn.daoImpl.util.Query;
 import pe.edu.pucp.squirlearn.daoImpl.util.TraduccionesSQL;
 import pe.edu.pucp.squirlearn.model.comprobante.ComprobanteDto;
 import pe.edu.pucp.squirlearn.model.comprobante.DetalleComprobanteDto;
@@ -47,7 +48,7 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao {
         this.statement.setString(i++, this.comprobante.getTransaccion());
         this.statement.setString(i++, this.comprobante.getFechaEmision());
         this.statement.setDouble(i++, this.comprobante.getMonto());
-        this.statement.setDouble(i++, this.comprobante.getImpuesto()); 
+        this.statement.setDouble(i++, this.comprobante.getImpuesto());
         this.statement.setString(i++, this.comprobante.getusuarioCreacion());
     }
 
@@ -154,11 +155,12 @@ public class ComprobanteDaoImpl extends DAOImplBase implements ComprobanteDao {
         Consumer<PreparedStatement> incluir = ps -> {
             try {
                 this.statement.setInt(1, personaId);
+
             } catch (SQLException e) {
+
                 throw new RuntimeException(e);
             }
         };
         return (ArrayList<ComprobanteDto>) (ArrayList) this.listarTodos(sql, incluir, null);
     }
-
 }

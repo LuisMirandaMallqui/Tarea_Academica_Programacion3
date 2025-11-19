@@ -10,35 +10,35 @@ import pe.edu.pucp.squirlearn.model.comprobante.MonedaPagoDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
 public class ComprobanteBo {
-    
+
     private ComprobanteDao comprobanteDao;
     private MonedaPagoBo monedaPagoBo;
     private FormaPagoBo formaPagoBo;
     private DetalleComprobanteBo detalleComprobanteBo;
-    
-    public ComprobanteBo(){
+
+    public ComprobanteBo() {
         this.comprobanteDao = new ComprobanteDaoImpl();
         this.detalleComprobanteBo = new DetalleComprobanteBo();
         this.monedaPagoBo = new MonedaPagoBo();
         this.formaPagoBo = new FormaPagoBo();
     }
-    
+
     //insertar comprobante listo
-    public Integer insertar(Double monto, String transaccionId, Integer personaId, 
-            String formaPago, String moneda, Double impuesto,String fechaEmision ,String usuarioCreacion,
-            Integer itemId,Integer alquilerId, String nombreProducto){
-        
+    public Integer insertar(Double monto, String transaccionId, Integer personaId,
+            String formaPago, String moneda, Double impuesto, String fechaEmision, String usuarioCreacion,
+            Integer itemId, Integer alquilerId, String nombreProducto) {
+
         ComprobanteDto comprobanteDto = new ComprobanteDto();
         Integer formaPagoId = formaPagoBo.obtenerId(formaPago.toUpperCase());
         Integer monedaId = monedaPagoBo.obtenerId(moneda.toUpperCase());
-        
+
         PersonaDto persona = new PersonaDto();
         persona.setPersonaId(personaId);
         FormaPagoDto forma = new FormaPagoDto();
         forma.setFormaPagoId(formaPagoId);
         MonedaPagoDto monedaPago = new MonedaPagoDto();
         monedaPago.setMonedaId(monedaId);
-        
+
         comprobanteDto.setMonto(monto);
         comprobanteDto.setTransaccion(transaccionId);
         comprobanteDto.setPersona(persona);
@@ -46,18 +46,20 @@ public class ComprobanteBo {
         comprobanteDto.setMoneda(monedaPago);
         comprobanteDto.setImpuesto(impuesto);
         comprobanteDto.setusuarioCreacion(usuarioCreacion);
-        if(fechaEmision.compareTo("0")==0) fechaEmision=null;
+        if (fechaEmision.compareTo("0") == 0) {
+            fechaEmision = null;
+        }
         comprobanteDto.setFechaEmision(fechaEmision);
-        
+
         Integer comprobanteId = this.comprobanteDao.insertar(comprobanteDto);
         this.detalleComprobanteBo.insertar(nombreProducto, monto, itemId, alquilerId, comprobanteId, usuarioCreacion);
         return comprobanteId;
     }
-    
-    public Integer modificar(Integer compID, Double monto, String transaccionId, Integer personaId, 
-            Integer formaPagoId, Integer monedaId, Double impuesto,String fechaEmision ,String usuarioCreacion){
+
+    public Integer modificar(Integer compID, Double monto, String transaccionId, Integer personaId,
+            Integer formaPagoId, Integer monedaId, Double impuesto, String fechaEmision, String usuarioCreacion) {
         ComprobanteDto comprobanteDto = new ComprobanteDto();
-        
+
         PersonaDto persona = new PersonaDto();
         persona.setPersonaId(personaId);
         FormaPagoDto formaPago = new FormaPagoDto();
@@ -75,13 +77,13 @@ public class ComprobanteBo {
         comprobanteDto.setFechaEmision(fechaEmision);
         return this.comprobanteDao.modificar(comprobanteDto);
     }
-    
-    public ArrayList<ComprobanteDto> listarPorDueno(Integer personaId){
-        return this.comprobanteDao.listarPorDueno(personaId); 
+
+    public ArrayList<ComprobanteDto> listarPorDueno(Integer personaId, Integer pagina, Integer registrosPorPagina) {
+        return this.comprobanteDao.listarPorDueno(personaId, pagina, registrosPorPagina);
     }
-    
-    public ComprobanteDto obtenerPorId(Integer id){
+
+    public ComprobanteDto obtenerPorId(Integer id) {
         return this.comprobanteDao.obtenerPorId(id);
     }
-    
+
 }
