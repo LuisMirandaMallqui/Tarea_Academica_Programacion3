@@ -19,7 +19,6 @@ import pe.edu.pucp.squirlearn.model.comprobante.ComprobanteShortDto;
  * @author luism
  */
 public class ComprobanteShortDaoImpl extends DAOImplBase implements ComprobanteShortDao {
-
     private ComprobanteShortDto comprobantesShort;
 
     public ComprobanteShortDaoImpl() {
@@ -148,7 +147,6 @@ public class ComprobanteShortDaoImpl extends DAOImplBase implements ComprobanteS
             sql.append(" AND I.ES_VENTA = ? ");
             parametros.add(esVenta ? 1 : 0);
         }
-
 
         Consumer<PreparedStatement> incluirValores = p -> {
             try {
