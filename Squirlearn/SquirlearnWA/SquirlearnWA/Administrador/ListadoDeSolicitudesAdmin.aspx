@@ -20,7 +20,7 @@
                             <div class="card p-3 mb-3 bg-light rounded shadow-sm">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
-                                        <small>Enviado: <%# Eval("fechaCreacion", "{0:dd/MM/yyyy}") %></small>
+                                        <small>Enviado: <%# Eval("fechaEnvio", "{0:dd/MM/yyyy}") %></small>
                                         
                                         <strong><%# Eval("categoriaNombre") %> - <%# Eval("nombre") %></strong>
                                         <br/>

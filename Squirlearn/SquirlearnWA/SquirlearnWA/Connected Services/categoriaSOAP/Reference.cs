@@ -16,15 +16,6 @@ namespace SquirlearnWA.categoriaSOAP {
     public interface Categoria {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Categoria/listarTodosCategoriaRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Categoria/listarTodosCategoriaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse listarTodosCategoria(SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Categoria/listarTodosCategoriaRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Categoria/listarTodosCategoriaResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse> listarTodosCategoriaAsync(SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Categoria/obtenerPorIdCategoriaRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Categoria/obtenerPorIdCategoriaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -32,6 +23,15 @@ namespace SquirlearnWA.categoriaSOAP {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Categoria/obtenerPorIdCategoriaRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Categoria/obtenerPorIdCategoriaResponse")]
         System.Threading.Tasks.Task<SquirlearnWA.categoriaSOAP.obtenerPorIdCategoriaResponse> obtenerPorIdCategoriaAsync(SquirlearnWA.categoriaSOAP.obtenerPorIdCategoriaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Categoria/listarTodosCategoriaRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Categoria/listarTodosCategoriaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse listarTodosCategoria(SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Categoria/listarTodosCategoriaRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Categoria/listarTodosCategoriaResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse> listarTodosCategoriaAsync(SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest request);
     }
     
     /// <remarks/>
@@ -97,34 +97,6 @@ namespace SquirlearnWA.categoriaSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosCategoria", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosCategoriaRequest {
-        
-        public listarTodosCategoriaRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosCategoriaResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosCategoriaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.categoriaSOAP.categoriaDto[] @return;
-        
-        public listarTodosCategoriaResponse() {
-        }
-        
-        public listarTodosCategoriaResponse(SquirlearnWA.categoriaSOAP.categoriaDto[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdCategoria", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
     public partial class obtenerPorIdCategoriaRequest {
         
@@ -158,6 +130,34 @@ namespace SquirlearnWA.categoriaSOAP {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosCategoria", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosCategoriaRequest {
+        
+        public listarTodosCategoriaRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosCategoriaResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosCategoriaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.categoriaSOAP.categoriaDto[] @return;
+        
+        public listarTodosCategoriaResponse() {
+        }
+        
+        public listarTodosCategoriaResponse(SquirlearnWA.categoriaSOAP.categoriaDto[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface CategoriaChannel : SquirlearnWA.categoriaSOAP.Categoria, System.ServiceModel.IClientChannel {
     }
@@ -186,27 +186,6 @@ namespace SquirlearnWA.categoriaSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse SquirlearnWA.categoriaSOAP.Categoria.listarTodosCategoria(SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest request) {
-            return base.Channel.listarTodosCategoria(request);
-        }
-        
-        public SquirlearnWA.categoriaSOAP.categoriaDto[] listarTodosCategoria() {
-            SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest inValue = new SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest();
-            SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse retVal = ((SquirlearnWA.categoriaSOAP.Categoria)(this)).listarTodosCategoria(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse> SquirlearnWA.categoriaSOAP.Categoria.listarTodosCategoriaAsync(SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest request) {
-            return base.Channel.listarTodosCategoriaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse> listarTodosCategoriaAsync() {
-            SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest inValue = new SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest();
-            return ((SquirlearnWA.categoriaSOAP.Categoria)(this)).listarTodosCategoriaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SquirlearnWA.categoriaSOAP.obtenerPorIdCategoriaResponse SquirlearnWA.categoriaSOAP.Categoria.obtenerPorIdCategoria(SquirlearnWA.categoriaSOAP.obtenerPorIdCategoriaRequest request) {
             return base.Channel.obtenerPorIdCategoria(request);
         }
@@ -227,6 +206,27 @@ namespace SquirlearnWA.categoriaSOAP {
             SquirlearnWA.categoriaSOAP.obtenerPorIdCategoriaRequest inValue = new SquirlearnWA.categoriaSOAP.obtenerPorIdCategoriaRequest();
             inValue.id = id;
             return ((SquirlearnWA.categoriaSOAP.Categoria)(this)).obtenerPorIdCategoriaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse SquirlearnWA.categoriaSOAP.Categoria.listarTodosCategoria(SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest request) {
+            return base.Channel.listarTodosCategoria(request);
+        }
+        
+        public SquirlearnWA.categoriaSOAP.categoriaDto[] listarTodosCategoria() {
+            SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest inValue = new SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest();
+            SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse retVal = ((SquirlearnWA.categoriaSOAP.Categoria)(this)).listarTodosCategoria(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse> SquirlearnWA.categoriaSOAP.Categoria.listarTodosCategoriaAsync(SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest request) {
+            return base.Channel.listarTodosCategoriaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.categoriaSOAP.listarTodosCategoriaResponse> listarTodosCategoriaAsync() {
+            SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest inValue = new SquirlearnWA.categoriaSOAP.listarTodosCategoriaRequest();
+            return ((SquirlearnWA.categoriaSOAP.Categoria)(this)).listarTodosCategoriaAsync(inValue);
         }
     }
 }

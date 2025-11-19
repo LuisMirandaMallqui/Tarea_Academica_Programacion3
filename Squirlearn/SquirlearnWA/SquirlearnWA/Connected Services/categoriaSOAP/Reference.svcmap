@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="34443633-d96a-4726-9d0a-3ace2b8c8939" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="f9520afe-2108-4f93-a0f7-4d2c4e18983a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:8080/SquirlearnWS/Categoria?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Categoria.xsd" MetadataType="Schema" ID="96b44def-8fc4-4fc9-a6cc-2b9515b87378" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Categoria?xsd=1" />
-    <MetadataFile FileName="Categoria.wsdl" MetadataType="Wsdl" ID="aab48573-359e-4322-8d92-caae75c9b6ba" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Categoria?wsdl" />
+    <MetadataFile FileName="Categoria.xsd" MetadataType="Schema" ID="db212191-726c-4c78-b79c-3be21a2b76ed" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Categoria?xsd=1" />
+    <MetadataFile FileName="Categoria.wsdl" MetadataType="Wsdl" ID="931cbce5-4cf4-4306-b45a-1ad89fee793f" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Categoria?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

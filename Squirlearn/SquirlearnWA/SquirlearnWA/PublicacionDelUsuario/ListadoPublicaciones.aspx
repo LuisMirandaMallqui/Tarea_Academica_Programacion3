@@ -37,9 +37,9 @@
                         <ItemTemplate>
                             <div class="card p-3 mb-3 bg-light rounded shadow-sm">
                                 
-                                <small>Enviado: <%# Eval("FechaCreacion", "{0:dd/MM/yyyy}") %></small>
+                                <small>Enviado: <%# Eval("fechaEnvio", "{0:dd/MM/yyyy}") %></small>
                                 
-                                <strong><%# Eval("CategoriaNombre") %> - <%# Eval("nombre") %></strong>
+                                <strong><%# Eval("categoriaNombre") %> - <%# Eval("nombre") %></strong>
 
                                 <div class="d-flex align-items-center mt-2">
                                     
@@ -49,7 +49,7 @@
                                     
                                     <asp:Label ID="lblEstado" runat="server" 
                                         CssClass="badge p-2 me-2" 
-                                        Text='<%# Eval("EstadoNombre") %>' />
+                                        Text='<%# Eval("estadoNombre") %>' />
                                     
                                     <asp:Button ID="btnRevisar" runat="server" 
                                         Text="Revisar" 

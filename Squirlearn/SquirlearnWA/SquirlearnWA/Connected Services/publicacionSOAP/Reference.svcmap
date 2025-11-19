@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="4884fcaf-3005-4f18-a38a-59237d7b93e4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="6a8cdca9-bbea-4203-91e6-490c01209455" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:8080/SquirlearnWS/Publicacion?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Publicacion.wsdl" MetadataType="Wsdl" ID="63ed3dfd-4d77-4e16-97eb-d7109659bef5" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Publicacion?wsdl" />
-    <MetadataFile FileName="Publicacion.xsd" MetadataType="Schema" ID="a965dfc3-d968-449e-8f96-d5720207c266" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Publicacion?xsd=1" />
+    <MetadataFile FileName="Publicacion.wsdl" MetadataType="Wsdl" ID="016aba2a-c93e-4774-b077-e2a3e6f10e32" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Publicacion?wsdl" />
+    <MetadataFile FileName="Publicacion.xsd" MetadataType="Schema" ID="d2d486bd-a0a7-4baa-9d48-33a46aac392a" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Publicacion?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

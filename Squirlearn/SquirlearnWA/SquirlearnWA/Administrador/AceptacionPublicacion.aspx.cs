@@ -1,5 +1,4 @@
-﻿
-using SquirlearnWA.notificacionSOAP;
+﻿using SquirlearnWA.notificacionSOAP;
 using SquirlearnWA.publicacionSOAP;
 using System;
 using System.Collections.Generic;
@@ -14,7 +13,6 @@ namespace SquirlearnWA.Administrador
     {
         private PublicacionClient publicacionSOAP;
         private NotificacionClient notificacionSOAP;
-        private const int ID_ESTADO_ACEPTADO = 5;
 
         public AceptacionPublicacion()
         {
@@ -47,10 +45,10 @@ namespace SquirlearnWA.Administrador
             int idPublicacion = Convert.ToInt32(Session["IdPublicacion"]);
             int idPersona = Convert.ToInt32(Session["IdPersona"]);
 
-            notificacionSOAP.InsertarNotificacion( comentario, idPersona);
+            notificacionSOAP.insertarNotificacion( comentario, idPersona);
 
 
-            publicacionSOAP.CambiarEstadoPublicacion(idPublicacion, (int)Session["UsuarioId"], "Aceptada"); 
+            publicacionSOAP.cambiarEstadoPublicacion(idPublicacion, Session["usuarioNombre"].ToString(), "Aceptada"); 
 
 
             Response.Redirect("ListadoDeSolicitudesAdmin.aspx");

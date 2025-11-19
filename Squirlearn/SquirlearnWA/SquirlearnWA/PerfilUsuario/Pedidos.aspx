@@ -56,25 +56,25 @@
                                 <!-- Cabecera de la Tarjeta -->
                                 <div class="d-flex justify-content-between small text-muted mb-2">
                                     <span>
-                                        <i class="fa fa-calendar me-1"></i> <%# Eval("FechaEmision") %>
+                                        <i class="fa fa-calendar me-1"></i> <%# Eval("fechaEmision") %>
                                     </span>
-                                    <span class="fw-bold text-primary"><%# Eval("TransaccionID") %></span>
+                                    <span class="fw-bold text-primary"><%# Eval("transaccion") %></span>
                                 </div>
 
                                 <!-- Cuerpo Principal -->
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
-                                        <div class="fw-bold fs-5 text-dark"><%# Eval("Descripcion") %></div>
+                                        <div class="fw-bold fs-5 text-dark"><%# Eval("descripcion") %></div>
                                         <div class="mt-2">
                                             <span class="badge rounded-pill bg-light text-dark border">
-                                                <%# Eval("TipoEtiqueta") %>
+                                                <%# (bool)Eval("esVenta") ? "COMPRA" : "ALQUILER" %>
                                             </span>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4 text-end mt-3 mt-md-0">
                                         <div class="fs-4 fw-bold text-success">
-                                            S/ <%# Eval("MontoDecimal", "{0:N2}") %>
+                                            S/ <%# Eval("monto", "{0:N2}") %>
                                         </div>
                                     </div>
                                 </div>

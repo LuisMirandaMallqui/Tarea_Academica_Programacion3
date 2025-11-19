@@ -58,7 +58,7 @@ namespace SquirlearnWA.Administrador
 
                 // 2. Obtener datos limpios (Variables locales = Memoria se libera al terminar la función)
                 var listaPublicaciones = listado.lista; // Tu lista de DTOs
-                int totalRegistros = listado.TotalRegistros;
+                int totalRegistros = listado.totalPaginas;
 
                 // 3. Cálculo de páginas (Lógica C# que acordamos)
                 int totalPaginas = (int)Math.Ceiling((double)totalRegistros / PublicacionesPorPagina);
@@ -147,7 +147,7 @@ namespace SquirlearnWA.Administrador
                 var pub = e.Item.DataItem as publicacionShortDto;
                 if (pub == null) return;
 
-                string estado = pub.EstadoNombre;
+                string estado = pub.estadoNombre;
 
                 Label lblEstado = e.Item.FindControl("lblEstado") as Label;
                 if (lblEstado != null)

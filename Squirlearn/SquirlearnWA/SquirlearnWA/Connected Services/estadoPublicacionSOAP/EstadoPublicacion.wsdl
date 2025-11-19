@@ -5,31 +5,31 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/EstadoPublicacion?xsd=1" namespace="http://publicacion.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="obtenerPorIdEstadoPublicacion">
-    <part name="parameters" element="tns:obtenerPorIdEstadoPublicacion" />
-  </message>
-  <message name="obtenerPorIdEstadoPublicacionResponse">
-    <part name="parameters" element="tns:obtenerPorIdEstadoPublicacionResponse" />
-  </message>
   <message name="listarTodosEstadoPublicacion">
     <part name="parameters" element="tns:listarTodosEstadoPublicacion" />
   </message>
   <message name="listarTodosEstadoPublicacionResponse">
     <part name="parameters" element="tns:listarTodosEstadoPublicacionResponse" />
   </message>
+  <message name="obtenerPorIdEstadoPublicacion">
+    <part name="parameters" element="tns:obtenerPorIdEstadoPublicacion" />
+  </message>
+  <message name="obtenerPorIdEstadoPublicacionResponse">
+    <part name="parameters" element="tns:obtenerPorIdEstadoPublicacionResponse" />
+  </message>
   <portType name="EstadoPublicacion">
-    <operation name="obtenerPorIdEstadoPublicacion">
-      <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/obtenerPorIdEstadoPublicacionRequest" message="tns:obtenerPorIdEstadoPublicacion" />
-      <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/obtenerPorIdEstadoPublicacionResponse" message="tns:obtenerPorIdEstadoPublicacionResponse" />
-    </operation>
     <operation name="listarTodosEstadoPublicacion">
       <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/listarTodosEstadoPublicacionRequest" message="tns:listarTodosEstadoPublicacion" />
       <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/listarTodosEstadoPublicacionResponse" message="tns:listarTodosEstadoPublicacionResponse" />
     </operation>
+    <operation name="obtenerPorIdEstadoPublicacion">
+      <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/obtenerPorIdEstadoPublicacionRequest" message="tns:obtenerPorIdEstadoPublicacion" />
+      <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/obtenerPorIdEstadoPublicacionResponse" message="tns:obtenerPorIdEstadoPublicacionResponse" />
+    </operation>
   </portType>
   <binding name="EstadoPublicacionPortBinding" type="tns:EstadoPublicacion">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="obtenerPorIdEstadoPublicacion">
+    <operation name="listarTodosEstadoPublicacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -38,7 +38,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarTodosEstadoPublicacion">
+    <operation name="obtenerPorIdEstadoPublicacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

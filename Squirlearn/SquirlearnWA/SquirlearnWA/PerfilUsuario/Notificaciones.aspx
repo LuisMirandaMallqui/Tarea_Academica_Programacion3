@@ -20,7 +20,7 @@
             <div class="card shadow-sm border-0 p-3 mb-3">
                 <div class="d-flex justify-content-between align-items-center">
                     <p class="mb-0 fw-semibold"><%# Eval("mensaje") %></p>
-                    <small class="text-muted"><%# Eval("Fecha") %></small>
+                    <small class="text-muted"><%# Eval("fecha") %></small>
                 </div>
             </div>
         </ItemTemplate>

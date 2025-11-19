@@ -9,11 +9,29 @@
   <xs:complexType name="listarPorDuenoComprobante">
     <xs:sequence>
       <xs:element minOccurs="0" name="personaId" type="xs:int" />
+      <xs:element minOccurs="0" name="esVenta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="pagina" type="xs:int" />
+      <xs:element minOccurs="0" name="registrosPorPagina" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarPorDuenoComprobanteResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:anyType" />
+      <xs:element minOccurs="0" name="return" type="tns:listadoComprobanteShortDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listadoComprobanteShortDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="lista" nillable="true" type="tns:comprobanteShortDto" />
+      <xs:element minOccurs="0" name="totalRegistros" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="comprobanteShortDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="esVenta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaEmision" type="xs:string" />
+      <xs:element minOccurs="0" name="monto" type="xs:double" />
+      <xs:element minOccurs="0" name="transaccion" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarComprobante">
@@ -21,11 +39,14 @@
       <xs:element minOccurs="0" name="monto" type="xs:double" />
       <xs:element minOccurs="0" name="transaccionId" type="xs:string" />
       <xs:element minOccurs="0" name="personaId" type="xs:int" />
-      <xs:element minOccurs="0" name="formaPagoId" type="xs:int" />
-      <xs:element minOccurs="0" name="monedaId" type="xs:int" />
+      <xs:element minOccurs="0" name="formaPagoId" type="xs:string" />
+      <xs:element minOccurs="0" name="monedaId" type="xs:string" />
       <xs:element minOccurs="0" name="impuesto" type="xs:double" />
       <xs:element minOccurs="0" name="fechaEmision" type="xs:string" />
       <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element minOccurs="0" name="itemId" type="xs:int" />
+      <xs:element minOccurs="0" name="alquilerId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreProducto" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarComprobanteResponse">

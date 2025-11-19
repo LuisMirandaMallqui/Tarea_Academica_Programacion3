@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://item.squirlearnws.mycompany.com/" targetNamespace="http://item.squirlearnws.mycompany.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="cambiarEstadoItem" type="tns:cambiarEstadoItem" />
+  <xs:element name="cambiarEstadoItemResponse" type="tns:cambiarEstadoItemResponse" />
+  <xs:element name="insertarItem" type="tns:insertarItem" />
+  <xs:element name="insertarItemResponse" type="tns:insertarItemResponse" />
+  <xs:element name="modificarItem" type="tns:modificarItem" />
+  <xs:element name="modificarItemResponse" type="tns:modificarItemResponse" />
+  <xs:element name="obtenerPorIdItem" type="tns:obtenerPorIdItem" />
+  <xs:element name="obtenerPorIdItemResponse" type="tns:obtenerPorIdItemResponse" />
+  <xs:complexType name="cambiarEstadoItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="itemId" type="xs:int" />
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cambiarEstadoItemResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="precio" type="xs:double" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="esVenta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="colorId" type="xs:int" />
+      <xs:element minOccurs="0" name="condicionId" type="xs:int" />
+      <xs:element minOccurs="0" name="tamanoId" type="xs:int" />
+      <xs:element minOccurs="0" name="formatoId" type="xs:int" />
+      <xs:element minOccurs="0" name="categoriaId" type="xs:int" />
+      <xs:element minOccurs="0" name="subcategoriaId" type="xs:int" />
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarItemResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="precio" type="xs:double" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="esVenta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="colorId" type="xs:int" />
+      <xs:element minOccurs="0" name="condicionId" type="xs:int" />
+      <xs:element minOccurs="0" name="tamanoId" type="xs:int" />
+      <xs:element minOccurs="0" name="formatoId" type="xs:int" />
+      <xs:element minOccurs="0" name="categoriaId" type="xs:int" />
+      <xs:element minOccurs="0" name="subcategoriaId" type="xs:int" />
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarItemResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdItemResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:itemDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="itemDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="categoria" type="tns:categoriaDto" />
+      <xs:element minOccurs="0" name="color" type="tns:colorDto" />
+      <xs:element minOccurs="0" name="condicion" type="tns:condicionDto" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="esVenta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="estadoItem" type="tns:estadoItemDto" />
+      <xs:element minOccurs="0" name="formato" type="tns:formatoDto" />
+      <xs:element minOccurs="0" name="itemId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="precio" type="xs:double" />
+      <xs:element minOccurs="0" name="subcategoria" type="tns:subcategoriaDto" />
+      <xs:element minOccurs="0" name="tamano" type="tns:tamanoDto" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="categoriaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="categoriaId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="colorDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="colorId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="condicionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="condicionId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoItemDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estadoItemId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="formatoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="formatoId" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="subcategoriaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="categoria" type="tns:categoriaDto" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="subcategoriaId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tamanoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="tamanoId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

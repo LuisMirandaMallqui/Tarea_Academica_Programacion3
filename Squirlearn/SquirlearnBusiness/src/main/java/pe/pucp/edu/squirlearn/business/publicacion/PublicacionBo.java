@@ -97,8 +97,8 @@ public class PublicacionBo {
         return listado;
     }
     
-    public ListadoPublicacionGestionDto listarPorFiltrosPublicacion(Integer usuarioId, Integer cantidadPorPagina, Integer pagina,Integer estadoId){
-        
+    public ListadoPublicacionGestionDto listarPorFiltrosPublicacion(Integer usuarioId, Integer cantidadPorPagina, Integer pagina,String estado){
+        Integer estadoId = this.estadoPublicacionBo.obtenerId(estado);
         ListadoPublicacionGestionDto listado = new ListadoPublicacionGestionDto();
         listado.setLista(this.publicacionShortDao.listarPorFiltrosPublicacion( usuarioId,  cantidadPorPagina,  pagina, estadoId));
         
