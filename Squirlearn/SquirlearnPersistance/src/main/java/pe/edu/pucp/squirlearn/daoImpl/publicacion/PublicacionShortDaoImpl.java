@@ -93,6 +93,92 @@ public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionS
         );
     }
 
+    private StringBuilder generarPlantillaSqlParaContar() {
+        return new StringBuilder(
+                "SELECT COUNT(*) AS TOTAL "
+                + "FROM publicaciones P "
+                + "JOIN items I ON P.ITEM_ID_ITEM = I.ITEM_ID "
+                + "JOIN categorias C ON I.subcategoria_CATEGORIA_ID = C.CATEGORIA_ID "
+                + "JOIN estados_publicaciones EP ON P.ESTADO_PUBLICACION_ID = EP.ESTADOPUBLI_ID "
+                + "WHERE 1=1 "
+        );
+    }
+
+    private void aplicarCriteriosDeFiltrado(
+            StringBuilder sql,
+            ArrayList<Object> parametros,
+            String terminoBusqueda,
+            Boolean esVenta,
+            Integer idCategoria,
+            Integer idSubcategoria,
+            Integer idColor,
+            Integer idTamano,
+            Integer idFormato,
+            Integer idCondicion
+    ) {
+
+        if (terminoBusqueda != null && !terminoBusqueda.isBlank()) {
+            sql.append(" AND I.NOMBRE LIKE ? ");
+            parametros.add("%" + terminoBusqueda + "%");
+        }
+
+        if (esVenta != null) {
+            sql.append(" AND I.ES_VENTA = ? ");
+            parametros.add(esVenta ? 1 : 0);
+        }
+
+        if (idCategoria != null) {
+            sql.append(" AND I.subcategoria_CATEGORIA_ID = ? ");
+            parametros.add(idCategoria);
+        }
+
+        if (idSubcategoria != null) {
+            sql.append(" AND I.subcategoria_ID_SUBCATEGORIA = ? ");
+            parametros.add(idSubcategoria);
+        }
+
+        if (idColor != null) {
+            sql.append(" AND I.COLOR_ID = ? ");
+            parametros.add(idColor);
+        }
+
+        if (idTamano != null) {
+            sql.append(" AND I.TAMANO_ID = ? ");
+            parametros.add(idTamano);
+        }
+
+        if (idFormato != null) {
+            sql.append(" AND I.FORMATO_ID = ? ");
+            parametros.add(idFormato);
+        }
+
+        if (idCondicion != null) {
+            sql.append(" AND I.CONDICION_ID = ? ");
+            parametros.add(idCondicion);
+        }
+
+        // Filtros fijos
+        sql.append(" AND I.ESTADO_ITEM_ID = 1 ");
+        sql.append(" AND P.ESTADO_PUBLICACION_ID = 2 ");
+    }
+
+    private void aplicarCriteriosDeFiltrado(
+            StringBuilder sql,
+            ArrayList<Object> parametros,
+            Integer usuarioId,
+            Integer estadoId
+    ) {
+        if (usuarioId != null) {
+            sql.append(" AND P.PERSONA_ID = ? ");
+            parametros.add(usuarioId);
+        }
+
+        if (estadoId != null) {
+            sql.append(" AND P.ESTADO_PUBLICACION_ID = ? ");
+            parametros.add(estadoId);
+        }
+    }
+
     @Override
     public ArrayList<PublicacionShortDto> listarPorFiltrosPublicacion(
             String terminoBusqueda,
@@ -106,51 +192,9 @@ public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionS
             Integer pagina,
             Integer cantidadPorPagina
     ) {
-
         StringBuilder sql = generarPlantillaSqlParaFiltros();
-
         ArrayList<Object> parametros = new ArrayList<>();
-
-        if (terminoBusqueda != null && !terminoBusqueda.isBlank()) {
-            sql.append(" AND I.NOMBRE LIKE ? ");
-            parametros.add("%" + terminoBusqueda + "%");
-        }
-
-        if (esVenta != null) {
-            sql.append(" AND I.ES_VENTA = ? ");
-            parametros.add(esVenta ? 1 : 0);
-        }
-
-        if (idCategoria != 0) {
-            sql.append(" AND I.subcategoria_CATEGORIA_ID = ? ");
-            parametros.add(idCategoria);
-        }
-
-        if (idSubcategoria != 0) {
-            sql.append(" AND I.subcategoria_ID_SUBCATEGORIA = ? ");
-            parametros.add(idSubcategoria);
-        }
-
-        if (idColor != 0) {
-            sql.append(" AND I.COLOR_ID = ? ");
-            parametros.add(idColor);
-        }
-
-        if (idTamano != 0) {
-            sql.append(" AND I.TAMANO_ID = ? ");
-            parametros.add(idTamano);
-        }
-
-        if (idFormato != 0) {
-            sql.append(" AND I.FORMATO_ID = ? ");
-            parametros.add(idFormato);
-        }
-
-        if (idCondicion != 0) {
-            sql.append(" AND I.CONDICION_ID = ? ");
-            parametros.add(idCondicion);
-        }
-
+        aplicarCriteriosDeFiltrado(sql, parametros, terminoBusqueda, esVenta, idCategoria, idSubcategoria, idColor, idTamano, idFormato, idCondicion);
         Query.aplicarPaginacion(sql, parametros, pagina, cantidadPorPagina);
 
         Consumer<PreparedStatement> incluirValores = p -> {
@@ -175,17 +219,8 @@ public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionS
             Integer estadoId
     ) {
         StringBuilder sql = generarPlantillaSqlParaFiltros();
-
         ArrayList<Object> parametros = new ArrayList<>();
-        if (usuarioId != null) {
-            sql.append(" AND P.PERSONA_ID = ? ");
-            parametros.add(usuarioId);
-        }
-
-        if (estadoId != null) {
-            sql.append(" AND P.ESTADO_PUBLICACION_ID = ? ");
-            parametros.add(estadoId);
-        }
+        aplicarCriteriosDeFiltrado(sql, parametros, usuarioId, estadoId);
         Query.aplicarPaginacion(sql, parametros, pagina, cantidadPorPagina); // POR PROBAR
 
         Consumer<PreparedStatement> incluirValores = p -> {
@@ -199,6 +234,37 @@ public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionS
             }
         };
         return (ArrayList<PublicacionShortDto>) this.listarTodos(sql.toString(), incluirValores, null);//
+    }
+
+    @Override
+    public Integer cantidadListarPorFiltrosPublicacion(
+            String terminoBusqueda,
+            Boolean esVenta,
+            Integer idCategoria,
+            Integer idSubcategoria,
+            Integer idColor,
+            Integer idTamano,
+            Integer idFormato,
+            Integer idCondicion
+    ) {
+        StringBuilder sql = generarPlantillaSqlParaContar();
+        ArrayList<Object> parametros = new ArrayList<>();
+        aplicarCriteriosDeFiltrado(sql, parametros, terminoBusqueda, esVenta, idCategoria, idSubcategoria, idColor, idTamano, idFormato, idCondicion);
+
+        return ejecutarConteo(sql, parametros);
+    }
+
+    @Override
+    public Integer cantidadListarPorFiltrosPublicacion(
+            Integer usuarioId,
+            Integer estadoId
+    ) {
+        StringBuilder sql = generarPlantillaSqlParaContar();
+        ArrayList<Object> parametros = new ArrayList<>();
+
+        aplicarCriteriosDeFiltrado(sql, parametros, usuarioId, estadoId);
+
+        return ejecutarConteo(sql, parametros);
     }
 
     @Override

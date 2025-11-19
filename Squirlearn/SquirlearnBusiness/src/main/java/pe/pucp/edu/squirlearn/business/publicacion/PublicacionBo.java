@@ -102,7 +102,7 @@ public class PublicacionBo {
         ListadoPublicacionGestionDto listado = new ListadoPublicacionGestionDto();
         listado.setLista(this.publicacionShortDao.listarPorFiltrosPublicacion( usuarioId,  cantidadPorPagina,  pagina, estadoId));
         
-        listado.setTotalPaginas(this.publicacionShortDao.cantidadListarPorFiltrosPublicacion(usuarioId,  cantidadPorPagina,  pagina, estadoId));
+        listado.setTotalPaginas(this.publicacionShortDao.cantidadListarPorFiltrosPublicacion(usuarioId, estadoId));
         return listado;
     }
 

@@ -34,4 +34,19 @@ public interface PublicacionShortDao extends IDAO<PublicacionShortDto> {
             Integer estadoId
     );
     
+    public Integer cantidadListarPorFiltrosPublicacion(
+            Integer usuarioId,
+            Integer estadoId
+    );  
+    
+    public Integer cantidadListarPorFiltrosPublicacion(
+            String terminoBusqueda,
+            Boolean esVenta,
+            Integer idCategoria,
+            Integer idSubcategoria,
+            Integer idColor,
+            Integer idTamano,
+            Integer idFormato,
+            Integer idCondicion
+    );  
 }

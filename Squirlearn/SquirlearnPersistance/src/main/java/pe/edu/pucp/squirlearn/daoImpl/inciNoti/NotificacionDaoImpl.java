@@ -123,7 +123,7 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao 
         parametros.add(personaId);
         Query.aplicarPaginacion(sql, parametros, pagina, registrosPorPagina);
         Consumer<PreparedStatement> incluir = ps -> {
-             try {
+            try {
                 int i = 1;
                 for (Object param : parametros) {
                     this.statement.setObject(i++, param);
@@ -134,4 +134,28 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao 
         };
         return (ArrayList<NotificacionDto>) (ArrayList) this.listarTodos(sql.toString(), incluir, null);
     }
+
+    private StringBuilder generarPlantillaSqlParaContar() {
+        return new StringBuilder(
+                "SELECT COUNT(*) AS TOTAL "
+                + "FROM notificaciones "
+                + "WHERE 1=1 "
+        );
+    }
+
+    @Override
+    public Integer listarPorPersonaCantidad(Integer personaId, Integer pagina, Integer registrosPorPagina) {
+        StringBuilder sql = generarPlantillaSqlParaContar();
+        ArrayList<Object> parametros = new ArrayList<>();
+
+        if (personaId != null) {
+            sql.append(" AND PERSONA_ID = ? ");
+            parametros.add(personaId);
+        }
+        
+        Query.aplicarPaginacion(sql, parametros, pagina, registrosPorPagina); // VA PAGINACION?
+
+        return ejecutarConteo(sql, parametros);
+    }
+
 }

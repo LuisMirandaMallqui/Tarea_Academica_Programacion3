@@ -419,6 +419,31 @@ public abstract class DAOImplBase {
         }
         return 1; // Fallback si la tabla no tiene filas
     }
+    
+    protected Integer ejecutarConteo(StringBuilder sql, ArrayList<Object> parametros) {
+        Integer total = 0;
+        try {
+            this.abrirConexion();
+            java.sql.PreparedStatement ps = this.conexion.prepareStatement(sql.toString());
+            
+            int i = 1;
+            for (Object param : parametros) {
+                ps.setObject(i++, param);
+            }
+            
+            // Ejecutamos y leemos el escalar
+            var rs = ps.executeQuery();
+            if (rs.next()) {
+                total = rs.getInt("TOTAL");
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al contar: " + ex.getMessage());
+            ex.printStackTrace();
+        } finally {
+            try { this.cerrarConexion(); } catch (SQLException e) {}
+        }
+        return total;
+    }
 
     protected int safeFkId(Integer provided, String tabla, String col) throws SQLException {
         if (provided != null && provided > 0) return provided;
