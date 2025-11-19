@@ -8,12 +8,13 @@ import java.util.function.Consumer;
 import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
 import pe.edu.pucp.squirlearn.dao.inciNoti.NotificacionDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
+import pe.edu.pucp.squirlearn.daoImpl.util.Query;
 import pe.edu.pucp.squirlearn.daoImpl.util.TraduccionesSQL;
 import pe.edu.pucp.squirlearn.model.inciNoti.MotivoDto;
 import pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
-public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao{
+public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao {
 
     private NotificacionDto notificacion;
 
@@ -35,20 +36,21 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao{
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
         int i = 1;
-        this.statement.setInt(i++,  this.notificacion.getPersona().getPersonaId());
+        this.statement.setInt(i++, this.notificacion.getPersona().getPersonaId());
         this.statement.setInt(i++, this.notificacion.getMotivo().getMotivoId());
         this.statement.setString(i++, this.notificacion.getFecha());
         this.statement.setString(i++, this.notificacion.getMensaje());
     }
+
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int i = 1;
-        this.statement.setInt(i++,  this.notificacion.getPersona().getPersonaId());
+        this.statement.setInt(i++, this.notificacion.getPersona().getPersonaId());
         this.statement.setInt(i++, this.notificacion.getMotivo().getMotivoId());
         this.statement.setString(i++, this.notificacion.getFecha());
         this.statement.setString(i++, this.notificacion.getMensaje());
         this.statement.setInt(i++, this.notificacion.getNotificacionId());
-        
+
     }
 
     @Override
@@ -67,7 +69,6 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao{
         this.notificacion.setFecha(this.resultSet.getString("FECHA"));
         this.notificacion.setMensaje(this.resultSet.getString("MENSAJE"));
     }
-
 
     @Override
     protected void incluirValorDeParametrosParaEliminacion() throws SQLException {
@@ -89,12 +90,13 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao{
         this.instanciarObjetoDelResultSet();
         lista.add(this.notificacion);
     }
-    
+
     @Override
     public Integer insertar(NotificacionDto notificacion) {
         this.notificacion = notificacion;
         return super.insertar();
     }
+
     @Override
     public NotificacionDto obtenerPorId(Integer id) {
         this.notificacion = new NotificacionDto();
@@ -121,15 +123,22 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao{
     }
 
     @Override
-    public ArrayList<NotificacionDto> listarPorPersona(Integer personaId) {
-        String sql = this.generarSQLParaListarTodos() + " WHERE PERSONA_ID=?";
-        Consumer<PreparedStatement> incluir = ps -> { 
-            try { ps.setInt(1, personaId); 
-            } catch (SQLException e) { 
-                throw new RuntimeException(e); 
-            } 
+    public ArrayList<NotificacionDto> listarPorPersonaNotificacion(Integer personaId, Integer pagina, Integer registrosPorPagina) {
+        StringBuilder sql = new StringBuilder(this.generarSQLParaListarTodos());
+        sql.append(" WHERE PERSONA_ID = ? ");
+        ArrayList<Object> parametros = new ArrayList<>();
+        parametros.add(personaId);
+        Query.aplicarPaginacion(sql, parametros, pagina, registrosPorPagina);
+        Consumer<PreparedStatement> incluir = ps -> {
+             try {
+                int i = 1;
+                for (Object param : parametros) {
+                    this.statement.setObject(i++, param);
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         };
-        return (ArrayList<NotificacionDto>) (ArrayList) this.listarTodos(sql, incluir, null);
+        return (ArrayList<NotificacionDto>) (ArrayList) this.listarTodos(sql.toString(), incluir, null);
     }
-
 }

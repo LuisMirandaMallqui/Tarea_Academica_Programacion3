@@ -11,6 +11,7 @@ import java.util.function.Consumer;
 import pe.edu.pucp.squirlearn.dao.publicacion.PublicacionShortDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
 import pe.edu.pucp.squirlearn.daoImpl.util.Columna;
+import pe.edu.pucp.squirlearn.daoImpl.util.Query;
 import pe.edu.pucp.squirlearn.model.publicacion.PublicacionShortDto;
 
 public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionShortDao {
@@ -151,12 +152,7 @@ public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionS
             parametros.add(idCondicion);
         }
 
-        if (pagina != null && cantidadPorPagina != null && pagina > 0) {
-            int offset = (pagina - 1) * cantidadPorPagina;
-            sql.append(" LIMIT ? OFFSET ? ");
-            parametros.add(cantidadPorPagina);
-            parametros.add(offset);
-        }
+        Query.aplicarPaginacion(sql, parametros, pagina, cantidadPorPagina);
 
         Consumer<PreparedStatement> incluirValores = p -> {
             try {
@@ -191,13 +187,7 @@ public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionS
             sql.append(" AND P.ESTADO_PUBLICACION_ID = ? ");
             parametros.add(estadoId);
         }
-
-        if (pagina != null && cantidadPorPagina != null && pagina > 0) {
-            int offset = (pagina - 1) * cantidadPorPagina;
-            sql.append(" LIMIT ? OFFSET ? ");
-            parametros.add(cantidadPorPagina);
-            parametros.add(offset);
-        }
+        Query.aplicarPaginacion(sql, parametros, pagina, cantidadPorPagina); // POR PROBAR
 
         Consumer<PreparedStatement> incluirValores = p -> {
             try {

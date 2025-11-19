@@ -63,7 +63,8 @@ INSERT INTO estados_publicaciones(NOMBRE) VALUES
 ('Pendiente'),
 ('Aprobada'),
 ('Rechazada'),
-('Eliminada');
+('Eliminada'),
+('Transaccionada');
 INSERT INTO estados_chats(NOMBRE) VALUES 
 ('Activo'),
 ('Eliminado');

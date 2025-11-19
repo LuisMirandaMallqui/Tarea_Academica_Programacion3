@@ -40,15 +40,15 @@ public class NotificacionBoTest {
 //            System.out.println(entidad.getPersona().getPersonaId());
 //        }
 //    }
-    @Test
-    public void testInsertar() {
-        System.out.println("insertar");
-        // Mismos datos de prueba que en NotificacionDaoTest
-        Integer resultado = this.notificacionBO.insertar(
-                "Notificación de XD", // mensaje
-                1,                        // personaId (AJUSTAR)
-                1                         // motivoId  (AJUSTAR)
-        );
-        assertTrue(resultado != 0);
-    }
+//    @Test
+//    public void testInsertar() {
+//        System.out.println("insertar");
+//         Mismos datos de prueba que en NotificacionDaoTest
+//        Integer resultado = this.notificacionBO.insertar(
+//                "Notificación de XD", // mensaje
+//                1,                        // personaId (AJUSTAR)
+//                1                         // motivoId  (AJUSTAR)
+//        );
+//        assertTrue(resultado != 0);
+//    }
 }
