@@ -112,6 +112,12 @@
     <Content Include="Connected Services\categoriaSOAP\SquirlearnWA.categoriaSOAP.obtenerPorIdCategoriaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\categoriaSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\categoriaSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\categoriaSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Connected Services\colorSOAP\Color.wsdl" />
     <None Include="Connected Services\colorSOAP\Color.xsd">
       <SubType>Designer</SubType>
@@ -132,13 +138,16 @@
     <Content Include="Connected Services\comprobanteSOAP\SquirlearnWA.comprobanteSOAP.comprobanteDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\comprobanteSOAP\SquirlearnWA.comprobanteSOAP.insertarComprobanteResponse1.datasource">
+    <Content Include="Connected Services\comprobanteSOAP\SquirlearnWA.comprobanteSOAP.insertarComprobanteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\comprobanteSOAP\SquirlearnWA.comprobanteSOAP.listadoComprobanteShortDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\comprobanteSOAP\SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\comprobanteSOAP\SquirlearnWA.comprobanteSOAP.obtenerPorIdComprobanteResponse1.datasource">
+    <Content Include="Connected Services\comprobanteSOAP\SquirlearnWA.comprobanteSOAP.obtenerPorIdComprobanteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\condicionSOAP\Condicion.wsdl" />
@@ -177,12 +186,6 @@
     <None Include="Connected Services\formatoSOAP\Formato.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\condicionSOAP\configuration91.svcinfo" />
-    <None Include="Connected Services\condicionSOAP\configuration.svcinfo" />
-    <None Include="Connected Services\condicionSOAP\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Connected Services\estadoPublicacionSOAP\configuration91.svcinfo" />
     <None Include="Connected Services\estadoPublicacionSOAP\configuration.svcinfo" />
     <None Include="Connected Services\estadoPublicacionSOAP\Reference.svcmap">
@@ -198,11 +201,33 @@
     <Content Include="Connected Services\formatoSOAP\SquirlearnWA.formatoSOAP.obtenerPorIdFormatoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\itemSOAP\Item.wsdl" />
+    <None Include="Connected Services\itemSOAP\Item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\itemSOAP\SquirlearnWA.itemSOAP.cambiarEstadoItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\itemSOAP\SquirlearnWA.itemSOAP.insertarItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\itemSOAP\SquirlearnWA.itemSOAP.itemDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\itemSOAP\SquirlearnWA.itemSOAP.modificarItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\itemSOAP\SquirlearnWA.itemSOAP.obtenerPorIdItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\notificacionSOAP\Notificacion.wsdl" />
     <None Include="Connected Services\notificacionSOAP\Notificacion.xsd">
       <SubType>Designer</SubType>
     </None>
     <Content Include="Connected Services\notificacionSOAP\SquirlearnWA.notificacionSOAP.insertarNotificacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\notificacionSOAP\SquirlearnWA.notificacionSOAP.listadoNotificacionesDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\notificacionSOAP\SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse.datasource">
@@ -220,58 +245,15 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\categoriaSOAP\configuration91.svcinfo" />
-    <None Include="Connected Services\categoriaSOAP\configuration.svcinfo" />
-    <None Include="Connected Services\categoriaSOAP\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\publicacionSOAP\Publicacion.wsdl" />
-    <None Include="Connected Services\publicacionSOAP\Publicacion.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\notificacionSOAP\configuration91.svcinfo" />
-    <None Include="Connected Services\notificacionSOAP\configuration.svcinfo" />
-    <None Include="Connected Services\notificacionSOAP\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.insertarPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorDuenoPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.modificarPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.obtenerPorIdPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.publicacionDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\subcategoriaSOAP\configuration91.svcinfo" />
-    <None Include="Connected Services\subcategoriaSOAP\configuration.svcinfo" />
-    <None Include="Connected Services\subcategoriaSOAP\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Connected Services\colorSOAP\configuration91.svcinfo" />
     <None Include="Connected Services\colorSOAP\configuration.svcinfo" />
     <None Include="Connected Services\colorSOAP\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\tamanoSOAP\configuration91.svcinfo" />
-    <None Include="Connected Services\tamanoSOAP\configuration.svcinfo" />
-    <None Include="Connected Services\tamanoSOAP\Reference.svcmap">
+    <None Include="Connected Services\condicionSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\condicionSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\condicionSOAP\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -284,6 +266,30 @@
     <None Include="Connected Services\publicacionSOAP\configuration91.svcinfo" />
     <None Include="Connected Services\publicacionSOAP\configuration.svcinfo" />
     <None Include="Connected Services\publicacionSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\subcategoriaSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\subcategoriaSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\subcategoriaSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\tamanoSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\tamanoSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\tamanoSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\itemSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\itemSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\itemSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\notificacionSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\notificacionSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\notificacionSOAP\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -381,6 +387,43 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\personaSOAP\SquirlearnWA.personaSOAP.personaDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\publicacionSOAP\Publicacion.wsdl" />
+    <None Include="Connected Services\publicacionSOAP\Publicacion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.insertarPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listadoPublicacionGestionDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorDuenoPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.modificarPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.obtenerPorIdPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.publicacionDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\subcategoriaSOAP\SquirlearnWA.subcategoriaSOAP.listarPorCategoriaSubcategoriaResponse.datasource">
@@ -487,6 +530,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\formatoSOAP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\itemSOAP\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -674,6 +722,7 @@
     <WCFMetadataStorage Include="Connected Services\condicionSOAP\" />
     <WCFMetadataStorage Include="Connected Services\estadoPublicacionSOAP\" />
     <WCFMetadataStorage Include="Connected Services\formatoSOAP\" />
+    <WCFMetadataStorage Include="Connected Services\itemSOAP\" />
     <WCFMetadataStorage Include="Connected Services\notificacionSOAP\" />
     <WCFMetadataStorage Include="Connected Services\personaSOAP\" />
     <WCFMetadataStorage Include="Connected Services\publicacionSOAP\" />

@@ -3,7 +3,6 @@ package com.mycompany.squirlearnws.inciNoti;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
-import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.model.inciNoti.ListadoNotificacionesDto;
 import pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto;
 import pe.pucp.edu.squirlearn.business.inciNoti.NotificacionBo;

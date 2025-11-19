@@ -97,12 +97,11 @@ public class PublicacionBo {
         return listado;
     }
     
-    public ListadoPublicacionGestionDto listarPorFiltrosPublicacion(Integer usuarioId, Integer cantidadPorPagina, Integer pagina,Integer estadoId){
-        
+    public ListadoPublicacionGestionDto listarPorFiltrosPublicacion(Integer usuarioId, Integer cantidadPorPagina, Integer pagina,Integer estado){
         ListadoPublicacionGestionDto listado = new ListadoPublicacionGestionDto();
-        listado.setLista(this.publicacionShortDao.listarPorFiltrosPublicacion( usuarioId,  cantidadPorPagina,  pagina, estadoId));
+        listado.setLista(this.publicacionShortDao.listarPorFiltrosPublicacion( usuarioId,  cantidadPorPagina,  pagina, estado));
         
-        listado.setTotalPaginas(this.publicacionShortDao.cantidadListarPorFiltrosPublicacion(usuarioId, estadoId));
+        listado.setTotalPaginas(this.publicacionShortDao.cantidadListarPorFiltrosPublicacion(usuarioId, estado));
         return listado;
     }
 

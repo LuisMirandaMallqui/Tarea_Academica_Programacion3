@@ -16,6 +16,15 @@ namespace SquirlearnWA.alquilerSOAP {
     public interface Alquiler {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/obtenerPorIdAlquilerRequest", ReplyAction="http://alquiler.squirlearnws.mycompany.com/Alquiler/obtenerPorIdAlquilerResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerResponse obtenerPorIdAlquiler(SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/obtenerPorIdAlquilerRequest", ReplyAction="http://alquiler.squirlearnws.mycompany.com/Alquiler/obtenerPorIdAlquilerResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerResponse> obtenerPorIdAlquilerAsync(SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/listarPorDuenoAlquilerRequest" +
             "", ReplyAction="http://alquiler.squirlearnws.mycompany.com/Alquiler/listarPorDuenoAlquilerRespons" +
             "e")]
@@ -27,15 +36,6 @@ namespace SquirlearnWA.alquilerSOAP {
             "", ReplyAction="http://alquiler.squirlearnws.mycompany.com/Alquiler/listarPorDuenoAlquilerRespons" +
             "e")]
         System.Threading.Tasks.Task<SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerResponse> listarPorDuenoAlquilerAsync(SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/obtenerPorIdAlquilerRequest", ReplyAction="http://alquiler.squirlearnws.mycompany.com/Alquiler/obtenerPorIdAlquilerResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerResponse obtenerPorIdAlquiler(SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/obtenerPorIdAlquilerRequest", ReplyAction="http://alquiler.squirlearnws.mycompany.com/Alquiler/obtenerPorIdAlquilerResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerResponse> obtenerPorIdAlquilerAsync(SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/modificarAlquilerRequest", ReplyAction="http://alquiler.squirlearnws.mycompany.com/Alquiler/modificarAlquilerResponse")]
@@ -1255,42 +1255,6 @@ namespace SquirlearnWA.alquilerSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorDuenoAlquiler", WrapperNamespace="http://alquiler.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarPorDuenoAlquilerRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://alquiler.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int personaId;
-        
-        public listarPorDuenoAlquilerRequest() {
-        }
-        
-        public listarPorDuenoAlquilerRequest(int personaId) {
-            this.personaId = personaId;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorDuenoAlquilerResponse", WrapperNamespace="http://alquiler.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarPorDuenoAlquilerResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://alquiler.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.alquilerSOAP.alquilerDto[] @return;
-        
-        public listarPorDuenoAlquilerResponse() {
-        }
-        
-        public listarPorDuenoAlquilerResponse(SquirlearnWA.alquilerSOAP.alquilerDto[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdAlquiler", WrapperNamespace="http://alquiler.squirlearnws.mycompany.com/", IsWrapped=true)]
     public partial class obtenerPorIdAlquilerRequest {
         
@@ -1320,6 +1284,42 @@ namespace SquirlearnWA.alquilerSOAP {
         }
         
         public obtenerPorIdAlquilerResponse(SquirlearnWA.alquilerSOAP.alquilerDto @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorDuenoAlquiler", WrapperNamespace="http://alquiler.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarPorDuenoAlquilerRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://alquiler.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int personaId;
+        
+        public listarPorDuenoAlquilerRequest() {
+        }
+        
+        public listarPorDuenoAlquilerRequest(int personaId) {
+            this.personaId = personaId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorDuenoAlquilerResponse", WrapperNamespace="http://alquiler.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarPorDuenoAlquilerResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://alquiler.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.alquilerSOAP.alquilerDto[] @return;
+        
+        public listarPorDuenoAlquilerResponse() {
+        }
+        
+        public listarPorDuenoAlquilerResponse(SquirlearnWA.alquilerSOAP.alquilerDto[] @return) {
             this.@return = @return;
         }
     }
@@ -1479,29 +1479,6 @@ namespace SquirlearnWA.alquilerSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerResponse SquirlearnWA.alquilerSOAP.Alquiler.listarPorDuenoAlquiler(SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest request) {
-            return base.Channel.listarPorDuenoAlquiler(request);
-        }
-        
-        public SquirlearnWA.alquilerSOAP.alquilerDto[] listarPorDuenoAlquiler(int personaId) {
-            SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest inValue = new SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest();
-            inValue.personaId = personaId;
-            SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerResponse retVal = ((SquirlearnWA.alquilerSOAP.Alquiler)(this)).listarPorDuenoAlquiler(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerResponse> SquirlearnWA.alquilerSOAP.Alquiler.listarPorDuenoAlquilerAsync(SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest request) {
-            return base.Channel.listarPorDuenoAlquilerAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerResponse> listarPorDuenoAlquilerAsync(int personaId) {
-            SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest inValue = new SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest();
-            inValue.personaId = personaId;
-            return ((SquirlearnWA.alquilerSOAP.Alquiler)(this)).listarPorDuenoAlquilerAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerResponse SquirlearnWA.alquilerSOAP.Alquiler.obtenerPorIdAlquiler(SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerRequest request) {
             return base.Channel.obtenerPorIdAlquiler(request);
         }
@@ -1522,6 +1499,29 @@ namespace SquirlearnWA.alquilerSOAP {
             SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerRequest inValue = new SquirlearnWA.alquilerSOAP.obtenerPorIdAlquilerRequest();
             inValue.id = id;
             return ((SquirlearnWA.alquilerSOAP.Alquiler)(this)).obtenerPorIdAlquilerAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerResponse SquirlearnWA.alquilerSOAP.Alquiler.listarPorDuenoAlquiler(SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest request) {
+            return base.Channel.listarPorDuenoAlquiler(request);
+        }
+        
+        public SquirlearnWA.alquilerSOAP.alquilerDto[] listarPorDuenoAlquiler(int personaId) {
+            SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest inValue = new SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest();
+            inValue.personaId = personaId;
+            SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerResponse retVal = ((SquirlearnWA.alquilerSOAP.Alquiler)(this)).listarPorDuenoAlquiler(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerResponse> SquirlearnWA.alquilerSOAP.Alquiler.listarPorDuenoAlquilerAsync(SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest request) {
+            return base.Channel.listarPorDuenoAlquilerAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerResponse> listarPorDuenoAlquilerAsync(int personaId) {
+            SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest inValue = new SquirlearnWA.alquilerSOAP.listarPorDuenoAlquilerRequest();
+            inValue.personaId = personaId;
+            return ((SquirlearnWA.alquilerSOAP.Alquiler)(this)).listarPorDuenoAlquilerAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

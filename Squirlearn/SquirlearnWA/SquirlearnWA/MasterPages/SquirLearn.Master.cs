@@ -19,13 +19,11 @@ namespace SquirlearnWA.MasterPages
                     // Mostrar o habilitar opciones especiales
                     menuAdmin.Visible = false;
                     menuUsuario.Visible = true;
-                    menuPerfil.Visible = true;
                 }
                 else
                 {
                     menuAdmin.Visible = false;
                     menuUsuario.Visible = true;
-                    menuPerfil.Visible = true;
                 }
             }
         }

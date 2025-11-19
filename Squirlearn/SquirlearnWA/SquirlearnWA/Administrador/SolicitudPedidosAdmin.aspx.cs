@@ -39,7 +39,7 @@ namespace SquirlearnWA
             int idPublicacion = Convert.ToInt32(Request.QueryString["id"]);
 
             // 2️⃣ Llamar al backend (BO → SOAP)
-            publicacionDto publicacion = publicacionSOAP.obtenerPorIdPublicacion(idPublicacion);
+            publicacionDto publicacion = publicacionSOAP.obtenerPorIdCompleto(idPublicacion);
            
             Session["IdPublicacion"] = publicacion.publicacionId;
             Session["IdPersona"] = publicacion.persona.personaId;

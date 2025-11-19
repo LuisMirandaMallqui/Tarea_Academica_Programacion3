@@ -2,7 +2,7 @@
 using SquirlearnWA.comprobanteSOAP;
 using SquirlearnWA.notificacionSOAP;
 using SquirlearnWA.publicacionSOAP;
-using SquirlearnWA.ItemSOAP;
+using SquirlearnWA.itemSOAP;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +18,14 @@ namespace SquirlearnWA
         private NotificacionClient notificacionSoap;
         private AlquilerClient alquilerSoap;
         private PublicacionClient publicacionSoap;
-        private ItemClient itemSoap;
+        private ItemClient itemSoap; 
         public ConfirmacionPedido()
         {
             this.notificacionSoap = new NotificacionClient();
             this.alquilerSoap = new AlquilerClient();
             this.comprobanteSoap = new ComprobanteClient();
             this.publicacionSoap = new PublicacionClient();
+            this.itemSoap = new ItemClient();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -113,8 +114,7 @@ namespace SquirlearnWA
                         itemSoap.cambiarEstadoItem((int)Session["itemId"], Session["nombreUsuario"].ToString(), "Vendido");
 
                     }
-                    //por corregir
-                    publicacionSoap.cambiarEstadoPublicacion(Int32.Parse(Session["productoSeleccionado"].ToString(), Session["nombreUsuario"].ToString() , "Transaccionada");
+                    publicacionSoap.cambiarEstadoPublicacion(Int32.Parse(Session["productoSeleccionado"].ToString()), Session["nombreUsuario"].ToString() , "Transaccionada");
                     comprobanteSoap.insertarComprobante(totalCompra, codigoTransaccion, idUsuario, metodoPago, tipoMoneda, impuesto, fechaCompra, usuarioNombre, (int)Session["itemId"],
                         alquilerId, Session["nombreProducto"].ToString());
 

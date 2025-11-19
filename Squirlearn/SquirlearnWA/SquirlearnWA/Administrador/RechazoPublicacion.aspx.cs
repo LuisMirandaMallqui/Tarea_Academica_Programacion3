@@ -39,10 +39,10 @@ namespace SquirlearnWA
             int idPublicacion = Convert.ToInt32(Session["IdPublicacion"]);
             int idPersona = Convert.ToInt32(Session["IdPersona"]);
 
-            notificacionSOAP.InsertarNotificacion( comentario, idPersona);
+            notificacionSOAP.insertarNotificacion( comentario, idPersona);
 
 
-            publicacionSOAP.CambiarEstadoPublicacion(idPublicacion, (int)Session["UsuarioId"], "Rechazada");
+            publicacionSOAP.cambiarEstadoPublicacion(idPublicacion, Session["usuarioNombre"].ToString(), "Rechazada");
 
 
 

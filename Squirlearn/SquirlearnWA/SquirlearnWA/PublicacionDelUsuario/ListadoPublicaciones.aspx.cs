@@ -118,7 +118,7 @@ namespace SquirlearnWA
 
                 // Ahora usamos las propiedades planas del 'publicacionShortDto'
                 // (Asegúrate que tu DTO tenga 'EstadoNombre' y 'FechaEnvio' como planeamos)
-                string estado = pub.EstadoNombre;
+                string estado = pub.estadoNombre;
 
                 // 1. Configurar el color
                 Label lblEstado = e.Item.FindControl("lblEstado") as Label;
@@ -202,7 +202,7 @@ namespace SquirlearnWA
             {
                 foreach (var id in idsEliminar)
                 {
-                    publicacionSoap.cambiarEstadoPublicacion(id, Session["nombreUsuario"].ToString, "Eliminada");
+                    publicacionSoap.cambiarEstadoPublicacion(id, Session["nombreUsuario"].ToString(), "Eliminada");
                 }
 
                 CargarPublicacionesDesdeBackend();

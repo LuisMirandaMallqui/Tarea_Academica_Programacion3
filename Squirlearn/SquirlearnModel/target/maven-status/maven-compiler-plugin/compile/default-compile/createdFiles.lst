@@ -18,6 +18,7 @@ pe\edu\pucp\squirlearn\model\item\ColorDto.class
 pe\edu\pucp\squirlearn\model\comprobante\DetalleComprobanteDto.class
 pe\edu\pucp\squirlearn\model\comprobante\FormaPagoDto.class
 pe\edu\pucp\squirlearn\model\item\SubcategoriaDto.class
+pe\edu\pucp\squirlearn\model\comprobante\ListadoComprobanteShortDto.class
 pe\edu\pucp\squirlearn\model\inciNoti\MotivoDto.class
 pe\edu\pucp\squirlearn\model\persona\RolPersonaDto.class
 pe\edu\pucp\squirlearn\model\chat\EstadoMensajeDto.class

@@ -54,15 +54,15 @@ namespace SquirlearnWA
             int pagina = PaginaActual;
             int registrosPorPagina = RegistrosPorPagina;
 
-            listadoNotificacionesDTO resultado = notificacionSOAP.listarPorPersonaNotificacion(usuarioId, pagina, registrosPorPagina);
+            listadoNotificacionesDto resultado = notificacionSOAP.listarPorPersonaNotificacion(usuarioId, pagina, registrosPorPagina);
 
-            if (resultado?.Lista != null && resultado.Lista.Count > 0)
+            if (resultado?.lista != null && resultado.lista.Length > 0)
             {
-                ListaNotificaciones = resultado.Lista;
+                ListaNotificaciones = resultado.lista.ToList();
 
-                lblTotalResultados.Text = $"Se encontraron {resultado.TotalRegistros} notificaciones.";
+                lblTotalResultados.Text = $"Se encontraron {resultado.totalRegistros} notificaciones.";
                 lblSinResultados.Text = "";
-                MostrarPagina(resultado.TotalRegistros);
+                MostrarPagina(resultado.totalRegistros);
             }
             else
             {
