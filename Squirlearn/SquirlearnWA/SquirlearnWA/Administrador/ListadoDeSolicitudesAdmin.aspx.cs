@@ -53,7 +53,7 @@ namespace SquirlearnWA.Administrador
                     0, 
                     PublicacionesPorPagina,
                     PaginaActual,
-                    "Pendiente"
+                    1//hardcodeado para "Pendiente"
                 );
 
                 // 2. Obtener datos limpios (Variables locales = Memoria se libera al terminar la función)

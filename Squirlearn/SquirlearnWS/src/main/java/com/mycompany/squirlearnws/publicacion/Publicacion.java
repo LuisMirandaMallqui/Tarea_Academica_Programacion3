@@ -106,7 +106,7 @@ public class Publicacion {
             @WebParam(name = "usuarioId") Integer usuarioId,
             @WebParam(name = "cantidadPorPagina") Integer cantidadPorPagina,
             @WebParam(name = "pagina") Integer pagina,
-            @WebParam(name = "estadoId") String estado ){  
+            @WebParam(name = "estadoId") Integer estado ){  
         return this.publicacionBo.listarPorFiltrosPublicacion( usuarioId, cantidadPorPagina, pagina, estado);   
     }
     
