@@ -669,7 +669,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`notificaciones` (
   `NOTIFICACION_ID` INT NOT NULL AUTO_INCREMENT COMMENT 'Identificador único de la notificación.',
   -- Foreign Keys
   `PERSONA_ID` INT NOT NULL COMMENT 'FK que referencia a la persona que recibe la notificación.',
-  `MOTIVO_ID_MOTIVO` INT NOT NULL COMMENT 'FK que referencia al motivo de la notificación.',
   -- Atributos
   `FECHA` DATETIME NOT NULL COMMENT 'Fecha y hora en que se generó la notificación.',
   `MENSAJE` VARCHAR(255) NOT NULL COMMENT 'Contenido del mensaje de la notificación.',
@@ -678,10 +677,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`notificaciones` (
   `FECHA_MODIFICACION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora de la última modificación.',
   PRIMARY KEY (`NOTIFICACION_ID`),
   INDEX `fk_NOTIFIFACION_PERSONA1_idx` (`PERSONA_ID` ASC) VISIBLE,
-  INDEX `fk_notificacion_MOTIVO1_idx` (`MOTIVO_ID_MOTIVO` ASC) VISIBLE,
-  CONSTRAINT `fk_notificacion_MOTIVO1`
-    FOREIGN KEY (`MOTIVO_ID_MOTIVO`)
-    REFERENCES `mydb`.`motivos` (`MOTIVO_ID`),
   CONSTRAINT `fk_NOTIFIFACION_PERSONA1`
     FOREIGN KEY (`PERSONA_ID`)
     REFERENCES `mydb`.`personas` (`PERSONA_ID`))

@@ -63,8 +63,7 @@ INSERT INTO estados_publicaciones(NOMBRE) VALUES
 ('Pendiente'),
 ('Aprobada'),
 ('Rechazada'),
-('Eliminada'),
-('Transaccionada');
+('Eliminada');
 INSERT INTO estados_chats(NOMBRE) VALUES 
 ('Activo'),
 ('Eliminado');
@@ -269,18 +268,18 @@ INSERT INTO mensajes(
 
 -- Notificaciones enviadas
 INSERT INTO notificaciones(
-    PERSONA_ID, MOTIVO_ID_MOTIVO, FECHA, MENSAJE
+    PERSONA_ID, FECHA, MENSAJE
 ) VALUES 
-(2, 1, NOW(), 'Tu cuenta ha sido suspendida temporalmente.'),  -- Notificación 1: Persona 2, motivo "Suspensión de cuenta"
-(3, 2, NOW(), 'Tu publicación ha sido rechazada debido a los criterios de calidad.'),  -- Notificación 2: Persona 3, motivo "Rechazo de publicación"
-(4, 3, NOW(), 'Tu publicación ha sido aceptada y ahora está visible en el sistema.'),  -- Notificación 3: Persona 4, motivo "Aceptación de publicación"
-(5, 4, NOW(), 'Se ha creado una nueva incidencia relacionada con tu solicitud.'),  -- Notificación 4: Persona 5, motivo "Nueva incidencia"
-(6, 5, NOW(), 'La incidencia que reportaste ha sido solucionada con éxito.'),  -- Notificación 5: Persona 6, motivo "Solución de incidencia"
-(7, 6, NOW(), 'Los datos que proporcionaste no son correctos, por favor actualízalos.'),  -- Notificación 6: Persona 7, motivo "Datos incorrectos"
-(8, 7, NOW(), 'Se han reportado problemas con otro usuario en tu cuenta, por favor revisa.'),  -- Notificación 7: Persona 8, motivo "Problemas con otro usuario"
-(9, 8, NOW(), 'Se ha identificado un problema con la venta que realizaste, por favor contáctanos.'),  -- Notificación 8: Persona 9, motivo "Problemas con la venta"
-(10, 9, NOW(), 'Existen problemas con el alquiler asociado a tu cuenta, por favor revisa los detalles.'),  -- Notificación 9: Persona 10, motivo "Problemas con el alquiler"
-(3, 6, NOW(), 'Tu cuenta tiene datos incorrectos, actualiza la información para continuar.')  -- Notificación 10: Persona 3, motivo "Datos incorrectos"
+(2, NOW(), 'Tu cuenta ha sido suspendida temporalmente.'),  -- Notificación 1: Persona 2, motivo "Suspensión de cuenta"
+(3, NOW(), 'Tu publicación ha sido rechazada debido a los criterios de calidad.'),  -- Notificación 2: Persona 3, motivo "Rechazo de publicación"
+(4, NOW(), 'Tu publicación ha sido aceptada y ahora está visible en el sistema.'),  -- Notificación 3: Persona 4, motivo "Aceptación de publicación"
+(5, NOW(), 'Se ha creado una nueva incidencia relacionada con tu solicitud.'),  -- Notificación 4: Persona 5, motivo "Nueva incidencia"
+(6, NOW(), 'La incidencia que reportaste ha sido solucionada con éxito.'),  -- Notificación 5: Persona 6, motivo "Solución de incidencia"
+(7, NOW(), 'Los datos que proporcionaste no son correctos, por favor actualízalos.'),  -- Notificación 6: Persona 7, motivo "Datos incorrectos"
+(8, NOW(), 'Se han reportado problemas con otro usuario en tu cuenta, por favor revisa.'),  -- Notificación 7: Persona 8, motivo "Problemas con otro usuario"
+(9, NOW(), 'Se ha identificado un problema con la venta que realizaste, por favor contáctanos.'),  -- Notificación 8: Persona 9, motivo "Problemas con la venta"
+(10, NOW(), 'Existen problemas con el alquiler asociado a tu cuenta, por favor revisa los detalles.'),  -- Notificación 9: Persona 10, motivo "Problemas con el alquiler"
+(3, NOW(), 'Tu cuenta tiene datos incorrectos, actualiza la información para continuar.')  -- Notificación 10: Persona 3, motivo "Datos incorrectos"
 ;
 
 -- Incidencias para los eventos

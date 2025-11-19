@@ -25,8 +25,6 @@ public class NotificacionBo {
         notificacionDto.setMensaje(mensaje);
         notificacionDto.setPersona(persona);
         return this.notificacionDao.insertar(notificacionDto);
-
-    ///modificar esto porque quitamos el motivo 
     }
     
     public ListadoNotificacionesDto listarPorPersona(Integer personaID, Integer pagina, Integer registrosPorPagina){

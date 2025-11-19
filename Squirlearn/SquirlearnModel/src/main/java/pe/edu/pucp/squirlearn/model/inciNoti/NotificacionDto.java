@@ -7,7 +7,6 @@ public class NotificacionDto {
     
     private Integer notificacionId;
     private PersonaDto persona;
-    private MotivoDto motivo;
     private String fecha;
     private String mensaje;
     
@@ -17,17 +16,15 @@ public class NotificacionDto {
         this.fecha = null;
         this.mensaje = null;
         this.persona = null;
-        this.motivo = null;
     }
 
     // Constructor con parámetros
     public NotificacionDto(Integer notificacionId, String fecha, String mensaje,
-                           PersonaDto persona, MotivoDto motivo) {
+                           PersonaDto persona) {
         this.notificacionId = notificacionId;
         this.fecha = fecha;
         this.mensaje = mensaje;
         this.persona = persona;
-        this.motivo = motivo;
     }
 
     // Getters y Setters
@@ -61,13 +58,5 @@ public class NotificacionDto {
 
     public void setPersona(PersonaDto persona) {
         this.persona = persona;
-    }
-
-    public MotivoDto getMotivo() {
-        return motivo;
-    }
-
-    public void setMotivo(MotivoDto motivo) {
-        this.motivo = motivo;
     }
 }

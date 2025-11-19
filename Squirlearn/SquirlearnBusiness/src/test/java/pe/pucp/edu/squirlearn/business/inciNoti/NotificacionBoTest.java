@@ -17,13 +17,12 @@ public class NotificacionBoTest {
 //    public void testListarPorPersona() {
 //        System.out.println("listarPorPersona");
 //        // AJUSTA el ID de persona según tu BD
-//        ArrayList<NotificacionDto> lista = this.notificacionBO.listarPorPersona(1);
+//        ArrayList<NotificacionDto> lista = this.notificacionBO.listarPorPersona(1,1,5);
 //        for (Integer i = 0; i < lista.size(); i++) {
 //            System.out.println("Dato:");
 //            System.out.println(lista.get(i).getNotificacionId());
 //            System.out.println(lista.get(i).getMensaje());
 //            System.out.println(lista.get(i).getFecha());
-//            System.out.println(lista.get(i).getMotivo().getMotivoId());
 //            System.out.println(lista.get(i).getPersona().getPersonaId());
 //        }
 //    }
@@ -36,19 +35,18 @@ public class NotificacionBoTest {
 //            System.out.println(entidad.getNotificacionId());
 //            System.out.println(entidad.getMensaje());
 //            System.out.println(entidad.getFecha());
-//            System.out.println(entidad.getMotivo().getMotivoId());
 //            System.out.println(entidad.getPersona().getPersonaId());
 //        }
 //    }
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");
-//         Mismos datos de prueba que en NotificacionDaoTest
+////         Mismos datos de prueba que en NotificacionDaoTest
 //        Integer resultado = this.notificacionBO.insertar(
 //                "Notificación de XD", // mensaje
-//                1,                        // personaId (AJUSTAR)
-//                1                         // motivoId  (AJUSTAR)
+//                1                       // personaId 
 //        );
 //        assertTrue(resultado != 0);
 //    }
 }
+
