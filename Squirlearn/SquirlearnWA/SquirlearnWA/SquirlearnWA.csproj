@@ -291,7 +291,6 @@
     <Content Include="PantallaInicio\Busqueda.aspx" />
     <Content Include="PerfilUsuario\Notificaciones.aspx" />
     <Content Include="PerfilUsuario\Pedidos.aspx" />
-    <Content Include="PerfilUsuario\VentasAlquiler.aspx" />
     <Content Include="PublicacionDelUsuario\ListadoPublicaciones.aspx" />
     <Content Include="PublicacionDelUsuario\Publicar.aspx" />
     <Content Include="Transaccion\ConfirmacionPedido.aspx" />
@@ -544,13 +543,6 @@
     </Compile>
     <Compile Include="PerfilUsuario\Pedidos.aspx.designer.cs">
       <DependentUpon>Pedidos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PerfilUsuario\VentasAlquiler.aspx.cs">
-      <DependentUpon>VentasAlquiler.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PerfilUsuario\VentasAlquiler.aspx.designer.cs">
-      <DependentUpon>VentasAlquiler.aspx</DependentUpon>
     </Compile>
     <Compile Include="PublicacionDelUsuario\ListadoPublicaciones.aspx.cs">
       <DependentUpon>ListadoPublicaciones.aspx</DependentUpon>

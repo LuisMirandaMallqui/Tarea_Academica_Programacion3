@@ -1,4 +1,5 @@
-﻿using SquirlearnWA.personaSOAP;
+﻿using SquirlearnWA.comprobanteSOAP;
+using SquirlearnWA.personaSOAP;
 using SquirlearnWA.publicacionSOAP;
 using System;
 using System.Collections.Generic;
@@ -7,160 +8,170 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace SquirlearnWA
 {
-
     public partial class Pedidos : System.Web.UI.Page
     {
-        private MisPedidosClient misPedidosSOAP;
-        private PublicacionClient publicacionSoap;
-        private PersonaClient personaSoap;
-        private const int RegistrosPorPagina = 10; // Número de pedidos por página
+        private ComprobanteClient comprobanteSoap;
+        private const int RegistrosPorPagina = 10;
 
         public Pedidos()
         {
-            misPedidosSOAP = new MisPedidosClient();
-             publicacionSoap=new PublicacionClient();
-            personaSoap=new PersonaClient();
+            comprobanteSoap = new ComprobanteClient();
         }
-        // Guardar la página actual
+
+        // Propiedades para mantener el estado en la vista
         private int PaginaActual
         {
             get => ViewState["PaginaActual"] != null ? (int)ViewState["PaginaActual"] : 0;
             set => ViewState["PaginaActual"] = value;
         }
 
-        private List<PedidoDto> ListaPedidos
+        private int TotalRegistros
         {
-            get => ViewState["ListaPedidos"] as List<PedidoDto>;
-            set => ViewState["ListaPedidos"] = value;
+            get => ViewState["TotalRegistros"] != null ? (int)ViewState["TotalRegistros"] : 0;
+            set => ViewState["TotalRegistros"] = value;
         }
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 PaginaActual = 0;
-                // Por defecto mostrar Comprado
-                CargarPedidos("Comprado");
+                CargarPedidos();
             }
         }
 
-        protected void CargarPedidos(string tipo)
+        private void CargarPedidos()
         {
             int idUsuario = Convert.ToInt32(Session["UsuarioId"]);
-            int pagina = PaginaActual;
 
-            // Llamada al backend con paginación
-            ListadoPedidosDto resultado = misPedidosSOAP.ObtenerListadoPedidosPaginado(idUsuario, RegistrosPorPagina, pagina);
+            // Determinar si filtramos por Venta o Alquiler
+            // (Idealmente este filtro debería ir al Backend en el futuro)
+            bool esVentaFiltro = chkCompra.Checked;
+            string tipoEtiqueta = esVentaFiltro ? "Compra" : "Alquiler";
 
-            if (resultado?.Lista != null && resultado.Lista.Count > 0)
+            try
             {
-                 var listaCombinada = resultado.Lista
-                      .Select(p =>
-                      {
-                          var publicacion = publicacionSoap.obtenerPorIdPublicacion(p.idPublicacion);
-                          var persona = personaSoap.obtenerDatosPersona(p.idUsuario);
+                // 1. Llamada al backend (Nota: Si el backend no filtra por tipo, traerá mezcla)
+                var resultado = ComprobanteSoap.ObtenerListadoPedidosPaginado(idUsuario, RegistrosPorPagina, PaginaActual);
 
-                          return new
-                          {
-                              Pedido = p,
-                              Publicacion = publicacion,
-                              Persona = persona,
-                              TipoPedido = publicacion.item.esVenta ? "Comprado" : "Alquilado"
-                          };
-                      })
-                      .Where(x => x.TipoPedido == tipo)
-                      .ToList();
+                if (resultado?.Lista != null && resultado.Lista.Length > 0)
+                {
+                    // 2. TRANSFORMACIÓN DE DATOS (Aquí armamos tu comprobanteShortDto)
+                    // Convertimos la lista cruda en la lista visual que necesitamos
+                    var listaVisual = resultado.Lista
+                        .Select(p => {
+                            // ⚠️ OJO: Esto sigue siendo N+1 (una consulta por fila). 
+                            // Para la entrega final, intenta hacer JOIN en el backend.
+                            var pub = publicacionSoap.obtenerPorIdPublicacion(p.idPublicacion);
 
-                rptPedidos.DataSource = listaCombinada;
-                rptPedidos.DataBind();
-                // Mostrar info de paginación
-                int totalPaginas = (int)Math.Ceiling((double)resultado.TotalRegistros / RegistrosPorPagina);
-                lblCantidadResultados.Text = $"Página {PaginaActual + 1} de {totalPaginas}, mostrando {listaCombinada.Count} de {resultado.TotalRegistros} resultados";
+                            // Retornamos un objeto anónimo con la estructura que pediste
+                            return new
+                            {
+                                TransaccionID = "PED-" + p.idPedido.ToString("D6"), // Ej: PED-000015
+                                FechaEmision = p.fechaCompra, // Asumiendo string dd-MM-yyyy
+                                MontoDecimal = p.totalCompra,
+                                Descripcion = pub.item.nombre + " (" + pub.item.categoria.nombre + ")",
+                                EsVenta = pub.item.esVenta, // True = Venta, False = Alquiler
+                                TipoEtiqueta = pub.item.esVenta ? "COMPRA" : "ALQUILER",
+                                DiasAlquiler = p.dias // Solo si es alquiler
+                            };
+                        })
+                        // 3. Filtramos en memoria (necesario si el backend no lo hace)
+                        .Where(x => x.EsVenta == esVentaFiltro)
+                        .ToList();
 
-                btnAnterior.Enabled = PaginaActual > 0;
-                btnSiguiente.Enabled = PaginaActual < totalPaginas - 1;
+                    // 4. Enlazamos al Repeater
+                    rptPedidos.DataSource = listaVisual;
+                    rptPedidos.DataBind();
 
-                ViewState["TotalRegistrosPedidos"] = resultado.TotalRegistros;
+                    // 5. Actualizamos Paginación
+                    TotalRegistros = resultado.TotalRegistros; // Guardamos el total real
+                    int totalPaginas = (int)Math.Ceiling((double)TotalRegistros / RegistrosPorPagina);
 
+                    // Ajuste visual si filtramos en memoria (la cantidad mostrada puede ser menor)
+                    lblCantidadResultados.Text = $"Mostrando {listaVisual.Count} pedidos de {tipoEtiqueta}";
+
+                    // Control de botones
+                    btnAnterior.Enabled = PaginaActual > 0;
+                    btnSiguiente.Enabled = PaginaActual < (totalPaginas - 1);
+
+                    // Ocultar paginación si no hay suficientes datos o si filtramos todo
+                    phPaginacion.Visible = totalPaginas > 1 && listaVisual.Count > 0;
+                }
+                else
+                {
+                    rptPedidos.DataSource = null;
+                    rptPedidos.DataBind();
+                    lblCantidadResultados.Text = "No se encontraron pedidos.";
+                    btnAnterior.Enabled = false;
+                    btnSiguiente.Enabled = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                rptPedidos.DataSource = null;
-                rptPedidos.DataBind();
-                lblCantidadResultados.Text = "No hay pedidos disponibles.";
+                lblCantidadResultados.Text = "Error al cargar pedidos.";
             }
         }
 
-        // Botones de paginación
+        // --- Eventos de Botones ---
+
         protected void btnAnterior_Click(object sender, EventArgs e)
         {
             if (PaginaActual > 0)
             {
                 PaginaActual--;
-                CargarPedidos(chkCompra.Checked ? "Comprado" : "Alquilado");
+                CargarPedidos();
             }
         }
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-            int totalRegistros = (int)ViewState["TotalRegistros"];
-            int totalPaginas = (int)Math.Ceiling((double)totalRegistros / RegistrosPorPagina);
-
+            int totalPaginas = (int)Math.Ceiling((double)TotalRegistros / RegistrosPorPagina);
             if (PaginaActual < totalPaginas - 1)
             {
                 PaginaActual++;
-                CargarPedidos(chkCompra.Checked ? "Comprado" : "Alquilado");
+                CargarPedidos();
             }
         }
 
-        // Filtro Compra
+        // --- Eventos de Filtros (Radio-Checkbox Logic) ---
+
         protected void btnFiltrarCompra_Click(object sender, EventArgs e)
         {
             if (chkCompra.Checked)
             {
-                chkAlquiler.Checked = false;
-                PaginaActual = 0;
-                CargarPedidos("Comprado");
+                chkAlquiler.Checked = false; // Desmarca el otro
+                PaginaActual = 0; // Resetea página
+                CargarPedidos();
             }
-            else if (chkAlquiler.Checked)
+            else
             {
-                PaginaActual = 0;
-                CargarPedidos("Alquilado");
+                // Evitar que ambos queden desmarcados (opcional)
+                chkCompra.Checked = true;
             }
         }
 
-        // Filtro Alquiler
         protected void btnFiltrarAlquiler_Click(object sender, EventArgs e)
         {
             if (chkAlquiler.Checked)
             {
-                chkCompra.Checked = false;
-                PaginaActual = 0;
-                CargarPedidos("Alquilado");
+                chkCompra.Checked = false; // Desmarca el otro
+                PaginaActual = 0; // Resetea página
+                CargarPedidos();
             }
-            else if (chkCompra.Checked)
+            else
             {
-                PaginaActual = 0;
-                CargarPedidos("Comprado");
+                chkAlquiler.Checked = true;
             }
         }
 
-        // Botón Volver
-        protected void btnVolver_Click(object sender, EventArgs e)
+        protected void btnVolver_Click3(object sender, EventArgs e)
         {
             Response.Redirect("../PerfilUsuario/Perfil.aspx");
         }
 
-        // Botón para reseña
-        protected void btnReseña_Click(object sender, EventArgs e)
-        {
-            Response.Write("<script>alert('Aquí iría la lógica para las reseñas del producto.');</script>");
-        }
-
-
     }
-
-    }
+}

@@ -103,7 +103,6 @@ public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionS
             Integer idTamano,
             Integer idFormato,
             Integer idCondicion,
-            Integer idEstado,
             Integer pagina,
             Integer cantidadPorPagina
     ) {
@@ -122,32 +121,32 @@ public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionS
             parametros.add(esVenta ? 1 : 0);
         }
 
-        if (idCategoria != null) {
+        if (idCategoria != 0) {
             sql.append(" AND I.subcategoria_CATEGORIA_ID = ? ");
             parametros.add(idCategoria);
         }
 
-        if (idSubcategoria != null) {
+        if (idSubcategoria != 0) {
             sql.append(" AND I.subcategoria_ID_SUBCATEGORIA = ? ");
             parametros.add(idSubcategoria);
         }
 
-        if (idColor != null) {
+        if (idColor != 0) {
             sql.append(" AND I.COLOR_ID = ? ");
             parametros.add(idColor);
         }
 
-        if (idTamano != null) {
+        if (idTamano != 0) {
             sql.append(" AND I.TAMANO_ID = ? ");
             parametros.add(idTamano);
         }
 
-        if (idFormato != null) {
+        if (idFormato != 0) {
             sql.append(" AND I.FORMATO_ID = ? ");
             parametros.add(idFormato);
         }
 
-        if (idCondicion != null) {
+        if (idCondicion != 0) {
             sql.append(" AND I.CONDICION_ID = ? ");
             parametros.add(idCondicion);
         }

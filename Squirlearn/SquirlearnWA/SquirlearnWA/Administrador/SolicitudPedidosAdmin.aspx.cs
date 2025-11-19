@@ -41,10 +41,6 @@ namespace SquirlearnWA
             // 2️⃣ Llamar al backend (BO → SOAP)
             publicacionDto publicacion = publicacionSOAP.obtenerPorIdPublicacion(idPublicacion);
            
-
-          
-
-            // Guardar los IDs en la sesión
             Session["IdPublicacion"] = publicacion.publicacionId;
             Session["IdPersona"] = publicacion.persona.personaId;
 

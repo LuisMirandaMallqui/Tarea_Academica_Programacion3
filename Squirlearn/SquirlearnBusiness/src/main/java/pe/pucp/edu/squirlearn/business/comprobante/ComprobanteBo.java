@@ -27,8 +27,6 @@ public class ComprobanteBo {
     public Integer insertar(Double monto, String transaccionId, Integer personaId, 
             String formaPago, String moneda, Double impuesto,String fechaEmision ,String usuarioCreacion,
             Integer itemId,Integer alquilerId, String nombreProducto){
-        //debemos modificar el estado del item
-        
         
         ComprobanteDto comprobanteDto = new ComprobanteDto();
         Integer formaPagoId = formaPagoBo.obtenerId(formaPago.toUpperCase());
