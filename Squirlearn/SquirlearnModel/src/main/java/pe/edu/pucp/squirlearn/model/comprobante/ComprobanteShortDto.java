@@ -20,12 +20,12 @@ public class ComprobanteShortDto {
     // De item
     private Boolean esVenta;
 
-    private public ComprobanteShortDto() {
+    public ComprobanteShortDto() {
         this.transaccion = null;
         this.fechaEmision = null;
         this.monto = null;
         this.descripcion = null;
-        this.esVenta = null
+        this.esVenta = null;
     }
 
     public ComprobanteShortDto(
@@ -95,5 +95,13 @@ public class ComprobanteShortDto {
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Boolean getEsVenta() {
+        return esVenta;
+    }
+
+    public void setEsVenta(Boolean esVenta) {
+        this.esVenta = esVenta;
     }
 }

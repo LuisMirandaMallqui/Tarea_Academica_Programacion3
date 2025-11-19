@@ -1,4 +1,5 @@
 pe\edu\pucp\squirlearn\model\comprobante\ComprobanteDto.class
+pe\edu\pucp\squirlearn\model\comprobante\ComprobanteShortDto.class
 pe\edu\pucp\squirlearn\model\publicacion\EstadoPublicacionDto.class
 pe\edu\pucp\squirlearn\model\comprobante\MonedaPagoDto.class
 pe\edu\pucp\squirlearn\model\publicacion\ListadoPublicacionGestionDto.class

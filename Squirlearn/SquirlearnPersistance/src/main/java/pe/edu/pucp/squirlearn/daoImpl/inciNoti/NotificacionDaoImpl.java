@@ -123,7 +123,7 @@ public class NotificacionDaoImpl extends DAOImplBase implements NotificacionDao 
     }
 
     @Override
-    public ArrayList<NotificacionDto> listarPorPersonaNotificacion(Integer personaId, Integer pagina, Integer registrosPorPagina) {
+    public ArrayList<NotificacionDto> listarPorPersona(Integer personaId, Integer pagina, Integer registrosPorPagina) {
         StringBuilder sql = new StringBuilder(this.generarSQLParaListarTodos());
         sql.append(" WHERE PERSONA_ID = ? ");
         ArrayList<Object> parametros = new ArrayList<>();

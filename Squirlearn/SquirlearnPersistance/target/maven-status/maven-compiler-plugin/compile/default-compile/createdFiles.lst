@@ -11,12 +11,14 @@ pe\edu\pucp\squirlearn\dao\item\ColorDao.class
 pe\edu\pucp\squirlearn\dao\IDAO.class
 pe\edu\pucp\squirlearn\dao\item\SubcategoriaDao.class
 pe\edu\pucp\squirlearn\daoImpl\item\ColorDaoImpl.class
+pe\edu\pucp\squirlearn\dao\comprobante\ComprobanteShortDao.class
 pe\edu\pucp\squirlearn\dao\chat\ChatDao.class
 pe\edu\pucp\squirlearn\dao\item\ItemDao.class
 pe\edu\pucp\squirlearn\dao\comprobante\MonedaPagoDao.class
 pe\edu\pucp\squirlearn\dao\inciNoti\MotivoDao.class
 pe\edu\pucp\squirlearn\daoImpl\DAOImplBase.class
 pe\edu\pucp\squirlearn\daoImpl\chat\EstadoChatDaoImpl.class
+pe\edu\pucp\squirlearn\daoImpl\comprobante\ComprobanteShortDaoImpl.class
 pe\edu\pucp\squirlearn\daoImpl\item\SubcategoriaDaoImpl.class
 pe\edu\pucp\squirlearn\daoImpl\util\ParamReporteVenta.class
 pe\edu\pucp\squirlearn\daoImpl\chat\PersonaChatDaoImpl.class
@@ -48,6 +50,7 @@ pe\edu\pucp\squirlearn\daoImpl\util\TraduccionesSQL.class
 pe\edu\pucp\squirlearn\dao\publicacion\EstadoPublicacionDao.class
 pe\edu\pucp\squirlearn\daoImpl\inciNoti\MotivoDaoImpl.class
 pe\edu\pucp\squirlearn\daoImpl\chat\EstadoMensajeDaoImpl.class
+pe\edu\pucp\squirlearn\daoImpl\util\Query.class
 pe\edu\pucp\squirlearn\daoImpl\item\CondicionDaoImpl.class
 pe\edu\pucp\squirlearn\dao\item\CategoriaDao.class
 pe\edu\pucp\squirlearn\daoImpl\publicacion\PublicacionShortDaoImpl.class

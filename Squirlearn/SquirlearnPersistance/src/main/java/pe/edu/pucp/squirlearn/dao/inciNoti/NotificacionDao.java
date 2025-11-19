@@ -6,5 +6,5 @@ import pe.edu.pucp.squirlearn.dao.IDAO;
 
 public interface NotificacionDao extends IDAO<NotificacionDto> {
 
-    ArrayList<NotificacionDto> listarPorPersonaNotificacion(Integer personaId, Integer pagina, Integer registrosPorPagina);
+    ArrayList<NotificacionDto> listarPorPersona(Integer personaId, Integer pagina, Integer registrosPorPagina);
 }

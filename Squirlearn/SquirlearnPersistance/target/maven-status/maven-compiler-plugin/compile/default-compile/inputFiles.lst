@@ -5,6 +5,7 @@ D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersi
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\dao\chat\MensajeDao.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\dao\chat\PersonaChatDao.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\dao\comprobante\ComprobanteDao.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\dao\comprobante\ComprobanteShortDao.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\dao\comprobante\DetalleComprobanteDao.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\dao\comprobante\FormaPagoDao.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\dao\comprobante\MonedaPagoDao.java
@@ -33,6 +34,7 @@ D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersi
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\chat\MensajeDaoImpl.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\chat\PersonaChatDaoImpl.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\comprobante\ComprobanteDaoImpl.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\comprobante\ComprobanteShortDaoImpl.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\comprobante\DetalleComprobanteDaoImpl.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\comprobante\FormaPagoDaoImpl.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\comprobante\MonedaPagoDaoImpl.java
@@ -59,5 +61,6 @@ D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersi
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\util\ParamReporteTransaccionesOfertador.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\util\ParamReporteTransaccionesReceptor.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\util\ParamReporteVenta.java
+D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\util\Query.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\util\Tipo_Operacion.java
 D:\SeptimoCiclo\Progra3\Tarea_Academica_Programacion3\Squirlearn\SquirlearnPersistance\src\main\java\pe\edu\pucp\squirlearn\daoImpl\util\TraduccionesSQL.java
