@@ -7,23 +7,26 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 import pe.edu.pucp.squirlearn.db.util.Cifrado;
+import pe.edu.pucp.squirlearn.db.util.MotorDeBaseDeDatos;
 
-
-public class DBManager {
+public  abstract class DBManager {
 
     private static final String ARCHIVO_CONFIGURACION = "jdbc.properties";
-
+    
     private Connection conexion;
     private String driver;
-    private String tipo_de_driver;
-    private String base_de_datos;
-    private String nombre_de_host;
-    private String puerto;
+    protected String tipo_de_driver;
+    protected String base_de_datos;
+    protected String nombre_de_host;
+    protected String puerto;
     private String usuario;
     private String contraseña;
     private static DBManager dbManager = null;
-    
-    private DBManager(){
+
+    protected DBManager() {
+        //constructor protegido para evitar que se creen instancias.
+        //Solo se podrá crear una instancia y esta debe hacerse usando el 
+        //método getInstance()
     }
 
     public static DBManager getInstance() {
@@ -34,39 +37,38 @@ public class DBManager {
     }
 
     private static void createInstance() {
-        if (DBManager.dbManager == null) {            
-            DBManager.dbManager = new DBManager();
+        if (DBManager.dbManager == null) {
+            if (DBManager.obtenerMotorDeBaseDeDato() == MotorDeBaseDeDatos.MYSQL) {
+                DBManager.dbManager = new DBManagerMySQL();
+            } else{
+                DBManager.dbManager = new DBManagerMSSQL();
+            }
             DBManager.dbManager.leer_archivo_de_propiedades();
         }
     }
 
-    public Connection getConnection() throws SQLException {
-        try {            
+    public Connection getConnection() {
+        try {
             Class.forName(this.driver);
+            //System.out.println(this.usuario);
+            //System.out.println(this.contraseña);
+            //System.out.println(Cifrado.descifrarMD5(this.contraseña));
             this.conexion = DriverManager.getConnection(getURL(), this.usuario, Cifrado.descifrarMD5(this.contraseña));
-//            this.conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb","root","13Ag2019");
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             System.err.println("Error al generar la conexión - " + ex);
         }
         return conexion;
     }
 
-    private String getURL() {
-        String url = this.tipo_de_driver.concat("://");
-        url = url.concat(this.nombre_de_host);
-        url = url.concat(":");
-        url = url.concat(this.puerto);
-        url = url.concat("/");
-        url = url.concat(this.base_de_datos);
-        url = url.concat("?useSSL=false");
-        //System.out.println(url);
-        return url;
-    }
+    protected abstract String getURL();
 
     private void leer_archivo_de_propiedades() {
         Properties properties = new Properties();
-        try {      
+        try {
+            //el siguiente código ha sido probado en MAC
+            //el archivo de configuración se encuentra en la carpeta src/main/resources/jdbc.properties            
             String nmArchivoConf = "/" + ARCHIVO_CONFIGURACION;
+
             properties.load(this.getClass().getResourceAsStream(nmArchivoConf));
             this.driver = properties.getProperty("driver");
             this.tipo_de_driver = properties.getProperty("tipo_de_driver");
@@ -82,8 +84,26 @@ public class DBManager {
         }
     }
     
-    public String retornarSQLParaUltimoAutoGenerado() {
-        return "select @@last_insert_id as id";
+    private static MotorDeBaseDeDatos obtenerMotorDeBaseDeDato() {
+        Properties properties = new Properties();
+        try {
+            String nmArchivoConf = "/" + ARCHIVO_CONFIGURACION;
+
+            //al ser un método estático, no se puede invocar al getResoucer así
+            //properties.load(this.getClass().getResourceAsStream(nmArchivoConf));            
+            properties.load(DBManager.class.getResourceAsStream(nmArchivoConf));            
+            String tipo_de_driver = properties.getProperty("tipo_de_driver");
+            if (tipo_de_driver.equals("jdbc:mysql"))
+                return MotorDeBaseDeDatos.MYSQL;
+            else
+                return MotorDeBaseDeDatos.MSSQL;
+        } catch (FileNotFoundException ex) {
+            System.err.println("Error al leer el archivo de propiedades - " + ex);
+        } catch (IOException ex) {
+            System.err.println("Error al leer el archivo de propiedades - " + ex);
+        }
+        return null;
     }
     
+    public abstract String retornarSQLParaUltimoAutoGenerado();
 }
