@@ -72,7 +72,9 @@ public class PublicacionBo {
      public ArrayList<PublicacionDto> listarPorEstado(Integer estadoId) {
         return this.publicacionDao.listarPorEstado(estadoId); //necesita implementación
     }
-
+     
+     
+     
     public ListadoPublicacionGestionDto listarPorFiltrosPublicacion(String terminoBusqueda, Integer tipoTransaccion,
             Integer idCategoria, Integer idSubcategoria, Integer idColores, Integer idTamanos, Integer idFormatos,
             Integer idCondicion, Integer paginaActual, Integer publicacionesPorPagina) {

@@ -19,11 +19,11 @@ import pe.pucp.edu.squirlearn.business.util.Cifrado;
 public class PersonaBo {
     
     private PersonaDao personaDao;
-    private RolPersonaDao rolPersonaDao;
+    private RolPersonaBo rolPersonaBo;
     
     public PersonaBo(){
         personaDao = new PersonaDaoImpl();
-        rolPersonaDao = new RolPersonaDaoImpl();
+        rolPersonaBo = new RolPersonaBo();
     }
     
     public Integer insertar(String nombres, String primerApellido, String segundoApellido, 
@@ -43,8 +43,7 @@ public class PersonaBo {
         personaDto.setSegundoApellido(segundoApellido);
         personaDto.setCodigo(codigo);
         personaDto.setCorreo(correo);
-        personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));       
-//        personaDto.setContrasena(contrasena);       
+        personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));  
         personaDto.setEstadoPersona(estado);
         personaDto.setusuarioCreacion(usuarioCreacion);
         personaDto.setusuarioModificacion(null);
@@ -52,7 +51,8 @@ public class PersonaBo {
         
         int result= this.personaDao.insertar(personaDto);
         
-        this.rolPersonaDao.insertarTablaInter(1,correo);
+        PersonaDto per=this.personaDao.buscarPorCorreo(correo);
+        this.rolPersonaBo.insertarTablaInter(1,per.getPersonaId());
         
         return result;
     }
