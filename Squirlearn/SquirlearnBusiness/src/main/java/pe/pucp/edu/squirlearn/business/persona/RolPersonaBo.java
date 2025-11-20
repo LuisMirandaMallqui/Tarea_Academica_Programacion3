@@ -13,7 +13,10 @@ public class RolPersonaBo {
         this.rolPersonaDao = new RolPersonaDaoImpl();
     }
     
-    
+    public void insertarTablaInter(Integer idRol, Integer idPer){
+        rolPersonaDao.insertarTablaInter(idRol, idPer);
+    }
+            
     public ArrayList<RolPersonaDto> listarTodos(){
         return this.rolPersonaDao.listarTodos();
     }

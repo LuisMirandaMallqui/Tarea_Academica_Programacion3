@@ -121,18 +121,17 @@ public class RolPersonaDaoImpl extends DAOImplBase implements RolPersonaDao {
         return (ArrayList<RolPersonaDto>) (ArrayList) this.listarTodos(sql, incluir, null);
     }
     
-    public void insertarTablaInter(Integer idRol, String correo) {
+    public void insertarTablaInter(Integer idRol, Integer idPer) {
         if (idRol == null) {
             throw new IllegalArgumentException("idRol no puede ser null");
         }
-        PersonaDao perDao=new PersonaDaoImpl();
-        PersonaDto per=perDao.buscarPorCorreo(correo);
+        
         String sql = "INSERT INTO personas_roles (PERSONA_ID, ROLPERSONA_ID) VALUES (?, ?)";
 
         try {
             this.abrirConexion();
             try (PreparedStatement ps = this.conexion.prepareStatement(sql)) {
-                ps.setInt(1, per.getPersonaId());
+                ps.setInt(1, idPer);
                 ps.setInt(2, idRol);
                 ps.executeUpdate();
             }
