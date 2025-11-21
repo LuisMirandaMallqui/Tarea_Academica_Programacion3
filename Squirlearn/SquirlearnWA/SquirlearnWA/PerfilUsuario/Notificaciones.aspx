@@ -1,6 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/SquirLearn.Master" AutoEventWireup="true" CodeBehind="Notificaciones.aspx.cs" Inherits="SquirlearnWA.Notificaciones" %>
-
-<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/SquirLearn.Master" AutoEventWireup="true" CodeBehind="Notificaciones.aspx.cs" Inherits="SquirlearnWA.Notificaciones" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
 
     <div class="container perfil-container mt-4">

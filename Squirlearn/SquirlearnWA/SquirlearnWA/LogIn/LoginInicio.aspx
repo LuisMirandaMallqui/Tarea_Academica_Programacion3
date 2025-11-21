@@ -19,7 +19,7 @@
 
                     <!-- Contraseña -->
                     <label class="fw-semibold mb-1">Contraseña</label>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-1">
                         <span class="input-group-text bg-light"><i class="fa fa-key"></i></span>
                     <asp:TextBox ID="txtContraseña" runat="server" CssClass="form-control" TextMode="Password" placeholder="Contraseña"></asp:TextBox>
 
@@ -27,8 +27,8 @@
 
                     <!-- Botones -->
                     <asp:Button ID="btnLogin" runat="server" Text="INICIAR SESIÓN" CssClass="btn btn-primary w-100 mb-2 fw-semibold" OnClick="btnLogin_Click" />
-                    <asp:Button ID="btnRegistro" runat="server" Text="REGISTRARSE" CssClass="btn btn-outline-dark w-100 mb-2 fw-semibold" OnClick="btnRegistro_Click" />
-                    <asp:Label ID="lblError" runat="server" CssClass="d-block mt-3 text-center" ForeColor="Red"></asp:Label>
+                    <asp:Button ID="btnRegistro" runat="server" Text="REGISTRARSE" CssClass="btn btn-outline-dark w-100 fw-semibold" OnClick="btnRegistro_Click" />
+                    
                 </div>
             </div>
         </div>

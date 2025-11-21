@@ -2,7 +2,6 @@
 using SquirlearnWA.personaSOAP;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -34,16 +33,6 @@ namespace SquirlearnWA
             
             personaDto usuarioLogeado = personaSoap.logInPersona(correoElectronico, contrasena);
 
-            if(correoElectronico == "")
-            {
-                lblError.Text = "Debes ingresar un correo";
-                return;
-            }
-            if(contrasena == "")
-            {
-                lblError.Text = "Debes ingresar una contraseña";
-                return;
-            }
             if (usuarioLogeado != null)
             {
 
@@ -51,10 +40,10 @@ namespace SquirlearnWA
                 Session["usuarioId"] = usuarioLogeado.personaId;
                 
                 IList<rolPersonaDto> lista = usuarioLogeado.rolPersona;
-                Session["rol"] = lista[1].nombre;
+                Session["rol"] = lista[0].nombre;
                 Session["nombreUsuario"] = usuarioLogeado.nombres + usuarioLogeado.primerApellido;
                 Session["correoUsuario"] = usuarioLogeado.correo;
-                Response.Redirect(lista[1].nombre == "Administrador"
+                Response.Redirect(lista[0].nombre == "Administrador"
                                   ? "../PantallaInicio/AdminInicio.aspx"
                                   : "../PantallaInicio/SquirLearnInicio.aspx");
             }
