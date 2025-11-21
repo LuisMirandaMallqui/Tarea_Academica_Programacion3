@@ -52,7 +52,12 @@ public class Incidencia {
             @WebParam(name = "resuelto") Boolean resuelto) {
         return this.incidenciaBo.listarPorResolucion(resuelto);
     }
-
+    
+    @WebMethod(operationName = "listarTodasIncidencias")
+     public ArrayList<IncidenciaDto> listarTodasIncidencias() {
+        return this.incidenciaBo.listarTodos();
+    }
+    
     @WebMethod(operationName = "obtenerPorIdIncidencia")
     public IncidenciaDto obtenerPorIdIncidencia(
             @WebParam(name = "id") Integer id) {
