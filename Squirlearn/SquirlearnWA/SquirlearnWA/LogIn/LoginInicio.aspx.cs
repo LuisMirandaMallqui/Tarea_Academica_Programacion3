@@ -2,6 +2,7 @@
 using SquirlearnWA.personaSOAP;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -33,6 +34,16 @@ namespace SquirlearnWA
             
             personaDto usuarioLogeado = personaSoap.logInPersona(correoElectronico, contrasena);
 
+            if(correoElectronico == "")
+            {
+                lblError.Text = "Debes ingresar un correo";
+                return;
+            }
+            if(contrasena == "")
+            {
+                lblError.Text = "Debes ingresar una contraseña";
+                return;
+            }
             if (usuarioLogeado != null)
             {
 
