@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Item?xsd=1" namespace="http://item.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="insertarItem">
-    <part name="parameters" element="tns:insertarItem" />
+  <message name="cambiarEstadoItem">
+    <part name="parameters" element="tns:cambiarEstadoItem" />
   </message>
-  <message name="insertarItemResponse">
-    <part name="parameters" element="tns:insertarItemResponse" />
+  <message name="cambiarEstadoItemResponse">
+    <part name="parameters" element="tns:cambiarEstadoItemResponse" />
   </message>
   <message name="modificarItem">
     <part name="parameters" element="tns:modificarItem" />
@@ -17,11 +17,11 @@
   <message name="modificarItemResponse">
     <part name="parameters" element="tns:modificarItemResponse" />
   </message>
-  <message name="cambiarEstadoItem">
-    <part name="parameters" element="tns:cambiarEstadoItem" />
+  <message name="insertarItem">
+    <part name="parameters" element="tns:insertarItem" />
   </message>
-  <message name="cambiarEstadoItemResponse">
-    <part name="parameters" element="tns:cambiarEstadoItemResponse" />
+  <message name="insertarItemResponse">
+    <part name="parameters" element="tns:insertarItemResponse" />
   </message>
   <message name="obtenerPorIdItem">
     <part name="parameters" element="tns:obtenerPorIdItem" />
@@ -30,17 +30,17 @@
     <part name="parameters" element="tns:obtenerPorIdItemResponse" />
   </message>
   <portType name="Item">
-    <operation name="insertarItem">
-      <input wsam:Action="http://item.squirlearnws.mycompany.com/Item/insertarItemRequest" message="tns:insertarItem" />
-      <output wsam:Action="http://item.squirlearnws.mycompany.com/Item/insertarItemResponse" message="tns:insertarItemResponse" />
+    <operation name="cambiarEstadoItem">
+      <input wsam:Action="http://item.squirlearnws.mycompany.com/Item/cambiarEstadoItemRequest" message="tns:cambiarEstadoItem" />
+      <output wsam:Action="http://item.squirlearnws.mycompany.com/Item/cambiarEstadoItemResponse" message="tns:cambiarEstadoItemResponse" />
     </operation>
     <operation name="modificarItem">
       <input wsam:Action="http://item.squirlearnws.mycompany.com/Item/modificarItemRequest" message="tns:modificarItem" />
       <output wsam:Action="http://item.squirlearnws.mycompany.com/Item/modificarItemResponse" message="tns:modificarItemResponse" />
     </operation>
-    <operation name="cambiarEstadoItem">
-      <input wsam:Action="http://item.squirlearnws.mycompany.com/Item/cambiarEstadoItemRequest" message="tns:cambiarEstadoItem" />
-      <output wsam:Action="http://item.squirlearnws.mycompany.com/Item/cambiarEstadoItemResponse" message="tns:cambiarEstadoItemResponse" />
+    <operation name="insertarItem">
+      <input wsam:Action="http://item.squirlearnws.mycompany.com/Item/insertarItemRequest" message="tns:insertarItem" />
+      <output wsam:Action="http://item.squirlearnws.mycompany.com/Item/insertarItemResponse" message="tns:insertarItemResponse" />
     </operation>
     <operation name="obtenerPorIdItem">
       <input wsam:Action="http://item.squirlearnws.mycompany.com/Item/obtenerPorIdItemRequest" message="tns:obtenerPorIdItem" />
@@ -49,7 +49,7 @@
   </portType>
   <binding name="ItemPortBinding" type="tns:Item">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarItem">
+    <operation name="cambiarEstadoItem">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -67,7 +67,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="cambiarEstadoItem">
+    <operation name="insertarItem">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

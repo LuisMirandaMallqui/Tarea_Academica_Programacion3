@@ -9,20 +9,14 @@ using System.Web.UI.WebControls;
 
 namespace SquirlearnWA
 {
-    public partial class Notificaciones : System.Web.UI.Page
+    ppublic partial class Notificaciones : System.Web.UI.Page
     {
         private NotificacionClient notificacionSOAP;
-        private const int RegistrosPorPagina = 10;
+        private const int RegistrosPorPagina = 4;
 
         public Notificaciones()
         {
             notificacionSOAP = new NotificacionClient();
-        }
-
-        private List<notificacionDto> ListaNotificaciones
-        {
-            get => ViewState["ListaNotificaciones"] as List<notificacionDto>;
-            set => ViewState["ListaNotificaciones"] = value;
         }
 
         private int PaginaActual
@@ -31,7 +25,6 @@ namespace SquirlearnWA
             set => ViewState["PaginaActual"] = value;
         }
 
-        // ❗️ CORRECCIÓN DE BUG 1: Añadido para guardar el total de páginas
         private int TotalPaginas
         {
             get => ViewState["TotalPaginas"] != null ? (int)ViewState["TotalPaginas"] : 0;
@@ -42,7 +35,6 @@ namespace SquirlearnWA
         {
             if (!IsPostBack)
             {
-                // (Ya no se selecciona el ddlOrden)
                 PaginaActual = 0;
                 CargarNotificaciones();
             }
@@ -51,18 +43,28 @@ namespace SquirlearnWA
         private void CargarNotificaciones()
         {
             int usuarioId = Convert.ToInt32(Session["UsuarioId"]);
-            int pagina = PaginaActual;
+
+
+            int pagina = PaginaActual + 1;
             int registrosPorPagina = RegistrosPorPagina;
 
             listadoNotificacionesDto resultado = notificacionSOAP.listarPorPersonaNotificacion(usuarioId, pagina, registrosPorPagina);
 
+
             if (resultado?.lista != null && resultado.lista.Length > 0)
             {
-                ListaNotificaciones = resultado.lista.ToList();
+                rptNotificaciones.DataSource = resultado.lista;
+                rptNotificaciones.DataBind();
+
+                int totalPaginas = (int)Math.Ceiling((double)resultado.totalRegistros / registrosPorPagina);
+                TotalPaginas = totalPaginas;
 
                 lblTotalResultados.Text = $"Se encontraron {resultado.totalRegistros} notificaciones.";
                 lblSinResultados.Text = "";
-                MostrarPagina(resultado.totalRegistros);
+                lblPagina.Text = $"Página {PaginaActual + 1} de {totalPaginas}";
+
+                btnAnterior.Enabled = PaginaActual > 0;
+                btnSiguiente.Enabled = PaginaActual < totalPaginas - 1;
             }
             else
             {
@@ -70,25 +72,10 @@ namespace SquirlearnWA
                 rptNotificaciones.DataBind();
                 lblTotalResultados.Text = "";
                 lblSinResultados.Text = "No tienes notificaciones disponibles.";
+                lblPagina.Text = "";
+                btnAnterior.Enabled = false;
+                btnSiguiente.Enabled = false;
             }
-        }
-
-        private void MostrarPagina(int totalRegistros)
-        {
-            if (ListaNotificaciones == null || ListaNotificaciones.Count == 0)
-                return;
-
-            int totalPaginas = (int)Math.Ceiling((double)totalRegistros / RegistrosPorPagina);
-
-            // ❗️ CORRECCIÓN DE BUG 1 (Continuación): Guardamos el total de páginas
-            TotalPaginas = totalPaginas;
-
-            rptNotificaciones.DataSource = ListaNotificaciones;
-            rptNotificaciones.DataBind();
-
-            lblPagina.Text = $"Página {PaginaActual + 1} de {totalPaginas}";
-            btnAnterior.Enabled = PaginaActual > 0;
-            btnSiguiente.Enabled = PaginaActual < totalPaginas - 1;
         }
 
         protected void btnAnterior_Click(object sender, EventArgs e)
@@ -102,7 +89,6 @@ namespace SquirlearnWA
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-
             if (PaginaActual < TotalPaginas - 1)
             {
                 PaginaActual++;

@@ -70,9 +70,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administrador\AceptacionPublicacion.aspx" />
+    <Content Include="Administrador\IncidenciasAdmin.aspx" />
     <Content Include="Administrador\ListadoDeSolicitudesAdmin.aspx" />
     <Content Include="Administrador\RechazoPublicacion.aspx" />
     <Content Include="Administrador\ReportesAdmin.aspx" />
+    <Content Include="Administrador\ResponderIncidencia.aspx" />
     <Content Include="Administrador\SolicitudPedidosAdmin.aspx" />
     <None Include="Connected Services\alquilerSOAP\Alquiler.wsdl" />
     <None Include="Connected Services\alquilerSOAP\Alquiler.xsd">
@@ -263,43 +265,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\publicacionSOAP\Publicacion.wsdl" />
-    <None Include="Connected Services\publicacionSOAP\Publicacion.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Connected Services\publicacionSOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\publicacionSOAP\configuration.svcinfo" />
+    <None Include="Connected Services\publicacionSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.insertarPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listadoPublicacionGestionDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorDuenoPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.modificarPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.obtenerPorIdPublicacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.publicacionDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Connected Services\subcategoriaSOAP\configuration91.svcinfo" />
     <None Include="Connected Services\subcategoriaSOAP\configuration.svcinfo" />
     <None Include="Connected Services\subcategoriaSOAP\Reference.svcmap">
@@ -324,16 +295,11 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\publicacionSOAP\configuration91.svcinfo" />
-    <None Include="Connected Services\publicacionSOAP\configuration.svcinfo" />
-    <None Include="Connected Services\publicacionSOAP\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="PantallaInicio\AdminInicio.aspx" />
     <Content Include="PantallaInicio\Busqueda.aspx" />
     <Content Include="PerfilUsuario\Notificaciones.aspx" />
     <Content Include="PerfilUsuario\Pedidos.aspx" />
+    <Content Include="PerfilUsuario\RegistrarIncidencia.aspx" />
     <Content Include="PublicacionDelUsuario\ListadoPublicaciones.aspx" />
     <Content Include="PublicacionDelUsuario\Publicar.aspx" />
     <Content Include="Transaccion\ConfirmacionPedido.aspx" />
@@ -426,6 +392,43 @@
     <Content Include="Connected Services\personaSOAP\SquirlearnWA.personaSOAP.personaDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\publicacionSOAP\Publicacion.wsdl" />
+    <None Include="Connected Services\publicacionSOAP\Publicacion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.insertarPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listadoPublicacionGestionDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorDuenoPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.modificarPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.obtenerPorIdPublicacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\publicacionSOAP\SquirlearnWA.publicacionSOAP.publicacionDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\subcategoriaSOAP\SquirlearnWA.subcategoriaSOAP.listarPorCategoriaSubcategoriaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -471,6 +474,13 @@
     <Compile Include="Administrador\AceptacionPublicacion.aspx.designer.cs">
       <DependentUpon>AceptacionPublicacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\IncidenciasAdmin.aspx.cs">
+      <DependentUpon>IncidenciasAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\IncidenciasAdmin.aspx.designer.cs">
+      <DependentUpon>IncidenciasAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\ListadoDeSolicitudesAdmin.aspx.cs">
       <DependentUpon>ListadoDeSolicitudesAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -491,6 +501,13 @@
     </Compile>
     <Compile Include="Administrador\ReportesAdmin.aspx.designer.cs">
       <DependentUpon>ReportesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\ResponderIncidencia.aspx.cs">
+      <DependentUpon>ResponderIncidencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\ResponderIncidencia.aspx.designer.cs">
+      <DependentUpon>ResponderIncidencia.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\SolicitudPedidosAdmin.aspx.cs">
       <DependentUpon>SolicitudPedidosAdmin.aspx</DependentUpon>
@@ -591,6 +608,13 @@
     </Compile>
     <Compile Include="PerfilUsuario\Pedidos.aspx.designer.cs">
       <DependentUpon>Pedidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilUsuario\RegistrarIncidencia.aspx.cs">
+      <DependentUpon>RegistrarIncidencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilUsuario\RegistrarIncidencia.aspx.designer.cs">
+      <DependentUpon>RegistrarIncidencia.aspx</DependentUpon>
     </Compile>
     <Compile Include="PublicacionDelUsuario\ListadoPublicaciones.aspx.cs">
       <DependentUpon>ListadoPublicaciones.aspx</DependentUpon>
