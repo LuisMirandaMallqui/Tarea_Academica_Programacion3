@@ -68,6 +68,10 @@ public class IncidenciaBo {
         return this.incidenciaDao.listarPorResolucion(resuelto); 
     }
     
+    public ArrayList<IncidenciaDto> listarTodos(){
+        return this.incidenciaDao.listarTodos(); 
+    }
+        
     public IncidenciaDto obtenerPorId(Integer id){
         return this.incidenciaDao.obtenerPorId(id);
     }
