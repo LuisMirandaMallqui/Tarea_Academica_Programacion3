@@ -40,10 +40,10 @@ namespace SquirlearnWA
                 Session["usuarioId"] = usuarioLogeado.personaId;
                 
                 IList<rolPersonaDto> lista = usuarioLogeado.rolPersona;
-                Session["rol"] = lista[1].nombre;
+                Session["rol"] = lista[0].nombre;
                 Session["nombreUsuario"] = usuarioLogeado.nombres + usuarioLogeado.primerApellido;
                 Session["correoUsuario"] = usuarioLogeado.correo;
-                Response.Redirect(lista[1].nombre == "Administrador"
+                Response.Redirect(lista[0].nombre == "Administrador"
                                   ? "../PantallaInicio/AdminInicio.aspx"
                                   : "../PantallaInicio/SquirLearnInicio.aspx");
             }

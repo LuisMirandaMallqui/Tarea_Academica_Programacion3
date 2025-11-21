@@ -151,7 +151,7 @@ namespace SquirlearnWA
 
         protected void btnVolver_Click3(object sender, EventArgs e)
         {
-            Response.Redirect("../PerfilUsuario/Perfil.aspx");
+            Response.Redirect("../PantallaInicio/Busqueda.aspx");
         }
 
     }
