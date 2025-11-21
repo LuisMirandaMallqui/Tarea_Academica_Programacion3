@@ -23,12 +23,13 @@ public class Notificacion {
     @WebMethod(operationName = "insertarNotificacion")
     public Integer insertarNotificacion(
             @WebParam(name = "mensaje") String mensaje,
-            @WebParam(name = "personaId") Integer personaId) {
-        return this.notificacionBo.insertar(mensaje, personaId);
+            @WebParam(name = "personaId") Integer personaId, 
+            @WebParam(name = "fecha") String fecha){
+            
+        return this.notificacionBo.insertar(mensaje, personaId,fecha);
     }
+            
 
-    
-    //por corregir de miranda
     @WebMethod(operationName = "listarPorPersonaNotificacion")
     public ListadoNotificacionesDto listarPorPersonaNotificacion(
             @WebParam(name = "personaId") Integer personaId,

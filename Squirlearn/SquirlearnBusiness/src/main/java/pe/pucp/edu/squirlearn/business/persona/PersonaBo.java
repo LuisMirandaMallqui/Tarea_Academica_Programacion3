@@ -48,11 +48,13 @@ public class PersonaBo {
         personaDto.setusuarioCreacion(usuarioCreacion);
         personaDto.setusuarioModificacion(null);
         personaDto.setUltimaActividad(actividad);
-        
-        int result= this.personaDao.insertar(personaDto);
-        
-        PersonaDto per=this.personaDao.buscarPorCorreo(correo);
-        this.rolPersonaBo.insertarTablaInter(1,per.getPersonaId());
+        int result=0;
+        PersonaDto per;
+        if(!this.personaDao.existeUsuarioEnBD(personaDto)){
+            result= this.personaDao.insertar(personaDto);
+            per=this.personaDao.buscarPorCorreo(correo);
+            this.rolPersonaBo.insertarTablaInter(1,per.getPersonaId());
+        }
         
         return result;
     }
@@ -85,13 +87,13 @@ public class PersonaBo {
         personaDto.setCorreo(correo);
         PersonaDto perDto = this.personaDao.buscarPorCorreo(correo);
         if (perDto == null){
-            System.out.println("Es el primero");
+            System.out.println("No se encontro el usuario en la base de datos");
             return null;
         }
         if(Cifrado.descifrarMD5(perDto.getContrasena()).equals(contrasena))
             return perDto;
         else{
-            System.out.println("Es el segundo");
+            System.out.println("No se pudo corroborar la contraseña");
             return null;
         }
     }

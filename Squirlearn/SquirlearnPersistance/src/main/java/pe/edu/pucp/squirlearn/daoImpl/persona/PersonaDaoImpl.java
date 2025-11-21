@@ -186,8 +186,16 @@ public class PersonaDaoImpl extends DAOImplBase implements PersonaDao {
     }
     
     @Override
-    public Boolean existeUsuarioEnPUCP(String codigo,String correo){
-        return (this.obtenerPorCodigo(codigo)!=null && 
-                this.buscarPorCorreo(correo)!=null);
+    public Boolean existeUsuarioEnBD(PersonaDto per){
+        String sql = this.generarSQLParaListarTodos() + " WHERE CODIGO=?";
+        Consumer<PreparedStatement> incluir = ps -> {
+            try {
+                this.statement.setString(1, per.getCodigo());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        };
+        ArrayList lista = (ArrayList) this.listarTodos(sql, incluir, null);
+        return (lista != null && !lista.isEmpty());
     }
 }

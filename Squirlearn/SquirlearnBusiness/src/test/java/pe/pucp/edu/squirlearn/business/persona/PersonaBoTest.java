@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import pe.pucp.edu.squirlearn.business.persona.PersonaBo;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
+import pe.pucp.edu.squirlearn.business.util.Cifrado;
 
 public class PersonaBoTest {
     
@@ -13,7 +14,14 @@ public class PersonaBoTest {
     public PersonaBoTest() {
         this.personaBO = new PersonaBo();
     }
-    
+//    @Test
+//    public void testLogIn() {
+//        System.out.println("login");
+//        PersonaDto per= this.personaBO.logIn("luis@pucp.edu.pe", 
+//                "12Oc2001.");
+//        if(per.getCodigo().equals("12345678")) System.out.println("Exitoso");
+//        else System.out.println("Falla");
+//    }
 //    @Test
 //    public void testInsertar() {
 //        System.out.println("insertar");

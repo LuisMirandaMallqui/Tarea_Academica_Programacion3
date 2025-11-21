@@ -16,7 +16,7 @@ public class NotificacionBo {
         this.notificacionDao = new NotificacionDaoImpl();
     }
 
-    public Integer insertar(String mensaje, Integer personaId) {
+    public Integer insertar(String mensaje, Integer personaId,String fecha) {
         NotificacionDto notificacionDto = new NotificacionDto();
 
         PersonaDto persona = new PersonaDto();
@@ -24,6 +24,7 @@ public class NotificacionBo {
 
         notificacionDto.setMensaje(mensaje);
         notificacionDto.setPersona(persona);
+        notificacionDto.setFecha(fecha);
         return this.notificacionDao.insertar(notificacionDto);
     }
     
