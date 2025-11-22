@@ -17,7 +17,7 @@ public class IncidenciaBo {
         this.incidenciaDao = new IncidenciaDaoImpl();
     }
     
-    public Integer insertar(String descripcion, Integer personaId,
+    public Integer insertar(String descripcion, String respuesta, Integer personaId,
             Integer motivoId, Integer usuarioSolucion, String usuarioCreacion){
         IncidenciaDto incidenciaDto = new IncidenciaDto();
         
@@ -27,6 +27,7 @@ public class IncidenciaBo {
         motivo.setMotivoId(motivoId);
         
         incidenciaDto.setDescripcion(descripcion);
+        incidenciaDto.setRespuesta(respuesta);
         incidenciaDto.setPersona(persona);
         incidenciaDto.setMotivo(motivo);
         incidenciaDto.setUsuarioSolucion(usuarioSolucion);
@@ -35,7 +36,7 @@ public class IncidenciaBo {
         return this.incidenciaDao.insertar(incidenciaDto);
     }
     
-    public Integer modificar(Integer id,String descripcion , Integer personaId, Integer motivoId, Integer resuelto
+    public Integer modificar(Integer id,String descripcion ,String respuesta, Integer personaId, Integer motivoId, Integer resuelto
             ,Integer usuarioSolucion,String usuarioCreacion){
         IncidenciaDto incidenciaDto = new IncidenciaDto();
         
@@ -46,6 +47,7 @@ public class IncidenciaBo {
         
         incidenciaDto.setIncidenciaId(id);
         incidenciaDto.setDescripcion(descripcion);
+        incidenciaDto.setRespuesta(respuesta);
         incidenciaDto.setPersona(persona);
         incidenciaDto.setMotivo(motivo);
         incidenciaDto.setResuelto(resuelto);

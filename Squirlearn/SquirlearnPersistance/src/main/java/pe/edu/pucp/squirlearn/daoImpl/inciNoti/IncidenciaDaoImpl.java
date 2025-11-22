@@ -28,6 +28,7 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
         this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
         this.listaColumnas.add(new Columna("MOTIVO_ID_MOTIVO", false, false));
         this.listaColumnas.add(new Columna("DESCRIPCION", false, false));
+        this.listaColumnas.add(new Columna("RESPUESTA", false, false));
         this.listaColumnas.add(new Columna("RESUELTO", false, false));
         this.listaColumnas.add(new Columna("USUARIO_SOLUCION", false, false));
         this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
@@ -39,6 +40,7 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
         this.statement.setInt(i++, this.incidencia.getPersona().getPersonaId());
         this.statement.setInt(i++, this.incidencia.getMotivo().getMotivoId());
         this.statement.setString(i++, this.incidencia.getDescripcion());
+        this.statement.setString(i++, this.incidencia.getRespuesta());
         this.statement.setInt(i++, this.incidencia.getResuelto()==null?0:1);
         if (this.incidencia.getUsuarioSolucion() == null) 
             this.statement.setNull(i++, java.sql.Types.INTEGER);
@@ -51,6 +53,7 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
         this.statement.setInt(i++, this.incidencia.getPersona().getPersonaId());
         this.statement.setInt(i++, this.incidencia.getMotivo().getMotivoId());
         this.statement.setString(i++, this.incidencia.getDescripcion());
+        this.statement.setString(i++, this.incidencia.getRespuesta());
         this.statement.setInt(i++, this.incidencia.getResuelto()==null?0:1);
         if (this.incidencia.getUsuarioSolucion() == null) 
             this.statement.setNull(i++, java.sql.Types.INTEGER);
@@ -77,6 +80,7 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
 
         // Escalares
         this.incidencia.setDescripcion(this.resultSet.getString("DESCRIPCION"));
+        this.incidencia.setRespuesta(this.resultSet.getString("RESPUESTA"));
         this.incidencia.setResuelto(this.resultSet.getInt("RESUELTO"));
         this.incidencia.setUsuarioSolucion( this.resultSet.getInt("USUARIO_SOLUCION"));
         this.incidencia.setUsuarioCreacion(this.resultSet.getString("USUARIO_CREACION"));

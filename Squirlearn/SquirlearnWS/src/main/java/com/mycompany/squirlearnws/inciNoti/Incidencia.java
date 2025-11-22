@@ -23,11 +23,12 @@ public class Incidencia {
     @WebMethod(operationName = "insertarIncidencia")
     public Integer insertarIncidencia(
             @WebParam(name = "descripcion") String descripcion,
+            @WebParam(name = "respuesta") String respuesta,
             @WebParam(name = "personaId") Integer personaId,
             @WebParam(name = "motivoId") Integer motivoId,
             @WebParam(name = "usuarioSolucion") Integer usuarioSolucion,
             @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
-        return this.incidenciaBo.insertar(descripcion, personaId, motivoId, usuarioSolucion,
+        return this.incidenciaBo.insertar(descripcion, respuesta, personaId, motivoId, usuarioSolucion,
                 usuarioCreacion);
     }
 
@@ -35,13 +36,14 @@ public class Incidencia {
     public Integer modificarIncidencia(
             @WebParam(name = "id") Integer id,
             @WebParam(name = "descripcion") String descripcion,
+            @WebParam(name = "respuesta") String respuesta,
             //@WebParam(name = "fechaSolucion") Date fechaSolucion, Se maneja con un trigger
             @WebParam(name = "personaId") Integer personaId,
             @WebParam(name = "motivoId") Integer motivoId,
             @WebParam(name = "resuelto") Integer resuelto,
             @WebParam(name = "solucionadorId") Integer usuarioSolucion,
             @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
-        return this.incidenciaBo.modificar(id, descripcion,
+        return this.incidenciaBo.modificar(id, descripcion, respuesta,
                 personaId, motivoId, resuelto, usuarioSolucion, usuarioCreacion);
     }
 

@@ -322,7 +322,7 @@ INSERT INTO incidencias(
 -- Incidencia 3: (Reporta Persona 9, Motivo 8)
 (9, 8, 'El pago de mi venta fue duplicado.','Se le hara la devolución del cargo adicional', 0, NULL, NULL, @admin_user),
 -- Incidencia 4: (Reporta Persona 10, Motivo 9)
-(10, 9, 'No puedo contactar al dueño del item.','Se le informo al a su cuenta', 0, NULL, NULL, @admin_user);
+(10, 9, 'No puedo contactar al dueño del item.','Se le informo al vendedor a su cuenta', 0, NULL, NULL, @admin_user);
 
 
 
