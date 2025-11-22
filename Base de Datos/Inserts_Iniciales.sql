@@ -311,18 +311,18 @@ INSERT INTO notificaciones(
 -- Incidencias para los eventos
 INSERT INTO incidencias(
     PERSONA_ID, MOTIVO_ID_MOTIVO,
-    DESCRIPCION, RESUELTO, 
+    DESCRIPCION,RESPUESTA, RESUELTO, 
     FECHA_SOLUCION, USUARIO_SOLUCION,
     USUARIO_CREACION
 ) VALUES 
 -- Incidencia 1: (Reporta Persona 5, Motivo 4)
-(5, 4, 'El usuario no responde los mensajes.', 0, NULL, NULL, @admin_user),
+(5, 4, 'El usuario no responde los mensajes.','Cuenta suspendida', 0, NULL, NULL, @admin_user),
 -- Incidencia 2: (Reporta Persona 8, Motivo 7) - RESUELTA
-(8, 7, 'El vendedor entregó un libro dañado.', 1, NOW(), 3, @admin_user),
+(8, 7, 'El vendedor entregó un libro dañado.','Cuenta suspendida', 1, NOW(), 3, @admin_user),
 -- Incidencia 3: (Reporta Persona 9, Motivo 8)
-(9, 8, 'El pago de mi venta fue duplicado.', 0, NULL, NULL, @admin_user),
+(9, 8, 'El pago de mi venta fue duplicado.','Se le hara la devolución del cargo adicional', 0, NULL, NULL, @admin_user),
 -- Incidencia 4: (Reporta Persona 10, Motivo 9)
-(10, 9, 'No puedo contactar al dueño del item.', 0, NULL, NULL, @admin_user);
+(10, 9, 'No puedo contactar al dueño del item.','Se le informo al a su cuenta', 0, NULL, NULL, @admin_user);
 
 
 
