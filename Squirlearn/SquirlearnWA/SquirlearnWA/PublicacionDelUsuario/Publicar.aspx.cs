@@ -198,6 +198,69 @@ namespace SquirlearnWA.PublicacionDelUsuario
         // Un solo método para Guardar o Enviar
         private void GuardarPublicacion(String nuevoEstado)
         {
+
+
+            // 2. Subcategoría
+            if (string.IsNullOrEmpty(ddlSubcategoria.SelectedValue))
+            {
+                MostrarMensaje("Debe seleccionar una subcategoría.");
+                return;
+            }
+
+            // 3. Nombre
+            if (string.IsNullOrWhiteSpace(txtNombreLibro.Text))
+            {
+                MostrarMensaje("Debe ingresar  título.");
+                return;
+            }
+
+            // 4. Descripción
+            if (string.IsNullOrWhiteSpace(txtDescripcionLibro.Text))
+            {
+                MostrarMensaje("Debe ingresar una descripción.");
+                return;
+            }
+
+            // 5. Acción (vender/alquilar)
+            if (string.IsNullOrEmpty(rblAccionLibro.SelectedValue))
+            {
+                MostrarMensaje("Debe indicar si desea vender o alquilar.");
+                return;
+            }
+
+            // 6. Precio
+            if (string.IsNullOrWhiteSpace(txtPrecioLibro.Text))
+            {
+                MostrarMensaje("Debe ingresar un precio.");
+                return;
+            }
+
+            // Validar que el precio sea número
+            if (!double.TryParse(txtPrecioLibro.Text, out double precioValidado))
+            {
+                MostrarMensaje("El precio ingresado debe ser un número válido.");
+                return;
+            }
+
+            // Validar que el precio sea positivo
+            if (precioValidado <= 0)
+            {
+                MostrarMensaje("El precio debe ser un valor positivo mayor a cero.");
+                return;
+            }
+
+
+
+            // 6. Formtato (digital o virtual)
+            if (string.IsNullOrWhiteSpace(ddlFormato.Text))
+            {
+                MostrarMensaje("Debe ingresar un formtato.");
+                return;
+            }
+
+           
+
+
             try
             {
                 // 1. Crea el DTO que el backend espera
@@ -213,21 +276,27 @@ namespace SquirlearnWA.PublicacionDelUsuario
                 int categoriaId = int.Parse(ddlCategoria.SelectedValue);
                 int subcategoriaId = int.Parse(ddlSubcategoria.SelectedValue);
                 int formatoId = int.Parse(ddlFormato.SelectedValue);
-                int condicionId = int.Parse(ddlCondicion.SelectedValue);
-                int tamanoId = int.Parse(ddlTamano.SelectedValue);
-                int colorId = int.Parse(ddlColor.SelectedValue);
+
+                // Opcionales
+                int condicionId = string.IsNullOrEmpty(ddlCondicion.SelectedValue) ? 1 : int.Parse(ddlCondicion.SelectedValue);
+                int tamanoId = string.IsNullOrEmpty(ddlTamano.SelectedValue) ? 1 : int.Parse(ddlTamano.SelectedValue);
+                int colorId = string.IsNullOrEmpty(ddlColor.SelectedValue) ? 1 : int.Parse(ddlColor.SelectedValue);
+
                 // ... etc ...
 
 
                 if (IdPublicacionActual > 0)
                 {//cambiar el nuevo estado
-                    publicacionSoap.modificarPublicacion(IdPublicacionActual, Session["nombreUsuario"].ToString(), nuevoEstado, precio, nombre, descripcion, esVenta, colorId, condicionId, tamanoId, formatoId, categoriaId, subcategoriaId);
+                    publicacionSoap.modificarPublicacion(IdPublicacionActual, Session["nombreUsuario"].ToString(),
+                        nuevoEstado, precio, nombre, descripcion, esVenta, colorId,
+                        condicionId, tamanoId, formatoId, categoriaId, subcategoriaId);
                 }
                 else
                 {
                     // esta eliminando el parámetro crear
-                    int personaid = (int)Session["UsuarioId"] ;
-                    publicacionSoap.insertarPublicacion(personaid, Session["nombreUsuario"].ToString() , nuevoEstado, precio,nombre,descripcion,esVenta,colorId,condicionId,tamanoId,formatoId,categoriaId,subcategoriaId);
+                    int personaid = (int)Session["UsuarioId"];
+                    publicacionSoap.insertarPublicacion(personaid, Session["nombreUsuario"].ToString(), nuevoEstado,
+                        precio, nombre, descripcion, esVenta, colorId, condicionId, tamanoId, formatoId, categoriaId, subcategoriaId);
                 }
 
                 // 5. Si no fue borrador, muestra el modal de éxito
@@ -271,6 +340,15 @@ namespace SquirlearnWA.PublicacionDelUsuario
             Response.Redirect("ListadoPublicaciones.aspx");
         }
 
-        #endregion  
+        #endregion
+
+
+
+
+        private void MostrarMensaje(string mensaje)
+        {
+            string script = $"mostrarModalError('{mensaje}');";
+            ScriptManager.RegisterStartupScript(this, GetType(), "modalError", script, true);
+        }
     }
 }

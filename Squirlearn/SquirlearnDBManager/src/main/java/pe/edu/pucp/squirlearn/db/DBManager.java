@@ -50,10 +50,7 @@ public  abstract class DBManager {
     public Connection getConnection() {
         try {
             Class.forName(this.driver);
-            //System.out.println(this.usuario);
-            //System.out.println(this.contraseña);
-            //System.out.println(Cifrado.descifrarMD5(this.contraseña));
-            this.conexion = DriverManager.getConnection(getURL(), this.usuario, Cifrado.descifrarMD5(this.contraseña));
+            this.conexion = DriverManager.getConnection(getURL(), this.usuario,Cifrado.descifrarMD5(this.contraseña));
         } catch (ClassNotFoundException | SQLException ex) {
             System.err.println("Error al generar la conexión - " + ex);
         }

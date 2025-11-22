@@ -2,33 +2,32 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
 
-    <asp:LinkButton ID="btnVolver" runat="server" CssClass="btn btn-link text-dark btn-flecha me-3" OnClick="btnVolver_Click">
-    <i class="fa fa-arrow-left"></i>
+    <asp:LinkButton ID="btnVolver" runat="server" CssClass="btn btn-link text-dark btn-flecha me-2"    OnClick="btnVolver_Click">
+    <i class="fa fa-arrow-left"></i>Volver
 </asp:LinkButton>
 
     <div class="container mt-4">
-    <h4 class="fw-bold mb-4">Solicitud de publicación</h4>
+    <h4 class="fw-bold mb-1">Solicitud de publicación</h4>
 
    <asp:FormView ID="fvPedido" runat="server">
     <ItemTemplate>
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label>Vendedor:</label>
-                <div class="form-control-plaintext border rounded p-2 bg-light">
-                    <%# Eval("persona.nombres") + " " + Eval("persona.primerApellido") + " " + 
-                          Eval("persona.segundoApellido")  %>
-                </div>
-            </div>
+        <div class="row" style="height:450px; overflow-y:auto;" >
+                   <div class="col-md-6 mb-3">
+                   <label>Nombre del vendedor:</label>
+                   <div class="form-control-plaintext border rounded p-2 bg-light">
+                      <%# Eval("persona.nombres") + " " + Eval("persona.primerApellido") + " " + Eval("persona.segundoApellido") %>
+                   </div>
+               </div>
 
 
 
 
-            <div class="col-md-6 mb-3">
-                <label>Fecha de envío:</label>
-                <div class="form-control-plaintext border rounded p-2 bg-light">
-                    <%# Eval("fechaEnvio") %>
-                </div>
-            </div>
+                   <div class="col-md-6 mb-3">
+           <label>Correo electronico:</label>
+           <div class="form-control-plaintext border rounded p-2 bg-light">
+              <%# Eval("persona.correo") %>
+           </div>
+       </div>
 
             <div class="col-md-6 mb-3">
                 <label>Categoría del producto:</label>
@@ -65,12 +64,7 @@
                 </div>
             </div>
 
-              <div class="col-md-6 mb-3">
-                    <label>Periodo de tiempo:</label>
-                    <div class="form-control-plaintext border rounded p-2 bg-light">
-                        <%# !(bool)Eval("item.esVenta") ? Eval("item.periodo") + " días" : "" %>
-                    </div>
-                </div>
+              
 
             <div class="col-md-6 mb-3">
                 <label>Precio Unitario:</label>

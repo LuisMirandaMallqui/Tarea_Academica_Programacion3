@@ -16,15 +16,6 @@ namespace SquirlearnWA.colorSOAP {
     public interface Color {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Color/obtenerPorIdColorRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Color/obtenerPorIdColorResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.colorSOAP.obtenerPorIdColorResponse obtenerPorIdColor(SquirlearnWA.colorSOAP.obtenerPorIdColorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Color/obtenerPorIdColorRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Color/obtenerPorIdColorResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.colorSOAP.obtenerPorIdColorResponse> obtenerPorIdColorAsync(SquirlearnWA.colorSOAP.obtenerPorIdColorRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Color/listarTodosColorRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Color/listarTodosColorResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -32,6 +23,15 @@ namespace SquirlearnWA.colorSOAP {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Color/listarTodosColorRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Color/listarTodosColorResponse")]
         System.Threading.Tasks.Task<SquirlearnWA.colorSOAP.listarTodosColorResponse> listarTodosColorAsync(SquirlearnWA.colorSOAP.listarTodosColorRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Color/obtenerPorIdColorRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Color/obtenerPorIdColorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.colorSOAP.obtenerPorIdColorResponse obtenerPorIdColor(SquirlearnWA.colorSOAP.obtenerPorIdColorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Color/obtenerPorIdColorRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Color/obtenerPorIdColorResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.colorSOAP.obtenerPorIdColorResponse> obtenerPorIdColorAsync(SquirlearnWA.colorSOAP.obtenerPorIdColorRequest request);
     }
     
     /// <remarks/>
@@ -97,6 +97,34 @@ namespace SquirlearnWA.colorSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosColor", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosColorRequest {
+        
+        public listarTodosColorRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosColorResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosColorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.colorSOAP.colorDto[] @return;
+        
+        public listarTodosColorResponse() {
+        }
+        
+        public listarTodosColorResponse(SquirlearnWA.colorSOAP.colorDto[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdColor", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
     public partial class obtenerPorIdColorRequest {
         
@@ -130,34 +158,6 @@ namespace SquirlearnWA.colorSOAP {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosColor", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosColorRequest {
-        
-        public listarTodosColorRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosColorResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosColorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.colorSOAP.colorDto[] @return;
-        
-        public listarTodosColorResponse() {
-        }
-        
-        public listarTodosColorResponse(SquirlearnWA.colorSOAP.colorDto[] @return) {
-            this.@return = @return;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ColorChannel : SquirlearnWA.colorSOAP.Color, System.ServiceModel.IClientChannel {
     }
@@ -186,6 +186,27 @@ namespace SquirlearnWA.colorSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.colorSOAP.listarTodosColorResponse SquirlearnWA.colorSOAP.Color.listarTodosColor(SquirlearnWA.colorSOAP.listarTodosColorRequest request) {
+            return base.Channel.listarTodosColor(request);
+        }
+        
+        public SquirlearnWA.colorSOAP.colorDto[] listarTodosColor() {
+            SquirlearnWA.colorSOAP.listarTodosColorRequest inValue = new SquirlearnWA.colorSOAP.listarTodosColorRequest();
+            SquirlearnWA.colorSOAP.listarTodosColorResponse retVal = ((SquirlearnWA.colorSOAP.Color)(this)).listarTodosColor(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.colorSOAP.listarTodosColorResponse> SquirlearnWA.colorSOAP.Color.listarTodosColorAsync(SquirlearnWA.colorSOAP.listarTodosColorRequest request) {
+            return base.Channel.listarTodosColorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.colorSOAP.listarTodosColorResponse> listarTodosColorAsync() {
+            SquirlearnWA.colorSOAP.listarTodosColorRequest inValue = new SquirlearnWA.colorSOAP.listarTodosColorRequest();
+            return ((SquirlearnWA.colorSOAP.Color)(this)).listarTodosColorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SquirlearnWA.colorSOAP.obtenerPorIdColorResponse SquirlearnWA.colorSOAP.Color.obtenerPorIdColor(SquirlearnWA.colorSOAP.obtenerPorIdColorRequest request) {
             return base.Channel.obtenerPorIdColor(request);
         }
@@ -206,27 +227,6 @@ namespace SquirlearnWA.colorSOAP {
             SquirlearnWA.colorSOAP.obtenerPorIdColorRequest inValue = new SquirlearnWA.colorSOAP.obtenerPorIdColorRequest();
             inValue.id = id;
             return ((SquirlearnWA.colorSOAP.Color)(this)).obtenerPorIdColorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.colorSOAP.listarTodosColorResponse SquirlearnWA.colorSOAP.Color.listarTodosColor(SquirlearnWA.colorSOAP.listarTodosColorRequest request) {
-            return base.Channel.listarTodosColor(request);
-        }
-        
-        public SquirlearnWA.colorSOAP.colorDto[] listarTodosColor() {
-            SquirlearnWA.colorSOAP.listarTodosColorRequest inValue = new SquirlearnWA.colorSOAP.listarTodosColorRequest();
-            SquirlearnWA.colorSOAP.listarTodosColorResponse retVal = ((SquirlearnWA.colorSOAP.Color)(this)).listarTodosColor(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.colorSOAP.listarTodosColorResponse> SquirlearnWA.colorSOAP.Color.listarTodosColorAsync(SquirlearnWA.colorSOAP.listarTodosColorRequest request) {
-            return base.Channel.listarTodosColorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.colorSOAP.listarTodosColorResponse> listarTodosColorAsync() {
-            SquirlearnWA.colorSOAP.listarTodosColorRequest inValue = new SquirlearnWA.colorSOAP.listarTodosColorRequest();
-            return ((SquirlearnWA.colorSOAP.Color)(this)).listarTodosColorAsync(inValue);
         }
     }
 }

@@ -10,7 +10,6 @@ import pe.edu.pucp.squirlearn.dao.inciNoti.IncidenciaDao;
 import pe.edu.pucp.squirlearn.daoImpl.DAOImplBase;
 import pe.edu.pucp.squirlearn.model.inciNoti.IncidenciaDto;
 import pe.edu.pucp.squirlearn.model.inciNoti.MotivoDto;
-import pe.edu.pucp.squirlearn.model.inciNoti.NotificacionDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
 public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
@@ -26,10 +25,10 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
     @Override
     protected void configurarListaDeColumnas() {
         this.listaColumnas.add(new Columna("INCIDENCIA_ID", true, true));
-        this.listaColumnas.add(new Columna("NOTIFICACION_ID", false, false));
         this.listaColumnas.add(new Columna("PERSONA_ID", false, false));
         this.listaColumnas.add(new Columna("MOTIVO_ID_MOTIVO", false, false));
         this.listaColumnas.add(new Columna("DESCRIPCION", false, false));
+        this.listaColumnas.add(new Columna("RESPUESTA", false, false));
         this.listaColumnas.add(new Columna("RESUELTO", false, false));
         this.listaColumnas.add(new Columna("USUARIO_SOLUCION", false, false));
         this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
@@ -38,10 +37,10 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
     @Override
     protected void incluirValorDeParametrosParaInsercion() throws SQLException {
         int i = 1;
-        this.statement.setInt(i++, this.incidencia.getNotificacion().getNotificacionId());
         this.statement.setInt(i++, this.incidencia.getPersona().getPersonaId());
         this.statement.setInt(i++, this.incidencia.getMotivo().getMotivoId());
         this.statement.setString(i++, this.incidencia.getDescripcion());
+        this.statement.setString(i++, this.incidencia.getRespuesta());
         this.statement.setInt(i++, this.incidencia.getResuelto()==null?0:1);
         if (this.incidencia.getUsuarioSolucion() == null) 
             this.statement.setNull(i++, java.sql.Types.INTEGER);
@@ -51,10 +50,10 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
     @Override
     protected void incluirValorDeParametrosParaModificacion() throws SQLException {
         int i = 1;
-        this.statement.setInt(i++, this.incidencia.getNotificacion().getNotificacionId());
         this.statement.setInt(i++, this.incidencia.getPersona().getPersonaId());
         this.statement.setInt(i++, this.incidencia.getMotivo().getMotivoId());
         this.statement.setString(i++, this.incidencia.getDescripcion());
+        this.statement.setString(i++, this.incidencia.getRespuesta());
         this.statement.setInt(i++, this.incidencia.getResuelto()==null?0:1);
         if (this.incidencia.getUsuarioSolucion() == null) 
             this.statement.setNull(i++, java.sql.Types.INTEGER);
@@ -68,10 +67,6 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
         this.incidencia = new IncidenciaDto();
 
         this.incidencia.setIncidenciaId(this.resultSet.getInt("INCIDENCIA_ID"));
-        // Notificacion
-        NotificacionDto notif = new NotificacionDto();
-        notif.setNotificacionId(this.resultSet.getInt("NOTIFICACION_ID"));
-        this.incidencia.setNotificacion(notif);
 
         // Persona
         PersonaDto persona = new PersonaDto();
@@ -85,6 +80,7 @@ public class IncidenciaDaoImpl extends DAOImplBase implements IncidenciaDao{
 
         // Escalares
         this.incidencia.setDescripcion(this.resultSet.getString("DESCRIPCION"));
+        this.incidencia.setRespuesta(this.resultSet.getString("RESPUESTA"));
         this.incidencia.setResuelto(this.resultSet.getInt("RESUELTO"));
         this.incidencia.setUsuarioSolucion( this.resultSet.getInt("USUARIO_SOLUCION"));
         this.incidencia.setUsuarioCreacion(this.resultSet.getString("USUARIO_CREACION"));

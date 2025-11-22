@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.squirlearn.daoImpl.publicacion;
 
 import java.sql.PreparedStatement;
@@ -78,19 +74,19 @@ public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionS
     }
 
     private StringBuilder generarPlantillaSqlParaFiltros() {
-        return new StringBuilder(
-                "SELECT P.PUBLICACION_ID, P.FECHA_ALTA, "
-                + "P.ESTADO_PUBLICACION_ID, P.PERSONA_ID, "
-                + "I.ITEM_ID AS ITEM_ID_ITEM, I.PRECIO, I.ES_VENTA, "
-                + "I.subcategoria_ID_SUBCATEGORIAsubcategorias, I.subcategoria_CATEGORIA_ID "
-                + "C.Nombre AS CategoriaNombre"
-                + "EP.Nombre AS EstadoNombre"
-                + "FROM publicaciones P"
-                + "JOIN items I ON P.ITEM_ID_ITEM = I.ITEM_ID "
-                + "JOIN categorias C ON I.subcategoria_CATEGORIA_ID = C.CATEGORIA_ID"
-                + "JOIN estados_publicaciones EP ON P.ESTADO_PUBLICACION_ID = EP.ESTADOPUBLI_ID "
-                + "WHERE 1=1 "
-        );
+            return new StringBuilder(
+           "SELECT P.PUBLICACION_ID, P.FECHA_ALTA, " +
+           "P.ESTADO_PUBLICACION_ID, P.PERSONA_ID, " +
+           "I.ITEM_ID AS ITEM_ID_ITEM,I.NOMBRE AS NOMBRE_ITEM, I.PRECIO, I.ES_VENTA, " +
+           "I.subcategoria_ID_SUBCATEGORIA, I.subcategoria_CATEGORIA_ID, " +
+           "C.Nombre AS CATEGORIA_NOMBRE, " +
+           "EP.Nombre AS ESTADO_NOMBRE " +
+           "FROM publicaciones P " +
+           "JOIN items I ON P.ITEM_ID_ITEM = I.ITEM_ID " +
+           "JOIN categorias C ON I.subcategoria_CATEGORIA_ID = C.CATEGORIA_ID " +
+           "JOIN estados_publicaciones EP ON P.ESTADO_PUBLICACION_ID = EP.ESTADOPUBLI_ID " +
+           "WHERE 1=1 "
+       );
     }
 
     private StringBuilder generarPlantillaSqlParaContar() {
@@ -161,19 +157,19 @@ public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionS
         sql.append(" AND I.ESTADO_ITEM_ID = 1 ");
         sql.append(" AND P.ESTADO_PUBLICACION_ID = 2 ");
     }
-
+    
     private void aplicarCriteriosDeFiltrado(
             StringBuilder sql,
             ArrayList<Object> parametros,
             Integer usuarioId,
             Integer estadoId
     ) {
-        if (usuarioId != null) {
+        if (usuarioId != null && usuarioId != 0) {
             sql.append(" AND P.PERSONA_ID = ? ");
             parametros.add(usuarioId);
         }
 
-        if (estadoId != null) {
+        if (estadoId != null && estadoId != -1 ) {
             sql.append(" AND P.ESTADO_PUBLICACION_ID = ? ");
             parametros.add(estadoId);
         }
@@ -235,7 +231,7 @@ public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionS
         };
         return (ArrayList<PublicacionShortDto>) this.listarTodos(sql.toString(), incluirValores, null);//
     }
-
+    
     @Override
     public Integer cantidadListarPorFiltrosPublicacion(
             String terminoBusqueda,
@@ -291,5 +287,6 @@ public class PublicacionShortDaoImpl extends DAOImplBase implements PublicacionS
     public ArrayList<PublicacionShortDto> listarTodos() {
         return (ArrayList<PublicacionShortDto>) super.listarTodos();
     }
-
+    
+    
 }

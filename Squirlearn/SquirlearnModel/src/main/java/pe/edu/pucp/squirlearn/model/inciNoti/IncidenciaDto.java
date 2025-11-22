@@ -7,10 +7,10 @@ public class IncidenciaDto {
 
     
     private Integer incidenciaId;
-    private NotificacionDto notificacion;
     private PersonaDto persona;
     private MotivoDto motivo;
     private String descripcion;
+    private String respuesta;
     private Integer resuelto;
     private Integer usuarioSolucion;
     private String usuarioCreacion;
@@ -19,21 +19,21 @@ public class IncidenciaDto {
     public IncidenciaDto() {
         this.incidenciaId = null;
         this.descripcion = null;
+        this.respuesta = null;
         this.usuarioSolucion = null;
-        this.notificacion = null;
         this.persona = null;
         this.motivo = null;
         this.resuelto = null;
     }
 
     // Constructor con parámetros
-    public IncidenciaDto(Integer incidenciaId, String descripcion,
-                         Integer usuarioSolucion, NotificacionDto notificacion, PersonaDto persona,
+    public IncidenciaDto(Integer incidenciaId, String descripcion, String respuesta,
+                         Integer usuarioSolucion, PersonaDto persona,
                          MotivoDto motivo,Integer resuelto) {
         this.incidenciaId = incidenciaId;
         this.descripcion = descripcion;
+        this.respuesta = respuesta;
         this.usuarioSolucion = usuarioSolucion;
-        this.notificacion = notificacion;
         this.persona = persona;
         this.motivo = motivo;
         this.resuelto = resuelto;
@@ -52,8 +52,16 @@ public class IncidenciaDto {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcion(String respuesta) {
+        this.descripcion = respuesta;
+    }
+
+    public String getRespuesta() {
+        return respuesta;
+    }
+
+    public void setRespuesta(String respuesta) {
+        this.respuesta = respuesta;
     }
 
     public Integer getUsuarioSolucion() {
@@ -62,14 +70,6 @@ public class IncidenciaDto {
 
     public void setUsuarioSolucion(Integer usuarioSolucion) {
         this.usuarioSolucion = usuarioSolucion;
-    }
-
-    public NotificacionDto getNotificacion() {
-        return notificacion;
-    }
-
-    public void setNotificacion(NotificacionDto notificacion) {
-        this.notificacion = notificacion;
     }
 
     public PersonaDto getPersona() {

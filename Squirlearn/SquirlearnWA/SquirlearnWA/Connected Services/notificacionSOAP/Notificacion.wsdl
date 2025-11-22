@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Notificacion?xsd=1" namespace="http://inciNoti.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="listarPorPersonaNotificacion">
-    <part name="parameters" element="tns:listarPorPersonaNotificacion" />
-  </message>
-  <message name="listarPorPersonaNotificacionResponse">
-    <part name="parameters" element="tns:listarPorPersonaNotificacionResponse" />
-  </message>
   <message name="insertarNotificacion">
     <part name="parameters" element="tns:insertarNotificacion" />
   </message>
@@ -23,11 +17,13 @@
   <message name="obtenerPorIdNotificacionResponse">
     <part name="parameters" element="tns:obtenerPorIdNotificacionResponse" />
   </message>
+  <message name="listarPorPersonaNotificacion">
+    <part name="parameters" element="tns:listarPorPersonaNotificacion" />
+  </message>
+  <message name="listarPorPersonaNotificacionResponse">
+    <part name="parameters" element="tns:listarPorPersonaNotificacionResponse" />
+  </message>
   <portType name="Notificacion">
-    <operation name="listarPorPersonaNotificacion">
-      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/listarPorPersonaNotificacionRequest" message="tns:listarPorPersonaNotificacion" />
-      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/listarPorPersonaNotificacionResponse" message="tns:listarPorPersonaNotificacionResponse" />
-    </operation>
     <operation name="insertarNotificacion">
       <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/insertarNotificacionRequest" message="tns:insertarNotificacion" />
       <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/insertarNotificacionResponse" message="tns:insertarNotificacionResponse" />
@@ -36,18 +32,13 @@
       <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/obtenerPorIdNotificacionRequest" message="tns:obtenerPorIdNotificacion" />
       <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/obtenerPorIdNotificacionResponse" message="tns:obtenerPorIdNotificacionResponse" />
     </operation>
+    <operation name="listarPorPersonaNotificacion">
+      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/listarPorPersonaNotificacionRequest" message="tns:listarPorPersonaNotificacion" />
+      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/listarPorPersonaNotificacionResponse" message="tns:listarPorPersonaNotificacionResponse" />
+    </operation>
   </portType>
   <binding name="NotificacionPortBinding" type="tns:Notificacion">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarPorPersonaNotificacion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="insertarNotificacion">
       <soap:operation soapAction="" />
       <input>
@@ -58,6 +49,15 @@
       </output>
     </operation>
     <operation name="obtenerPorIdNotificacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarPorPersonaNotificacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="ab101951-671b-42c0-ac6f-1c6b7307f553" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="7f1ffe2f-21db-4867-8e9b-e52749c164e4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:8080/SquirlearnWS/Alquiler?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Alquiler.wsdl" MetadataType="Wsdl" ID="bb013458-26d0-49c8-914b-e7bcf81f7e49" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Alquiler?wsdl" />
-    <MetadataFile FileName="Alquiler.xsd" MetadataType="Schema" ID="5f652a9a-dfe4-4e8b-8286-1fafb55febc1" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Alquiler?xsd=1" />
+    <MetadataFile FileName="Alquiler.wsdl" MetadataType="Wsdl" ID="9f7315f3-e32a-4e6f-be6f-3d12005d6bf7" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Alquiler?wsdl" />
+    <MetadataFile FileName="Alquiler.xsd" MetadataType="Schema" ID="830a5b7f-6ed6-464a-a595-1d979575bee6" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Alquiler?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

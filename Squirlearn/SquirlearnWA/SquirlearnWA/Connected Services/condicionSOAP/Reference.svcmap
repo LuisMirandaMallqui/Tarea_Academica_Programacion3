@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="4726a116-f52e-42d8-b4ac-af5d9c858de8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="12e5729c-7168-495d-b2d3-a59496df7e0f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:8080/SquirlearnWS/Condicion?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Condicion.wsdl" MetadataType="Wsdl" ID="ec101f0f-fb83-4cf5-93e6-3753622cbde5" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Condicion?wsdl" />
-    <MetadataFile FileName="Condicion.xsd" MetadataType="Schema" ID="eac7f59d-ac0c-42fd-a9f9-74decaa4bad1" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Condicion?xsd=1" />
+    <MetadataFile FileName="Condicion.wsdl" MetadataType="Wsdl" ID="d4e5cd39-325b-4b45-b9a1-769336e1eeb2" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Condicion?wsdl" />
+    <MetadataFile FileName="Condicion.xsd" MetadataType="Schema" ID="6318f140-db5d-4b9a-ac26-742433b5b30a" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Condicion?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -3,6 +3,7 @@ package pe.pucp.edu.squirlearn.business.persona;
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import pe.edu.pucp.squirlearn.db.util.Cifrado;
 import pe.pucp.edu.squirlearn.business.persona.PersonaBo;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
@@ -21,9 +22,9 @@ public class PersonaBoTest {
 //                "Juan",
 //                "Pérez",
 //                "Prueba",
-//                "20250001",
+//                "12345678",
 //                "juan.perez.prueba@pucp.edu.pe",
-//                "ContrasenaSegura123",
+//                "luis",
 //                "juanitoPerez",
 //                "2025-02-12"
 //        );
@@ -60,11 +61,28 @@ public class PersonaBoTest {
 //            System.out.println(persona.getSegundoApellido());
 //            System.out.println(persona.getCodigo());
 //            System.out.println(persona.getCorreo());
+//            System.out.println(persona.getRolPersona().get(0).getNombre());
 //            System.out.println(persona.getUltimaActividad());
 //            System.out.println(persona.getusuarioCreacion());
 //        }
 //    }
-//    
+//    @Test
+//    public void logIn() {
+//        System.out.println("login");
+//        PersonaDto persona = this.personaBO.logIn("juan.perez.prueba@pucp.edu.pe","luis"); // AJUSTA ID
+//        if (persona != null) {
+//            System.out.println(persona.getPersonaId());
+//            System.out.println(persona.getNombres());
+//            System.out.println(persona.getPrimerApellido());
+//            System.out.println(persona.getSegundoApellido());
+//            System.out.println(persona.getCodigo());
+//            System.out.println(persona.getCorreo());
+//            System.out.println(persona.getRolPersona().get(0).getNombre());
+//            System.out.println(persona.getUltimaActividad());
+//            System.out.println(persona.getusuarioCreacion());
+//        }
+//    }   
+////    
 //    @Test
 //    public void testListarTodos() {
 //        System.out.println("listarTodos");

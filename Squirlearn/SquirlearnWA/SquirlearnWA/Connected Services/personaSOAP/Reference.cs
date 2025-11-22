@@ -16,15 +16,6 @@ namespace SquirlearnWA.personaSOAP {
     public interface Persona {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaRequest", ReplyAction="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.personaSOAP.logInPersonaResponse logInPersona(SquirlearnWA.personaSOAP.logInPersonaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaRequest", ReplyAction="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.logInPersonaResponse> logInPersonaAsync(SquirlearnWA.personaSOAP.logInPersonaRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://persona.squirlearnws.mycompany.com/Persona/insertarPersonaRequest", ReplyAction="http://persona.squirlearnws.mycompany.com/Persona/insertarPersonaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -43,15 +34,13 @@ namespace SquirlearnWA.personaSOAP {
         System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.modificarPersonaResponse> modificarPersonaAsync(SquirlearnWA.personaSOAP.modificarPersonaRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaRequest", ReplyAction="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaResponse" +
-            "")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaRequest", ReplyAction="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaResponse obtenerPorCodigoPersona(SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest request);
+        SquirlearnWA.personaSOAP.logInPersonaResponse logInPersona(SquirlearnWA.personaSOAP.logInPersonaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaRequest", ReplyAction="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaResponse" +
-            "")]
-        System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaResponse> obtenerPorCodigoPersonaAsync(SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaRequest", ReplyAction="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.logInPersonaResponse> logInPersonaAsync(SquirlearnWA.personaSOAP.logInPersonaRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorIdPersonaRequest", ReplyAction="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorIdPersonaResponse")]
@@ -61,6 +50,174 @@ namespace SquirlearnWA.personaSOAP {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorIdPersonaRequest", ReplyAction="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorIdPersonaResponse")]
         System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.obtenerPorIdPersonaResponse> obtenerPorIdPersonaAsync(SquirlearnWA.personaSOAP.obtenerPorIdPersonaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaRequest", ReplyAction="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaResponse" +
+            "")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaResponse obtenerPorCodigoPersona(SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaRequest", ReplyAction="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaResponse" +
+            "")]
+        System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaResponse> obtenerPorCodigoPersonaAsync(SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarPersona", WrapperNamespace="http://persona.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class insertarPersonaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombres;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string primerApellido;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string segundoApellido;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string codigo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string correo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string contrasena;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string usuario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string ultimaActividad;
+        
+        public insertarPersonaRequest() {
+        }
+        
+        public insertarPersonaRequest(string nombres, string primerApellido, string segundoApellido, string codigo, string correo, string contrasena, string usuario, string ultimaActividad) {
+            this.nombres = nombres;
+            this.primerApellido = primerApellido;
+            this.segundoApellido = segundoApellido;
+            this.codigo = codigo;
+            this.correo = correo;
+            this.contrasena = contrasena;
+            this.usuario = usuario;
+            this.ultimaActividad = ultimaActividad;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarPersonaResponse", WrapperNamespace="http://persona.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class insertarPersonaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarPersonaResponse() {
+        }
+        
+        public insertarPersonaResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarPersona", WrapperNamespace="http://persona.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class modificarPersonaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombres;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string primerApellido;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string segundoApellido;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string codigo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string correo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string contrasena;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int estadoId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string usuario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string usuarioCreacion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string ultimaActividad;
+        
+        public modificarPersonaRequest() {
+        }
+        
+        public modificarPersonaRequest(int id, string nombres, string primerApellido, string segundoApellido, string codigo, string correo, string contrasena, int estadoId, string usuario, string usuarioCreacion, string ultimaActividad) {
+            this.id = id;
+            this.nombres = nombres;
+            this.primerApellido = primerApellido;
+            this.segundoApellido = segundoApellido;
+            this.codigo = codigo;
+            this.correo = correo;
+            this.contrasena = contrasena;
+            this.estadoId = estadoId;
+            this.usuario = usuario;
+            this.usuarioCreacion = usuarioCreacion;
+            this.ultimaActividad = ultimaActividad;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarPersonaResponse", WrapperNamespace="http://persona.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class modificarPersonaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public modificarPersonaResponse() {
+        }
+        
+        public modificarPersonaResponse(int @return) {
+            this.@return = @return;
+        }
     }
     
     /// <remarks/>
@@ -427,156 +584,35 @@ namespace SquirlearnWA.personaSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarPersona", WrapperNamespace="http://persona.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class insertarPersonaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombres;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string primerApellido;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string segundoApellido;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string codigo;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=4)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string correo;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=5)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string contrasena;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=6)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string usuario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=7)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string ultimaActividad;
-        
-        public insertarPersonaRequest() {
-        }
-        
-        public insertarPersonaRequest(string nombres, string primerApellido, string segundoApellido, string codigo, string correo, string contrasena, string usuario, string ultimaActividad) {
-            this.nombres = nombres;
-            this.primerApellido = primerApellido;
-            this.segundoApellido = segundoApellido;
-            this.codigo = codigo;
-            this.correo = correo;
-            this.contrasena = contrasena;
-            this.usuario = usuario;
-            this.ultimaActividad = ultimaActividad;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarPersonaResponse", WrapperNamespace="http://persona.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class insertarPersonaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarPersonaResponse() {
-        }
-        
-        public insertarPersonaResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarPersona", WrapperNamespace="http://persona.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class modificarPersonaRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdPersona", WrapperNamespace="http://persona.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class obtenerPorIdPersonaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int id;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombres;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string primerApellido;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string segundoApellido;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=4)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string codigo;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=5)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string correo;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=6)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string contrasena;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=7)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int estadoId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=8)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string usuario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=9)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string usuarioCreacion;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=10)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string ultimaActividad;
-        
-        public modificarPersonaRequest() {
+        public obtenerPorIdPersonaRequest() {
         }
         
-        public modificarPersonaRequest(int id, string nombres, string primerApellido, string segundoApellido, string codigo, string correo, string contrasena, int estadoId, string usuario, string usuarioCreacion, string ultimaActividad) {
+        public obtenerPorIdPersonaRequest(int id) {
             this.id = id;
-            this.nombres = nombres;
-            this.primerApellido = primerApellido;
-            this.segundoApellido = segundoApellido;
-            this.codigo = codigo;
-            this.correo = correo;
-            this.contrasena = contrasena;
-            this.estadoId = estadoId;
-            this.usuario = usuario;
-            this.usuarioCreacion = usuarioCreacion;
-            this.ultimaActividad = ultimaActividad;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarPersonaResponse", WrapperNamespace="http://persona.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class modificarPersonaResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdPersonaResponse", WrapperNamespace="http://persona.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class obtenerPorIdPersonaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        public SquirlearnWA.personaSOAP.personaDto @return;
         
-        public modificarPersonaResponse() {
+        public obtenerPorIdPersonaResponse() {
         }
         
-        public modificarPersonaResponse(int @return) {
+        public obtenerPorIdPersonaResponse(SquirlearnWA.personaSOAP.personaDto @return) {
             this.@return = @return;
         }
     }
@@ -617,42 +653,6 @@ namespace SquirlearnWA.personaSOAP {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdPersona", WrapperNamespace="http://persona.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class obtenerPorIdPersonaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public obtenerPorIdPersonaRequest() {
-        }
-        
-        public obtenerPorIdPersonaRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdPersonaResponse", WrapperNamespace="http://persona.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class obtenerPorIdPersonaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://persona.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.personaSOAP.personaDto @return;
-        
-        public obtenerPorIdPersonaResponse() {
-        }
-        
-        public obtenerPorIdPersonaResponse(SquirlearnWA.personaSOAP.personaDto @return) {
-            this.@return = @return;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface PersonaChannel : SquirlearnWA.personaSOAP.Persona, System.ServiceModel.IClientChannel {
     }
@@ -678,31 +678,6 @@ namespace SquirlearnWA.personaSOAP {
         
         public PersonaClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.personaSOAP.logInPersonaResponse SquirlearnWA.personaSOAP.Persona.logInPersona(SquirlearnWA.personaSOAP.logInPersonaRequest request) {
-            return base.Channel.logInPersona(request);
-        }
-        
-        public SquirlearnWA.personaSOAP.personaDto logInPersona(string correo, string contrasena) {
-            SquirlearnWA.personaSOAP.logInPersonaRequest inValue = new SquirlearnWA.personaSOAP.logInPersonaRequest();
-            inValue.correo = correo;
-            inValue.contrasena = contrasena;
-            SquirlearnWA.personaSOAP.logInPersonaResponse retVal = ((SquirlearnWA.personaSOAP.Persona)(this)).logInPersona(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.logInPersonaResponse> SquirlearnWA.personaSOAP.Persona.logInPersonaAsync(SquirlearnWA.personaSOAP.logInPersonaRequest request) {
-            return base.Channel.logInPersonaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.logInPersonaResponse> logInPersonaAsync(string correo, string contrasena) {
-            SquirlearnWA.personaSOAP.logInPersonaRequest inValue = new SquirlearnWA.personaSOAP.logInPersonaRequest();
-            inValue.correo = correo;
-            inValue.contrasena = contrasena;
-            return ((SquirlearnWA.personaSOAP.Persona)(this)).logInPersonaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -786,26 +761,28 @@ namespace SquirlearnWA.personaSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaResponse SquirlearnWA.personaSOAP.Persona.obtenerPorCodigoPersona(SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest request) {
-            return base.Channel.obtenerPorCodigoPersona(request);
+        SquirlearnWA.personaSOAP.logInPersonaResponse SquirlearnWA.personaSOAP.Persona.logInPersona(SquirlearnWA.personaSOAP.logInPersonaRequest request) {
+            return base.Channel.logInPersona(request);
         }
         
-        public SquirlearnWA.personaSOAP.personaDto obtenerPorCodigoPersona(string codigo) {
-            SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest inValue = new SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest();
-            inValue.codigo = codigo;
-            SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaResponse retVal = ((SquirlearnWA.personaSOAP.Persona)(this)).obtenerPorCodigoPersona(inValue);
+        public SquirlearnWA.personaSOAP.personaDto logInPersona(string correo, string contrasena) {
+            SquirlearnWA.personaSOAP.logInPersonaRequest inValue = new SquirlearnWA.personaSOAP.logInPersonaRequest();
+            inValue.correo = correo;
+            inValue.contrasena = contrasena;
+            SquirlearnWA.personaSOAP.logInPersonaResponse retVal = ((SquirlearnWA.personaSOAP.Persona)(this)).logInPersona(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaResponse> SquirlearnWA.personaSOAP.Persona.obtenerPorCodigoPersonaAsync(SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest request) {
-            return base.Channel.obtenerPorCodigoPersonaAsync(request);
+        System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.logInPersonaResponse> SquirlearnWA.personaSOAP.Persona.logInPersonaAsync(SquirlearnWA.personaSOAP.logInPersonaRequest request) {
+            return base.Channel.logInPersonaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaResponse> obtenerPorCodigoPersonaAsync(string codigo) {
-            SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest inValue = new SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest();
-            inValue.codigo = codigo;
-            return ((SquirlearnWA.personaSOAP.Persona)(this)).obtenerPorCodigoPersonaAsync(inValue);
+        public System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.logInPersonaResponse> logInPersonaAsync(string correo, string contrasena) {
+            SquirlearnWA.personaSOAP.logInPersonaRequest inValue = new SquirlearnWA.personaSOAP.logInPersonaRequest();
+            inValue.correo = correo;
+            inValue.contrasena = contrasena;
+            return ((SquirlearnWA.personaSOAP.Persona)(this)).logInPersonaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -829,6 +806,29 @@ namespace SquirlearnWA.personaSOAP {
             SquirlearnWA.personaSOAP.obtenerPorIdPersonaRequest inValue = new SquirlearnWA.personaSOAP.obtenerPorIdPersonaRequest();
             inValue.id = id;
             return ((SquirlearnWA.personaSOAP.Persona)(this)).obtenerPorIdPersonaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaResponse SquirlearnWA.personaSOAP.Persona.obtenerPorCodigoPersona(SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest request) {
+            return base.Channel.obtenerPorCodigoPersona(request);
+        }
+        
+        public SquirlearnWA.personaSOAP.personaDto obtenerPorCodigoPersona(string codigo) {
+            SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest inValue = new SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest();
+            inValue.codigo = codigo;
+            SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaResponse retVal = ((SquirlearnWA.personaSOAP.Persona)(this)).obtenerPorCodigoPersona(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaResponse> SquirlearnWA.personaSOAP.Persona.obtenerPorCodigoPersonaAsync(SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest request) {
+            return base.Channel.obtenerPorCodigoPersonaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaResponse> obtenerPorCodigoPersonaAsync(string codigo) {
+            SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest inValue = new SquirlearnWA.personaSOAP.obtenerPorCodigoPersonaRequest();
+            inValue.codigo = codigo;
+            return ((SquirlearnWA.personaSOAP.Persona)(this)).obtenerPorCodigoPersonaAsync(inValue);
         }
     }
 }

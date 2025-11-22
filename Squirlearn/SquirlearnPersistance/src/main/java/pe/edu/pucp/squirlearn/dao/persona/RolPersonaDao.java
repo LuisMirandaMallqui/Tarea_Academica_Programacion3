@@ -6,4 +6,5 @@ import pe.edu.pucp.squirlearn.dao.IDAO;
 
 public interface RolPersonaDao extends IDAO<RolPersonaDto>{
     ArrayList<RolPersonaDto> listarPorPersona(Integer personaId);
+    public void insertarTablaInter(Integer idPersona, Integer idPer);
 }
