@@ -8,6 +8,6 @@ public interface PersonaDao extends IDAO<PersonaDto>{
  
     PersonaDto buscarPorCorreo(String correo);
     PersonaDto obtenerPorCodigo(String codigo);
-    Boolean existeUsuarioEnBD(PersonaDto per);
+    Boolean existeUsuarioEnPUCP(String codigo,String correo);
 
 }

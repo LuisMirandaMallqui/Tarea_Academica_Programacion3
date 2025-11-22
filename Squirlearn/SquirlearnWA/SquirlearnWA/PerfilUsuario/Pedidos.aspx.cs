@@ -55,32 +55,51 @@ namespace SquirlearnWA
             try
             {
                 // 1. Llamada al backend (Nota: Si el backend no filtra por tipo, traerá mezcla)
-                var resultado = comprobanteSoap.listarPorDuenoComprobante(idUsuario, esVentaFiltro, RegistrosPorPagina, PaginaActual);
+                var resultado = ComprobanteSoap.ObtenerListadoPedidosPaginado(idUsuario, RegistrosPorPagina, PaginaActual);
 
-                if (resultado?.lista != null && resultado.lista.Length > 0)
+                if (resultado?.Lista != null && resultado.Lista.Length > 0)
                 {
                     // 2. TRANSFORMACIÓN DE DATOS (Aquí armamos tu comprobanteShortDto)
                     // Convertimos la lista cruda en la lista visual que necesitamos
-                    var listaVisual = resultado.lista;
-                        
+                    var listaVisual = resultado.Lista
+                        .Select(p => {
+                            // ⚠️ OJO: Esto sigue siendo N+1 (una consulta por fila). 
+                            // Para la entrega final, intenta hacer JOIN en el backend.
+                            var pub = publicacionSoap.obtenerPorIdPublicacion(p.idPublicacion);
+
+                            // Retornamos un objeto anónimo con la estructura que pediste
+                            return new
+                            {
+                                TransaccionID = "PED-" + p.idPedido.ToString("D6"), // Ej: PED-000015
+                                FechaEmision = p.fechaCompra, // Asumiendo string dd-MM-yyyy
+                                MontoDecimal = p.totalCompra,
+                                Descripcion = pub.item.nombre + " (" + pub.item.categoria.nombre + ")",
+                                EsVenta = pub.item.esVenta, // True = Venta, False = Alquiler
+                                TipoEtiqueta = pub.item.esVenta ? "COMPRA" : "ALQUILER",
+                                DiasAlquiler = p.dias // Solo si es alquiler
+                            };
+                        })
+                        // 3. Filtramos en memoria (necesario si el backend no lo hace)
+                        .Where(x => x.EsVenta == esVentaFiltro)
+                        .ToList();
 
                     // 4. Enlazamos al Repeater
                     rptPedidos.DataSource = listaVisual;
                     rptPedidos.DataBind();
 
                     // 5. Actualizamos Paginación
-                    TotalRegistros = resultado.totalRegistros; // Guardamos el total real
+                    TotalRegistros = resultado.TotalRegistros; // Guardamos el total real
                     int totalPaginas = (int)Math.Ceiling((double)TotalRegistros / RegistrosPorPagina);
 
                     // Ajuste visual si filtramos en memoria (la cantidad mostrada puede ser menor)
-                    lblCantidadResultados.Text = $"Mostrando {listaVisual.Length} pedidos de {tipoEtiqueta}";
+                    lblCantidadResultados.Text = $"Mostrando {listaVisual.Count} pedidos de {tipoEtiqueta}";
 
                     // Control de botones
                     btnAnterior.Enabled = PaginaActual > 0;
                     btnSiguiente.Enabled = PaginaActual < (totalPaginas - 1);
 
                     // Ocultar paginación si no hay suficientes datos o si filtramos todo
-                    phPaginacion.Visible = totalPaginas > 1 && listaVisual.Length > 0;
+                    phPaginacion.Visible = totalPaginas > 1 && listaVisual.Count > 0;
                 }
                 else
                 {
@@ -151,7 +170,7 @@ namespace SquirlearnWA
 
         protected void btnVolver_Click3(object sender, EventArgs e)
         {
-            Response.Redirect("../PantallaInicio/Busqueda.aspx");
+            Response.Redirect("../PerfilUsuario/Perfil.aspx");
         }
 
     }

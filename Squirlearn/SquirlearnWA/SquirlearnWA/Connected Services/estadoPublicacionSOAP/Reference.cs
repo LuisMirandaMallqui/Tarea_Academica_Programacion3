@@ -16,19 +16,6 @@ namespace SquirlearnWA.estadoPublicacionSOAP {
     public interface EstadoPublicacion {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/listarTodosEstado" +
-            "PublicacionRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/listarTodosEstado" +
-            "PublicacionResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse listarTodosEstadoPublicacion(SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/listarTodosEstado" +
-            "PublicacionRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/listarTodosEstado" +
-            "PublicacionResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse> listarTodosEstadoPublicacionAsync(SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/obtenerPorIdEstad" +
             "oPublicacionRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/obtenerPorIdEstad" +
             "oPublicacionResponse")]
@@ -40,6 +27,19 @@ namespace SquirlearnWA.estadoPublicacionSOAP {
             "oPublicacionRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/obtenerPorIdEstad" +
             "oPublicacionResponse")]
         System.Threading.Tasks.Task<SquirlearnWA.estadoPublicacionSOAP.obtenerPorIdEstadoPublicacionResponse> obtenerPorIdEstadoPublicacionAsync(SquirlearnWA.estadoPublicacionSOAP.obtenerPorIdEstadoPublicacionRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/listarTodosEstado" +
+            "PublicacionRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/listarTodosEstado" +
+            "PublicacionResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse listarTodosEstadoPublicacion(SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/listarTodosEstado" +
+            "PublicacionRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/EstadoPublicacion/listarTodosEstado" +
+            "PublicacionResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse> listarTodosEstadoPublicacionAsync(SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest request);
     }
     
     /// <remarks/>
@@ -105,34 +105,6 @@ namespace SquirlearnWA.estadoPublicacionSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosEstadoPublicacion", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosEstadoPublicacionRequest {
-        
-        public listarTodosEstadoPublicacionRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosEstadoPublicacionResponse", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosEstadoPublicacionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.estadoPublicacionSOAP.estadoPublicacionDto[] @return;
-        
-        public listarTodosEstadoPublicacionResponse() {
-        }
-        
-        public listarTodosEstadoPublicacionResponse(SquirlearnWA.estadoPublicacionSOAP.estadoPublicacionDto[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdEstadoPublicacion", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
     public partial class obtenerPorIdEstadoPublicacionRequest {
         
@@ -166,6 +138,34 @@ namespace SquirlearnWA.estadoPublicacionSOAP {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosEstadoPublicacion", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosEstadoPublicacionRequest {
+        
+        public listarTodosEstadoPublicacionRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosEstadoPublicacionResponse", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosEstadoPublicacionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.estadoPublicacionSOAP.estadoPublicacionDto[] @return;
+        
+        public listarTodosEstadoPublicacionResponse() {
+        }
+        
+        public listarTodosEstadoPublicacionResponse(SquirlearnWA.estadoPublicacionSOAP.estadoPublicacionDto[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface EstadoPublicacionChannel : SquirlearnWA.estadoPublicacionSOAP.EstadoPublicacion, System.ServiceModel.IClientChannel {
     }
@@ -194,27 +194,6 @@ namespace SquirlearnWA.estadoPublicacionSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse SquirlearnWA.estadoPublicacionSOAP.EstadoPublicacion.listarTodosEstadoPublicacion(SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest request) {
-            return base.Channel.listarTodosEstadoPublicacion(request);
-        }
-        
-        public SquirlearnWA.estadoPublicacionSOAP.estadoPublicacionDto[] listarTodosEstadoPublicacion() {
-            SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest inValue = new SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest();
-            SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse retVal = ((SquirlearnWA.estadoPublicacionSOAP.EstadoPublicacion)(this)).listarTodosEstadoPublicacion(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse> SquirlearnWA.estadoPublicacionSOAP.EstadoPublicacion.listarTodosEstadoPublicacionAsync(SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest request) {
-            return base.Channel.listarTodosEstadoPublicacionAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse> listarTodosEstadoPublicacionAsync() {
-            SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest inValue = new SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest();
-            return ((SquirlearnWA.estadoPublicacionSOAP.EstadoPublicacion)(this)).listarTodosEstadoPublicacionAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SquirlearnWA.estadoPublicacionSOAP.obtenerPorIdEstadoPublicacionResponse SquirlearnWA.estadoPublicacionSOAP.EstadoPublicacion.obtenerPorIdEstadoPublicacion(SquirlearnWA.estadoPublicacionSOAP.obtenerPorIdEstadoPublicacionRequest request) {
             return base.Channel.obtenerPorIdEstadoPublicacion(request);
         }
@@ -235,6 +214,27 @@ namespace SquirlearnWA.estadoPublicacionSOAP {
             SquirlearnWA.estadoPublicacionSOAP.obtenerPorIdEstadoPublicacionRequest inValue = new SquirlearnWA.estadoPublicacionSOAP.obtenerPorIdEstadoPublicacionRequest();
             inValue.id = id;
             return ((SquirlearnWA.estadoPublicacionSOAP.EstadoPublicacion)(this)).obtenerPorIdEstadoPublicacionAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse SquirlearnWA.estadoPublicacionSOAP.EstadoPublicacion.listarTodosEstadoPublicacion(SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest request) {
+            return base.Channel.listarTodosEstadoPublicacion(request);
+        }
+        
+        public SquirlearnWA.estadoPublicacionSOAP.estadoPublicacionDto[] listarTodosEstadoPublicacion() {
+            SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest inValue = new SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest();
+            SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse retVal = ((SquirlearnWA.estadoPublicacionSOAP.EstadoPublicacion)(this)).listarTodosEstadoPublicacion(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse> SquirlearnWA.estadoPublicacionSOAP.EstadoPublicacion.listarTodosEstadoPublicacionAsync(SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest request) {
+            return base.Channel.listarTodosEstadoPublicacionAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionResponse> listarTodosEstadoPublicacionAsync() {
+            SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest inValue = new SquirlearnWA.estadoPublicacionSOAP.listarTodosEstadoPublicacionRequest();
+            return ((SquirlearnWA.estadoPublicacionSOAP.EstadoPublicacion)(this)).listarTodosEstadoPublicacionAsync(inValue);
         }
     }
 }

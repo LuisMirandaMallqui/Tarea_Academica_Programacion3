@@ -2,7 +2,6 @@
 using SquirlearnWA.publicacionSOAP;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,7 +12,7 @@ namespace SquirlearnWA
     {
         private PublicacionClient publicacionSoap;
         private EstadoPublicacionClient estadoPublicacionSoap;
-        private const int PublicacionesPorPagina = 3;
+        private const int PublicacionesPorPagina = 10;
 
 
         public ListadoPublicaciones()
@@ -71,7 +70,9 @@ namespace SquirlearnWA
 
             try
             {
-              
+                // Asumo que tu método SOAP 'obtenerListaPublicacionGestion'
+                // devuelve un DTO que contiene 'lista' (de tipo List<publicacionShortDto>)
+                // y 'totalPaginas'.
                 listadoPublicacionGestionDto listadoDePublicacionesPorPaginacion = publicacionSoap.obtenerListaPublicacionGestion(
                     (int)Session["UsuarioId"],
                     PublicacionesPorPagina,
@@ -79,13 +80,8 @@ namespace SquirlearnWA
                     filtroEstado // Ahora SÍ es un 'int'
                 );
 
-
-
-
-                // Convertir a List por seguridad
-                Session["Publicaciones"] = listadoDePublicacionesPorPaginacion.lista.ToList();
-                Session["TotalRegistros"] = listadoDePublicacionesPorPaginacion.totalPaginas; // ❗️ almacenar total de registros
-                Session["TotalPaginas"] = (int)Math.Ceiling((double)listadoDePublicacionesPorPaginacion.totalPaginas / PublicacionesPorPagina);
+                Session["Publicaciones"] = listadoDePublicacionesPorPaginacion.lista;
+                Session["TotalPaginas"] = listadoDePublicacionesPorPaginacion.totalPaginas;
             }
             catch (Exception ex)
             {
@@ -100,55 +96,49 @@ namespace SquirlearnWA
         {
             // ❗️ CORRECCIÓN 3: La Sesión contiene una lista de 'publicacionShortDto'
             var publicaciones = Session["Publicaciones"] as List<publicacionShortDto>;
-            int total = Convert.ToInt32(Session["TotalRegistros"]);
             if (publicaciones == null) return;
 
             rptPublicaciones.DataSource = publicaciones;
             rptPublicaciones.DataBind();
 
-           
-            lblCantidadResultados.Text = $"Se encontraron {total} publicaciones.";
+            lblCantidadResultados.Text = $"Mostrando {publicaciones.Count} resultados";
 
             int totalPaginas = Session["TotalPaginas"] != null ? (int)Session["TotalPaginas"] : 1;
-            lblPagina.Text = $"Página {PaginaActual} de {totalPaginas}";
-
-            btnAnterior.Enabled = PaginaActual > 1;
-            btnSiguiente.Enabled = PaginaActual < totalPaginas;
+            GenerarPaginacion(totalPaginas);
         }
 
         protected void rptPublicaciones_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                // Obtener el DTO
+                // ❗️ CORRECCIÓN 4: ¡El error más crítico!
+                // El DataItem es un 'publicacionShortDto', no 'publicacionDto'.
                 var pub = e.Item.DataItem as publicacionShortDto;
                 if (pub == null) return;
 
-                string estado = pub.estadoNombre; // Nombre del estado
+                // Ahora usamos las propiedades planas del 'publicacionShortDto'
+                // (Asegúrate que tu DTO tenga 'EstadoNombre' y 'FechaEnvio' como planeamos)
+                string estado = pub.EstadoNombre;
 
-                // Checkbox
-                CheckBox chkSeleccion = e.Item.FindControl("chkSeleccion") as CheckBox;
-                if (chkSeleccion != null)
-                {
-                    // Solo habilitar y mostrar para Borrador o Aceptado
-                    if (estado == "Borrador" || estado == "Aceptado")
-                        chkSeleccion.Visible = true;
-                    else
-                        chkSeleccion.Visible = false;
-                }
-
-                // Botón Revisar (si quieres, lo puedes controlar también)
-                Button btnRevisar = e.Item.FindControl("btnRevisar") as Button;
-                if (btnRevisar != null)
-                {
-                    btnRevisar.Visible = (estado == "Borrador");
-                }
-
-                // Etiqueta de estado (si quieres cambiar colores)
+                // 1. Configurar el color
                 Label lblEstado = e.Item.FindControl("lblEstado") as Label;
                 if (lblEstado != null)
                 {
                     lblEstado.CssClass = $"{GetEstadoColor(estado)} badge p-2 me-2";
+                }
+
+                // 2. Habilitar CheckBox
+                CheckBox chkSeleccion = e.Item.FindControl("chkSeleccion") as CheckBox;
+                if (chkSeleccion != null)
+                {
+                    // La lógica funciona porque 'estado' es el nombre (ej: "Aceptado")
+                    chkSeleccion.Enabled = (estado == "Aceptado" || estado == "Borrador");
+                }
+
+                Button btnRevisar = e.Item.FindControl("btnRevisar") as Button;
+                if (btnRevisar != null)
+                {
+                    btnRevisar.Visible = (estado == "Borrador");
                 }
             }
         }
@@ -212,26 +202,32 @@ namespace SquirlearnWA
             {
                 foreach (var id in idsEliminar)
                 {
-                    // Cambiar estado a Eliminada vía SOAP
-                    publicacionSoap.cambiarEstadoPublicacion(id, Session["nombreUsuario"].ToString(), "Eliminada");
+                    publicacionSoap.cambiarEstadoPublicacion(id, Session["nombreUsuario"].ToString, "Eliminada");
                 }
 
-                // Actualizar listado
                 CargarPublicacionesDesdeBackend();
-
-                // Actualizar cantidad total
-                int total = Convert.ToInt32(Session["TotalRegistros"]);
-                total -= idsEliminar.Count;
-                Session["TotalRegistros"] = total;
-
                 MostrarPublicaciones();
             }
 
-            // Cerrar modal
             ScriptManager.RegisterStartupScript(this, GetType(), "HideModal", "var myModalEl = document.getElementById('modalEliminar'); var modal = bootstrap.Modal.getInstance(myModalEl); if(modal) { modal.hide(); }", true);
         }
 
-
+        private void GenerarPaginacion(int totalPaginas)
+        {
+            phPaginacion.Controls.Clear();
+            for (int i = 1; i <= totalPaginas; i++)
+            {
+                Button btnPagina = new Button
+                {
+                    Text = i.ToString(),
+                    CssClass = i == PaginaActual ? "btn btn-dark btn-sm me-1" : "btn btn-outline-dark btn-sm me-1",
+                    CommandArgument = i.ToString(),
+                    ID = "btnPagina_" + i
+                };
+                btnPagina.Click += BtnPagina_Click;
+                phPaginacion.Controls.Add(btnPagina);
+            }
+        }
 
         protected void BtnRevisar_Click(object sender, EventArgs e)
         {
@@ -252,34 +248,13 @@ namespace SquirlearnWA
             string color;
             switch (estado)
             {
-                case "Aprobado": color = "bg-success text-white"; break;
+                case "Aceptado": color = "bg-success text-white"; break;
                 case "Rechazado": color = "bg-danger text-white"; break;
                 case "Pendiente": color = "bg-warning text-dark"; break;
                 case "Borrador": color = "bg-primary text-white"; break;
-                case "Transaccionada": color = "bg-success text-white"; break;
-                case "Eliminada": color = "bg-danger text-white"; break;
                 default: color = "bg-secondary text-white"; break;
             }
             return color;
-        }
-        protected void btnAnterior_Click(object sender, EventArgs e)
-        {
-            if (PaginaActual > 1)
-            {
-                PaginaActual--;
-                CargarPublicacionesDesdeBackend();
-                MostrarPublicaciones();
-            }
-        }
-
-        protected void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            if (PaginaActual < (Session["TotalPaginas"] != null ? (int)Session["TotalPaginas"] : 1))
-            {
-                PaginaActual++;
-                CargarPublicacionesDesdeBackend();
-                MostrarPublicaciones();
-            }
         }
     }
 }

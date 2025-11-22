@@ -23,11 +23,12 @@ public class Incidencia {
     @WebMethod(operationName = "insertarIncidencia")
     public Integer insertarIncidencia(
             @WebParam(name = "descripcion") String descripcion,
+            @WebParam(name = "notificacionId") Integer notificacionId,
             @WebParam(name = "personaId") Integer personaId,
             @WebParam(name = "motivoId") Integer motivoId,
             @WebParam(name = "usuarioSolucion") Integer usuarioSolucion,
             @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
-        return this.incidenciaBo.insertar(descripcion, personaId, motivoId, usuarioSolucion,
+        return this.incidenciaBo.insertar(descripcion, notificacionId, personaId, motivoId, usuarioSolucion,
                 usuarioCreacion);
     }
 
@@ -36,12 +37,13 @@ public class Incidencia {
             @WebParam(name = "id") Integer id,
             @WebParam(name = "descripcion") String descripcion,
             //@WebParam(name = "fechaSolucion") Date fechaSolucion, Se maneja con un trigger
+            @WebParam(name = "notificacionId") Integer notificacionId,
             @WebParam(name = "personaId") Integer personaId,
             @WebParam(name = "motivoId") Integer motivoId,
             @WebParam(name = "resuelto") Integer resuelto,
             @WebParam(name = "solucionadorId") Integer usuarioSolucion,
             @WebParam(name = "usuarioCreacion") String usuarioCreacion) {
-        return this.incidenciaBo.modificar(id, descripcion,
+        return this.incidenciaBo.modificar(id, descripcion, notificacionId,
                 personaId, motivoId, resuelto, usuarioSolucion, usuarioCreacion);
     }
 
@@ -56,9 +58,5 @@ public class Incidencia {
             @WebParam(name = "id") Integer id) {
         return this.incidenciaBo.obtenerPorId(id);
     }
-    
-    @WebMethod(operationName = "listarTodasIncidencias")
-     public ArrayList<IncidenciaDto> listarTodasIncidencias() {
-        return this.incidenciaBo.listarTodos();
-    }
+
 }

@@ -19,8 +19,8 @@ public class IncidenciaBoTest {
 //        System.out.println("insertar");
 //        Integer resultado = this.incidenciaBO.insertar(
 //                "Incidencia desde BO", // descripcion
-//                2,                     // notificcionId
-//                3,                     // personaId
+//                1,                     // notificcionId
+//                1,                     // personaId
 //                1,                     // motivoId
 //                1,                     // usuarioSolucion
 //                "DANIEL"               // usuarioCreacion

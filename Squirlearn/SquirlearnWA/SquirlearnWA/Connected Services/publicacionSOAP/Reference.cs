@@ -16,17 +16,17 @@ namespace SquirlearnWA.publicacionSOAP {
     public interface Publicacion {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerListaPublicacion" +
-            "GestionRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerListaPublicacion" +
-            "GestionResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/insertarPublicacionRequ" +
+            "est", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/insertarPublicacionResp" +
+            "onse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionResponse obtenerListaPublicacionGestion(SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionRequest request);
+        SquirlearnWA.publicacionSOAP.insertarPublicacionResponse insertarPublicacion(SquirlearnWA.publicacionSOAP.insertarPublicacionRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerListaPublicacion" +
-            "GestionRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerListaPublicacion" +
-            "GestionResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionResponse> obtenerListaPublicacionGestionAsync(SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/insertarPublicacionRequ" +
+            "est", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/insertarPublicacionResp" +
+            "onse")]
+        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.insertarPublicacionResponse> insertarPublicacionAsync(SquirlearnWA.publicacionSOAP.insertarPublicacionRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorFiltrosPublica" +
@@ -42,45 +42,6 @@ namespace SquirlearnWA.publicacionSOAP {
         System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionResponse> listarPorFiltrosPublicacionAsync(SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/cambiarEstadoPublicacio" +
-            "nRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/cambiarEstadoPublicacio" +
-            "nResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionResponse cambiarEstadoPublicacion(SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/cambiarEstadoPublicacio" +
-            "nRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/cambiarEstadoPublicacio" +
-            "nResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionResponse> cambiarEstadoPublicacionAsync(SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerPorIdCompletoReq" +
-            "uest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerPorIdCompletoRes" +
-            "ponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoResponse obtenerPorIdCompleto(SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerPorIdCompletoReq" +
-            "uest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerPorIdCompletoRes" +
-            "ponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoResponse> obtenerPorIdCompletoAsync(SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorEstadoPublicac" +
-            "ionRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorEstadoPublicac" +
-            "ionResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse listarPorEstadoPublicacion(SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorEstadoPublicac" +
-            "ionRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorEstadoPublicac" +
-            "ionResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse> listarPorEstadoPublicacionAsync(SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorDuenoPublicaci" +
             "onRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorDuenoPublicaci" +
             "onResponse")]
@@ -92,19 +53,6 @@ namespace SquirlearnWA.publicacionSOAP {
             "onRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorDuenoPublicaci" +
             "onResponse")]
         System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.listarPorDuenoPublicacionResponse> listarPorDuenoPublicacionAsync(SquirlearnWA.publicacionSOAP.listarPorDuenoPublicacionRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/modificarPublicacionReq" +
-            "uest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/modificarPublicacionRes" +
-            "ponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.publicacionSOAP.modificarPublicacionResponse modificarPublicacion(SquirlearnWA.publicacionSOAP.modificarPublicacionRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/modificarPublicacionReq" +
-            "uest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/modificarPublicacionRes" +
-            "ponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.modificarPublicacionResponse> modificarPublicacionAsync(SquirlearnWA.publicacionSOAP.modificarPublicacionRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerPorIdPublicacion" +
@@ -120,66 +68,287 @@ namespace SquirlearnWA.publicacionSOAP {
         System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.obtenerPorIdPublicacionResponse> obtenerPorIdPublicacionAsync(SquirlearnWA.publicacionSOAP.obtenerPorIdPublicacionRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/insertarPublicacionRequ" +
-            "est", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/insertarPublicacionResp" +
-            "onse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/modificarPublicacionReq" +
+            "uest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/modificarPublicacionRes" +
+            "ponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.publicacionSOAP.insertarPublicacionResponse insertarPublicacion(SquirlearnWA.publicacionSOAP.insertarPublicacionRequest request);
+        SquirlearnWA.publicacionSOAP.modificarPublicacionResponse modificarPublicacion(SquirlearnWA.publicacionSOAP.modificarPublicacionRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/insertarPublicacionRequ" +
-            "est", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/insertarPublicacionResp" +
-            "onse")]
-        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.insertarPublicacionResponse> insertarPublicacionAsync(SquirlearnWA.publicacionSOAP.insertarPublicacionRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/modificarPublicacionReq" +
+            "uest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/modificarPublicacionRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.modificarPublicacionResponse> modificarPublicacionAsync(SquirlearnWA.publicacionSOAP.modificarPublicacionRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorEstadoPublicac" +
+            "ionRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorEstadoPublicac" +
+            "ionResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse listarPorEstadoPublicacion(SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorEstadoPublicac" +
+            "ionRequest", ReplyAction="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorEstadoPublicac" +
+            "ionResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse> listarPorEstadoPublicacionAsync(SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarPublicacion", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class insertarPublicacionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int itemId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int personaId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string usuario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public double precio;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string descripcion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool esVenta;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int colorId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int condicionId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int tamanoId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int formatoId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=11)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int categoriaId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=12)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int subcategoriaId;
+        
+        public insertarPublicacionRequest() {
+        }
+        
+        public insertarPublicacionRequest(int itemId, int personaId, string usuario, double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId) {
+            this.itemId = itemId;
+            this.personaId = personaId;
+            this.usuario = usuario;
+            this.precio = precio;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.esVenta = esVenta;
+            this.colorId = colorId;
+            this.condicionId = condicionId;
+            this.tamanoId = tamanoId;
+            this.formatoId = formatoId;
+            this.categoriaId = categoriaId;
+            this.subcategoriaId = subcategoriaId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarPublicacionResponse", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class insertarPublicacionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarPublicacionResponse() {
+        }
+        
+        public insertarPublicacionResponse(int @return) {
+            this.@return = @return;
+        }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/")]
-    public partial class listadoPublicacionGestionDto : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class publicacionDto : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private publicacionShortDto[] listaField;
+        private int calificacionField;
         
-        private int totalPaginasField;
+        private bool calificacionFieldSpecified;
         
-        private bool totalPaginasFieldSpecified;
+        private estadoPublicacionDto estadoPublicacionField;
+        
+        private string fechaAltaField;
+        
+        private string fechaBajaField;
+        
+        private itemDto itemField;
+        
+        private personaDto personaField;
+        
+        private int publicacionIdField;
+        
+        private bool publicacionIdFieldSpecified;
+        
+        private string usuarioCreacionField;
+        
+        private string usuarioModificacionField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("lista", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-        public publicacionShortDto[] lista {
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int calificacion {
             get {
-                return this.listaField;
+                return this.calificacionField;
             }
             set {
-                this.listaField = value;
-                this.RaisePropertyChanged("lista");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public int totalPaginas {
-            get {
-                return this.totalPaginasField;
-            }
-            set {
-                this.totalPaginasField = value;
-                this.RaisePropertyChanged("totalPaginas");
+                this.calificacionField = value;
+                this.RaisePropertyChanged("calificacion");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool totalPaginasSpecified {
+        public bool calificacionSpecified {
             get {
-                return this.totalPaginasFieldSpecified;
+                return this.calificacionFieldSpecified;
             }
             set {
-                this.totalPaginasFieldSpecified = value;
-                this.RaisePropertyChanged("totalPaginasSpecified");
+                this.calificacionFieldSpecified = value;
+                this.RaisePropertyChanged("calificacionSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public estadoPublicacionDto estadoPublicacion {
+            get {
+                return this.estadoPublicacionField;
+            }
+            set {
+                this.estadoPublicacionField = value;
+                this.RaisePropertyChanged("estadoPublicacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string fechaAlta {
+            get {
+                return this.fechaAltaField;
+            }
+            set {
+                this.fechaAltaField = value;
+                this.RaisePropertyChanged("fechaAlta");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string fechaBaja {
+            get {
+                return this.fechaBajaField;
+            }
+            set {
+                this.fechaBajaField = value;
+                this.RaisePropertyChanged("fechaBaja");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public itemDto item {
+            get {
+                return this.itemField;
+            }
+            set {
+                this.itemField = value;
+                this.RaisePropertyChanged("item");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public personaDto persona {
+            get {
+                return this.personaField;
+            }
+            set {
+                this.personaField = value;
+                this.RaisePropertyChanged("persona");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public int publicacionId {
+            get {
+                return this.publicacionIdField;
+            }
+            set {
+                this.publicacionIdField = value;
+                this.RaisePropertyChanged("publicacionId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool publicacionIdSpecified {
+            get {
+                return this.publicacionIdFieldSpecified;
+            }
+            set {
+                this.publicacionIdFieldSpecified = value;
+                this.RaisePropertyChanged("publicacionIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public string usuarioCreacion {
+            get {
+                return this.usuarioCreacionField;
+            }
+            set {
+                this.usuarioCreacionField = value;
+                this.RaisePropertyChanged("usuarioCreacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string usuarioModificacion {
+            get {
+                return this.usuarioModificacionField;
+            }
+            set {
+                this.usuarioModificacionField = value;
+                this.RaisePropertyChanged("usuarioModificacion");
             }
         }
         
@@ -194,95 +363,21 @@ namespace SquirlearnWA.publicacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/")]
-    public partial class publicacionShortDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string categoriaNombreField;
-        
-        private bool esVentaField;
-        
-        private bool esVentaFieldSpecified;
-        
-        private string estadoNombreField;
+    public partial class estadoPublicacionDto : object, System.ComponentModel.INotifyPropertyChanged {
         
         private int estadoPublicacionIdField;
         
         private bool estadoPublicacionIdFieldSpecified;
         
-        private string fechaEnvioField;
-        
-        private int itemIdField;
-        
-        private bool itemIdFieldSpecified;
-        
         private string nombreField;
-        
-        private int personaIdField;
-        
-        private bool personaIdFieldSpecified;
-        
-        private double precioField;
-        
-        private bool precioFieldSpecified;
-        
-        private int publicacionIdField;
-        
-        private bool publicacionIdFieldSpecified;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string categoriaNombre {
-            get {
-                return this.categoriaNombreField;
-            }
-            set {
-                this.categoriaNombreField = value;
-                this.RaisePropertyChanged("categoriaNombre");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public bool esVenta {
-            get {
-                return this.esVentaField;
-            }
-            set {
-                this.esVentaField = value;
-                this.RaisePropertyChanged("esVenta");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool esVentaSpecified {
-            get {
-                return this.esVentaFieldSpecified;
-            }
-            set {
-                this.esVentaFieldSpecified = value;
-                this.RaisePropertyChanged("esVentaSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string estadoNombre {
-            get {
-                return this.estadoNombreField;
-            }
-            set {
-                this.estadoNombreField = value;
-                this.RaisePropertyChanged("estadoNombre");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public int estadoPublicacionId {
             get {
                 return this.estadoPublicacionIdField;
@@ -306,43 +401,7 @@ namespace SquirlearnWA.publicacionSOAP {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string fechaEnvio {
-            get {
-                return this.fechaEnvioField;
-            }
-            set {
-                this.fechaEnvioField = value;
-                this.RaisePropertyChanged("fechaEnvio");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public int itemId {
-            get {
-                return this.itemIdField;
-            }
-            set {
-                this.itemIdField = value;
-                this.RaisePropertyChanged("itemId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool itemIdSpecified {
-            get {
-                return this.itemIdFieldSpecified;
-            }
-            set {
-                this.itemIdFieldSpecified = value;
-                this.RaisePropertyChanged("itemIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
         public string nombre {
             get {
                 return this.nombreField;
@@ -350,78 +409,6 @@ namespace SquirlearnWA.publicacionSOAP {
             set {
                 this.nombreField = value;
                 this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public int personaId {
-            get {
-                return this.personaIdField;
-            }
-            set {
-                this.personaIdField = value;
-                this.RaisePropertyChanged("personaId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool personaIdSpecified {
-            get {
-                return this.personaIdFieldSpecified;
-            }
-            set {
-                this.personaIdFieldSpecified = value;
-                this.RaisePropertyChanged("personaIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-        public double precio {
-            get {
-                return this.precioField;
-            }
-            set {
-                this.precioField = value;
-                this.RaisePropertyChanged("precio");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool precioSpecified {
-            get {
-                return this.precioFieldSpecified;
-            }
-            set {
-                this.precioFieldSpecified = value;
-                this.RaisePropertyChanged("precioSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-        public int publicacionId {
-            get {
-                return this.publicacionIdField;
-            }
-            set {
-                this.publicacionIdField = value;
-                this.RaisePropertyChanged("publicacionId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool publicacionIdSpecified {
-            get {
-                return this.publicacionIdFieldSpecified;
-            }
-            set {
-                this.publicacionIdFieldSpecified = value;
-                this.RaisePropertyChanged("publicacionIdSpecified");
             }
         }
         
@@ -436,7 +423,7 @@ namespace SquirlearnWA.publicacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -496,7 +483,7 @@ namespace SquirlearnWA.publicacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -556,7 +543,7 @@ namespace SquirlearnWA.publicacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -756,7 +743,7 @@ namespace SquirlearnWA.publicacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -816,7 +803,7 @@ namespace SquirlearnWA.publicacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -890,7 +877,7 @@ namespace SquirlearnWA.publicacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -950,7 +937,7 @@ namespace SquirlearnWA.publicacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1010,7 +997,7 @@ namespace SquirlearnWA.publicacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1070,7 +1057,7 @@ namespace SquirlearnWA.publicacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1130,7 +1117,7 @@ namespace SquirlearnWA.publicacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1190,7 +1177,7 @@ namespace SquirlearnWA.publicacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1445,289 +1432,6 @@ namespace SquirlearnWA.publicacionSOAP {
         }
     }
     
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/")]
-    public partial class estadoPublicacionDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int estadoPublicacionIdField;
-        
-        private bool estadoPublicacionIdFieldSpecified;
-        
-        private string nombreField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int estadoPublicacionId {
-            get {
-                return this.estadoPublicacionIdField;
-            }
-            set {
-                this.estadoPublicacionIdField = value;
-                this.RaisePropertyChanged("estadoPublicacionId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool estadoPublicacionIdSpecified {
-            get {
-                return this.estadoPublicacionIdFieldSpecified;
-            }
-            set {
-                this.estadoPublicacionIdFieldSpecified = value;
-                this.RaisePropertyChanged("estadoPublicacionIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/")]
-    public partial class publicacionDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int calificacionField;
-        
-        private bool calificacionFieldSpecified;
-        
-        private estadoPublicacionDto estadoPublicacionField;
-        
-        private string fechaAltaField;
-        
-        private string fechaBajaField;
-        
-        private itemDto itemField;
-        
-        private personaDto personaField;
-        
-        private int publicacionIdField;
-        
-        private bool publicacionIdFieldSpecified;
-        
-        private string usuarioCreacionField;
-        
-        private string usuarioModificacionField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int calificacion {
-            get {
-                return this.calificacionField;
-            }
-            set {
-                this.calificacionField = value;
-                this.RaisePropertyChanged("calificacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool calificacionSpecified {
-            get {
-                return this.calificacionFieldSpecified;
-            }
-            set {
-                this.calificacionFieldSpecified = value;
-                this.RaisePropertyChanged("calificacionSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public estadoPublicacionDto estadoPublicacion {
-            get {
-                return this.estadoPublicacionField;
-            }
-            set {
-                this.estadoPublicacionField = value;
-                this.RaisePropertyChanged("estadoPublicacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string fechaAlta {
-            get {
-                return this.fechaAltaField;
-            }
-            set {
-                this.fechaAltaField = value;
-                this.RaisePropertyChanged("fechaAlta");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string fechaBaja {
-            get {
-                return this.fechaBajaField;
-            }
-            set {
-                this.fechaBajaField = value;
-                this.RaisePropertyChanged("fechaBaja");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public itemDto item {
-            get {
-                return this.itemField;
-            }
-            set {
-                this.itemField = value;
-                this.RaisePropertyChanged("item");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public personaDto persona {
-            get {
-                return this.personaField;
-            }
-            set {
-                this.personaField = value;
-                this.RaisePropertyChanged("persona");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public int publicacionId {
-            get {
-                return this.publicacionIdField;
-            }
-            set {
-                this.publicacionIdField = value;
-                this.RaisePropertyChanged("publicacionId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool publicacionIdSpecified {
-            get {
-                return this.publicacionIdFieldSpecified;
-            }
-            set {
-                this.publicacionIdFieldSpecified = value;
-                this.RaisePropertyChanged("publicacionIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public string usuarioCreacion {
-            get {
-                return this.usuarioCreacionField;
-            }
-            set {
-                this.usuarioCreacionField = value;
-                this.RaisePropertyChanged("usuarioCreacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-        public string usuarioModificacion {
-            get {
-                return this.usuarioModificacionField;
-            }
-            set {
-                this.usuarioModificacionField = value;
-                this.RaisePropertyChanged("usuarioModificacion");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerListaPublicacionGestion", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class obtenerListaPublicacionGestionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int usuarioId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int cantidadPorPagina;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int pagina;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int estadoId;
-        
-        public obtenerListaPublicacionGestionRequest() {
-        }
-        
-        public obtenerListaPublicacionGestionRequest(int usuarioId, int cantidadPorPagina, int pagina, int estadoId) {
-            this.usuarioId = usuarioId;
-            this.cantidadPorPagina = cantidadPorPagina;
-            this.pagina = pagina;
-            this.estadoId = estadoId;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerListaPublicacionGestionResponse", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class obtenerListaPublicacionGestionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.publicacionSOAP.listadoPublicacionGestionDto @return;
-        
-        public obtenerListaPublicacionGestionResponse() {
-        }
-        
-        public obtenerListaPublicacionGestionResponse(SquirlearnWA.publicacionSOAP.listadoPublicacionGestionDto @return) {
-            this.@return = @return;
-        }
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1740,7 +1444,7 @@ namespace SquirlearnWA.publicacionSOAP {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int esVenta;
+        public bool esVenta;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -1766,18 +1470,10 @@ namespace SquirlearnWA.publicacionSOAP {
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int idCondicion;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=8)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int paginaActual;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=9)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int publicacionesPorPagina;
-        
         public listarPorFiltrosPublicacionRequest() {
         }
         
-        public listarPorFiltrosPublicacionRequest(string terminoBusqueda, int esVenta, int idCategoria, int idSubcategoria, int idColores, int idTamanos, int idFormatos, int idCondicion, int paginaActual, int publicacionesPorPagina) {
+        public listarPorFiltrosPublicacionRequest(string terminoBusqueda, bool esVenta, int idCategoria, int idSubcategoria, int idColores, int idTamanos, int idFormatos, int idCondicion) {
             this.terminoBusqueda = terminoBusqueda;
             this.esVenta = esVenta;
             this.idCategoria = idCategoria;
@@ -1786,8 +1482,6 @@ namespace SquirlearnWA.publicacionSOAP {
             this.idTamanos = idTamanos;
             this.idFormatos = idFormatos;
             this.idCondicion = idCondicion;
-            this.paginaActual = paginaActual;
-            this.publicacionesPorPagina = publicacionesPorPagina;
         }
     }
     
@@ -1798,131 +1492,13 @@ namespace SquirlearnWA.publicacionSOAP {
     public partial class listarPorFiltrosPublicacionResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.publicacionSOAP.listadoPublicacionGestionDto @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.publicacionSOAP.publicacionDto[] @return;
         
         public listarPorFiltrosPublicacionResponse() {
         }
         
-        public listarPorFiltrosPublicacionResponse(SquirlearnWA.publicacionSOAP.listadoPublicacionGestionDto @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="cambiarEstadoPublicacion", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class cambiarEstadoPublicacionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int publicacionId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string usuario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string estado;
-        
-        public cambiarEstadoPublicacionRequest() {
-        }
-        
-        public cambiarEstadoPublicacionRequest(int publicacionId, string usuario, string estado) {
-            this.publicacionId = publicacionId;
-            this.usuario = usuario;
-            this.estado = estado;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="cambiarEstadoPublicacionResponse", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class cambiarEstadoPublicacionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public cambiarEstadoPublicacionResponse() {
-        }
-        
-        public cambiarEstadoPublicacionResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdCompleto", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class obtenerPorIdCompletoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int publicacionId;
-        
-        public obtenerPorIdCompletoRequest() {
-        }
-        
-        public obtenerPorIdCompletoRequest(int publicacionId) {
-            this.publicacionId = publicacionId;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdCompletoResponse", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class obtenerPorIdCompletoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.publicacionSOAP.publicacionDto @return;
-        
-        public obtenerPorIdCompletoResponse() {
-        }
-        
-        public obtenerPorIdCompletoResponse(SquirlearnWA.publicacionSOAP.publicacionDto @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorEstadoPublicacion", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarPorEstadoPublicacionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int estadoId;
-        
-        public listarPorEstadoPublicacionRequest() {
-        }
-        
-        public listarPorEstadoPublicacionRequest(int estadoId) {
-            this.estadoId = estadoId;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorEstadoPublicacionResponse", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarPorEstadoPublicacionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.publicacionSOAP.publicacionDto[] @return;
-        
-        public listarPorEstadoPublicacionResponse() {
-        }
-        
-        public listarPorEstadoPublicacionResponse(SquirlearnWA.publicacionSOAP.publicacionDto[] @return) {
+        public listarPorFiltrosPublicacionResponse(SquirlearnWA.publicacionSOAP.publicacionDto[] @return) {
             this.@return = @return;
         }
     }
@@ -1966,102 +1542,6 @@ namespace SquirlearnWA.publicacionSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarPublicacion", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class modificarPublicacionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int publicacionId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string usuario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string estado;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public double precio;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=4)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombre;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=5)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string descripcion;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=6)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool esVenta;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=7)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int colorId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=8)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int condicionId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=9)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int tamanoId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=10)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int formatoId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=11)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int categoriaId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=12)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int subcategoriaId;
-        
-        public modificarPublicacionRequest() {
-        }
-        
-        public modificarPublicacionRequest(int publicacionId, string usuario, string estado, double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId) {
-            this.publicacionId = publicacionId;
-            this.usuario = usuario;
-            this.estado = estado;
-            this.precio = precio;
-            this.nombre = nombre;
-            this.descripcion = descripcion;
-            this.esVenta = esVenta;
-            this.colorId = colorId;
-            this.condicionId = condicionId;
-            this.tamanoId = tamanoId;
-            this.formatoId = formatoId;
-            this.categoriaId = categoriaId;
-            this.subcategoriaId = subcategoriaId;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarPublicacionResponse", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class modificarPublicacionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public modificarPublicacionResponse() {
-        }
-        
-        public modificarPublicacionResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdPublicacion", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
     public partial class obtenerPorIdPublicacionRequest {
         
@@ -2098,95 +1578,111 @@ namespace SquirlearnWA.publicacionSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarPublicacion", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class insertarPublicacionRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarPublicacion", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class modificarPublicacionRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int personaId;
+        public int publicacionId;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string usuario;
+        public string fechaAlta;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string estado;
+        public string fechaBaja;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=3)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public double precio;
+        public int estadoId;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=4)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombre;
+        public int itemId;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=5)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string descripcion;
+        public int personaId;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=6)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool esVenta;
+        public int calificacion;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=7)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int colorId;
+        public string usuario;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=8)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int condicionId;
+        public string usuarioCreacion;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=9)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int tamanoId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=10)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int formatoId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=11)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int categoriaId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=12)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int subcategoriaId;
-        
-        public insertarPublicacionRequest() {
+        public modificarPublicacionRequest() {
         }
         
-        public insertarPublicacionRequest(int personaId, string usuario, string estado, double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId) {
+        public modificarPublicacionRequest(int publicacionId, string fechaAlta, string fechaBaja, int estadoId, int itemId, int personaId, int calificacion, string usuario, string usuarioCreacion) {
+            this.publicacionId = publicacionId;
+            this.fechaAlta = fechaAlta;
+            this.fechaBaja = fechaBaja;
+            this.estadoId = estadoId;
+            this.itemId = itemId;
             this.personaId = personaId;
+            this.calificacion = calificacion;
             this.usuario = usuario;
-            this.estado = estado;
-            this.precio = precio;
-            this.nombre = nombre;
-            this.descripcion = descripcion;
-            this.esVenta = esVenta;
-            this.colorId = colorId;
-            this.condicionId = condicionId;
-            this.tamanoId = tamanoId;
-            this.formatoId = formatoId;
-            this.categoriaId = categoriaId;
-            this.subcategoriaId = subcategoriaId;
+            this.usuarioCreacion = usuarioCreacion;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarPublicacionResponse", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class insertarPublicacionResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarPublicacionResponse", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class modificarPublicacionResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public insertarPublicacionResponse() {
+        public modificarPublicacionResponse() {
         }
         
-        public insertarPublicacionResponse(int @return) {
+        public modificarPublicacionResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorEstadoPublicacion", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarPorEstadoPublicacionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int estadoId;
+        
+        public listarPorEstadoPublicacionRequest() {
+        }
+        
+        public listarPorEstadoPublicacionRequest(int estadoId) {
+            this.estadoId = estadoId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorEstadoPublicacionResponse", WrapperNamespace="http://publicacion.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarPorEstadoPublicacionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://publicacion.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.publicacionSOAP.publicacionDto[] @return;
+        
+        public listarPorEstadoPublicacionResponse() {
+        }
+        
+        public listarPorEstadoPublicacionResponse(SquirlearnWA.publicacionSOAP.publicacionDto[] @return) {
             this.@return = @return;
         }
     }
@@ -2219,32 +1715,50 @@ namespace SquirlearnWA.publicacionSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionResponse SquirlearnWA.publicacionSOAP.Publicacion.obtenerListaPublicacionGestion(SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionRequest request) {
-            return base.Channel.obtenerListaPublicacionGestion(request);
+        SquirlearnWA.publicacionSOAP.insertarPublicacionResponse SquirlearnWA.publicacionSOAP.Publicacion.insertarPublicacion(SquirlearnWA.publicacionSOAP.insertarPublicacionRequest request) {
+            return base.Channel.insertarPublicacion(request);
         }
         
-        public SquirlearnWA.publicacionSOAP.listadoPublicacionGestionDto obtenerListaPublicacionGestion(int usuarioId, int cantidadPorPagina, int pagina, int estadoId) {
-            SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionRequest inValue = new SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionRequest();
-            inValue.usuarioId = usuarioId;
-            inValue.cantidadPorPagina = cantidadPorPagina;
-            inValue.pagina = pagina;
-            inValue.estadoId = estadoId;
-            SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionResponse retVal = ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).obtenerListaPublicacionGestion(inValue);
+        public int insertarPublicacion(int itemId, int personaId, string usuario, double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId) {
+            SquirlearnWA.publicacionSOAP.insertarPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.insertarPublicacionRequest();
+            inValue.itemId = itemId;
+            inValue.personaId = personaId;
+            inValue.usuario = usuario;
+            inValue.precio = precio;
+            inValue.nombre = nombre;
+            inValue.descripcion = descripcion;
+            inValue.esVenta = esVenta;
+            inValue.colorId = colorId;
+            inValue.condicionId = condicionId;
+            inValue.tamanoId = tamanoId;
+            inValue.formatoId = formatoId;
+            inValue.categoriaId = categoriaId;
+            inValue.subcategoriaId = subcategoriaId;
+            SquirlearnWA.publicacionSOAP.insertarPublicacionResponse retVal = ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).insertarPublicacion(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionResponse> SquirlearnWA.publicacionSOAP.Publicacion.obtenerListaPublicacionGestionAsync(SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionRequest request) {
-            return base.Channel.obtenerListaPublicacionGestionAsync(request);
+        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.insertarPublicacionResponse> SquirlearnWA.publicacionSOAP.Publicacion.insertarPublicacionAsync(SquirlearnWA.publicacionSOAP.insertarPublicacionRequest request) {
+            return base.Channel.insertarPublicacionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionResponse> obtenerListaPublicacionGestionAsync(int usuarioId, int cantidadPorPagina, int pagina, int estadoId) {
-            SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionRequest inValue = new SquirlearnWA.publicacionSOAP.obtenerListaPublicacionGestionRequest();
-            inValue.usuarioId = usuarioId;
-            inValue.cantidadPorPagina = cantidadPorPagina;
-            inValue.pagina = pagina;
-            inValue.estadoId = estadoId;
-            return ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).obtenerListaPublicacionGestionAsync(inValue);
+        public System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.insertarPublicacionResponse> insertarPublicacionAsync(int itemId, int personaId, string usuario, double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId) {
+            SquirlearnWA.publicacionSOAP.insertarPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.insertarPublicacionRequest();
+            inValue.itemId = itemId;
+            inValue.personaId = personaId;
+            inValue.usuario = usuario;
+            inValue.precio = precio;
+            inValue.nombre = nombre;
+            inValue.descripcion = descripcion;
+            inValue.esVenta = esVenta;
+            inValue.colorId = colorId;
+            inValue.condicionId = condicionId;
+            inValue.tamanoId = tamanoId;
+            inValue.formatoId = formatoId;
+            inValue.categoriaId = categoriaId;
+            inValue.subcategoriaId = subcategoriaId;
+            return ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).insertarPublicacionAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2252,7 +1766,7 @@ namespace SquirlearnWA.publicacionSOAP {
             return base.Channel.listarPorFiltrosPublicacion(request);
         }
         
-        public SquirlearnWA.publicacionSOAP.listadoPublicacionGestionDto listarPorFiltrosPublicacion(string terminoBusqueda, int esVenta, int idCategoria, int idSubcategoria, int idColores, int idTamanos, int idFormatos, int idCondicion, int paginaActual, int publicacionesPorPagina) {
+        public SquirlearnWA.publicacionSOAP.publicacionDto[] listarPorFiltrosPublicacion(string terminoBusqueda, bool esVenta, int idCategoria, int idSubcategoria, int idColores, int idTamanos, int idFormatos, int idCondicion) {
             SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionRequest();
             inValue.terminoBusqueda = terminoBusqueda;
             inValue.esVenta = esVenta;
@@ -2262,8 +1776,6 @@ namespace SquirlearnWA.publicacionSOAP {
             inValue.idTamanos = idTamanos;
             inValue.idFormatos = idFormatos;
             inValue.idCondicion = idCondicion;
-            inValue.paginaActual = paginaActual;
-            inValue.publicacionesPorPagina = publicacionesPorPagina;
             SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionResponse retVal = ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).listarPorFiltrosPublicacion(inValue);
             return retVal.@return;
         }
@@ -2273,7 +1785,7 @@ namespace SquirlearnWA.publicacionSOAP {
             return base.Channel.listarPorFiltrosPublicacionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionResponse> listarPorFiltrosPublicacionAsync(string terminoBusqueda, int esVenta, int idCategoria, int idSubcategoria, int idColores, int idTamanos, int idFormatos, int idCondicion, int paginaActual, int publicacionesPorPagina) {
+        public System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionResponse> listarPorFiltrosPublicacionAsync(string terminoBusqueda, bool esVenta, int idCategoria, int idSubcategoria, int idColores, int idTamanos, int idFormatos, int idCondicion) {
             SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.listarPorFiltrosPublicacionRequest();
             inValue.terminoBusqueda = terminoBusqueda;
             inValue.esVenta = esVenta;
@@ -2283,82 +1795,7 @@ namespace SquirlearnWA.publicacionSOAP {
             inValue.idTamanos = idTamanos;
             inValue.idFormatos = idFormatos;
             inValue.idCondicion = idCondicion;
-            inValue.paginaActual = paginaActual;
-            inValue.publicacionesPorPagina = publicacionesPorPagina;
             return ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).listarPorFiltrosPublicacionAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionResponse SquirlearnWA.publicacionSOAP.Publicacion.cambiarEstadoPublicacion(SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionRequest request) {
-            return base.Channel.cambiarEstadoPublicacion(request);
-        }
-        
-        public int cambiarEstadoPublicacion(int publicacionId, string usuario, string estado) {
-            SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionRequest();
-            inValue.publicacionId = publicacionId;
-            inValue.usuario = usuario;
-            inValue.estado = estado;
-            SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionResponse retVal = ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).cambiarEstadoPublicacion(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionResponse> SquirlearnWA.publicacionSOAP.Publicacion.cambiarEstadoPublicacionAsync(SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionRequest request) {
-            return base.Channel.cambiarEstadoPublicacionAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionResponse> cambiarEstadoPublicacionAsync(int publicacionId, string usuario, string estado) {
-            SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.cambiarEstadoPublicacionRequest();
-            inValue.publicacionId = publicacionId;
-            inValue.usuario = usuario;
-            inValue.estado = estado;
-            return ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).cambiarEstadoPublicacionAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoResponse SquirlearnWA.publicacionSOAP.Publicacion.obtenerPorIdCompleto(SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoRequest request) {
-            return base.Channel.obtenerPorIdCompleto(request);
-        }
-        
-        public SquirlearnWA.publicacionSOAP.publicacionDto obtenerPorIdCompleto(int publicacionId) {
-            SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoRequest inValue = new SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoRequest();
-            inValue.publicacionId = publicacionId;
-            SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoResponse retVal = ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).obtenerPorIdCompleto(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoResponse> SquirlearnWA.publicacionSOAP.Publicacion.obtenerPorIdCompletoAsync(SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoRequest request) {
-            return base.Channel.obtenerPorIdCompletoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoResponse> obtenerPorIdCompletoAsync(int publicacionId) {
-            SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoRequest inValue = new SquirlearnWA.publicacionSOAP.obtenerPorIdCompletoRequest();
-            inValue.publicacionId = publicacionId;
-            return ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).obtenerPorIdCompletoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse SquirlearnWA.publicacionSOAP.Publicacion.listarPorEstadoPublicacion(SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest request) {
-            return base.Channel.listarPorEstadoPublicacion(request);
-        }
-        
-        public SquirlearnWA.publicacionSOAP.publicacionDto[] listarPorEstadoPublicacion(int estadoId) {
-            SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest();
-            inValue.estadoId = estadoId;
-            SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse retVal = ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).listarPorEstadoPublicacion(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse> SquirlearnWA.publicacionSOAP.Publicacion.listarPorEstadoPublicacionAsync(SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest request) {
-            return base.Channel.listarPorEstadoPublicacionAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse> listarPorEstadoPublicacionAsync(int estadoId) {
-            SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest();
-            inValue.estadoId = estadoId;
-            return ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).listarPorEstadoPublicacionAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2385,53 +1822,6 @@ namespace SquirlearnWA.publicacionSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.publicacionSOAP.modificarPublicacionResponse SquirlearnWA.publicacionSOAP.Publicacion.modificarPublicacion(SquirlearnWA.publicacionSOAP.modificarPublicacionRequest request) {
-            return base.Channel.modificarPublicacion(request);
-        }
-        
-        public int modificarPublicacion(int publicacionId, string usuario, string estado, double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId) {
-            SquirlearnWA.publicacionSOAP.modificarPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.modificarPublicacionRequest();
-            inValue.publicacionId = publicacionId;
-            inValue.usuario = usuario;
-            inValue.estado = estado;
-            inValue.precio = precio;
-            inValue.nombre = nombre;
-            inValue.descripcion = descripcion;
-            inValue.esVenta = esVenta;
-            inValue.colorId = colorId;
-            inValue.condicionId = condicionId;
-            inValue.tamanoId = tamanoId;
-            inValue.formatoId = formatoId;
-            inValue.categoriaId = categoriaId;
-            inValue.subcategoriaId = subcategoriaId;
-            SquirlearnWA.publicacionSOAP.modificarPublicacionResponse retVal = ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).modificarPublicacion(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.modificarPublicacionResponse> SquirlearnWA.publicacionSOAP.Publicacion.modificarPublicacionAsync(SquirlearnWA.publicacionSOAP.modificarPublicacionRequest request) {
-            return base.Channel.modificarPublicacionAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.modificarPublicacionResponse> modificarPublicacionAsync(int publicacionId, string usuario, string estado, double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId) {
-            SquirlearnWA.publicacionSOAP.modificarPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.modificarPublicacionRequest();
-            inValue.publicacionId = publicacionId;
-            inValue.usuario = usuario;
-            inValue.estado = estado;
-            inValue.precio = precio;
-            inValue.nombre = nombre;
-            inValue.descripcion = descripcion;
-            inValue.esVenta = esVenta;
-            inValue.colorId = colorId;
-            inValue.condicionId = condicionId;
-            inValue.tamanoId = tamanoId;
-            inValue.formatoId = formatoId;
-            inValue.categoriaId = categoriaId;
-            inValue.subcategoriaId = subcategoriaId;
-            return ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).modificarPublicacionAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SquirlearnWA.publicacionSOAP.obtenerPorIdPublicacionResponse SquirlearnWA.publicacionSOAP.Publicacion.obtenerPorIdPublicacion(SquirlearnWA.publicacionSOAP.obtenerPorIdPublicacionRequest request) {
             return base.Channel.obtenerPorIdPublicacion(request);
         }
@@ -2455,50 +1845,65 @@ namespace SquirlearnWA.publicacionSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.publicacionSOAP.insertarPublicacionResponse SquirlearnWA.publicacionSOAP.Publicacion.insertarPublicacion(SquirlearnWA.publicacionSOAP.insertarPublicacionRequest request) {
-            return base.Channel.insertarPublicacion(request);
+        SquirlearnWA.publicacionSOAP.modificarPublicacionResponse SquirlearnWA.publicacionSOAP.Publicacion.modificarPublicacion(SquirlearnWA.publicacionSOAP.modificarPublicacionRequest request) {
+            return base.Channel.modificarPublicacion(request);
         }
         
-        public int insertarPublicacion(int personaId, string usuario, string estado, double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId) {
-            SquirlearnWA.publicacionSOAP.insertarPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.insertarPublicacionRequest();
+        public int modificarPublicacion(int publicacionId, string fechaAlta, string fechaBaja, int estadoId, int itemId, int personaId, int calificacion, string usuario, string usuarioCreacion) {
+            SquirlearnWA.publicacionSOAP.modificarPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.modificarPublicacionRequest();
+            inValue.publicacionId = publicacionId;
+            inValue.fechaAlta = fechaAlta;
+            inValue.fechaBaja = fechaBaja;
+            inValue.estadoId = estadoId;
+            inValue.itemId = itemId;
             inValue.personaId = personaId;
+            inValue.calificacion = calificacion;
             inValue.usuario = usuario;
-            inValue.estado = estado;
-            inValue.precio = precio;
-            inValue.nombre = nombre;
-            inValue.descripcion = descripcion;
-            inValue.esVenta = esVenta;
-            inValue.colorId = colorId;
-            inValue.condicionId = condicionId;
-            inValue.tamanoId = tamanoId;
-            inValue.formatoId = formatoId;
-            inValue.categoriaId = categoriaId;
-            inValue.subcategoriaId = subcategoriaId;
-            SquirlearnWA.publicacionSOAP.insertarPublicacionResponse retVal = ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).insertarPublicacion(inValue);
+            inValue.usuarioCreacion = usuarioCreacion;
+            SquirlearnWA.publicacionSOAP.modificarPublicacionResponse retVal = ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).modificarPublicacion(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.insertarPublicacionResponse> SquirlearnWA.publicacionSOAP.Publicacion.insertarPublicacionAsync(SquirlearnWA.publicacionSOAP.insertarPublicacionRequest request) {
-            return base.Channel.insertarPublicacionAsync(request);
+        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.modificarPublicacionResponse> SquirlearnWA.publicacionSOAP.Publicacion.modificarPublicacionAsync(SquirlearnWA.publicacionSOAP.modificarPublicacionRequest request) {
+            return base.Channel.modificarPublicacionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.insertarPublicacionResponse> insertarPublicacionAsync(int personaId, string usuario, string estado, double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId) {
-            SquirlearnWA.publicacionSOAP.insertarPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.insertarPublicacionRequest();
+        public System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.modificarPublicacionResponse> modificarPublicacionAsync(int publicacionId, string fechaAlta, string fechaBaja, int estadoId, int itemId, int personaId, int calificacion, string usuario, string usuarioCreacion) {
+            SquirlearnWA.publicacionSOAP.modificarPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.modificarPublicacionRequest();
+            inValue.publicacionId = publicacionId;
+            inValue.fechaAlta = fechaAlta;
+            inValue.fechaBaja = fechaBaja;
+            inValue.estadoId = estadoId;
+            inValue.itemId = itemId;
             inValue.personaId = personaId;
+            inValue.calificacion = calificacion;
             inValue.usuario = usuario;
-            inValue.estado = estado;
-            inValue.precio = precio;
-            inValue.nombre = nombre;
-            inValue.descripcion = descripcion;
-            inValue.esVenta = esVenta;
-            inValue.colorId = colorId;
-            inValue.condicionId = condicionId;
-            inValue.tamanoId = tamanoId;
-            inValue.formatoId = formatoId;
-            inValue.categoriaId = categoriaId;
-            inValue.subcategoriaId = subcategoriaId;
-            return ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).insertarPublicacionAsync(inValue);
+            inValue.usuarioCreacion = usuarioCreacion;
+            return ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).modificarPublicacionAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse SquirlearnWA.publicacionSOAP.Publicacion.listarPorEstadoPublicacion(SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest request) {
+            return base.Channel.listarPorEstadoPublicacion(request);
+        }
+        
+        public SquirlearnWA.publicacionSOAP.publicacionDto[] listarPorEstadoPublicacion(int estadoId) {
+            SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest();
+            inValue.estadoId = estadoId;
+            SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse retVal = ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).listarPorEstadoPublicacion(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse> SquirlearnWA.publicacionSOAP.Publicacion.listarPorEstadoPublicacionAsync(SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest request) {
+            return base.Channel.listarPorEstadoPublicacionAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionResponse> listarPorEstadoPublicacionAsync(int estadoId) {
+            SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest inValue = new SquirlearnWA.publicacionSOAP.listarPorEstadoPublicacionRequest();
+            inValue.estadoId = estadoId;
+            return ((SquirlearnWA.publicacionSOAP.Publicacion)(this)).listarPorEstadoPublicacionAsync(inValue);
         }
     }
 }

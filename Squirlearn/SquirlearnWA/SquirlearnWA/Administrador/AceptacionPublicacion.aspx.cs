@@ -1,4 +1,5 @@
-﻿using SquirlearnWA.notificacionSOAP;
+﻿
+using SquirlearnWA.notificacionSOAP;
 using SquirlearnWA.publicacionSOAP;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace SquirlearnWA.Administrador
     {
         private PublicacionClient publicacionSOAP;
         private NotificacionClient notificacionSOAP;
+        private const int ID_ESTADO_ACEPTADO = 5;
 
         public AceptacionPublicacion()
         {
@@ -42,14 +44,13 @@ namespace SquirlearnWA.Administrador
             string fechaAceptacion = DateTime.Now.ToString("dd-MM-yyyy");
 
             // 3️⃣ Obtener el id de la publicación desde la sesión (si lo guardaste antes)
-
-            int idPublicacion = Convert.ToInt32(Session["idPublicacion"]);
+            int idPublicacion = Convert.ToInt32(Session["IdPublicacion"]);
             int idPersona = Convert.ToInt32(Session["IdPersona"]);
 
-            notificacionSOAP.insertarNotificacion( comentario, idPersona,fechaAceptacion);
-            string nombrePersona = Session["usuarioNombre"].ToString();
+            notificacionSOAP.InsertarNotificacion( comentario, idPersona);
 
-            publicacionSOAP.cambiarEstadoPublicacion(idPublicacion, nombrePersona, "Aprobada"); 
+
+            publicacionSOAP.CambiarEstadoPublicacion(idPublicacion, (int)Session["UsuarioId"], "Aceptada"); 
 
 
             Response.Redirect("ListadoDeSolicitudesAdmin.aspx");

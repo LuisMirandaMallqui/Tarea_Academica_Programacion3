@@ -6,7 +6,6 @@ import jakarta.jws.WebParam;
 import java.util.Date;
 import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.model.comprobante.ComprobanteDto;
-import pe.edu.pucp.squirlearn.model.comprobante.ListadoComprobanteShortDto;
 import pe.pucp.edu.squirlearn.business.comprobante.ComprobanteBo;
 
 /**
@@ -40,13 +39,9 @@ public class Comprobante {
     }
 
     @WebMethod(operationName = "listarPorDuenoComprobante")
-    public ListadoComprobanteShortDto listarPorDuenoComprobanteShort(
-            @WebParam(name = "personaId") Integer personaId,
-            @WebParam(name = "esVenta") Boolean esVenta,
-            @WebParam(name = "pagina") Integer pagina,
-            @WebParam(name = "registrosPorPagina") Integer registrosPorPagina
-            ) {
-        return this.comprobanteBo.listarPorDuenoComprobanteShort(personaId, esVenta, pagina, registrosPorPagina);
+    public ArrayList listarPorDuenoComprobante(
+            @WebParam(name = "personaId") Integer personaId) {
+        return this.comprobanteBo.listarPorDueno(personaId);
     }
 
     @WebMethod(operationName = "obtenerPorIdComprobante")

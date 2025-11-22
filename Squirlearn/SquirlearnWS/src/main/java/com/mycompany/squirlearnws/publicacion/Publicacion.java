@@ -56,9 +56,6 @@ public class Publicacion {
             @WebParam(name = "formatoId") Integer formatoId,
             @WebParam(name = "categoriaId") Integer categoriaId,
             @WebParam(name = "subcategoriaId") Integer subcategoriaId) {
-        
-        
-        
         return this.publicacionBo.modificar(publicacionId,usuario, estado,precio,nombre,descripcion,esVenta,colorId,
                 condicionId, tamanoId,formatoId,categoriaId,subcategoriaId);
     }
@@ -109,8 +106,8 @@ public class Publicacion {
             @WebParam(name = "usuarioId") Integer usuarioId,
             @WebParam(name = "cantidadPorPagina") Integer cantidadPorPagina,
             @WebParam(name = "pagina") Integer pagina,
-            @WebParam(name = "estadoId") Integer estado ){  
-        return this.publicacionBo.listarPorFiltrosPublicacion( usuarioId, cantidadPorPagina, pagina, estado);   
+            @WebParam(name = "estadoId") Integer estadoId ){  
+        return this.publicacionBo.listarPorFiltrosPublicacion( usuarioId, cantidadPorPagina, pagina, estadoId);   
     }
     
     

@@ -4,7 +4,7 @@
     
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-    <div class="container py-4" style="max-height:500px; overflow-y:auto;" >
+    <div class="container py-4">
         <a href="../PublicacionDelUsuario/ListadoPublicaciones.aspx" class="text-decoration-none text-dark fw-semibold mb-3 d-inline-block">
             <i class="fa fa-arrow-left"></i> Volver
         </a>
@@ -54,7 +54,7 @@
             </asp:Panel>
 
             <asp:Panel ID="panelEstado" runat="server" CssClass="mt-3">
-                <label>¿Cuál es el estado del producto? (Opcional) </label>
+                <label>¿Cuál es el estado del producto?</label>
                 <asp:DropDownList ID="ddlCondicion" runat="server" CssClass="form-select">
                     </asp:DropDownList>
             </asp:Panel>
@@ -66,13 +66,13 @@
             </asp:Panel>
 
             <asp:Panel ID="panelColorProducto" runat="server" CssClass="mt-3" Visible="true">
-                <label>¿Cuál es el color del producto? (Opcional)</label>
+                <label>¿Cuál es el color del producto?</label>
                 <asp:DropDownList ID="ddlColor" runat="server" CssClass="form-select">
                     </asp:DropDownList>
             </asp:Panel>
 
             <asp:Panel ID="panelFoto" runat="server" CssClass="mt-3">
-                <label>Añade fotos de tu producto (Opcional)</label>
+                <label>Añade fotos de tu producto</label>
                 <asp:FileUpload ID="fuFotoLibro" runat="server" CssClass="form-control" />
             </asp:Panel>
 
@@ -113,37 +113,5 @@
                 myModal.show();
             }
         </script>
-
-
-        <!-- Modal de Error -->
-<div class="modal fade" id="modalError" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title">Error en la publicación</h5>
-            </div>
-            <div class="modal-body">
-                <p id="mensajeErrorModal"></p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    function mostrarModalError(mensaje) {
-        document.getElementById("mensajeErrorModal").innerText = mensaje;
-        var modal = new bootstrap.Modal(document.getElementById("modalError"));
-        modal.show();
-    }
-</script>
-
-
-
-
-
-
     </div>
 </asp:Content>

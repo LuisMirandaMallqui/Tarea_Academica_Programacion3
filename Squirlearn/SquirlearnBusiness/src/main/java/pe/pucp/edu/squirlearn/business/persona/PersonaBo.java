@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import pe.edu.pucp.squirlearn.dao.persona.PersonaDao;
-import pe.edu.pucp.squirlearn.dao.persona.RolPersonaDao;
 import pe.edu.pucp.squirlearn.daoImpl.persona.PersonaDaoImpl;
-import pe.edu.pucp.squirlearn.daoImpl.persona.RolPersonaDaoImpl;
 import pe.edu.pucp.squirlearn.model.persona.EstadoPersonaDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 import pe.edu.pucp.squirlearn.model.persona.RolPersonaDto;
@@ -19,11 +17,9 @@ import pe.pucp.edu.squirlearn.business.util.Cifrado;
 public class PersonaBo {
     
     private PersonaDao personaDao;
-    private RolPersonaBo rolPersonaBo;
     
     public PersonaBo(){
         personaDao = new PersonaDaoImpl();
-        rolPersonaBo = new RolPersonaBo();
     }
     
     public Integer insertar(String nombres, String primerApellido, String segundoApellido, 
@@ -43,20 +39,13 @@ public class PersonaBo {
         personaDto.setSegundoApellido(segundoApellido);
         personaDto.setCodigo(codigo);
         personaDto.setCorreo(correo);
-        personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));  
+        personaDto.setContrasena(Cifrado.cifrarMD5(contrasena));       
         personaDto.setEstadoPersona(estado);
         personaDto.setusuarioCreacion(usuarioCreacion);
         personaDto.setusuarioModificacion(null);
         personaDto.setUltimaActividad(actividad);
-        int result=0;
-        PersonaDto per;
-        if(!this.personaDao.existeUsuarioEnBD(personaDto)){
-            result= this.personaDao.insertar(personaDto);
-            per=this.personaDao.buscarPorCorreo(correo);
-            this.rolPersonaBo.insertarTablaInter(1,per.getPersonaId());
-        }
         
-        return result;
+        return this.personaDao.insertar(personaDto);
     }
     
     public Integer modificar(Integer id, String nombres, String primerApellido, String segundoApellido, 
@@ -86,16 +75,12 @@ public class PersonaBo {
         PersonaDto personaDto = new PersonaDto();
         personaDto.setCorreo(correo);
         PersonaDto perDto = this.personaDao.buscarPorCorreo(correo);
-        if (perDto == null){
-            System.out.println("No se encontro el usuario en la base de datos");
-            return null;
-        }
+        if (perDto == null)
+                return null;
         if(Cifrado.descifrarMD5(perDto.getContrasena()).equals(contrasena))
-            return perDto;
-        else{
-            System.out.println("No se pudo corroborar la contraseña");
+            return personaDto;
+        else
             return null;
-        }
     }
     
     public PersonaDto obtenerPorId(Integer id){

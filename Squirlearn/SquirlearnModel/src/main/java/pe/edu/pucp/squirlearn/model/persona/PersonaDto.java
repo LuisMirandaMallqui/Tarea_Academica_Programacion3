@@ -18,7 +18,6 @@ public class PersonaDto {
     private String ultimaActividad;
     private List<RolPersonaDto> rolesPersona;
     
-    
     // Constructor vacío
     public PersonaDto() {
         this.personaId = null;

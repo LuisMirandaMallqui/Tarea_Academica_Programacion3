@@ -74,26 +74,26 @@ namespace SquirlearnWA.PantallaInicio
             {
                 //Categorías
                 IList<categoriaSOAP.categoriaDto> categorias = categoriaSoap.listarTodosCategoria();
-                CargarDropDownList(ddlCategoria, categorias, "nombre", "categoriaId");
+                CargarDropDownList(ddlCategoria, categorias, "Nombre", "categoriaId");
                 //Subacategorías
                 CargarSubcategorias(0);
             }
 
             // Colores
             IList<colorSOAP.colorDto> colores = colorSoap.listarTodosColor();
-            CargarDropDownList(ddlColor, colores, "nombre", "colorId");
+            CargarDropDownList(ddlColor, colores, "Nombre", "colorId");
 
             // Tamaños
             IList<tamanoSOAP.tamanoDto> tamanos = tamanoSoap.listarTodosTamano();
-            CargarRadioButtonList(rblTamano, tamanos, "nombre", "tamanoId");
+            CargarRadioButtonList(rblTamano, tamanos, "Nombre", "tamanoId");
 
             // Formatos
             IList<formatoSOAP.formatoDto> formatos = formatoSoap.listarTodosFormato();
-            CargarRadioButtonList(rblFormato, formatos, "nombre", "formatoId");
+            CargarRadioButtonList(rblFormato, formatos, "Nombre", "formatoId");
 
             // Condiciones
             IList<condicionSOAP.condicionDto> condiciones = condicionSoap.listarTodosCondicion();
-            CargarRadioButtonList(rblCondicion, condiciones, "nombre", "condicionId");
+            CargarRadioButtonList(rblCondicion, condiciones, "Nombre", "condicionId");
         }
 
         private void CargarSubcategorias(int categoriaId)
@@ -106,7 +106,7 @@ namespace SquirlearnWA.PantallaInicio
                 // ¡Este método debe existir en tu servicio subcategoriaSoap!
                 subcategorias = subcategoriaSoap.listarPorCategoriaSubcategoria(categoriaId);
             }
-            CargarDropDownList(ddlSubcategoria, subcategorias, "nombre", "subcategoriaId");
+            CargarDropDownList(ddlSubcategoria, subcategorias, "Nombre", "subcategoriaId");
         }
 
         private void CargarDropDownList(DropDownList ddl, object dataSource, string textField, string valueField)
@@ -183,7 +183,7 @@ namespace SquirlearnWA.PantallaInicio
 
                 // 2. Desempaca el DTO
                 var publicaciones = resultado.lista;
-                int totalRegistros = resultado.totalPaginas;
+                int totalRegistros = resultado.TotalRegistros;
                 int totalPaginas = (int)Math.Ceiling((double)totalRegistros / PublicacionesPorPagina);
 
                 // 3. Enlaza los datos y genera la paginación

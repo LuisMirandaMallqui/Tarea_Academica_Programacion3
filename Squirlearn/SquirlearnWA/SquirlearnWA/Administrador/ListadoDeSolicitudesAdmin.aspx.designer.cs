@@ -51,30 +51,12 @@ namespace SquirlearnWA.Administrador
         protected global::System.Web.UI.WebControls.Repeater rptSolicitudes;
 
         /// <summary>
-        /// Control btnAnterior.
+        /// Control phPaginacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAnterior;
-
-        /// <summary>
-        /// Control lblPagina.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPagina;
-
-        /// <summary>
-        /// Control btnSiguiente.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSiguiente;
+        protected global::System.Web.UI.WebControls.PlaceHolder phPaginacion;
     }
 }

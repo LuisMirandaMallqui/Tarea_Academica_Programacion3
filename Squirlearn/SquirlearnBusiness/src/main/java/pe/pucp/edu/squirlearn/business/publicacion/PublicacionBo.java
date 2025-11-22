@@ -65,14 +65,10 @@ public class PublicacionBo {
 
         EstadoPublicacionDto estadoPublicacion = new EstadoPublicacionDto();
         estadoPublicacion.setEstadoPublicacionId(this.estadoPublicacionBo.obtenerId(estado.toUpperCase()));
-         publicacionDto.setEstadoPublicacion(estadoPublicacion);
-         int numero = this.publicacionDao.modificar(publicacionDto);
-         
-         EstadoPublicacionDto nn=publicacionDto.getEstadoPublicacion() ;
-         return nn.getEstadoPublicacionId();
+
+        return this.publicacionDao.modificar(publicacionDto);
     }
-   
-    
+        
      public ArrayList<PublicacionDto> listarPorEstado(Integer estadoId) {
         return this.publicacionDao.listarPorEstado(estadoId); //necesita implementación
     }
@@ -101,11 +97,12 @@ public class PublicacionBo {
         return listado;
     }
     
-    public ListadoPublicacionGestionDto listarPorFiltrosPublicacion(Integer usuarioId, Integer cantidadPorPagina, Integer pagina,Integer estado){
-        ListadoPublicacionGestionDto listado = new ListadoPublicacionGestionDto();
-        listado.setLista(this.publicacionShortDao.listarPorFiltrosPublicacion( usuarioId,  cantidadPorPagina,  pagina, estado));
+    public ListadoPublicacionGestionDto listarPorFiltrosPublicacion(Integer usuarioId, Integer cantidadPorPagina, Integer pagina,Integer estadoId){
         
-        listado.setTotalPaginas(this.publicacionShortDao.cantidadListarPorFiltrosPublicacion(usuarioId, estado));
+        ListadoPublicacionGestionDto listado = new ListadoPublicacionGestionDto();
+        listado.setLista(this.publicacionShortDao.listarPorFiltrosPublicacion( usuarioId,  cantidadPorPagina,  pagina, estadoId));
+        
+        listado.setTotalPaginas(this.publicacionShortDao.cantidadListarPorFiltrosPublicacion(usuarioId, estadoId));
         return listado;
     }
 

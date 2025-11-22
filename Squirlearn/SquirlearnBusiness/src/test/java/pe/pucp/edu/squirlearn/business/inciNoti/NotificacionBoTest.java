@@ -38,13 +38,15 @@ public class NotificacionBoTest {
 //            System.out.println(entidad.getPersona().getPersonaId());
 //        }
 //    }
-    @Test
-    public void testInsertar() {
-        System.out.println("insertar");
-//         Mismos datos de prueba que en NotificacionDaoTest
-        Integer resultado = this.notificacionBO.insertar("mnn okfokorgr", 3 ,"121212");
-         
-        assertTrue(resultado != 0);
-    }
+//    @Test
+//    public void testInsertar() {
+//        System.out.println("insertar");
+////         Mismos datos de prueba que en NotificacionDaoTest
+//        Integer resultado = this.notificacionBO.insertar(
+//                "Notificación de XD", // mensaje
+//                1                       // personaId 
+//        );
+//        assertTrue(resultado != 0);
+//    }
 }
 

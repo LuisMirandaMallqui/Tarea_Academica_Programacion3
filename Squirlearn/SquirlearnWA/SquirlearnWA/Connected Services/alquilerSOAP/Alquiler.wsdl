@@ -5,18 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Alquiler?xsd=1" namespace="http://alquiler.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="insertarAlquiler">
-    <part name="parameters" element="tns:insertarAlquiler" />
-  </message>
-  <message name="insertarAlquilerResponse">
-    <part name="parameters" element="tns:insertarAlquilerResponse" />
-  </message>
-  <message name="modificarAlquiler">
-    <part name="parameters" element="tns:modificarAlquiler" />
-  </message>
-  <message name="modificarAlquilerResponse">
-    <part name="parameters" element="tns:modificarAlquilerResponse" />
-  </message>
   <message name="listarPorDuenoAlquiler">
     <part name="parameters" element="tns:listarPorDuenoAlquiler" />
   </message>
@@ -29,15 +17,19 @@
   <message name="obtenerPorIdAlquilerResponse">
     <part name="parameters" element="tns:obtenerPorIdAlquilerResponse" />
   </message>
+  <message name="modificarAlquiler">
+    <part name="parameters" element="tns:modificarAlquiler" />
+  </message>
+  <message name="modificarAlquilerResponse">
+    <part name="parameters" element="tns:modificarAlquilerResponse" />
+  </message>
+  <message name="insertarAlquiler">
+    <part name="parameters" element="tns:insertarAlquiler" />
+  </message>
+  <message name="insertarAlquilerResponse">
+    <part name="parameters" element="tns:insertarAlquilerResponse" />
+  </message>
   <portType name="Alquiler">
-    <operation name="insertarAlquiler">
-      <input wsam:Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/insertarAlquilerRequest" message="tns:insertarAlquiler" />
-      <output wsam:Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/insertarAlquilerResponse" message="tns:insertarAlquilerResponse" />
-    </operation>
-    <operation name="modificarAlquiler">
-      <input wsam:Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/modificarAlquilerRequest" message="tns:modificarAlquiler" />
-      <output wsam:Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/modificarAlquilerResponse" message="tns:modificarAlquilerResponse" />
-    </operation>
     <operation name="listarPorDuenoAlquiler">
       <input wsam:Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/listarPorDuenoAlquilerRequest" message="tns:listarPorDuenoAlquiler" />
       <output wsam:Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/listarPorDuenoAlquilerResponse" message="tns:listarPorDuenoAlquilerResponse" />
@@ -46,10 +38,27 @@
       <input wsam:Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/obtenerPorIdAlquilerRequest" message="tns:obtenerPorIdAlquiler" />
       <output wsam:Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/obtenerPorIdAlquilerResponse" message="tns:obtenerPorIdAlquilerResponse" />
     </operation>
+    <operation name="modificarAlquiler">
+      <input wsam:Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/modificarAlquilerRequest" message="tns:modificarAlquiler" />
+      <output wsam:Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/modificarAlquilerResponse" message="tns:modificarAlquilerResponse" />
+    </operation>
+    <operation name="insertarAlquiler">
+      <input wsam:Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/insertarAlquilerRequest" message="tns:insertarAlquiler" />
+      <output wsam:Action="http://alquiler.squirlearnws.mycompany.com/Alquiler/insertarAlquilerResponse" message="tns:insertarAlquilerResponse" />
+    </operation>
   </portType>
   <binding name="AlquilerPortBinding" type="tns:Alquiler">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarAlquiler">
+    <operation name="listarPorDuenoAlquiler">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorIdAlquiler">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -67,16 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarPorDuenoAlquiler">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerPorIdAlquiler">
+    <operation name="insertarAlquiler">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

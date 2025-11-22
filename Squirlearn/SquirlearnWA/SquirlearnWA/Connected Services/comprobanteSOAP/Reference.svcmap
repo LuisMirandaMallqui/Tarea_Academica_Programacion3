@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="84f4904e-c5fe-430c-b43c-f640dc2e47ad" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="67a23b33-9cdf-46eb-a3cb-93e31e695324" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:8080/SquirlearnWS/Comprobante?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Comprobante.xsd" MetadataType="Schema" ID="7b6c501e-7ff2-48cb-a42e-f67f34fa4a3b" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Comprobante?xsd=1" />
-    <MetadataFile FileName="Comprobante.wsdl" MetadataType="Wsdl" ID="48cbf5f0-862c-4081-97f8-a100285987e7" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Comprobante?wsdl" />
+    <MetadataFile FileName="Comprobante.xsd" MetadataType="Schema" ID="4a5fdc41-6e99-4caf-957e-24b0318e49df" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Comprobante?xsd=1" />
+    <MetadataFile FileName="Comprobante.wsdl" MetadataType="Wsdl" ID="74d57cc2-7a5a-414b-9ce9-1dec76cd716c" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Comprobante?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

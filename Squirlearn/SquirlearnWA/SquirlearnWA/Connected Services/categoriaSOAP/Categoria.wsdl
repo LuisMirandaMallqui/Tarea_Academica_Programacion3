@@ -5,31 +5,31 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Categoria?xsd=1" namespace="http://item.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="obtenerPorIdCategoria">
-    <part name="parameters" element="tns:obtenerPorIdCategoria" />
-  </message>
-  <message name="obtenerPorIdCategoriaResponse">
-    <part name="parameters" element="tns:obtenerPorIdCategoriaResponse" />
-  </message>
   <message name="listarTodosCategoria">
     <part name="parameters" element="tns:listarTodosCategoria" />
   </message>
   <message name="listarTodosCategoriaResponse">
     <part name="parameters" element="tns:listarTodosCategoriaResponse" />
   </message>
+  <message name="obtenerPorIdCategoria">
+    <part name="parameters" element="tns:obtenerPorIdCategoria" />
+  </message>
+  <message name="obtenerPorIdCategoriaResponse">
+    <part name="parameters" element="tns:obtenerPorIdCategoriaResponse" />
+  </message>
   <portType name="Categoria">
-    <operation name="obtenerPorIdCategoria">
-      <input wsam:Action="http://item.squirlearnws.mycompany.com/Categoria/obtenerPorIdCategoriaRequest" message="tns:obtenerPorIdCategoria" />
-      <output wsam:Action="http://item.squirlearnws.mycompany.com/Categoria/obtenerPorIdCategoriaResponse" message="tns:obtenerPorIdCategoriaResponse" />
-    </operation>
     <operation name="listarTodosCategoria">
       <input wsam:Action="http://item.squirlearnws.mycompany.com/Categoria/listarTodosCategoriaRequest" message="tns:listarTodosCategoria" />
       <output wsam:Action="http://item.squirlearnws.mycompany.com/Categoria/listarTodosCategoriaResponse" message="tns:listarTodosCategoriaResponse" />
     </operation>
+    <operation name="obtenerPorIdCategoria">
+      <input wsam:Action="http://item.squirlearnws.mycompany.com/Categoria/obtenerPorIdCategoriaRequest" message="tns:obtenerPorIdCategoria" />
+      <output wsam:Action="http://item.squirlearnws.mycompany.com/Categoria/obtenerPorIdCategoriaResponse" message="tns:obtenerPorIdCategoriaResponse" />
+    </operation>
   </portType>
   <binding name="CategoriaPortBinding" type="tns:Categoria">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="obtenerPorIdCategoria">
+    <operation name="listarTodosCategoria">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -38,7 +38,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarTodosCategoria">
+    <operation name="obtenerPorIdCategoria">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

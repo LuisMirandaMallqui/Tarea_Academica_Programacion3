@@ -4,20 +4,17 @@ SET @admin_user = 'root';
 -- -----------------------------------------------------
 -- GRUPO 1: CATÁLOGOS SIMPLES 
 -- -----------------------------------------------------
-
 -- Insertar colores
 INSERT INTO colores(NOMBRE) VALUES
 ('Rojo'),
 ('Azul'),
-('Negro'),
-('No aplica');
+('Negro');
 
  -- Insertar condiciones
 INSERT INTO condiciones(NOMBRE) VALUES
 ('Nuevo'),
 ('Seminuevo'),
-('Antiguo'),
-('No aplica');
+('Antiguo');
 
 -- Insertar estados de item
 INSERT INTO estados_items(NOMBRE) VALUES
@@ -33,18 +30,14 @@ INSERT INTO formatos(NOMBRE) VALUES
 -- Insertar categorías
 INSERT INTO categorias(NOMBRE) VALUES
 ('Libros'),
-('Cursos'),
-('Apuntes de clase'),
-('Clase grabada'),
-('Instrumentos'),
-('Otros');
-
+('Evaluaciones'),
+('Electrónicos'),
+('Útiles y accesorios');
 -- Insertar tamaños
 INSERT INTO tamanos(NOMBRE) VALUES
 ('Grande'),
 ('Mediano'),
-('Chico'),
-('No aplica');
+('Chico');
 
 -- Insertar estados de persona
 INSERT INTO estados_personas(NOMBRE) VALUES
@@ -54,7 +47,8 @@ INSERT INTO estados_personas(NOMBRE) VALUES
 
 -- Insertar roles
 INSERT INTO roles(NOMBRE) VALUES
-('Usuario'),
+('Vendedor'),
+('Comprador'),
 ('Administrador');
 
 -- Insertar catálogos de pago
@@ -87,51 +81,33 @@ INSERT INTO motivos(NOMBRE) VALUES
 ('Solución de incidencia'),
 ('Datos incorrectos'),
 ('Problemas con otro usuario'),
-('Problemas con la venta'),	
+('Problemas con la venta'),
 ('Problemas con el alquiler');
 -- -----------------------------------------------------
 -- GRUPO 2: DEPENDENCIAS
 -- -----------------------------------------------------
 INSERT INTO subcategorias (NOMBRE, CATEGORIA_ID)
 VALUES
-('Académico', 1),
-('Científico', 1),
-('Literario', 1),
-('Técnico', 1),
-('Arte y Cultura', 1),
-('Historia', 1),
-('Filosofía y Ensayo',1),
-('Otros',1),
-('Practica calificada', 2),
-('Practica dirigida', 2),
-('Examen ', 2),
-('Laboratorio', 2),
-('Apuntes de clase', 3),
-('Resumenes', 3),
-('Guias de practica', 3),
-('Otros', 3),
-('Estudios generales ciencias', 4),
-('Estudios generales letras', 4),
-('Facultad de ciencias e ingineria', 4),
-('Facultad de economia', 4),
-('Facultad de derecho', 4),
-('Facultad psicologia', 4),
-('Facultad gestión y alta dirección', 4),
-('Facultad educación', 4),
-('Facultad ciencias sociales', 4),
-('Facultad comunicación', 4),
-('Facultad artes', 4),
-('Facultad arquitectura', 4),
-('Facultad ciencias sociales', 4),
-('Cálculo y medición', 5),
-('Dibujo técnico', 5),
-('Accesorios electrónicos', 5),
-('Laboratorio químico', 5),
-('Arte y diseño', 5),
-('Otros', 5),
-('Accesorios',6),
-('Mochila',6),
-('Prenda de vestir',6);
+('Ciencias e ingeniería', 1),
+('Ciencias Sociales', 1),
+('Artes y Humanidades', 1),
+('Negocios y Gestión', 1),
+('Idiomas', 1),
+('Práctica calificada', 2),
+('Práctica dirigida', 2),
+('Exámen 1', 2),
+('Exámen 2', 2),
+('Exámen especial', 2),
+('Control de lectura', 2),
+('Calculadora', 3),
+('Componente electrónico', 3),
+('Multímetro', 3),
+('Teclado', 3),
+('Auriculares', 3),
+('Mochila', 4),
+('Estuche', 4),
+('Material de escritorio', 4),
+('Ropa', 4);
 
 
 -- -----------------------------------------------------
@@ -140,16 +116,16 @@ VALUES
 INSERT INTO personas(
  NOMBRES, PRIMER_APELLIDO, SEGUNDO_APELLIDO, CODIGO, CORREO, CONTRASENA,ESTADO_PERSONA_ID_ESTADOPERSONA,USUARIO_CREACION,ULTIMA_ACTIVIDAD)
 VALUES
-('María Fernanda', 'Lopez', 'Ramirez', '20231547', 'a20231547@pucp.edu.pe','Spvo5ABNInGO7Gg2aeqQBg==',1,'María Fernanda Lopez Ramirez',now()),
-('José Luis', 'Castro', 'Vargas', '20228459', 'a20228459@pucp.edu.pe','hlVjUau1t7ERxvFnjNVMCQ==',2,'José Luis Castro Vargas',now()),
-('Andrea Carolina', 'Torres', 'Mendoza', '20235681', 'a20235681@pucp.edu.pe','3FcGRQ5NUzDyfiDsrsVJvcgnPicDD/5b',3,'Andrea Carolina Torres Mendoza',now()),
-('Diego Armando', 'Quispe', 'Huamán', '20217732', 'a20217732@pucp.edu.pe','A3YQJaMQou2v86QND4NUPQ==',1,'Diego Armando Quispe Huamán',now()),
-('Lucía Alejandra', 'Salazar', 'Flores', '20229418', 'a20229418@pucp.edu.pe','fjEtTSbThzPXqY3tlBk1ug==',2,'Lucía Alejandra Salazar Flores',now()),
-('Carlos Alberto', 'Rojas', 'Cáceres', '20219845', 'a20219845@pucp.edu.pe','3rGB9O3A7pqO7Gg2aeqQBg==',3,'Carlos Alberto Rojas Cáceres',now()),
-('Gabriela Sofía', 'Paredes', 'Chavez', '20237591', 'a20237591@pucp.edu.pe','XEWJN3g8qbQRxvFnjNVMCQ==',1,'Gabriela Sofía Paredes Chavez',now()),
-('Fernando Enrique', 'Huerta', 'Guzmán', '20226789', 'a20226789@pucp.edu.pe','PpFdTTMZhHUJTDRcFKJL3A==',2,'Fernando Enrique Huerta Guzmán',now()),
-('Valeria Isabel', 'Martínez', 'Zamora', '20231852', 'a20231852@pucp.edu.pe','wbQcLGtNYAwRxvFnjNVMCQ==',3,'Valeria Isabel Martínez Zamora',now()),
-('Santiago Nicolás', 'Gonzales', 'Linares', '20238417', 'a20238417@pucp.edu.pe','eeXeaiIyr1QJTDRcFKJL3A==',1,'Santiago Nicolás Gonzales Linares',now());
+('María Fernanda', 'Lopez', 'Ramirez', '20231547', 'a20231547@pucp.edu.pe','pacoflaco123',1,'María Fernanda Lopez Ramirez',now()),
+('José Luis', 'Castro', 'Vargas', '20228459', 'a20228459@pucp.edu.pe','joselu123',2,'José Luis Castro Vargas',now()),
+('Andrea Carolina', 'Torres', 'Mendoza', '20235681', 'a20235681@pucp.edu.pe','andreatorres',3,'Andrea Carolina Torres Mendoza',now()),
+('Diego Armando', 'Quispe', 'Huamán', '20217732', 'a20217732@pucp.edu.pe','diegoquispe',1,'Diego Armando Quispe Huamán',now()),
+('Lucía Alejandra', 'Salazar', 'Flores', '20229418', 'a20229418@pucp.edu.pe','luciaalej',2,'Lucía Alejandra Salazar Flores',now()),
+('Carlos Alberto', 'Rojas', 'Cáceres', '20219845', 'a20219845@pucp.edu.pe','carlberto',3,'Carlos Alberto Rojas Cáceres',now()),
+('Gabriela Sofía', 'Paredes', 'Chavez', '20237591', 'a20237591@pucp.edu.pe','gabsof',1,'Gabriela Sofía Paredes Chavez',now()),
+('Fernando Enrique', 'Huerta', 'Guzmán', '20226789', 'a20226789@pucp.edu.pe','feriq',2,'Fernando Enrique Huerta Guzmán',now()),
+('Valeria Isabel', 'Martínez', 'Zamora', '20231852', 'a20231852@pucp.edu.pe','valeri',3,'Valeria Isabel Martínez Zamora',now()),
+('Santiago Nicolás', 'Gonzales', 'Linares', '20238417', 'a20238417@pucp.edu.pe','santi123',1,'Santiago Nicolás Gonzales Linares',now());
 
 INSERT INTO items(
     COLOR_ID, ESTADO_ITEM_ID, CONDICION_ID, TAMANO_ID, FORMATO_ID, 
@@ -192,15 +168,15 @@ VALUES
 -- GRUPO 4: RELACIONES M-M (Muchos-a-Muchos)
 -- -----------------------------------------------------
 INSERT INTO personas_roles(PERSONA_ID, ROLPERSONA_ID) VALUES
-(1, 2),
+(1, 1),
 (2, 2),
-(3, 1),
+(3, 3),
 (4, 1),
-(5, 1),
-(6, 2),
+(5, 2),
+(6, 3),
 (7, 1),
-(8, 1),
-(9, 1),
+(8, 2),
+(9, 3),
 (10, 1);
 
 -- -----------------------------------------------------

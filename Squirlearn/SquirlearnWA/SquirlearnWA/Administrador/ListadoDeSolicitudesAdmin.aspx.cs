@@ -1,10 +1,7 @@
 ﻿
 using SquirlearnWA.estadoPublicacionSOAP;
-using SquirlearnWA.incidenciaSOAP;
-using SquirlearnWA.personaSOAP;
 using SquirlearnWA.publicacionSOAP;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -20,15 +17,14 @@ namespace SquirlearnWA.Administrador
     {
         private PublicacionClient publicacionSoap;
         private EstadoPublicacionClient estadoPublicacionSoap;
-        private const int PublicacionesPorPagina = 4;
-        private PersonaClient personaSOAP;
+        private const int PublicacionesPorPagina = 10;
+
         // ❗️ Define el ID de tu estado "Pendiente"
 
         public ListadoDeSolicitudesAdmin()
         {
             publicacionSoap = new PublicacionClient();
             estadoPublicacionSoap = new EstadoPublicacionClient();
-            personaSOAP = new PersonaClient();
         }
 
         private int PaginaActual
@@ -47,44 +43,28 @@ namespace SquirlearnWA.Administrador
         }
 
 
-        
+        // --- ¡AQUÍ ESTÁ TU IDEA! ---
         private void CargarYMostrarSolicitudes()
         {
             try
             {
                 // 1. Llamada al Backend
                 listadoPublicacionGestionDto listado = publicacionSoap.obtenerListaPublicacionGestion(
-                    0,
+                    0, 
                     PublicacionesPorPagina,
                     PaginaActual,
-                    1
+                    "Pendiente"
                 );
-                
-                var listaPublicaciones = listado.lista.ToList(); // Lista de DTOs
-                int totalRegistros = listado.totalPaginas; // Total de registros en la BD
 
-                var listaPublicacionesPersona = new List<dynamic>();
+                // 2. Obtener datos limpios (Variables locales = Memoria se libera al terminar la función)
+                var listaPublicaciones = listado.lista; // Tu lista de DTOs
+                int totalRegistros = listado.TotalRegistros;
 
-                foreach (var pub in listaPublicaciones)
-                {
-                    var persona = personaSOAP.obtenerPorIdPersona(pub.personaId);
-
-                    listaPublicacionesPersona.Add(new
-                    {
-                        pub.publicacionId,
-                        pub.nombre,
-                        pub.categoriaNombre,
-                        pub.estadoNombre,
-                        pub.personaId,
-                        NombrePersona = persona != null ? persona.nombres + ' ' + persona.primerApellido+ ' '+ persona.segundoApellido : "Desconocido"
-                    });
-                }
-                
-                // 2. Cálculo de páginas
+                // 3. Cálculo de páginas (Lógica C# que acordamos)
                 int totalPaginas = (int)Math.Ceiling((double)totalRegistros / PublicacionesPorPagina);
 
-                // 3. Mostrar datos
-                MostrarDatosEnPantalla(listaPublicacionesPersona, totalPaginas, totalRegistros);
+                // 4. Pasar datos DIRECTAMENTE a la UI
+                MostrarDatosEnPantalla(listaPublicaciones, totalPaginas, totalRegistros);
             }
             catch (Exception ex)
             {
@@ -92,22 +72,19 @@ namespace SquirlearnWA.Administrador
                 rptSolicitudes.DataSource = null;
                 rptSolicitudes.DataBind();
                 lblCantidadResultados.Text = "Error al cargar: " + ex.Message;
+                phPaginacion.Controls.Clear();
             }
         }
 
         // Este método ahora recibe los datos por parámetro. No busca nada en Session.
         private void MostrarDatosEnPantalla(object lista, int totalPaginas, int totalRegistros)
         {
-            
-
             rptSolicitudes.DataSource = lista;
             rptSolicitudes.DataBind();
 
-            lblCantidadResultados.Text = $"Se encontraron {totalRegistros} publicaciones.";
-            lblPagina.Text = $"Página {PaginaActual} de {totalPaginas}";
+            lblCantidadResultados.Text = $"Mostrando {totalRegistros} resultados"; 
 
-            btnAnterior.Enabled = PaginaActual > 1;
-            btnSiguiente.Enabled = PaginaActual < totalPaginas;
+            GenerarPaginacion(totalPaginas);
         }
 
         // --- EVENTOS (Idénticos) ---
@@ -118,7 +95,24 @@ namespace SquirlearnWA.Administrador
             CargarYMostrarSolicitudes();
         }
 
-       
+        private void GenerarPaginacion(int totalPaginas)
+        {
+            phPaginacion.Controls.Clear();
+            for (int i = 1; i <= totalPaginas; i++)
+            {
+                Button btnPagina = new Button
+                {
+                    Text = i.ToString(),
+                    // Marca el botón de la página actual como "activo"
+                    CssClass = i == PaginaActual ? "btn btn-dark btn-sm me-1" : "btn btn-outline-dark btn-sm me-1",
+                    CommandArgument = i.ToString(),
+                    ID = "btnPagina_" + i
+                };
+                // Asigna el evento click a cada botón creado
+                btnPagina.Click += BtnPagina_Click;
+                phPaginacion.Controls.Add(btnPagina);
+            }
+        }
 
         protected void BtnPagina_Click(object sender, EventArgs e)
         {
@@ -153,7 +147,7 @@ namespace SquirlearnWA.Administrador
                 var pub = e.Item.DataItem as publicacionShortDto;
                 if (pub == null) return;
 
-                string estado = pub.estadoNombre;
+                string estado = pub.EstadoNombre;
 
                 Label lblEstado = e.Item.FindControl("lblEstado") as Label;
                 if (lblEstado != null)
@@ -161,20 +155,6 @@ namespace SquirlearnWA.Administrador
                     lblEstado.CssClass = $"{GetEstadoColor(estado)} badge p-2 me-3";
                 }
             }
-        }
-        protected void btnAnterior_Click(object sender, EventArgs e)
-        {
-            if (PaginaActual > 1)
-            {
-                PaginaActual--;
-                CargarYMostrarSolicitudes();
-            }
-        }
-
-        protected void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            PaginaActual++;
-            CargarYMostrarSolicitudes();
         }
 
     }

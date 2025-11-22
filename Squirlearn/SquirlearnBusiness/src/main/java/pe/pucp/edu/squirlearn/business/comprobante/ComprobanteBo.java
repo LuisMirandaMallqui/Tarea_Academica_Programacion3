@@ -3,11 +3,9 @@ package pe.pucp.edu.squirlearn.business.comprobante;
 import java.util.Date;
 import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteDao;
-import pe.edu.pucp.squirlearn.dao.comprobante.ComprobanteShortDao;
 import pe.edu.pucp.squirlearn.daoImpl.comprobante.ComprobanteDaoImpl;
 import pe.edu.pucp.squirlearn.model.comprobante.ComprobanteDto;
 import pe.edu.pucp.squirlearn.model.comprobante.FormaPagoDto;
-import pe.edu.pucp.squirlearn.model.comprobante.ListadoComprobanteShortDto;
 import pe.edu.pucp.squirlearn.model.comprobante.MonedaPagoDto;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 
@@ -17,7 +15,6 @@ public class ComprobanteBo {
     private MonedaPagoBo monedaPagoBo;
     private FormaPagoBo formaPagoBo;
     private DetalleComprobanteBo detalleComprobanteBo;
-    private ComprobanteShortDao comprobanteShortDao;
 
     public ComprobanteBo() {
         this.comprobanteDao = new ComprobanteDaoImpl();
@@ -81,12 +78,8 @@ public class ComprobanteBo {
         return this.comprobanteDao.modificar(comprobanteDto);
     }
 
-    public ListadoComprobanteShortDto listarPorDuenoComprobanteShort(Integer personaId,Boolean esVenta, Integer pagina, Integer registrosPorPagina) {
-         
-        ListadoComprobanteShortDto listado = new ListadoComprobanteShortDto();
-        listado.setLista(this.comprobanteShortDao.listarPorDuenoComprobanteShort(personaId,esVenta, pagina, registrosPorPagina));
-        listado.setTotalRegistros(this.comprobanteShortDao.listarPorDuenoCantidadComprobanteShort(personaId, esVenta));
-        return listado;
+    public ArrayList<ComprobanteDto> listarPorDueno(Integer personaId, Integer pagina, Integer registrosPorPagina) {
+        return this.comprobanteDao.listarPorDueno(personaId, pagina, registrosPorPagina);
     }
 
     public ComprobanteDto obtenerPorId(Integer id) {

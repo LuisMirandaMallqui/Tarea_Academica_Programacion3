@@ -36,20 +36,13 @@ namespace SquirlearnWA
             string fechaRechazo = DateTime.Now.ToString("dd-MM-yyyy");
 
             // 3️⃣ Obtener el id de la publicación desde la sesión (si lo guardaste antes)
-
-            int idPublicacion = Convert.ToInt32(Session["idPublicacion"]);
-
-
-
+            int idPublicacion = Convert.ToInt32(Session["IdPublicacion"]);
             int idPersona = Convert.ToInt32(Session["IdPersona"]);
 
-            string nombrePersona = Session["usuarioNombre"].ToString();
+            notificacionSOAP.InsertarNotificacion( comentario, idPersona);
 
 
-            notificacionSOAP.insertarNotificacion( comentario, idPersona,fechaRechazo);
-
-
-            publicacionSOAP.cambiarEstadoPublicacion(idPublicacion, nombrePersona, "Rechazada");
+            publicacionSOAP.CambiarEstadoPublicacion(idPublicacion, (int)Session["UsuarioId"], "Rechazada");
 
 
 
