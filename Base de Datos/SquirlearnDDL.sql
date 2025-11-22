@@ -696,8 +696,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`incidencias` (
   `PERSONA_ID` INT NOT NULL COMMENT 'FK que referencia a la persona que reporta la incidencia.',
   `MOTIVO_ID_MOTIVO` INT NOT NULL COMMENT 'FK que referencia al motivo de la incidencia.',
   -- Atributos
-  `DESCRIPCION` VARCHAR(45) NOT NULL COMMENT 'Descripción detallada de la incidencia.',
-  `RESPUESTA_ADMIN` VARCHAR(45) NOT NULL COMMENT 'Descripción detallada de la incidencia.',
+  `DESCRIPCION` VARCHAR(100) NOT NULL COMMENT 'Descripción detallada de la incidencia.',
+  `RESPUESTA` VARCHAR(100) NOT NULL COMMENT 'Respuesta a la incidencia.',
   `RESUELTO` TINYINT NULL DEFAULT '0' COMMENT 'Flag (1=Resuelto, 0=Pendiente) para el estado de la incidencia.',
   `FECHA_SOLUCION` DATETIME NULL DEFAULT NULL COMMENT 'Fecha y hora en que se solucionó la incidencia.',
   `USUARIO_SOLUCION` INT NULL DEFAULT NULL COMMENT 'ID del usuario (administrador) que solucionó la incidencia.',

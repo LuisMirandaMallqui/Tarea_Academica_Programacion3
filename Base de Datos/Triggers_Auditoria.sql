@@ -709,24 +709,26 @@ BEGIN
 	-- USUARIO MODIFICACION VIENE DE LA ENTRADA
 END $$
 
-/*
-CREATE TRIGGER TRG_PUBLICACIONES_UPDATE_BAJA
+CREATE TRIGGER TRG_PUBLICACIONES_UPDATE_MODIFICACION_ESTADO
 BEFORE UPDATE ON publicaciones
 FOR EACH ROW
 BEGIN
-	DECLARE v_id_aprobado  INT;
+    DECLARE v_nombre_estado VARCHAR(100);
     IF NEW.ESTADO_PUBLICACION_ID <> OLD.ESTADO_PUBLICACION_ID THEN
-		SELECT ep.ESTADOPUBLI_ID
-			INTO v_id_aprobado
-			FROM estados_publicaciones ep
-		WHERE UPPER(ep.NOMBRE) IN ('Eliminada')
-		LIMIT 1;
-		IF v_id_aprobado IS NOT NULL AND NEW.ESTADO_PUBLICACION_ID = v_id_aprobado THEN
+        
+        -- Para el nombre del nuevo estado
+        SELECT UPPER(ep.NOMBRE) INTO v_nombre_estado
+        FROM estados_publicaciones ep
+        WHERE ep.ESTADOPUBLI_ID = NEW.ESTADO_PUBLICACION_ID;
+
+        IF v_nombre_estado = 'APROBADA' AND NEW.FECHA_ALTA IS NULL THEN
+            SET NEW.FECHA_ALTA = NOW();
+        ELSEIF v_nombre_estado = 'ELIMINADA' AND NEW.FECHA_BAJA IS NULL THEN
             SET NEW.FECHA_BAJA = NOW();
-		END IF;
-	END IF;
+        END IF;
+
+    END IF;
 END $$
-*/
 
 /*MENSAJES*/ -- ----------------------------------------------------------------------------------------------------------------------------------------
 CREATE TRIGGER TRG_MENSAJES_INSERT_CREACION
