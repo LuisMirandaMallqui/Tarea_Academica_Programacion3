@@ -1,5 +1,12 @@
 package pe.pucp.edu.squirlearn.business.publicacion;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.ArrayList;
 import pe.edu.pucp.squirlearn.dao.publicacion.PublicacionDao;
 import pe.edu.pucp.squirlearn.dao.publicacion.PublicacionShortDao;
@@ -20,6 +27,8 @@ public class PublicacionBo {
     private EstadoPublicacionBo estadoPublicacionBo;
     private PublicacionShortDao publicacionShortDao;
     
+    private static final String ARCHIVO_CONFIGURACION = "cloud.properties";
+    
     public PublicacionBo (){
         this.publicacionDao = new PublicacionDaoImpl();
         this.itemBo = new ItemBo();
@@ -30,7 +39,7 @@ public class PublicacionBo {
     public Integer insertar(Integer personaId, String usuarioCreacion, String estado,
             Double precio, String nombre,String descripcion ,Boolean esVenta ,
             Integer colorId, Integer condicionId, Integer tamanoId, Integer formatoId,
-            Integer categoriaId, Integer subcategoriaId) {
+            Integer categoriaId, Integer subcategoriaId, byte[] imagen) {
         
         Integer itemId = this.itemBo.insertar(precio, nombre, descripcion, esVenta, colorId,
                 condicionId, tamanoId, formatoId, categoriaId, subcategoriaId,usuarioCreacion);
@@ -50,13 +59,16 @@ public class PublicacionBo {
         publicacionDto.setPersona(personaDto);
         publicacionDto.setusuarioCreacion(usuarioCreacion);
         
+        String imagenURL = insertarImagenEnNube(imagen);
+        publicacionDto.setImagenURL(imagenURL);
+        
         return this.publicacionDao.insertar(publicacionDto);
     }
     
     public Integer modificar(Integer publicacionId, String usuario, String estado,
             Double precio, String nombre,String descripcion ,Boolean esVenta ,
             Integer colorId, Integer condicionId, Integer tamanoId, Integer formatoId,
-            Integer categoriaId, Integer subcategoriaId) {
+            Integer categoriaId, Integer subcategoriaId, byte[] imagen) {
         
         PublicacionDto publicacionDto = this.obtenerPorId(publicacionId);
         Integer itemId = publicacionDto.getItem().getItemId();
@@ -65,13 +77,68 @@ public class PublicacionBo {
 
         EstadoPublicacionDto estadoPublicacion = new EstadoPublicacionDto();
         estadoPublicacion.setEstadoPublicacionId(this.estadoPublicacionBo.obtenerId(estado.toUpperCase()));
-         publicacionDto.setEstadoPublicacion(estadoPublicacion);
-         int numero = this.publicacionDao.modificar(publicacionDto);
+        publicacionDto.setEstadoPublicacion(estadoPublicacion);
+        
+        eliminarImagenEnNube(publicacionDto.getImagenURL());
+        String imagenURL = insertarImagenEnNube(imagen);
+        publicacionDto.setImagenURL(imagenURL);
          
-         EstadoPublicacionDto nn=publicacionDto.getEstadoPublicacion() ;
-         return nn.getEstadoPublicacionId();
+        int numero = this.publicacionDao.modificar(publicacionDto);
+         
+        EstadoPublicacionDto nn=publicacionDto.getEstadoPublicacion() ;
+        return nn.getEstadoPublicacionId();
+    }
+    
+    public Cloudinary instanciarCloudinary(){
+        Properties properties = new Properties();
+        String nmArchivoConf = "/" + ARCHIVO_CONFIGURACION;
+        try {
+            properties.load(this.getClass().getResourceAsStream(nmArchivoConf));
+        } catch (IOException ex) {
+            Logger.getLogger(PublicacionBo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
+                    "cloud_name", properties.getProperty("cloud_name"),
+                    "api_key", properties.getProperty("api_key"),
+                    "api_secret", properties.getProperty("api_secret")));
+        
+        return cloudinary;
+    }
+    
+    public String insertarImagenEnNube(byte[] imagen){
+        String imagenURL = null;
+        if (imagen != null && imagen.length > 0) {
+            try {
+                Cloudinary cloudinary = instanciarCloudinary();
+                Map uploadResult = cloudinary.uploader().upload(imagen, ObjectUtils.emptyMap());
+                imagenURL = (String) uploadResult.get("secure_url");
+                
+            } catch (Exception e) {
+                System.out.println("Error subiendo a Cloudinary: " + e.getMessage());
+            }
+        }
+        return imagenURL;
     }
    
+    public void eliminarImagenEnNube(String imagenURL){
+    
+        if (imagenURL == null || imagenURL.isEmpty()) {
+            return;
+        }
+
+        try {
+            // 3. Conectar a Cloudinary
+            Cloudinary cloudinary = instanciarCloudinary();
+            String nombreConExtension = imagenURL.substring(imagenURL.lastIndexOf("/") + 1); 
+            String publicId = nombreConExtension.substring(0, nombreConExtension.lastIndexOf("."));
+            Map result = cloudinary.uploader().destroy(publicId, ObjectUtils.emptyMap());
+            System.out.println("Resultado eliminación: " + result.toString());
+        } catch (Exception e) {
+            System.out.println("Error eliminando de Cloudinary: " + e.getMessage());
+        }
+    }
+    
+    
     
      public ArrayList<PublicacionDto> listarPorEstado(Integer estadoId) {
         return this.publicacionDao.listarPorEstado(estadoId); //necesita implementación
