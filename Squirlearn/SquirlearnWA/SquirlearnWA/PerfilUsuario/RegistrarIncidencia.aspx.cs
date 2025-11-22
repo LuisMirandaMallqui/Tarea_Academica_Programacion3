@@ -1,11 +1,13 @@
-﻿using System;
+﻿using SquirlearnWA.incidenciaSOAP;
+using SquirlearnWA.motivoSOAP;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SquirlearnWA.PerfilUsuario
+namespace SquirlearnWA
 {
     public partial class RegistrarIncidencia : System.Web.UI.Page
     {
@@ -59,7 +61,7 @@ namespace SquirlearnWA.PerfilUsuario
                 int motivoId = Convert.ToInt32(ddlTipoIncidencia.SelectedValue);
 
                 // GUARDAR INCIDENCIA
-                incidenciaSOAP.insertarIncidencia(mensaje, 1, usuarioId, motivoId, 0, usuarioNombre); //ELIMINAR NOTIFICACION ID  DE LA BD
+                incidenciaSOAP.insertarIncidencia(mensaje,1,usuarioId, motivoId,0, usuarioNombre); //ELIMINAR NOTIFICACION ID  DE LA BD
 
                 // Mostrar modal
                 ScriptManager.RegisterStartupScript(this, GetType(), "mostrarModal", "mostrarModalConfirmacion();", true);

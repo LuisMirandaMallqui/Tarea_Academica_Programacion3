@@ -65,16 +65,18 @@ public class PublicacionBo {
 
         EstadoPublicacionDto estadoPublicacion = new EstadoPublicacionDto();
         estadoPublicacion.setEstadoPublicacionId(this.estadoPublicacionBo.obtenerId(estado.toUpperCase()));
-
-        return this.publicacionDao.modificar(publicacionDto);
+         publicacionDto.setEstadoPublicacion(estadoPublicacion);
+         int numero = this.publicacionDao.modificar(publicacionDto);
+         
+         EstadoPublicacionDto nn=publicacionDto.getEstadoPublicacion() ;
+         return nn.getEstadoPublicacionId();
     }
-        
+   
+    
      public ArrayList<PublicacionDto> listarPorEstado(Integer estadoId) {
         return this.publicacionDao.listarPorEstado(estadoId); //necesita implementación
     }
-     
-     
-     
+
     public ListadoPublicacionGestionDto listarPorFiltrosPublicacion(String terminoBusqueda, Integer tipoTransaccion,
             Integer idCategoria, Integer idSubcategoria, Integer idColores, Integer idTamanos, Integer idFormatos,
             Integer idCondicion, Integer paginaActual, Integer publicacionesPorPagina) {

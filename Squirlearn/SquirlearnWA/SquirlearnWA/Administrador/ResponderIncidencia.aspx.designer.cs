@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SquirlearnWA.Administrador
+namespace SquirlearnWA
 {
 
 

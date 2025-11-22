@@ -56,6 +56,9 @@ public class Publicacion {
             @WebParam(name = "formatoId") Integer formatoId,
             @WebParam(name = "categoriaId") Integer categoriaId,
             @WebParam(name = "subcategoriaId") Integer subcategoriaId) {
+        
+        
+        
         return this.publicacionBo.modificar(publicacionId,usuario, estado,precio,nombre,descripcion,esVenta,colorId,
                 condicionId, tamanoId,formatoId,categoriaId,subcategoriaId);
     }

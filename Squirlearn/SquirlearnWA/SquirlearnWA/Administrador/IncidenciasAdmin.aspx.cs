@@ -1,15 +1,19 @@
-﻿using SquirlearnWA.personaSOAP;
+﻿using SquirlearnWA.incidenciaSOAP;
+using SquirlearnWA.motivoSOAP;
+using SquirlearnWA.personaSOAP;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SquirlearnWA.Administrador
+namespace SquirlearnWA
 {
     public partial class IncidenciasAdmin : System.Web.UI.Page
     {
+
         private IncidenciaClient incidenciaSOAP;
         private MotivoClient motivoSOAP;
         private PersonaClient personaSOAP;
@@ -17,8 +21,8 @@ namespace SquirlearnWA.Administrador
         {
 
             incidenciaSOAP = new IncidenciaClient();
-            motivoSOAP = new MotivoClient();
-            personaSOAP = new PersonaClient();
+            motivoSOAP= new MotivoClient();
+            personaSOAP= new PersonaClient();
 
 
         }
@@ -68,24 +72,22 @@ namespace SquirlearnWA.Administrador
             {
                 var incidencia = (incidenciaDto)e.Item.DataItem;
 
-
+               
                 int idMotivo = incidencia.motivo.motivoId;
                 int idPersona = incidencia.persona.personaId;
 
-
+               
                 var motivo = motivoSOAP.obtenerPorIdMotivo(idMotivo);
                 var usuario = personaSOAP.obtenerPorIdPersona(idPersona);
 
-
+              
                 var lblMotivo = (Label)e.Item.FindControl("lblMotivo");
                 var lblUsuario = (Label)e.Item.FindControl("lblUsuario");
 
                 lblMotivo.Text = motivo.nombre;
-                lblUsuario.Text = usuario.nombres + ' ' + usuario.primerApellido + ' ' + usuario.segundoApellido;
+                lblUsuario.Text = usuario.nombres +' '+ usuario.primerApellido +' '+ usuario.segundoApellido;
             }
         }
 
     }
-
-}
 }

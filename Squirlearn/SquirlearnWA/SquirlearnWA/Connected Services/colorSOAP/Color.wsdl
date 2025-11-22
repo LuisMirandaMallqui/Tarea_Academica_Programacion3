@@ -5,31 +5,31 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Color?xsd=1" namespace="http://item.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="obtenerPorIdColor">
-    <part name="parameters" element="tns:obtenerPorIdColor" />
-  </message>
-  <message name="obtenerPorIdColorResponse">
-    <part name="parameters" element="tns:obtenerPorIdColorResponse" />
-  </message>
   <message name="listarTodosColor">
     <part name="parameters" element="tns:listarTodosColor" />
   </message>
   <message name="listarTodosColorResponse">
     <part name="parameters" element="tns:listarTodosColorResponse" />
   </message>
+  <message name="obtenerPorIdColor">
+    <part name="parameters" element="tns:obtenerPorIdColor" />
+  </message>
+  <message name="obtenerPorIdColorResponse">
+    <part name="parameters" element="tns:obtenerPorIdColorResponse" />
+  </message>
   <portType name="Color">
-    <operation name="obtenerPorIdColor">
-      <input wsam:Action="http://item.squirlearnws.mycompany.com/Color/obtenerPorIdColorRequest" message="tns:obtenerPorIdColor" />
-      <output wsam:Action="http://item.squirlearnws.mycompany.com/Color/obtenerPorIdColorResponse" message="tns:obtenerPorIdColorResponse" />
-    </operation>
     <operation name="listarTodosColor">
       <input wsam:Action="http://item.squirlearnws.mycompany.com/Color/listarTodosColorRequest" message="tns:listarTodosColor" />
       <output wsam:Action="http://item.squirlearnws.mycompany.com/Color/listarTodosColorResponse" message="tns:listarTodosColorResponse" />
     </operation>
+    <operation name="obtenerPorIdColor">
+      <input wsam:Action="http://item.squirlearnws.mycompany.com/Color/obtenerPorIdColorRequest" message="tns:obtenerPorIdColor" />
+      <output wsam:Action="http://item.squirlearnws.mycompany.com/Color/obtenerPorIdColorResponse" message="tns:obtenerPorIdColorResponse" />
+    </operation>
   </portType>
   <binding name="ColorPortBinding" type="tns:Color">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="obtenerPorIdColor">
+    <operation name="listarTodosColor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -38,7 +38,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarTodosColor">
+    <operation name="obtenerPorIdColor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

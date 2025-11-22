@@ -84,7 +84,7 @@ namespace SquirlearnWA
                         string mensajeAlquilerUsuario = $"Tu aquiler de"  + $" {lblNombre.Text} "
                             + "se proceso con exito " + fechaCompra;
                         //por corregir
-                        notificacionSoap.insertarNotificacion(mensajeAlquilerUsuario, idUsuario) ;
+                      //  notificacionSoap.insertarNotificacion(mensajeAlquilerUsuario, idUsuario) ;
 
 
                         //NOTIFICACION PARA EL VENDEDOR DE LA PUBLICACION
@@ -92,7 +92,7 @@ namespace SquirlearnWA
                               + "ha sido comprado por " + usuarioNombre + ", correo electronico: " + usuarioCorreo + ". Comunícate lo antes posible/n" +
                               "Inicio de alquiler: " + Session["fechaInicio"].ToString() + "/nFin de alquiler " + Session["fechaFin"].ToString();
 
-                        notificacionSoap.insertarNotificacion(mensajeAlquilerVendedor, idVendedor);
+                        //notificacionSoap.insertarNotificacion(mensajeAlquilerVendedor, idVendedor);
 
                         itemSoap.cambiarEstadoItem((int)Session["itemId"], Session["nombreUsuario"].ToString(), "Alquilado");
 
@@ -105,12 +105,12 @@ namespace SquirlearnWA
                         //NOTIFICACION PARA EL USUARIO QUE COMPRO
                         string mensajeAlquilerUsuario = $"Tu compra de" + $" {lblNombre.Text} "
                             + "se proceso con exito " + fechaCompra;
-                        notificacionSoap.insertarNotificacion(mensajeAlquilerUsuario, idUsuario);
+                       // notificacionSoap.insertarNotificacion(mensajeAlquilerUsuario, idUsuario);
 
                         //NOTIFICACION PARA EL VENDEDOR DE LA PUBLICACION
                         string mensajeAlquilerVendedor = $"Tu producto en venta" + $" {lblNombre.Text} "
                              + "ha sido comprado por " + usuarioNombre + ", correo electronico: " + usuarioCorreo;
-                        notificacionSoap.insertarNotificacion(mensajeAlquilerVendedor, idVendedor);
+                        //notificacionSoap.insertarNotificacion(mensajeAlquilerVendedor, idVendedor);
                         itemSoap.cambiarEstadoItem((int)Session["itemId"], Session["nombreUsuario"].ToString(), "Vendido");
 
                     }

@@ -2,15 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
 
-    <div class="d-flex justify-content-center mt-5">
+   <div class="d-flex justify-content-center" style="padding-top:250px;">
         <div class="card shadow p-4" style="width: 600px;">
 
-            <h2 class="text-center mb-3 fw-bold">Bienvenido,<br />
-                cuéntanos de ti
+            <h2 class="text-center mb-3 fw-bold">Bienvenido, cuéntanos sobre ti
+               
+
             </h2>
             <p class="text-center mb-4">
                 Ingresa tus datos para registrar tu cuenta
-           
             </p>
 
             <asp:Panel ID="pnlRegistro" runat="server">
@@ -66,7 +66,7 @@
 
                 <style>
                     .form-check {
-                        font-size: 1.3rem; /* o 1.1rem si lo quieres un poquito más grande */
+                        font-size: 1.3rem; 
                     }
                 </style>
 
@@ -78,7 +78,8 @@
                         Acepto los términos y condiciones impuestos por la empresa
                     </label>
                 </div>
-
+                <asp:Label ID="lblError" runat="server" CssClass="d-block mt-3 text-center"
+                    ForeColor="Red"></asp:Label>
                 <div class="d-grid gap-2">
                     <asp:Button ID="btnRegistrar" runat="server"
                         CssClass="btn btn-primary"
@@ -90,8 +91,7 @@
                 </div>
 
 
-                <asp:Label ID="lblError" runat="server" CssClass="d-block mt-3 text-center"
-                    ForeColor="Red"></asp:Label>
+                
 
             </asp:Panel>
         </div>

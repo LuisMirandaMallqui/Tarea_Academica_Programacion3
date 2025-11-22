@@ -24,5 +24,4 @@ public class DBManagerMySQL  extends DBManager {
         return "select @@last_insert_id as id";
     }
         
-
 }

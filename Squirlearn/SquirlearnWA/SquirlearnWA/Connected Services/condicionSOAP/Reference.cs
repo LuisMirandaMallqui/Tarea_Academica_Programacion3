@@ -16,15 +16,6 @@ namespace SquirlearnWA.condicionSOAP {
     public interface Condicion {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Condicion/obtenerPorIdCondicionRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Condicion/obtenerPorIdCondicionResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.condicionSOAP.obtenerPorIdCondicionResponse obtenerPorIdCondicion(SquirlearnWA.condicionSOAP.obtenerPorIdCondicionRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Condicion/obtenerPorIdCondicionRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Condicion/obtenerPorIdCondicionResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.condicionSOAP.obtenerPorIdCondicionResponse> obtenerPorIdCondicionAsync(SquirlearnWA.condicionSOAP.obtenerPorIdCondicionRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Condicion/listarTodosCondicionRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Condicion/listarTodosCondicionResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -32,6 +23,15 @@ namespace SquirlearnWA.condicionSOAP {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Condicion/listarTodosCondicionRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Condicion/listarTodosCondicionResponse")]
         System.Threading.Tasks.Task<SquirlearnWA.condicionSOAP.listarTodosCondicionResponse> listarTodosCondicionAsync(SquirlearnWA.condicionSOAP.listarTodosCondicionRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Condicion/obtenerPorIdCondicionRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Condicion/obtenerPorIdCondicionResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.condicionSOAP.obtenerPorIdCondicionResponse obtenerPorIdCondicion(SquirlearnWA.condicionSOAP.obtenerPorIdCondicionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Condicion/obtenerPorIdCondicionRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Condicion/obtenerPorIdCondicionResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.condicionSOAP.obtenerPorIdCondicionResponse> obtenerPorIdCondicionAsync(SquirlearnWA.condicionSOAP.obtenerPorIdCondicionRequest request);
     }
     
     /// <remarks/>
@@ -97,6 +97,34 @@ namespace SquirlearnWA.condicionSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosCondicion", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosCondicionRequest {
+        
+        public listarTodosCondicionRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosCondicionResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosCondicionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.condicionSOAP.condicionDto[] @return;
+        
+        public listarTodosCondicionResponse() {
+        }
+        
+        public listarTodosCondicionResponse(SquirlearnWA.condicionSOAP.condicionDto[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdCondicion", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
     public partial class obtenerPorIdCondicionRequest {
         
@@ -130,34 +158,6 @@ namespace SquirlearnWA.condicionSOAP {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosCondicion", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosCondicionRequest {
-        
-        public listarTodosCondicionRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosCondicionResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosCondicionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.condicionSOAP.condicionDto[] @return;
-        
-        public listarTodosCondicionResponse() {
-        }
-        
-        public listarTodosCondicionResponse(SquirlearnWA.condicionSOAP.condicionDto[] @return) {
-            this.@return = @return;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface CondicionChannel : SquirlearnWA.condicionSOAP.Condicion, System.ServiceModel.IClientChannel {
     }
@@ -186,6 +186,27 @@ namespace SquirlearnWA.condicionSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.condicionSOAP.listarTodosCondicionResponse SquirlearnWA.condicionSOAP.Condicion.listarTodosCondicion(SquirlearnWA.condicionSOAP.listarTodosCondicionRequest request) {
+            return base.Channel.listarTodosCondicion(request);
+        }
+        
+        public SquirlearnWA.condicionSOAP.condicionDto[] listarTodosCondicion() {
+            SquirlearnWA.condicionSOAP.listarTodosCondicionRequest inValue = new SquirlearnWA.condicionSOAP.listarTodosCondicionRequest();
+            SquirlearnWA.condicionSOAP.listarTodosCondicionResponse retVal = ((SquirlearnWA.condicionSOAP.Condicion)(this)).listarTodosCondicion(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.condicionSOAP.listarTodosCondicionResponse> SquirlearnWA.condicionSOAP.Condicion.listarTodosCondicionAsync(SquirlearnWA.condicionSOAP.listarTodosCondicionRequest request) {
+            return base.Channel.listarTodosCondicionAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.condicionSOAP.listarTodosCondicionResponse> listarTodosCondicionAsync() {
+            SquirlearnWA.condicionSOAP.listarTodosCondicionRequest inValue = new SquirlearnWA.condicionSOAP.listarTodosCondicionRequest();
+            return ((SquirlearnWA.condicionSOAP.Condicion)(this)).listarTodosCondicionAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SquirlearnWA.condicionSOAP.obtenerPorIdCondicionResponse SquirlearnWA.condicionSOAP.Condicion.obtenerPorIdCondicion(SquirlearnWA.condicionSOAP.obtenerPorIdCondicionRequest request) {
             return base.Channel.obtenerPorIdCondicion(request);
         }
@@ -206,27 +227,6 @@ namespace SquirlearnWA.condicionSOAP {
             SquirlearnWA.condicionSOAP.obtenerPorIdCondicionRequest inValue = new SquirlearnWA.condicionSOAP.obtenerPorIdCondicionRequest();
             inValue.id = id;
             return ((SquirlearnWA.condicionSOAP.Condicion)(this)).obtenerPorIdCondicionAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.condicionSOAP.listarTodosCondicionResponse SquirlearnWA.condicionSOAP.Condicion.listarTodosCondicion(SquirlearnWA.condicionSOAP.listarTodosCondicionRequest request) {
-            return base.Channel.listarTodosCondicion(request);
-        }
-        
-        public SquirlearnWA.condicionSOAP.condicionDto[] listarTodosCondicion() {
-            SquirlearnWA.condicionSOAP.listarTodosCondicionRequest inValue = new SquirlearnWA.condicionSOAP.listarTodosCondicionRequest();
-            SquirlearnWA.condicionSOAP.listarTodosCondicionResponse retVal = ((SquirlearnWA.condicionSOAP.Condicion)(this)).listarTodosCondicion(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.condicionSOAP.listarTodosCondicionResponse> SquirlearnWA.condicionSOAP.Condicion.listarTodosCondicionAsync(SquirlearnWA.condicionSOAP.listarTodosCondicionRequest request) {
-            return base.Channel.listarTodosCondicionAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.condicionSOAP.listarTodosCondicionResponse> listarTodosCondicionAsync() {
-            SquirlearnWA.condicionSOAP.listarTodosCondicionRequest inValue = new SquirlearnWA.condicionSOAP.listarTodosCondicionRequest();
-            return ((SquirlearnWA.condicionSOAP.Condicion)(this)).listarTodosCondicionAsync(inValue);
         }
     }
 }

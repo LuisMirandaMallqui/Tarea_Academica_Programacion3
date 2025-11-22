@@ -18,6 +18,18 @@
   <xs:element name="obtenerPorIdCompletoResponse" type="tns:obtenerPorIdCompletoResponse" />
   <xs:element name="obtenerPorIdPublicacion" type="tns:obtenerPorIdPublicacion" />
   <xs:element name="obtenerPorIdPublicacionResponse" type="tns:obtenerPorIdPublicacionResponse" />
+  <xs:complexType name="cambiarEstadoPublicacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="publicacionId" type="xs:int" />
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cambiarEstadoPublicacionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="modificarPublicacion">
     <xs:sequence>
       <xs:element minOccurs="0" name="publicacionId" type="xs:int" />
@@ -36,18 +48,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="modificarPublicacionResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="cambiarEstadoPublicacion">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="publicacionId" type="xs:int" />
-      <xs:element minOccurs="0" name="usuario" type="xs:string" />
-      <xs:element minOccurs="0" name="estado" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="cambiarEstadoPublicacionResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:int" />
     </xs:sequence>

@@ -17,8 +17,8 @@ namespace SquirlearnWA.MasterPages
                 if (Session["Rol"].ToString() == "Administrador")
                 {
                     // Mostrar o habilitar opciones especiales
-                    menuAdmin.Visible = false;
-                    menuUsuario.Visible = true;
+                    menuAdmin.Visible = true;
+                    menuUsuario.Visible = false;
                 }
                 else
                 {

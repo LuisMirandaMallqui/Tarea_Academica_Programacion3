@@ -1,29 +1,34 @@
-﻿using SquirlearnWA.notificacionSOAP;
+﻿using SquirlearnWA.incidenciaSOAP;
+using SquirlearnWA.motivoSOAP;
+using SquirlearnWA.notificacionSOAP;
 using SquirlearnWA.personaSOAP;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SquirlearnWA.Administrador
+namespace SquirlearnWA
 {
     public partial class ResponderIncidencia : System.Web.UI.Page
     {
-        private IncidenciaClient incidenciaSOAP;
-        private NotificacionClient notificacionSOAP;
 
+     
+       private IncidenciaClient incidenciaSOAP;
+        private NotificacionClient notificacionSOAP;
+        
         private PersonaClient personaSOAP;
         private MotivoClient motivoSOAP;
         public ResponderIncidencia()
         {
 
-
-            incidenciaSOAP = new IncidenciaClient();
-            notificacionSOAP = new NotificacionClient();
+       
+           incidenciaSOAP = new IncidenciaClient();
+            notificacionSOAP= new NotificacionClient();
             personaSOAP = new PersonaClient();
-            motivoSOAP = new MotivoClient();
+            motivoSOAP=new MotivoClient();
 
         }
 
@@ -48,7 +53,7 @@ namespace SquirlearnWA.Administrador
             // Llamada a tu backend SOAP
             var incidencia = incidenciaSOAP.obtenerPorIdIncidencia(id);
             var persona = personaSOAP.obtenerPorIdPersona(incidencia.persona.personaId);
-            var motivo = motivoSOAP.obtenerPorIdMotivo(incidencia.motivo.motivoId);
+             var motivo = motivoSOAP.obtenerPorIdMotivo(incidencia.motivo.motivoId);
 
             bool esResuelta = incidencia.resuelto == 1;
             if (esResuelta)
@@ -71,13 +76,13 @@ namespace SquirlearnWA.Administrador
 
 
 
-            Session["IdIncidencia"] = id;
+            Session["IdIncidencia"]=id;
             Session["IdUsuario"] = persona.personaId;
             Session["IdMotivo"] = motivo.motivoId;
             Session["DescripcionIncidencia"] = incidencia.descripcion;
-            Session["NombrePersona"] = persona.nombres + ' ' + persona.primerApellido + ' ' + persona.segundoApellido;
+            Session["NombrePersona"]=persona.nombres + ' ' + persona.primerApellido + ' ' + persona.segundoApellido;
             // Llenas los campos
-            txtID.Text = persona.nombres + ' ' + persona.primerApellido + ' ' + persona.segundoApellido;
+            txtID.Text = persona.nombres + ' '+ persona.primerApellido+ ' '+ persona.segundoApellido;
             txtDescripcion.Text = incidencia.descripcion;
             txtCorreo.Text = persona.correo;
             txtMotivo.Text = motivo.nombre;
@@ -86,24 +91,22 @@ namespace SquirlearnWA.Administrador
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("IncidenciasAdmin.aspx");
+            Response.Redirect("IncidenciasAdmin.aspx"); 
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            
             string respuesta = txtRespuesta.Text.Trim();
             string nuevoEstado = ddlEstado.SelectedValue;
             int estado;
             if (nuevoEstado == "Pendinte")
             {
-                estado = 0;
+                 estado = 0;
 
-            }
-            else
-            {
+            } else {
 
-                estado = 1;
+                 estado = 1;
             }
 
             int idIncidencia = Convert.ToInt32(Session["IdIncidencia"]);
@@ -112,22 +115,20 @@ namespace SquirlearnWA.Administrador
             int idMotivo = Convert.ToInt32(Session["IdMotivo"]);
             string nombre = Session["NombrePersona"].ToString();
             string descripcion = Session["DescripcionIncidencia"].ToString();
+           
+
+            
+            
+            incidenciaSOAP.modificarIncidencia(idIncidencia,descripcion, 1, idUsuario, idMotivo, estado, 1, nombre);
 
 
-
-
-            incidenciaSOAP.modificarIncidencia(idIncidencia, descripcion, 1, idUsuario, idMotivo, estado, 1, nombre);
-
-
-
-            notificacionSOAP.insertarNotificacion(respuesta, idUsuario, fechaRespuesta);
-
-
+            
+                notificacionSOAP.insertarNotificacion(respuesta, idUsuario, fechaRespuesta);
+            
+            
 
             // Puedes redirigir de nuevo a la lista
             Response.Redirect("IncidenciasAdmin.aspx");
         }
     }
-
-}
 }
