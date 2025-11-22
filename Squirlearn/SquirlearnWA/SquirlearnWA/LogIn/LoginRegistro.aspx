@@ -51,10 +51,11 @@
                         TextMode="Password" placeholder="Contraseña"></asp:TextBox>
                     <p class="text-muted">
                         La contraseña debe tener:<br>
-                        - 8 caracteres<br>
-                        - 1 letra mayúscula<br>
-                        - 1 letra minúscula<br>
-                        - 1 caracter especial (". - / @ #")
+                        - al menos 8 caracteres<br>
+                        - al menos 1 letra mayúscula<br> 
+                        - al menos 1 letra minúscula<br>
+                        - al menos 1 número<br>
+                        - al menos 1 caracter especial (". - / @ #")
                     </p>
                 </div>
 

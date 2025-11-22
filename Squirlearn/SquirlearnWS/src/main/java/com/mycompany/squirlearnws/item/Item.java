@@ -31,9 +31,10 @@ public class Item {
             @WebParam(name = "formatoId") Integer formatoId,
             @WebParam(name = "categoriaId") Integer categoriaId,
             @WebParam(name = "subcategoriaId") Integer subcategoriaId,
-            @WebParam(name = "usuario") String usuario) {
+            @WebParam(name = "usuario") String usuario,
+            @WebParam(name = "imagen") byte[] imagen) {
             return this.itemBo.insertar(precio, nombre, descripcion, esVenta, colorId, 
-                    condicionId, tamanoId, formatoId, categoriaId, subcategoriaId,usuario);
+                    condicionId, tamanoId, formatoId, categoriaId, subcategoriaId,usuario,imagen);
 
     }
 

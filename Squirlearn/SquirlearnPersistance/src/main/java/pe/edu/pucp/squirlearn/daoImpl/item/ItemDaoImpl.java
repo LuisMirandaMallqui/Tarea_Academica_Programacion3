@@ -38,6 +38,7 @@ public class ItemDaoImpl extends DAOImplBase implements ItemDao{
         this.listaColumnas.add(new Columna("DESCRIPCION", false, false));
         this.listaColumnas.add(new Columna("PRECIO", false, false));
         this.listaColumnas.add(new Columna("ES_VENTA", false, false));
+        this.listaColumnas.add(new Columna("IMAGENURL", false, false));
         this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
         this.listaColumnas.add(new Columna("USUARIO_MODIFICACION", false, false));
     }
@@ -55,9 +56,10 @@ public class ItemDaoImpl extends DAOImplBase implements ItemDao{
         this.statement.setString(i++, this.item.getNombre());                               // NOMBRE
         this.statement.setString(i++, this.item.getDescripcion());                          // DESCRIPCION
         this.statement.setDouble(i++, this.item.getPrecio());                           // PRECIO
-        this.statement.setInt(i++, this.item.getEsVenta()? 1 : 0);                          // ES_VENTA (TINYINT)
+        this.statement.setInt(i++, this.item.getEsVenta()? 1 : 0);              // ES_VENTA (TINYINT)
+        this.statement.setString(i++, this.item.getImagenURL());                       
         this.statement.setString(i++, this.item.getusuarioCreacion());   
-        this.statement.setString(i++, this.item.getusuarioModificacion());          
+        this.statement.setString(i++, this.item.getusuarioModificacion());         
     }
 
     @Override
@@ -73,9 +75,10 @@ public class ItemDaoImpl extends DAOImplBase implements ItemDao{
         this.statement.setString(i++, this.item.getNombre());                               // NOMBRE
         this.statement.setString(i++, this.item.getDescripcion());                          // DESCRIPCION
         this.statement.setDouble(i++, this.item.getPrecio());                           // PRECIO
-        this.statement.setInt(i++, this.item.getEsVenta()? 1 : 0);                          // ES_VENTA (TINYINT)
+        this.statement.setInt(i++, this.item.getEsVenta()? 1 : 0);
+        this.statement.setString(i++, this.item.getImagenURL());// ES_VENTA (TINYINT)
         this.statement.setString(i++, this.item.getusuarioCreacion());  
-        this.statement.setString(i++, this.item.getusuarioModificacion());   
+        this.statement.setString(i++, this.item.getusuarioModificacion());      
         this.statement.setInt(i++, this.item.getItemId()); // WHERE ITEM_ID=?
     }
 
@@ -134,7 +137,9 @@ public class ItemDaoImpl extends DAOImplBase implements ItemDao{
         this.item.setNombre(this.resultSet.getString("NOMBRE"));
         this.item.setPrecio(this.resultSet.getDouble("PRECIO"));
         this.item.setDescripcion(this.resultSet.getString("DESCRIPCION"));
+        this.item.setImagenURL(nombre_tabla);
         this.item.setEsVenta(this.resultSet.getInt("ES_VENTA") == 1);
+        this.item.setImagenURL(this.resultSet.getString("IMAGENURL"));
     }
 
 

@@ -18,6 +18,7 @@ public class ItemDto {
     private String descripcion;
     private String usuarioModificacion;
     private String usuarioCreacion;
+    private String imagenURL;
         
         // Constructor vacío
     public ItemDto() {
@@ -35,13 +36,15 @@ public class ItemDto {
         this.descripcion = null;
         this.usuarioModificacion = null;
         this.usuarioCreacion = null;
+        this.imagenURL = null;
     }
 
     // Constructor con parámetros
     public ItemDto(Integer itemId, Double precio, String nombre, Boolean esVenta,
                    SubcategoriaDto subcategoria, CategoriaDto categoria, ColorDto color, 
                    EstadoItemDto estadoItem, CondicionDto condicion,String usuarioCreacion,
-                   TamanoDto tamano, FormatoDto formato,String descripcion, String usuarioModificacion) {
+                   TamanoDto tamano, FormatoDto formato,String descripcion, String usuarioModificacion,
+                   String imagenURL) {
         this.itemId = itemId;
         this.precio = precio;
         this.nombre = nombre;
@@ -56,6 +59,7 @@ public class ItemDto {
         this.descripcion = descripcion;
         this.usuarioModificacion = usuarioModificacion;
         this.usuarioCreacion = usuarioCreacion;
+        this.imagenURL = imagenURL;
     }
 
     // Getters y Setters
@@ -175,6 +179,14 @@ public class ItemDto {
 
     public void setusuarioCreacion(String usuarioCreacion) {
         this.usuarioCreacion = usuarioCreacion;
+    }
+    
+    public String getImagenURL() {
+        return imagenURL;
+    }
+
+    public void setImagenURL(String imagenURL) {
+        this.imagenURL = imagenURL;
     }
 
 }

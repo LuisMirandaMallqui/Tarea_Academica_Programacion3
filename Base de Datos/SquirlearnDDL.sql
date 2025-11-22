@@ -189,6 +189,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`items` (
   `DESCRIPCION` VARCHAR(300) NOT NULL COMMENT 'Descripción detallada del item.',
   `PRECIO` DECIMAL(10,2) NOT NULL COMMENT 'Precio del item para venta o alquiler.',
   `ES_VENTA` TINYINT(3) UNSIGNED ZEROFILL NOT NULL COMMENT 'Flag (1=Venta, 0=Alquiler) que define la modalidad del item.',
+  `IMAGENURL` VARCHAR(300)  COMMENT 'Descripción detallada del item.',
   -- Auditoria
   `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
   `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',

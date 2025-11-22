@@ -30,10 +30,10 @@ public class PublicacionBo {
     public Integer insertar(Integer personaId, String usuarioCreacion, String estado,
             Double precio, String nombre,String descripcion ,Boolean esVenta ,
             Integer colorId, Integer condicionId, Integer tamanoId, Integer formatoId,
-            Integer categoriaId, Integer subcategoriaId) {
+            Integer categoriaId, Integer subcategoriaId, byte[] imagen) {
         
         Integer itemId = this.itemBo.insertar(precio, nombre, descripcion, esVenta, colorId,
-                condicionId, tamanoId, formatoId, categoriaId, subcategoriaId,usuarioCreacion);
+                condicionId, tamanoId, formatoId, categoriaId, subcategoriaId,usuarioCreacion,imagen);
         PublicacionDto publicacionDto = new PublicacionDto();
         //Instanciar un item
         ItemDto itemdto = new ItemDto();

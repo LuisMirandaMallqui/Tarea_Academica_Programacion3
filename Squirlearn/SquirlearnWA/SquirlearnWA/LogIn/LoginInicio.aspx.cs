@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SquirlearnWA
+namespace SquirlearnWA.Login
 {
     public partial class LoginInicio : System.Web.UI.Page
     {

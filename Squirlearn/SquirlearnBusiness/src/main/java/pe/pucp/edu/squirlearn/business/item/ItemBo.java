@@ -1,5 +1,12 @@
 package pe.pucp.edu.squirlearn.business.item;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pe.edu.pucp.squirlearn.dao.item.ItemDao;
 import pe.edu.pucp.squirlearn.daoImpl.item.ItemDaoImpl;
 import pe.edu.pucp.squirlearn.model.item.CategoriaDto;
@@ -22,6 +29,8 @@ public class ItemBo {
     private SubcategoriaBo subcategoriaBo;
     private TamanoBo tamanoBo;
     
+     private static final String ARCHIVO_CONFIGURACION = "cloud.properties";
+    
             
     public ItemBo(){
         this.itemDao = new ItemDaoImpl();
@@ -36,7 +45,7 @@ public class ItemBo {
     
     public Integer insertar(Double precio, String nombre,String descripcion ,Boolean esVenta ,
             Integer colorId, Integer condicionId, Integer tamanoId, Integer formatoId,
-            Integer categoriaId, Integer subcategoriaId,String usuarioCreacion){
+            Integer categoriaId, Integer subcategoriaId,String usuarioCreacion,byte[] imagen){
         ItemDto itemdto = new ItemDto();
         
         ColorDto color = new ColorDto();
@@ -54,6 +63,8 @@ public class ItemBo {
         EstadoItemDto estado = new EstadoItemDto();
         estado.setEstadoItemId(this.estadoItemBo.obtenerId(("Disponible").toUpperCase()));
         
+        String imagenURL = insertarImagenEnRepositorio(imagen);
+        
         itemdto.setPrecio(precio);
         itemdto.setNombre(nombre);
         itemdto.setDescripcion(descripcion);
@@ -66,7 +77,35 @@ public class ItemBo {
         itemdto.setSubcategoria(subcategoria);
         itemdto.setEstadoItem(estado);
         itemdto.setusuarioCreacion(usuarioCreacion);
+        itemdto.setImagenURL(imagenURL);
         return this.itemDao.insertar(itemdto);
+    }
+    
+    public String insertarImagenEnRepositorio(byte[] imagen){
+        String urlImagen = null;
+        Properties properties = new Properties();
+        String nmArchivoConf = "/" + ARCHIVO_CONFIGURACION;
+        try {
+            properties.load(this.getClass().getResourceAsStream(nmArchivoConf));
+        } catch (IOException ex) {
+            Logger.getLogger(ItemBo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (imagen != null && imagen.length > 0) {
+            try {
+                Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
+                    "cloud_name", properties.getProperty("cloud_name"),
+                    "api_key", properties.getProperty("api_key"),
+                    "api_secret", properties.getProperty("api_secret")));
+                Map uploadResult = cloudinary.uploader().upload(imagen, ObjectUtils.emptyMap());
+
+                // 4. Obtener la URL segura (HTTPS)
+                urlImagen = (String) uploadResult.get("secure_url");
+                
+            } catch (Exception e) {
+                System.out.println("Error subiendo a Cloudinary: " + e.getMessage());
+            }
+        }
+        return urlImagen;
     }
     
     public Integer modificar(Integer id,Double precio,String nombre, String descripcion, Boolean esVenta ,

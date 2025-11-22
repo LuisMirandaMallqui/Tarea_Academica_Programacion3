@@ -35,10 +35,11 @@ public class Publicacion {
             @WebParam(name = "tamanoId") Integer tamanoId,
             @WebParam(name = "formatoId") Integer formatoId,
             @WebParam(name = "categoriaId") Integer categoriaId,
-            @WebParam(name = "subcategoriaId") Integer subcategoriaId) {
+            @WebParam(name = "subcategoriaId") Integer subcategoriaId,
+            @WebParam(name = "imagen") byte[] imagen) {
         return this.publicacionBo.insertar(personaId,usuario,estado,
             precio,nombre,descripcion,esVenta,colorId, condicionId, tamanoId,
-            formatoId,categoriaId,subcategoriaId);
+            formatoId,categoriaId,subcategoriaId,imagen);
     }
 
     @WebMethod(operationName = "modificarPublicacion")
