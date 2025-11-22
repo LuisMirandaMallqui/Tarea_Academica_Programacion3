@@ -34,6 +34,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         this.listaColumnas.add(new Columna("FECHA_ALTA", false, false));
         this.listaColumnas.add(new Columna("FECHA_BAJA", false, false));
         this.listaColumnas.add(new Columna("CALIFICACION", false, false));
+        this.listaColumnas.add(new Columna("IMAGENURL", false, false));
         this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
         this.listaColumnas.add(new Columna("USUARIO_MODIFICACION", false, false));
     }
@@ -51,6 +52,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         } else {
             this.statement.setInt(i++, publicacion.getCalificacion());
         }
+        this.statement.setString(i++, this.publicacion.getImagenURL());
         this.statement.setString(i++, this.publicacion.getusuarioCreacion());
         this.statement.setString(i++, this.publicacion.getusuarioModificacion());
     }
@@ -68,6 +70,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         } else {
             this.statement.setInt(i++, publicacion.getCalificacion());
         }
+        this.statement.setString(i++, this.publicacion.getImagenURL());
         this.statement.setString(i++, this.publicacion.getusuarioCreacion());
         this.statement.setString(i++, this.publicacion.getusuarioModificacion());
         this.statement.setInt(i++, this.publicacion.getPublicacionId()); // WHERE
@@ -98,6 +101,7 @@ public class PublicacionDaoImpl extends DAOImplBase implements PublicacionDao {
         this.publicacion.setFechaAlta(this.resultSet.getString("FECHA_ALTA"));
         this.publicacion.setFechaBaja(this.resultSet.getString("FECHA_BAJA"));
         this.publicacion.setCalificacion(this.resultSet.getInt("CALIFICACION"));
+        this.publicacion.setImagenURL(this.resultSet.getString("IMAGENURL"));
     }
 
     @Override

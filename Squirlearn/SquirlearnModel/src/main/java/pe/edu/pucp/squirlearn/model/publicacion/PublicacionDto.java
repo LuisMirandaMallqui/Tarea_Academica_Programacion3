@@ -12,6 +12,7 @@ public class PublicacionDto {
     private ItemDto item;
     private PersonaDto persona;
     private Integer calificacion;
+    private String imagenURL;
     private String usuarioCreacion;
     private String usuarioModificacion;
     
@@ -26,13 +27,14 @@ public class PublicacionDto {
         this.calificacion = null;
         this.usuarioCreacion = null;
         this.usuarioModificacion = null;
+        this.imagenURL = null;
     }
 
     // Constructor con parámetros
     public PublicacionDto(Integer publicacionId, String fechaAlta, String fechaBaja,
                           EstadoPublicacionDto estadoPublicacion, ItemDto item,
                           PersonaDto persona, Integer calificacion, String usuarioCreacion,
-                          String usuarioModificacion) {
+                          String usuarioModificacion, String imagenURL) {
         this.publicacionId = publicacionId;
         this.fechaAlta = fechaAlta;
         this.fechaBaja = fechaBaja;
@@ -42,6 +44,7 @@ public class PublicacionDto {
         this.calificacion = calificacion;
         this.usuarioCreacion = usuarioCreacion;
         this.usuarioModificacion = usuarioModificacion;
+        this.imagenURL = imagenURL;
     }
 
     // Getters y Setters
@@ -117,5 +120,13 @@ public class PublicacionDto {
 
     public void setusuarioModificacion(String usuarioModificacion) {
         this.usuarioModificacion = usuarioModificacion;
+    }
+    
+    public String getImagenURL() {
+        return imagenURL;
+    }
+
+    public void setImagenURL(String imagenURL) {
+        this.imagenURL = imagenURL;
     }
 }
