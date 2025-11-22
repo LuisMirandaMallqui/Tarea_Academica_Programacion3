@@ -587,6 +587,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`publicaciones` (
   `FECHA_ALTA` DATETIME NULL DEFAULT NULL COMMENT 'Fecha en que la publicación es aprobada',
   `FECHA_BAJA` DATETIME NULL DEFAULT NULL COMMENT 'Fecha en que la publicación deja de visualizarse.',
   `CALIFICACION` INT NULL DEFAULT '0' COMMENT 'Calificación promedio de la publicación',
+  `IMAGENURL` VARCHAR(300) NULL DEFAULT NULL COMMENT 'Link al contenedor de la imagen' ,
   -- Auditoria
   `USUARIO_CREACION` VARCHAR(100) NOT NULL COMMENT 'Usuario que creó el registro.',
   `FECHA_CREACION` DATETIME NOT NULL COMMENT 'Fecha y hora de creación del registro.',
