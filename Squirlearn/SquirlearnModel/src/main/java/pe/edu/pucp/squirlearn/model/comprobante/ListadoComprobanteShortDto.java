@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class ListadoComprobanteShortDto {
     
-    private ArrayList<ComprobanteShortDto> lista;
+    private List<ComprobanteShortDto> lista;
     private Integer totalRegistros;
     
     public ListadoComprobanteShortDto() {
@@ -21,7 +21,7 @@ public class ListadoComprobanteShortDto {
         this.totalRegistros = null;
     }
     
-    public ListadoComprobanteShortDto(ArrayList<ComprobanteShortDto> lista, Integer totalRegistros) {
+    public ListadoComprobanteShortDto(List<ComprobanteShortDto> lista, Integer totalRegistros) {
         this.lista = lista;
         this.totalRegistros = totalRegistros;
     }
@@ -30,7 +30,7 @@ public class ListadoComprobanteShortDto {
         return lista;
     }
 
-    public void setLista(ArrayList<ComprobanteShortDto> lista) {
+    public void setLista(List<ComprobanteShortDto> lista) {
         this.lista = lista;
     }
 

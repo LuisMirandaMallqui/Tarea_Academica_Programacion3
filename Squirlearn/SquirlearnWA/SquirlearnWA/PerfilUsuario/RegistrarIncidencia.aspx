@@ -1,5 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/SquirLearn.Master" AutoEventWireup="true" CodeBehind="RegistrarIncidencia.aspx.cs" Inherits="SquirlearnWA.PerfilUsuario.RegistrarIncidencia" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/SquirLearn.Master" AutoEventWireup="true" CodeBehind="RegistrarIncidencia.aspx.cs" Inherits="SquirlearnWA.RegistrarIncidencia" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
+    
 
     <div class="container mt-5">
         <!-- Título -->
@@ -69,7 +70,7 @@
                 var modal = new bootstrap.Modal(document.getElementById('modalErrorMotivo'));
                 modal.show();
             }
-        </script>
+</script>
 
 
 </asp:Content>

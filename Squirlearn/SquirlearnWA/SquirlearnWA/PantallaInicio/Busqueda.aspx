@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/SquirLearn.Master" AutoEventWireup="true" CodeBehind="Busqueda.aspx.cs" Inherits="SquirlearnWA.PantallaInicio.Busqueda" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
 
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
      <div class="container-fluid px-5 py-4">
 
      <!-- 🔙 Flecha de regreso -->
@@ -145,10 +147,9 @@
              <div class="d-flex justify-content-between align-items-center mb-4">
                  <h2 class="fw-bold mb-0">
                      <asp:Label ID="lblCategoria" runat="server" Text="CATEGORÍA"></asp:Label>
-
                  </h2>
              </div>
-             <hr />
+
 
              <!-- 📦 Cards de productos -->
              <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
@@ -174,7 +175,7 @@
                                          CssClass="btn btn-primary w-100 fw-semibold"
                                          Text="Solicitar"
                                          CommandName="Solicitar"
-                                         CommandArgument='<%# Eval("publicacionId") + "|" + Eval("esVenta") + "|" + Eval("nombre") +  "|" + Eval("itemId") + "|" + Eval("precio") + "|" + Eval("personaId)#%>'/>
+                                         CommandArgument='<%# Eval("publicacionId") + "|" + Eval("esVenta") + "|" + Eval("nombre") +  "|" + Eval("itemId") + "|" + Eval("precio") + "|" + Eval("personaId")%>'/>
                                  </div>
                              </div>
                          </div>

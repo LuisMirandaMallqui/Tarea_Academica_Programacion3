@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/SquirLearn.Master" AutoEventWireup="true" CodeBehind="ResponderIncidencia.aspx.cs" Inherits="SquirlearnWA.Administrador.ResponderIncidencia" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/SquirLearn.Master" AutoEventWireup="true" CodeBehind="ResponderIncidencia.aspx.cs" Inherits="SquirlearnWA.ResponderIncidencia" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
 
     <asp:LinkButton ID="btnVolver" runat="server" CssClass="btn btn-link text-dark btn-flecha me-3" OnClick="btnVolver_Click">
@@ -44,5 +44,6 @@
         <asp:Button ID="btnGuardar" runat="server" Text="Guardar cambios" CssClass="btn btn-primary w-100" OnClick="btnGuardar_Click" />
     </div>
 </div>
+
 
 </asp:Content>

@@ -23,7 +23,7 @@ namespace SquirlearnWA
         {
 
         }
-        
+
 
         public static bool EsCorreoPucp(string correo)
         {
@@ -72,7 +72,7 @@ namespace SquirlearnWA
                 else if (char.IsLower(c))
                     tieneMinuscula = true;
                 else if (char.IsDigit(c))
-                    tieneNumero=true;
+                    tieneNumero = true;
                 else
                     tieneEspecial = true;
             }
@@ -91,32 +91,32 @@ namespace SquirlearnWA
             string contraseña2 = txtConfirmarContraseña.Text.Trim();
             string fechaActividad = DateTime.Now.ToString("yyyy-MM-dd");
 
-            if(!soloTieneLetras(nombre))
+            if (!soloTieneLetras(nombre))
             {
                 lblError.Text = "Debes ingresar un nombre válido.";
                 return;
             }
-            if(!soloTieneLetras(primerApellido))
+            if (!soloTieneLetras(primerApellido))
             {
                 lblError.Text = "Debes ingresar tu apellido paterno válido. ";
                 return;
             }
-            if(!soloTieneLetras(segundoApellido))
+            if (!soloTieneLetras(segundoApellido))
             {
                 lblError.Text = "Debes ingresar tu apellido materno válido. ";
                 return;
             }
-            if(!EsCorreoPucp(correo))
+            if (!EsCorreoPucp(correo))
             {
                 lblError.Text = "Debes ingresar un correo válido. ";
                 return;
             }
-            if(!soloTieneNumeros(codigo) || !(codigo.Length==8))
+            if (!soloTieneNumeros(codigo) || !(codigo.Length == 8))
             {
                 lblError.Text = "Debes ingresar tu codigo PUCP. ";
                 return;
             }
-            if(!EsContraseñaValida(contraseña1))
+            if (!EsContraseñaValida(contraseña1))
             {
                 lblError.Text = "Debes ingresar una contraseña válida. ";
                 return;
@@ -147,7 +147,7 @@ namespace SquirlearnWA
                     lblError.Text = "";
                     Response.Redirect("../PantallaInicio/SquirLearnInicio.aspx");
                 }
-                   
+
             }
             else
             {

@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace SquirlearnWA
 {
-    ppublic partial class Notificaciones : System.Web.UI.Page
+    public partial class Notificaciones : System.Web.UI.Page
     {
         private NotificacionClient notificacionSOAP;
         private const int RegistrosPorPagina = 4;
@@ -44,12 +44,12 @@ namespace SquirlearnWA
         {
             int usuarioId = Convert.ToInt32(Session["UsuarioId"]);
 
-
+            
             int pagina = PaginaActual + 1;
             int registrosPorPagina = RegistrosPorPagina;
 
             listadoNotificacionesDto resultado = notificacionSOAP.listarPorPersonaNotificacion(usuarioId, pagina, registrosPorPagina);
-
+            
 
             if (resultado?.lista != null && resultado.lista.Length > 0)
             {

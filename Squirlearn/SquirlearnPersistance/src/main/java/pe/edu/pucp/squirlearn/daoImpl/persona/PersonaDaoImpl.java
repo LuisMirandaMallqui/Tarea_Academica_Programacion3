@@ -37,6 +37,7 @@ public class PersonaDaoImpl extends DAOImplBase implements PersonaDao {
         this.listaColumnas.add(new Columna("ULTIMA_ACTIVIDAD", false, false));
         this.listaColumnas.add(new Columna("USUARIO_CREACION", false, false));
         this.listaColumnas.add(new Columna("USUARIO_MODIFICACION", false, false));
+       
     }
 
     @Override

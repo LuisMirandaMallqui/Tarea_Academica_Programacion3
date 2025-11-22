@@ -4,17 +4,20 @@ SET @admin_user = 'root';
 -- -----------------------------------------------------
 -- GRUPO 1: CATÁLOGOS SIMPLES 
 -- -----------------------------------------------------
+
 -- Insertar colores
 INSERT INTO colores(NOMBRE) VALUES
 ('Rojo'),
 ('Azul'),
-('Negro');
+('Negro'),
+('No aplica');
 
  -- Insertar condiciones
 INSERT INTO condiciones(NOMBRE) VALUES
 ('Nuevo'),
 ('Seminuevo'),
-('Antiguo');
+('Antiguo'),
+('No aplica');
 
 -- Insertar estados de item
 INSERT INTO estados_items(NOMBRE) VALUES
@@ -40,7 +43,8 @@ INSERT INTO categorias(NOMBRE) VALUES
 INSERT INTO tamanos(NOMBRE) VALUES
 ('Grande'),
 ('Mediano'),
-('Chico');
+('Chico'),
+('No aplica');
 
 -- Insertar estados de persona
 INSERT INTO estados_personas(NOMBRE) VALUES
@@ -83,7 +87,7 @@ INSERT INTO motivos(NOMBRE) VALUES
 ('Solución de incidencia'),
 ('Datos incorrectos'),
 ('Problemas con otro usuario'),
-('Problemas con la venta'),
+('Problemas con la venta'),	
 ('Problemas con el alquiler');
 -- -----------------------------------------------------
 -- GRUPO 2: DEPENDENCIAS

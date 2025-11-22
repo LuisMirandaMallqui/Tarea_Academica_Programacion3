@@ -16,17 +16,17 @@ namespace SquirlearnWA.notificacionSOAP {
     public interface Notificacion {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/listarPorPersonaNotificac" +
-            "ionRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Notificacion/listarPorPersonaNotificac" +
-            "ionResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/insertarNotificacionReque" +
+            "st", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Notificacion/insertarNotificacionRespo" +
+            "nse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse listarPorPersonaNotificacion(SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest request);
+        SquirlearnWA.notificacionSOAP.insertarNotificacionResponse insertarNotificacion(SquirlearnWA.notificacionSOAP.insertarNotificacionRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/listarPorPersonaNotificac" +
-            "ionRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Notificacion/listarPorPersonaNotificac" +
-            "ionResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse> listarPorPersonaNotificacionAsync(SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/insertarNotificacionReque" +
+            "st", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Notificacion/insertarNotificacionRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.insertarNotificacionResponse> insertarNotificacionAsync(SquirlearnWA.notificacionSOAP.insertarNotificacionRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/obtenerPorIdNotificacionR" +
@@ -42,81 +42,67 @@ namespace SquirlearnWA.notificacionSOAP {
         System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.obtenerPorIdNotificacionResponse> obtenerPorIdNotificacionAsync(SquirlearnWA.notificacionSOAP.obtenerPorIdNotificacionRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/insertarNotificacionReque" +
-            "st", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Notificacion/insertarNotificacionRespo" +
-            "nse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/listarPorPersonaNotificac" +
+            "ionRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Notificacion/listarPorPersonaNotificac" +
+            "ionResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.notificacionSOAP.insertarNotificacionResponse insertarNotificacion(SquirlearnWA.notificacionSOAP.insertarNotificacionRequest request);
+        SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse listarPorPersonaNotificacion(SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/insertarNotificacionReque" +
-            "st", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Notificacion/insertarNotificacionRespo" +
-            "nse")]
-        System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.insertarNotificacionResponse> insertarNotificacionAsync(SquirlearnWA.notificacionSOAP.insertarNotificacionRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Notificacion/listarPorPersonaNotificac" +
+            "ionRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Notificacion/listarPorPersonaNotificac" +
+            "ionResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse> listarPorPersonaNotificacionAsync(SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest request);
     }
     
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/")]
-    public partial class listadoNotificacionesDto : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarNotificacion", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class insertarNotificacionRequest {
         
-        private notificacionDto[] listaField;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string mensaje;
         
-        private int totalRegistrosField;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int personaId;
         
-        private bool totalRegistrosFieldSpecified;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string fecha;
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("lista", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-        public notificacionDto[] lista {
-            get {
-                return this.listaField;
-            }
-            set {
-                this.listaField = value;
-                this.RaisePropertyChanged("lista");
-            }
+        public insertarNotificacionRequest() {
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public int totalRegistros {
-            get {
-                return this.totalRegistrosField;
-            }
-            set {
-                this.totalRegistrosField = value;
-                this.RaisePropertyChanged("totalRegistros");
-            }
+        public insertarNotificacionRequest(string mensaje, int personaId, string fecha) {
+            this.mensaje = mensaje;
+            this.personaId = personaId;
+            this.fecha = fecha;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarNotificacionResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class insertarNotificacionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarNotificacionResponse() {
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool totalRegistrosSpecified {
-            get {
-                return this.totalRegistrosFieldSpecified;
-            }
-            set {
-                this.totalRegistrosFieldSpecified = value;
-                this.RaisePropertyChanged("totalRegistrosSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
+        public insertarNotificacionResponse(int @return) {
+            this.@return = @return;
         }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -204,7 +190,7 @@ namespace SquirlearnWA.notificacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -404,7 +390,7 @@ namespace SquirlearnWA.notificacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -464,7 +450,67 @@ namespace SquirlearnWA.notificacionSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/")]
+    public partial class listadoNotificacionesDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private notificacionDto[] listaField;
+        
+        private int totalRegistrosField;
+        
+        private bool totalRegistrosFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("lista", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
+        public notificacionDto[] lista {
+            get {
+                return this.listaField;
+            }
+            set {
+                this.listaField = value;
+                this.RaisePropertyChanged("lista");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int totalRegistros {
+            get {
+                return this.totalRegistrosField;
+            }
+            set {
+                this.totalRegistrosField = value;
+                this.RaisePropertyChanged("totalRegistros");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool totalRegistrosSpecified {
+            get {
+                return this.totalRegistrosFieldSpecified;
+            }
+            set {
+                this.totalRegistrosFieldSpecified = value;
+                this.RaisePropertyChanged("totalRegistrosSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -526,6 +572,42 @@ namespace SquirlearnWA.notificacionSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdNotificacion", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class obtenerPorIdNotificacionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public obtenerPorIdNotificacionRequest() {
+        }
+        
+        public obtenerPorIdNotificacionRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdNotificacionResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class obtenerPorIdNotificacionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.notificacionSOAP.notificacionDto @return;
+        
+        public obtenerPorIdNotificacionResponse() {
+        }
+        
+        public obtenerPorIdNotificacionResponse(SquirlearnWA.notificacionSOAP.notificacionDto @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorPersonaNotificacion", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
     public partial class listarPorPersonaNotificacionRequest {
         
@@ -569,83 +651,6 @@ namespace SquirlearnWA.notificacionSOAP {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdNotificacion", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class obtenerPorIdNotificacionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public obtenerPorIdNotificacionRequest() {
-        }
-        
-        public obtenerPorIdNotificacionRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdNotificacionResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class obtenerPorIdNotificacionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.notificacionSOAP.notificacionDto @return;
-        
-        public obtenerPorIdNotificacionResponse() {
-        }
-        
-        public obtenerPorIdNotificacionResponse(SquirlearnWA.notificacionSOAP.notificacionDto @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarNotificacion", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class insertarNotificacionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string mensaje;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int personaId;
-        
-        public insertarNotificacionRequest() {
-        }
-        
-        public insertarNotificacionRequest(string mensaje, int personaId) {
-            this.mensaje = mensaje;
-            this.personaId = personaId;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarNotificacionResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class insertarNotificacionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarNotificacionResponse() {
-        }
-        
-        public insertarNotificacionResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface NotificacionChannel : SquirlearnWA.notificacionSOAP.Notificacion, System.ServiceModel.IClientChannel {
     }
@@ -674,30 +679,30 @@ namespace SquirlearnWA.notificacionSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse SquirlearnWA.notificacionSOAP.Notificacion.listarPorPersonaNotificacion(SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest request) {
-            return base.Channel.listarPorPersonaNotificacion(request);
+        SquirlearnWA.notificacionSOAP.insertarNotificacionResponse SquirlearnWA.notificacionSOAP.Notificacion.insertarNotificacion(SquirlearnWA.notificacionSOAP.insertarNotificacionRequest request) {
+            return base.Channel.insertarNotificacion(request);
         }
         
-        public SquirlearnWA.notificacionSOAP.listadoNotificacionesDto listarPorPersonaNotificacion(int personaId, int pagina, int registrosPorPagina) {
-            SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest inValue = new SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest();
+        public int insertarNotificacion(string mensaje, int personaId, string fecha) {
+            SquirlearnWA.notificacionSOAP.insertarNotificacionRequest inValue = new SquirlearnWA.notificacionSOAP.insertarNotificacionRequest();
+            inValue.mensaje = mensaje;
             inValue.personaId = personaId;
-            inValue.pagina = pagina;
-            inValue.registrosPorPagina = registrosPorPagina;
-            SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse retVal = ((SquirlearnWA.notificacionSOAP.Notificacion)(this)).listarPorPersonaNotificacion(inValue);
+            inValue.fecha = fecha;
+            SquirlearnWA.notificacionSOAP.insertarNotificacionResponse retVal = ((SquirlearnWA.notificacionSOAP.Notificacion)(this)).insertarNotificacion(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse> SquirlearnWA.notificacionSOAP.Notificacion.listarPorPersonaNotificacionAsync(SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest request) {
-            return base.Channel.listarPorPersonaNotificacionAsync(request);
+        System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.insertarNotificacionResponse> SquirlearnWA.notificacionSOAP.Notificacion.insertarNotificacionAsync(SquirlearnWA.notificacionSOAP.insertarNotificacionRequest request) {
+            return base.Channel.insertarNotificacionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse> listarPorPersonaNotificacionAsync(int personaId, int pagina, int registrosPorPagina) {
-            SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest inValue = new SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest();
+        public System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.insertarNotificacionResponse> insertarNotificacionAsync(string mensaje, int personaId, string fecha) {
+            SquirlearnWA.notificacionSOAP.insertarNotificacionRequest inValue = new SquirlearnWA.notificacionSOAP.insertarNotificacionRequest();
+            inValue.mensaje = mensaje;
             inValue.personaId = personaId;
-            inValue.pagina = pagina;
-            inValue.registrosPorPagina = registrosPorPagina;
-            return ((SquirlearnWA.notificacionSOAP.Notificacion)(this)).listarPorPersonaNotificacionAsync(inValue);
+            inValue.fecha = fecha;
+            return ((SquirlearnWA.notificacionSOAP.Notificacion)(this)).insertarNotificacionAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -724,28 +729,30 @@ namespace SquirlearnWA.notificacionSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.notificacionSOAP.insertarNotificacionResponse SquirlearnWA.notificacionSOAP.Notificacion.insertarNotificacion(SquirlearnWA.notificacionSOAP.insertarNotificacionRequest request) {
-            return base.Channel.insertarNotificacion(request);
+        SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse SquirlearnWA.notificacionSOAP.Notificacion.listarPorPersonaNotificacion(SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest request) {
+            return base.Channel.listarPorPersonaNotificacion(request);
         }
         
-        public int insertarNotificacion(string mensaje, int personaId) {
-            SquirlearnWA.notificacionSOAP.insertarNotificacionRequest inValue = new SquirlearnWA.notificacionSOAP.insertarNotificacionRequest();
-            inValue.mensaje = mensaje;
+        public SquirlearnWA.notificacionSOAP.listadoNotificacionesDto listarPorPersonaNotificacion(int personaId, int pagina, int registrosPorPagina) {
+            SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest inValue = new SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest();
             inValue.personaId = personaId;
-            SquirlearnWA.notificacionSOAP.insertarNotificacionResponse retVal = ((SquirlearnWA.notificacionSOAP.Notificacion)(this)).insertarNotificacion(inValue);
+            inValue.pagina = pagina;
+            inValue.registrosPorPagina = registrosPorPagina;
+            SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse retVal = ((SquirlearnWA.notificacionSOAP.Notificacion)(this)).listarPorPersonaNotificacion(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.insertarNotificacionResponse> SquirlearnWA.notificacionSOAP.Notificacion.insertarNotificacionAsync(SquirlearnWA.notificacionSOAP.insertarNotificacionRequest request) {
-            return base.Channel.insertarNotificacionAsync(request);
+        System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse> SquirlearnWA.notificacionSOAP.Notificacion.listarPorPersonaNotificacionAsync(SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest request) {
+            return base.Channel.listarPorPersonaNotificacionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.insertarNotificacionResponse> insertarNotificacionAsync(string mensaje, int personaId) {
-            SquirlearnWA.notificacionSOAP.insertarNotificacionRequest inValue = new SquirlearnWA.notificacionSOAP.insertarNotificacionRequest();
-            inValue.mensaje = mensaje;
+        public System.Threading.Tasks.Task<SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionResponse> listarPorPersonaNotificacionAsync(int personaId, int pagina, int registrosPorPagina) {
+            SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest inValue = new SquirlearnWA.notificacionSOAP.listarPorPersonaNotificacionRequest();
             inValue.personaId = personaId;
-            return ((SquirlearnWA.notificacionSOAP.Notificacion)(this)).insertarNotificacionAsync(inValue);
+            inValue.pagina = pagina;
+            inValue.registrosPorPagina = registrosPorPagina;
+            return ((SquirlearnWA.notificacionSOAP.Notificacion)(this)).listarPorPersonaNotificacionAsync(inValue);
         }
     }
 }

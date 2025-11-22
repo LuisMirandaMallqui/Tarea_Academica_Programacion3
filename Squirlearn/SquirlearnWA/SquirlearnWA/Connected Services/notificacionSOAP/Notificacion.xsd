@@ -10,6 +10,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="mensaje" type="xs:string" />
       <xs:element minOccurs="0" name="personaId" type="xs:int" />
+      <xs:element minOccurs="0" name="fecha" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarNotificacionResponse">
