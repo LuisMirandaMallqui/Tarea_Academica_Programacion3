@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Persona?xsd=1" namespace="http://persona.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="logInPersona">
-    <part name="parameters" element="tns:logInPersona" />
-  </message>
-  <message name="logInPersonaResponse">
-    <part name="parameters" element="tns:logInPersonaResponse" />
-  </message>
   <message name="insertarPersona">
     <part name="parameters" element="tns:insertarPersona" />
   </message>
@@ -23,11 +17,11 @@
   <message name="modificarPersonaResponse">
     <part name="parameters" element="tns:modificarPersonaResponse" />
   </message>
-  <message name="obtenerPorCodigoPersona">
-    <part name="parameters" element="tns:obtenerPorCodigoPersona" />
+  <message name="logInPersona">
+    <part name="parameters" element="tns:logInPersona" />
   </message>
-  <message name="obtenerPorCodigoPersonaResponse">
-    <part name="parameters" element="tns:obtenerPorCodigoPersonaResponse" />
+  <message name="logInPersonaResponse">
+    <part name="parameters" element="tns:logInPersonaResponse" />
   </message>
   <message name="obtenerPorIdPersona">
     <part name="parameters" element="tns:obtenerPorIdPersona" />
@@ -35,11 +29,13 @@
   <message name="obtenerPorIdPersonaResponse">
     <part name="parameters" element="tns:obtenerPorIdPersonaResponse" />
   </message>
+  <message name="obtenerPorCodigoPersona">
+    <part name="parameters" element="tns:obtenerPorCodigoPersona" />
+  </message>
+  <message name="obtenerPorCodigoPersonaResponse">
+    <part name="parameters" element="tns:obtenerPorCodigoPersonaResponse" />
+  </message>
   <portType name="Persona">
-    <operation name="logInPersona">
-      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaRequest" message="tns:logInPersona" />
-      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaResponse" message="tns:logInPersonaResponse" />
-    </operation>
     <operation name="insertarPersona">
       <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/insertarPersonaRequest" message="tns:insertarPersona" />
       <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/insertarPersonaResponse" message="tns:insertarPersonaResponse" />
@@ -48,26 +44,21 @@
       <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/modificarPersonaRequest" message="tns:modificarPersona" />
       <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/modificarPersonaResponse" message="tns:modificarPersonaResponse" />
     </operation>
-    <operation name="obtenerPorCodigoPersona">
-      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaRequest" message="tns:obtenerPorCodigoPersona" />
-      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaResponse" message="tns:obtenerPorCodigoPersonaResponse" />
+    <operation name="logInPersona">
+      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaRequest" message="tns:logInPersona" />
+      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaResponse" message="tns:logInPersonaResponse" />
     </operation>
     <operation name="obtenerPorIdPersona">
       <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorIdPersonaRequest" message="tns:obtenerPorIdPersona" />
       <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorIdPersonaResponse" message="tns:obtenerPorIdPersonaResponse" />
     </operation>
+    <operation name="obtenerPorCodigoPersona">
+      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaRequest" message="tns:obtenerPorCodigoPersona" />
+      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaResponse" message="tns:obtenerPorCodigoPersonaResponse" />
+    </operation>
   </portType>
   <binding name="PersonaPortBinding" type="tns:Persona">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="logInPersona">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="insertarPersona">
       <soap:operation soapAction="" />
       <input>
@@ -86,7 +77,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerPorCodigoPersona">
+    <operation name="logInPersona">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -96,6 +87,15 @@
       </output>
     </operation>
     <operation name="obtenerPorIdPersona">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorCodigoPersona">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

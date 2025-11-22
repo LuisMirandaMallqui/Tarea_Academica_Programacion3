@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="e24a8dd6-2adc-487b-8b67-b2374a9b3846" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="da850ee7-4c7d-4837-80ca-67faa1020e04" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:8080/SquirlearnWS/Persona?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Persona.xsd" MetadataType="Schema" ID="32437d7a-7272-467e-b20c-f59bb3b06b9b" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Persona?xsd=1" />
-    <MetadataFile FileName="Persona.wsdl" MetadataType="Wsdl" ID="18155ca3-304d-4446-a8d2-fbf2ed1b5a8c" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Persona?wsdl" />
+    <MetadataFile FileName="Persona.xsd" MetadataType="Schema" ID="17ef9e28-56f1-48e7-a531-20aee07f467e" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Persona?xsd=1" />
+    <MetadataFile FileName="Persona.wsdl" MetadataType="Wsdl" ID="b3cce946-0348-4cfa-be90-6bfe8b8f6cef" SourceId="1" SourceUrl="http://localhost:8080/SquirlearnWS/Persona?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

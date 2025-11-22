@@ -16,14 +16,13 @@ public class NotificacionBo {
         this.notificacionDao = new NotificacionDaoImpl();
     }
 
-    public Integer insertar(String mensaje, Integer personaId) {
+    public Integer insertar(String mensaje, Integer personaId,String fecha) {
         NotificacionDto notificacionDto = new NotificacionDto();
-
         PersonaDto persona = new PersonaDto();
         persona.setPersonaId(personaId);
-
         notificacionDto.setMensaje(mensaje);
         notificacionDto.setPersona(persona);
+        notificacionDto.setFecha(fecha);
         return this.notificacionDao.insertar(notificacionDto);
     }
     
@@ -32,7 +31,6 @@ public class NotificacionBo {
         ListadoNotificacionesDto listado = new ListadoNotificacionesDto();
         listado.setLista(this.notificacionDao.listarPorPersona(personaID, pagina, registrosPorPagina));
         listado.setTotalRegistros(this.notificacionDao.listarPorPersonaCantidad(personaID)); // VA PAGINACION?
-        
         return listado;
     }
 

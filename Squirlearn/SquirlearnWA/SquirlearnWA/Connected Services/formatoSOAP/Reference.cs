@@ -16,15 +16,6 @@ namespace SquirlearnWA.formatoSOAP {
     public interface Formato {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Formato/obtenerPorIdFormatoRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Formato/obtenerPorIdFormatoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.formatoSOAP.obtenerPorIdFormatoResponse obtenerPorIdFormato(SquirlearnWA.formatoSOAP.obtenerPorIdFormatoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Formato/obtenerPorIdFormatoRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Formato/obtenerPorIdFormatoResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.formatoSOAP.obtenerPorIdFormatoResponse> obtenerPorIdFormatoAsync(SquirlearnWA.formatoSOAP.obtenerPorIdFormatoRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Formato/listarTodosFormatoRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Formato/listarTodosFormatoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -32,6 +23,15 @@ namespace SquirlearnWA.formatoSOAP {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Formato/listarTodosFormatoRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Formato/listarTodosFormatoResponse")]
         System.Threading.Tasks.Task<SquirlearnWA.formatoSOAP.listarTodosFormatoResponse> listarTodosFormatoAsync(SquirlearnWA.formatoSOAP.listarTodosFormatoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Formato/obtenerPorIdFormatoRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Formato/obtenerPorIdFormatoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.formatoSOAP.obtenerPorIdFormatoResponse obtenerPorIdFormato(SquirlearnWA.formatoSOAP.obtenerPorIdFormatoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Formato/obtenerPorIdFormatoRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Formato/obtenerPorIdFormatoResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.formatoSOAP.obtenerPorIdFormatoResponse> obtenerPorIdFormatoAsync(SquirlearnWA.formatoSOAP.obtenerPorIdFormatoRequest request);
     }
     
     /// <remarks/>
@@ -97,6 +97,34 @@ namespace SquirlearnWA.formatoSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosFormato", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosFormatoRequest {
+        
+        public listarTodosFormatoRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosFormatoResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosFormatoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.formatoSOAP.formatoDto[] @return;
+        
+        public listarTodosFormatoResponse() {
+        }
+        
+        public listarTodosFormatoResponse(SquirlearnWA.formatoSOAP.formatoDto[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdFormato", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
     public partial class obtenerPorIdFormatoRequest {
         
@@ -130,34 +158,6 @@ namespace SquirlearnWA.formatoSOAP {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosFormato", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosFormatoRequest {
-        
-        public listarTodosFormatoRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosFormatoResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosFormatoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.formatoSOAP.formatoDto[] @return;
-        
-        public listarTodosFormatoResponse() {
-        }
-        
-        public listarTodosFormatoResponse(SquirlearnWA.formatoSOAP.formatoDto[] @return) {
-            this.@return = @return;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface FormatoChannel : SquirlearnWA.formatoSOAP.Formato, System.ServiceModel.IClientChannel {
     }
@@ -186,6 +186,27 @@ namespace SquirlearnWA.formatoSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.formatoSOAP.listarTodosFormatoResponse SquirlearnWA.formatoSOAP.Formato.listarTodosFormato(SquirlearnWA.formatoSOAP.listarTodosFormatoRequest request) {
+            return base.Channel.listarTodosFormato(request);
+        }
+        
+        public SquirlearnWA.formatoSOAP.formatoDto[] listarTodosFormato() {
+            SquirlearnWA.formatoSOAP.listarTodosFormatoRequest inValue = new SquirlearnWA.formatoSOAP.listarTodosFormatoRequest();
+            SquirlearnWA.formatoSOAP.listarTodosFormatoResponse retVal = ((SquirlearnWA.formatoSOAP.Formato)(this)).listarTodosFormato(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.formatoSOAP.listarTodosFormatoResponse> SquirlearnWA.formatoSOAP.Formato.listarTodosFormatoAsync(SquirlearnWA.formatoSOAP.listarTodosFormatoRequest request) {
+            return base.Channel.listarTodosFormatoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.formatoSOAP.listarTodosFormatoResponse> listarTodosFormatoAsync() {
+            SquirlearnWA.formatoSOAP.listarTodosFormatoRequest inValue = new SquirlearnWA.formatoSOAP.listarTodosFormatoRequest();
+            return ((SquirlearnWA.formatoSOAP.Formato)(this)).listarTodosFormatoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SquirlearnWA.formatoSOAP.obtenerPorIdFormatoResponse SquirlearnWA.formatoSOAP.Formato.obtenerPorIdFormato(SquirlearnWA.formatoSOAP.obtenerPorIdFormatoRequest request) {
             return base.Channel.obtenerPorIdFormato(request);
         }
@@ -206,27 +227,6 @@ namespace SquirlearnWA.formatoSOAP {
             SquirlearnWA.formatoSOAP.obtenerPorIdFormatoRequest inValue = new SquirlearnWA.formatoSOAP.obtenerPorIdFormatoRequest();
             inValue.id = id;
             return ((SquirlearnWA.formatoSOAP.Formato)(this)).obtenerPorIdFormatoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.formatoSOAP.listarTodosFormatoResponse SquirlearnWA.formatoSOAP.Formato.listarTodosFormato(SquirlearnWA.formatoSOAP.listarTodosFormatoRequest request) {
-            return base.Channel.listarTodosFormato(request);
-        }
-        
-        public SquirlearnWA.formatoSOAP.formatoDto[] listarTodosFormato() {
-            SquirlearnWA.formatoSOAP.listarTodosFormatoRequest inValue = new SquirlearnWA.formatoSOAP.listarTodosFormatoRequest();
-            SquirlearnWA.formatoSOAP.listarTodosFormatoResponse retVal = ((SquirlearnWA.formatoSOAP.Formato)(this)).listarTodosFormato(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.formatoSOAP.listarTodosFormatoResponse> SquirlearnWA.formatoSOAP.Formato.listarTodosFormatoAsync(SquirlearnWA.formatoSOAP.listarTodosFormatoRequest request) {
-            return base.Channel.listarTodosFormatoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.formatoSOAP.listarTodosFormatoResponse> listarTodosFormatoAsync() {
-            SquirlearnWA.formatoSOAP.listarTodosFormatoRequest inValue = new SquirlearnWA.formatoSOAP.listarTodosFormatoRequest();
-            return ((SquirlearnWA.formatoSOAP.Formato)(this)).listarTodosFormatoAsync(inValue);
         }
     }
 }

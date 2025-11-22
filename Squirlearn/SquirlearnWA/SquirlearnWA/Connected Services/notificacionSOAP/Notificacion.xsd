@@ -10,7 +10,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="mensaje" type="xs:string" />
       <xs:element minOccurs="0" name="personaId" type="xs:int" />
-      <xs:element minOccurs="0" name="motivoId" type="xs:int" />
+      <xs:element minOccurs="0" name="fecha" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarNotificacionResponse">
@@ -21,26 +21,27 @@
   <xs:complexType name="listarPorPersonaNotificacion">
     <xs:sequence>
       <xs:element minOccurs="0" name="personaId" type="xs:int" />
+      <xs:element minOccurs="0" name="pagina" type="xs:int" />
+      <xs:element minOccurs="0" name="registrosPorPagina" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarPorPersonaNotificacionResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:notificacionDto" />
+      <xs:element minOccurs="0" name="return" type="tns:listadoNotificacionesDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listadoNotificacionesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="lista" nillable="true" type="tns:notificacionDto" />
+      <xs:element minOccurs="0" name="totalRegistros" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="notificacionDto">
     <xs:sequence>
       <xs:element minOccurs="0" name="fecha" type="xs:string" />
       <xs:element minOccurs="0" name="mensaje" type="xs:string" />
-      <xs:element minOccurs="0" name="motivo" type="tns:motivoDto" />
       <xs:element minOccurs="0" name="notificacionId" type="xs:int" />
       <xs:element minOccurs="0" name="persona" type="tns:personaDto" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="motivoDto">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="motivoId" type="xs:int" />
-      <xs:element minOccurs="0" name="nombre" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="personaDto">

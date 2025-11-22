@@ -2,7 +2,7 @@
 using SquirlearnWA.comprobanteSOAP;
 using SquirlearnWA.notificacionSOAP;
 using SquirlearnWA.publicacionSOAP;
-using SquirlearnWA.ItemSOAP;
+using SquirlearnWA.itemSOAP;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +18,14 @@ namespace SquirlearnWA
         private NotificacionClient notificacionSoap;
         private AlquilerClient alquilerSoap;
         private PublicacionClient publicacionSoap;
-        private ItemClient itemSoap;
+        private ItemClient itemSoap; 
         public ConfirmacionPedido()
         {
             this.notificacionSoap = new NotificacionClient();
             this.alquilerSoap = new AlquilerClient();
             this.comprobanteSoap = new ComprobanteClient();
             this.publicacionSoap = new PublicacionClient();
+            this.itemSoap = new ItemClient();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -83,7 +84,7 @@ namespace SquirlearnWA
                         string mensajeAlquilerUsuario = $"Tu aquiler de"  + $" {lblNombre.Text} "
                             + "se proceso con exito " + fechaCompra;
                         //por corregir
-                        notificacionSoap.insertarNotificacion(mensajeAlquilerUsuario, idUsuario) ;
+                      //  notificacionSoap.insertarNotificacion(mensajeAlquilerUsuario, idUsuario) ;
 
 
                         //NOTIFICACION PARA EL VENDEDOR DE LA PUBLICACION
@@ -91,7 +92,7 @@ namespace SquirlearnWA
                               + "ha sido comprado por " + usuarioNombre + ", correo electronico: " + usuarioCorreo + ". Comunícate lo antes posible/n" +
                               "Inicio de alquiler: " + Session["fechaInicio"].ToString() + "/nFin de alquiler " + Session["fechaFin"].ToString();
 
-                        notificacionSoap.insertarNotificacion(mensajeAlquilerVendedor, idVendedor);
+                        //notificacionSoap.insertarNotificacion(mensajeAlquilerVendedor, idVendedor);
 
                         itemSoap.cambiarEstadoItem((int)Session["itemId"], Session["nombreUsuario"].ToString(), "Alquilado");
 
@@ -104,17 +105,16 @@ namespace SquirlearnWA
                         //NOTIFICACION PARA EL USUARIO QUE COMPRO
                         string mensajeAlquilerUsuario = $"Tu compra de" + $" {lblNombre.Text} "
                             + "se proceso con exito " + fechaCompra;
-                        notificacionSoap.insertarNotificacion(mensajeAlquilerUsuario, idUsuario);
+                       // notificacionSoap.insertarNotificacion(mensajeAlquilerUsuario, idUsuario);
 
                         //NOTIFICACION PARA EL VENDEDOR DE LA PUBLICACION
                         string mensajeAlquilerVendedor = $"Tu producto en venta" + $" {lblNombre.Text} "
                              + "ha sido comprado por " + usuarioNombre + ", correo electronico: " + usuarioCorreo;
-                        notificacionSoap.insertarNotificacion(mensajeAlquilerVendedor, idVendedor);
+                        //notificacionSoap.insertarNotificacion(mensajeAlquilerVendedor, idVendedor);
                         itemSoap.cambiarEstadoItem((int)Session["itemId"], Session["nombreUsuario"].ToString(), "Vendido");
 
                     }
-                    //por corregir
-                    publicacionSoap.cambiarEstadoPublicacion(Int32.Parse(Session["productoSeleccionado"].ToString(), Session["nombreUsuario"].ToString() , "Transaccionada");
+                    publicacionSoap.cambiarEstadoPublicacion(Int32.Parse(Session["productoSeleccionado"].ToString()), Session["nombreUsuario"].ToString() , "Transaccionada");
                     comprobanteSoap.insertarComprobante(totalCompra, codigoTransaccion, idUsuario, metodoPago, tipoMoneda, impuesto, fechaCompra, usuarioNombre, (int)Session["itemId"],
                         alquilerId, Session["nombreProducto"].ToString());
 

@@ -1,7 +1,6 @@
 
 package pe.edu.pucp.squirlearn.model.inciNoti;
 
-import java.util.ArrayList;
 import java.util.List;
 
 

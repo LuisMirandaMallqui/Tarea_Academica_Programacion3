@@ -23,27 +23,39 @@ namespace SquirlearnWA
         {
 
         }
-        
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
 
 
             string correoElectronico = txtUsuario.Text.Trim();
             string contrasena = txtContraseña.Text.Trim();
-            
+
+
+
             personaDto usuarioLogeado = personaSoap.logInPersona(correoElectronico, contrasena);
 
+            if (correoElectronico == "")
+            {
+                lblError.Text = "Debes ingresar un correo";
+                return;
+            }
+            if (contrasena == "")
+            {
+                lblError.Text = "Debes ingresar una contraseña";
+                return;
+            }
             if (usuarioLogeado != null)
             {
 
                 // Guardamos en sesión solo lo necesario
                 Session["usuarioId"] = usuarioLogeado.personaId;
-                
+
                 IList<rolPersonaDto> lista = usuarioLogeado.rolPersona;
-                Session["rol"] = lista[1].nombre;
+                Session["rol"] = lista[0].nombre;
                 Session["nombreUsuario"] = usuarioLogeado.nombres + usuarioLogeado.primerApellido;
                 Session["correoUsuario"] = usuarioLogeado.correo;
-                Response.Redirect(lista[1].nombre == "Administrador"
+                Response.Redirect(lista[0].nombre == "Administrador"
                                   ? "../PantallaInicio/AdminInicio.aspx"
                                   : "../PantallaInicio/SquirLearnInicio.aspx");
             }
@@ -58,9 +70,9 @@ namespace SquirlearnWA
         protected void btnRegistro_Click(object sender, EventArgs e)
         {
             Response.Redirect("LoginRegistro.aspx");
-           
+
         }
 
-       
+
     }
 }
