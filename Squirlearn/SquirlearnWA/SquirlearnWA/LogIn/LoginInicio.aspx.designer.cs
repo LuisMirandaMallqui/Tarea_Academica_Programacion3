@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SquirlearnWA
+namespace SquirlearnWA.Login
 {
 
 

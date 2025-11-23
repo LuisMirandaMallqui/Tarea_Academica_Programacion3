@@ -19,16 +19,17 @@
         <!-- 🟦 Barra lateral -->
         <div class="sidebar">
             <div class="logo text-center mb-4">
-                <img src="../Imagenes/ardilla2.png" alt="Logo" class="img-fluid" style="max-width: 60px;">
-                <h5 class="fw-bold mt-2">SQUIR<br>LEARN</h5>
+                <img src="../Imagenes/ardilla2.png" alt="Logo" class="img-fluid" style="max-width: 100px;">
+                <h5 class="fw-bold mt-2">SQUIRLEARN</h5>
             </div>
 
             <ul class="nav flex-column">
                 <!-- 🟦 Vista Usuario -->
                <asp:Panel ID="menuUsuario" runat="server" Visible="false">
-                <li><a href="../PantallaInicio/SquirLearnInicio.aspx" class="active"><i class="fa fa-search"></i> Buscar</a></li>
+                <li><a href="../PantallaInicio/SquirLearnInicio.aspx"><i class="fa fa-home"></i> Inicio</a></li>
+                <li><a href="../PantallaInicio/Busqueda.aspx"><i class="fa fa-search"></i> Buscar</a></li>
                 <li><a href="../PublicacionDelUsuario/Publicar.aspx"><i class="fa fa-plus-circle"></i> Vender</a></li>
-                <li><a href="../PantallaInicio/Mensajes.aspx"><i class="fa fa-envelope"></i> Mensajes</a></li>
+                <!-- apartado mensajes: <li><a href="../PantallaInicio/Mensajes.aspx"><i class="fa fa-envelope"></i> Mensajes</a></li>--> 
                 <li> <a href="../PerfilUsuario/Pedidos.aspx" ><i class="fa-solid fa-cash-register"></i>Mis Pedidos</a></li>
                 <li> <a href="../PublicacionDelUsuario/ListadoPublicaciones.aspx" ><i class="fa-solid fa-store"></i>Mis Publicaciones</a></li>
                 <li> <a href="../PerfilUsuario/Notificaciones.aspx"><i class="fa-solid fa-bell"></i>Notificaciones</a></li>

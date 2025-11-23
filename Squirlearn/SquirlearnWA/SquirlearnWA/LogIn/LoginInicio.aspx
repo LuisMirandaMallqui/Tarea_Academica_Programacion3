@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Login.Master" AutoEventWireup="true" CodeBehind="LoginInicio.aspx.cs" Inherits="SquirlearnWA.LoginInicio" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Login.Master" AutoEventWireup="true" CodeBehind="LoginInicio.aspx.cs" Inherits="SquirlearnWA.Login.LoginInicio" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container text-center">
         <div class="row align-items-center">

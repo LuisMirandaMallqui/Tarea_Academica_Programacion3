@@ -16,8 +16,7 @@ namespace SquirlearnWA.PublicacionDelUsuario
 {
     public partial class Publicar : System.Web.UI.Page
     {
-        // --- 1. DEFINE TUS CLIENTES SOAP ---
-        // (Asegúrate que los nombres coincidan)
+        // --- CLIENTES SOAP ---
         private CategoriaClient categoriaSoap = new CategoriaClient();
         private SubcategoriaClient subcategoriaSoap = new SubcategoriaClient();
         private PublicacionClient publicacionSoap = new PublicacionClient();
@@ -27,43 +26,36 @@ namespace SquirlearnWA.PublicacionDelUsuario
         private ColorClient colorSoap = new ColorClient();
 
 
-        // (Reemplaza estos IDs con los de tu Base de Datos)
         private const int ID_ESTADO_PENDIENTE = 1;
         private const int ID_ESTADO_BORRADOR = 2;
-        private const int ID_ESTADO_ACEPTADO = 3; // (Solo para lógica de 'Enabled')
+        private const int ID_ESTADO_ACEPTADO = 3; 
 
-        // --- 3. PROPIEDAD PARA GUARDAR EL ID ---
         private int IdPublicacionActual
         {
             get { return ViewState["IdPublicacionActual"] != null ? (int)ViewState["IdPublicacionActual"] : -1; }
             set { ViewState["IdPublicacionActual"] = value; }
         }
 
-        // --- 4. PAGE_LOAD (EL CEREBRO) ---
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                // 1. Carga todos los DropDowns desde el Backend
                 CargarDropDownsIniciales();
 
                 // 2. Revisa si venimos de "Editar" o "Crear"
                 if (Session["EditarPublicacionId"] != null)
                 {
                     int id = (int)Session["EditarPublicacionId"];
-                    Session.Remove("EditarPublicacionId"); // Limpia la sesión
+                    Session.Remove("EditarPublicacionId"); 
 
-                    IdPublicacionActual = id; // Guarda el ID en la página
+                    IdPublicacionActual = id;
 
                     if (id > 0)
                     {
-                        // --- MODO EDICIÓN ---
                         hTitulo.InnerText = "EDITAR PUBLICACIÓN";
 
-                        // Llama al SOAP para traer el DTO *completo*, se está cambiando el método para listar completo
                         var pubCompleta = publicacionSoap.obtenerPorIdCompleto(id);
 
-                        // Llena el formulario con los datos
                         if (pubCompleta != null)
                         {
                             LlenarFormulario(pubCompleta);
@@ -71,7 +63,6 @@ namespace SquirlearnWA.PublicacionDelUsuario
                     }
                     else
                     {
-                        // --- MODO CREACIÓN ---
                         hTitulo.InnerText = "NUEVA PUBLICACIÓN";
                         // Esconde el formulario hasta que elija categoría
                         panelGeneral.Visible = false;
@@ -341,9 +332,6 @@ namespace SquirlearnWA.PublicacionDelUsuario
         }
 
         #endregion
-
-
-
 
         private void MostrarMensaje(string mensaje)
         {

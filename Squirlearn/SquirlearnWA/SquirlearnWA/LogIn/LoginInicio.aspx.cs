@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SquirlearnWA
+namespace SquirlearnWA.Login
 {
     public partial class LoginInicio : System.Web.UI.Page
     {
@@ -53,7 +53,7 @@ namespace SquirlearnWA
 
                 IList<rolPersonaDto> lista = usuarioLogeado.rolPersona;
                 Session["rol"] = lista[0].nombre;
-                Session["nombreUsuario"] = usuarioLogeado.nombres + usuarioLogeado.primerApellido;
+                Session["nombreUsuario"] = usuarioLogeado.nombres + " " + usuarioLogeado.primerApellido;
                 Session["correoUsuario"] = usuarioLogeado.correo;
                 Response.Redirect(lista[0].nombre == "Administrador"
                                   ? "../PantallaInicio/AdminInicio.aspx"
