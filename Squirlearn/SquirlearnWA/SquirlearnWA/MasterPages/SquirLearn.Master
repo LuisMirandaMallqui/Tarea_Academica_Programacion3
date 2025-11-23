@@ -4,71 +4,79 @@
 <html lang="es">
 <head runat="server">
     <meta charset="utf-8" />
+    <!-- Necesario para que Bootstrap responda bien a cambios de tamaño -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>SquirLearn</title>
+
+    <!-- CSS -->
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Content/fonts/css/all.css" rel="stylesheet" />
     <link href="../Content/Inicio.css" rel="stylesheet" />
-    <script src="../Scripts/bootstrap.bundle.js"></script>
+
+    <!-- JS (jQuery antes que Bootstrap) -->
     <script src="../Scripts/jquery-3.7.1.js"></script>
+    <script src="../Scripts/bootstrap.bundle.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
-    <!-- Contenedor general -->
-    <div class="layout-container d-flex">
-        
-        <!-- 🟦 Barra lateral -->
-        <div class="sidebar">
-            <div class="logo text-center mb-4">
-                <img src="../Imagenes/ardilla2.png" alt="Logo" class="img-fluid" style="max-width: 60px;">
-                <h5 class="fw-bold mt-2">SQUIR<br>LEARN</h5>
-            </div>
+        <!-- Contenedor general -->
+        <!-- Volvemos a solo d-flex para que SIEMPRE sea sidebar izquierda + contenido derecha -->
+        <div class="layout-container d-flex">
+            
+            <!-- 🟦 Barra lateral -->
+            <div class="sidebar">
+                <div class="logo text-center mb-4">
+                    <img src="../Imagenes/ardilla2.png" alt="Logo" class="img-fluid" style="max-width: 100px;">
+                    <h5 class="fw-bold mt-2">SQUIRLEARN</h5>
+                </div>
 
-            <ul class="nav flex-column">
-                <!-- 🟦 Vista Usuario -->
-               <asp:Panel ID="menuUsuario" runat="server" Visible="false">
-                <li><a href="../PantallaInicio/SquirLearnInicio.aspx" class="active"><i class="fa fa-search"></i> Buscar</a></li>
-                <li><a href="../PublicacionDelUsuario/Publicar.aspx"><i class="fa fa-plus-circle"></i> Vender</a></li>
-                <li><a href="../PantallaInicio/Mensajes.aspx"><i class="fa fa-envelope"></i> Mensajes</a></li>
-                <li> <a href="../PerfilUsuario/Pedidos.aspx" ><i class="fa-solid fa-cash-register"></i>Mis Pedidos</a></li>
-                <li> <a href="../PublicacionDelUsuario/ListadoPublicaciones.aspx" ><i class="fa-solid fa-store"></i>Mis Publicaciones</a></li>
-                <li> <a href="../PerfilUsuario/Notificaciones.aspx"><i class="fa-solid fa-bell"></i>Notificaciones</a></li>
-                <li> <a href="../PerfilUsuario/RegistrarIncidencia.aspx" ><i class="fa-solid fa-triangle-exclamation"></i>Registrar Problemas</a></li>
-                </asp:Panel>
-                <!-- 🟦 Vista administrador -->
-                <asp:Panel ID="menuAdmin" runat="server" Visible="false">
-                <li><a href="../Administrador/ListadoDeSolicitudesAdmin.aspx"><i class="fa-solid fa-box-archive"></i> Solicitudes de publicaciones</a></li>
-                <li><a href="../Administrador/IncidenciasAdmin.aspx"><i class="fa-solid fa-triangle-exclamation"></i>Incidencias</a></li>
-                <li><a href="../Administrador/ReportesAdmin.aspx"><i class="fa-solid fa-file"></i>Reportes</a></li>  
-                </asp:Panel>
-            </ul>
+                <ul class="nav flex-column">
+                    <!-- 🟦 Vista Usuario -->
+                    <asp:Panel ID="menuUsuario" runat="server" Visible="false">
+                        <li><a href="../PantallaInicio/SquirLearnInicio.aspx"><i class="fa fa-home"></i> Inicio</a></li>
+                        <li><a href="../PantallaInicio/Busqueda.aspx"><i class="fa fa-search"></i> Buscar</a></li>
+                        <li><a href="../PublicacionDelUsuario/Publicar.aspx"><i class="fa fa-plus-circle"></i> Vender</a></li>
+                        <!-- apartado mensajes: <li><a href="../PantallaInicio/Mensajes.aspx"><i class="fa fa-envelope"></i> Mensajes</a></li>--> 
+                        <li><a href="../PerfilUsuario/Pedidos.aspx"><i class="fa-solid fa-cash-register"></i>Mis Pedidos</a></li>
+                        <li><a href="../PublicacionDelUsuario/ListadoPublicaciones.aspx"><i class="fa-solid fa-store"></i>Mis Publicaciones</a></li>
+                        <li><a href="../PerfilUsuario/Notificaciones.aspx"><i class="fa-solid fa-bell"></i>Notificaciones</a></li>
+                        <li><a href="../PerfilUsuario/RegistrarIncidencia.aspx"><i class="fa-solid fa-triangle-exclamation"></i>Registrar Problemas</a></li>
+                    </asp:Panel>
 
-            <div class="footer">
-                <p>© 2025 SquirLearn<br><span class="small">Aprende. Comparte. Enseña.</span></p>
-            </div>
-        </div>
+                    <!-- 🟦 Vista administrador -->
+                    <asp:Panel ID="menuAdmin" runat="server" Visible="false">
+                        <li><a href="../Administrador/ListadoDeSolicitudesAdmin.aspx"><i class="fa-solid fa-box-archive"></i> Solicitudes de publicaciones</a></li>
+                        <li><a href="../Administrador/IncidenciasAdmin.aspx"><i class="fa-solid fa-triangle-exclamation"></i>Incidencias</a></li>
+                        <li><a href="../Administrador/ReportesAdmin.aspx"><i class="fa-solid fa-file"></i>Reportes</a></li>  
+                    </asp:Panel>
+                </ul>
 
-        <!-- 🟨 Contenido principal -->
-        <div class="main-content flex-grow-1">
-            <div class="topbar d-flex justify-content-between align-items-center px-4 py-2">
-                <div class="ms-auto">
-  
-                    <div class="d-inline-block">
-                        <asp:LinkButton ID="lkbCerrarSesion" runat="server"
-                            CssClass="btn btn-outline-secondary"
-                            OnClick="lkbCerrarSesion_Click"
-                            Style="padding: 8px 15px;">
-                            <i class="fa fa-sign-out-alt me-2"></i> Cerrar Sesión
-                        </asp:LinkButton>
-                    </div>
-
+                <div class="footer">
+                    <p>© 2025 SquirLearn<br><span class="small">Aprende. Comparte. Enseña.</span></p>
                 </div>
             </div>
-            
-            <div class="content-area6">
-                <asp:ContentPlaceHolder ID="cphContenido" runat="server"></asp:ContentPlaceHolder>
+
+            <!-- 🟨 Contenido principal -->
+            <div class="main-content flex-grow-1">
+                <div class="topbar d-flex justify-content-between align-items-center px-4 py-2">
+                    <div class="ms-auto">
+                        <div class="d-inline-block">
+                            <asp:LinkButton ID="lkbCerrarSesion" runat="server"
+                                CssClass="btn btn-outline-secondary"
+                                OnClick="lkbCerrarSesion_Click"
+                                Style="padding: 8px 15px;">
+                                <i class="fa fa-sign-out-alt me-2"></i> Cerrar Sesión
+                            </asp:LinkButton>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-area6">
+                    <asp:ContentPlaceHolder ID="cphContenido" runat="server"></asp:ContentPlaceHolder>
+                </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
 </body>
 </html>
