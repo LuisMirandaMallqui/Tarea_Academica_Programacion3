@@ -74,7 +74,7 @@ public class ReporteUtil {
         parametros.put("persona_id", persona_id);
         parametros.put("_fechaInicio", sqlInicio);
         parametros.put("_fechaFin", sqlFin);
-        return invocarReporte("Rerporte_Ventas_Alquiler",parametros);
+        return invocarReporte("Reporte_Ventas_Alquiler",parametros);
     }
     
 }
