@@ -87,5 +87,9 @@ namespace SquirlearnWA
         {
             Response.Redirect("../PantallaInicio/SquirLearnInicio.aspx");
         }
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../PantallaInicio/SquirlearnInicio.aspx");
+        }
     }
 }
