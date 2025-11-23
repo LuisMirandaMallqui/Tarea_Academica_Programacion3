@@ -86,6 +86,11 @@ public abstract class DBManager {
         } catch (IOException ex) {
             System.err.println("Error al leer el archivo de propiedades - " + ex);
         }
+        
+        
+                    
+
+        
     }
 
     private static MotorDeBaseDeDatos obtenerMotorDeBaseDeDato() {
@@ -96,7 +101,7 @@ public abstract class DBManager {
             //al ser un método estático, no se puede invocar al getResoucer así
             //properties.load(this.getClass().getResourceAsStream(nmArchivoConf));            
             properties.load(DBManager.class.getResourceAsStream(nmArchivoConf));
-            String tipo_de_driver = properties.getProperty("mssql.tipo_de_driver"); // ACA LA MAGIA
+            String tipo_de_driver = properties.getProperty("mysql.tipo_de_driver"); // ACA LA MAGIA
             if (tipo_de_driver.equals("jdbc:mysql")) {
                 return MotorDeBaseDeDatos.MYSQL;
             } else {

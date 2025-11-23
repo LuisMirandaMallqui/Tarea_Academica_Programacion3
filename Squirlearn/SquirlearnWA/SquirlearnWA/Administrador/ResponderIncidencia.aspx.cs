@@ -86,6 +86,7 @@ namespace SquirlearnWA
             txtDescripcion.Text = incidencia.descripcion;
             txtCorreo.Text = persona.correo;
             txtMotivo.Text = motivo.nombre;
+            txtRespuesta.Text = incidencia.respuesta;
             ddlEstado.SelectedValue = incidencia.resuelto == 1 ? "Resuelta" : "Pendiente";
         }
 
@@ -119,7 +120,7 @@ namespace SquirlearnWA
 
             
             
-            incidenciaSOAP.modificarIncidencia(idIncidencia,descripcion, 1, idUsuario, idMotivo, estado, 1, nombre);
+            incidenciaSOAP.modificarIncidencia(idIncidencia,descripcion, respuesta, idUsuario, idMotivo, estado, 1, nombre);
 
 
             

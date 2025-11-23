@@ -5,23 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Incidencia?xsd=1" namespace="http://inciNoti.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="insertarIncidencia">
-    <part name="parameters" element="tns:insertarIncidencia" />
+  <message name="modificarIncidencia">
+    <part name="parameters" element="tns:modificarIncidencia" />
   </message>
-  <message name="insertarIncidenciaResponse">
-    <part name="parameters" element="tns:insertarIncidenciaResponse" />
-  </message>
-  <message name="listarPorResolucionIncidencia">
-    <part name="parameters" element="tns:listarPorResolucionIncidencia" />
-  </message>
-  <message name="listarPorResolucionIncidenciaResponse">
-    <part name="parameters" element="tns:listarPorResolucionIncidenciaResponse" />
-  </message>
-  <message name="listarTodasIncidencias">
-    <part name="parameters" element="tns:listarTodasIncidencias" />
-  </message>
-  <message name="listarTodasIncidenciasResponse">
-    <part name="parameters" element="tns:listarTodasIncidenciasResponse" />
+  <message name="modificarIncidenciaResponse">
+    <part name="parameters" element="tns:modificarIncidenciaResponse" />
   </message>
   <message name="obtenerPorIdIncidencia">
     <part name="parameters" element="tns:obtenerPorIdIncidencia" />
@@ -29,55 +17,59 @@
   <message name="obtenerPorIdIncidenciaResponse">
     <part name="parameters" element="tns:obtenerPorIdIncidenciaResponse" />
   </message>
-  <message name="modificarIncidencia">
-    <part name="parameters" element="tns:modificarIncidencia" />
+  <message name="listarTodasIncidencias">
+    <part name="parameters" element="tns:listarTodasIncidencias" />
   </message>
-  <message name="modificarIncidenciaResponse">
-    <part name="parameters" element="tns:modificarIncidenciaResponse" />
+  <message name="listarTodasIncidenciasResponse">
+    <part name="parameters" element="tns:listarTodasIncidenciasResponse" />
+  </message>
+  <message name="listarPorResolucionIncidencia">
+    <part name="parameters" element="tns:listarPorResolucionIncidencia" />
+  </message>
+  <message name="listarPorResolucionIncidenciaResponse">
+    <part name="parameters" element="tns:listarPorResolucionIncidenciaResponse" />
+  </message>
+  <message name="insertarIncidencia">
+    <part name="parameters" element="tns:insertarIncidencia" />
+  </message>
+  <message name="insertarIncidenciaResponse">
+    <part name="parameters" element="tns:insertarIncidenciaResponse" />
+  </message>
+  <message name="reporteIncicencias">
+    <part name="parameters" element="tns:reporteIncicencias" />
+  </message>
+  <message name="reporteIncicenciasResponse">
+    <part name="parameters" element="tns:reporteIncicenciasResponse" />
   </message>
   <portType name="Incidencia">
-    <operation name="insertarIncidencia">
-      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/insertarIncidenciaRequest" message="tns:insertarIncidencia" />
-      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/insertarIncidenciaResponse" message="tns:insertarIncidenciaResponse" />
-    </operation>
-    <operation name="listarPorResolucionIncidencia">
-      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarPorResolucionIncidenciaRequest" message="tns:listarPorResolucionIncidencia" />
-      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarPorResolucionIncidenciaResponse" message="tns:listarPorResolucionIncidenciaResponse" />
-    </operation>
-    <operation name="listarTodasIncidencias">
-      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarTodasIncidenciasRequest" message="tns:listarTodasIncidencias" />
-      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarTodasIncidenciasResponse" message="tns:listarTodasIncidenciasResponse" />
+    <operation name="modificarIncidencia">
+      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/modificarIncidenciaRequest" message="tns:modificarIncidencia" />
+      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/modificarIncidenciaResponse" message="tns:modificarIncidenciaResponse" />
     </operation>
     <operation name="obtenerPorIdIncidencia">
       <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/obtenerPorIdIncidenciaRequest" message="tns:obtenerPorIdIncidencia" />
       <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/obtenerPorIdIncidenciaResponse" message="tns:obtenerPorIdIncidenciaResponse" />
     </operation>
-    <operation name="modificarIncidencia">
-      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/modificarIncidenciaRequest" message="tns:modificarIncidencia" />
-      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/modificarIncidenciaResponse" message="tns:modificarIncidenciaResponse" />
+    <operation name="listarTodasIncidencias">
+      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarTodasIncidenciasRequest" message="tns:listarTodasIncidencias" />
+      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarTodasIncidenciasResponse" message="tns:listarTodasIncidenciasResponse" />
+    </operation>
+    <operation name="listarPorResolucionIncidencia">
+      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarPorResolucionIncidenciaRequest" message="tns:listarPorResolucionIncidencia" />
+      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarPorResolucionIncidenciaResponse" message="tns:listarPorResolucionIncidenciaResponse" />
+    </operation>
+    <operation name="insertarIncidencia">
+      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/insertarIncidenciaRequest" message="tns:insertarIncidencia" />
+      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/insertarIncidenciaResponse" message="tns:insertarIncidenciaResponse" />
+    </operation>
+    <operation name="reporteIncicencias">
+      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/reporteIncicenciasRequest" message="tns:reporteIncicencias" />
+      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/reporteIncicenciasResponse" message="tns:reporteIncicenciasResponse" />
     </operation>
   </portType>
   <binding name="IncidenciaPortBinding" type="tns:Incidencia">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarIncidencia">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarPorResolucionIncidencia">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarTodasIncidencias">
+    <operation name="modificarIncidencia">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +87,34 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="modificarIncidencia">
+    <operation name="listarTodasIncidencias">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarPorResolucionIncidencia">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarIncidencia">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="reporteIncicencias">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -5,31 +5,31 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Formato?xsd=1" namespace="http://item.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="listarTodosFormato">
-    <part name="parameters" element="tns:listarTodosFormato" />
-  </message>
-  <message name="listarTodosFormatoResponse">
-    <part name="parameters" element="tns:listarTodosFormatoResponse" />
-  </message>
   <message name="obtenerPorIdFormato">
     <part name="parameters" element="tns:obtenerPorIdFormato" />
   </message>
   <message name="obtenerPorIdFormatoResponse">
     <part name="parameters" element="tns:obtenerPorIdFormatoResponse" />
   </message>
+  <message name="listarTodosFormato">
+    <part name="parameters" element="tns:listarTodosFormato" />
+  </message>
+  <message name="listarTodosFormatoResponse">
+    <part name="parameters" element="tns:listarTodosFormatoResponse" />
+  </message>
   <portType name="Formato">
-    <operation name="listarTodosFormato">
-      <input wsam:Action="http://item.squirlearnws.mycompany.com/Formato/listarTodosFormatoRequest" message="tns:listarTodosFormato" />
-      <output wsam:Action="http://item.squirlearnws.mycompany.com/Formato/listarTodosFormatoResponse" message="tns:listarTodosFormatoResponse" />
-    </operation>
     <operation name="obtenerPorIdFormato">
       <input wsam:Action="http://item.squirlearnws.mycompany.com/Formato/obtenerPorIdFormatoRequest" message="tns:obtenerPorIdFormato" />
       <output wsam:Action="http://item.squirlearnws.mycompany.com/Formato/obtenerPorIdFormatoResponse" message="tns:obtenerPorIdFormatoResponse" />
     </operation>
+    <operation name="listarTodosFormato">
+      <input wsam:Action="http://item.squirlearnws.mycompany.com/Formato/listarTodosFormatoRequest" message="tns:listarTodosFormato" />
+      <output wsam:Action="http://item.squirlearnws.mycompany.com/Formato/listarTodosFormatoResponse" message="tns:listarTodosFormatoResponse" />
+    </operation>
   </portType>
   <binding name="FormatoPortBinding" type="tns:Formato">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarTodosFormato">
+    <operation name="obtenerPorIdFormato">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -38,7 +38,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerPorIdFormato">
+    <operation name="listarTodosFormato">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

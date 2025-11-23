@@ -16,39 +16,15 @@ namespace SquirlearnWA.incidenciaSOAP {
     public interface Incidencia {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/insertarIncidenciaRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/insertarIncidenciaResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/modificarIncidenciaRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/modificarIncidenciaResponse" +
+            "")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.incidenciaSOAP.insertarIncidenciaResponse insertarIncidencia(SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest request);
+        SquirlearnWA.incidenciaSOAP.modificarIncidenciaResponse modificarIncidencia(SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/insertarIncidenciaRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/insertarIncidenciaResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.insertarIncidenciaResponse> insertarIncidenciaAsync(SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarPorResolucionIncidenc" +
-            "iaRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarPorResolucionIncidenc" +
-            "iaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaResponse listarPorResolucionIncidencia(SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarPorResolucionIncidenc" +
-            "iaRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarPorResolucionIncidenc" +
-            "iaResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaResponse> listarPorResolucionIncidenciaAsync(SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarTodasIncidenciasReque" +
-            "st", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarTodasIncidenciasRespo" +
-            "nse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse listarTodasIncidencias(SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarTodasIncidenciasReque" +
-            "st", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarTodasIncidenciasRespo" +
-            "nse")]
-        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse> listarTodasIncidenciasAsync(SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/modificarIncidenciaRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/modificarIncidenciaResponse" +
+            "")]
+        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.modificarIncidenciaResponse> modificarIncidenciaAsync(SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/obtenerPorIdIncidenciaReque" +
@@ -64,56 +40,99 @@ namespace SquirlearnWA.incidenciaSOAP {
         System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.obtenerPorIdIncidenciaResponse> obtenerPorIdIncidenciaAsync(SquirlearnWA.incidenciaSOAP.obtenerPorIdIncidenciaRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/modificarIncidenciaRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/modificarIncidenciaResponse" +
-            "")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarTodasIncidenciasReque" +
+            "st", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarTodasIncidenciasRespo" +
+            "nse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.incidenciaSOAP.modificarIncidenciaResponse modificarIncidencia(SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest request);
+        SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse listarTodasIncidencias(SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/modificarIncidenciaRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/modificarIncidenciaResponse" +
-            "")]
-        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.modificarIncidenciaResponse> modificarIncidenciaAsync(SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarTodasIncidenciasReque" +
+            "st", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarTodasIncidenciasRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse> listarTodasIncidenciasAsync(SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarPorResolucionIncidenc" +
+            "iaRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarPorResolucionIncidenc" +
+            "iaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaResponse listarPorResolucionIncidencia(SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarPorResolucionIncidenc" +
+            "iaRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/listarPorResolucionIncidenc" +
+            "iaResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaResponse> listarPorResolucionIncidenciaAsync(SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/insertarIncidenciaRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/insertarIncidenciaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.incidenciaSOAP.insertarIncidenciaResponse insertarIncidencia(SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/insertarIncidenciaRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/insertarIncidenciaResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.insertarIncidenciaResponse> insertarIncidenciaAsync(SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/reporteIncicenciasRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/reporteIncicenciasResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.incidenciaSOAP.reporteIncicenciasResponse reporteIncicencias(SquirlearnWA.incidenciaSOAP.reporteIncicenciasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Incidencia/reporteIncicenciasRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Incidencia/reporteIncicenciasResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.reporteIncicenciasResponse> reporteIncicenciasAsync(SquirlearnWA.incidenciaSOAP.reporteIncicenciasRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarIncidencia", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class insertarIncidenciaRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarIncidencia", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class modificarIncidenciaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string descripcion;
+        public int id;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int notificacionId;
+        public string descripcion;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int personaId;
+        public string respuesta;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=3)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int motivoId;
+        public int personaId;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=4)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int usuarioSolucion;
+        public int motivoId;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=5)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int resuelto;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int solucionadorId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string usuarioCreacion;
         
-        public insertarIncidenciaRequest() {
+        public modificarIncidenciaRequest() {
         }
         
-        public insertarIncidenciaRequest(string descripcion, int notificacionId, int personaId, int motivoId, int usuarioSolucion, string usuarioCreacion) {
+        public modificarIncidenciaRequest(int id, string descripcion, string respuesta, int personaId, int motivoId, int resuelto, int solucionadorId, string usuarioCreacion) {
+            this.id = id;
             this.descripcion = descripcion;
-            this.notificacionId = notificacionId;
+            this.respuesta = respuesta;
             this.personaId = personaId;
             this.motivoId = motivoId;
-            this.usuarioSolucion = usuarioSolucion;
+            this.resuelto = resuelto;
+            this.solucionadorId = solucionadorId;
             this.usuarioCreacion = usuarioCreacion;
         }
     }
@@ -121,17 +140,17 @@ namespace SquirlearnWA.incidenciaSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarIncidenciaResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class insertarIncidenciaResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarIncidenciaResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class modificarIncidenciaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public insertarIncidenciaResponse() {
+        public modificarIncidenciaResponse() {
         }
         
-        public insertarIncidenciaResponse(int @return) {
+        public modificarIncidenciaResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -152,9 +171,9 @@ namespace SquirlearnWA.incidenciaSOAP {
         
         private motivoDto motivoField;
         
-        private notificacionDto notificacionField;
-        
         private personaDto personaField;
+        
+        private string respuestaField;
         
         private int resueltoField;
         
@@ -216,18 +235,6 @@ namespace SquirlearnWA.incidenciaSOAP {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public notificacionDto notificacion {
-            get {
-                return this.notificacionField;
-            }
-            set {
-                this.notificacionField = value;
-                this.RaisePropertyChanged("notificacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public personaDto persona {
             get {
                 return this.personaField;
@@ -235,6 +242,18 @@ namespace SquirlearnWA.incidenciaSOAP {
             set {
                 this.personaField = value;
                 this.RaisePropertyChanged("persona");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string respuesta {
+            get {
+                return this.respuestaField;
+            }
+            set {
+                this.respuestaField = value;
+                this.RaisePropertyChanged("respuesta");
             }
         }
         
@@ -688,91 +707,67 @@ namespace SquirlearnWA.incidenciaSOAP {
         }
     }
     
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
-    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/")]
-    public partial class notificacionDto : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdIncidencia", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class obtenerPorIdIncidenciaRequest {
         
-        private string fechaField;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
         
-        private string mensajeField;
-        
-        private int notificacionIdField;
-        
-        private bool notificacionIdFieldSpecified;
-        
-        private personaDto personaField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string fecha {
-            get {
-                return this.fechaField;
-            }
-            set {
-                this.fechaField = value;
-                this.RaisePropertyChanged("fecha");
-            }
+        public obtenerPorIdIncidenciaRequest() {
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string mensaje {
-            get {
-                return this.mensajeField;
-            }
-            set {
-                this.mensajeField = value;
-                this.RaisePropertyChanged("mensaje");
-            }
+        public obtenerPorIdIncidenciaRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdIncidenciaResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class obtenerPorIdIncidenciaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.incidenciaSOAP.incidenciaDto @return;
+        
+        public obtenerPorIdIncidenciaResponse() {
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int notificacionId {
-            get {
-                return this.notificacionIdField;
-            }
-            set {
-                this.notificacionIdField = value;
-                this.RaisePropertyChanged("notificacionId");
-            }
+        public obtenerPorIdIncidenciaResponse(SquirlearnWA.incidenciaSOAP.incidenciaDto @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodasIncidencias", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodasIncidenciasRequest {
+        
+        public listarTodasIncidenciasRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodasIncidenciasResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodasIncidenciasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.incidenciaSOAP.incidenciaDto[] @return;
+        
+        public listarTodasIncidenciasResponse() {
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool notificacionIdSpecified {
-            get {
-                return this.notificacionIdFieldSpecified;
-            }
-            set {
-                this.notificacionIdFieldSpecified = value;
-                this.RaisePropertyChanged("notificacionIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public personaDto persona {
-            get {
-                return this.personaField;
-            }
-            set {
-                this.personaField = value;
-                this.RaisePropertyChanged("persona");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
+        public listarTodasIncidenciasResponse(SquirlearnWA.incidenciaSOAP.incidenciaDto[] @return) {
+            this.@return = @return;
         }
     }
     
@@ -815,116 +810,42 @@ namespace SquirlearnWA.incidenciaSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodasIncidencias", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodasIncidenciasRequest {
-        
-        public listarTodasIncidenciasRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodasIncidenciasResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodasIncidenciasResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarIncidencia", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class insertarIncidenciaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.incidenciaSOAP.incidenciaDto[] @return;
-        
-        public listarTodasIncidenciasResponse() {
-        }
-        
-        public listarTodasIncidenciasResponse(SquirlearnWA.incidenciaSOAP.incidenciaDto[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdIncidencia", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class obtenerPorIdIncidenciaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public obtenerPorIdIncidenciaRequest() {
-        }
-        
-        public obtenerPorIdIncidenciaRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdIncidenciaResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class obtenerPorIdIncidenciaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.incidenciaSOAP.incidenciaDto @return;
-        
-        public obtenerPorIdIncidenciaResponse() {
-        }
-        
-        public obtenerPorIdIncidenciaResponse(SquirlearnWA.incidenciaSOAP.incidenciaDto @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarIncidencia", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class modificarIncidenciaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string descripcion;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int notificacionId;
+        public string respuesta;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int personaId;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=4)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=3)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int motivoId;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int usuarioSolucion;
+        
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=5)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int resuelto;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=6)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int solucionadorId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=7)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string usuarioCreacion;
         
-        public modificarIncidenciaRequest() {
+        public insertarIncidenciaRequest() {
         }
         
-        public modificarIncidenciaRequest(int id, string descripcion, int notificacionId, int personaId, int motivoId, int resuelto, int solucionadorId, string usuarioCreacion) {
-            this.id = id;
+        public insertarIncidenciaRequest(string descripcion, string respuesta, int personaId, int motivoId, int usuarioSolucion, string usuarioCreacion) {
             this.descripcion = descripcion;
-            this.notificacionId = notificacionId;
+            this.respuesta = respuesta;
             this.personaId = personaId;
             this.motivoId = motivoId;
-            this.resuelto = resuelto;
-            this.solucionadorId = solucionadorId;
+            this.usuarioSolucion = usuarioSolucion;
             this.usuarioCreacion = usuarioCreacion;
         }
     }
@@ -932,17 +853,45 @@ namespace SquirlearnWA.incidenciaSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarIncidenciaResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class modificarIncidenciaResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarIncidenciaResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class insertarIncidenciaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public modificarIncidenciaResponse() {
+        public insertarIncidenciaResponse() {
         }
         
-        public modificarIncidenciaResponse(int @return) {
+        public insertarIncidenciaResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="reporteIncicencias", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class reporteIncicenciasRequest {
+        
+        public reporteIncicenciasRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="reporteIncicenciasResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class reporteIncicenciasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", IsNullable=true)]
+        public byte[] @return;
+        
+        public reporteIncicenciasResponse() {
+        }
+        
+        public reporteIncicenciasResponse(byte[] @return) {
             this.@return = @return;
         }
     }
@@ -975,80 +924,40 @@ namespace SquirlearnWA.incidenciaSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.incidenciaSOAP.insertarIncidenciaResponse SquirlearnWA.incidenciaSOAP.Incidencia.insertarIncidencia(SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest request) {
-            return base.Channel.insertarIncidencia(request);
+        SquirlearnWA.incidenciaSOAP.modificarIncidenciaResponse SquirlearnWA.incidenciaSOAP.Incidencia.modificarIncidencia(SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest request) {
+            return base.Channel.modificarIncidencia(request);
         }
         
-        public int insertarIncidencia(string descripcion, int notificacionId, int personaId, int motivoId, int usuarioSolucion, string usuarioCreacion) {
-            SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest inValue = new SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest();
+        public int modificarIncidencia(int id, string descripcion, string respuesta, int personaId, int motivoId, int resuelto, int solucionadorId, string usuarioCreacion) {
+            SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest inValue = new SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest();
+            inValue.id = id;
             inValue.descripcion = descripcion;
-            inValue.notificacionId = notificacionId;
+            inValue.respuesta = respuesta;
             inValue.personaId = personaId;
             inValue.motivoId = motivoId;
-            inValue.usuarioSolucion = usuarioSolucion;
+            inValue.resuelto = resuelto;
+            inValue.solucionadorId = solucionadorId;
             inValue.usuarioCreacion = usuarioCreacion;
-            SquirlearnWA.incidenciaSOAP.insertarIncidenciaResponse retVal = ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).insertarIncidencia(inValue);
+            SquirlearnWA.incidenciaSOAP.modificarIncidenciaResponse retVal = ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).modificarIncidencia(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.insertarIncidenciaResponse> SquirlearnWA.incidenciaSOAP.Incidencia.insertarIncidenciaAsync(SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest request) {
-            return base.Channel.insertarIncidenciaAsync(request);
+        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.modificarIncidenciaResponse> SquirlearnWA.incidenciaSOAP.Incidencia.modificarIncidenciaAsync(SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest request) {
+            return base.Channel.modificarIncidenciaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.insertarIncidenciaResponse> insertarIncidenciaAsync(string descripcion, int notificacionId, int personaId, int motivoId, int usuarioSolucion, string usuarioCreacion) {
-            SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest inValue = new SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest();
+        public System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.modificarIncidenciaResponse> modificarIncidenciaAsync(int id, string descripcion, string respuesta, int personaId, int motivoId, int resuelto, int solucionadorId, string usuarioCreacion) {
+            SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest inValue = new SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest();
+            inValue.id = id;
             inValue.descripcion = descripcion;
-            inValue.notificacionId = notificacionId;
+            inValue.respuesta = respuesta;
             inValue.personaId = personaId;
             inValue.motivoId = motivoId;
-            inValue.usuarioSolucion = usuarioSolucion;
+            inValue.resuelto = resuelto;
+            inValue.solucionadorId = solucionadorId;
             inValue.usuarioCreacion = usuarioCreacion;
-            return ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).insertarIncidenciaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaResponse SquirlearnWA.incidenciaSOAP.Incidencia.listarPorResolucionIncidencia(SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest request) {
-            return base.Channel.listarPorResolucionIncidencia(request);
-        }
-        
-        public SquirlearnWA.incidenciaSOAP.incidenciaDto[] listarPorResolucionIncidencia(bool resuelto) {
-            SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest inValue = new SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest();
-            inValue.resuelto = resuelto;
-            SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaResponse retVal = ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).listarPorResolucionIncidencia(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaResponse> SquirlearnWA.incidenciaSOAP.Incidencia.listarPorResolucionIncidenciaAsync(SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest request) {
-            return base.Channel.listarPorResolucionIncidenciaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaResponse> listarPorResolucionIncidenciaAsync(bool resuelto) {
-            SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest inValue = new SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest();
-            inValue.resuelto = resuelto;
-            return ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).listarPorResolucionIncidenciaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse SquirlearnWA.incidenciaSOAP.Incidencia.listarTodasIncidencias(SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest request) {
-            return base.Channel.listarTodasIncidencias(request);
-        }
-        
-        public SquirlearnWA.incidenciaSOAP.incidenciaDto[] listarTodasIncidencias() {
-            SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest inValue = new SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest();
-            SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse retVal = ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).listarTodasIncidencias(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse> SquirlearnWA.incidenciaSOAP.Incidencia.listarTodasIncidenciasAsync(SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest request) {
-            return base.Channel.listarTodasIncidenciasAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse> listarTodasIncidenciasAsync() {
-            SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest inValue = new SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest();
-            return ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).listarTodasIncidenciasAsync(inValue);
+            return ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).modificarIncidenciaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1075,40 +984,101 @@ namespace SquirlearnWA.incidenciaSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.incidenciaSOAP.modificarIncidenciaResponse SquirlearnWA.incidenciaSOAP.Incidencia.modificarIncidencia(SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest request) {
-            return base.Channel.modificarIncidencia(request);
+        SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse SquirlearnWA.incidenciaSOAP.Incidencia.listarTodasIncidencias(SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest request) {
+            return base.Channel.listarTodasIncidencias(request);
         }
         
-        public int modificarIncidencia(int id, string descripcion, int notificacionId, int personaId, int motivoId, int resuelto, int solucionadorId, string usuarioCreacion) {
-            SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest inValue = new SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest();
-            inValue.id = id;
-            inValue.descripcion = descripcion;
-            inValue.notificacionId = notificacionId;
-            inValue.personaId = personaId;
-            inValue.motivoId = motivoId;
-            inValue.resuelto = resuelto;
-            inValue.solucionadorId = solucionadorId;
-            inValue.usuarioCreacion = usuarioCreacion;
-            SquirlearnWA.incidenciaSOAP.modificarIncidenciaResponse retVal = ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).modificarIncidencia(inValue);
+        public SquirlearnWA.incidenciaSOAP.incidenciaDto[] listarTodasIncidencias() {
+            SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest inValue = new SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest();
+            SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse retVal = ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).listarTodasIncidencias(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.modificarIncidenciaResponse> SquirlearnWA.incidenciaSOAP.Incidencia.modificarIncidenciaAsync(SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest request) {
-            return base.Channel.modificarIncidenciaAsync(request);
+        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse> SquirlearnWA.incidenciaSOAP.Incidencia.listarTodasIncidenciasAsync(SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest request) {
+            return base.Channel.listarTodasIncidenciasAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.modificarIncidenciaResponse> modificarIncidenciaAsync(int id, string descripcion, int notificacionId, int personaId, int motivoId, int resuelto, int solucionadorId, string usuarioCreacion) {
-            SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest inValue = new SquirlearnWA.incidenciaSOAP.modificarIncidenciaRequest();
-            inValue.id = id;
+        public System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse> listarTodasIncidenciasAsync() {
+            SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest inValue = new SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasRequest();
+            return ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).listarTodasIncidenciasAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaResponse SquirlearnWA.incidenciaSOAP.Incidencia.listarPorResolucionIncidencia(SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest request) {
+            return base.Channel.listarPorResolucionIncidencia(request);
+        }
+        
+        public SquirlearnWA.incidenciaSOAP.incidenciaDto[] listarPorResolucionIncidencia(bool resuelto) {
+            SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest inValue = new SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest();
+            inValue.resuelto = resuelto;
+            SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaResponse retVal = ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).listarPorResolucionIncidencia(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaResponse> SquirlearnWA.incidenciaSOAP.Incidencia.listarPorResolucionIncidenciaAsync(SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest request) {
+            return base.Channel.listarPorResolucionIncidenciaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaResponse> listarPorResolucionIncidenciaAsync(bool resuelto) {
+            SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest inValue = new SquirlearnWA.incidenciaSOAP.listarPorResolucionIncidenciaRequest();
+            inValue.resuelto = resuelto;
+            return ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).listarPorResolucionIncidenciaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.incidenciaSOAP.insertarIncidenciaResponse SquirlearnWA.incidenciaSOAP.Incidencia.insertarIncidencia(SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest request) {
+            return base.Channel.insertarIncidencia(request);
+        }
+        
+        public int insertarIncidencia(string descripcion, string respuesta, int personaId, int motivoId, int usuarioSolucion, string usuarioCreacion) {
+            SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest inValue = new SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest();
             inValue.descripcion = descripcion;
-            inValue.notificacionId = notificacionId;
+            inValue.respuesta = respuesta;
             inValue.personaId = personaId;
             inValue.motivoId = motivoId;
-            inValue.resuelto = resuelto;
-            inValue.solucionadorId = solucionadorId;
+            inValue.usuarioSolucion = usuarioSolucion;
             inValue.usuarioCreacion = usuarioCreacion;
-            return ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).modificarIncidenciaAsync(inValue);
+            SquirlearnWA.incidenciaSOAP.insertarIncidenciaResponse retVal = ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).insertarIncidencia(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.insertarIncidenciaResponse> SquirlearnWA.incidenciaSOAP.Incidencia.insertarIncidenciaAsync(SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest request) {
+            return base.Channel.insertarIncidenciaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.insertarIncidenciaResponse> insertarIncidenciaAsync(string descripcion, string respuesta, int personaId, int motivoId, int usuarioSolucion, string usuarioCreacion) {
+            SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest inValue = new SquirlearnWA.incidenciaSOAP.insertarIncidenciaRequest();
+            inValue.descripcion = descripcion;
+            inValue.respuesta = respuesta;
+            inValue.personaId = personaId;
+            inValue.motivoId = motivoId;
+            inValue.usuarioSolucion = usuarioSolucion;
+            inValue.usuarioCreacion = usuarioCreacion;
+            return ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).insertarIncidenciaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.incidenciaSOAP.reporteIncicenciasResponse SquirlearnWA.incidenciaSOAP.Incidencia.reporteIncicencias(SquirlearnWA.incidenciaSOAP.reporteIncicenciasRequest request) {
+            return base.Channel.reporteIncicencias(request);
+        }
+        
+        public byte[] reporteIncicencias() {
+            SquirlearnWA.incidenciaSOAP.reporteIncicenciasRequest inValue = new SquirlearnWA.incidenciaSOAP.reporteIncicenciasRequest();
+            SquirlearnWA.incidenciaSOAP.reporteIncicenciasResponse retVal = ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).reporteIncicencias(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.reporteIncicenciasResponse> SquirlearnWA.incidenciaSOAP.Incidencia.reporteIncicenciasAsync(SquirlearnWA.incidenciaSOAP.reporteIncicenciasRequest request) {
+            return base.Channel.reporteIncicenciasAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.incidenciaSOAP.reporteIncicenciasResponse> reporteIncicenciasAsync() {
+            SquirlearnWA.incidenciaSOAP.reporteIncicenciasRequest inValue = new SquirlearnWA.incidenciaSOAP.reporteIncicenciasRequest();
+            return ((SquirlearnWA.incidenciaSOAP.Incidencia)(this)).reporteIncicenciasAsync(inValue);
         }
     }
 }

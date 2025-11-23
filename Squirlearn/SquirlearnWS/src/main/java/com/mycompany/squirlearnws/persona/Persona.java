@@ -1,8 +1,10 @@
 package com.mycompany.squirlearnws.persona;
 
+import com.mycompany.squirdlearn.reports.ReporteUtil;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
+import java.text.ParseException;
 import pe.edu.pucp.squirlearn.model.persona.PersonaDto;
 import pe.pucp.edu.squirlearn.business.persona.PersonaBo;
 
@@ -73,5 +75,20 @@ public class Persona {
             @WebParam(name = "codigo") String codigo) {
         return this.personaBo.obtenerPorCodigo(codigo);
     }
+    
+    @WebMethod(operationName = "reporteListadoVentasVendedores")
+    public byte[] reporteIncidenciasUsuarios(@WebParam(name = "_fechaInicio")String fechaInicio, @WebParam(name = "_fechaFin")String fechaFin) throws ParseException{
+        return ReporteUtil.reporteListadoVentasVendedores(fechaInicio, fechaFin);
+    }
+
+    @WebMethod(operationName = "reporteVentasAlquiler")
+    public byte[] reporteVentasAlquiler(@WebParam(name = "persona_id")Integer persona_id, @WebParam(name = "_fechaInicio")String fechaInicio, @WebParam(name = "_fechaFin")String fechaFin) throws ParseException{
+        return ReporteUtil.reporteVentasAlquiler(persona_id, fechaInicio, fechaFin);
+    }
+    
+    
+    
+    
+    
 
 }

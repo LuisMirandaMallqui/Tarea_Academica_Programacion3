@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://persona.squirlearnws.mycompany.com/" targetNamespace="http://persona.squirlearnws.mycompany.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ParseException" type="tns:ParseException" />
   <xs:element name="insertarPersona" type="tns:insertarPersona" />
   <xs:element name="insertarPersonaResponse" type="tns:insertarPersonaResponse" />
   <xs:element name="logInPersona" type="tns:logInPersona" />
@@ -10,6 +11,10 @@
   <xs:element name="obtenerPorCodigoPersonaResponse" type="tns:obtenerPorCodigoPersonaResponse" />
   <xs:element name="obtenerPorIdPersona" type="tns:obtenerPorIdPersona" />
   <xs:element name="obtenerPorIdPersonaResponse" type="tns:obtenerPorIdPersonaResponse" />
+  <xs:element name="reporteListadoVentasVendedores" type="tns:reporteListadoVentasVendedores" />
+  <xs:element name="reporteListadoVentasVendedoresResponse" type="tns:reporteListadoVentasVendedoresResponse" />
+  <xs:element name="reporteVentasAlquiler" type="tns:reporteVentasAlquiler" />
+  <xs:element name="reporteVentasAlquilerResponse" type="tns:reporteVentasAlquilerResponse" />
   <xs:complexType name="insertarPersona">
     <xs:sequence>
       <xs:element minOccurs="0" name="nombres" type="xs:string" />
@@ -25,6 +30,24 @@
   <xs:complexType name="insertarPersonaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteVentasAlquiler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="persona_id" type="xs:int" />
+      <xs:element minOccurs="0" name="_fechaInicio" type="xs:string" />
+      <xs:element minOccurs="0" name="_fechaFin" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteVentasAlquilerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParseException">
+    <xs:sequence>
+      <xs:element name="errorOffset" type="xs:int" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="obtenerPorCodigoPersona">
@@ -63,6 +86,17 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
       <xs:element minOccurs="0" name="rolPersonaId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteListadoVentasVendedores">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_fechaInicio" type="xs:string" />
+      <xs:element minOccurs="0" name="_fechaFin" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteListadoVentasVendedoresResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="logInPersona">

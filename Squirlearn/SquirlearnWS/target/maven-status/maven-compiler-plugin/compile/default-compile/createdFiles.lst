@@ -8,6 +8,7 @@ com\mycompany\squirlearnws\persona\RolPersona.class
 com\mycompany\squirlearnws\inciNoti\Incidencia.class
 com\mycompany\squirlearnws\item\Tamano.class
 com\mycompany\squirlearnws\item\Subcategoria.class
+com\mycompany\squirdlearn\reports\ReporteUtil.class
 com\mycompany\squirlearnws\chat\EstadoChat.class
 com\mycompany\squirlearnws\chat\EstadoMensaje.class
 com\mycompany\squirlearnws\chat\PersonaChat.class

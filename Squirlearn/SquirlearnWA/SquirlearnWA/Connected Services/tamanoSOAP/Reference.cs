@@ -16,15 +16,6 @@ namespace SquirlearnWA.tamanoSOAP {
     public interface Tamano {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Tamano/listarTodosTamanoRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Tamano/listarTodosTamanoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.tamanoSOAP.listarTodosTamanoResponse listarTodosTamano(SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Tamano/listarTodosTamanoRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Tamano/listarTodosTamanoResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.tamanoSOAP.listarTodosTamanoResponse> listarTodosTamanoAsync(SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Tamano/obtenerPorIdTamanoRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Tamano/obtenerPorIdTamanoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -32,10 +23,19 @@ namespace SquirlearnWA.tamanoSOAP {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Tamano/obtenerPorIdTamanoRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Tamano/obtenerPorIdTamanoResponse")]
         System.Threading.Tasks.Task<SquirlearnWA.tamanoSOAP.obtenerPorIdTamanoResponse> obtenerPorIdTamanoAsync(SquirlearnWA.tamanoSOAP.obtenerPorIdTamanoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Tamano/listarTodosTamanoRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Tamano/listarTodosTamanoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.tamanoSOAP.listarTodosTamanoResponse listarTodosTamano(SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Tamano/listarTodosTamanoRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Tamano/listarTodosTamanoResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.tamanoSOAP.listarTodosTamanoResponse> listarTodosTamanoAsync(SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest request);
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -97,34 +97,6 @@ namespace SquirlearnWA.tamanoSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosTamano", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosTamanoRequest {
-        
-        public listarTodosTamanoRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosTamanoResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosTamanoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.tamanoSOAP.tamanoDto[] @return;
-        
-        public listarTodosTamanoResponse() {
-        }
-        
-        public listarTodosTamanoResponse(SquirlearnWA.tamanoSOAP.tamanoDto[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdTamano", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
     public partial class obtenerPorIdTamanoRequest {
         
@@ -158,6 +130,34 @@ namespace SquirlearnWA.tamanoSOAP {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosTamano", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosTamanoRequest {
+        
+        public listarTodosTamanoRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosTamanoResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosTamanoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.tamanoSOAP.tamanoDto[] @return;
+        
+        public listarTodosTamanoResponse() {
+        }
+        
+        public listarTodosTamanoResponse(SquirlearnWA.tamanoSOAP.tamanoDto[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface TamanoChannel : SquirlearnWA.tamanoSOAP.Tamano, System.ServiceModel.IClientChannel {
     }
@@ -186,27 +186,6 @@ namespace SquirlearnWA.tamanoSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.tamanoSOAP.listarTodosTamanoResponse SquirlearnWA.tamanoSOAP.Tamano.listarTodosTamano(SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest request) {
-            return base.Channel.listarTodosTamano(request);
-        }
-        
-        public SquirlearnWA.tamanoSOAP.tamanoDto[] listarTodosTamano() {
-            SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest inValue = new SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest();
-            SquirlearnWA.tamanoSOAP.listarTodosTamanoResponse retVal = ((SquirlearnWA.tamanoSOAP.Tamano)(this)).listarTodosTamano(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.tamanoSOAP.listarTodosTamanoResponse> SquirlearnWA.tamanoSOAP.Tamano.listarTodosTamanoAsync(SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest request) {
-            return base.Channel.listarTodosTamanoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.tamanoSOAP.listarTodosTamanoResponse> listarTodosTamanoAsync() {
-            SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest inValue = new SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest();
-            return ((SquirlearnWA.tamanoSOAP.Tamano)(this)).listarTodosTamanoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SquirlearnWA.tamanoSOAP.obtenerPorIdTamanoResponse SquirlearnWA.tamanoSOAP.Tamano.obtenerPorIdTamano(SquirlearnWA.tamanoSOAP.obtenerPorIdTamanoRequest request) {
             return base.Channel.obtenerPorIdTamano(request);
         }
@@ -227,6 +206,27 @@ namespace SquirlearnWA.tamanoSOAP {
             SquirlearnWA.tamanoSOAP.obtenerPorIdTamanoRequest inValue = new SquirlearnWA.tamanoSOAP.obtenerPorIdTamanoRequest();
             inValue.id = id;
             return ((SquirlearnWA.tamanoSOAP.Tamano)(this)).obtenerPorIdTamanoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.tamanoSOAP.listarTodosTamanoResponse SquirlearnWA.tamanoSOAP.Tamano.listarTodosTamano(SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest request) {
+            return base.Channel.listarTodosTamano(request);
+        }
+        
+        public SquirlearnWA.tamanoSOAP.tamanoDto[] listarTodosTamano() {
+            SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest inValue = new SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest();
+            SquirlearnWA.tamanoSOAP.listarTodosTamanoResponse retVal = ((SquirlearnWA.tamanoSOAP.Tamano)(this)).listarTodosTamano(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.tamanoSOAP.listarTodosTamanoResponse> SquirlearnWA.tamanoSOAP.Tamano.listarTodosTamanoAsync(SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest request) {
+            return base.Channel.listarTodosTamanoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.tamanoSOAP.listarTodosTamanoResponse> listarTodosTamanoAsync() {
+            SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest inValue = new SquirlearnWA.tamanoSOAP.listarTodosTamanoRequest();
+            return ((SquirlearnWA.tamanoSOAP.Tamano)(this)).listarTodosTamanoAsync(inValue);
         }
     }
 }

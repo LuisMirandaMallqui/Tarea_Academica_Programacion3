@@ -225,6 +225,9 @@
     <Content Include="Connected Services\incidenciaSOAP\SquirlearnWA.incidenciaSOAP.listarTodasIncidenciasResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\incidenciaSOAP\SquirlearnWA.incidenciaSOAP.reporteIncicenciasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\itemSOAP\Item.wsdl" />
     <None Include="Connected Services\itemSOAP\Item.xsd">
       <SubType>Designer</SubType>
@@ -312,6 +315,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Connected Services\personaSOAP\SquirlearnWA.personaSOAP.reporteListadoVentasVendedoresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\personaSOAP\SquirlearnWA.personaSOAP.reporteVentasAlquilerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\publicacionSOAP\Publicacion.wsdl" />
     <None Include="Connected Services\publicacionSOAP\Publicacion.xsd">
       <SubType>Designer</SubType>

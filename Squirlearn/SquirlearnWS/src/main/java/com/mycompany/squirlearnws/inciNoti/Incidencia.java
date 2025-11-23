@@ -1,5 +1,6 @@
 package com.mycompany.squirlearnws.inciNoti;
 
+import com.mycompany.squirdlearn.reports.ReporteUtil;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
@@ -63,4 +64,12 @@ public class Incidencia {
      public ArrayList<IncidenciaDto> listarTodasIncidencias() {
         return this.incidenciaBo.listarTodos();
     }
+     
+     
+      @WebMethod(operationName = "reporteIncicencias")
+     public byte[] reporteIncicencias() {
+         return ReporteUtil.reporteIncidenciasUsuarios();
+    }
+     
+     
 }

@@ -5,31 +5,31 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Motivo?xsd=1" namespace="http://inciNoti.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="listarTodosMotivo">
-    <part name="parameters" element="tns:listarTodosMotivo" />
-  </message>
-  <message name="listarTodosMotivoResponse">
-    <part name="parameters" element="tns:listarTodosMotivoResponse" />
-  </message>
   <message name="obtenerPorIdMotivo">
     <part name="parameters" element="tns:obtenerPorIdMotivo" />
   </message>
   <message name="obtenerPorIdMotivoResponse">
     <part name="parameters" element="tns:obtenerPorIdMotivoResponse" />
   </message>
+  <message name="listarTodosMotivo">
+    <part name="parameters" element="tns:listarTodosMotivo" />
+  </message>
+  <message name="listarTodosMotivoResponse">
+    <part name="parameters" element="tns:listarTodosMotivoResponse" />
+  </message>
   <portType name="Motivo">
-    <operation name="listarTodosMotivo">
-      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Motivo/listarTodosMotivoRequest" message="tns:listarTodosMotivo" />
-      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Motivo/listarTodosMotivoResponse" message="tns:listarTodosMotivoResponse" />
-    </operation>
     <operation name="obtenerPorIdMotivo">
       <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Motivo/obtenerPorIdMotivoRequest" message="tns:obtenerPorIdMotivo" />
       <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Motivo/obtenerPorIdMotivoResponse" message="tns:obtenerPorIdMotivoResponse" />
     </operation>
+    <operation name="listarTodosMotivo">
+      <input wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Motivo/listarTodosMotivoRequest" message="tns:listarTodosMotivo" />
+      <output wsam:Action="http://inciNoti.squirlearnws.mycompany.com/Motivo/listarTodosMotivoResponse" message="tns:listarTodosMotivoResponse" />
+    </operation>
   </portType>
   <binding name="MotivoPortBinding" type="tns:Motivo">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarTodosMotivo">
+    <operation name="obtenerPorIdMotivo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -38,7 +38,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerPorIdMotivo">
+    <operation name="listarTodosMotivo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

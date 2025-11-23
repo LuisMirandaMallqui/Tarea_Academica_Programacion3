@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Subcategoria?xsd=1" namespace="http://item.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="listarPorCategoriaSubcategoria">
-    <part name="parameters" element="tns:listarPorCategoriaSubcategoria" />
+  <message name="obtenerPorIdSubcategoria">
+    <part name="parameters" element="tns:obtenerPorIdSubcategoria" />
   </message>
-  <message name="listarPorCategoriaSubcategoriaResponse">
-    <part name="parameters" element="tns:listarPorCategoriaSubcategoriaResponse" />
+  <message name="obtenerPorIdSubcategoriaResponse">
+    <part name="parameters" element="tns:obtenerPorIdSubcategoriaResponse" />
   </message>
   <message name="listarTodosSubcategoria">
     <part name="parameters" element="tns:listarTodosSubcategoria" />
@@ -17,29 +17,29 @@
   <message name="listarTodosSubcategoriaResponse">
     <part name="parameters" element="tns:listarTodosSubcategoriaResponse" />
   </message>
-  <message name="obtenerPorIdSubcategoria">
-    <part name="parameters" element="tns:obtenerPorIdSubcategoria" />
+  <message name="listarPorCategoriaSubcategoria">
+    <part name="parameters" element="tns:listarPorCategoriaSubcategoria" />
   </message>
-  <message name="obtenerPorIdSubcategoriaResponse">
-    <part name="parameters" element="tns:obtenerPorIdSubcategoriaResponse" />
+  <message name="listarPorCategoriaSubcategoriaResponse">
+    <part name="parameters" element="tns:listarPorCategoriaSubcategoriaResponse" />
   </message>
   <portType name="Subcategoria">
-    <operation name="listarPorCategoriaSubcategoria">
-      <input wsam:Action="http://item.squirlearnws.mycompany.com/Subcategoria/listarPorCategoriaSubcategoriaRequest" message="tns:listarPorCategoriaSubcategoria" />
-      <output wsam:Action="http://item.squirlearnws.mycompany.com/Subcategoria/listarPorCategoriaSubcategoriaResponse" message="tns:listarPorCategoriaSubcategoriaResponse" />
+    <operation name="obtenerPorIdSubcategoria">
+      <input wsam:Action="http://item.squirlearnws.mycompany.com/Subcategoria/obtenerPorIdSubcategoriaRequest" message="tns:obtenerPorIdSubcategoria" />
+      <output wsam:Action="http://item.squirlearnws.mycompany.com/Subcategoria/obtenerPorIdSubcategoriaResponse" message="tns:obtenerPorIdSubcategoriaResponse" />
     </operation>
     <operation name="listarTodosSubcategoria">
       <input wsam:Action="http://item.squirlearnws.mycompany.com/Subcategoria/listarTodosSubcategoriaRequest" message="tns:listarTodosSubcategoria" />
       <output wsam:Action="http://item.squirlearnws.mycompany.com/Subcategoria/listarTodosSubcategoriaResponse" message="tns:listarTodosSubcategoriaResponse" />
     </operation>
-    <operation name="obtenerPorIdSubcategoria">
-      <input wsam:Action="http://item.squirlearnws.mycompany.com/Subcategoria/obtenerPorIdSubcategoriaRequest" message="tns:obtenerPorIdSubcategoria" />
-      <output wsam:Action="http://item.squirlearnws.mycompany.com/Subcategoria/obtenerPorIdSubcategoriaResponse" message="tns:obtenerPorIdSubcategoriaResponse" />
+    <operation name="listarPorCategoriaSubcategoria">
+      <input wsam:Action="http://item.squirlearnws.mycompany.com/Subcategoria/listarPorCategoriaSubcategoriaRequest" message="tns:listarPorCategoriaSubcategoria" />
+      <output wsam:Action="http://item.squirlearnws.mycompany.com/Subcategoria/listarPorCategoriaSubcategoriaResponse" message="tns:listarPorCategoriaSubcategoriaResponse" />
     </operation>
   </portType>
   <binding name="SubcategoriaPortBinding" type="tns:Subcategoria">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarPorCategoriaSubcategoria">
+    <operation name="obtenerPorIdSubcategoria">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -57,7 +57,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerPorIdSubcategoria">
+    <operation name="listarPorCategoriaSubcategoria">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

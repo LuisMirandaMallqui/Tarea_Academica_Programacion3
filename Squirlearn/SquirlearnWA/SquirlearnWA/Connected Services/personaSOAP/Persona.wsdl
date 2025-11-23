@@ -5,6 +5,33 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Persona?xsd=1" namespace="http://persona.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
+  <message name="reporteListadoVentasVendedores">
+    <part name="parameters" element="tns:reporteListadoVentasVendedores" />
+  </message>
+  <message name="reporteListadoVentasVendedoresResponse">
+    <part name="parameters" element="tns:reporteListadoVentasVendedoresResponse" />
+  </message>
+  <message name="ParseException">
+    <part name="fault" element="tns:ParseException" />
+  </message>
+  <message name="obtenerPorCodigoPersona">
+    <part name="parameters" element="tns:obtenerPorCodigoPersona" />
+  </message>
+  <message name="obtenerPorCodigoPersonaResponse">
+    <part name="parameters" element="tns:obtenerPorCodigoPersonaResponse" />
+  </message>
+  <message name="obtenerPorIdPersona">
+    <part name="parameters" element="tns:obtenerPorIdPersona" />
+  </message>
+  <message name="obtenerPorIdPersonaResponse">
+    <part name="parameters" element="tns:obtenerPorIdPersonaResponse" />
+  </message>
+  <message name="reporteVentasAlquiler">
+    <part name="parameters" element="tns:reporteVentasAlquiler" />
+  </message>
+  <message name="reporteVentasAlquilerResponse">
+    <part name="parameters" element="tns:reporteVentasAlquilerResponse" />
+  </message>
   <message name="insertarPersona">
     <part name="parameters" element="tns:insertarPersona" />
   </message>
@@ -23,19 +50,25 @@
   <message name="logInPersonaResponse">
     <part name="parameters" element="tns:logInPersonaResponse" />
   </message>
-  <message name="obtenerPorIdPersona">
-    <part name="parameters" element="tns:obtenerPorIdPersona" />
-  </message>
-  <message name="obtenerPorIdPersonaResponse">
-    <part name="parameters" element="tns:obtenerPorIdPersonaResponse" />
-  </message>
-  <message name="obtenerPorCodigoPersona">
-    <part name="parameters" element="tns:obtenerPorCodigoPersona" />
-  </message>
-  <message name="obtenerPorCodigoPersonaResponse">
-    <part name="parameters" element="tns:obtenerPorCodigoPersonaResponse" />
-  </message>
   <portType name="Persona">
+    <operation name="reporteListadoVentasVendedores">
+      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/reporteListadoVentasVendedoresRequest" message="tns:reporteListadoVentasVendedores" />
+      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/reporteListadoVentasVendedoresResponse" message="tns:reporteListadoVentasVendedoresResponse" />
+      <fault wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/reporteListadoVentasVendedores/Fault/ParseException" name="ParseException" message="tns:ParseException" />
+    </operation>
+    <operation name="obtenerPorCodigoPersona">
+      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaRequest" message="tns:obtenerPorCodigoPersona" />
+      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaResponse" message="tns:obtenerPorCodigoPersonaResponse" />
+    </operation>
+    <operation name="obtenerPorIdPersona">
+      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorIdPersonaRequest" message="tns:obtenerPorIdPersona" />
+      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorIdPersonaResponse" message="tns:obtenerPorIdPersonaResponse" />
+    </operation>
+    <operation name="reporteVentasAlquiler">
+      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/reporteVentasAlquilerRequest" message="tns:reporteVentasAlquiler" />
+      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/reporteVentasAlquilerResponse" message="tns:reporteVentasAlquilerResponse" />
+      <fault wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/reporteVentasAlquiler/Fault/ParseException" name="ParseException" message="tns:ParseException" />
+    </operation>
     <operation name="insertarPersona">
       <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/insertarPersonaRequest" message="tns:insertarPersona" />
       <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/insertarPersonaResponse" message="tns:insertarPersonaResponse" />
@@ -48,17 +81,51 @@
       <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaRequest" message="tns:logInPersona" />
       <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/logInPersonaResponse" message="tns:logInPersonaResponse" />
     </operation>
-    <operation name="obtenerPorIdPersona">
-      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorIdPersonaRequest" message="tns:obtenerPorIdPersona" />
-      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorIdPersonaResponse" message="tns:obtenerPorIdPersonaResponse" />
-    </operation>
-    <operation name="obtenerPorCodigoPersona">
-      <input wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaRequest" message="tns:obtenerPorCodigoPersona" />
-      <output wsam:Action="http://persona.squirlearnws.mycompany.com/Persona/obtenerPorCodigoPersonaResponse" message="tns:obtenerPorCodigoPersonaResponse" />
-    </operation>
   </portType>
   <binding name="PersonaPortBinding" type="tns:Persona">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="reporteListadoVentasVendedores">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ParseException">
+        <soap:fault use="literal" name="ParseException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="obtenerPorCodigoPersona">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorIdPersona">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="reporteVentasAlquiler">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ParseException">
+        <soap:fault use="literal" name="ParseException" namespace="" />
+      </fault>
+    </operation>
     <operation name="insertarPersona">
       <soap:operation soapAction="" />
       <input>
@@ -78,24 +145,6 @@
       </output>
     </operation>
     <operation name="logInPersona">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerPorIdPersona">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerPorCodigoPersona">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

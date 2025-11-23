@@ -16,13 +16,13 @@ namespace SquirlearnWA.itemSOAP {
     public interface Item {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Item/insertarItemRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Item/insertarItemResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Item/cambiarEstadoItemRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Item/cambiarEstadoItemResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.itemSOAP.insertarItemResponse insertarItem(SquirlearnWA.itemSOAP.insertarItemRequest request);
+        SquirlearnWA.itemSOAP.cambiarEstadoItemResponse cambiarEstadoItem(SquirlearnWA.itemSOAP.cambiarEstadoItemRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Item/insertarItemRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Item/insertarItemResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.insertarItemResponse> insertarItemAsync(SquirlearnWA.itemSOAP.insertarItemRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Item/cambiarEstadoItemRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Item/cambiarEstadoItemResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.cambiarEstadoItemResponse> cambiarEstadoItemAsync(SquirlearnWA.itemSOAP.cambiarEstadoItemRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Item/modificarItemRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Item/modificarItemResponse")]
@@ -34,13 +34,13 @@ namespace SquirlearnWA.itemSOAP {
         System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.modificarItemResponse> modificarItemAsync(SquirlearnWA.itemSOAP.modificarItemRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Item/cambiarEstadoItemRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Item/cambiarEstadoItemResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Item/insertarItemRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Item/insertarItemResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.itemSOAP.cambiarEstadoItemResponse cambiarEstadoItem(SquirlearnWA.itemSOAP.cambiarEstadoItemRequest request);
+        SquirlearnWA.itemSOAP.insertarItemResponse insertarItem(SquirlearnWA.itemSOAP.insertarItemRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Item/cambiarEstadoItemRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Item/cambiarEstadoItemResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.cambiarEstadoItemResponse> cambiarEstadoItemAsync(SquirlearnWA.itemSOAP.cambiarEstadoItemRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Item/insertarItemRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Item/insertarItemResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.insertarItemResponse> insertarItemAsync(SquirlearnWA.itemSOAP.insertarItemRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://item.squirlearnws.mycompany.com/Item/obtenerPorIdItemRequest", ReplyAction="http://item.squirlearnws.mycompany.com/Item/obtenerPorIdItemResponse")]
@@ -55,85 +55,45 @@ namespace SquirlearnWA.itemSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarItem", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class insertarItemRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="cambiarEstadoItem", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class cambiarEstadoItemRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public double precio;
+        public int itemId;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombre;
+        public string usuario;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string descripcion;
+        public string estado;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool esVenta;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=4)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int colorId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=5)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int condicionId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=6)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int tamanoId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=7)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int formatoId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=8)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int categoriaId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=9)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int subcategoriaId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=10)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string usuario;
-        
-        public insertarItemRequest() {
+        public cambiarEstadoItemRequest() {
         }
         
-        public insertarItemRequest(double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId, string usuario) {
-            this.precio = precio;
-            this.nombre = nombre;
-            this.descripcion = descripcion;
-            this.esVenta = esVenta;
-            this.colorId = colorId;
-            this.condicionId = condicionId;
-            this.tamanoId = tamanoId;
-            this.formatoId = formatoId;
-            this.categoriaId = categoriaId;
-            this.subcategoriaId = subcategoriaId;
+        public cambiarEstadoItemRequest(int itemId, string usuario, string estado) {
+            this.itemId = itemId;
             this.usuario = usuario;
+            this.estado = estado;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarItemResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class insertarItemResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="cambiarEstadoItemResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class cambiarEstadoItemResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public insertarItemResponse() {
+        public cambiarEstadoItemResponse() {
         }
         
-        public insertarItemResponse(int @return) {
+        public cambiarEstadoItemResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -232,51 +192,91 @@ namespace SquirlearnWA.itemSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="cambiarEstadoItem", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class cambiarEstadoItemRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarItem", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class insertarItemRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int itemId;
+        public double precio;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string usuario;
+        public string nombre;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string estado;
+        public string descripcion;
         
-        public cambiarEstadoItemRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool esVenta;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int colorId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int condicionId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int tamanoId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int formatoId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int categoriaId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int subcategoriaId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string usuario;
+        
+        public insertarItemRequest() {
         }
         
-        public cambiarEstadoItemRequest(int itemId, string usuario, string estado) {
-            this.itemId = itemId;
+        public insertarItemRequest(double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId, string usuario) {
+            this.precio = precio;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.esVenta = esVenta;
+            this.colorId = colorId;
+            this.condicionId = condicionId;
+            this.tamanoId = tamanoId;
+            this.formatoId = formatoId;
+            this.categoriaId = categoriaId;
+            this.subcategoriaId = subcategoriaId;
             this.usuario = usuario;
-            this.estado = estado;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="cambiarEstadoItemResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class cambiarEstadoItemResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarItemResponse", WrapperNamespace="http://item.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class insertarItemResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://item.squirlearnws.mycompany.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public cambiarEstadoItemResponse() {
+        public insertarItemResponse() {
         }
         
-        public cambiarEstadoItemResponse(int @return) {
+        public insertarItemResponse(int @return) {
             this.@return = @return;
         }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -532,7 +532,7 @@ namespace SquirlearnWA.itemSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -592,7 +592,7 @@ namespace SquirlearnWA.itemSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -652,7 +652,7 @@ namespace SquirlearnWA.itemSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -726,7 +726,7 @@ namespace SquirlearnWA.itemSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -786,7 +786,7 @@ namespace SquirlearnWA.itemSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -846,7 +846,7 @@ namespace SquirlearnWA.itemSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -906,7 +906,7 @@ namespace SquirlearnWA.itemSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1029,46 +1029,30 @@ namespace SquirlearnWA.itemSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.itemSOAP.insertarItemResponse SquirlearnWA.itemSOAP.Item.insertarItem(SquirlearnWA.itemSOAP.insertarItemRequest request) {
-            return base.Channel.insertarItem(request);
+        SquirlearnWA.itemSOAP.cambiarEstadoItemResponse SquirlearnWA.itemSOAP.Item.cambiarEstadoItem(SquirlearnWA.itemSOAP.cambiarEstadoItemRequest request) {
+            return base.Channel.cambiarEstadoItem(request);
         }
         
-        public int insertarItem(double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId, string usuario) {
-            SquirlearnWA.itemSOAP.insertarItemRequest inValue = new SquirlearnWA.itemSOAP.insertarItemRequest();
-            inValue.precio = precio;
-            inValue.nombre = nombre;
-            inValue.descripcion = descripcion;
-            inValue.esVenta = esVenta;
-            inValue.colorId = colorId;
-            inValue.condicionId = condicionId;
-            inValue.tamanoId = tamanoId;
-            inValue.formatoId = formatoId;
-            inValue.categoriaId = categoriaId;
-            inValue.subcategoriaId = subcategoriaId;
+        public int cambiarEstadoItem(int itemId, string usuario, string estado) {
+            SquirlearnWA.itemSOAP.cambiarEstadoItemRequest inValue = new SquirlearnWA.itemSOAP.cambiarEstadoItemRequest();
+            inValue.itemId = itemId;
             inValue.usuario = usuario;
-            SquirlearnWA.itemSOAP.insertarItemResponse retVal = ((SquirlearnWA.itemSOAP.Item)(this)).insertarItem(inValue);
+            inValue.estado = estado;
+            SquirlearnWA.itemSOAP.cambiarEstadoItemResponse retVal = ((SquirlearnWA.itemSOAP.Item)(this)).cambiarEstadoItem(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.insertarItemResponse> SquirlearnWA.itemSOAP.Item.insertarItemAsync(SquirlearnWA.itemSOAP.insertarItemRequest request) {
-            return base.Channel.insertarItemAsync(request);
+        System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.cambiarEstadoItemResponse> SquirlearnWA.itemSOAP.Item.cambiarEstadoItemAsync(SquirlearnWA.itemSOAP.cambiarEstadoItemRequest request) {
+            return base.Channel.cambiarEstadoItemAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.insertarItemResponse> insertarItemAsync(double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId, string usuario) {
-            SquirlearnWA.itemSOAP.insertarItemRequest inValue = new SquirlearnWA.itemSOAP.insertarItemRequest();
-            inValue.precio = precio;
-            inValue.nombre = nombre;
-            inValue.descripcion = descripcion;
-            inValue.esVenta = esVenta;
-            inValue.colorId = colorId;
-            inValue.condicionId = condicionId;
-            inValue.tamanoId = tamanoId;
-            inValue.formatoId = formatoId;
-            inValue.categoriaId = categoriaId;
-            inValue.subcategoriaId = subcategoriaId;
+        public System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.cambiarEstadoItemResponse> cambiarEstadoItemAsync(int itemId, string usuario, string estado) {
+            SquirlearnWA.itemSOAP.cambiarEstadoItemRequest inValue = new SquirlearnWA.itemSOAP.cambiarEstadoItemRequest();
+            inValue.itemId = itemId;
             inValue.usuario = usuario;
-            return ((SquirlearnWA.itemSOAP.Item)(this)).insertarItemAsync(inValue);
+            inValue.estado = estado;
+            return ((SquirlearnWA.itemSOAP.Item)(this)).cambiarEstadoItemAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1117,30 +1101,46 @@ namespace SquirlearnWA.itemSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.itemSOAP.cambiarEstadoItemResponse SquirlearnWA.itemSOAP.Item.cambiarEstadoItem(SquirlearnWA.itemSOAP.cambiarEstadoItemRequest request) {
-            return base.Channel.cambiarEstadoItem(request);
+        SquirlearnWA.itemSOAP.insertarItemResponse SquirlearnWA.itemSOAP.Item.insertarItem(SquirlearnWA.itemSOAP.insertarItemRequest request) {
+            return base.Channel.insertarItem(request);
         }
         
-        public int cambiarEstadoItem(int itemId, string usuario, string estado) {
-            SquirlearnWA.itemSOAP.cambiarEstadoItemRequest inValue = new SquirlearnWA.itemSOAP.cambiarEstadoItemRequest();
-            inValue.itemId = itemId;
+        public int insertarItem(double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId, string usuario) {
+            SquirlearnWA.itemSOAP.insertarItemRequest inValue = new SquirlearnWA.itemSOAP.insertarItemRequest();
+            inValue.precio = precio;
+            inValue.nombre = nombre;
+            inValue.descripcion = descripcion;
+            inValue.esVenta = esVenta;
+            inValue.colorId = colorId;
+            inValue.condicionId = condicionId;
+            inValue.tamanoId = tamanoId;
+            inValue.formatoId = formatoId;
+            inValue.categoriaId = categoriaId;
+            inValue.subcategoriaId = subcategoriaId;
             inValue.usuario = usuario;
-            inValue.estado = estado;
-            SquirlearnWA.itemSOAP.cambiarEstadoItemResponse retVal = ((SquirlearnWA.itemSOAP.Item)(this)).cambiarEstadoItem(inValue);
+            SquirlearnWA.itemSOAP.insertarItemResponse retVal = ((SquirlearnWA.itemSOAP.Item)(this)).insertarItem(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.cambiarEstadoItemResponse> SquirlearnWA.itemSOAP.Item.cambiarEstadoItemAsync(SquirlearnWA.itemSOAP.cambiarEstadoItemRequest request) {
-            return base.Channel.cambiarEstadoItemAsync(request);
+        System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.insertarItemResponse> SquirlearnWA.itemSOAP.Item.insertarItemAsync(SquirlearnWA.itemSOAP.insertarItemRequest request) {
+            return base.Channel.insertarItemAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.cambiarEstadoItemResponse> cambiarEstadoItemAsync(int itemId, string usuario, string estado) {
-            SquirlearnWA.itemSOAP.cambiarEstadoItemRequest inValue = new SquirlearnWA.itemSOAP.cambiarEstadoItemRequest();
-            inValue.itemId = itemId;
+        public System.Threading.Tasks.Task<SquirlearnWA.itemSOAP.insertarItemResponse> insertarItemAsync(double precio, string nombre, string descripcion, bool esVenta, int colorId, int condicionId, int tamanoId, int formatoId, int categoriaId, int subcategoriaId, string usuario) {
+            SquirlearnWA.itemSOAP.insertarItemRequest inValue = new SquirlearnWA.itemSOAP.insertarItemRequest();
+            inValue.precio = precio;
+            inValue.nombre = nombre;
+            inValue.descripcion = descripcion;
+            inValue.esVenta = esVenta;
+            inValue.colorId = colorId;
+            inValue.condicionId = condicionId;
+            inValue.tamanoId = tamanoId;
+            inValue.formatoId = formatoId;
+            inValue.categoriaId = categoriaId;
+            inValue.subcategoriaId = subcategoriaId;
             inValue.usuario = usuario;
-            inValue.estado = estado;
-            return ((SquirlearnWA.itemSOAP.Item)(this)).cambiarEstadoItemAsync(inValue);
+            return ((SquirlearnWA.itemSOAP.Item)(this)).insertarItemAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

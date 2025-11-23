@@ -16,19 +16,6 @@ namespace SquirlearnWA.comprobanteSOAP {
     public interface Comprobante {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://comprobante.squirlearnws.mycompany.com/Comprobante/listarPorDuenoComproban" +
-            "teRequest", ReplyAction="http://comprobante.squirlearnws.mycompany.com/Comprobante/listarPorDuenoComproban" +
-            "teResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse listarPorDuenoComprobante(SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://comprobante.squirlearnws.mycompany.com/Comprobante/listarPorDuenoComproban" +
-            "teRequest", ReplyAction="http://comprobante.squirlearnws.mycompany.com/Comprobante/listarPorDuenoComproban" +
-            "teResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse> listarPorDuenoComprobanteAsync(SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://comprobante.squirlearnws.mycompany.com/Comprobante/obtenerPorIdComprobante" +
             "Request", ReplyAction="http://comprobante.squirlearnws.mycompany.com/Comprobante/obtenerPorIdComprobante" +
             "Response")]
@@ -53,123 +40,88 @@ namespace SquirlearnWA.comprobanteSOAP {
             "est", ReplyAction="http://comprobante.squirlearnws.mycompany.com/Comprobante/insertarComprobanteResp" +
             "onse")]
         System.Threading.Tasks.Task<SquirlearnWA.comprobanteSOAP.insertarComprobanteResponse> insertarComprobanteAsync(SquirlearnWA.comprobanteSOAP.insertarComprobanteRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://comprobante.squirlearnws.mycompany.com/Comprobante/listarPorDuenoComproban" +
+            "teRequest", ReplyAction="http://comprobante.squirlearnws.mycompany.com/Comprobante/listarPorDuenoComproban" +
+            "teResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse listarPorDuenoComprobante(SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://comprobante.squirlearnws.mycompany.com/Comprobante/listarPorDuenoComproban" +
+            "teRequest", ReplyAction="http://comprobante.squirlearnws.mycompany.com/Comprobante/listarPorDuenoComproban" +
+            "teResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse> listarPorDuenoComprobanteAsync(SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest request);
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class listadoComprobanteShortDto : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class comprobanteDto : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private comprobanteShortDto[] listaField;
+        private int comprobanteIdField;
         
-        private int totalRegistrosField;
+        private bool comprobanteIdFieldSpecified;
         
-        private bool totalRegistrosFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("lista", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-        public comprobanteShortDto[] lista {
-            get {
-                return this.listaField;
-            }
-            set {
-                this.listaField = value;
-                this.RaisePropertyChanged("lista");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public int totalRegistros {
-            get {
-                return this.totalRegistrosField;
-            }
-            set {
-                this.totalRegistrosField = value;
-                this.RaisePropertyChanged("totalRegistros");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool totalRegistrosSpecified {
-            get {
-                return this.totalRegistrosFieldSpecified;
-            }
-            set {
-                this.totalRegistrosFieldSpecified = value;
-                this.RaisePropertyChanged("totalRegistrosSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class comprobanteShortDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string descripcionField;
-        
-        private bool esVentaField;
-        
-        private bool esVentaFieldSpecified;
+        private detalleComprobanteDto[] detallesComprobanteField;
         
         private string fechaEmisionField;
+        
+        private formaPagoDto formaPagoField;
+        
+        private double impuestoField;
+        
+        private bool impuestoFieldSpecified;
+        
+        private monedaPagoDto monedaField;
         
         private double montoField;
         
         private bool montoFieldSpecified;
         
+        private personaDto personaField;
+        
         private string transaccionField;
+        
+        private string usuarioCreacionField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string descripcion {
+        public int comprobanteId {
             get {
-                return this.descripcionField;
+                return this.comprobanteIdField;
             }
             set {
-                this.descripcionField = value;
-                this.RaisePropertyChanged("descripcion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public bool esVenta {
-            get {
-                return this.esVentaField;
-            }
-            set {
-                this.esVentaField = value;
-                this.RaisePropertyChanged("esVenta");
+                this.comprobanteIdField = value;
+                this.RaisePropertyChanged("comprobanteId");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool esVentaSpecified {
+        public bool comprobanteIdSpecified {
             get {
-                return this.esVentaFieldSpecified;
+                return this.comprobanteIdFieldSpecified;
             }
             set {
-                this.esVentaFieldSpecified = value;
-                this.RaisePropertyChanged("esVentaSpecified");
+                this.comprobanteIdFieldSpecified = value;
+                this.RaisePropertyChanged("comprobanteIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("detallesComprobante", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
+        public detalleComprobanteDto[] detallesComprobante {
+            get {
+                return this.detallesComprobanteField;
+            }
+            set {
+                this.detallesComprobanteField = value;
+                this.RaisePropertyChanged("detallesComprobante");
             }
         }
         
@@ -187,6 +139,54 @@ namespace SquirlearnWA.comprobanteSOAP {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public formaPagoDto formaPago {
+            get {
+                return this.formaPagoField;
+            }
+            set {
+                this.formaPagoField = value;
+                this.RaisePropertyChanged("formaPago");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public double impuesto {
+            get {
+                return this.impuestoField;
+            }
+            set {
+                this.impuestoField = value;
+                this.RaisePropertyChanged("impuesto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool impuestoSpecified {
+            get {
+                return this.impuestoFieldSpecified;
+            }
+            set {
+                this.impuestoFieldSpecified = value;
+                this.RaisePropertyChanged("impuestoSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public monedaPagoDto moneda {
+            get {
+                return this.monedaField;
+            }
+            set {
+                this.monedaField = value;
+                this.RaisePropertyChanged("moneda");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public double monto {
             get {
                 return this.montoField;
@@ -210,7 +210,19 @@ namespace SquirlearnWA.comprobanteSOAP {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public personaDto persona {
+            get {
+                return this.personaField;
+            }
+            set {
+                this.personaField = value;
+                this.RaisePropertyChanged("persona");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
         public string transaccion {
             get {
                 return this.transaccionField;
@@ -221,424 +233,8 @@ namespace SquirlearnWA.comprobanteSOAP {
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class monedaPagoDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int monedaIdField;
-        
-        private bool monedaIdFieldSpecified;
-        
-        private string nombreField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int monedaId {
-            get {
-                return this.monedaIdField;
-            }
-            set {
-                this.monedaIdField = value;
-                this.RaisePropertyChanged("monedaId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool monedaIdSpecified {
-            get {
-                return this.monedaIdFieldSpecified;
-            }
-            set {
-                this.monedaIdFieldSpecified = value;
-                this.RaisePropertyChanged("monedaIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class formaPagoDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int formaPagoIdField;
-        
-        private bool formaPagoIdFieldSpecified;
-        
-        private string nombreField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int formaPagoId {
-            get {
-                return this.formaPagoIdField;
-            }
-            set {
-                this.formaPagoIdField = value;
-                this.RaisePropertyChanged("formaPagoId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool formaPagoIdSpecified {
-            get {
-                return this.formaPagoIdFieldSpecified;
-            }
-            set {
-                this.formaPagoIdFieldSpecified = value;
-                this.RaisePropertyChanged("formaPagoIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class rolPersonaDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string nombreField;
-        
-        private int rolPersonaIdField;
-        
-        private bool rolPersonaIdFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public int rolPersonaId {
-            get {
-                return this.rolPersonaIdField;
-            }
-            set {
-                this.rolPersonaIdField = value;
-                this.RaisePropertyChanged("rolPersonaId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool rolPersonaIdSpecified {
-            get {
-                return this.rolPersonaIdFieldSpecified;
-            }
-            set {
-                this.rolPersonaIdFieldSpecified = value;
-                this.RaisePropertyChanged("rolPersonaIdSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class estadoPersonaDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int estadoPersonaIdField;
-        
-        private bool estadoPersonaIdFieldSpecified;
-        
-        private string nombreField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int estadoPersonaId {
-            get {
-                return this.estadoPersonaIdField;
-            }
-            set {
-                this.estadoPersonaIdField = value;
-                this.RaisePropertyChanged("estadoPersonaId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool estadoPersonaIdSpecified {
-            get {
-                return this.estadoPersonaIdFieldSpecified;
-            }
-            set {
-                this.estadoPersonaIdFieldSpecified = value;
-                this.RaisePropertyChanged("estadoPersonaIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class personaDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string codigoField;
-        
-        private string contrasenaField;
-        
-        private string correoField;
-        
-        private estadoPersonaDto estadoPersonaField;
-        
-        private string nombresField;
-        
-        private int personaIdField;
-        
-        private bool personaIdFieldSpecified;
-        
-        private string primerApellidoField;
-        
-        private rolPersonaDto[] rolPersonaField;
-        
-        private string segundoApellidoField;
-        
-        private string ultimaActividadField;
-        
-        private string usuarioCreacionField;
-        
-        private string usuarioModificacionField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string codigo {
-            get {
-                return this.codigoField;
-            }
-            set {
-                this.codigoField = value;
-                this.RaisePropertyChanged("codigo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string contrasena {
-            get {
-                return this.contrasenaField;
-            }
-            set {
-                this.contrasenaField = value;
-                this.RaisePropertyChanged("contrasena");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string correo {
-            get {
-                return this.correoField;
-            }
-            set {
-                this.correoField = value;
-                this.RaisePropertyChanged("correo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public estadoPersonaDto estadoPersona {
-            get {
-                return this.estadoPersonaField;
-            }
-            set {
-                this.estadoPersonaField = value;
-                this.RaisePropertyChanged("estadoPersona");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string nombres {
-            get {
-                return this.nombresField;
-            }
-            set {
-                this.nombresField = value;
-                this.RaisePropertyChanged("nombres");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public int personaId {
-            get {
-                return this.personaIdField;
-            }
-            set {
-                this.personaIdField = value;
-                this.RaisePropertyChanged("personaId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool personaIdSpecified {
-            get {
-                return this.personaIdFieldSpecified;
-            }
-            set {
-                this.personaIdFieldSpecified = value;
-                this.RaisePropertyChanged("personaIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public string primerApellido {
-            get {
-                return this.primerApellidoField;
-            }
-            set {
-                this.primerApellidoField = value;
-                this.RaisePropertyChanged("primerApellido");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("rolPersona", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=7)]
-        public rolPersonaDto[] rolPersona {
-            get {
-                return this.rolPersonaField;
-            }
-            set {
-                this.rolPersonaField = value;
-                this.RaisePropertyChanged("rolPersona");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-        public string segundoApellido {
-            get {
-                return this.segundoApellidoField;
-            }
-            set {
-                this.segundoApellidoField = value;
-                this.RaisePropertyChanged("segundoApellido");
-            }
-        }
-        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-        public string ultimaActividad {
-            get {
-                return this.ultimaActividadField;
-            }
-            set {
-                this.ultimaActividadField = value;
-                this.RaisePropertyChanged("ultimaActividad");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
         public string usuarioCreacion {
             get {
                 return this.usuarioCreacionField;
@@ -649,18 +245,6 @@ namespace SquirlearnWA.comprobanteSOAP {
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
-        public string usuarioModificacion {
-            get {
-                return this.usuarioModificacionField;
-            }
-            set {
-                this.usuarioModificacionField = value;
-                this.RaisePropertyChanged("usuarioModificacion");
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -672,126 +256,136 @@ namespace SquirlearnWA.comprobanteSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class tamanoDto : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class detalleComprobanteDto : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string nombreField;
+        private alquilerDto alquilerField;
         
-        private int tamanoIdField;
+        private comprobanteDto comprobanteField;
         
-        private bool tamanoIdFieldSpecified;
+        private string descripcionField;
+        
+        private int detalleComIdField;
+        
+        private bool detalleComIdFieldSpecified;
+        
+        private itemDto itemField;
+        
+        private double precioField;
+        
+        private bool precioFieldSpecified;
+        
+        private string usuarioCreacionField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string nombre {
+        public alquilerDto alquiler {
             get {
-                return this.nombreField;
+                return this.alquilerField;
             }
             set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
+                this.alquilerField = value;
+                this.RaisePropertyChanged("alquiler");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public int tamanoId {
+        public comprobanteDto comprobante {
             get {
-                return this.tamanoIdField;
+                return this.comprobanteField;
             }
             set {
-                this.tamanoIdField = value;
-                this.RaisePropertyChanged("tamanoId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool tamanoIdSpecified {
-            get {
-                return this.tamanoIdFieldSpecified;
-            }
-            set {
-                this.tamanoIdFieldSpecified = value;
-                this.RaisePropertyChanged("tamanoIdSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class subcategoriaDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private categoriaDto categoriaField;
-        
-        private string nombreField;
-        
-        private int subcategoriaIdField;
-        
-        private bool subcategoriaIdFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public categoriaDto categoria {
-            get {
-                return this.categoriaField;
-            }
-            set {
-                this.categoriaField = value;
-                this.RaisePropertyChanged("categoria");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
+                this.comprobanteField = value;
+                this.RaisePropertyChanged("comprobante");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int subcategoriaId {
+        public string descripcion {
             get {
-                return this.subcategoriaIdField;
+                return this.descripcionField;
             }
             set {
-                this.subcategoriaIdField = value;
-                this.RaisePropertyChanged("subcategoriaId");
+                this.descripcionField = value;
+                this.RaisePropertyChanged("descripcion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public int detalleComId {
+            get {
+                return this.detalleComIdField;
+            }
+            set {
+                this.detalleComIdField = value;
+                this.RaisePropertyChanged("detalleComId");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool subcategoriaIdSpecified {
+        public bool detalleComIdSpecified {
             get {
-                return this.subcategoriaIdFieldSpecified;
+                return this.detalleComIdFieldSpecified;
             }
             set {
-                this.subcategoriaIdFieldSpecified = value;
-                this.RaisePropertyChanged("subcategoriaIdSpecified");
+                this.detalleComIdFieldSpecified = value;
+                this.RaisePropertyChanged("detalleComIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public itemDto item {
+            get {
+                return this.itemField;
+            }
+            set {
+                this.itemField = value;
+                this.RaisePropertyChanged("item");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public double precio {
+            get {
+                return this.precioField;
+            }
+            set {
+                this.precioField = value;
+                this.RaisePropertyChanged("precio");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool precioSpecified {
+            get {
+                return this.precioFieldSpecified;
+            }
+            set {
+                this.precioFieldSpecified = value;
+                this.RaisePropertyChanged("precioSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string usuarioCreacion {
+            get {
+                return this.usuarioCreacionField;
+            }
+            set {
+                this.usuarioCreacionField = value;
+                this.RaisePropertyChanged("usuarioCreacion");
             }
         }
         
@@ -806,232 +400,178 @@ namespace SquirlearnWA.comprobanteSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class categoriaDto : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class alquilerDto : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private int categoriaIdField;
+        private int alquilerIdField;
         
-        private bool categoriaIdFieldSpecified;
+        private bool alquilerIdFieldSpecified;
         
-        private string nombreField;
+        private bool devueltoField;
+        
+        private bool devueltoFieldSpecified;
+        
+        private string fechaCreacionField;
+        
+        private string fechaFinField;
+        
+        private string fechaInicioField;
+        
+        private itemDto itemField;
+        
+        private double montoField;
+        
+        private bool montoFieldSpecified;
+        
+        private personaDto personaField;
+        
+        private string usuarioCreacionField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int categoriaId {
+        public int alquilerId {
             get {
-                return this.categoriaIdField;
+                return this.alquilerIdField;
             }
             set {
-                this.categoriaIdField = value;
-                this.RaisePropertyChanged("categoriaId");
+                this.alquilerIdField = value;
+                this.RaisePropertyChanged("alquilerId");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool categoriaIdSpecified {
+        public bool alquilerIdSpecified {
             get {
-                return this.categoriaIdFieldSpecified;
+                return this.alquilerIdFieldSpecified;
             }
             set {
-                this.categoriaIdFieldSpecified = value;
-                this.RaisePropertyChanged("categoriaIdSpecified");
+                this.alquilerIdFieldSpecified = value;
+                this.RaisePropertyChanged("alquilerIdSpecified");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string nombre {
+        public bool devuelto {
             get {
-                return this.nombreField;
+                return this.devueltoField;
             }
             set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class formatoDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int formatoIdField;
-        
-        private bool formatoIdFieldSpecified;
-        
-        private string nombreField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int formatoId {
-            get {
-                return this.formatoIdField;
-            }
-            set {
-                this.formatoIdField = value;
-                this.RaisePropertyChanged("formatoId");
+                this.devueltoField = value;
+                this.RaisePropertyChanged("devuelto");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool formatoIdSpecified {
+        public bool devueltoSpecified {
             get {
-                return this.formatoIdFieldSpecified;
+                return this.devueltoFieldSpecified;
             }
             set {
-                this.formatoIdFieldSpecified = value;
-                this.RaisePropertyChanged("formatoIdSpecified");
+                this.devueltoFieldSpecified = value;
+                this.RaisePropertyChanged("devueltoSpecified");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string nombre {
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string fechaCreacion {
             get {
-                return this.nombreField;
+                return this.fechaCreacionField;
             }
             set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class estadoItemDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int estadoItemIdField;
-        
-        private bool estadoItemIdFieldSpecified;
-        
-        private string nombreField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int estadoItemId {
-            get {
-                return this.estadoItemIdField;
-            }
-            set {
-                this.estadoItemIdField = value;
-                this.RaisePropertyChanged("estadoItemId");
+                this.fechaCreacionField = value;
+                this.RaisePropertyChanged("fechaCreacion");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool estadoItemIdSpecified {
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string fechaFin {
             get {
-                return this.estadoItemIdFieldSpecified;
+                return this.fechaFinField;
             }
             set {
-                this.estadoItemIdFieldSpecified = value;
-                this.RaisePropertyChanged("estadoItemIdSpecified");
+                this.fechaFinField = value;
+                this.RaisePropertyChanged("fechaFin");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string nombre {
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string fechaInicio {
             get {
-                return this.nombreField;
+                return this.fechaInicioField;
             }
             set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
+                this.fechaInicioField = value;
+                this.RaisePropertyChanged("fechaInicio");
             }
         }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class condicionDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int condicionIdField;
-        
-        private bool condicionIdFieldSpecified;
-        
-        private string nombreField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int condicionId {
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public itemDto item {
             get {
-                return this.condicionIdField;
+                return this.itemField;
             }
             set {
-                this.condicionIdField = value;
-                this.RaisePropertyChanged("condicionId");
+                this.itemField = value;
+                this.RaisePropertyChanged("item");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public double monto {
+            get {
+                return this.montoField;
+            }
+            set {
+                this.montoField = value;
+                this.RaisePropertyChanged("monto");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool condicionIdSpecified {
+        public bool montoSpecified {
             get {
-                return this.condicionIdFieldSpecified;
+                return this.montoFieldSpecified;
             }
             set {
-                this.condicionIdFieldSpecified = value;
-                this.RaisePropertyChanged("condicionIdSpecified");
+                this.montoFieldSpecified = value;
+                this.RaisePropertyChanged("montoSpecified");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string nombre {
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public personaDto persona {
             get {
-                return this.nombreField;
+                return this.personaField;
             }
             set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
+                this.personaField = value;
+                this.RaisePropertyChanged("persona");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string usuarioCreacion {
+            get {
+                return this.usuarioCreacionField;
+            }
+            set {
+                this.usuarioCreacionField = value;
+                this.RaisePropertyChanged("usuarioCreacion");
             }
         }
         
@@ -1046,67 +586,7 @@ namespace SquirlearnWA.comprobanteSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class colorDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int colorIdField;
-        
-        private bool colorIdFieldSpecified;
-        
-        private string nombreField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int colorId {
-            get {
-                return this.colorIdField;
-            }
-            set {
-                this.colorIdField = value;
-                this.RaisePropertyChanged("colorId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool colorIdSpecified {
-            get {
-                return this.colorIdFieldSpecified;
-            }
-            set {
-                this.colorIdFieldSpecified = value;
-                this.RaisePropertyChanged("colorIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1362,178 +842,52 @@ namespace SquirlearnWA.comprobanteSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class alquilerDto : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class categoriaDto : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private int alquilerIdField;
+        private int categoriaIdField;
         
-        private bool alquilerIdFieldSpecified;
+        private bool categoriaIdFieldSpecified;
         
-        private bool devueltoField;
-        
-        private bool devueltoFieldSpecified;
-        
-        private string fechaCreacionField;
-        
-        private string fechaFinField;
-        
-        private string fechaInicioField;
-        
-        private itemDto itemField;
-        
-        private double montoField;
-        
-        private bool montoFieldSpecified;
-        
-        private personaDto personaField;
-        
-        private string usuarioCreacionField;
+        private string nombreField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int alquilerId {
+        public int categoriaId {
             get {
-                return this.alquilerIdField;
+                return this.categoriaIdField;
             }
             set {
-                this.alquilerIdField = value;
-                this.RaisePropertyChanged("alquilerId");
+                this.categoriaIdField = value;
+                this.RaisePropertyChanged("categoriaId");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool alquilerIdSpecified {
+        public bool categoriaIdSpecified {
             get {
-                return this.alquilerIdFieldSpecified;
+                return this.categoriaIdFieldSpecified;
             }
             set {
-                this.alquilerIdFieldSpecified = value;
-                this.RaisePropertyChanged("alquilerIdSpecified");
+                this.categoriaIdFieldSpecified = value;
+                this.RaisePropertyChanged("categoriaIdSpecified");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public bool devuelto {
+        public string nombre {
             get {
-                return this.devueltoField;
+                return this.nombreField;
             }
             set {
-                this.devueltoField = value;
-                this.RaisePropertyChanged("devuelto");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool devueltoSpecified {
-            get {
-                return this.devueltoFieldSpecified;
-            }
-            set {
-                this.devueltoFieldSpecified = value;
-                this.RaisePropertyChanged("devueltoSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string fechaCreacion {
-            get {
-                return this.fechaCreacionField;
-            }
-            set {
-                this.fechaCreacionField = value;
-                this.RaisePropertyChanged("fechaCreacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string fechaFin {
-            get {
-                return this.fechaFinField;
-            }
-            set {
-                this.fechaFinField = value;
-                this.RaisePropertyChanged("fechaFin");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string fechaInicio {
-            get {
-                return this.fechaInicioField;
-            }
-            set {
-                this.fechaInicioField = value;
-                this.RaisePropertyChanged("fechaInicio");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public itemDto item {
-            get {
-                return this.itemField;
-            }
-            set {
-                this.itemField = value;
-                this.RaisePropertyChanged("item");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public double monto {
-            get {
-                return this.montoField;
-            }
-            set {
-                this.montoField = value;
-                this.RaisePropertyChanged("monto");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool montoSpecified {
-            get {
-                return this.montoFieldSpecified;
-            }
-            set {
-                this.montoFieldSpecified = value;
-                this.RaisePropertyChanged("montoSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public personaDto persona {
-            get {
-                return this.personaField;
-            }
-            set {
-                this.personaField = value;
-                this.RaisePropertyChanged("persona");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-        public string usuarioCreacion {
-            get {
-                return this.usuarioCreacionField;
-            }
-            set {
-                this.usuarioCreacionField = value;
-                this.RaisePropertyChanged("usuarioCreacion");
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
             }
         }
         
@@ -1548,57 +902,29 @@ namespace SquirlearnWA.comprobanteSOAP {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class detalleComprobanteDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private alquilerDto alquilerField;
-        
-        private comprobanteDto comprobanteField;
+    public partial class comprobanteShortDto : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string descripcionField;
         
-        private int detalleComIdField;
+        private bool esVentaField;
         
-        private bool detalleComIdFieldSpecified;
+        private bool esVentaFieldSpecified;
         
-        private itemDto itemField;
+        private string fechaEmisionField;
         
-        private double precioField;
+        private double montoField;
         
-        private bool precioFieldSpecified;
+        private bool montoFieldSpecified;
         
-        private string usuarioCreacionField;
+        private string transaccionField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public alquilerDto alquiler {
-            get {
-                return this.alquilerField;
-            }
-            set {
-                this.alquilerField = value;
-                this.RaisePropertyChanged("alquiler");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public comprobanteDto comprobante {
-            get {
-                return this.comprobanteField;
-            }
-            set {
-                this.comprobanteField = value;
-                this.RaisePropertyChanged("comprobante");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public string descripcion {
             get {
                 return this.descripcionField;
@@ -1610,154 +936,26 @@ namespace SquirlearnWA.comprobanteSOAP {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public int detalleComId {
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public bool esVenta {
             get {
-                return this.detalleComIdField;
+                return this.esVentaField;
             }
             set {
-                this.detalleComIdField = value;
-                this.RaisePropertyChanged("detalleComId");
+                this.esVentaField = value;
+                this.RaisePropertyChanged("esVenta");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool detalleComIdSpecified {
+        public bool esVentaSpecified {
             get {
-                return this.detalleComIdFieldSpecified;
+                return this.esVentaFieldSpecified;
             }
             set {
-                this.detalleComIdFieldSpecified = value;
-                this.RaisePropertyChanged("detalleComIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public itemDto item {
-            get {
-                return this.itemField;
-            }
-            set {
-                this.itemField = value;
-                this.RaisePropertyChanged("item");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public double precio {
-            get {
-                return this.precioField;
-            }
-            set {
-                this.precioField = value;
-                this.RaisePropertyChanged("precio");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool precioSpecified {
-            get {
-                return this.precioFieldSpecified;
-            }
-            set {
-                this.precioFieldSpecified = value;
-                this.RaisePropertyChanged("precioSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public string usuarioCreacion {
-            get {
-                return this.usuarioCreacionField;
-            }
-            set {
-                this.usuarioCreacionField = value;
-                this.RaisePropertyChanged("usuarioCreacion");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
-    public partial class comprobanteDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int comprobanteIdField;
-        
-        private bool comprobanteIdFieldSpecified;
-        
-        private detalleComprobanteDto[] detallesComprobanteField;
-        
-        private string fechaEmisionField;
-        
-        private formaPagoDto formaPagoField;
-        
-        private double impuestoField;
-        
-        private bool impuestoFieldSpecified;
-        
-        private monedaPagoDto monedaField;
-        
-        private double montoField;
-        
-        private bool montoFieldSpecified;
-        
-        private personaDto personaField;
-        
-        private string transaccionField;
-        
-        private string usuarioCreacionField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int comprobanteId {
-            get {
-                return this.comprobanteIdField;
-            }
-            set {
-                this.comprobanteIdField = value;
-                this.RaisePropertyChanged("comprobanteId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool comprobanteIdSpecified {
-            get {
-                return this.comprobanteIdFieldSpecified;
-            }
-            set {
-                this.comprobanteIdFieldSpecified = value;
-                this.RaisePropertyChanged("comprobanteIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("detallesComprobante", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
-        public detalleComprobanteDto[] detallesComprobante {
-            get {
-                return this.detallesComprobanteField;
-            }
-            set {
-                this.detallesComprobanteField = value;
-                this.RaisePropertyChanged("detallesComprobante");
+                this.esVentaFieldSpecified = value;
+                this.RaisePropertyChanged("esVentaSpecified");
             }
         }
         
@@ -1775,54 +973,6 @@ namespace SquirlearnWA.comprobanteSOAP {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public formaPagoDto formaPago {
-            get {
-                return this.formaPagoField;
-            }
-            set {
-                this.formaPagoField = value;
-                this.RaisePropertyChanged("formaPago");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public double impuesto {
-            get {
-                return this.impuestoField;
-            }
-            set {
-                this.impuestoField = value;
-                this.RaisePropertyChanged("impuesto");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool impuestoSpecified {
-            get {
-                return this.impuestoFieldSpecified;
-            }
-            set {
-                this.impuestoFieldSpecified = value;
-                this.RaisePropertyChanged("impuestoSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public monedaPagoDto moneda {
-            get {
-                return this.monedaField;
-            }
-            set {
-                this.monedaField = value;
-                this.RaisePropertyChanged("moneda");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public double monto {
             get {
                 return this.montoField;
@@ -1846,19 +996,7 @@ namespace SquirlearnWA.comprobanteSOAP {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public personaDto persona {
-            get {
-                return this.personaField;
-            }
-            set {
-                this.personaField = value;
-                this.RaisePropertyChanged("persona");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public string transaccion {
             get {
                 return this.transaccionField;
@@ -1866,18 +1004,6 @@ namespace SquirlearnWA.comprobanteSOAP {
             set {
                 this.transaccionField = value;
                 this.RaisePropertyChanged("transaccion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-        public string usuarioCreacion {
-            get {
-                return this.usuarioCreacionField;
-            }
-            set {
-                this.usuarioCreacionField = value;
-                this.RaisePropertyChanged("usuarioCreacion");
             }
         }
         
@@ -1891,54 +1017,877 @@ namespace SquirlearnWA.comprobanteSOAP {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorDuenoComprobante", WrapperNamespace="http://comprobante.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarPorDuenoComprobanteRequest {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
+    public partial class listadoComprobanteShortDto : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int personaId;
+        private comprobanteShortDto[] listaField;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool esVenta;
+        private int totalRegistrosField;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int pagina;
+        private bool totalRegistrosFieldSpecified;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int registrosPorPagina;
-        
-        public listarPorDuenoComprobanteRequest() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("lista", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
+        public comprobanteShortDto[] lista {
+            get {
+                return this.listaField;
+            }
+            set {
+                this.listaField = value;
+                this.RaisePropertyChanged("lista");
+            }
         }
         
-        public listarPorDuenoComprobanteRequest(int personaId, bool esVenta, int pagina, int registrosPorPagina) {
-            this.personaId = personaId;
-            this.esVenta = esVenta;
-            this.pagina = pagina;
-            this.registrosPorPagina = registrosPorPagina;
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int totalRegistros {
+            get {
+                return this.totalRegistrosField;
+            }
+            set {
+                this.totalRegistrosField = value;
+                this.RaisePropertyChanged("totalRegistros");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool totalRegistrosSpecified {
+            get {
+                return this.totalRegistrosFieldSpecified;
+            }
+            set {
+                this.totalRegistrosFieldSpecified = value;
+                this.RaisePropertyChanged("totalRegistrosSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorDuenoComprobanteResponse", WrapperNamespace="http://comprobante.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarPorDuenoComprobanteResponse {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
+    public partial class monedaPagoDto : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SquirlearnWA.comprobanteSOAP.listadoComprobanteShortDto @return;
+        private int monedaIdField;
         
-        public listarPorDuenoComprobanteResponse() {
+        private bool monedaIdFieldSpecified;
+        
+        private string nombreField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int monedaId {
+            get {
+                return this.monedaIdField;
+            }
+            set {
+                this.monedaIdField = value;
+                this.RaisePropertyChanged("monedaId");
+            }
         }
         
-        public listarPorDuenoComprobanteResponse(SquirlearnWA.comprobanteSOAP.listadoComprobanteShortDto @return) {
-            this.@return = @return;
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool monedaIdSpecified {
+            get {
+                return this.monedaIdFieldSpecified;
+            }
+            set {
+                this.monedaIdFieldSpecified = value;
+                this.RaisePropertyChanged("monedaIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
+    public partial class formaPagoDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int formaPagoIdField;
+        
+        private bool formaPagoIdFieldSpecified;
+        
+        private string nombreField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int formaPagoId {
+            get {
+                return this.formaPagoIdField;
+            }
+            set {
+                this.formaPagoIdField = value;
+                this.RaisePropertyChanged("formaPagoId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool formaPagoIdSpecified {
+            get {
+                return this.formaPagoIdFieldSpecified;
+            }
+            set {
+                this.formaPagoIdFieldSpecified = value;
+                this.RaisePropertyChanged("formaPagoIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
+    public partial class rolPersonaDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string nombreField;
+        
+        private int rolPersonaIdField;
+        
+        private bool rolPersonaIdFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int rolPersonaId {
+            get {
+                return this.rolPersonaIdField;
+            }
+            set {
+                this.rolPersonaIdField = value;
+                this.RaisePropertyChanged("rolPersonaId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool rolPersonaIdSpecified {
+            get {
+                return this.rolPersonaIdFieldSpecified;
+            }
+            set {
+                this.rolPersonaIdFieldSpecified = value;
+                this.RaisePropertyChanged("rolPersonaIdSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
+    public partial class estadoPersonaDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int estadoPersonaIdField;
+        
+        private bool estadoPersonaIdFieldSpecified;
+        
+        private string nombreField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int estadoPersonaId {
+            get {
+                return this.estadoPersonaIdField;
+            }
+            set {
+                this.estadoPersonaIdField = value;
+                this.RaisePropertyChanged("estadoPersonaId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool estadoPersonaIdSpecified {
+            get {
+                return this.estadoPersonaIdFieldSpecified;
+            }
+            set {
+                this.estadoPersonaIdFieldSpecified = value;
+                this.RaisePropertyChanged("estadoPersonaIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
+    public partial class personaDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string codigoField;
+        
+        private string contrasenaField;
+        
+        private string correoField;
+        
+        private estadoPersonaDto estadoPersonaField;
+        
+        private string nombresField;
+        
+        private int personaIdField;
+        
+        private bool personaIdFieldSpecified;
+        
+        private string primerApellidoField;
+        
+        private rolPersonaDto[] rolPersonaField;
+        
+        private string segundoApellidoField;
+        
+        private string ultimaActividadField;
+        
+        private string usuarioCreacionField;
+        
+        private string usuarioModificacionField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string codigo {
+            get {
+                return this.codigoField;
+            }
+            set {
+                this.codigoField = value;
+                this.RaisePropertyChanged("codigo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string contrasena {
+            get {
+                return this.contrasenaField;
+            }
+            set {
+                this.contrasenaField = value;
+                this.RaisePropertyChanged("contrasena");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string correo {
+            get {
+                return this.correoField;
+            }
+            set {
+                this.correoField = value;
+                this.RaisePropertyChanged("correo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public estadoPersonaDto estadoPersona {
+            get {
+                return this.estadoPersonaField;
+            }
+            set {
+                this.estadoPersonaField = value;
+                this.RaisePropertyChanged("estadoPersona");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string nombres {
+            get {
+                return this.nombresField;
+            }
+            set {
+                this.nombresField = value;
+                this.RaisePropertyChanged("nombres");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public int personaId {
+            get {
+                return this.personaIdField;
+            }
+            set {
+                this.personaIdField = value;
+                this.RaisePropertyChanged("personaId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool personaIdSpecified {
+            get {
+                return this.personaIdFieldSpecified;
+            }
+            set {
+                this.personaIdFieldSpecified = value;
+                this.RaisePropertyChanged("personaIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string primerApellido {
+            get {
+                return this.primerApellidoField;
+            }
+            set {
+                this.primerApellidoField = value;
+                this.RaisePropertyChanged("primerApellido");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("rolPersona", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=7)]
+        public rolPersonaDto[] rolPersona {
+            get {
+                return this.rolPersonaField;
+            }
+            set {
+                this.rolPersonaField = value;
+                this.RaisePropertyChanged("rolPersona");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string segundoApellido {
+            get {
+                return this.segundoApellidoField;
+            }
+            set {
+                this.segundoApellidoField = value;
+                this.RaisePropertyChanged("segundoApellido");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public string ultimaActividad {
+            get {
+                return this.ultimaActividadField;
+            }
+            set {
+                this.ultimaActividadField = value;
+                this.RaisePropertyChanged("ultimaActividad");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        public string usuarioCreacion {
+            get {
+                return this.usuarioCreacionField;
+            }
+            set {
+                this.usuarioCreacionField = value;
+                this.RaisePropertyChanged("usuarioCreacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        public string usuarioModificacion {
+            get {
+                return this.usuarioModificacionField;
+            }
+            set {
+                this.usuarioModificacionField = value;
+                this.RaisePropertyChanged("usuarioModificacion");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
+    public partial class tamanoDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string nombreField;
+        
+        private int tamanoIdField;
+        
+        private bool tamanoIdFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int tamanoId {
+            get {
+                return this.tamanoIdField;
+            }
+            set {
+                this.tamanoIdField = value;
+                this.RaisePropertyChanged("tamanoId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool tamanoIdSpecified {
+            get {
+                return this.tamanoIdFieldSpecified;
+            }
+            set {
+                this.tamanoIdFieldSpecified = value;
+                this.RaisePropertyChanged("tamanoIdSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
+    public partial class subcategoriaDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private categoriaDto categoriaField;
+        
+        private string nombreField;
+        
+        private int subcategoriaIdField;
+        
+        private bool subcategoriaIdFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public categoriaDto categoria {
+            get {
+                return this.categoriaField;
+            }
+            set {
+                this.categoriaField = value;
+                this.RaisePropertyChanged("categoria");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public int subcategoriaId {
+            get {
+                return this.subcategoriaIdField;
+            }
+            set {
+                this.subcategoriaIdField = value;
+                this.RaisePropertyChanged("subcategoriaId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool subcategoriaIdSpecified {
+            get {
+                return this.subcategoriaIdFieldSpecified;
+            }
+            set {
+                this.subcategoriaIdFieldSpecified = value;
+                this.RaisePropertyChanged("subcategoriaIdSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
+    public partial class formatoDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int formatoIdField;
+        
+        private bool formatoIdFieldSpecified;
+        
+        private string nombreField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int formatoId {
+            get {
+                return this.formatoIdField;
+            }
+            set {
+                this.formatoIdField = value;
+                this.RaisePropertyChanged("formatoId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool formatoIdSpecified {
+            get {
+                return this.formatoIdFieldSpecified;
+            }
+            set {
+                this.formatoIdFieldSpecified = value;
+                this.RaisePropertyChanged("formatoIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
+    public partial class estadoItemDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int estadoItemIdField;
+        
+        private bool estadoItemIdFieldSpecified;
+        
+        private string nombreField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int estadoItemId {
+            get {
+                return this.estadoItemIdField;
+            }
+            set {
+                this.estadoItemIdField = value;
+                this.RaisePropertyChanged("estadoItemId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool estadoItemIdSpecified {
+            get {
+                return this.estadoItemIdFieldSpecified;
+            }
+            set {
+                this.estadoItemIdFieldSpecified = value;
+                this.RaisePropertyChanged("estadoItemIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
+    public partial class condicionDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int condicionIdField;
+        
+        private bool condicionIdFieldSpecified;
+        
+        private string nombreField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int condicionId {
+            get {
+                return this.condicionIdField;
+            }
+            set {
+                this.condicionIdField = value;
+                this.RaisePropertyChanged("condicionId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool condicionIdSpecified {
+            get {
+                return this.condicionIdFieldSpecified;
+            }
+            set {
+                this.condicionIdFieldSpecified = value;
+                this.RaisePropertyChanged("condicionIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/")]
+    public partial class colorDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int colorIdField;
+        
+        private bool colorIdFieldSpecified;
+        
+        private string nombreField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int colorId {
+            get {
+                return this.colorIdField;
+            }
+            set {
+                this.colorIdField = value;
+                this.RaisePropertyChanged("colorId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool colorIdSpecified {
+            get {
+                return this.colorIdFieldSpecified;
+            }
+            set {
+                this.colorIdFieldSpecified = value;
+                this.RaisePropertyChanged("colorIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
@@ -2064,6 +2013,57 @@ namespace SquirlearnWA.comprobanteSOAP {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorDuenoComprobante", WrapperNamespace="http://comprobante.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarPorDuenoComprobanteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int personaId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool esVenta;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int pagina;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int registrosPorPagina;
+        
+        public listarPorDuenoComprobanteRequest() {
+        }
+        
+        public listarPorDuenoComprobanteRequest(int personaId, bool esVenta, int pagina, int registrosPorPagina) {
+            this.personaId = personaId;
+            this.esVenta = esVenta;
+            this.pagina = pagina;
+            this.registrosPorPagina = registrosPorPagina;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarPorDuenoComprobanteResponse", WrapperNamespace="http://comprobante.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarPorDuenoComprobanteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://comprobante.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SquirlearnWA.comprobanteSOAP.listadoComprobanteShortDto @return;
+        
+        public listarPorDuenoComprobanteResponse() {
+        }
+        
+        public listarPorDuenoComprobanteResponse(SquirlearnWA.comprobanteSOAP.listadoComprobanteShortDto @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ComprobanteChannel : SquirlearnWA.comprobanteSOAP.Comprobante, System.ServiceModel.IClientChannel {
     }
@@ -2089,35 +2089,6 @@ namespace SquirlearnWA.comprobanteSOAP {
         
         public ComprobanteClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse SquirlearnWA.comprobanteSOAP.Comprobante.listarPorDuenoComprobante(SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest request) {
-            return base.Channel.listarPorDuenoComprobante(request);
-        }
-        
-        public SquirlearnWA.comprobanteSOAP.listadoComprobanteShortDto listarPorDuenoComprobante(int personaId, bool esVenta, int pagina, int registrosPorPagina) {
-            SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest inValue = new SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest();
-            inValue.personaId = personaId;
-            inValue.esVenta = esVenta;
-            inValue.pagina = pagina;
-            inValue.registrosPorPagina = registrosPorPagina;
-            SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse retVal = ((SquirlearnWA.comprobanteSOAP.Comprobante)(this)).listarPorDuenoComprobante(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse> SquirlearnWA.comprobanteSOAP.Comprobante.listarPorDuenoComprobanteAsync(SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest request) {
-            return base.Channel.listarPorDuenoComprobanteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse> listarPorDuenoComprobanteAsync(int personaId, bool esVenta, int pagina, int registrosPorPagina) {
-            SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest inValue = new SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest();
-            inValue.personaId = personaId;
-            inValue.esVenta = esVenta;
-            inValue.pagina = pagina;
-            inValue.registrosPorPagina = registrosPorPagina;
-            return ((SquirlearnWA.comprobanteSOAP.Comprobante)(this)).listarPorDuenoComprobanteAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2184,6 +2155,35 @@ namespace SquirlearnWA.comprobanteSOAP {
             inValue.alquilerId = alquilerId;
             inValue.nombreProducto = nombreProducto;
             return ((SquirlearnWA.comprobanteSOAP.Comprobante)(this)).insertarComprobanteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse SquirlearnWA.comprobanteSOAP.Comprobante.listarPorDuenoComprobante(SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest request) {
+            return base.Channel.listarPorDuenoComprobante(request);
+        }
+        
+        public SquirlearnWA.comprobanteSOAP.listadoComprobanteShortDto listarPorDuenoComprobante(int personaId, bool esVenta, int pagina, int registrosPorPagina) {
+            SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest inValue = new SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest();
+            inValue.personaId = personaId;
+            inValue.esVenta = esVenta;
+            inValue.pagina = pagina;
+            inValue.registrosPorPagina = registrosPorPagina;
+            SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse retVal = ((SquirlearnWA.comprobanteSOAP.Comprobante)(this)).listarPorDuenoComprobante(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse> SquirlearnWA.comprobanteSOAP.Comprobante.listarPorDuenoComprobanteAsync(SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest request) {
+            return base.Channel.listarPorDuenoComprobanteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteResponse> listarPorDuenoComprobanteAsync(int personaId, bool esVenta, int pagina, int registrosPorPagina) {
+            SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest inValue = new SquirlearnWA.comprobanteSOAP.listarPorDuenoComprobanteRequest();
+            inValue.personaId = personaId;
+            inValue.esVenta = esVenta;
+            inValue.pagina = pagina;
+            inValue.registrosPorPagina = registrosPorPagina;
+            return ((SquirlearnWA.comprobanteSOAP.Comprobante)(this)).listarPorDuenoComprobanteAsync(inValue);
         }
     }
 }

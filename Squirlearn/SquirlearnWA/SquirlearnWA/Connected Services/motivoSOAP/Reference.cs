@@ -16,18 +16,6 @@ namespace SquirlearnWA.motivoSOAP {
     public interface Motivo {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Motivo/listarTodosMotivoRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Motivo/listarTodosMotivoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(obtenerPorIdMotivoResponse))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(obtenerPorIdMotivo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(listarTodosMotivo))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SquirlearnWA.motivoSOAP.listarTodosMotivoResponse listarTodosMotivo(SquirlearnWA.motivoSOAP.listarTodosMotivoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Motivo/listarTodosMotivoRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Motivo/listarTodosMotivoResponse")]
-        System.Threading.Tasks.Task<SquirlearnWA.motivoSOAP.listarTodosMotivoResponse> listarTodosMotivoAsync(SquirlearnWA.motivoSOAP.listarTodosMotivoRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Motivo/obtenerPorIdMotivoRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Motivo/obtenerPorIdMotivoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(obtenerPorIdMotivoResponse))]
@@ -38,6 +26,18 @@ namespace SquirlearnWA.motivoSOAP {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Motivo/obtenerPorIdMotivoRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Motivo/obtenerPorIdMotivoResponse")]
         System.Threading.Tasks.Task<SquirlearnWA.motivoSOAP.obtenerPorIdMotivoResponse1> obtenerPorIdMotivoAsync(SquirlearnWA.motivoSOAP.obtenerPorIdMotivoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Motivo/listarTodosMotivoRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Motivo/listarTodosMotivoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(obtenerPorIdMotivoResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(obtenerPorIdMotivo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(listarTodosMotivo))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SquirlearnWA.motivoSOAP.listarTodosMotivoResponse listarTodosMotivo(SquirlearnWA.motivoSOAP.listarTodosMotivoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://inciNoti.squirlearnws.mycompany.com/Motivo/listarTodosMotivoRequest", ReplyAction="http://inciNoti.squirlearnws.mycompany.com/Motivo/listarTodosMotivoResponse")]
+        System.Threading.Tasks.Task<SquirlearnWA.motivoSOAP.listarTodosMotivoResponse> listarTodosMotivoAsync(SquirlearnWA.motivoSOAP.listarTodosMotivoRequest request);
     }
     
     /// <remarks/>
@@ -199,34 +199,6 @@ namespace SquirlearnWA.motivoSOAP {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosMotivo", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosMotivoRequest {
-        
-        public listarTodosMotivoRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosMotivoResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
-    public partial class listarTodosMotivoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public object[] @return;
-        
-        public listarTodosMotivoResponse() {
-        }
-        
-        public listarTodosMotivoResponse(object[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdMotivo", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
     public partial class obtenerPorIdMotivoRequest {
         
@@ -260,6 +232,34 @@ namespace SquirlearnWA.motivoSOAP {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosMotivo", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosMotivoRequest {
+        
+        public listarTodosMotivoRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosMotivoResponse", WrapperNamespace="http://inciNoti.squirlearnws.mycompany.com/", IsWrapped=true)]
+    public partial class listarTodosMotivoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://inciNoti.squirlearnws.mycompany.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public object[] @return;
+        
+        public listarTodosMotivoResponse() {
+        }
+        
+        public listarTodosMotivoResponse(object[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface MotivoChannel : SquirlearnWA.motivoSOAP.Motivo, System.ServiceModel.IClientChannel {
     }
@@ -288,27 +288,6 @@ namespace SquirlearnWA.motivoSOAP {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SquirlearnWA.motivoSOAP.listarTodosMotivoResponse SquirlearnWA.motivoSOAP.Motivo.listarTodosMotivo(SquirlearnWA.motivoSOAP.listarTodosMotivoRequest request) {
-            return base.Channel.listarTodosMotivo(request);
-        }
-        
-        public object[] listarTodosMotivo() {
-            SquirlearnWA.motivoSOAP.listarTodosMotivoRequest inValue = new SquirlearnWA.motivoSOAP.listarTodosMotivoRequest();
-            SquirlearnWA.motivoSOAP.listarTodosMotivoResponse retVal = ((SquirlearnWA.motivoSOAP.Motivo)(this)).listarTodosMotivo(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SquirlearnWA.motivoSOAP.listarTodosMotivoResponse> SquirlearnWA.motivoSOAP.Motivo.listarTodosMotivoAsync(SquirlearnWA.motivoSOAP.listarTodosMotivoRequest request) {
-            return base.Channel.listarTodosMotivoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SquirlearnWA.motivoSOAP.listarTodosMotivoResponse> listarTodosMotivoAsync() {
-            SquirlearnWA.motivoSOAP.listarTodosMotivoRequest inValue = new SquirlearnWA.motivoSOAP.listarTodosMotivoRequest();
-            return ((SquirlearnWA.motivoSOAP.Motivo)(this)).listarTodosMotivoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SquirlearnWA.motivoSOAP.obtenerPorIdMotivoResponse1 SquirlearnWA.motivoSOAP.Motivo.obtenerPorIdMotivo(SquirlearnWA.motivoSOAP.obtenerPorIdMotivoRequest request) {
             return base.Channel.obtenerPorIdMotivo(request);
         }
@@ -329,6 +308,27 @@ namespace SquirlearnWA.motivoSOAP {
             SquirlearnWA.motivoSOAP.obtenerPorIdMotivoRequest inValue = new SquirlearnWA.motivoSOAP.obtenerPorIdMotivoRequest();
             inValue.id = id;
             return ((SquirlearnWA.motivoSOAP.Motivo)(this)).obtenerPorIdMotivoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SquirlearnWA.motivoSOAP.listarTodosMotivoResponse SquirlearnWA.motivoSOAP.Motivo.listarTodosMotivo(SquirlearnWA.motivoSOAP.listarTodosMotivoRequest request) {
+            return base.Channel.listarTodosMotivo(request);
+        }
+        
+        public object[] listarTodosMotivo() {
+            SquirlearnWA.motivoSOAP.listarTodosMotivoRequest inValue = new SquirlearnWA.motivoSOAP.listarTodosMotivoRequest();
+            SquirlearnWA.motivoSOAP.listarTodosMotivoResponse retVal = ((SquirlearnWA.motivoSOAP.Motivo)(this)).listarTodosMotivo(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SquirlearnWA.motivoSOAP.listarTodosMotivoResponse> SquirlearnWA.motivoSOAP.Motivo.listarTodosMotivoAsync(SquirlearnWA.motivoSOAP.listarTodosMotivoRequest request) {
+            return base.Channel.listarTodosMotivoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SquirlearnWA.motivoSOAP.listarTodosMotivoResponse> listarTodosMotivoAsync() {
+            SquirlearnWA.motivoSOAP.listarTodosMotivoRequest inValue = new SquirlearnWA.motivoSOAP.listarTodosMotivoRequest();
+            return ((SquirlearnWA.motivoSOAP.Motivo)(this)).listarTodosMotivoAsync(inValue);
         }
     }
 }

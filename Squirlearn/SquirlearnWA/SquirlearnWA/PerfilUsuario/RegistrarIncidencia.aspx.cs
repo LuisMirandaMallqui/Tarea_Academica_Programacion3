@@ -61,7 +61,7 @@ namespace SquirlearnWA
                 int motivoId = Convert.ToInt32(ddlTipoIncidencia.SelectedValue);
 
                 // GUARDAR INCIDENCIA
-                incidenciaSOAP.insertarIncidencia(mensaje,1,usuarioId, motivoId,0, usuarioNombre); //ELIMINAR NOTIFICACION ID  DE LA BD
+                incidenciaSOAP.insertarIncidencia(mensaje,"-",usuarioId, motivoId,0, usuarioNombre); //ELIMINAR NOTIFICACION ID  DE LA BD
 
                 // Mostrar modal
                 ScriptManager.RegisterStartupScript(this, GetType(), "mostrarModal", "mostrarModalConfirmacion();", true);

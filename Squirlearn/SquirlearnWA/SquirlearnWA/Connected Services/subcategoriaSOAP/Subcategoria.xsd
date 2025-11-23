@@ -6,12 +6,10 @@
   <xs:element name="listarTodosSubcategoriaResponse" type="tns:listarTodosSubcategoriaResponse" />
   <xs:element name="obtenerPorIdSubcategoria" type="tns:obtenerPorIdSubcategoria" />
   <xs:element name="obtenerPorIdSubcategoriaResponse" type="tns:obtenerPorIdSubcategoriaResponse" />
-  <xs:complexType name="listarPorCategoriaSubcategoria">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="categoriaId" type="xs:int" />
-    </xs:sequence>
+  <xs:complexType name="listarTodosSubcategoria">
+    <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="listarPorCategoriaSubcategoriaResponse">
+  <xs:complexType name="listarTodosSubcategoriaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:subcategoriaDto" />
     </xs:sequence>
@@ -29,10 +27,12 @@
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarTodosSubcategoria">
-    <xs:sequence />
+  <xs:complexType name="listarPorCategoriaSubcategoria">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="categoriaId" type="xs:int" />
+    </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarTodosSubcategoriaResponse">
+  <xs:complexType name="listarPorCategoriaSubcategoriaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:subcategoriaDto" />
     </xs:sequence>

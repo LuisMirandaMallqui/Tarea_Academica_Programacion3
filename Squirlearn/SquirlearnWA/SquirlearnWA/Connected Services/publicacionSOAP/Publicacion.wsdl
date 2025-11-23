@@ -5,23 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SquirlearnWS/Publicacion?xsd=1" namespace="http://publicacion.squirlearnws.mycompany.com/" />
     </xsd:schema>
   </types>
-  <message name="obtenerListaPublicacionGestion">
-    <part name="parameters" element="tns:obtenerListaPublicacionGestion" />
+  <message name="modificarPublicacion">
+    <part name="parameters" element="tns:modificarPublicacion" />
   </message>
-  <message name="obtenerListaPublicacionGestionResponse">
-    <part name="parameters" element="tns:obtenerListaPublicacionGestionResponse" />
-  </message>
-  <message name="listarPorFiltrosPublicacion">
-    <part name="parameters" element="tns:listarPorFiltrosPublicacion" />
-  </message>
-  <message name="listarPorFiltrosPublicacionResponse">
-    <part name="parameters" element="tns:listarPorFiltrosPublicacionResponse" />
-  </message>
-  <message name="cambiarEstadoPublicacion">
-    <part name="parameters" element="tns:cambiarEstadoPublicacion" />
-  </message>
-  <message name="cambiarEstadoPublicacionResponse">
-    <part name="parameters" element="tns:cambiarEstadoPublicacionResponse" />
+  <message name="modificarPublicacionResponse">
+    <part name="parameters" element="tns:modificarPublicacionResponse" />
   </message>
   <message name="obtenerPorIdCompleto">
     <part name="parameters" element="tns:obtenerPorIdCompleto" />
@@ -35,23 +23,35 @@
   <message name="listarPorEstadoPublicacionResponse">
     <part name="parameters" element="tns:listarPorEstadoPublicacionResponse" />
   </message>
+  <message name="obtenerPorIdPublicacion">
+    <part name="parameters" element="tns:obtenerPorIdPublicacion" />
+  </message>
+  <message name="obtenerPorIdPublicacionResponse">
+    <part name="parameters" element="tns:obtenerPorIdPublicacionResponse" />
+  </message>
   <message name="listarPorDuenoPublicacion">
     <part name="parameters" element="tns:listarPorDuenoPublicacion" />
   </message>
   <message name="listarPorDuenoPublicacionResponse">
     <part name="parameters" element="tns:listarPorDuenoPublicacionResponse" />
   </message>
-  <message name="modificarPublicacion">
-    <part name="parameters" element="tns:modificarPublicacion" />
+  <message name="cambiarEstadoPublicacion">
+    <part name="parameters" element="tns:cambiarEstadoPublicacion" />
   </message>
-  <message name="modificarPublicacionResponse">
-    <part name="parameters" element="tns:modificarPublicacionResponse" />
+  <message name="cambiarEstadoPublicacionResponse">
+    <part name="parameters" element="tns:cambiarEstadoPublicacionResponse" />
   </message>
-  <message name="obtenerPorIdPublicacion">
-    <part name="parameters" element="tns:obtenerPorIdPublicacion" />
+  <message name="obtenerListaPublicacionGestion">
+    <part name="parameters" element="tns:obtenerListaPublicacionGestion" />
   </message>
-  <message name="obtenerPorIdPublicacionResponse">
-    <part name="parameters" element="tns:obtenerPorIdPublicacionResponse" />
+  <message name="obtenerListaPublicacionGestionResponse">
+    <part name="parameters" element="tns:obtenerListaPublicacionGestionResponse" />
+  </message>
+  <message name="listarPorFiltrosPublicacion">
+    <part name="parameters" element="tns:listarPorFiltrosPublicacion" />
+  </message>
+  <message name="listarPorFiltrosPublicacionResponse">
+    <part name="parameters" element="tns:listarPorFiltrosPublicacionResponse" />
   </message>
   <message name="insertarPublicacion">
     <part name="parameters" element="tns:insertarPublicacion" />
@@ -60,17 +60,9 @@
     <part name="parameters" element="tns:insertarPublicacionResponse" />
   </message>
   <portType name="Publicacion">
-    <operation name="obtenerListaPublicacionGestion">
-      <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerListaPublicacionGestionRequest" message="tns:obtenerListaPublicacionGestion" />
-      <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerListaPublicacionGestionResponse" message="tns:obtenerListaPublicacionGestionResponse" />
-    </operation>
-    <operation name="listarPorFiltrosPublicacion">
-      <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorFiltrosPublicacionRequest" message="tns:listarPorFiltrosPublicacion" />
-      <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorFiltrosPublicacionResponse" message="tns:listarPorFiltrosPublicacionResponse" />
-    </operation>
-    <operation name="cambiarEstadoPublicacion">
-      <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/cambiarEstadoPublicacionRequest" message="tns:cambiarEstadoPublicacion" />
-      <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/cambiarEstadoPublicacionResponse" message="tns:cambiarEstadoPublicacionResponse" />
+    <operation name="modificarPublicacion">
+      <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/modificarPublicacionRequest" message="tns:modificarPublicacion" />
+      <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/modificarPublicacionResponse" message="tns:modificarPublicacionResponse" />
     </operation>
     <operation name="obtenerPorIdCompleto">
       <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerPorIdCompletoRequest" message="tns:obtenerPorIdCompleto" />
@@ -80,17 +72,25 @@
       <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorEstadoPublicacionRequest" message="tns:listarPorEstadoPublicacion" />
       <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorEstadoPublicacionResponse" message="tns:listarPorEstadoPublicacionResponse" />
     </operation>
+    <operation name="obtenerPorIdPublicacion">
+      <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerPorIdPublicacionRequest" message="tns:obtenerPorIdPublicacion" />
+      <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerPorIdPublicacionResponse" message="tns:obtenerPorIdPublicacionResponse" />
+    </operation>
     <operation name="listarPorDuenoPublicacion">
       <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorDuenoPublicacionRequest" message="tns:listarPorDuenoPublicacion" />
       <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorDuenoPublicacionResponse" message="tns:listarPorDuenoPublicacionResponse" />
     </operation>
-    <operation name="modificarPublicacion">
-      <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/modificarPublicacionRequest" message="tns:modificarPublicacion" />
-      <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/modificarPublicacionResponse" message="tns:modificarPublicacionResponse" />
+    <operation name="cambiarEstadoPublicacion">
+      <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/cambiarEstadoPublicacionRequest" message="tns:cambiarEstadoPublicacion" />
+      <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/cambiarEstadoPublicacionResponse" message="tns:cambiarEstadoPublicacionResponse" />
     </operation>
-    <operation name="obtenerPorIdPublicacion">
-      <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerPorIdPublicacionRequest" message="tns:obtenerPorIdPublicacion" />
-      <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerPorIdPublicacionResponse" message="tns:obtenerPorIdPublicacionResponse" />
+    <operation name="obtenerListaPublicacionGestion">
+      <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerListaPublicacionGestionRequest" message="tns:obtenerListaPublicacionGestion" />
+      <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/obtenerListaPublicacionGestionResponse" message="tns:obtenerListaPublicacionGestionResponse" />
+    </operation>
+    <operation name="listarPorFiltrosPublicacion">
+      <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorFiltrosPublicacionRequest" message="tns:listarPorFiltrosPublicacion" />
+      <output wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/listarPorFiltrosPublicacionResponse" message="tns:listarPorFiltrosPublicacionResponse" />
     </operation>
     <operation name="insertarPublicacion">
       <input wsam:Action="http://publicacion.squirlearnws.mycompany.com/Publicacion/insertarPublicacionRequest" message="tns:insertarPublicacion" />
@@ -99,25 +99,7 @@
   </portType>
   <binding name="PublicacionPortBinding" type="tns:Publicacion">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="obtenerListaPublicacionGestion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarPorFiltrosPublicacion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="cambiarEstadoPublicacion">
+    <operation name="modificarPublicacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -144,6 +126,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="obtenerPorIdPublicacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="listarPorDuenoPublicacion">
       <soap:operation soapAction="" />
       <input>
@@ -153,7 +144,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="modificarPublicacion">
+    <operation name="cambiarEstadoPublicacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -162,7 +153,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerPorIdPublicacion">
+    <operation name="obtenerListaPublicacionGestion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarPorFiltrosPublicacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

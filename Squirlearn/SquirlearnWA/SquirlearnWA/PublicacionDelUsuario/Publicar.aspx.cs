@@ -279,14 +279,14 @@ namespace SquirlearnWA.PublicacionDelUsuario
                 {//cambiar el nuevo estado
                     publicacionSoap.modificarPublicacion(IdPublicacionActual, Session["nombreUsuario"].ToString(),
                         nuevoEstado, precio, nombre, descripcion, esVenta, colorId,
-                        condicionId, tamanoId, formatoId, categoriaId, subcategoriaId);
+                        condicionId, tamanoId, formatoId, categoriaId, subcategoriaId,null);
                 }
                 else
                 {
                     // esta eliminando el parámetro crear
                     int personaid = (int)Session["UsuarioId"];
                     publicacionSoap.insertarPublicacion(personaid, Session["nombreUsuario"].ToString(), nuevoEstado,
-                        precio, nombre, descripcion, esVenta, colorId, condicionId, tamanoId, formatoId, categoriaId, subcategoriaId);
+                        precio, nombre, descripcion, esVenta, colorId, condicionId, tamanoId, formatoId, categoriaId, subcategoriaId,null);
                 }
 
                 // 5. Si no fue borrador, muestra el modal de éxito

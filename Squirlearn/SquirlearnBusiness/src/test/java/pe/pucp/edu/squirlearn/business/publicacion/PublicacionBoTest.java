@@ -17,27 +17,28 @@ public class PublicacionBoTest {
         this.publicacionBO = new PublicacionBo();
     }
 //    
-//    @Test
-//    public void testInsertar() {
-//        System.out.println("insertar");
-//        Integer resultado = this.publicacionBO.insertar(
-//                3,                       // itemId
-//                "DANIEL",                       // personaId
-//                "Pendiente",                // usuarioCreacion
-//                69.69,                   // precio
-//                "Libro acear",       // nombre
-//                "Descripción publicación",
-//                true,                    // esVenta
-//                1,                       // colorId
-//                1,                       // condicionId
-//                1,                       // tamanoId
-//                1,                       // formatoId
-//                1,                       // categoriaId
-//                1                        // subcategoriaId
-//        );
-//        assertTrue(resultado != 0);
-//    }
-//    
+    @Test
+    public void testInsertar() {
+        System.out.println("insertar");
+        Integer resultado = this.publicacionBO.insertar(
+                11,                       // itemId
+                "DANIEL",                       // personaId
+                "Pendiente",                // usuarioCreacion
+                69.69,                   // precio
+                "Libro acear",       // nombre
+                "Descripción publicación",
+                true,                    // esVenta
+                1,                       // colorId
+                1,                       // condicionId
+                1,                       // tamanoId
+                1,                       // formatoId
+                1,                       // categoriaId
+                1,                        // subcategoriaId
+                null
+        );
+        assertTrue(resultado != 0);
+    }
+    
 //    @Test
 //    public void testModificar() {
 //        System.out.println("modificar");
