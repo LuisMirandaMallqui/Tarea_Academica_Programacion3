@@ -158,7 +158,7 @@ INSERT INTO items(
     USUARIO_CREACION 
 ) VALUES 
 -- Item 1 (Publicado por Persona 2: José Luis Castro Vargas)
-(3, 1, 1, 2, 1, 1, 1, 'FISICA 1', 'Apuntes del curso Fisica 1', 15.00, 1, 'José Luis Castro Vargas'),
+(3, 1, 1, 2, 1, 1, 1, 'FISICA 1', 'Apuntes del curso Fisica 1', 15.00, 0, 'José Luis Castro Vargas'),
 -- Item 2 (Publicado por Persona 3: Andrea Carolina Torres Mendoza)
 (2, 1, 1, 3, 1, 1, 1, 'PROGRAMACION 3', 'Libro de Programación 3', 25.00, 1, 'Andrea Carolina Torres Mendoza'),
 -- Item 3 (Publicado por Persona 4: Diego Armando Quispe Huamán)
@@ -176,7 +176,8 @@ INSERT INTO items(
 -- Item 9 (Publicado por Persona 7: Gabriela Sofía Paredes Chavez)
 (3, 1, 2, 3, 1, 1, 1, 'BIOLOGIA AVANZADA', 'Libro de Biología Avanzada', 50.00, 1, 'Gabriela Sofía Paredes Chavez'),
 -- Item 10 (Publicado por Persona 2: José Luis Castro Vargas)
-(1, 1, 1, 2, 2, 1, 1, 'PSICOLOGIA BASICA', 'Material didáctico Psicología', 60.00, 1, 'José Luis Castro Vargas');
+(1, 1, 1, 2, 2, 1, 1, 'PSICOLOGIA BASICA', 'Material didáctico Psicología', 60.00, 1, 'José Luis Castro Vargas'),
+(1, 1, 1, 2, 2, 1, 1, 'PSICOLOGIA BASICA', 'Material didáctico Psicología', 60.00,1,'Santiago');
 
 -- Insertar un nuevo chat
 INSERT INTO chats (
@@ -218,7 +219,8 @@ INSERT INTO publicaciones(
 (1, 7, 8, 5, 'Fernando Enrique Huerta Guzmán'),   -- Publicación 7, "ALGEBRA GEOMETRIA", Persona 8, con calificación 5
 (2, 8, 9, 4, 'Valeria Isabel Martínez Zamora'),   -- Publicación 8, "HISTORIA 2", Persona 9, con calificación 4
 (1, 9, 7, 4, 'Gabriela Sofía Paredes Chavez'),  -- Publicación 9, "BIOLOGIA AVANZADA", Persona 7, con calificación 4
-(2, 10, 2, 5, 'José Luis Castro Vargas');  -- Publicación 10, "PSICOLOGIA BASICA", Persona 2, con calificación 5
+(2, 10, 2, 5, 'José Luis Castro Vargas'),  -- Publicación 10, "PSICOLOGIA BASICA", Persona 2, con calificación 5
+(2,11,10,5,'Santiago');
 
 INSERT INTO alquileres(
     PERSONA_ID, ITEM_ID, FECHA_INICIO, MONTO, DEVUELTO, USUARIO_CREACION, FECHA_CREACION
@@ -241,9 +243,10 @@ INSERT INTO comprobantes(
 (7, 2, 3, 'TXN_007', 30.00, 3.00,'Gabriela Sofía Paredes Chavez'),      -- Persona 7, Yape, Euros
 (8, 1, 2, 'TXN_008', 22.50, 12.00,'Fernando Enrique Huerta Guzmán'),     -- Persona 8, Tarjeta de Crédito, Dólares
 (9, 2, 1, 'TXN_009', 50.00, 6.00,'Valeria Isabel Martínez Zamora'),      -- Persona 9, Yape, Soles
-(10, 1, 1, 'TXN_010', 60.00, 18.00,'Santiago Nicolás Gonzales Linares');    -- Persona 10, Tarjeta de Crédito, Soles
+(10, 1, 1, 'TXN_010', 60.00, 18.00,'Santiago Nicolás Gonzales Linares'),    -- Persona 10, Tarjeta de Crédito, Soles
+(10,2,3,'fefe',69,3,'Santiago Nicolás Gonzales Linares');
 
-INSERT INTO alquileres(
+/*INSERT INTO alquileres(
     PERSONA_ID, ITEM_ID, FECHA_INICIO, FECHA_FIN, MONTO, DEVUELTO, USUARIO_CREACION
 ) VALUES 
 (2, 1, NOW(), NULL, 15.00, 0, @admin_user),  -- Alquiler 1, Persona 2, Item 1
@@ -256,7 +259,7 @@ INSERT INTO alquileres(
 (8, 8, NOW(), NULL, 22.50, 0, @admin_user),  -- Alquiler 8, Persona 8, Item 8
 (9, 9, NOW(), NULL, 50.00, 0, @admin_user),  -- Alquiler 9, Persona 9, Item 9
 (2, 10, NOW(), NULL, 60.00, 0, @admin_user); -- Alquiler 10, Persona 2, Item 10
-
+*/
 -- Insertar Detalle de Comprobante 
 INSERT INTO detalles_comprobantes(
     COMPROBANTE_ID_COMPROBANTE, ALQUILER_ID_ALQUILER, ITEM_ID_ITEM,
@@ -264,15 +267,16 @@ INSERT INTO detalles_comprobantes(
     USUARIO_CREACION
 ) VALUES 
 (1, 1, 1, 'Apuntes del curso Fisica 1', 15.00,'José Luis Castro Vargas'),
-(2, 2, 1, 'Libro de Programación 3', 25.00,'José Luis Castro Vargas'),
-(3, 3, 1, 'Material adicional de Química', 35.00,'Andrea Carolina Torres Mendoza'),
-(4, 4, 1, 'Calculadora científica', 20.00,'Diego Armando Quispe Huamán'),
-(5, 5, 1, 'Cuaderno de ejercicios Matemática', 10.00,'Lucía Alejandra Salazar Flores'),
-(6, 6, 1, 'Guía de temas para el examen de Física', 40.00,'Carlos Alberto Rojas Cáceres'),
-(7, 7, 1, 'Texto sobre álgebra y geometría', 30.00,'Gabriela Sofía Paredes Chavez'),
-(8, 8, 1, 'Notas de clase Historia 2', 22.50,'Fernando Enrique Huerta Guzmán'),
-(9, 9, 1, 'Libro de Biología Avanzada', 50.00,'Valeria Isabel Martínez Zamora'),
-(10, 10, 1, 'Material didáctico Psicología', 60.00,'Santiago Nicolás Gonzales Linares');
+(2, null, 10, 'Material didactico psicologico', 60.00,'José Luis Castro Vargas'),
+(3, null, 2, 'programacion 3', 25.00,'Andrea Carolina Torres Mendoza'),
+(4, null,3, 'quimica basica', 35.00,'Diego Armando Quispe Huamán'),
+(5, null, 4, 'libro de matematica', 20.00,'Lucía Alejandra Salazar Flores'),
+(6, null, 5, 'matematica avanzada', 10,'Carlos Alberto Rojas Cáceres'),
+(7, null, 6, 'fisica avanzada', 40.00,'Gabriela Sofía Paredes Chavez'),
+(8, null, 7, 'Notas de clase Historia 2', 30.00,'Fernando Enrique Huerta Guzmán'),
+(9, null, 8, 'Historia 2', 22.50,'Valeria Isabel Martínez Zamora'),
+(10, null, 9, 'Biologia avanzada', 50.00,'Gabriela sofia paredes'),
+(11,null,11,  'Biologia avanzada', 69.00,'Gabriela sofia paredes');
 
 -- historias_publicaciones se maneja full con triggers CREO
 
@@ -323,6 +327,9 @@ INSERT INTO incidencias(
 (9, 8, 'El pago de mi venta fue duplicado.','Se le hara la devolución del cargo adicional', 0, NULL, NULL, @admin_user),
 -- Incidencia 4: (Reporta Persona 10, Motivo 9)
 (10, 9, 'No puedo contactar al dueño del item.','Se le informo al vendedor a su cuenta', 0, NULL, NULL, @admin_user);
+
+
+
 
 
 
