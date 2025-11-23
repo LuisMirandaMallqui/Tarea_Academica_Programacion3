@@ -7,17 +7,23 @@ SET @admin_user = 'root';
 
 -- Insertar colores
 INSERT INTO colores(NOMBRE) VALUES
+('No aplica'),
 ('Rojo'),
 ('Azul'),
-('Negro'),
-('No aplica');
+('Negro');
 
  -- Insertar condiciones
 INSERT INTO condiciones(NOMBRE) VALUES
+('No aplica'),
 ('Nuevo'),
 ('Seminuevo'),
-('Antiguo'),
-('No aplica');
+('Antiguo');
+
+INSERT INTO tamanos(NOMBRE) VALUES
+('No aplica'),
+('Grande'),
+('Mediano'),
+('Chico');
 
 -- Insertar estados de item
 INSERT INTO estados_items(NOMBRE) VALUES
@@ -40,11 +46,7 @@ INSERT INTO categorias(NOMBRE) VALUES
 ('Otros');
 
 -- Insertar tamaños
-INSERT INTO tamanos(NOMBRE) VALUES
-('Grande'),
-('Mediano'),
-('Chico'),
-('No aplica');
+
 
 -- Insertar estados de persona
 INSERT INTO estados_personas(NOMBRE) VALUES
@@ -208,19 +210,20 @@ INSERT INTO personas_roles(PERSONA_ID, ROLPERSONA_ID) VALUES
 -- GRUPO 5: TRANSACCIONES (Publicaciones, Alquileres, etc.)
 -- -----------------------------------------------------
 INSERT INTO publicaciones(
-    ESTADO_PUBLICACION_ID, ITEM_ID_ITEM, PERSONA_ID, CALIFICACION, USUARIO_CREACION
+    ESTADO_PUBLICACION_ID, ITEM_ID_ITEM, PERSONA_ID, CALIFICACION, IMAGENURL, USUARIO_CREACION
 ) VALUES 
-(1, 1, 2, 4, 'José Luis Castro Vargas'),   -- Publicación 1, "FISICA 1", Persona 2, con calificación 4
-(2, 2, 3, 5, 'Andrea Carolina Torres Mendoza'),  -- Publicación 2, "PROGRAMACION 3", Persona 3, con calificación 5
-(1, 3, 4, 3, 'Diego Armando Quispe Huamán'),   -- Publicación 3, "QUIMICA BASICA", Persona 4, con calificación 3
-(2, 4, 5, 4, 'Lucía Alejandra Salazar Flores'),   -- Publicación 4, "CALCULADORA CIENTIFICA", Persona 5, con calificación 4
-(1, 5, 6, 2, 'Carlos Alberto Rojas Cáceres'),   -- Publicación 5, "MATEMATICA AVANZADA", Persona 6, con calificación 2
-(2, 6, 7, 3, 'Gabriela Sofía Paredes Chavez'),   -- Publicación 6, "FISICA AVANZADA", Persona 7, con calificación 3
-(1, 7, 8, 5, 'Fernando Enrique Huerta Guzmán'),   -- Publicación 7, "ALGEBRA GEOMETRIA", Persona 8, con calificación 5
-(2, 8, 9, 4, 'Valeria Isabel Martínez Zamora'),   -- Publicación 8, "HISTORIA 2", Persona 9, con calificación 4
-(1, 9, 7, 4, 'Gabriela Sofía Paredes Chavez'),  -- Publicación 9, "BIOLOGIA AVANZADA", Persona 7, con calificación 4
-(2, 10, 2, 5, 'José Luis Castro Vargas'),  -- Publicación 10, "PSICOLOGIA BASICA", Persona 2, con calificación 5
-(2,11,10,5,'Santiago');
+(1, 1, 2, 4,'-', 'José Luis Castro Vargas'),   -- Publicación 1, "FISICA 1", Persona 2, con calificación 4
+(2, 2, 3, 5,'-', 'Andrea Carolina Torres Mendoza'),  -- Publicación 2, "PROGRAMACION 3", Persona 3, con calificación 5
+(1, 3, 4, 3,'-', 'Diego Armando Quispe Huamán'),   -- Publicación 3, "QUIMICA BASICA", Persona 4, con calificación 3
+(2, 4, 5, 4,'-', 'Lucía Alejandra Salazar Flores'),   -- Publicación 4, "CALCULADORA CIENTIFICA", Persona 5, con calificación 4
+(1, 5, 6, 2,'-', 'Carlos Alberto Rojas Cáceres'),   -- Publicación 5, "MATEMATICA AVANZADA", Persona 6, con calificación 2
+(2, 6, 7, 3,'-', 'Gabriela Sofía Paredes Chavez'),   -- Publicación 6, "FISICA AVANZADA", Persona 7, con calificación 3
+(1, 7, 8, 5,'-', 'Fernando Enrique Huerta Guzmán'),   -- Publicación 7, "ALGEBRA GEOMETRIA", Persona 8, con calificación 5
+(2, 8, 9, 4,'-', 'Valeria Isabel Martínez Zamora'),   -- Publicación 8, "HISTORIA 2", Persona 9, con calificación 4
+(1, 9, 7, 4,'-', 'Gabriela Sofía Paredes Chavez'),  -- Publicación 9, "BIOLOGIA AVANZADA", Persona 7, con calificación 4
+(2, 10, 2, 5,'-', 'José Luis Castro Vargas'),  -- Publicación 10, "PSICOLOGIA BASICA", Persona 2, con calificación 5
+(2,11,10,5,'-','Santiago'),
+(2,11,10,5,null, 'efef ');
 
 INSERT INTO alquileres(
     PERSONA_ID, ITEM_ID, FECHA_INICIO, MONTO, DEVUELTO, USUARIO_CREACION, FECHA_CREACION
@@ -327,11 +330,4 @@ INSERT INTO incidencias(
 (9, 8, 'El pago de mi venta fue duplicado.','Se le hara la devolución del cargo adicional', 0, NULL, NULL, @admin_user),
 -- Incidencia 4: (Reporta Persona 10, Motivo 9)
 (10, 9, 'No puedo contactar al dueño del item.','Se le informo al vendedor a su cuenta', 0, NULL, NULL, @admin_user);
-
-
-
-
-
-
-
 
