@@ -9,10 +9,10 @@ import java.util.Properties;
 import pe.edu.pucp.squirlearn.db.util.Cifrado;
 import pe.edu.pucp.squirlearn.db.util.MotorDeBaseDeDatos;
 
-public  abstract class DBManager {
+public abstract class DBManager {
 
     private static final String ARCHIVO_CONFIGURACION = "jdbc.properties";
-    
+
     private Connection conexion;
     private String driver;
     protected String tipo_de_driver;
@@ -40,7 +40,7 @@ public  abstract class DBManager {
         if (DBManager.dbManager == null) {
             if (DBManager.obtenerMotorDeBaseDeDato() == MotorDeBaseDeDatos.MYSQL) {
                 DBManager.dbManager = new DBManagerMySQL();
-            } else{
+            } else {
                 DBManager.dbManager = new DBManagerMSSQL();
             }
             DBManager.dbManager.leer_archivo_de_propiedades();
@@ -50,7 +50,7 @@ public  abstract class DBManager {
     public Connection getConnection() {
         try {
             Class.forName(this.driver);
-            this.conexion = DriverManager.getConnection(getURL(), this.usuario,Cifrado.descifrarMD5(this.contraseña));
+            this.conexion = DriverManager.getConnection(getURL(), this.usuario, Cifrado.descifrarMD5(this.contraseña));
         } catch (ClassNotFoundException | SQLException ex) {
             System.err.println("Error al generar la conexión - " + ex);
         }
@@ -66,21 +66,27 @@ public  abstract class DBManager {
             //el archivo de configuración se encuentra en la carpeta src/main/resources/jdbc.properties            
             String nmArchivoConf = "/" + ARCHIVO_CONFIGURACION;
 
+            String prefijo = "";
+            if (DBManager.obtenerMotorDeBaseDeDato() == MotorDeBaseDeDatos.MYSQL) {
+                prefijo = "mysql.";
+            } else {
+                prefijo = "mssql.";
+            }
             properties.load(this.getClass().getResourceAsStream(nmArchivoConf));
-            this.driver = properties.getProperty("driver");
-            this.tipo_de_driver = properties.getProperty("tipo_de_driver");
+            this.driver = properties.getProperty(prefijo+"driver");
+            this.tipo_de_driver = properties.getProperty(prefijo+"tipo_de_driver");
             this.base_de_datos = properties.getProperty("base_de_datos");
             this.nombre_de_host = properties.getProperty("nombre_de_host");
-            this.puerto = properties.getProperty("puerto");
-            this.usuario = properties.getProperty("usuario");
-            this.contraseña = properties.getProperty("contrasenha");
+            this.puerto = properties.getProperty(prefijo+"puerto");
+            this.usuario = properties.getProperty(prefijo+"usuario");
+            this.contraseña = properties.getProperty(prefijo+"contrasenha");
         } catch (FileNotFoundException ex) {
             System.err.println("Error al leer el archivo de propiedades - " + ex);
         } catch (IOException ex) {
             System.err.println("Error al leer el archivo de propiedades - " + ex);
         }
     }
-    
+
     private static MotorDeBaseDeDatos obtenerMotorDeBaseDeDato() {
         Properties properties = new Properties();
         try {
@@ -88,12 +94,13 @@ public  abstract class DBManager {
 
             //al ser un método estático, no se puede invocar al getResoucer así
             //properties.load(this.getClass().getResourceAsStream(nmArchivoConf));            
-            properties.load(DBManager.class.getResourceAsStream(nmArchivoConf));            
-            String tipo_de_driver = properties.getProperty("tipo_de_driver");
-            if (tipo_de_driver.equals("jdbc:mysql"))
+            properties.load(DBManager.class.getResourceAsStream(nmArchivoConf));
+            String tipo_de_driver = properties.getProperty("mysql.tipo_de_driver"); // ACA ESTA LA MAGIA XD
+            if (tipo_de_driver.equals("jdbc:mysql")) {
                 return MotorDeBaseDeDatos.MYSQL;
-            else
+            } else {
                 return MotorDeBaseDeDatos.MSSQL;
+            }
         } catch (FileNotFoundException ex) {
             System.err.println("Error al leer el archivo de propiedades - " + ex);
         } catch (IOException ex) {
@@ -101,6 +108,6 @@ public  abstract class DBManager {
         }
         return null;
     }
-    
+
     public abstract String retornarSQLParaUltimoAutoGenerado();
 }
