@@ -272,8 +272,11 @@ namespace SquirlearnWA.PublicacionDelUsuario
                 int condicionId = string.IsNullOrEmpty(ddlCondicion.SelectedValue) ? 1 : int.Parse(ddlCondicion.SelectedValue);
                 int tamanoId = string.IsNullOrEmpty(ddlTamano.SelectedValue) ? 1 : int.Parse(ddlTamano.SelectedValue);
                 int colorId = string.IsNullOrEmpty(ddlColor.SelectedValue) ? 1 : int.Parse(ddlColor.SelectedValue);
-
-                // ... etc ...
+                byte[] imagen = null;
+                if(fuFoto.HasFile)
+                {
+                    imagen = fuFoto.FileBytes;
+                }
 
 
                 if (IdPublicacionActual > 0)
@@ -287,7 +290,7 @@ namespace SquirlearnWA.PublicacionDelUsuario
                     // esta eliminando el parámetro crear
                     int personaid = (int)Session["UsuarioId"];
                     publicacionSoap.insertarPublicacion(personaid, Session["nombreUsuario"].ToString(), nuevoEstado,
-                        precio, nombre, descripcion, esVenta, colorId, condicionId, tamanoId, formatoId, categoriaId, subcategoriaId);
+                        precio, nombre, descripcion, esVenta, colorId, condicionId, tamanoId, formatoId, categoriaId, subcategoriaId,iamgen);
                 }
 
                 // 5. Si no fue borrador, muestra el modal de éxito
