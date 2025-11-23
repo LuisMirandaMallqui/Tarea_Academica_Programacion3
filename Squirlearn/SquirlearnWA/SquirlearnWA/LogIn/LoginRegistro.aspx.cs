@@ -142,7 +142,7 @@ namespace SquirlearnWA
 
                     // IList<rolPersonaDto> lista = usuarioLogeado.rolPersona;
                     Session["rol"] = "Usuario";
-                    Session["nombreUsuario"] = nombre + primerApellido;
+                    Session["nombreUsuario"] = nombre + " " + primerApellido;
                     Session["correoUsuario"] = correo;
                     lblError.Text = "";
                     Response.Redirect("../PantallaInicio/SquirLearnInicio.aspx");
